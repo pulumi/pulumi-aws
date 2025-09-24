@@ -126,14 +126,14 @@ public final class ImageRecipeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
+     * The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
      * 
      */
     @Import(name="parentImage")
     private @Nullable Output<String> parentImage;
 
     /**
-     * @return The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
+     * @return The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
      * 
      */
     public Optional<Output<String>> parentImage() {
@@ -471,7 +471,7 @@ public final class ImageRecipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parentImage The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
+         * @param parentImage The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
          * 
          * @return builder
          * 
@@ -482,7 +482,7 @@ public final class ImageRecipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parentImage The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
+         * @param parentImage The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
          * 
          * @return builder
          * 

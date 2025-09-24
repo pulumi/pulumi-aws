@@ -794,9 +794,17 @@ if not MYPY:
         """
         Whether to enable appliance mode support. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
         """
+        dns_support: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether to enable DNS support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+        """
         ipv6_support: NotRequired[pulumi.Input[_builtins.bool]]
         """
         Whether to enable IPv6 support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+        """
+        security_group_referencing_support: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether to enable security group referencing support for this VPC attachment. The default is `true`. However, at the core network policy-level the default is set to `false`. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
         """
 elif False:
     VpcAttachmentOptionsArgsDict: TypeAlias = Mapping[str, Any]
@@ -805,15 +813,23 @@ elif False:
 class VpcAttachmentOptionsArgs:
     def __init__(__self__, *,
                  appliance_mode_support: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ipv6_support: Optional[pulumi.Input[_builtins.bool]] = None):
+                 dns_support: Optional[pulumi.Input[_builtins.bool]] = None,
+                 ipv6_support: Optional[pulumi.Input[_builtins.bool]] = None,
+                 security_group_referencing_support: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] appliance_mode_support: Whether to enable appliance mode support. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+        :param pulumi.Input[_builtins.bool] dns_support: Whether to enable DNS support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
         :param pulumi.Input[_builtins.bool] ipv6_support: Whether to enable IPv6 support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+        :param pulumi.Input[_builtins.bool] security_group_referencing_support: Whether to enable security group referencing support for this VPC attachment. The default is `true`. However, at the core network policy-level the default is set to `false`. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
         """
         if appliance_mode_support is not None:
             pulumi.set(__self__, "appliance_mode_support", appliance_mode_support)
+        if dns_support is not None:
+            pulumi.set(__self__, "dns_support", dns_support)
         if ipv6_support is not None:
             pulumi.set(__self__, "ipv6_support", ipv6_support)
+        if security_group_referencing_support is not None:
+            pulumi.set(__self__, "security_group_referencing_support", security_group_referencing_support)
 
     @_builtins.property
     @pulumi.getter(name="applianceModeSupport")
@@ -828,6 +844,18 @@ class VpcAttachmentOptionsArgs:
         pulumi.set(self, "appliance_mode_support", value)
 
     @_builtins.property
+    @pulumi.getter(name="dnsSupport")
+    def dns_support(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to enable DNS support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+        """
+        return pulumi.get(self, "dns_support")
+
+    @dns_support.setter
+    def dns_support(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "dns_support", value)
+
+    @_builtins.property
     @pulumi.getter(name="ipv6Support")
     def ipv6_support(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -838,6 +866,18 @@ class VpcAttachmentOptionsArgs:
     @ipv6_support.setter
     def ipv6_support(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "ipv6_support", value)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupReferencingSupport")
+    def security_group_referencing_support(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to enable security group referencing support for this VPC attachment. The default is `true`. However, at the core network policy-level the default is set to `false`. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+        """
+        return pulumi.get(self, "security_group_referencing_support")
+
+    @security_group_referencing_support.setter
+    def security_group_referencing_support(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "security_group_referencing_support", value)
 
 
 if not MYPY:

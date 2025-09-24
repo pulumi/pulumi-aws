@@ -16,6 +16,8 @@ namespace Pulumi.Aws.Ssm
         /// 
         /// ## Example Usage
         /// 
+        /// ### Default
+        /// 
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -27,6 +29,24 @@ namespace Pulumi.Aws.Ssm
         ///     var foo = Aws.Ssm.GetParameter.Invoke(new()
         ///     {
         ///         Name = "foo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### With version
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = Aws.Ssm.GetParameter.Invoke(new()
+        ///     {
+        ///         Name = "foo:3",
         ///     });
         /// 
         /// });
@@ -42,6 +62,8 @@ namespace Pulumi.Aws.Ssm
         /// 
         /// ## Example Usage
         /// 
+        /// ### Default
+        /// 
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -53,6 +75,24 @@ namespace Pulumi.Aws.Ssm
         ///     var foo = Aws.Ssm.GetParameter.Invoke(new()
         ///     {
         ///         Name = "foo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### With version
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = Aws.Ssm.GetParameter.Invoke(new()
+        ///     {
+        ///         Name = "foo:3",
         ///     });
         /// 
         /// });
@@ -68,6 +108,8 @@ namespace Pulumi.Aws.Ssm
         /// 
         /// ## Example Usage
         /// 
+        /// ### Default
+        /// 
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -84,6 +126,24 @@ namespace Pulumi.Aws.Ssm
         /// });
         /// ```
         /// 
+        /// ### With version
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = Aws.Ssm.GetParameter.Invoke(new()
+        ///     {
+        ///         Name = "foo:3",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
         /// &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
         /// </summary>
         public static Output<GetParameterResult> Invoke(GetParameterInvokeArgs args, InvokeOutputOptions options)
@@ -94,7 +154,7 @@ namespace Pulumi.Aws.Ssm
     public sealed class GetParameterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the parameter.
+        /// Name of the parameter. To query by parameter version use `name:version` (e.g., `foo:3`).
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -120,7 +180,7 @@ namespace Pulumi.Aws.Ssm
     public sealed class GetParameterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the parameter.
+        /// Name of the parameter. To query by parameter version use `name:version` (e.g., `foo:3`).
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

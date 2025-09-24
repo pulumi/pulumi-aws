@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppSync.Inputs
     public sealed class ApiEventConfigAuthProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of authentication provider. Valid values: `AMAZON_COGNITO_USER_POOLS`, `AWS_LAMBDA`, `OPENID_CONNECT`, `API_KEY`.
+        /// Type of authentication provider. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
         /// </summary>
         [Input("authType", required: true)]
         public Input<string> AuthType { get; set; } = null!;

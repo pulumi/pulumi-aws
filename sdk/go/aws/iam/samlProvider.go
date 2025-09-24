@@ -50,11 +50,17 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// - `arn` (String) Amazon Resource Name (ARN) of the IAM SAML provider.
+//
 // Using `pulumi import`, import IAM SAML Providers using the `arn`. For example:
 //
-// ```sh
-// $ pulumi import aws:iam/samlProvider:SamlProvider default arn:aws:iam::123456789012:saml-provider/SAMLADFS
-// ```
+// console
+//
+// % pulumi import aws_iam_saml_provider.default arn:aws:iam::123456789012:saml-provider/SAMLADFS
 type SamlProvider struct {
 	pulumi.CustomResourceState
 

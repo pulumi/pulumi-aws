@@ -540,6 +540,7 @@ class Endpoints(dict):
                  wafregional: Optional[_builtins.str] = None,
                  wafv2: Optional[_builtins.str] = None,
                  wellarchitected: Optional[_builtins.str] = None,
+                 workmail: Optional[_builtins.str] = None,
                  workspaces: Optional[_builtins.str] = None,
                  workspacesweb: Optional[_builtins.str] = None,
                  xray: Optional[_builtins.str] = None):
@@ -842,6 +843,7 @@ class Endpoints(dict):
         :param _builtins.str wafregional: Use this to override the default service endpoint URL
         :param _builtins.str wafv2: Use this to override the default service endpoint URL
         :param _builtins.str wellarchitected: Use this to override the default service endpoint URL
+        :param _builtins.str workmail: Use this to override the default service endpoint URL
         :param _builtins.str workspaces: Use this to override the default service endpoint URL
         :param _builtins.str workspacesweb: Use this to override the default service endpoint URL
         :param _builtins.str xray: Use this to override the default service endpoint URL
@@ -1442,6 +1444,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "wafv2", wafv2)
         if wellarchitected is not None:
             pulumi.set(__self__, "wellarchitected", wellarchitected)
+        if workmail is not None:
+            pulumi.set(__self__, "workmail", workmail)
         if workspaces is not None:
             pulumi.set(__self__, "workspaces", workspaces)
         if workspacesweb is not None:
@@ -3832,6 +3836,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "wellarchitected")
+
+    @_builtins.property
+    @pulumi.getter
+    def workmail(self) -> Optional[_builtins.str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "workmail")
 
     @_builtins.property
     @pulumi.getter

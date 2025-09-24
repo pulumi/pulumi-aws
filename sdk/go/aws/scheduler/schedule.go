@@ -118,6 +118,8 @@ import (
 type Schedule struct {
 	pulumi.CustomResourceState
 
+	// Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
+	ActionAfterCompletion pulumi.StringOutput `pulumi:"actionAfterCompletion"`
 	// ARN of the schedule.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Brief description of the schedule.
@@ -189,6 +191,8 @@ func GetSchedule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Schedule resources.
 type scheduleState struct {
+	// Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
+	ActionAfterCompletion *string `pulumi:"actionAfterCompletion"`
 	// ARN of the schedule.
 	Arn *string `pulumi:"arn"`
 	// Brief description of the schedule.
@@ -222,6 +226,8 @@ type scheduleState struct {
 }
 
 type ScheduleState struct {
+	// Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
+	ActionAfterCompletion pulumi.StringPtrInput
 	// ARN of the schedule.
 	Arn pulumi.StringPtrInput
 	// Brief description of the schedule.
@@ -259,6 +265,8 @@ func (ScheduleState) ElementType() reflect.Type {
 }
 
 type scheduleArgs struct {
+	// Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
+	ActionAfterCompletion *string `pulumi:"actionAfterCompletion"`
 	// Brief description of the schedule.
 	Description *string `pulumi:"description"`
 	// The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the end date you specify. EventBridge Scheduler ignores the end date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
@@ -291,6 +299,8 @@ type scheduleArgs struct {
 
 // The set of arguments for constructing a Schedule resource.
 type ScheduleArgs struct {
+	// Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
+	ActionAfterCompletion pulumi.StringPtrInput
 	// Brief description of the schedule.
 	Description pulumi.StringPtrInput
 	// The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the end date you specify. EventBridge Scheduler ignores the end date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
@@ -406,6 +416,11 @@ func (o ScheduleOutput) ToScheduleOutput() ScheduleOutput {
 
 func (o ScheduleOutput) ToScheduleOutputWithContext(ctx context.Context) ScheduleOutput {
 	return o
+}
+
+// Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
+func (o ScheduleOutput) ActionAfterCompletion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.ActionAfterCompletion }).(pulumi.StringOutput)
 }
 
 // ARN of the schedule.

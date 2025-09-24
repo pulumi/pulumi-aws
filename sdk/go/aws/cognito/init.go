@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IdentityProvider{}
 	case "aws:cognito/logDeliveryConfiguration:LogDeliveryConfiguration":
 		r = &LogDeliveryConfiguration{}
+	case "aws:cognito/managedLoginBranding:ManagedLoginBranding":
+		r = &ManagedLoginBranding{}
 	case "aws:cognito/managedUserPoolClient:ManagedUserPoolClient":
 		r = &ManagedUserPoolClient{}
 	case "aws:cognito/resourceServer:ResourceServer":
@@ -87,6 +89,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cognito/logDeliveryConfiguration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cognito/managedLoginBranding",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

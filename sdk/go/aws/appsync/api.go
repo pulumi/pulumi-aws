@@ -148,7 +148,7 @@ import (
 //						&appsync.ApiEventConfigAuthProviderArgs{
 //							AuthType: pulumi.String("AWS_LAMBDA"),
 //							LambdaAuthorizerConfig: &appsync.ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs{
-//								AuthorizerUri:                pulumi.Any(exampleAwsLambdaFunction.InvokeArn),
+//								AuthorizerUri:                pulumi.Any(exampleAwsLambdaFunction.Arn),
 //								AuthorizerResultTtlInSeconds: pulumi.Int(300),
 //							},
 //						},

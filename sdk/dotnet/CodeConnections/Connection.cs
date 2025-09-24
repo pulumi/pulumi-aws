@@ -37,11 +37,17 @@ namespace Pulumi.Aws.CodeConnections
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// - `arn` (String) Amazon Resource Name (ARN) of the CodeConnections connection.
+    /// 
     /// Using `pulumi import`, import CodeConnections connection using the ARN. For example:
     /// 
-    /// ```sh
-    /// $ pulumi import aws:codeconnections/connection:Connection test-connection arn:aws:codeconnections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
-    /// ```
+    /// console
+    /// 
+    /// % pulumi import aws_codeconnections_connection.test-connection arn:aws:codeconnections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
     /// </summary>
     [AwsResourceType("aws:codeconnections/connection:Connection")]
     public partial class Connection : global::Pulumi.CustomResource

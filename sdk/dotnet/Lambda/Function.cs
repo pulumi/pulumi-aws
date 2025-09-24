@@ -596,11 +596,23 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `function_name` (String) Name of the Lambda function.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// 
+    /// * `region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import Lambda Functions using the `function_name`. For example:
     /// 
-    /// ```sh
-    /// $ pulumi import aws:lambda/function:Function example example
-    /// ```
+    /// console
+    /// 
+    /// % pulumi import aws_lambda_function.example example
     /// </summary>
     [AwsResourceType("aws:lambda/function:Function")]
     public partial class Function : global::Pulumi.CustomResource
@@ -840,6 +852,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Output("sourceCodeSize")]
         public Output<int> SourceCodeSize { get; private set; } = null!;
+
+        /// <summary>
+        /// ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
+        /// </summary>
+        [Output("sourceKmsKeyArn")]
+        public Output<string?> SourceKmsKeyArn { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1122,6 +1140,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("sourceCodeHash")]
         public Input<string>? SourceCodeHash { get; set; }
+
+        /// <summary>
+        /// ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
+        /// </summary>
+        [Input("sourceKmsKeyArn")]
+        public Input<string>? SourceKmsKeyArn { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -1414,6 +1438,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("sourceCodeSize")]
         public Input<int>? SourceCodeSize { get; set; }
+
+        /// <summary>
+        /// ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
+        /// </summary>
+        [Input("sourceKmsKeyArn")]
+        public Input<string>? SourceKmsKeyArn { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

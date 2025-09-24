@@ -67,7 +67,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public Input<string>? ScaleInProtectedInstances { get; set; }
 
         /// <summary>
-        /// Replace instances that already have your desired configuration. Defaults to `false`.
+        /// Skip replacing instances that already have your desired configuration. Defaults to `false`.
         /// </summary>
         [Input("skipMatching")]
         public Input<bool>? SkipMatching { get; set; }

@@ -907,11 +907,27 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `event_bus_name` (String) Event bus name for the target.
+//
+// * `rule` (String) Rule name for the target.
+//
+// * `target_id` (String) Target ID.
+//
+// #### Optional
+//
+// * `account_id` (String) AWS Account where this resource is managed.
+//
+// * `region` (String) Region where this resource is managed.
+//
 // Using `pulumi import`, import EventBridge Targets using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
 //
-// ```sh
-// $ pulumi import aws:cloudwatch/eventTarget:EventTarget test-event-target rule-name/target-id
-// ```
+//	console
+//
+// % pulumi import aws_cloudwatch_event_target.example rule-name/target-id
 type EventTarget struct {
 	pulumi.CustomResourceState
 

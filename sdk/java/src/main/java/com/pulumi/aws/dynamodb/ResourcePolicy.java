@@ -55,11 +55,17 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * - `arn` (String) Amazon Resource Name (ARN) of the DynamoDB table.
+ * 
  * Using `pulumi import`, import DynamoDB Resource Policy using the `resource_arn`. For example:
  * 
- * ```sh
- * $ pulumi import aws:dynamodb/resourcePolicy:ResourcePolicy example arn:aws:dynamodb:us-east-1:1234567890:table/my-table
- * ```
+ * console
+ * 
+ * % pulumi import aws_dynamodb_resource_policy.example arn:aws:dynamodb:us-east-1:1234567890:table/my-table
  * 
  */
 @ResourceType(type="aws:dynamodb/resourcePolicy:ResourcePolicy")

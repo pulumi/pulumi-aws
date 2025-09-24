@@ -177,6 +177,7 @@ namespace Pulumi.Aws.DynamoDB
         public readonly string TableClass;
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly Outputs.GetTableTtlResult Ttl;
+        public readonly ImmutableArray<Outputs.GetTableWarmThroughputResult> WarmThroughputs;
         public readonly int WriteCapacity;
 
         [OutputConstructor]
@@ -227,6 +228,8 @@ namespace Pulumi.Aws.DynamoDB
 
             Outputs.GetTableTtlResult ttl,
 
+            ImmutableArray<Outputs.GetTableWarmThroughputResult> warmThroughputs,
+
             int writeCapacity)
         {
             Arn = arn;
@@ -252,6 +255,7 @@ namespace Pulumi.Aws.DynamoDB
             TableClass = tableClass;
             Tags = tags;
             Ttl = ttl;
+            WarmThroughputs = warmThroughputs;
             WriteCapacity = writeCapacity;
         }
     }

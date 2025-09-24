@@ -24,6 +24,12 @@ namespace Pulumi.Aws.Synthetics.Inputs
         [Input("expression", required: true)]
         public Input<string> Expression { get; set; } = null!;
 
+        /// <summary>
+        /// Configuration block for canary retries. Detailed below.
+        /// </summary>
+        [Input("retryConfig")]
+        public Input<Inputs.CanaryScheduleRetryConfigArgs>? RetryConfig { get; set; }
+
         public CanaryScheduleArgs()
         {
         }

@@ -35,11 +35,23 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `id` - (String) ID of the maintenance window.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// 
+    /// * `region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import SSM  Maintenance Windows using the maintenance window `id`. For example:
     /// 
-    /// ```sh
-    /// $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
-    /// ```
+    /// console
+    /// 
+    /// % pulumi import aws_ssm_maintenance_window.example mw-0123456789
     /// </summary>
     [AwsResourceType("aws:ssm/maintenanceWindow:MaintenanceWindow")]
     public partial class MaintenanceWindow : global::Pulumi.CustomResource

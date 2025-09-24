@@ -42,11 +42,17 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// - `arn` (String) Amazon Resource Name (ARN) of the DataSync NFS location.
+    /// 
     /// Using `pulumi import`, import `aws_datasync_location_nfs` using the DataSync Task Amazon Resource Name (ARN). For example:
     /// 
-    /// ```sh
-    /// $ pulumi import aws:datasync/nfsLocation:NfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-    /// ```
+    /// console
+    /// 
+    /// % pulumi import aws_datasync_location_nfs.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
     /// </summary>
     [AwsResourceType("aws:datasync/nfsLocation:NfsLocation")]
     public partial class NfsLocation : global::Pulumi.CustomResource

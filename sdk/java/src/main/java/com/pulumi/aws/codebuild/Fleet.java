@@ -105,11 +105,17 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild fleet.
+ * 
  * Using `pulumi import`, import CodeBuild Fleet using the `name`. For example:
  * 
- * ```sh
- * $ pulumi import aws:codebuild/fleet:Fleet name fleet-name
- * ```
+ * console
+ * 
+ * % pulumi import aws_codebuild_fleet.name fleet-name
  * 
  */
 @ResourceType(type="aws:codebuild/fleet:Fleet")

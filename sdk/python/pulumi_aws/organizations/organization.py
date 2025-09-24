@@ -291,11 +291,21 @@ class Organization(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) ID of the AWS Organizations organization.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+
         Using `pulumi import`, import the AWS organization using the `id`. For example:
 
-        ```sh
-        $ pulumi import aws:organizations/organization:Organization my_org o-1234567
-        ```
+        console
+
+        % pulumi import aws_organizations_organization.example o-1234567
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -332,11 +342,21 @@ class Organization(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) ID of the AWS Organizations organization.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+
         Using `pulumi import`, import the AWS organization using the `id`. For example:
 
-        ```sh
-        $ pulumi import aws:organizations/organization:Organization my_org o-1234567
-        ```
+        console
+
+        % pulumi import aws_organizations_organization.example o-1234567
 
         :param str resource_name: The name of the resource.
         :param OrganizationArgs args: The arguments to use to populate this resource's properties.

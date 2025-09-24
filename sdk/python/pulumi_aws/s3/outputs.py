@@ -640,6 +640,7 @@ class BucketAclAccessControlPolicyGrantGrantee(dict):
 
     @_builtins.property
     @pulumi.getter(name="displayName")
+    @_utilities.deprecated("""display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.""")
     def display_name(self) -> Optional[_builtins.str]:
         """
         Display name of the owner.
@@ -711,6 +712,7 @@ class BucketAclAccessControlPolicyOwner(dict):
 
     @_builtins.property
     @pulumi.getter(name="displayName")
+    @_utilities.deprecated("""display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.""")
     def display_name(self) -> Optional[_builtins.str]:
         """
         Display name of the owner.
@@ -832,6 +834,7 @@ class BucketAclV2AccessControlPolicyGrantGrantee(dict):
 
     @_builtins.property
     @pulumi.getter(name="displayName")
+    @_utilities.deprecated("""display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.""")
     def display_name(self) -> Optional[_builtins.str]:
         """
         Display name of the owner.
@@ -903,6 +906,7 @@ class BucketAclV2AccessControlPolicyOwner(dict):
 
     @_builtins.property
     @pulumi.getter(name="displayName")
+    @_utilities.deprecated("""display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.""")
     def display_name(self) -> Optional[_builtins.str]:
         """
         Display name of the owner.
@@ -3067,6 +3071,7 @@ class BucketLoggingTargetGrantGrantee(dict):
 
     @_builtins.property
     @pulumi.getter(name="displayName")
+    @_utilities.deprecated("""display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.""")
     def display_name(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "display_name")
 
@@ -3268,6 +3273,7 @@ class BucketLoggingV2TargetGrantGrantee(dict):
 
     @_builtins.property
     @pulumi.getter(name="displayName")
+    @_utilities.deprecated("""display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.""")
     def display_name(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "display_name")
 

@@ -20,14 +20,14 @@ public final class ApiEventConfigAuthProviderArgs extends com.pulumi.resources.R
     public static final ApiEventConfigAuthProviderArgs Empty = new ApiEventConfigAuthProviderArgs();
 
     /**
-     * Type of authentication provider. Valid values: `AMAZON_COGNITO_USER_POOLS`, `AWS_LAMBDA`, `OPENID_CONNECT`, `API_KEY`.
+     * Type of authentication provider. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
      * 
      */
     @Import(name="authType", required=true)
     private Output<String> authType;
 
     /**
-     * @return Type of authentication provider. Valid values: `AMAZON_COGNITO_USER_POOLS`, `AWS_LAMBDA`, `OPENID_CONNECT`, `API_KEY`.
+     * @return Type of authentication provider. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
      * 
      */
     public Output<String> authType() {
@@ -107,7 +107,7 @@ public final class ApiEventConfigAuthProviderArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param authType Type of authentication provider. Valid values: `AMAZON_COGNITO_USER_POOLS`, `AWS_LAMBDA`, `OPENID_CONNECT`, `API_KEY`.
+         * @param authType Type of authentication provider. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class ApiEventConfigAuthProviderArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param authType Type of authentication provider. Valid values: `AMAZON_COGNITO_USER_POOLS`, `AWS_LAMBDA`, `OPENID_CONNECT`, `API_KEY`.
+         * @param authType Type of authentication provider. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
          * 
          * @return builder
          * 

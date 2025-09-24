@@ -555,11 +555,23 @@ class SecurityGroup(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) ID of the security group.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import Security Groups using the security group `id`. For example:
 
-        ```sh
-        $ pulumi import aws:ec2/securityGroup:SecurityGroup elb_sg sg-903004f8
-        ```
+        console
+
+        % pulumi import aws_security_group.example sg-903004f8
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -744,11 +756,23 @@ class SecurityGroup(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) ID of the security group.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import Security Groups using the security group `id`. For example:
 
-        ```sh
-        $ pulumi import aws:ec2/securityGroup:SecurityGroup elb_sg sg-903004f8
-        ```
+        console
+
+        % pulumi import aws_security_group.example sg-903004f8
 
         :param str resource_name: The name of the resource.
         :param SecurityGroupArgs args: The arguments to use to populate this resource's properties.

@@ -227,7 +227,7 @@ func (o ApiEventConfigPtrOutput) LogConfig() ApiEventConfigLogConfigPtrOutput {
 }
 
 type ApiEventConfigAuthProvider struct {
-	// Type of authentication provider. Valid values: `AMAZON_COGNITO_USER_POOLS`, `AWS_LAMBDA`, `OPENID_CONNECT`, `API_KEY`.
+	// Type of authentication provider. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
 	AuthType string `pulumi:"authType"`
 	// Configuration for Cognito user pool authentication. Required when `authType` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
 	CognitoConfig *ApiEventConfigAuthProviderCognitoConfig `pulumi:"cognitoConfig"`
@@ -249,7 +249,7 @@ type ApiEventConfigAuthProviderInput interface {
 }
 
 type ApiEventConfigAuthProviderArgs struct {
-	// Type of authentication provider. Valid values: `AMAZON_COGNITO_USER_POOLS`, `AWS_LAMBDA`, `OPENID_CONNECT`, `API_KEY`.
+	// Type of authentication provider. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
 	AuthType pulumi.StringInput `pulumi:"authType"`
 	// Configuration for Cognito user pool authentication. Required when `authType` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
 	CognitoConfig ApiEventConfigAuthProviderCognitoConfigPtrInput `pulumi:"cognitoConfig"`
@@ -310,7 +310,7 @@ func (o ApiEventConfigAuthProviderOutput) ToApiEventConfigAuthProviderOutputWith
 	return o
 }
 
-// Type of authentication provider. Valid values: `AMAZON_COGNITO_USER_POOLS`, `AWS_LAMBDA`, `OPENID_CONNECT`, `API_KEY`.
+// Type of authentication provider. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
 func (o ApiEventConfigAuthProviderOutput) AuthType() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiEventConfigAuthProvider) string { return v.AuthType }).(pulumi.StringOutput)
 }

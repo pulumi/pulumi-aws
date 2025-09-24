@@ -25,6 +25,7 @@ class BudgetArgs:
                  time_unit: pulumi.Input[_builtins.str],
                  account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  auto_adjust_data: Optional[pulumi.Input['BudgetAutoAdjustDataArgs']] = None,
+                 billing_view_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  cost_filters: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetCostFilterArgs']]]] = None,
                  cost_types: Optional[pulumi.Input['BudgetCostTypesArgs']] = None,
                  limit_amount: Optional[pulumi.Input[_builtins.str]] = None,
@@ -44,6 +45,7 @@ class BudgetArgs:
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.
         :param pulumi.Input['BudgetAutoAdjustDataArgs'] auto_adjust_data: Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
+        :param pulumi.Input[_builtins.str] billing_view_arn: ARN of the billing view.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetCostFilterArgs']]] cost_filters: A list of CostFilter name/values pair to apply to budget.
         :param pulumi.Input['BudgetCostTypesArgs'] cost_types: Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
         :param pulumi.Input[_builtins.str] limit_amount: The amount of cost or usage being measured for a budget.
@@ -65,6 +67,8 @@ class BudgetArgs:
             pulumi.set(__self__, "account_id", account_id)
         if auto_adjust_data is not None:
             pulumi.set(__self__, "auto_adjust_data", auto_adjust_data)
+        if billing_view_arn is not None:
+            pulumi.set(__self__, "billing_view_arn", billing_view_arn)
         if cost_filters is not None:
             pulumi.set(__self__, "cost_filters", cost_filters)
         if cost_types is not None:
@@ -137,6 +141,18 @@ class BudgetArgs:
     @auto_adjust_data.setter
     def auto_adjust_data(self, value: Optional[pulumi.Input['BudgetAutoAdjustDataArgs']]):
         pulumi.set(self, "auto_adjust_data", value)
+
+    @_builtins.property
+    @pulumi.getter(name="billingViewArn")
+    def billing_view_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ARN of the billing view.
+        """
+        return pulumi.get(self, "billing_view_arn")
+
+    @billing_view_arn.setter
+    def billing_view_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "billing_view_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="costFilters")
@@ -280,6 +296,7 @@ class _BudgetState:
                  account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  arn: Optional[pulumi.Input[_builtins.str]] = None,
                  auto_adjust_data: Optional[pulumi.Input['BudgetAutoAdjustDataArgs']] = None,
+                 billing_view_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  budget_type: Optional[pulumi.Input[_builtins.str]] = None,
                  cost_filters: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetCostFilterArgs']]]] = None,
                  cost_types: Optional[pulumi.Input['BudgetCostTypesArgs']] = None,
@@ -299,6 +316,7 @@ class _BudgetState:
         :param pulumi.Input[_builtins.str] account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.
         :param pulumi.Input[_builtins.str] arn: The ARN of the budget.
         :param pulumi.Input['BudgetAutoAdjustDataArgs'] auto_adjust_data: Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
+        :param pulumi.Input[_builtins.str] billing_view_arn: ARN of the billing view.
         :param pulumi.Input[_builtins.str] budget_type: Whether this budget tracks monetary cost or usage.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetCostFilterArgs']]] cost_filters: A list of CostFilter name/values pair to apply to budget.
         :param pulumi.Input['BudgetCostTypesArgs'] cost_types: Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
@@ -325,6 +343,8 @@ class _BudgetState:
             pulumi.set(__self__, "arn", arn)
         if auto_adjust_data is not None:
             pulumi.set(__self__, "auto_adjust_data", auto_adjust_data)
+        if billing_view_arn is not None:
+            pulumi.set(__self__, "billing_view_arn", billing_view_arn)
         if budget_type is not None:
             pulumi.set(__self__, "budget_type", budget_type)
         if cost_filters is not None:
@@ -389,6 +409,18 @@ class _BudgetState:
     @auto_adjust_data.setter
     def auto_adjust_data(self, value: Optional[pulumi.Input['BudgetAutoAdjustDataArgs']]):
         pulumi.set(self, "auto_adjust_data", value)
+
+    @_builtins.property
+    @pulumi.getter(name="billingViewArn")
+    def billing_view_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ARN of the billing view.
+        """
+        return pulumi.get(self, "billing_view_arn")
+
+    @billing_view_arn.setter
+    def billing_view_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "billing_view_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="budgetType")
@@ -572,6 +604,7 @@ class Budget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  auto_adjust_data: Optional[pulumi.Input[Union['BudgetAutoAdjustDataArgs', 'BudgetAutoAdjustDataArgsDict']]] = None,
+                 billing_view_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  budget_type: Optional[pulumi.Input[_builtins.str]] = None,
                  cost_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BudgetCostFilterArgs', 'BudgetCostFilterArgsDict']]]]] = None,
                  cost_types: Optional[pulumi.Input[Union['BudgetCostTypesArgs', 'BudgetCostTypesArgsDict']]] = None,
@@ -755,6 +788,7 @@ class Budget(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.
         :param pulumi.Input[Union['BudgetAutoAdjustDataArgs', 'BudgetAutoAdjustDataArgsDict']] auto_adjust_data: Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
+        :param pulumi.Input[_builtins.str] billing_view_arn: ARN of the billing view.
         :param pulumi.Input[_builtins.str] budget_type: Whether this budget tracks monetary cost or usage.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BudgetCostFilterArgs', 'BudgetCostFilterArgsDict']]]] cost_filters: A list of CostFilter name/values pair to apply to budget.
         :param pulumi.Input[Union['BudgetCostTypesArgs', 'BudgetCostTypesArgsDict']] cost_types: Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
@@ -962,6 +996,7 @@ class Budget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  auto_adjust_data: Optional[pulumi.Input[Union['BudgetAutoAdjustDataArgs', 'BudgetAutoAdjustDataArgsDict']]] = None,
+                 billing_view_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  budget_type: Optional[pulumi.Input[_builtins.str]] = None,
                  cost_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BudgetCostFilterArgs', 'BudgetCostFilterArgsDict']]]]] = None,
                  cost_types: Optional[pulumi.Input[Union['BudgetCostTypesArgs', 'BudgetCostTypesArgsDict']]] = None,
@@ -986,6 +1021,7 @@ class Budget(pulumi.CustomResource):
 
             __props__.__dict__["account_id"] = account_id
             __props__.__dict__["auto_adjust_data"] = auto_adjust_data
+            __props__.__dict__["billing_view_arn"] = billing_view_arn
             if budget_type is None and not opts.urn:
                 raise TypeError("Missing required property 'budget_type'")
             __props__.__dict__["budget_type"] = budget_type
@@ -1018,6 +1054,7 @@ class Budget(pulumi.CustomResource):
             account_id: Optional[pulumi.Input[_builtins.str]] = None,
             arn: Optional[pulumi.Input[_builtins.str]] = None,
             auto_adjust_data: Optional[pulumi.Input[Union['BudgetAutoAdjustDataArgs', 'BudgetAutoAdjustDataArgsDict']]] = None,
+            billing_view_arn: Optional[pulumi.Input[_builtins.str]] = None,
             budget_type: Optional[pulumi.Input[_builtins.str]] = None,
             cost_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BudgetCostFilterArgs', 'BudgetCostFilterArgsDict']]]]] = None,
             cost_types: Optional[pulumi.Input[Union['BudgetCostTypesArgs', 'BudgetCostTypesArgsDict']]] = None,
@@ -1042,6 +1079,7 @@ class Budget(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.
         :param pulumi.Input[_builtins.str] arn: The ARN of the budget.
         :param pulumi.Input[Union['BudgetAutoAdjustDataArgs', 'BudgetAutoAdjustDataArgsDict']] auto_adjust_data: Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
+        :param pulumi.Input[_builtins.str] billing_view_arn: ARN of the billing view.
         :param pulumi.Input[_builtins.str] budget_type: Whether this budget tracks monetary cost or usage.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BudgetCostFilterArgs', 'BudgetCostFilterArgsDict']]]] cost_filters: A list of CostFilter name/values pair to apply to budget.
         :param pulumi.Input[Union['BudgetCostTypesArgs', 'BudgetCostTypesArgsDict']] cost_types: Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
@@ -1069,6 +1107,7 @@ class Budget(pulumi.CustomResource):
         __props__.__dict__["account_id"] = account_id
         __props__.__dict__["arn"] = arn
         __props__.__dict__["auto_adjust_data"] = auto_adjust_data
+        __props__.__dict__["billing_view_arn"] = billing_view_arn
         __props__.__dict__["budget_type"] = budget_type
         __props__.__dict__["cost_filters"] = cost_filters
         __props__.__dict__["cost_types"] = cost_types
@@ -1108,6 +1147,14 @@ class Budget(pulumi.CustomResource):
         Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
         """
         return pulumi.get(self, "auto_adjust_data")
+
+    @_builtins.property
+    @pulumi.getter(name="billingViewArn")
+    def billing_view_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        ARN of the billing view.
+        """
+        return pulumi.get(self, "billing_view_arn")
 
     @_builtins.property
     @pulumi.getter(name="budgetType")

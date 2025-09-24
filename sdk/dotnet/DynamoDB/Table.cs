@@ -448,6 +448,12 @@ namespace Pulumi.Aws.DynamoDB
         public Output<Outputs.TableTtl> Ttl { get; private set; } = null!;
 
         /// <summary>
+        /// Sets the number of warm read and write units for the specified table. See below.
+        /// </summary>
+        [Output("warmThroughput")]
+        public Output<Outputs.TableWarmThroughput> WarmThroughput { get; private set; } = null!;
+
+        /// <summary>
         /// Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         /// </summary>
         [Output("writeCapacity")]
@@ -678,6 +684,12 @@ namespace Pulumi.Aws.DynamoDB
         public Input<Inputs.TableTtlArgs>? Ttl { get; set; }
 
         /// <summary>
+        /// Sets the number of warm read and write units for the specified table. See below.
+        /// </summary>
+        [Input("warmThroughput")]
+        public Input<Inputs.TableWarmThroughputArgs>? WarmThroughput { get; set; }
+
+        /// <summary>
         /// Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         /// </summary>
         [Input("writeCapacity")]
@@ -898,6 +910,12 @@ namespace Pulumi.Aws.DynamoDB
         /// </summary>
         [Input("ttl")]
         public Input<Inputs.TableTtlGetArgs>? Ttl { get; set; }
+
+        /// <summary>
+        /// Sets the number of warm read and write units for the specified table. See below.
+        /// </summary>
+        [Input("warmThroughput")]
+        public Input<Inputs.TableWarmThroughputGetArgs>? WarmThroughput { get; set; }
 
         /// <summary>
         /// Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.

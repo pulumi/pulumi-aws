@@ -167,11 +167,17 @@ class DataProtectionPolicy(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the SNS topic.
+
         Using `pulumi import`, import SNS Data Protection Topic Policy using the topic ARN. For example:
 
-        ```sh
-        $ pulumi import aws:sns/dataProtectionPolicy:DataProtectionPolicy example arn:aws:sns:us-west-2:123456789012:example
-        ```
+        console
+
+        % pulumi import aws_sns_topic_data_protection_policy.example arn:aws:sns:us-west-2:123456789012:example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -216,11 +222,17 @@ class DataProtectionPolicy(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the SNS topic.
+
         Using `pulumi import`, import SNS Data Protection Topic Policy using the topic ARN. For example:
 
-        ```sh
-        $ pulumi import aws:sns/dataProtectionPolicy:DataProtectionPolicy example arn:aws:sns:us-west-2:123456789012:example
-        ```
+        console
+
+        % pulumi import aws_sns_topic_data_protection_policy.example arn:aws:sns:us-west-2:123456789012:example
 
         :param str resource_name: The name of the resource.
         :param DataProtectionPolicyArgs args: The arguments to use to populate this resource's properties.

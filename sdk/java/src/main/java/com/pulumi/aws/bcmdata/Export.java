@@ -94,11 +94,17 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * - `arn` (String) Amazon Resource Name (ARN) of the BCM Data Exports export.
+ * 
  * Using `pulumi import`, import BCM Data Exports Export using the export ARN. For example:
  * 
- * ```sh
- * $ pulumi import aws:bcmdata/export:Export example arn:aws:bcm-data-exports:us-east-1:123456789012:export/CostUsageReport-9f1c75f3-f982-4d9a-b936-1e7ecab814b7
- * ```
+ * console
+ * 
+ * % pulumi import aws_bcmdataexports_export.example arn:aws:bcm-data-exports:us-east-1:123456789012:export/CostUsageReport-9f1c75f3-f982-4d9a-b936-1e7ecab814b7
  * 
  */
 @ResourceType(type="aws:bcmdata/export:Export")

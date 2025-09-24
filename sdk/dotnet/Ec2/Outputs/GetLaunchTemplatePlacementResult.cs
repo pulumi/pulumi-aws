@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     {
         public readonly string Affinity;
         public readonly string AvailabilityZone;
+        public readonly string GroupId;
         public readonly string GroupName;
         public readonly string HostId;
         public readonly string HostResourceGroupArn;
@@ -27,6 +28,8 @@ namespace Pulumi.Aws.Ec2.Outputs
             string affinity,
 
             string availabilityZone,
+
+            string groupId,
 
             string groupName,
 
@@ -42,6 +45,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         {
             Affinity = affinity;
             AvailabilityZone = availabilityZone;
+            GroupId = groupId;
             GroupName = groupName;
             HostId = hostId;
             HostResourceGroupArn = hostResourceGroupArn;

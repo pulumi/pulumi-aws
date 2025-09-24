@@ -92,11 +92,17 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild resource.
+//
 // Using `pulumi import`, import CodeBuild Resource Policy using the CodeBuild Resource Policy arn. For example:
 //
-// ```sh
-// $ pulumi import aws:codebuild/resourcePolicy:ResourcePolicy example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
-// ```
+// console
+//
+// % pulumi import aws_codebuild_resource_policy.example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
 

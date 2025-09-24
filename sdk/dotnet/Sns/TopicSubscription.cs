@@ -325,11 +325,17 @@ namespace Pulumi.Aws.Sns
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// - `arn` (String) Amazon Resource Name (ARN) of the SNS topic subscription.
+    /// 
     /// Using `pulumi import`, import SNS Topic Subscriptions using the subscription `arn`. For example:
     /// 
-    /// ```sh
-    /// $ pulumi import aws:sns/topicSubscription:TopicSubscription user_updates_sqs_target arn:aws:sns:us-west-2:123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
-    /// ```
+    /// console
+    /// 
+    /// % pulumi import aws_sns_topic_subscription.user_updates_sqs_target arn:aws:sns:us-west-2:123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
     /// </summary>
     [AwsResourceType("aws:sns/topicSubscription:TopicSubscription")]
     public partial class TopicSubscription : global::Pulumi.CustomResource

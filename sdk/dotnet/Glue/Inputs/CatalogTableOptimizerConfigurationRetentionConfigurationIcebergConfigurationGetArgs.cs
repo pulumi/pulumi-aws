@@ -25,6 +25,12 @@ namespace Pulumi.Aws.Glue.Inputs
         public Input<int>? NumberOfSnapshotsToRetain { get; set; }
 
         /// <summary>
+        /// Interval in hours between retention job runs. Defaults to `24`.
+        /// </summary>
+        [Input("runRateInHours")]
+        public Input<int>? RunRateInHours { get; set; }
+
+        /// <summary>
         /// The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
         /// </summary>
         [Input("snapshotRetentionPeriodInDays")]

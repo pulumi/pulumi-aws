@@ -53,6 +53,7 @@ class SpotInstanceRequestArgs:
                  monitoring: Optional[pulumi.Input[_builtins.bool]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestNetworkInterfaceArgs']]]] = None,
                  placement_group: Optional[pulumi.Input[_builtins.str]] = None,
+                 placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
                  placement_partition_number: Optional[pulumi.Input[_builtins.int]] = None,
                  private_dns_name_options: Optional[pulumi.Input['SpotInstanceRequestPrivateDnsNameOptionsArgs']] = None,
                  private_ip: Optional[pulumi.Input[_builtins.str]] = None,
@@ -108,7 +109,8 @@ class SpotInstanceRequestArgs:
         :param pulumi.Input['SpotInstanceRequestMetadataOptionsArgs'] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
         :param pulumi.Input[_builtins.bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestNetworkInterfaceArgs']]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
-        :param pulumi.Input[_builtins.str] placement_group: Placement Group to start the instance in.
+        :param pulumi.Input[_builtins.str] placement_group: Placement Group to start the instance in. Conflicts with `placement_group_id`.
+        :param pulumi.Input[_builtins.str] placement_group_id: Placement Group ID to start the instance in. Conflicts with `placement_group`.
         :param pulumi.Input[_builtins.int] placement_partition_number: Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
         :param pulumi.Input['SpotInstanceRequestPrivateDnsNameOptionsArgs'] private_dns_name_options: Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
         :param pulumi.Input[_builtins.str] private_ip: Private IP address to associate with the instance in a VPC.
@@ -205,6 +207,8 @@ class SpotInstanceRequestArgs:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
         if placement_group is not None:
             pulumi.set(__self__, "placement_group", placement_group)
+        if placement_group_id is not None:
+            pulumi.set(__self__, "placement_group_id", placement_group_id)
         if placement_partition_number is not None:
             pulumi.set(__self__, "placement_partition_number", placement_partition_number)
         if private_dns_name_options is not None:
@@ -626,13 +630,25 @@ class SpotInstanceRequestArgs:
     @pulumi.getter(name="placementGroup")
     def placement_group(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Placement Group to start the instance in.
+        Placement Group to start the instance in. Conflicts with `placement_group_id`.
         """
         return pulumi.get(self, "placement_group")
 
     @placement_group.setter
     def placement_group(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "placement_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="placementGroupId")
+    def placement_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Placement Group ID to start the instance in. Conflicts with `placement_group`.
+        """
+        return pulumi.get(self, "placement_group_id")
+
+    @placement_group_id.setter
+    def placement_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "placement_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="placementPartitionNumber")
@@ -933,6 +949,7 @@ class _SpotInstanceRequestState:
                  outpost_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  password_data: Optional[pulumi.Input[_builtins.str]] = None,
                  placement_group: Optional[pulumi.Input[_builtins.str]] = None,
+                 placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
                  placement_partition_number: Optional[pulumi.Input[_builtins.int]] = None,
                  primary_network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
                  primary_network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestPrimaryNetworkInterfaceArgs']]]] = None,
@@ -997,7 +1014,8 @@ class _SpotInstanceRequestState:
         :param pulumi.Input['SpotInstanceRequestMetadataOptionsArgs'] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
         :param pulumi.Input[_builtins.bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestNetworkInterfaceArgs']]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
-        :param pulumi.Input[_builtins.str] placement_group: Placement Group to start the instance in.
+        :param pulumi.Input[_builtins.str] placement_group: Placement Group to start the instance in. Conflicts with `placement_group_id`.
+        :param pulumi.Input[_builtins.str] placement_group_id: Placement Group ID to start the instance in. Conflicts with `placement_group`.
         :param pulumi.Input[_builtins.int] placement_partition_number: Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
         :param pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestPrimaryNetworkInterfaceArgs']]] primary_network_interfaces: The primary network interface. See Primary Network Interface below.
         :param pulumi.Input[_builtins.str] private_dns: The private DNS name assigned to the instance. Can only be
@@ -1118,6 +1136,8 @@ class _SpotInstanceRequestState:
             pulumi.set(__self__, "password_data", password_data)
         if placement_group is not None:
             pulumi.set(__self__, "placement_group", placement_group)
+        if placement_group_id is not None:
+            pulumi.set(__self__, "placement_group_id", placement_group_id)
         if placement_partition_number is not None:
             pulumi.set(__self__, "placement_partition_number", placement_partition_number)
         if primary_network_interface_id is not None:
@@ -1593,13 +1613,25 @@ class _SpotInstanceRequestState:
     @pulumi.getter(name="placementGroup")
     def placement_group(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Placement Group to start the instance in.
+        Placement Group to start the instance in. Conflicts with `placement_group_id`.
         """
         return pulumi.get(self, "placement_group")
 
     @placement_group.setter
     def placement_group(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "placement_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="placementGroupId")
+    def placement_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Placement Group ID to start the instance in. Conflicts with `placement_group`.
+        """
+        return pulumi.get(self, "placement_group_id")
+
+    @placement_group_id.setter
+    def placement_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "placement_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="placementPartitionNumber")
@@ -2012,6 +2044,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  monitoring: Optional[pulumi.Input[_builtins.bool]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestNetworkInterfaceArgs', 'SpotInstanceRequestNetworkInterfaceArgsDict']]]]] = None,
                  placement_group: Optional[pulumi.Input[_builtins.str]] = None,
+                 placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
                  placement_partition_number: Optional[pulumi.Input[_builtins.int]] = None,
                  private_dns_name_options: Optional[pulumi.Input[Union['SpotInstanceRequestPrivateDnsNameOptionsArgs', 'SpotInstanceRequestPrivateDnsNameOptionsArgsDict']]] = None,
                  private_ip: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2085,7 +2118,8 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[Union['SpotInstanceRequestMetadataOptionsArgs', 'SpotInstanceRequestMetadataOptionsArgsDict']] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
         :param pulumi.Input[_builtins.bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestNetworkInterfaceArgs', 'SpotInstanceRequestNetworkInterfaceArgsDict']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
-        :param pulumi.Input[_builtins.str] placement_group: Placement Group to start the instance in.
+        :param pulumi.Input[_builtins.str] placement_group: Placement Group to start the instance in. Conflicts with `placement_group_id`.
+        :param pulumi.Input[_builtins.str] placement_group_id: Placement Group ID to start the instance in. Conflicts with `placement_group`.
         :param pulumi.Input[_builtins.int] placement_partition_number: Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
         :param pulumi.Input[Union['SpotInstanceRequestPrivateDnsNameOptionsArgs', 'SpotInstanceRequestPrivateDnsNameOptionsArgsDict']] private_dns_name_options: Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
         :param pulumi.Input[_builtins.str] private_ip: Private IP address to associate with the instance in a VPC.
@@ -2185,6 +2219,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  monitoring: Optional[pulumi.Input[_builtins.bool]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestNetworkInterfaceArgs', 'SpotInstanceRequestNetworkInterfaceArgsDict']]]]] = None,
                  placement_group: Optional[pulumi.Input[_builtins.str]] = None,
+                 placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
                  placement_partition_number: Optional[pulumi.Input[_builtins.int]] = None,
                  private_dns_name_options: Optional[pulumi.Input[Union['SpotInstanceRequestPrivateDnsNameOptionsArgs', 'SpotInstanceRequestPrivateDnsNameOptionsArgsDict']]] = None,
                  private_ip: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2247,6 +2282,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
             __props__.__dict__["monitoring"] = monitoring
             __props__.__dict__["network_interfaces"] = network_interfaces
             __props__.__dict__["placement_group"] = placement_group
+            __props__.__dict__["placement_group_id"] = placement_group_id
             __props__.__dict__["placement_partition_number"] = placement_partition_number
             __props__.__dict__["private_dns_name_options"] = private_dns_name_options
             __props__.__dict__["private_ip"] = private_ip
@@ -2327,6 +2363,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
             outpost_arn: Optional[pulumi.Input[_builtins.str]] = None,
             password_data: Optional[pulumi.Input[_builtins.str]] = None,
             placement_group: Optional[pulumi.Input[_builtins.str]] = None,
+            placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
             placement_partition_number: Optional[pulumi.Input[_builtins.int]] = None,
             primary_network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
             primary_network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestPrimaryNetworkInterfaceArgs', 'SpotInstanceRequestPrimaryNetworkInterfaceArgsDict']]]]] = None,
@@ -2396,7 +2433,8 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[Union['SpotInstanceRequestMetadataOptionsArgs', 'SpotInstanceRequestMetadataOptionsArgsDict']] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
         :param pulumi.Input[_builtins.bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestNetworkInterfaceArgs', 'SpotInstanceRequestNetworkInterfaceArgsDict']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
-        :param pulumi.Input[_builtins.str] placement_group: Placement Group to start the instance in.
+        :param pulumi.Input[_builtins.str] placement_group: Placement Group to start the instance in. Conflicts with `placement_group_id`.
+        :param pulumi.Input[_builtins.str] placement_group_id: Placement Group ID to start the instance in. Conflicts with `placement_group`.
         :param pulumi.Input[_builtins.int] placement_partition_number: Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestPrimaryNetworkInterfaceArgs', 'SpotInstanceRequestPrimaryNetworkInterfaceArgsDict']]]] primary_network_interfaces: The primary network interface. See Primary Network Interface below.
         :param pulumi.Input[_builtins.str] private_dns: The private DNS name assigned to the instance. Can only be
@@ -2482,6 +2520,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         __props__.__dict__["outpost_arn"] = outpost_arn
         __props__.__dict__["password_data"] = password_data
         __props__.__dict__["placement_group"] = placement_group
+        __props__.__dict__["placement_group_id"] = placement_group_id
         __props__.__dict__["placement_partition_number"] = placement_partition_number
         __props__.__dict__["primary_network_interface_id"] = primary_network_interface_id
         __props__.__dict__["primary_network_interfaces"] = primary_network_interfaces
@@ -2788,9 +2827,17 @@ class SpotInstanceRequest(pulumi.CustomResource):
     @pulumi.getter(name="placementGroup")
     def placement_group(self) -> pulumi.Output[_builtins.str]:
         """
-        Placement Group to start the instance in.
+        Placement Group to start the instance in. Conflicts with `placement_group_id`.
         """
         return pulumi.get(self, "placement_group")
+
+    @_builtins.property
+    @pulumi.getter(name="placementGroupId")
+    def placement_group_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        Placement Group ID to start the instance in. Conflicts with `placement_group`.
+        """
+        return pulumi.get(self, "placement_group_id")
 
     @_builtins.property
     @pulumi.getter(name="placementPartitionNumber")

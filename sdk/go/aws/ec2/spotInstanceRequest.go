@@ -114,8 +114,10 @@ type SpotInstanceRequest struct {
 	NetworkInterfaces SpotInstanceRequestNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
 	OutpostArn        pulumi.StringOutput                            `pulumi:"outpostArn"`
 	PasswordData      pulumi.StringOutput                            `pulumi:"passwordData"`
-	// Placement Group to start the instance in.
+	// Placement Group to start the instance in. Conflicts with `placementGroupId`.
 	PlacementGroup pulumi.StringOutput `pulumi:"placementGroup"`
+	// Placement Group ID to start the instance in. Conflicts with `placementGroup`.
+	PlacementGroupId pulumi.StringOutput `pulumi:"placementGroupId"`
 	// Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
 	PlacementPartitionNumber  pulumi.IntOutput    `pulumi:"placementPartitionNumber"`
 	PrimaryNetworkInterfaceId pulumi.StringOutput `pulumi:"primaryNetworkInterfaceId"`
@@ -291,8 +293,10 @@ type spotInstanceRequestState struct {
 	NetworkInterfaces []SpotInstanceRequestNetworkInterface `pulumi:"networkInterfaces"`
 	OutpostArn        *string                               `pulumi:"outpostArn"`
 	PasswordData      *string                               `pulumi:"passwordData"`
-	// Placement Group to start the instance in.
+	// Placement Group to start the instance in. Conflicts with `placementGroupId`.
 	PlacementGroup *string `pulumi:"placementGroup"`
+	// Placement Group ID to start the instance in. Conflicts with `placementGroup`.
+	PlacementGroupId *string `pulumi:"placementGroupId"`
 	// Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
 	PlacementPartitionNumber  *int    `pulumi:"placementPartitionNumber"`
 	PrimaryNetworkInterfaceId *string `pulumi:"primaryNetworkInterfaceId"`
@@ -439,8 +443,10 @@ type SpotInstanceRequestState struct {
 	NetworkInterfaces SpotInstanceRequestNetworkInterfaceArrayInput
 	OutpostArn        pulumi.StringPtrInput
 	PasswordData      pulumi.StringPtrInput
-	// Placement Group to start the instance in.
+	// Placement Group to start the instance in. Conflicts with `placementGroupId`.
 	PlacementGroup pulumi.StringPtrInput
+	// Placement Group ID to start the instance in. Conflicts with `placementGroup`.
+	PlacementGroupId pulumi.StringPtrInput
 	// Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
 	PlacementPartitionNumber  pulumi.IntPtrInput
 	PrimaryNetworkInterfaceId pulumi.StringPtrInput
@@ -587,8 +593,10 @@ type spotInstanceRequestArgs struct {
 	//
 	// Deprecated: network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the ec2.NetworkInterfaceAttachment resource.
 	NetworkInterfaces []SpotInstanceRequestNetworkInterface `pulumi:"networkInterfaces"`
-	// Placement Group to start the instance in.
+	// Placement Group to start the instance in. Conflicts with `placementGroupId`.
 	PlacementGroup *string `pulumi:"placementGroup"`
+	// Placement Group ID to start the instance in. Conflicts with `placementGroup`.
+	PlacementGroupId *string `pulumi:"placementGroupId"`
 	// Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
 	PlacementPartitionNumber *int `pulumi:"placementPartitionNumber"`
 	// Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
@@ -707,8 +715,10 @@ type SpotInstanceRequestArgs struct {
 	//
 	// Deprecated: network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the ec2.NetworkInterfaceAttachment resource.
 	NetworkInterfaces SpotInstanceRequestNetworkInterfaceArrayInput
-	// Placement Group to start the instance in.
+	// Placement Group to start the instance in. Conflicts with `placementGroupId`.
 	PlacementGroup pulumi.StringPtrInput
+	// Placement Group ID to start the instance in. Conflicts with `placementGroup`.
+	PlacementGroupId pulumi.StringPtrInput
 	// Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
 	PlacementPartitionNumber pulumi.IntPtrInput
 	// Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
@@ -1029,9 +1039,14 @@ func (o SpotInstanceRequestOutput) PasswordData() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.PasswordData }).(pulumi.StringOutput)
 }
 
-// Placement Group to start the instance in.
+// Placement Group to start the instance in. Conflicts with `placementGroupId`.
 func (o SpotInstanceRequestOutput) PlacementGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.PlacementGroup }).(pulumi.StringOutput)
+}
+
+// Placement Group ID to start the instance in. Conflicts with `placementGroup`.
+func (o SpotInstanceRequestOutput) PlacementGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.PlacementGroupId }).(pulumi.StringOutput)
 }
 
 // Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.

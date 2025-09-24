@@ -22,6 +22,8 @@ class MountTargetArgs:
                  file_system_id: pulumi.Input[_builtins.str],
                  subnet_id: pulumi.Input[_builtins.str],
                  ip_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 ipv6_address: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
@@ -30,6 +32,8 @@ class MountTargetArgs:
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet to add the mount target in.
         :param pulumi.Input[_builtins.str] ip_address: The address (within the address range of the specified subnet) at
                which the file system may be mounted via the mount target.
+        :param pulumi.Input[_builtins.str] ip_address_type: IP address type for the mount target. Valid values are `IPV4_ONLY` (only IPv4 addresses), `IPV6_ONLY` (only IPv6 addresses), and `DUAL_STACK` (dual-stack, both IPv4 and IPv6 addresses). Defaults to `IPV4_ONLY`.
+        :param pulumi.Input[_builtins.str] ipv6_address: IPv6 address to use. Valid only when `ip_address_type` is set to `IPV6_ONLY` or `DUAL_STACK`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: A list of up to 5 VPC security group IDs (that must
                be for the same VPC as subnet specified) in effect for the mount target.
@@ -38,6 +42,10 @@ class MountTargetArgs:
         pulumi.set(__self__, "subnet_id", subnet_id)
         if ip_address is not None:
             pulumi.set(__self__, "ip_address", ip_address)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
+        if ipv6_address is not None:
+            pulumi.set(__self__, "ipv6_address", ipv6_address)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if security_groups is not None:
@@ -81,6 +89,30 @@ class MountTargetArgs:
         pulumi.set(self, "ip_address", value)
 
     @_builtins.property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        IP address type for the mount target. Valid values are `IPV4_ONLY` (only IPv4 addresses), `IPV6_ONLY` (only IPv6 addresses), and `DUAL_STACK` (dual-stack, both IPv4 and IPv6 addresses). Defaults to `IPV4_ONLY`.
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "ip_address_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipv6Address")
+    def ipv6_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        IPv6 address to use. Valid only when `ip_address_type` is set to `IPV6_ONLY` or `DUAL_STACK`.
+        """
+        return pulumi.get(self, "ipv6_address")
+
+    @ipv6_address.setter
+    def ipv6_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "ipv6_address", value)
+
+    @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -115,6 +147,8 @@ class _MountTargetState:
                  file_system_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  file_system_id: Optional[pulumi.Input[_builtins.str]] = None,
                  ip_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 ipv6_address: Optional[pulumi.Input[_builtins.str]] = None,
                  mount_target_dns_name: Optional[pulumi.Input[_builtins.str]] = None,
                  network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
                  owner_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -130,6 +164,8 @@ class _MountTargetState:
         :param pulumi.Input[_builtins.str] file_system_id: The ID of the file system for which the mount target is intended.
         :param pulumi.Input[_builtins.str] ip_address: The address (within the address range of the specified subnet) at
                which the file system may be mounted via the mount target.
+        :param pulumi.Input[_builtins.str] ip_address_type: IP address type for the mount target. Valid values are `IPV4_ONLY` (only IPv4 addresses), `IPV6_ONLY` (only IPv6 addresses), and `DUAL_STACK` (dual-stack, both IPv4 and IPv6 addresses). Defaults to `IPV4_ONLY`.
+        :param pulumi.Input[_builtins.str] ipv6_address: IPv6 address to use. Valid only when `ip_address_type` is set to `IPV6_ONLY` or `DUAL_STACK`.
         :param pulumi.Input[_builtins.str] mount_target_dns_name: The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
         :param pulumi.Input[_builtins.str] network_interface_id: The ID of the network interface that Amazon EFS created when it created the mount target.
         :param pulumi.Input[_builtins.str] owner_id: AWS account ID that owns the resource.
@@ -150,6 +186,10 @@ class _MountTargetState:
             pulumi.set(__self__, "file_system_id", file_system_id)
         if ip_address is not None:
             pulumi.set(__self__, "ip_address", ip_address)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
+        if ipv6_address is not None:
+            pulumi.set(__self__, "ipv6_address", ipv6_address)
         if mount_target_dns_name is not None:
             pulumi.set(__self__, "mount_target_dns_name", mount_target_dns_name)
         if network_interface_id is not None:
@@ -237,6 +277,30 @@ class _MountTargetState:
         pulumi.set(self, "ip_address", value)
 
     @_builtins.property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        IP address type for the mount target. Valid values are `IPV4_ONLY` (only IPv4 addresses), `IPV6_ONLY` (only IPv6 addresses), and `DUAL_STACK` (dual-stack, both IPv4 and IPv6 addresses). Defaults to `IPV4_ONLY`.
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "ip_address_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipv6Address")
+    def ipv6_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        IPv6 address to use. Valid only when `ip_address_type` is set to `IPV6_ONLY` or `DUAL_STACK`.
+        """
+        return pulumi.get(self, "ipv6_address")
+
+    @ipv6_address.setter
+    def ipv6_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "ipv6_address", value)
+
+    @_builtins.property
     @pulumi.getter(name="mountTargetDnsName")
     def mount_target_dns_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -318,6 +382,8 @@ class MountTarget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  file_system_id: Optional[pulumi.Input[_builtins.str]] = None,
                  ip_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 ipv6_address: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -354,6 +420,8 @@ class MountTarget(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] file_system_id: The ID of the file system for which the mount target is intended.
         :param pulumi.Input[_builtins.str] ip_address: The address (within the address range of the specified subnet) at
                which the file system may be mounted via the mount target.
+        :param pulumi.Input[_builtins.str] ip_address_type: IP address type for the mount target. Valid values are `IPV4_ONLY` (only IPv4 addresses), `IPV6_ONLY` (only IPv6 addresses), and `DUAL_STACK` (dual-stack, both IPv4 and IPv6 addresses). Defaults to `IPV4_ONLY`.
+        :param pulumi.Input[_builtins.str] ipv6_address: IPv6 address to use. Valid only when `ip_address_type` is set to `IPV6_ONLY` or `DUAL_STACK`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: A list of up to 5 VPC security group IDs (that must
                be for the same VPC as subnet specified) in effect for the mount target.
@@ -409,6 +477,8 @@ class MountTarget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  file_system_id: Optional[pulumi.Input[_builtins.str]] = None,
                  ip_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 ipv6_address: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -425,6 +495,8 @@ class MountTarget(pulumi.CustomResource):
                 raise TypeError("Missing required property 'file_system_id'")
             __props__.__dict__["file_system_id"] = file_system_id
             __props__.__dict__["ip_address"] = ip_address
+            __props__.__dict__["ip_address_type"] = ip_address_type
+            __props__.__dict__["ipv6_address"] = ipv6_address
             __props__.__dict__["region"] = region
             __props__.__dict__["security_groups"] = security_groups
             if subnet_id is None and not opts.urn:
@@ -453,6 +525,8 @@ class MountTarget(pulumi.CustomResource):
             file_system_arn: Optional[pulumi.Input[_builtins.str]] = None,
             file_system_id: Optional[pulumi.Input[_builtins.str]] = None,
             ip_address: Optional[pulumi.Input[_builtins.str]] = None,
+            ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
+            ipv6_address: Optional[pulumi.Input[_builtins.str]] = None,
             mount_target_dns_name: Optional[pulumi.Input[_builtins.str]] = None,
             network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
             owner_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -473,6 +547,8 @@ class MountTarget(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] file_system_id: The ID of the file system for which the mount target is intended.
         :param pulumi.Input[_builtins.str] ip_address: The address (within the address range of the specified subnet) at
                which the file system may be mounted via the mount target.
+        :param pulumi.Input[_builtins.str] ip_address_type: IP address type for the mount target. Valid values are `IPV4_ONLY` (only IPv4 addresses), `IPV6_ONLY` (only IPv6 addresses), and `DUAL_STACK` (dual-stack, both IPv4 and IPv6 addresses). Defaults to `IPV4_ONLY`.
+        :param pulumi.Input[_builtins.str] ipv6_address: IPv6 address to use. Valid only when `ip_address_type` is set to `IPV6_ONLY` or `DUAL_STACK`.
         :param pulumi.Input[_builtins.str] mount_target_dns_name: The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
         :param pulumi.Input[_builtins.str] network_interface_id: The ID of the network interface that Amazon EFS created when it created the mount target.
         :param pulumi.Input[_builtins.str] owner_id: AWS account ID that owns the resource.
@@ -491,6 +567,8 @@ class MountTarget(pulumi.CustomResource):
         __props__.__dict__["file_system_arn"] = file_system_arn
         __props__.__dict__["file_system_id"] = file_system_id
         __props__.__dict__["ip_address"] = ip_address
+        __props__.__dict__["ip_address_type"] = ip_address_type
+        __props__.__dict__["ipv6_address"] = ipv6_address
         __props__.__dict__["mount_target_dns_name"] = mount_target_dns_name
         __props__.__dict__["network_interface_id"] = network_interface_id
         __props__.__dict__["owner_id"] = owner_id
@@ -547,6 +625,22 @@ class MountTarget(pulumi.CustomResource):
         which the file system may be mounted via the mount target.
         """
         return pulumi.get(self, "ip_address")
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> pulumi.Output[_builtins.str]:
+        """
+        IP address type for the mount target. Valid values are `IPV4_ONLY` (only IPv4 addresses), `IPV6_ONLY` (only IPv6 addresses), and `DUAL_STACK` (dual-stack, both IPv4 and IPv6 addresses). Defaults to `IPV4_ONLY`.
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @_builtins.property
+    @pulumi.getter(name="ipv6Address")
+    def ipv6_address(self) -> pulumi.Output[_builtins.str]:
+        """
+        IPv6 address to use. Valid only when `ip_address_type` is set to `IPV6_ONLY` or `DUAL_STACK`.
+        """
+        return pulumi.get(self, "ipv6_address")
 
     @_builtins.property
     @pulumi.getter(name="mountTargetDnsName")

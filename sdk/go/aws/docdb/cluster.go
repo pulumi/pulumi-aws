@@ -72,8 +72,9 @@ type Cluster struct {
 	ApplyImmediately pulumi.BoolPtrOutput `pulumi:"applyImmediately"`
 	// Amazon Resource Name (ARN) of cluster
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A list of EC2 Availability Zones that
-	// instances in the DB cluster can be created in.
+	// A list of EC2 Availability Zones that instances in the DB cluster can be created in.
+	// DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
+	// We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	// The days to retain backups for. Default `1`
 	BackupRetentionPeriod pulumi.IntPtrOutput `pulumi:"backupRetentionPeriod"`
@@ -198,8 +199,9 @@ type clusterState struct {
 	ApplyImmediately *bool `pulumi:"applyImmediately"`
 	// Amazon Resource Name (ARN) of cluster
 	Arn *string `pulumi:"arn"`
-	// A list of EC2 Availability Zones that
-	// instances in the DB cluster can be created in.
+	// A list of EC2 Availability Zones that instances in the DB cluster can be created in.
+	// DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
+	// We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// The days to retain backups for. Default `1`
 	BackupRetentionPeriod *int `pulumi:"backupRetentionPeriod"`
@@ -288,8 +290,9 @@ type ClusterState struct {
 	ApplyImmediately pulumi.BoolPtrInput
 	// Amazon Resource Name (ARN) of cluster
 	Arn pulumi.StringPtrInput
-	// A list of EC2 Availability Zones that
-	// instances in the DB cluster can be created in.
+	// A list of EC2 Availability Zones that instances in the DB cluster can be created in.
+	// DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
+	// We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
 	AvailabilityZones pulumi.StringArrayInput
 	// The days to retain backups for. Default `1`
 	BackupRetentionPeriod pulumi.IntPtrInput
@@ -380,8 +383,9 @@ type clusterArgs struct {
 	// are applied immediately, or during the next maintenance window. Default is
 	// `false`.
 	ApplyImmediately *bool `pulumi:"applyImmediately"`
-	// A list of EC2 Availability Zones that
-	// instances in the DB cluster can be created in.
+	// A list of EC2 Availability Zones that instances in the DB cluster can be created in.
+	// DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
+	// We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// The days to retain backups for. Default `1`
 	BackupRetentionPeriod *int `pulumi:"backupRetentionPeriod"`
@@ -458,8 +462,9 @@ type ClusterArgs struct {
 	// are applied immediately, or during the next maintenance window. Default is
 	// `false`.
 	ApplyImmediately pulumi.BoolPtrInput
-	// A list of EC2 Availability Zones that
-	// instances in the DB cluster can be created in.
+	// A list of EC2 Availability Zones that instances in the DB cluster can be created in.
+	// DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
+	// We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
 	AvailabilityZones pulumi.StringArrayInput
 	// The days to retain backups for. Default `1`
 	BackupRetentionPeriod pulumi.IntPtrInput
@@ -632,8 +637,9 @@ func (o ClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A list of EC2 Availability Zones that
-// instances in the DB cluster can be created in.
+// A list of EC2 Availability Zones that instances in the DB cluster can be created in.
+// DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
+// We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
 func (o ClusterOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }

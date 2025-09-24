@@ -216,11 +216,23 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `user_pool_id` (String) ID of the Cognito User Pool.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// 
+    /// * `region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import Cognito IDP (Identity Provider) Log Delivery Configuration using the `user_pool_id`. For example:
     /// 
-    /// ```sh
-    /// $ pulumi import aws:cognito/logDeliveryConfiguration:LogDeliveryConfiguration example us-west-2_example123
-    /// ```
+    /// console
+    /// 
+    /// % pulumi import aws_cognito_log_delivery_configuration.example us-west-2_example123
     /// </summary>
     [AwsResourceType("aws:cognito/logDeliveryConfiguration:LogDeliveryConfiguration")]
     public partial class LogDeliveryConfiguration : global::Pulumi.CustomResource

@@ -16,6 +16,26 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'PolicyPredictiveScalingPolicyConfiguration',
+    'PolicyPredictiveScalingPolicyConfigurationMetricSpecification',
+    'PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecification',
+    'PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery',
+    'PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat',
+    'PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric',
+    'PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimension',
+    'PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecification',
+    'PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery',
+    'PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStat',
+    'PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric',
+    'PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension',
+    'PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecification',
+    'PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery',
+    'PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat',
+    'PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric',
+    'PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimension',
+    'PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecification',
+    'PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecification',
+    'PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecification',
     'PolicyStepScalingPolicyConfiguration',
     'PolicyStepScalingPolicyConfigurationStepAdjustment',
     'PolicyTargetTrackingScalingPolicyConfiguration',
@@ -29,6 +49,1111 @@ __all__ = [
     'ScheduledActionScalableTargetAction',
     'TargetSuspendedState',
 ]
+
+@pulumi.output_type
+class PolicyPredictiveScalingPolicyConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricSpecifications":
+            suggest = "metric_specifications"
+        elif key == "maxCapacityBreachBehavior":
+            suggest = "max_capacity_breach_behavior"
+        elif key == "maxCapacityBuffer":
+            suggest = "max_capacity_buffer"
+        elif key == "schedulingBufferTime":
+            suggest = "scheduling_buffer_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyPredictiveScalingPolicyConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyPredictiveScalingPolicyConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyPredictiveScalingPolicyConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metric_specifications: Sequence['outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecification'],
+                 max_capacity_breach_behavior: Optional[_builtins.str] = None,
+                 max_capacity_buffer: Optional[_builtins.int] = None,
+                 mode: Optional[_builtins.str] = None,
+                 scheduling_buffer_time: Optional[_builtins.int] = None):
+        """
+        :param Sequence['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationArgs'] metric_specifications: Metrics and target utilization to use for predictive scaling. See supported fields below.
+        :param _builtins.str max_capacity_breach_behavior: The behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity. Valid values are `HonorMaxCapacity` and `IncreaseMaxCapacity`.
+        :param _builtins.int max_capacity_buffer: Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. Required if the `max_capacity_breach_behavior` argument is set to `IncreaseMaxCapacity`, and cannot be used otherwise.
+        :param _builtins.str mode: Predictive scaling mode. Valid values are `ForecastOnly` and `ForecastAndScale`.
+        :param _builtins.int scheduling_buffer_time: Amount of time, in seconds, that the start time can be advanced.
+        """
+        pulumi.set(__self__, "metric_specifications", metric_specifications)
+        if max_capacity_breach_behavior is not None:
+            pulumi.set(__self__, "max_capacity_breach_behavior", max_capacity_breach_behavior)
+        if max_capacity_buffer is not None:
+            pulumi.set(__self__, "max_capacity_buffer", max_capacity_buffer)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if scheduling_buffer_time is not None:
+            pulumi.set(__self__, "scheduling_buffer_time", scheduling_buffer_time)
+
+    @_builtins.property
+    @pulumi.getter(name="metricSpecifications")
+    def metric_specifications(self) -> Sequence['outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecification']:
+        """
+        Metrics and target utilization to use for predictive scaling. See supported fields below.
+        """
+        return pulumi.get(self, "metric_specifications")
+
+    @_builtins.property
+    @pulumi.getter(name="maxCapacityBreachBehavior")
+    def max_capacity_breach_behavior(self) -> Optional[_builtins.str]:
+        """
+        The behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity. Valid values are `HonorMaxCapacity` and `IncreaseMaxCapacity`.
+        """
+        return pulumi.get(self, "max_capacity_breach_behavior")
+
+    @_builtins.property
+    @pulumi.getter(name="maxCapacityBuffer")
+    def max_capacity_buffer(self) -> Optional[_builtins.int]:
+        """
+        Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. Required if the `max_capacity_breach_behavior` argument is set to `IncreaseMaxCapacity`, and cannot be used otherwise.
+        """
+        return pulumi.get(self, "max_capacity_buffer")
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> Optional[_builtins.str]:
+        """
+        Predictive scaling mode. Valid values are `ForecastOnly` and `ForecastAndScale`.
+        """
+        return pulumi.get(self, "mode")
+
+    @_builtins.property
+    @pulumi.getter(name="schedulingBufferTime")
+    def scheduling_buffer_time(self) -> Optional[_builtins.int]:
+        """
+        Amount of time, in seconds, that the start time can be advanced.
+        """
+        return pulumi.get(self, "scheduling_buffer_time")
+
+
+@pulumi.output_type
+class PolicyPredictiveScalingPolicyConfigurationMetricSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetValue":
+            suggest = "target_value"
+        elif key == "customizedCapacityMetricSpecification":
+            suggest = "customized_capacity_metric_specification"
+        elif key == "customizedLoadMetricSpecification":
+            suggest = "customized_load_metric_specification"
+        elif key == "customizedScalingMetricSpecification":
+            suggest = "customized_scaling_metric_specification"
+        elif key == "predefinedLoadMetricSpecification":
+            suggest = "predefined_load_metric_specification"
+        elif key == "predefinedMetricPairSpecification":
+            suggest = "predefined_metric_pair_specification"
+        elif key == "predefinedScalingMetricSpecification":
+            suggest = "predefined_scaling_metric_specification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyPredictiveScalingPolicyConfigurationMetricSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyPredictiveScalingPolicyConfigurationMetricSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyPredictiveScalingPolicyConfigurationMetricSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_value: _builtins.str,
+                 customized_capacity_metric_specification: Optional['outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecification'] = None,
+                 customized_load_metric_specification: Optional['outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecification'] = None,
+                 customized_scaling_metric_specification: Optional['outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecification'] = None,
+                 predefined_load_metric_specification: Optional['outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecification'] = None,
+                 predefined_metric_pair_specification: Optional['outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecification'] = None,
+                 predefined_scaling_metric_specification: Optional['outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecification'] = None):
+        """
+        :param _builtins.str target_value: Target utilization.
+        :param 'PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs' customized_capacity_metric_specification: Customized capacity metric specification. See supported fields below.
+        :param 'PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs' customized_load_metric_specification: Customized load metric specification. See supported fields below.
+        :param 'PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs' customized_scaling_metric_specification: Customized scaling metric specification. See supported fields below.
+        :param 'PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs' predefined_load_metric_specification: Predefined load metric specification. See supported fields below.
+        :param 'PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs' predefined_metric_pair_specification: Predefined metric pair specification that determines the appropriate scaling metric and load metric to use. See supported fields below.
+        :param 'PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs' predefined_scaling_metric_specification: Predefined scaling metric specification. See supported fields below.
+        """
+        pulumi.set(__self__, "target_value", target_value)
+        if customized_capacity_metric_specification is not None:
+            pulumi.set(__self__, "customized_capacity_metric_specification", customized_capacity_metric_specification)
+        if customized_load_metric_specification is not None:
+            pulumi.set(__self__, "customized_load_metric_specification", customized_load_metric_specification)
+        if customized_scaling_metric_specification is not None:
+            pulumi.set(__self__, "customized_scaling_metric_specification", customized_scaling_metric_specification)
+        if predefined_load_metric_specification is not None:
+            pulumi.set(__self__, "predefined_load_metric_specification", predefined_load_metric_specification)
+        if predefined_metric_pair_specification is not None:
+            pulumi.set(__self__, "predefined_metric_pair_specification", predefined_metric_pair_specification)
+        if predefined_scaling_metric_specification is not None:
+            pulumi.set(__self__, "predefined_scaling_metric_specification", predefined_scaling_metric_specification)
+
+    @_builtins.property
+    @pulumi.getter(name="targetValue")
+    def target_value(self) -> _builtins.str:
+        """
+        Target utilization.
+        """
+        return pulumi.get(self, "target_value")
+
+    @_builtins.property
+    @pulumi.getter(name="customizedCapacityMetricSpecification")
+    def customized_capacity_metric_specification(self) -> Optional['outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecification']:
+        """
+        Customized capacity metric specification. See supported fields below.
+        """
+        return pulumi.get(self, "customized_capacity_metric_specification")
+
+    @_builtins.property
+    @pulumi.getter(name="customizedLoadMetricSpecification")
+    def customized_load_metric_specification(self) -> Optional['outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecification']:
+        """
+        Customized load metric specification. See supported fields below.
+        """
+        return pulumi.get(self, "customized_load_metric_specification")
+
+    @_builtins.property
+    @pulumi.getter(name="customizedScalingMetricSpecification")
+    def customized_scaling_metric_specification(self) -> Optional['outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecification']:
+        """
+        Customized scaling metric specification. See supported fields below.
+        """
+        return pulumi.get(self, "customized_scaling_metric_specification")
+
+    @_builtins.property
+    @pulumi.getter(name="predefinedLoadMetricSpecification")
+    def predefined_load_metric_specification(self) -> Optional['outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecification']:
+        """
+        Predefined load metric specification. See supported fields below.
+        """
+        return pulumi.get(self, "predefined_load_metric_specification")
+
+    @_builtins.property
+    @pulumi.getter(name="predefinedMetricPairSpecification")
+    def predefined_metric_pair_specification(self) -> Optional['outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecification']:
+        """
+        Predefined metric pair specification that determines the appropriate scaling metric and load metric to use. See supported fields below.
+        """
+        return pulumi.get(self, "predefined_metric_pair_specification")
+
+    @_builtins.property
+    @pulumi.getter(name="predefinedScalingMetricSpecification")
+    def predefined_scaling_metric_specification(self) -> Optional['outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecification']:
+        """
+        Predefined scaling metric specification. See supported fields below.
+        """
+        return pulumi.get(self, "predefined_scaling_metric_specification")
+
+
+@pulumi.output_type
+class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricDataQueries":
+            suggest = "metric_data_queries"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metric_data_queries: Sequence['outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery']):
+        """
+        :param Sequence['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs'] metric_data_queries: One or more metric data queries to provide data points for a metric specification. See supported fields below.
+        """
+        pulumi.set(__self__, "metric_data_queries", metric_data_queries)
+
+    @_builtins.property
+    @pulumi.getter(name="metricDataQueries")
+    def metric_data_queries(self) -> Sequence['outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery']:
+        """
+        One or more metric data queries to provide data points for a metric specification. See supported fields below.
+        """
+        return pulumi.get(self, "metric_data_queries")
+
+
+@pulumi.output_type
+class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricStat":
+            suggest = "metric_stat"
+        elif key == "returnData":
+            suggest = "return_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 expression: Optional[_builtins.str] = None,
+                 label: Optional[_builtins.str] = None,
+                 metric_stat: Optional['outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat'] = None,
+                 return_data: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.str id: Short name that identifies the object's results in the response.
+        :param _builtins.str expression: Math expression to perform on the returned data, if this object is performing a math expression.
+        :param _builtins.str label: Human-readable label for this metric or expression.
+        :param 'PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatArgs' metric_stat: Information about the metric data to return. See supported fields below.
+        :param _builtins.bool return_data: Whether to return the timestamps and raw data values of this metric.
+        """
+        pulumi.set(__self__, "id", id)
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if metric_stat is not None:
+            pulumi.set(__self__, "metric_stat", metric_stat)
+        if return_data is not None:
+            pulumi.set(__self__, "return_data", return_data)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        Short name that identifies the object's results in the response.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> Optional[_builtins.str]:
+        """
+        Math expression to perform on the returned data, if this object is performing a math expression.
+        """
+        return pulumi.get(self, "expression")
+
+    @_builtins.property
+    @pulumi.getter
+    def label(self) -> Optional[_builtins.str]:
+        """
+        Human-readable label for this metric or expression.
+        """
+        return pulumi.get(self, "label")
+
+    @_builtins.property
+    @pulumi.getter(name="metricStat")
+    def metric_stat(self) -> Optional['outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat']:
+        """
+        Information about the metric data to return. See supported fields below.
+        """
+        return pulumi.get(self, "metric_stat")
+
+    @_builtins.property
+    @pulumi.getter(name="returnData")
+    def return_data(self) -> Optional[_builtins.bool]:
+        """
+        Whether to return the timestamps and raw data values of this metric.
+        """
+        return pulumi.get(self, "return_data")
+
+
+@pulumi.output_type
+class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat(dict):
+    def __init__(__self__, *,
+                 metric: 'outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric',
+                 stat: _builtins.str,
+                 unit: Optional[_builtins.str] = None):
+        """
+        :param 'PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgs' metric: Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
+        :param _builtins.str stat: Statistic of the metrics to return.
+        :param _builtins.str unit: Unit of the metrics to return.
+        """
+        pulumi.set(__self__, "metric", metric)
+        pulumi.set(__self__, "stat", stat)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @_builtins.property
+    @pulumi.getter
+    def metric(self) -> 'outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric':
+        """
+        Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
+        """
+        return pulumi.get(self, "metric")
+
+    @_builtins.property
+    @pulumi.getter
+    def stat(self) -> _builtins.str:
+        """
+        Statistic of the metrics to return.
+        """
+        return pulumi.get(self, "stat")
+
+    @_builtins.property
+    @pulumi.getter
+    def unit(self) -> Optional[_builtins.str]:
+        """
+        Unit of the metrics to return.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricName":
+            suggest = "metric_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dimensions: Optional[Sequence['outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimension']] = None,
+                 metric_name: Optional[_builtins.str] = None,
+                 namespace: Optional[_builtins.str] = None):
+        """
+        :param Sequence['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs'] dimensions: Dimensions of the metric. See supported fields below.
+        :param _builtins.str metric_name: Name of the metric.
+        :param _builtins.str namespace: Namespace of the metric.
+        """
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if metric_name is not None:
+            pulumi.set(__self__, "metric_name", metric_name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @_builtins.property
+    @pulumi.getter
+    def dimensions(self) -> Optional[Sequence['outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimension']]:
+        """
+        Dimensions of the metric. See supported fields below.
+        """
+        return pulumi.get(self, "dimensions")
+
+    @_builtins.property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> Optional[_builtins.str]:
+        """
+        Name of the metric.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def namespace(self) -> Optional[_builtins.str]:
+        """
+        Namespace of the metric.
+        """
+        return pulumi.get(self, "namespace")
+
+
+@pulumi.output_type
+class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimension(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str name: Name of the dimension.
+        :param _builtins.str value: Value of the dimension.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the dimension.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        Value of the dimension.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricDataQueries":
+            suggest = "metric_data_queries"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metric_data_queries: Sequence['outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery']):
+        """
+        :param Sequence['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs'] metric_data_queries: One or more metric data queries to provide data points for a metric specification. See supported fields below.
+        """
+        pulumi.set(__self__, "metric_data_queries", metric_data_queries)
+
+    @_builtins.property
+    @pulumi.getter(name="metricDataQueries")
+    def metric_data_queries(self) -> Sequence['outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery']:
+        """
+        One or more metric data queries to provide data points for a metric specification. See supported fields below.
+        """
+        return pulumi.get(self, "metric_data_queries")
+
+
+@pulumi.output_type
+class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricStat":
+            suggest = "metric_stat"
+        elif key == "returnData":
+            suggest = "return_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 expression: Optional[_builtins.str] = None,
+                 label: Optional[_builtins.str] = None,
+                 metric_stat: Optional['outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStat'] = None,
+                 return_data: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.str id: Short name that identifies the object's results in the response.
+        :param _builtins.str expression: Math expression to perform on the returned data, if this object is performing a math expression.
+        :param _builtins.str label: Human-readable label for this metric or expression.
+        :param 'PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgs' metric_stat: Information about the metric data to return. See supported fields below.
+        :param _builtins.bool return_data: Whether to return the timestamps and raw data values of this metric.
+        """
+        pulumi.set(__self__, "id", id)
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if metric_stat is not None:
+            pulumi.set(__self__, "metric_stat", metric_stat)
+        if return_data is not None:
+            pulumi.set(__self__, "return_data", return_data)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        Short name that identifies the object's results in the response.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> Optional[_builtins.str]:
+        """
+        Math expression to perform on the returned data, if this object is performing a math expression.
+        """
+        return pulumi.get(self, "expression")
+
+    @_builtins.property
+    @pulumi.getter
+    def label(self) -> Optional[_builtins.str]:
+        """
+        Human-readable label for this metric or expression.
+        """
+        return pulumi.get(self, "label")
+
+    @_builtins.property
+    @pulumi.getter(name="metricStat")
+    def metric_stat(self) -> Optional['outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStat']:
+        """
+        Information about the metric data to return. See supported fields below.
+        """
+        return pulumi.get(self, "metric_stat")
+
+    @_builtins.property
+    @pulumi.getter(name="returnData")
+    def return_data(self) -> Optional[_builtins.bool]:
+        """
+        Whether to return the timestamps and raw data values of this metric.
+        """
+        return pulumi.get(self, "return_data")
+
+
+@pulumi.output_type
+class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStat(dict):
+    def __init__(__self__, *,
+                 metric: 'outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric',
+                 stat: _builtins.str,
+                 unit: Optional[_builtins.str] = None):
+        """
+        :param 'PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricArgs' metric: Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
+        :param _builtins.str stat: Statistic of the metrics to return.
+        :param _builtins.str unit: Unit of the metrics to return.
+        """
+        pulumi.set(__self__, "metric", metric)
+        pulumi.set(__self__, "stat", stat)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @_builtins.property
+    @pulumi.getter
+    def metric(self) -> 'outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric':
+        """
+        Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
+        """
+        return pulumi.get(self, "metric")
+
+    @_builtins.property
+    @pulumi.getter
+    def stat(self) -> _builtins.str:
+        """
+        Statistic of the metrics to return.
+        """
+        return pulumi.get(self, "stat")
+
+    @_builtins.property
+    @pulumi.getter
+    def unit(self) -> Optional[_builtins.str]:
+        """
+        Unit of the metrics to return.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricName":
+            suggest = "metric_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dimensions: Optional[Sequence['outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension']] = None,
+                 metric_name: Optional[_builtins.str] = None,
+                 namespace: Optional[_builtins.str] = None):
+        """
+        :param Sequence['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs'] dimensions: Dimensions of the metric. See supported fields below.
+        :param _builtins.str metric_name: Name of the metric.
+        :param _builtins.str namespace: Namespace of the metric.
+        """
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if metric_name is not None:
+            pulumi.set(__self__, "metric_name", metric_name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @_builtins.property
+    @pulumi.getter
+    def dimensions(self) -> Optional[Sequence['outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension']]:
+        """
+        Dimensions of the metric. See supported fields below.
+        """
+        return pulumi.get(self, "dimensions")
+
+    @_builtins.property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> Optional[_builtins.str]:
+        """
+        Name of the metric.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def namespace(self) -> Optional[_builtins.str]:
+        """
+        Namespace of the metric.
+        """
+        return pulumi.get(self, "namespace")
+
+
+@pulumi.output_type
+class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str name: Name of the dimension.
+        :param _builtins.str value: Value of the dimension.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the dimension.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        Value of the dimension.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricDataQueries":
+            suggest = "metric_data_queries"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metric_data_queries: Sequence['outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery']):
+        """
+        :param Sequence['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs'] metric_data_queries: One or more metric data queries to provide data points for a metric specification. See supported fields below.
+        """
+        pulumi.set(__self__, "metric_data_queries", metric_data_queries)
+
+    @_builtins.property
+    @pulumi.getter(name="metricDataQueries")
+    def metric_data_queries(self) -> Sequence['outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery']:
+        """
+        One or more metric data queries to provide data points for a metric specification. See supported fields below.
+        """
+        return pulumi.get(self, "metric_data_queries")
+
+
+@pulumi.output_type
+class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricStat":
+            suggest = "metric_stat"
+        elif key == "returnData":
+            suggest = "return_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 expression: Optional[_builtins.str] = None,
+                 label: Optional[_builtins.str] = None,
+                 metric_stat: Optional['outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat'] = None,
+                 return_data: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.str id: Short name that identifies the object's results in the response.
+        :param _builtins.str expression: Math expression to perform on the returned data, if this object is performing a math expression.
+        :param _builtins.str label: Human-readable label for this metric or expression.
+        :param 'PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs' metric_stat: Information about the metric data to return. See supported fields below.
+        :param _builtins.bool return_data: Whether to return the timestamps and raw data values of this metric.
+        """
+        pulumi.set(__self__, "id", id)
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if metric_stat is not None:
+            pulumi.set(__self__, "metric_stat", metric_stat)
+        if return_data is not None:
+            pulumi.set(__self__, "return_data", return_data)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        Short name that identifies the object's results in the response.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> Optional[_builtins.str]:
+        """
+        Math expression to perform on the returned data, if this object is performing a math expression.
+        """
+        return pulumi.get(self, "expression")
+
+    @_builtins.property
+    @pulumi.getter
+    def label(self) -> Optional[_builtins.str]:
+        """
+        Human-readable label for this metric or expression.
+        """
+        return pulumi.get(self, "label")
+
+    @_builtins.property
+    @pulumi.getter(name="metricStat")
+    def metric_stat(self) -> Optional['outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat']:
+        """
+        Information about the metric data to return. See supported fields below.
+        """
+        return pulumi.get(self, "metric_stat")
+
+    @_builtins.property
+    @pulumi.getter(name="returnData")
+    def return_data(self) -> Optional[_builtins.bool]:
+        """
+        Whether to return the timestamps and raw data values of this metric.
+        """
+        return pulumi.get(self, "return_data")
+
+
+@pulumi.output_type
+class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat(dict):
+    def __init__(__self__, *,
+                 metric: 'outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric',
+                 stat: _builtins.str,
+                 unit: Optional[_builtins.str] = None):
+        """
+        :param 'PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs' metric: Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
+        :param _builtins.str stat: Statistic of the metrics to return.
+        :param _builtins.str unit: Unit of the metrics to return.
+        """
+        pulumi.set(__self__, "metric", metric)
+        pulumi.set(__self__, "stat", stat)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @_builtins.property
+    @pulumi.getter
+    def metric(self) -> 'outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric':
+        """
+        Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
+        """
+        return pulumi.get(self, "metric")
+
+    @_builtins.property
+    @pulumi.getter
+    def stat(self) -> _builtins.str:
+        """
+        Statistic of the metrics to return.
+        """
+        return pulumi.get(self, "stat")
+
+    @_builtins.property
+    @pulumi.getter
+    def unit(self) -> Optional[_builtins.str]:
+        """
+        Unit of the metrics to return.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricName":
+            suggest = "metric_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dimensions: Optional[Sequence['outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimension']] = None,
+                 metric_name: Optional[_builtins.str] = None,
+                 namespace: Optional[_builtins.str] = None):
+        """
+        :param Sequence['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs'] dimensions: Dimensions of the metric. See supported fields below.
+        :param _builtins.str metric_name: Name of the metric.
+        :param _builtins.str namespace: Namespace of the metric.
+        """
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if metric_name is not None:
+            pulumi.set(__self__, "metric_name", metric_name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @_builtins.property
+    @pulumi.getter
+    def dimensions(self) -> Optional[Sequence['outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimension']]:
+        """
+        Dimensions of the metric. See supported fields below.
+        """
+        return pulumi.get(self, "dimensions")
+
+    @_builtins.property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> Optional[_builtins.str]:
+        """
+        Name of the metric.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def namespace(self) -> Optional[_builtins.str]:
+        """
+        Namespace of the metric.
+        """
+        return pulumi.get(self, "namespace")
+
+
+@pulumi.output_type
+class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimension(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str name: Name of the dimension.
+        :param _builtins.str value: Value of the dimension.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the dimension.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        Value of the dimension.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "predefinedMetricType":
+            suggest = "predefined_metric_type"
+        elif key == "resourceLabel":
+            suggest = "resource_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 predefined_metric_type: _builtins.str,
+                 resource_label: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str predefined_metric_type: Metric type.
+        :param _builtins.str resource_label: Label that uniquely identifies a target group.
+        """
+        pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
+        if resource_label is not None:
+            pulumi.set(__self__, "resource_label", resource_label)
+
+    @_builtins.property
+    @pulumi.getter(name="predefinedMetricType")
+    def predefined_metric_type(self) -> _builtins.str:
+        """
+        Metric type.
+        """
+        return pulumi.get(self, "predefined_metric_type")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceLabel")
+    def resource_label(self) -> Optional[_builtins.str]:
+        """
+        Label that uniquely identifies a target group.
+        """
+        return pulumi.get(self, "resource_label")
+
+
+@pulumi.output_type
+class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "predefinedMetricType":
+            suggest = "predefined_metric_type"
+        elif key == "resourceLabel":
+            suggest = "resource_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 predefined_metric_type: _builtins.str,
+                 resource_label: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str predefined_metric_type: Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric.
+        :param _builtins.str resource_label: Label that uniquely identifies a specific target group from which to determine the total and average request count.
+        """
+        pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
+        if resource_label is not None:
+            pulumi.set(__self__, "resource_label", resource_label)
+
+    @_builtins.property
+    @pulumi.getter(name="predefinedMetricType")
+    def predefined_metric_type(self) -> _builtins.str:
+        """
+        Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric.
+        """
+        return pulumi.get(self, "predefined_metric_type")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceLabel")
+    def resource_label(self) -> Optional[_builtins.str]:
+        """
+        Label that uniquely identifies a specific target group from which to determine the total and average request count.
+        """
+        return pulumi.get(self, "resource_label")
+
+
+@pulumi.output_type
+class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "predefinedMetricType":
+            suggest = "predefined_metric_type"
+        elif key == "resourceLabel":
+            suggest = "resource_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 predefined_metric_type: _builtins.str,
+                 resource_label: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str predefined_metric_type: Metric type.
+        :param _builtins.str resource_label: Label that uniquely identifies a specific target group from which to determine the average request count.
+        """
+        pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
+        if resource_label is not None:
+            pulumi.set(__self__, "resource_label", resource_label)
+
+    @_builtins.property
+    @pulumi.getter(name="predefinedMetricType")
+    def predefined_metric_type(self) -> _builtins.str:
+        """
+        Metric type.
+        """
+        return pulumi.get(self, "predefined_metric_type")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceLabel")
+    def resource_label(self) -> Optional[_builtins.str]:
+        """
+        Label that uniquely identifies a specific target group from which to determine the average request count.
+        """
+        return pulumi.get(self, "resource_label")
+
 
 @pulumi.output_type
 class PolicyStepScalingPolicyConfiguration(dict):

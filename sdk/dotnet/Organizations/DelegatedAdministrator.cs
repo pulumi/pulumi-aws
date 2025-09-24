@@ -33,11 +33,23 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `service_principal` (String) Service principal for the AWS service.
+    /// 
+    /// * `delegated_account_id` (String) Account ID to be designated as a delegated administrator.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// 
     /// Using `pulumi import`, import `aws_organizations_delegated_administrator` using the account ID and its service principal. For example:
     /// 
-    /// ```sh
-    /// $ pulumi import aws:organizations/delegatedAdministrator:DelegatedAdministrator example 123456789012/config.amazonaws.com
-    /// ```
+    /// console
+    /// 
+    /// % pulumi import aws_organizations_delegated_administrator.example 123456789012/config.amazonaws.com
     /// </summary>
     [AwsResourceType("aws:organizations/delegatedAdministrator:DelegatedAdministrator")]
     public partial class DelegatedAdministrator : global::Pulumi.CustomResource

@@ -41,9 +41,9 @@ namespace Pulumi.Aws.Route53
     /// 
     /// #### Optional
     /// 
-    /// - `account_id` (String) AWS Account where this resource is managed.
+    /// * `account_id` (String) AWS Account where this resource is managed.
     /// 
-    /// - `region` (String) Region where this resource is managed.
+    /// * `region` (String) Region where this resource is managed.
     /// 
     /// Using `pulumi import`, import Route53 Resolver rule associations using the `id`. For example:
     /// 

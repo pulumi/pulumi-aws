@@ -11,13 +11,31 @@ import java.util.Objects;
 
 @CustomType
 public final class GetInstancesFilter {
+    /**
+     * @return Name of the filter.
+     * For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+     * 
+     */
     private String name;
+    /**
+     * @return One or more values to match.
+     * 
+     */
     private List<String> values;
 
     private GetInstancesFilter() {}
+    /**
+     * @return Name of the filter.
+     * For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return One or more values to match.
+     * 
+     */
     public List<String> values() {
         return this.values;
     }

@@ -13,6 +13,12 @@ namespace Pulumi.Aws.Ecs.Inputs
     public sealed class ServiceDeploymentConfigurationLifecycleHookArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Custom parameters that Amazon ECS will pass to the hook target invocations (such as a Lambda function).
+        /// </summary>
+        [Input("hookDetails")]
+        public Input<string>? HookDetails { get; set; }
+
+        /// <summary>
         /// ARN of the Lambda function to invoke for the lifecycle hook.
         /// </summary>
         [Input("hookTargetArn", required: true)]

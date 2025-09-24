@@ -23,6 +23,7 @@ __all__ = [
     'LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfiguration',
     'LogDeliveryConfigurationLogConfigurationFirehoseConfiguration',
     'LogDeliveryConfigurationLogConfigurationS3Configuration',
+    'ManagedLoginBrandingAsset',
     'ManagedUserPoolClientAnalyticsConfiguration',
     'ManagedUserPoolClientRefreshTokenRotation',
     'ManagedUserPoolClientTokenValidityUnits',
@@ -496,6 +497,85 @@ class LogDeliveryConfigurationLogConfigurationS3Configuration(dict):
         The ARN of the S3 bucket to which the logs should be delivered.
         """
         return pulumi.get(self, "bucket_arn")
+
+
+@pulumi.output_type
+class ManagedLoginBrandingAsset(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "colorMode":
+            suggest = "color_mode"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedLoginBrandingAsset. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedLoginBrandingAsset.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedLoginBrandingAsset.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 category: _builtins.str,
+                 color_mode: _builtins.str,
+                 extension: _builtins.str,
+                 bytes: Optional[_builtins.str] = None,
+                 resource_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str category: Category that the image corresponds to. See [AWS documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssetType.html#CognitoUserPools-Type-AssetType-Category) for valid values.
+        :param _builtins.str color_mode: Display-mode target of the asset. Valid values: `LIGHT`, `DARK`, `DYNAMIC`.
+        :param _builtins.str bytes: Image file, in Base64-encoded binary.
+        :param _builtins.str resource_id: Asset ID.
+        """
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "color_mode", color_mode)
+        pulumi.set(__self__, "extension", extension)
+        if bytes is not None:
+            pulumi.set(__self__, "bytes", bytes)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> _builtins.str:
+        """
+        Category that the image corresponds to. See [AWS documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssetType.html#CognitoUserPools-Type-AssetType-Category) for valid values.
+        """
+        return pulumi.get(self, "category")
+
+    @_builtins.property
+    @pulumi.getter(name="colorMode")
+    def color_mode(self) -> _builtins.str:
+        """
+        Display-mode target of the asset. Valid values: `LIGHT`, `DARK`, `DYNAMIC`.
+        """
+        return pulumi.get(self, "color_mode")
+
+    @_builtins.property
+    @pulumi.getter
+    def extension(self) -> _builtins.str:
+        return pulumi.get(self, "extension")
+
+    @_builtins.property
+    @pulumi.getter
+    def bytes(self) -> Optional[_builtins.str]:
+        """
+        Image file, in Base64-encoded binary.
+        """
+        return pulumi.get(self, "bytes")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[_builtins.str]:
+        """
+        Asset ID.
+        """
+        return pulumi.get(self, "resource_id")
 
 
 @pulumi.output_type

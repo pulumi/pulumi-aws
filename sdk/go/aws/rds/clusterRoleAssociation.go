@@ -58,7 +58,7 @@ type ClusterRoleAssociation struct {
 	// DB Cluster Identifier to associate with the IAM Role.
 	DbClusterIdentifier pulumi.StringOutput `pulumi:"dbClusterIdentifier"`
 	// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
-	FeatureName pulumi.StringOutput `pulumi:"featureName"`
+	FeatureName pulumi.StringPtrOutput `pulumi:"featureName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
@@ -74,9 +74,6 @@ func NewClusterRoleAssociation(ctx *pulumi.Context,
 
 	if args.DbClusterIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'DbClusterIdentifier'")
-	}
-	if args.FeatureName == nil {
-		return nil, errors.New("invalid value for required argument 'FeatureName'")
 	}
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
@@ -133,7 +130,7 @@ type clusterRoleAssociationArgs struct {
 	// DB Cluster Identifier to associate with the IAM Role.
 	DbClusterIdentifier string `pulumi:"dbClusterIdentifier"`
 	// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
-	FeatureName string `pulumi:"featureName"`
+	FeatureName *string `pulumi:"featureName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
@@ -145,7 +142,7 @@ type ClusterRoleAssociationArgs struct {
 	// DB Cluster Identifier to associate with the IAM Role.
 	DbClusterIdentifier pulumi.StringInput
 	// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
-	FeatureName pulumi.StringInput
+	FeatureName pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
@@ -245,8 +242,8 @@ func (o ClusterRoleAssociationOutput) DbClusterIdentifier() pulumi.StringOutput 
 }
 
 // Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
-func (o ClusterRoleAssociationOutput) FeatureName() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterRoleAssociation) pulumi.StringOutput { return v.FeatureName }).(pulumi.StringOutput)
+func (o ClusterRoleAssociationOutput) FeatureName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterRoleAssociation) pulumi.StringPtrOutput { return v.FeatureName }).(pulumi.StringPtrOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

@@ -23,6 +23,11 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationIcebe
      */
     private @Nullable Integer numberOfSnapshotsToRetain;
     /**
+     * @return Interval in hours between retention job runs. Defaults to `24`.
+     * 
+     */
+    private @Nullable Integer runRateInHours;
+    /**
      * @return The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
      * 
      */
@@ -44,6 +49,13 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationIcebe
         return Optional.ofNullable(this.numberOfSnapshotsToRetain);
     }
     /**
+     * @return Interval in hours between retention job runs. Defaults to `24`.
+     * 
+     */
+    public Optional<Integer> runRateInHours() {
+        return Optional.ofNullable(this.runRateInHours);
+    }
+    /**
      * @return The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
      * 
      */
@@ -62,12 +74,14 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationIcebe
     public static final class Builder {
         private @Nullable Boolean cleanExpiredFiles;
         private @Nullable Integer numberOfSnapshotsToRetain;
+        private @Nullable Integer runRateInHours;
         private @Nullable Integer snapshotRetentionPeriodInDays;
         public Builder() {}
         public Builder(CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cleanExpiredFiles = defaults.cleanExpiredFiles;
     	      this.numberOfSnapshotsToRetain = defaults.numberOfSnapshotsToRetain;
+    	      this.runRateInHours = defaults.runRateInHours;
     	      this.snapshotRetentionPeriodInDays = defaults.snapshotRetentionPeriodInDays;
         }
 
@@ -84,6 +98,12 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationIcebe
             return this;
         }
         @CustomType.Setter
+        public Builder runRateInHours(@Nullable Integer runRateInHours) {
+
+            this.runRateInHours = runRateInHours;
+            return this;
+        }
+        @CustomType.Setter
         public Builder snapshotRetentionPeriodInDays(@Nullable Integer snapshotRetentionPeriodInDays) {
 
             this.snapshotRetentionPeriodInDays = snapshotRetentionPeriodInDays;
@@ -93,6 +113,7 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationIcebe
             final var _resultValue = new CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration();
             _resultValue.cleanExpiredFiles = cleanExpiredFiles;
             _resultValue.numberOfSnapshotsToRetain = numberOfSnapshotsToRetain;
+            _resultValue.runRateInHours = runRateInHours;
             _resultValue.snapshotRetentionPeriodInDays = snapshotRetentionPeriodInDays;
             return _resultValue;
         }

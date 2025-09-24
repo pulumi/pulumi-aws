@@ -109,6 +109,36 @@ public final class MountTargetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * IP address type for the mount target. Valid values are `IPV4_ONLY` (only IPv4 addresses), `IPV6_ONLY` (only IPv6 addresses), and `DUAL_STACK` (dual-stack, both IPv4 and IPv6 addresses). Defaults to `IPV4_ONLY`.
+     * 
+     */
+    @Import(name="ipAddressType")
+    private @Nullable Output<String> ipAddressType;
+
+    /**
+     * @return IP address type for the mount target. Valid values are `IPV4_ONLY` (only IPv4 addresses), `IPV6_ONLY` (only IPv6 addresses), and `DUAL_STACK` (dual-stack, both IPv4 and IPv6 addresses). Defaults to `IPV4_ONLY`.
+     * 
+     */
+    public Optional<Output<String>> ipAddressType() {
+        return Optional.ofNullable(this.ipAddressType);
+    }
+
+    /**
+     * IPv6 address to use. Valid only when `ip_address_type` is set to `IPV6_ONLY` or `DUAL_STACK`.
+     * 
+     */
+    @Import(name="ipv6Address")
+    private @Nullable Output<String> ipv6Address;
+
+    /**
+     * @return IPv6 address to use. Valid only when `ip_address_type` is set to `IPV6_ONLY` or `DUAL_STACK`.
+     * 
+     */
+    public Optional<Output<String>> ipv6Address() {
+        return Optional.ofNullable(this.ipv6Address);
+    }
+
+    /**
      * The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
      * 
      */
@@ -209,6 +239,8 @@ public final class MountTargetState extends com.pulumi.resources.ResourceArgs {
         this.fileSystemArn = $.fileSystemArn;
         this.fileSystemId = $.fileSystemId;
         this.ipAddress = $.ipAddress;
+        this.ipAddressType = $.ipAddressType;
+        this.ipv6Address = $.ipv6Address;
         this.mountTargetDnsName = $.mountTargetDnsName;
         this.networkInterfaceId = $.networkInterfaceId;
         this.ownerId = $.ownerId;
@@ -361,6 +393,48 @@ public final class MountTargetState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder ipAddress(String ipAddress) {
             return ipAddress(Output.of(ipAddress));
+        }
+
+        /**
+         * @param ipAddressType IP address type for the mount target. Valid values are `IPV4_ONLY` (only IPv4 addresses), `IPV6_ONLY` (only IPv6 addresses), and `DUAL_STACK` (dual-stack, both IPv4 and IPv6 addresses). Defaults to `IPV4_ONLY`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressType(@Nullable Output<String> ipAddressType) {
+            $.ipAddressType = ipAddressType;
+            return this;
+        }
+
+        /**
+         * @param ipAddressType IP address type for the mount target. Valid values are `IPV4_ONLY` (only IPv4 addresses), `IPV6_ONLY` (only IPv6 addresses), and `DUAL_STACK` (dual-stack, both IPv4 and IPv6 addresses). Defaults to `IPV4_ONLY`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressType(String ipAddressType) {
+            return ipAddressType(Output.of(ipAddressType));
+        }
+
+        /**
+         * @param ipv6Address IPv6 address to use. Valid only when `ip_address_type` is set to `IPV6_ONLY` or `DUAL_STACK`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv6Address(@Nullable Output<String> ipv6Address) {
+            $.ipv6Address = ipv6Address;
+            return this;
+        }
+
+        /**
+         * @param ipv6Address IPv6 address to use. Valid only when `ip_address_type` is set to `IPV6_ONLY` or `DUAL_STACK`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv6Address(String ipv6Address) {
+            return ipv6Address(Output.of(ipv6Address));
         }
 
         /**

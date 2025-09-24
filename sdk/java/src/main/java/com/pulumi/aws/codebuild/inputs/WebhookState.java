@@ -4,6 +4,7 @@
 package com.pulumi.aws.codebuild.inputs;
 
 import com.pulumi.aws.codebuild.inputs.WebhookFilterGroupArgs;
+import com.pulumi.aws.codebuild.inputs.WebhookPullRequestBuildPolicyArgs;
 import com.pulumi.aws.codebuild.inputs.WebhookScopeConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -50,14 +51,14 @@ public final class WebhookState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Information about the webhook&#39;s trigger. Filter group blocks are documented below.
+     * Information about the webhook&#39;s trigger. See filter_group for details.
      * 
      */
     @Import(name="filterGroups")
     private @Nullable Output<List<WebhookFilterGroupArgs>> filterGroups;
 
     /**
-     * @return Information about the webhook&#39;s trigger. Filter group blocks are documented below.
+     * @return Information about the webhook&#39;s trigger. See filter_group for details.
      * 
      */
     public Optional<Output<List<WebhookFilterGroupArgs>>> filterGroups() {
@@ -110,6 +111,21 @@ public final class WebhookState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Defines comment-based approval requirements for triggering builds on pull requests. See pull_request_build_policy for details.
+     * 
+     */
+    @Import(name="pullRequestBuildPolicy")
+    private @Nullable Output<WebhookPullRequestBuildPolicyArgs> pullRequestBuildPolicy;
+
+    /**
+     * @return Defines comment-based approval requirements for triggering builds on pull requests. See pull_request_build_policy for details.
+     * 
+     */
+    public Optional<Output<WebhookPullRequestBuildPolicyArgs>> pullRequestBuildPolicy() {
+        return Optional.ofNullable(this.pullRequestBuildPolicy);
+    }
+
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
@@ -125,14 +141,14 @@ public final class WebhookState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+     * Scope configuration for global or organization webhooks. See scope_configuration for details.
      * 
      */
     @Import(name="scopeConfiguration")
     private @Nullable Output<WebhookScopeConfigurationArgs> scopeConfiguration;
 
     /**
-     * @return Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+     * @return Scope configuration for global or organization webhooks. See scope_configuration for details.
      * 
      */
     public Optional<Output<WebhookScopeConfigurationArgs>> scopeConfiguration() {
@@ -178,6 +194,7 @@ public final class WebhookState extends com.pulumi.resources.ResourceArgs {
         this.manualCreation = $.manualCreation;
         this.payloadUrl = $.payloadUrl;
         this.projectName = $.projectName;
+        this.pullRequestBuildPolicy = $.pullRequestBuildPolicy;
         this.region = $.region;
         this.scopeConfiguration = $.scopeConfiguration;
         this.secret = $.secret;
@@ -245,7 +262,7 @@ public final class WebhookState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param filterGroups Information about the webhook&#39;s trigger. Filter group blocks are documented below.
+         * @param filterGroups Information about the webhook&#39;s trigger. See filter_group for details.
          * 
          * @return builder
          * 
@@ -256,7 +273,7 @@ public final class WebhookState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param filterGroups Information about the webhook&#39;s trigger. Filter group blocks are documented below.
+         * @param filterGroups Information about the webhook&#39;s trigger. See filter_group for details.
          * 
          * @return builder
          * 
@@ -266,7 +283,7 @@ public final class WebhookState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param filterGroups Information about the webhook&#39;s trigger. Filter group blocks are documented below.
+         * @param filterGroups Information about the webhook&#39;s trigger. See filter_group for details.
          * 
          * @return builder
          * 
@@ -339,6 +356,27 @@ public final class WebhookState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param pullRequestBuildPolicy Defines comment-based approval requirements for triggering builds on pull requests. See pull_request_build_policy for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pullRequestBuildPolicy(@Nullable Output<WebhookPullRequestBuildPolicyArgs> pullRequestBuildPolicy) {
+            $.pullRequestBuildPolicy = pullRequestBuildPolicy;
+            return this;
+        }
+
+        /**
+         * @param pullRequestBuildPolicy Defines comment-based approval requirements for triggering builds on pull requests. See pull_request_build_policy for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pullRequestBuildPolicy(WebhookPullRequestBuildPolicyArgs pullRequestBuildPolicy) {
+            return pullRequestBuildPolicy(Output.of(pullRequestBuildPolicy));
+        }
+
+        /**
          * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
@@ -360,7 +398,7 @@ public final class WebhookState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scopeConfiguration Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+         * @param scopeConfiguration Scope configuration for global or organization webhooks. See scope_configuration for details.
          * 
          * @return builder
          * 
@@ -371,7 +409,7 @@ public final class WebhookState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scopeConfiguration Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+         * @param scopeConfiguration Scope configuration for global or organization webhooks. See scope_configuration for details.
          * 
          * @return builder
          * 

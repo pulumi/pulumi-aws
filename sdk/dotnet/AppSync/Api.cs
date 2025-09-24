@@ -146,7 +146,7 @@ namespace Pulumi.Aws.AppSync
     ///                     AuthType = "AWS_LAMBDA",
     ///                     LambdaAuthorizerConfig = new Aws.AppSync.Inputs.ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs
     ///                     {
-    ///                         AuthorizerUri = exampleAwsLambdaFunction.InvokeArn,
+    ///                         AuthorizerUri = exampleAwsLambdaFunction.Arn,
     ///                         AuthorizerResultTtlInSeconds = 300,
     ///                     },
     ///                 },

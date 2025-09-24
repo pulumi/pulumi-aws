@@ -556,11 +556,23 @@ class Parameter(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `name` - (String) Name of the parameter.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import SSM Parameters using the parameter store `name`. For example:
 
-        ```sh
-        $ pulumi import aws:ssm/parameter:Parameter my_param /my_path/my_paramname
-        ```
+        console
+
+        % pulumi import aws_ssm_parameter.example /my_path/my_paramname
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -634,11 +646,23 @@ class Parameter(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `name` - (String) Name of the parameter.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import SSM Parameters using the parameter store `name`. For example:
 
-        ```sh
-        $ pulumi import aws:ssm/parameter:Parameter my_param /my_path/my_paramname
-        ```
+        console
+
+        % pulumi import aws_ssm_parameter.example /my_path/my_paramname
 
         :param str resource_name: The name of the resource.
         :param ParameterArgs args: The arguments to use to populate this resource's properties.

@@ -302,6 +302,12 @@ namespace Pulumi.Aws.Budgets
         public Output<Outputs.BudgetAutoAdjustData?> AutoAdjustData { get; private set; } = null!;
 
         /// <summary>
+        /// ARN of the billing view.
+        /// </summary>
+        [Output("billingViewArn")]
+        public Output<string?> BillingViewArn { get; private set; } = null!;
+
+        /// <summary>
         /// Whether this budget tracks monetary cost or usage.
         /// </summary>
         [Output("budgetType")]
@@ -449,6 +455,12 @@ namespace Pulumi.Aws.Budgets
         public Input<Inputs.BudgetAutoAdjustDataArgs>? AutoAdjustData { get; set; }
 
         /// <summary>
+        /// ARN of the billing view.
+        /// </summary>
+        [Input("billingViewArn")]
+        public Input<string>? BillingViewArn { get; set; }
+
+        /// <summary>
         /// Whether this budget tracks monetary cost or usage.
         /// </summary>
         [Input("budgetType", required: true)]
@@ -580,6 +592,12 @@ namespace Pulumi.Aws.Budgets
         /// </summary>
         [Input("autoAdjustData")]
         public Input<Inputs.BudgetAutoAdjustDataGetArgs>? AutoAdjustData { get; set; }
+
+        /// <summary>
+        /// ARN of the billing view.
+        /// </summary>
+        [Input("billingViewArn")]
+        public Input<string>? BillingViewArn { get; set; }
 
         /// <summary>
         /// Whether this budget tracks monetary cost or usage.

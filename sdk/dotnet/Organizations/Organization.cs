@@ -41,11 +41,21 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `id` (String) ID of the AWS Organizations organization.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// 
     /// Using `pulumi import`, import the AWS organization using the `id`. For example:
     /// 
-    /// ```sh
-    /// $ pulumi import aws:organizations/organization:Organization my_org o-1234567
-    /// ```
+    /// console
+    /// 
+    /// % pulumi import aws_organizations_organization.example o-1234567
     /// </summary>
     [AwsResourceType("aws:organizations/organization:Organization")]
     public partial class Organization : global::Pulumi.CustomResource

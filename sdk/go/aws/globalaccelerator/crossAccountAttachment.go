@@ -78,11 +78,17 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator cross-account attachment.
+//
 // Using `pulumi import`, import Global Accelerator Cross Account Attachment using the `arn`. For example:
 //
-// ```sh
-// $ pulumi import aws:globalaccelerator/crossAccountAttachment:CrossAccountAttachment example arn:aws:globalaccelerator::012345678910:attachment/01234567-abcd-8910-efgh-123456789012
-// ```
+// console
+//
+// % pulumi import aws_globalaccelerator_cross_account_attachment.example arn:aws:globalaccelerator::012345678910:attachment/01234567-abcd-8910-efgh-123456789012
 type CrossAccountAttachment struct {
 	pulumi.CustomResourceState
 

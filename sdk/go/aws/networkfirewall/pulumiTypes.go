@@ -5601,7 +5601,7 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 }
 
 type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination struct {
-	// An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
+	// An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4 and IPv6.
 	AddressDefinition string `pulumi:"addressDefinition"`
 }
 
@@ -5617,7 +5617,7 @@ type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRul
 }
 
 type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgs struct {
-	// An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
+	// An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4 and IPv6.
 	AddressDefinition pulumi.StringInput `pulumi:"addressDefinition"`
 }
 
@@ -5672,7 +5672,7 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 	return o
 }
 
-// An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
+// An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4 and IPv6.
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationOutput) AddressDefinition() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination) string {
 		return v.AddressDefinition
@@ -5810,7 +5810,7 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 }
 
 type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource struct {
-	// An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
+	// An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4 and IPv6.
 	AddressDefinition string `pulumi:"addressDefinition"`
 }
 
@@ -5826,7 +5826,7 @@ type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRul
 }
 
 type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs struct {
-	// An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
+	// An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4 and IPv6.
 	AddressDefinition pulumi.StringInput `pulumi:"addressDefinition"`
 }
 
@@ -5881,7 +5881,7 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 	return o
 }
 
-// An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
+// An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4 and IPv6.
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceOutput) AddressDefinition() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource) string {
 		return v.AddressDefinition

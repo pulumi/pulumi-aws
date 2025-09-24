@@ -27,7 +27,7 @@ class GetBudgetResult:
     """
     A collection of values returned by getBudget.
     """
-    def __init__(__self__, account_id=None, arn=None, auto_adjust_datas=None, budget_exceeded=None, budget_limits=None, budget_type=None, calculated_spends=None, cost_filters=None, cost_types=None, id=None, name=None, name_prefix=None, notifications=None, planned_limits=None, tags=None, time_period_end=None, time_period_start=None, time_unit=None):
+    def __init__(__self__, account_id=None, arn=None, auto_adjust_datas=None, billing_view_arn=None, budget_exceeded=None, budget_limits=None, budget_type=None, calculated_spends=None, cost_filters=None, cost_types=None, id=None, name=None, name_prefix=None, notifications=None, planned_limits=None, tags=None, time_period_end=None, time_period_start=None, time_unit=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
@@ -37,6 +37,9 @@ class GetBudgetResult:
         if auto_adjust_datas and not isinstance(auto_adjust_datas, list):
             raise TypeError("Expected argument 'auto_adjust_datas' to be a list")
         pulumi.set(__self__, "auto_adjust_datas", auto_adjust_datas)
+        if billing_view_arn and not isinstance(billing_view_arn, str):
+            raise TypeError("Expected argument 'billing_view_arn' to be a str")
+        pulumi.set(__self__, "billing_view_arn", billing_view_arn)
         if budget_exceeded and not isinstance(budget_exceeded, bool):
             raise TypeError("Expected argument 'budget_exceeded' to be a bool")
         pulumi.set(__self__, "budget_exceeded", budget_exceeded)
@@ -100,6 +103,14 @@ class GetBudgetResult:
         Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
         """
         return pulumi.get(self, "auto_adjust_datas")
+
+    @_builtins.property
+    @pulumi.getter(name="billingViewArn")
+    def billing_view_arn(self) -> _builtins.str:
+        """
+        ARN of the billing view.
+        """
+        return pulumi.get(self, "billing_view_arn")
 
     @_builtins.property
     @pulumi.getter(name="budgetExceeded")
@@ -225,6 +236,7 @@ class AwaitableGetBudgetResult(GetBudgetResult):
             account_id=self.account_id,
             arn=self.arn,
             auto_adjust_datas=self.auto_adjust_datas,
+            billing_view_arn=self.billing_view_arn,
             budget_exceeded=self.budget_exceeded,
             budget_limits=self.budget_limits,
             budget_type=self.budget_type,
@@ -281,6 +293,7 @@ def get_budget(account_id: Optional[_builtins.str] = None,
         account_id=pulumi.get(__ret__, 'account_id'),
         arn=pulumi.get(__ret__, 'arn'),
         auto_adjust_datas=pulumi.get(__ret__, 'auto_adjust_datas'),
+        billing_view_arn=pulumi.get(__ret__, 'billing_view_arn'),
         budget_exceeded=pulumi.get(__ret__, 'budget_exceeded'),
         budget_limits=pulumi.get(__ret__, 'budget_limits'),
         budget_type=pulumi.get(__ret__, 'budget_type'),
@@ -334,6 +347,7 @@ def get_budget_output(account_id: Optional[pulumi.Input[Optional[_builtins.str]]
         account_id=pulumi.get(__response__, 'account_id'),
         arn=pulumi.get(__response__, 'arn'),
         auto_adjust_datas=pulumi.get(__response__, 'auto_adjust_datas'),
+        billing_view_arn=pulumi.get(__response__, 'billing_view_arn'),
         budget_exceeded=pulumi.get(__response__, 'budget_exceeded'),
         budget_limits=pulumi.get(__response__, 'budget_limits'),
         budget_type=pulumi.get(__response__, 'budget_type'),

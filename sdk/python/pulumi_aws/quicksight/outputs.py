@@ -2875,10 +2875,11 @@ class DataSetOutputColumn(dict):
                  name: Optional[_builtins.str] = None,
                  type: Optional[_builtins.str] = None):
         """
-        :param _builtins.str description: Field folder description.
+        :param _builtins.str description: The description of the column.
         :param _builtins.str name: Display name for the dataset.
                
                The following arguments are optional:
+        :param _builtins.str type: The data type of the column.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -2891,7 +2892,7 @@ class DataSetOutputColumn(dict):
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         """
-        Field folder description.
+        The description of the column.
         """
         return pulumi.get(self, "description")
 
@@ -2908,6 +2909,9 @@ class DataSetOutputColumn(dict):
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[_builtins.str]:
+        """
+        The data type of the column.
+        """
         return pulumi.get(self, "type")
 
 

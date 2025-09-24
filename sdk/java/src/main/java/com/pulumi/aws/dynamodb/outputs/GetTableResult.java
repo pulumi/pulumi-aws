@@ -11,6 +11,7 @@ import com.pulumi.aws.dynamodb.outputs.GetTablePointInTimeRecovery;
 import com.pulumi.aws.dynamodb.outputs.GetTableReplica;
 import com.pulumi.aws.dynamodb.outputs.GetTableServerSideEncryption;
 import com.pulumi.aws.dynamodb.outputs.GetTableTtl;
+import com.pulumi.aws.dynamodb.outputs.GetTableWarmThroughput;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -49,6 +50,7 @@ public final class GetTableResult {
     private String tableClass;
     private Map<String,String> tags;
     private GetTableTtl ttl;
+    private List<GetTableWarmThroughput> warmThroughputs;
     private Integer writeCapacity;
 
     private GetTableResult() {}
@@ -125,6 +127,9 @@ public final class GetTableResult {
     public GetTableTtl ttl() {
         return this.ttl;
     }
+    public List<GetTableWarmThroughput> warmThroughputs() {
+        return this.warmThroughputs;
+    }
     public Integer writeCapacity() {
         return this.writeCapacity;
     }
@@ -161,6 +166,7 @@ public final class GetTableResult {
         private String tableClass;
         private Map<String,String> tags;
         private GetTableTtl ttl;
+        private List<GetTableWarmThroughput> warmThroughputs;
         private Integer writeCapacity;
         public Builder() {}
         public Builder(GetTableResult defaults) {
@@ -188,6 +194,7 @@ public final class GetTableResult {
     	      this.tableClass = defaults.tableClass;
     	      this.tags = defaults.tags;
     	      this.ttl = defaults.ttl;
+    	      this.warmThroughputs = defaults.warmThroughputs;
     	      this.writeCapacity = defaults.writeCapacity;
         }
 
@@ -391,6 +398,17 @@ public final class GetTableResult {
             return this;
         }
         @CustomType.Setter
+        public Builder warmThroughputs(List<GetTableWarmThroughput> warmThroughputs) {
+            if (warmThroughputs == null) {
+              throw new MissingRequiredPropertyException("GetTableResult", "warmThroughputs");
+            }
+            this.warmThroughputs = warmThroughputs;
+            return this;
+        }
+        public Builder warmThroughputs(GetTableWarmThroughput... warmThroughputs) {
+            return warmThroughputs(List.of(warmThroughputs));
+        }
+        @CustomType.Setter
         public Builder writeCapacity(Integer writeCapacity) {
             if (writeCapacity == null) {
               throw new MissingRequiredPropertyException("GetTableResult", "writeCapacity");
@@ -423,6 +441,7 @@ public final class GetTableResult {
             _resultValue.tableClass = tableClass;
             _resultValue.tags = tags;
             _resultValue.ttl = ttl;
+            _resultValue.warmThroughputs = warmThroughputs;
             _resultValue.writeCapacity = writeCapacity;
             return _resultValue;
         }

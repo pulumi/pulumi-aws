@@ -278,14 +278,6 @@ class LoggingConfiguration(pulumi.CustomResource):
         })
         ```
 
-        ## Import
-
-        Using `pulumi import`, import IVS (Interactive Video) Chat Logging Configuration using the ARN. For example:
-
-        ```sh
-        $ pulumi import aws:ivschat/loggingConfiguration:LoggingConfiguration example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['LoggingConfigurationDestinationConfigurationArgs', 'LoggingConfigurationDestinationConfigurationArgsDict']] destination_configuration: Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
@@ -354,14 +346,6 @@ class LoggingConfiguration(pulumi.CustomResource):
                 "delivery_stream_name": example.name,
             },
         })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import IVS (Interactive Video) Chat Logging Configuration using the ARN. For example:
-
-        ```sh
-        $ pulumi import aws:ivschat/loggingConfiguration:LoggingConfiguration example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
         ```
 
         :param str resource_name: The name of the resource.

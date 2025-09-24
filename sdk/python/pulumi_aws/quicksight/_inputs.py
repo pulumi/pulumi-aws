@@ -3486,7 +3486,7 @@ if not MYPY:
     class DataSetOutputColumnArgsDict(TypedDict):
         description: NotRequired[pulumi.Input[_builtins.str]]
         """
-        Field folder description.
+        The description of the column.
         """
         name: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -3495,6 +3495,9 @@ if not MYPY:
         The following arguments are optional:
         """
         type: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The data type of the column.
+        """
 elif False:
     DataSetOutputColumnArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3505,10 +3508,11 @@ class DataSetOutputColumnArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] description: Field folder description.
+        :param pulumi.Input[_builtins.str] description: The description of the column.
         :param pulumi.Input[_builtins.str] name: Display name for the dataset.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] type: The data type of the column.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -3521,7 +3525,7 @@ class DataSetOutputColumnArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Field folder description.
+        The description of the column.
         """
         return pulumi.get(self, "description")
 
@@ -3546,6 +3550,9 @@ class DataSetOutputColumnArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The data type of the column.
+        """
         return pulumi.get(self, "type")
 
     @type.setter

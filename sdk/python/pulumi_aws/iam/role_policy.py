@@ -229,11 +229,23 @@ class RolePolicy(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `role` (String) Name of the IAM role.
+
+        * `name` (String) Name of the role policy.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+
         Using `pulumi import`, import IAM Role Policies using the `role_name:role_policy_name`. For example:
 
-        ```sh
-        $ pulumi import aws:iam/rolePolicy:RolePolicy mypolicy role_of_mypolicy_name:mypolicy_name
-        ```
+        console
+
+        % pulumi import aws_iam_role_policy.example role_of_mypolicy_name:mypolicy_name
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -294,11 +306,23 @@ class RolePolicy(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `role` (String) Name of the IAM role.
+
+        * `name` (String) Name of the role policy.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+
         Using `pulumi import`, import IAM Role Policies using the `role_name:role_policy_name`. For example:
 
-        ```sh
-        $ pulumi import aws:iam/rolePolicy:RolePolicy mypolicy role_of_mypolicy_name:mypolicy_name
-        ```
+        console
+
+        % pulumi import aws_iam_role_policy.example role_of_mypolicy_name:mypolicy_name
 
         :param str resource_name: The name of the resource.
         :param RolePolicyArgs args: The arguments to use to populate this resource's properties.

@@ -45,6 +45,7 @@ class TableArgs:
                  table_class: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  ttl: Optional[pulumi.Input['TableTtlArgs']] = None,
+                 warm_throughput: Optional[pulumi.Input['TableWarmThroughputArgs']] = None,
                  write_capacity: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Table resource.
@@ -76,6 +77,7 @@ class TableArgs:
                Default value is `STANDARD`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['TableTtlArgs'] ttl: Configuration block for TTL. See below.
+        :param pulumi.Input['TableWarmThroughputArgs'] warm_throughput: Sets the number of warm read and write units for the specified table. See below.
         :param pulumi.Input[_builtins.int] write_capacity: Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         """
         if attributes is not None:
@@ -126,6 +128,8 @@ class TableArgs:
             pulumi.set(__self__, "tags", tags)
         if ttl is not None:
             pulumi.set(__self__, "ttl", ttl)
+        if warm_throughput is not None:
+            pulumi.set(__self__, "warm_throughput", warm_throughput)
         if write_capacity is not None:
             pulumi.set(__self__, "write_capacity", write_capacity)
 
@@ -422,6 +426,18 @@ class TableArgs:
         pulumi.set(self, "ttl", value)
 
     @_builtins.property
+    @pulumi.getter(name="warmThroughput")
+    def warm_throughput(self) -> Optional[pulumi.Input['TableWarmThroughputArgs']]:
+        """
+        Sets the number of warm read and write units for the specified table. See below.
+        """
+        return pulumi.get(self, "warm_throughput")
+
+    @warm_throughput.setter
+    def warm_throughput(self, value: Optional[pulumi.Input['TableWarmThroughputArgs']]):
+        pulumi.set(self, "warm_throughput", value)
+
+    @_builtins.property
     @pulumi.getter(name="writeCapacity")
     def write_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -465,6 +481,7 @@ class _TableState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  ttl: Optional[pulumi.Input['TableTtlArgs']] = None,
+                 warm_throughput: Optional[pulumi.Input['TableWarmThroughputArgs']] = None,
                  write_capacity: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Table resources.
@@ -500,6 +517,7 @@ class _TableState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['TableTtlArgs'] ttl: Configuration block for TTL. See below.
+        :param pulumi.Input['TableWarmThroughputArgs'] warm_throughput: Sets the number of warm read and write units for the specified table. See below.
         :param pulumi.Input[_builtins.int] write_capacity: Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         """
         if arn is not None:
@@ -558,6 +576,8 @@ class _TableState:
             pulumi.set(__self__, "tags_all", tags_all)
         if ttl is not None:
             pulumi.set(__self__, "ttl", ttl)
+        if warm_throughput is not None:
+            pulumi.set(__self__, "warm_throughput", warm_throughput)
         if write_capacity is not None:
             pulumi.set(__self__, "write_capacity", write_capacity)
 
@@ -902,6 +922,18 @@ class _TableState:
         pulumi.set(self, "ttl", value)
 
     @_builtins.property
+    @pulumi.getter(name="warmThroughput")
+    def warm_throughput(self) -> Optional[pulumi.Input['TableWarmThroughputArgs']]:
+        """
+        Sets the number of warm read and write units for the specified table. See below.
+        """
+        return pulumi.get(self, "warm_throughput")
+
+    @warm_throughput.setter
+    def warm_throughput(self, value: Optional[pulumi.Input['TableWarmThroughputArgs']]):
+        pulumi.set(self, "warm_throughput", value)
+
+    @_builtins.property
     @pulumi.getter(name="writeCapacity")
     def write_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -944,6 +976,7 @@ class Table(pulumi.CustomResource):
                  table_class: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  ttl: Optional[pulumi.Input[Union['TableTtlArgs', 'TableTtlArgsDict']]] = None,
+                 warm_throughput: Optional[pulumi.Input[Union['TableWarmThroughputArgs', 'TableWarmThroughputArgsDict']]] = None,
                  write_capacity: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         """
@@ -1157,6 +1190,7 @@ class Table(pulumi.CustomResource):
                Default value is `STANDARD`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union['TableTtlArgs', 'TableTtlArgsDict']] ttl: Configuration block for TTL. See below.
+        :param pulumi.Input[Union['TableWarmThroughputArgs', 'TableWarmThroughputArgsDict']] warm_throughput: Sets the number of warm read and write units for the specified table. See below.
         :param pulumi.Input[_builtins.int] write_capacity: Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         """
         ...
@@ -1385,6 +1419,7 @@ class Table(pulumi.CustomResource):
                  table_class: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  ttl: Optional[pulumi.Input[Union['TableTtlArgs', 'TableTtlArgsDict']]] = None,
+                 warm_throughput: Optional[pulumi.Input[Union['TableWarmThroughputArgs', 'TableWarmThroughputArgsDict']]] = None,
                  write_capacity: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1419,6 +1454,7 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["table_class"] = table_class
             __props__.__dict__["tags"] = tags
             __props__.__dict__["ttl"] = ttl
+            __props__.__dict__["warm_throughput"] = warm_throughput
             __props__.__dict__["write_capacity"] = write_capacity
             __props__.__dict__["arn"] = None
             __props__.__dict__["stream_arn"] = None
@@ -1462,6 +1498,7 @@ class Table(pulumi.CustomResource):
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             ttl: Optional[pulumi.Input[Union['TableTtlArgs', 'TableTtlArgsDict']]] = None,
+            warm_throughput: Optional[pulumi.Input[Union['TableWarmThroughputArgs', 'TableWarmThroughputArgsDict']]] = None,
             write_capacity: Optional[pulumi.Input[_builtins.int]] = None) -> 'Table':
         """
         Get an existing Table resource's state with the given name, id, and optional extra
@@ -1502,6 +1539,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['TableTtlArgs', 'TableTtlArgsDict']] ttl: Configuration block for TTL. See below.
+        :param pulumi.Input[Union['TableWarmThroughputArgs', 'TableWarmThroughputArgsDict']] warm_throughput: Sets the number of warm read and write units for the specified table. See below.
         :param pulumi.Input[_builtins.int] write_capacity: Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1536,6 +1574,7 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["ttl"] = ttl
+        __props__.__dict__["warm_throughput"] = warm_throughput
         __props__.__dict__["write_capacity"] = write_capacity
         return Table(resource_name, opts=opts, __props__=__props__)
 
@@ -1766,6 +1805,14 @@ class Table(pulumi.CustomResource):
         Configuration block for TTL. See below.
         """
         return pulumi.get(self, "ttl")
+
+    @_builtins.property
+    @pulumi.getter(name="warmThroughput")
+    def warm_throughput(self) -> pulumi.Output['outputs.TableWarmThroughput']:
+        """
+        Sets the number of warm read and write units for the specified table. See below.
+        """
+        return pulumi.get(self, "warm_throughput")
 
     @_builtins.property
     @pulumi.getter(name="writeCapacity")

@@ -175,9 +175,10 @@ def get_instances(filters: Optional[Sequence[Union['GetInstancesFilterArgs', 'Ge
     ```
 
 
-    :param Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are
-           several valid keys, for a full reference, check out
-           [describe-instances in the AWS CLI reference][1].
+    :param Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']] filters: One or more filters to apply to the search.
+           If multiple `filter` blocks are provided, they all must be true.
+           For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+           See `filter` Block below.
     :param Sequence[_builtins.str] instance_state_names: List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
     :param Mapping[str, _builtins.str] instance_tags: Map of tags, each pair of which must
            exactly match a pair on desired instances.
@@ -241,9 +242,10 @@ def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[Union[
     ```
 
 
-    :param Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are
-           several valid keys, for a full reference, check out
-           [describe-instances in the AWS CLI reference][1].
+    :param Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']] filters: One or more filters to apply to the search.
+           If multiple `filter` blocks are provided, they all must be true.
+           For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+           See `filter` Block below.
     :param Sequence[_builtins.str] instance_state_names: List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
     :param Mapping[str, _builtins.str] instance_tags: Map of tags, each pair of which must
            exactly match a pair on desired instances.

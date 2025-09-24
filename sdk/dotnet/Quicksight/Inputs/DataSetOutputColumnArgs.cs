@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
     public sealed class DataSetOutputColumnArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Field folder description.
+        /// The description of the column.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -26,6 +26,9 @@ namespace Pulumi.Aws.Quicksight.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The data type of the column.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

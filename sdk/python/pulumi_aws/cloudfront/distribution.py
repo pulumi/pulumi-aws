@@ -960,28 +960,29 @@ class Distribution(pulumi.CustomResource):
             tags={
                 "Name": "My bucket",
             })
-        b_acl = aws.s3.BucketAcl("b_acl",
-            bucket=b.id,
-            acl="private")
         s3_origin_id = "myS3Origin"
+        my_domain = "mydomain.com"
+        my_domain_get_certificate = aws.acm.get_certificate(region="us-east-1",
+            domain=f"*.{my_domain}",
+            statuses=["ISSUED"])
+        default = aws.cloudfront.OriginAccessControl("default",
+            name="default-oac",
+            origin_access_control_origin_type="s3",
+            signing_behavior="always",
+            signing_protocol="sigv4")
         s3_distribution = aws.cloudfront.Distribution("s3_distribution",
             origins=[{
                 "domain_name": b.bucket_regional_domain_name,
-                "origin_access_control_id": default["id"],
+                "origin_access_control_id": default.id,
                 "origin_id": s3_origin_id,
             }],
             enabled=True,
             is_ipv6_enabled=True,
             comment="Some comment",
             default_root_object="index.html",
-            logging_config={
-                "include_cookies": False,
-                "bucket": "mylogs.s3.amazonaws.com",
-                "prefix": "myprefix",
-            },
             aliases=[
-                "mysite.example.com",
-                "yoursite.example.com",
+                f"mysite.{my_domain}",
+                f"yoursite.{my_domain}",
             ],
             default_cache_behavior={
                 "allowed_methods": [
@@ -1077,8 +1078,47 @@ class Distribution(pulumi.CustomResource):
                 "Environment": "production",
             },
             viewer_certificate={
-                "cloudfront_default_certificate": True,
+                "acm_certificate_arn": my_domain_get_certificate.arn,
+                "ssl_support_method": "sni-only",
             })
+        # See https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
+        origin_bucket_policy = aws.iam.get_policy_document_output(statements=[{
+            "sid": "AllowCloudFrontServicePrincipalReadWrite",
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["cloudfront.amazonaws.com"],
+            }],
+            "actions": [
+                "s3:GetObject",
+                "s3:PutObject",
+            ],
+            "resources": [b.arn.apply(lambda arn: f"{arn}/*")],
+            "conditions": [{
+                "test": "StringEquals",
+                "variable": "AWS:SourceArn",
+                "values": [s3_distribution.arn],
+            }],
+        }])
+        b_bucket_policy = aws.s3.BucketPolicy("b",
+            bucket=b.bucket,
+            policy=origin_bucket_policy.json)
+        # Create Route53 records for the CloudFront distribution aliases
+        my_domain_get_zone = aws.route53.get_zone(name=my_domain)
+        cloudfront = []
+        def create_cloudfront(range_body):
+            for range in [{"key": k, "value": v} for [k, v] in enumerate(range_body)]:
+                cloudfront.append(aws.route53.Record(f"cloudfront-{range['key']}",
+                    zone_id=my_domain_get_zone.zone_id,
+                    name=range["value"],
+                    type=aws.route53.RecordType.A,
+                    aliases=[{
+                        "name": s3_distribution.domain_name.apply(lambda domain_name: domain_name),
+                        "zone_id": s3_distribution.hosted_zone_id.apply(lambda hosted_zone_id: hosted_zone_id),
+                        "evaluate_target_health": False,
+                    }]))
+
+        s3_distribution.aliases.apply(create_cloudfront)
         ```
 
         ### With Failover Routing
@@ -1307,28 +1347,29 @@ class Distribution(pulumi.CustomResource):
             tags={
                 "Name": "My bucket",
             })
-        b_acl = aws.s3.BucketAcl("b_acl",
-            bucket=b.id,
-            acl="private")
         s3_origin_id = "myS3Origin"
+        my_domain = "mydomain.com"
+        my_domain_get_certificate = aws.acm.get_certificate(region="us-east-1",
+            domain=f"*.{my_domain}",
+            statuses=["ISSUED"])
+        default = aws.cloudfront.OriginAccessControl("default",
+            name="default-oac",
+            origin_access_control_origin_type="s3",
+            signing_behavior="always",
+            signing_protocol="sigv4")
         s3_distribution = aws.cloudfront.Distribution("s3_distribution",
             origins=[{
                 "domain_name": b.bucket_regional_domain_name,
-                "origin_access_control_id": default["id"],
+                "origin_access_control_id": default.id,
                 "origin_id": s3_origin_id,
             }],
             enabled=True,
             is_ipv6_enabled=True,
             comment="Some comment",
             default_root_object="index.html",
-            logging_config={
-                "include_cookies": False,
-                "bucket": "mylogs.s3.amazonaws.com",
-                "prefix": "myprefix",
-            },
             aliases=[
-                "mysite.example.com",
-                "yoursite.example.com",
+                f"mysite.{my_domain}",
+                f"yoursite.{my_domain}",
             ],
             default_cache_behavior={
                 "allowed_methods": [
@@ -1424,8 +1465,47 @@ class Distribution(pulumi.CustomResource):
                 "Environment": "production",
             },
             viewer_certificate={
-                "cloudfront_default_certificate": True,
+                "acm_certificate_arn": my_domain_get_certificate.arn,
+                "ssl_support_method": "sni-only",
             })
+        # See https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
+        origin_bucket_policy = aws.iam.get_policy_document_output(statements=[{
+            "sid": "AllowCloudFrontServicePrincipalReadWrite",
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["cloudfront.amazonaws.com"],
+            }],
+            "actions": [
+                "s3:GetObject",
+                "s3:PutObject",
+            ],
+            "resources": [b.arn.apply(lambda arn: f"{arn}/*")],
+            "conditions": [{
+                "test": "StringEquals",
+                "variable": "AWS:SourceArn",
+                "values": [s3_distribution.arn],
+            }],
+        }])
+        b_bucket_policy = aws.s3.BucketPolicy("b",
+            bucket=b.bucket,
+            policy=origin_bucket_policy.json)
+        # Create Route53 records for the CloudFront distribution aliases
+        my_domain_get_zone = aws.route53.get_zone(name=my_domain)
+        cloudfront = []
+        def create_cloudfront(range_body):
+            for range in [{"key": k, "value": v} for [k, v] in enumerate(range_body)]:
+                cloudfront.append(aws.route53.Record(f"cloudfront-{range['key']}",
+                    zone_id=my_domain_get_zone.zone_id,
+                    name=range["value"],
+                    type=aws.route53.RecordType.A,
+                    aliases=[{
+                        "name": s3_distribution.domain_name.apply(lambda domain_name: domain_name),
+                        "zone_id": s3_distribution.hosted_zone_id.apply(lambda hosted_zone_id: hosted_zone_id),
+                        "evaluate_target_health": False,
+                    }]))
+
+        s3_distribution.aliases.apply(create_cloudfront)
         ```
 
         ### With Failover Routing

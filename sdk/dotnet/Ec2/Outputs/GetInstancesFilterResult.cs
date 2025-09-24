@@ -13,7 +13,14 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetInstancesFilterResult
     {
+        /// <summary>
+        /// Name of the filter.
+        /// For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// One or more values to match.
+        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

@@ -51,7 +51,7 @@ class OpenZfsVolumeArgs:
         :param pulumi.Input[_builtins.int] storage_capacity_quota_gib: The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
         :param pulumi.Input[_builtins.int] storage_capacity_reservation_gib: The amount of storage in gibibytes (GiB) to reserve from the parent volume.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeUserAndGroupQuotaArgs']]] user_and_group_quotas: Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
+        :param pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeUserAndGroupQuotaArgs']]] user_and_group_quotas: Specify how much storage users or groups can use on the volume. Maximum number of items defined by [FSx for OpenZFS Resource quota](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html#limits-openzfs-resources-file-system). See `user_and_group_quotas` Block Below.
         """
         pulumi.set(__self__, "parent_volume_id", parent_volume_id)
         if copy_tags_to_snapshots is not None:
@@ -243,7 +243,7 @@ class OpenZfsVolumeArgs:
     @pulumi.getter(name="userAndGroupQuotas")
     def user_and_group_quotas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeUserAndGroupQuotaArgs']]]]:
         """
-        Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
+        Specify how much storage users or groups can use on the volume. Maximum number of items defined by [FSx for OpenZFS Resource quota](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html#limits-openzfs-resources-file-system). See `user_and_group_quotas` Block Below.
         """
         return pulumi.get(self, "user_and_group_quotas")
 
@@ -298,7 +298,7 @@ class _OpenZfsVolumeState:
         :param pulumi.Input[_builtins.int] storage_capacity_reservation_gib: The amount of storage in gibibytes (GiB) to reserve from the parent volume.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeUserAndGroupQuotaArgs']]] user_and_group_quotas: Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
+        :param pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeUserAndGroupQuotaArgs']]] user_and_group_quotas: Specify how much storage users or groups can use on the volume. Maximum number of items defined by [FSx for OpenZFS Resource quota](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html#limits-openzfs-resources-file-system). See `user_and_group_quotas` Block Below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -519,7 +519,7 @@ class _OpenZfsVolumeState:
     @pulumi.getter(name="userAndGroupQuotas")
     def user_and_group_quotas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeUserAndGroupQuotaArgs']]]]:
         """
-        Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
+        Specify how much storage users or groups can use on the volume. Maximum number of items defined by [FSx for OpenZFS Resource quota](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html#limits-openzfs-resources-file-system). See `user_and_group_quotas` Block Below.
         """
         return pulumi.get(self, "user_and_group_quotas")
 
@@ -597,7 +597,7 @@ class OpenZfsVolume(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] storage_capacity_quota_gib: The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
         :param pulumi.Input[_builtins.int] storage_capacity_reservation_gib: The amount of storage in gibibytes (GiB) to reserve from the parent volume.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OpenZfsVolumeUserAndGroupQuotaArgs', 'OpenZfsVolumeUserAndGroupQuotaArgsDict']]]] user_and_group_quotas: Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OpenZfsVolumeUserAndGroupQuotaArgs', 'OpenZfsVolumeUserAndGroupQuotaArgsDict']]]] user_and_group_quotas: Specify how much storage users or groups can use on the volume. Maximum number of items defined by [FSx for OpenZFS Resource quota](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html#limits-openzfs-resources-file-system). See `user_and_group_quotas` Block Below.
         """
         ...
     @overload
@@ -735,7 +735,7 @@ class OpenZfsVolume(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] storage_capacity_reservation_gib: The amount of storage in gibibytes (GiB) to reserve from the parent volume.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OpenZfsVolumeUserAndGroupQuotaArgs', 'OpenZfsVolumeUserAndGroupQuotaArgsDict']]]] user_and_group_quotas: Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OpenZfsVolumeUserAndGroupQuotaArgs', 'OpenZfsVolumeUserAndGroupQuotaArgsDict']]]] user_and_group_quotas: Specify how much storage users or groups can use on the volume. Maximum number of items defined by [FSx for OpenZFS Resource quota](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html#limits-openzfs-resources-file-system). See `user_and_group_quotas` Block Below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -884,7 +884,7 @@ class OpenZfsVolume(pulumi.CustomResource):
     @pulumi.getter(name="userAndGroupQuotas")
     def user_and_group_quotas(self) -> pulumi.Output[Sequence['outputs.OpenZfsVolumeUserAndGroupQuota']]:
         """
-        Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
+        Specify how much storage users or groups can use on the volume. Maximum number of items defined by [FSx for OpenZFS Resource quota](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html#limits-openzfs-resources-file-system). See `user_and_group_quotas` Block Below.
         """
         return pulumi.get(self, "user_and_group_quotas")
 

@@ -31,6 +31,12 @@ namespace Pulumi.Aws.Synthetics.Inputs
         }
 
         /// <summary>
+        /// Amount of ephemeral storage (in MB) allocated for the canary run during execution. Defaults to 1024.
+        /// </summary>
+        [Input("ephemeralStorage")]
+        public Input<int>? EphemeralStorage { get; set; }
+
+        /// <summary>
         /// Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
         /// </summary>
         [Input("memoryInMb")]

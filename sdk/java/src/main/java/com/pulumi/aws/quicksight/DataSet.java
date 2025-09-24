@@ -465,9 +465,17 @@ public class DataSet extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set.  See `output_columns` Block below.
+     * 
+     */
     @Export(name="outputColumns", refs={List.class,DataSetOutputColumn.class}, tree="[0,1]")
     private Output<List<DataSetOutputColumn>> outputColumns;
 
+    /**
+     * @return The final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set.  See `output_columns` Block below.
+     * 
+     */
     public Output<List<DataSetOutputColumn>> outputColumns() {
         return this.outputColumns;
     }

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         private InputList<Inputs.WebhookFilterGroupFilterArgs>? _filters;
 
         /// <summary>
-        /// A webhook filter for the group. Filter blocks are documented below.
+        /// A webhook filter for the group. See filter for details.
         /// </summary>
         public InputList<Inputs.WebhookFilterGroupFilterArgs> Filters
         {

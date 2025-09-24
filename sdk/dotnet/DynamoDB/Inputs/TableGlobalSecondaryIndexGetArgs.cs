@@ -37,7 +37,7 @@ namespace Pulumi.Aws.DynamoDB.Inputs
         }
 
         /// <summary>
-        /// Sets the maximum number of read and write units for the specified on-demand table. See below.
+        /// Sets the maximum number of read and write units for the specified on-demand index. See below.
         /// </summary>
         [Input("onDemandThroughput")]
         public Input<Inputs.TableGlobalSecondaryIndexOnDemandThroughputGetArgs>? OnDemandThroughput { get; set; }
@@ -59,6 +59,12 @@ namespace Pulumi.Aws.DynamoDB.Inputs
         /// </summary>
         [Input("readCapacity")]
         public Input<int>? ReadCapacity { get; set; }
+
+        /// <summary>
+        /// Sets the number of warm read and write units for this index. See below.
+        /// </summary>
+        [Input("warmThroughput")]
+        public Input<Inputs.TableGlobalSecondaryIndexWarmThroughputGetArgs>? WarmThroughput { get; set; }
 
         /// <summary>
         /// Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.

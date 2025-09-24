@@ -493,7 +493,7 @@ class GroupInstanceRefreshPreferences(dict):
         :param _builtins.int max_healthy_percentage: Amount of capacity in the Auto Scaling group that can be in service and healthy, or pending, to support your workload when an instance refresh is in place, as a percentage of the desired capacity of the Auto Scaling group. Values must be between `100` and `200`, defaults to `100`.
         :param _builtins.int min_healthy_percentage: Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
         :param _builtins.str scale_in_protected_instances: Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
-        :param _builtins.bool skip_matching: Replace instances that already have your desired configuration. Defaults to `false`.
+        :param _builtins.bool skip_matching: Skip replacing instances that already have your desired configuration. Defaults to `false`.
         :param _builtins.str standby_instances: Behavior when encountering instances in the `Standby` state in are found. Available behaviors are `Terminate`, `Ignore`, and `Wait`. Default is `Ignore`.
         """
         if alarm_specification is not None:
@@ -585,7 +585,7 @@ class GroupInstanceRefreshPreferences(dict):
     @pulumi.getter(name="skipMatching")
     def skip_matching(self) -> Optional[_builtins.bool]:
         """
-        Replace instances that already have your desired configuration. Defaults to `false`.
+        Skip replacing instances that already have your desired configuration. Defaults to `false`.
         """
         return pulumi.get(self, "skip_matching")
 

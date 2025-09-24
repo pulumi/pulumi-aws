@@ -58,8 +58,9 @@ class ClusterArgs:
         :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any cluster modifications
                are applied immediately, or during the next maintenance window. Default is
                `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of EC2 Availability Zones that
-               instances in the DB cluster can be created in.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of EC2 Availability Zones that instances in the DB cluster can be created in.
+               DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
+               We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
         :param pulumi.Input[_builtins.int] backup_retention_period: The days to retain backups for. Default `1`
         :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier. If omitted, the provider will assign a random, unique identifier.
         :param pulumi.Input[_builtins.str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
@@ -191,8 +192,9 @@ class ClusterArgs:
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of EC2 Availability Zones that
-        instances in the DB cluster can be created in.
+        A list of EC2 Availability Zones that instances in the DB cluster can be created in.
+        DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
+        We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
         """
         return pulumi.get(self, "availability_zones")
 
@@ -594,8 +596,9 @@ class _ClusterState:
                are applied immediately, or during the next maintenance window. Default is
                `false`.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of cluster
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of EC2 Availability Zones that
-               instances in the DB cluster can be created in.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of EC2 Availability Zones that instances in the DB cluster can be created in.
+               DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
+               We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
         :param pulumi.Input[_builtins.int] backup_retention_period: The days to retain backups for. Default `1`
         :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier. If omitted, the provider will assign a random, unique identifier.
         :param pulumi.Input[_builtins.str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
@@ -758,8 +761,9 @@ class _ClusterState:
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of EC2 Availability Zones that
-        instances in the DB cluster can be created in.
+        A list of EC2 Availability Zones that instances in the DB cluster can be created in.
+        DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
+        We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
         """
         return pulumi.get(self, "availability_zones")
 
@@ -1262,8 +1266,9 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any cluster modifications
                are applied immediately, or during the next maintenance window. Default is
                `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of EC2 Availability Zones that
-               instances in the DB cluster can be created in.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of EC2 Availability Zones that instances in the DB cluster can be created in.
+               DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
+               We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
         :param pulumi.Input[_builtins.int] backup_retention_period: The days to retain backups for. Default `1`
         :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier. If omitted, the provider will assign a random, unique identifier.
         :param pulumi.Input[_builtins.str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
@@ -1499,8 +1504,9 @@ class Cluster(pulumi.CustomResource):
                are applied immediately, or during the next maintenance window. Default is
                `false`.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of cluster
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of EC2 Availability Zones that
-               instances in the DB cluster can be created in.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of EC2 Availability Zones that instances in the DB cluster can be created in.
+               DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
+               We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
         :param pulumi.Input[_builtins.int] backup_retention_period: The days to retain backups for. Default `1`
         :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier. If omitted, the provider will assign a random, unique identifier.
         :param pulumi.Input[_builtins.str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
@@ -1618,8 +1624,9 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        A list of EC2 Availability Zones that
-        instances in the DB cluster can be created in.
+        A list of EC2 Availability Zones that instances in the DB cluster can be created in.
+        DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
+        We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
         """
         return pulumi.get(self, "availability_zones")
 
