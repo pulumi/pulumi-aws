@@ -199,9 +199,9 @@ const (
 	networkManagerMod           = "NetworkManager"           // Network Manager
 	networkMonitorMod           = "NetworkMonitor"           // Network Monitor
 	notificationsMod            = "Notifications"            // Notifications
-	notificationsContactsMod    = "NotificationsContacts"    // Notificaitions Contacts
+	notificationsContactsMod    = "NotificationsContacts"    // Notifications Contacts
 	oamMod                      = "Oam"                      // Observability Access Manager
-	odbMod                      = "Odb"                      // Observability Data Bridge
+	odbMod                      = "Odb"                      // Oracle Database@AWS
 	opensearchMod               = "OpenSearch"               // OpenSearch
 	organizationsMod            = "Organizations"            // Organizations
 	osisMod                     = "OpenSearchIngest"         // Open Search Ingestion Service
