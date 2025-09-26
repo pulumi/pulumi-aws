@@ -1,0 +1,58 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sdk", "sdk", "{FF13A09E-0E72-1904-124B-A4E979EF28D3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "examples", "examples", "{B36A84DF-456D-A817-6EDD-3EC3E7F6E11F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pulumi.Aws", "sdk\dotnet\Pulumi.Aws.csproj", "{A5522C4C-25D7-8876-70E2-757DFE5A6A32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWS.Webserver", "examples\webserver-cs\AWS.Webserver.csproj", "{0E6D8F11-9FDC-89A2-E86C-5023834916C2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iam-policy-document", "iam-policy-document", "{214E34CE-83ED-EF3F-CEA1-B9BCE2F55804}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWS.Webserver", "examples\iam-policy-document\csharp\AWS.Webserver.csproj", "{96A8D868-8AF9-BD0D-A55D-E5C6D8C7F8D5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sqs-fifo-queue", "sqs-fifo-queue", "{D7C8976E-44B2-1923-246C-017E52D36FA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testing-aws-fifo-dotnet", "examples\sqs-fifo-queue\csharp\testing-aws-fifo-dotnet.csproj", "{A54DC66F-EBC5-38F4-337D-047C529F49F5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A5522C4C-25D7-8876-70E2-757DFE5A6A32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5522C4C-25D7-8876-70E2-757DFE5A6A32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5522C4C-25D7-8876-70E2-757DFE5A6A32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5522C4C-25D7-8876-70E2-757DFE5A6A32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E6D8F11-9FDC-89A2-E86C-5023834916C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E6D8F11-9FDC-89A2-E86C-5023834916C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E6D8F11-9FDC-89A2-E86C-5023834916C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E6D8F11-9FDC-89A2-E86C-5023834916C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96A8D868-8AF9-BD0D-A55D-E5C6D8C7F8D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96A8D868-8AF9-BD0D-A55D-E5C6D8C7F8D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96A8D868-8AF9-BD0D-A55D-E5C6D8C7F8D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96A8D868-8AF9-BD0D-A55D-E5C6D8C7F8D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A54DC66F-EBC5-38F4-337D-047C529F49F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A54DC66F-EBC5-38F4-337D-047C529F49F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A54DC66F-EBC5-38F4-337D-047C529F49F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A54DC66F-EBC5-38F4-337D-047C529F49F5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A5522C4C-25D7-8876-70E2-757DFE5A6A32} = {FF13A09E-0E72-1904-124B-A4E979EF28D3}
+		{0E6D8F11-9FDC-89A2-E86C-5023834916C2} = {B36A84DF-456D-A817-6EDD-3EC3E7F6E11F}
+		{214E34CE-83ED-EF3F-CEA1-B9BCE2F55804} = {B36A84DF-456D-A817-6EDD-3EC3E7F6E11F}
+		{96A8D868-8AF9-BD0D-A55D-E5C6D8C7F8D5} = {214E34CE-83ED-EF3F-CEA1-B9BCE2F55804}
+		{D7C8976E-44B2-1923-246C-017E52D36FA5} = {B36A84DF-456D-A817-6EDD-3EC3E7F6E11F}
+		{A54DC66F-EBC5-38F4-337D-047C529F49F5} = {D7C8976E-44B2-1923-246C-017E52D36FA5}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5196D9A4-919E-41F0-9749-88A47F571BAD}
+	EndGlobalSection
+EndGlobal
