@@ -6,8 +6,8 @@
         "build": "tsc"
     },
     "dependencies": {
-        "@pulumi/aws": "^7.0.0",
-        "@pulumi/pulumi": "^3.0.0"
+        "@pulumi/aws": "7.7.0",
+        "@pulumi/pulumi": "3.198.0"
     },
     "devDependencies": {
         "@types/node": "^8.0.0"
