@@ -53,11 +53,12 @@ jobs:
       id: esc-secrets
       name: Fetch secrets from ESC
       uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
-    - name: Setup tools
-      uses: ./.github/actions/setup-tools
+    - name: Setup mise
+      uses: jdx/mise-action@v3
       with:
-        tools: pulumictl, pulumicli, go, schema-tools
-        cache-go: false
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        cache_key: "mise-{{platform}}-${{ hashFiles('mise.lock') }}"
+        cache_save: false
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@a03048d87541d1d9fcf2ecf528a4a65ba9bd7838 # v5.0.0
       with:
@@ -139,11 +140,19 @@ jobs:
       id: esc-secrets
       name: Fetch secrets from ESC
       uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
-    - name: Setup tools
-      uses: ./.github/actions/setup-tools
+    - name: Setup mise
+      uses: jdx/mise-action@v3
       with:
-        tools: pulumictl, pulumicli, nodejs, python, dotnet, go, java
-        cache-go: false
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        cache_key: "mise-{{platform}}-{{file_hash}}"
+        # only saving the cache in the prerequisites job
+        cache_save: false
+    - name: Setup Node
+      uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+      with:
+        # we don't set node-version because we install with mise.
+        # this step is needed to setup npm auth
+        registry-url: https://registry.npmjs.org
     - name: Publish SDKs
       if: inputs.skipJavaSdk == false
       uses: pulumi/pulumi-package-publisher@c1672c7928591d563dccb12729e05e315c21f8c2 # v0.0.22
