@@ -58,6 +58,48 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Usage with Options
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.networkmanager.VpcAttachment;
+ * import com.pulumi.aws.networkmanager.VpcAttachmentArgs;
+ * import com.pulumi.aws.networkmanager.inputs.VpcAttachmentOptionsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new VpcAttachment("example", VpcAttachmentArgs.builder()
+ *             .subnetArns(exampleAwsSubnet.arn())
+ *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
+ *             .vpcArn(exampleAwsVpc.arn())
+ *             .options(VpcAttachmentOptionsArgs.builder()
+ *                 .applianceModeSupport(false)
+ *                 .dnsSupport(true)
+ *                 .ipv6Support(false)
+ *                 .securityGroupReferencingSupport(true)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_networkmanager_vpc_attachment` using the attachment ID. For example:
@@ -158,14 +200,14 @@ public class VpcAttachment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="options", refs={VpcAttachmentOptions.class}, tree="[0]")
-    private Output</* @Nullable */ VpcAttachmentOptions> options;
+    private Output<VpcAttachmentOptions> options;
 
     /**
      * @return Options for the VPC attachment. See below.
      * 
      */
-    public Output<Optional<VpcAttachmentOptions>> options() {
-        return Codegen.optional(this.options);
+    public Output<VpcAttachmentOptions> options() {
+        return this.options;
     }
     /**
      * ID of the attachment account owner.

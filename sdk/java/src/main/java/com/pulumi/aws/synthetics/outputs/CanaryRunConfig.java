@@ -25,6 +25,11 @@ public final class CanaryRunConfig {
      */
     private @Nullable Map<String,String> environmentVariables;
     /**
+     * @return Amount of ephemeral storage (in MB) allocated for the canary run during execution. Defaults to 1024.
+     * 
+     */
+    private @Nullable Integer ephemeralStorage;
+    /**
      * @return Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
      * 
      */
@@ -49,6 +54,13 @@ public final class CanaryRunConfig {
      */
     public Map<String,String> environmentVariables() {
         return this.environmentVariables == null ? Map.of() : this.environmentVariables;
+    }
+    /**
+     * @return Amount of ephemeral storage (in MB) allocated for the canary run during execution. Defaults to 1024.
+     * 
+     */
+    public Optional<Integer> ephemeralStorage() {
+        return Optional.ofNullable(this.ephemeralStorage);
     }
     /**
      * @return Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
@@ -76,6 +88,7 @@ public final class CanaryRunConfig {
     public static final class Builder {
         private @Nullable Boolean activeTracing;
         private @Nullable Map<String,String> environmentVariables;
+        private @Nullable Integer ephemeralStorage;
         private @Nullable Integer memoryInMb;
         private @Nullable Integer timeoutInSeconds;
         public Builder() {}
@@ -83,6 +96,7 @@ public final class CanaryRunConfig {
     	      Objects.requireNonNull(defaults);
     	      this.activeTracing = defaults.activeTracing;
     	      this.environmentVariables = defaults.environmentVariables;
+    	      this.ephemeralStorage = defaults.ephemeralStorage;
     	      this.memoryInMb = defaults.memoryInMb;
     	      this.timeoutInSeconds = defaults.timeoutInSeconds;
         }
@@ -97,6 +111,12 @@ public final class CanaryRunConfig {
         public Builder environmentVariables(@Nullable Map<String,String> environmentVariables) {
 
             this.environmentVariables = environmentVariables;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder ephemeralStorage(@Nullable Integer ephemeralStorage) {
+
+            this.ephemeralStorage = ephemeralStorage;
             return this;
         }
         @CustomType.Setter
@@ -115,6 +135,7 @@ public final class CanaryRunConfig {
             final var _resultValue = new CanaryRunConfig();
             _resultValue.activeTracing = activeTracing;
             _resultValue.environmentVariables = environmentVariables;
+            _resultValue.ephemeralStorage = ephemeralStorage;
             _resultValue.memoryInMb = memoryInMb;
             _resultValue.timeoutInSeconds = timeoutInSeconds;
             return _resultValue;

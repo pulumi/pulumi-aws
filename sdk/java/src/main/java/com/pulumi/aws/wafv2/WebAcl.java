@@ -373,17 +373,17 @@ import javax.annotation.Nullable;
  *                     .block(WebAclRuleActionBlockArgs.builder()
  *                         .build())
  *                     .build())
- *                 .statement(Map.of("rateBasedStatement", Map.ofEntries(
- *                     Map.entry("limit", 10000),
- *                     Map.entry("aggregateKeyType", "IP"),
- *                     Map.entry("scopeDownStatement", WebAclRuleStatementRateBasedStatementScopeDownStatementArgs.builder()
+ *                 .statement(Map.of("rateBasedStatement", WebAclRuleStatementRateBasedStatementArgs.builder()
+ *                     .limit(10000)
+ *                     .aggregateKeyType("IP")
+ *                     .scopeDownStatement(WebAclRuleStatementRateBasedStatementScopeDownStatementArgs.builder()
  *                         .geoMatchStatement(WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs.builder()
  *                             .countryCodes(                            
  *                                 "US",
  *                                 "NL")
  *                             .build())
  *                         .build())
- *                 )))
+ *                     .build()))
  *                 .visibilityConfig(WebAclRuleVisibilityConfigArgs.builder()
  *                     .cloudwatchMetricsEnabled(false)
  *                     .metricName("friendly-rule-metric-name")

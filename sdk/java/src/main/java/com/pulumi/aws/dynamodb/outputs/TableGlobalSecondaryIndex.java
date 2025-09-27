@@ -4,6 +4,7 @@
 package com.pulumi.aws.dynamodb.outputs;
 
 import com.pulumi.aws.dynamodb.outputs.TableGlobalSecondaryIndexOnDemandThroughput;
+import com.pulumi.aws.dynamodb.outputs.TableGlobalSecondaryIndexWarmThroughput;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
@@ -31,7 +32,7 @@ public final class TableGlobalSecondaryIndex {
      */
     private @Nullable List<String> nonKeyAttributes;
     /**
-     * @return Sets the maximum number of read and write units for the specified on-demand table. See below.
+     * @return Sets the maximum number of read and write units for the specified on-demand index. See below.
      * 
      */
     private @Nullable TableGlobalSecondaryIndexOnDemandThroughput onDemandThroughput;
@@ -50,6 +51,11 @@ public final class TableGlobalSecondaryIndex {
      * 
      */
     private @Nullable Integer readCapacity;
+    /**
+     * @return Sets the number of warm read and write units for this index. See below.
+     * 
+     */
+    private @Nullable TableGlobalSecondaryIndexWarmThroughput warmThroughput;
     /**
      * @return Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
      * 
@@ -79,7 +85,7 @@ public final class TableGlobalSecondaryIndex {
         return this.nonKeyAttributes == null ? List.of() : this.nonKeyAttributes;
     }
     /**
-     * @return Sets the maximum number of read and write units for the specified on-demand table. See below.
+     * @return Sets the maximum number of read and write units for the specified on-demand index. See below.
      * 
      */
     public Optional<TableGlobalSecondaryIndexOnDemandThroughput> onDemandThroughput() {
@@ -107,6 +113,13 @@ public final class TableGlobalSecondaryIndex {
         return Optional.ofNullable(this.readCapacity);
     }
     /**
+     * @return Sets the number of warm read and write units for this index. See below.
+     * 
+     */
+    public Optional<TableGlobalSecondaryIndexWarmThroughput> warmThroughput() {
+        return Optional.ofNullable(this.warmThroughput);
+    }
+    /**
      * @return Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
      * 
      */
@@ -130,6 +143,7 @@ public final class TableGlobalSecondaryIndex {
         private String projectionType;
         private @Nullable String rangeKey;
         private @Nullable Integer readCapacity;
+        private @Nullable TableGlobalSecondaryIndexWarmThroughput warmThroughput;
         private @Nullable Integer writeCapacity;
         public Builder() {}
         public Builder(TableGlobalSecondaryIndex defaults) {
@@ -141,6 +155,7 @@ public final class TableGlobalSecondaryIndex {
     	      this.projectionType = defaults.projectionType;
     	      this.rangeKey = defaults.rangeKey;
     	      this.readCapacity = defaults.readCapacity;
+    	      this.warmThroughput = defaults.warmThroughput;
     	      this.writeCapacity = defaults.writeCapacity;
         }
 
@@ -196,6 +211,12 @@ public final class TableGlobalSecondaryIndex {
             return this;
         }
         @CustomType.Setter
+        public Builder warmThroughput(@Nullable TableGlobalSecondaryIndexWarmThroughput warmThroughput) {
+
+            this.warmThroughput = warmThroughput;
+            return this;
+        }
+        @CustomType.Setter
         public Builder writeCapacity(@Nullable Integer writeCapacity) {
 
             this.writeCapacity = writeCapacity;
@@ -210,6 +231,7 @@ public final class TableGlobalSecondaryIndex {
             _resultValue.projectionType = projectionType;
             _resultValue.rangeKey = rangeKey;
             _resultValue.readCapacity = readCapacity;
+            _resultValue.warmThroughput = warmThroughput;
             _resultValue.writeCapacity = writeCapacity;
             return _resultValue;
         }

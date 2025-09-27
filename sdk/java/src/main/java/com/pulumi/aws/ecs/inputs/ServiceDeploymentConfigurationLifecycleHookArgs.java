@@ -9,11 +9,28 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ServiceDeploymentConfigurationLifecycleHookArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ServiceDeploymentConfigurationLifecycleHookArgs Empty = new ServiceDeploymentConfigurationLifecycleHookArgs();
+
+    /**
+     * Custom parameters that Amazon ECS will pass to the hook target invocations (such as a Lambda function).
+     * 
+     */
+    @Import(name="hookDetails")
+    private @Nullable Output<String> hookDetails;
+
+    /**
+     * @return Custom parameters that Amazon ECS will pass to the hook target invocations (such as a Lambda function).
+     * 
+     */
+    public Optional<Output<String>> hookDetails() {
+        return Optional.ofNullable(this.hookDetails);
+    }
 
     /**
      * ARN of the Lambda function to invoke for the lifecycle hook.
@@ -63,6 +80,7 @@ public final class ServiceDeploymentConfigurationLifecycleHookArgs extends com.p
     private ServiceDeploymentConfigurationLifecycleHookArgs() {}
 
     private ServiceDeploymentConfigurationLifecycleHookArgs(ServiceDeploymentConfigurationLifecycleHookArgs $) {
+        this.hookDetails = $.hookDetails;
         this.hookTargetArn = $.hookTargetArn;
         this.lifecycleStages = $.lifecycleStages;
         this.roleArn = $.roleArn;
@@ -84,6 +102,27 @@ public final class ServiceDeploymentConfigurationLifecycleHookArgs extends com.p
 
         public Builder(ServiceDeploymentConfigurationLifecycleHookArgs defaults) {
             $ = new ServiceDeploymentConfigurationLifecycleHookArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param hookDetails Custom parameters that Amazon ECS will pass to the hook target invocations (such as a Lambda function).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hookDetails(@Nullable Output<String> hookDetails) {
+            $.hookDetails = hookDetails;
+            return this;
+        }
+
+        /**
+         * @param hookDetails Custom parameters that Amazon ECS will pass to the hook target invocations (such as a Lambda function).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hookDetails(String hookDetails) {
+            return hookDetails(Output.of(hookDetails));
         }
 
         /**

@@ -17,14 +17,14 @@ public final class GetParameterPlainArgs extends com.pulumi.resources.InvokeArgs
     public static final GetParameterPlainArgs Empty = new GetParameterPlainArgs();
 
     /**
-     * Name of the parameter.
+     * Name of the parameter. To query by parameter version use `name:version` (e.g., `foo:3`).
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return Name of the parameter.
+     * @return Name of the parameter. To query by parameter version use `name:version` (e.g., `foo:3`).
      * 
      */
     public String name() {
@@ -88,7 +88,7 @@ public final class GetParameterPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param name Name of the parameter.
+         * @param name Name of the parameter. To query by parameter version use `name:version` (e.g., `foo:3`).
          * 
          * @return builder
          * 

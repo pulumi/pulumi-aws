@@ -21,14 +21,6 @@ import javax.annotation.Nullable;
 /**
  * Provides a CodePipeline Webhook.
  * 
- * ## Import
- * 
- * Using `pulumi import`, import CodePipeline Webhooks using their ARN. For example:
- * 
- * ```sh
- * $ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
- * ```
- * 
  */
 @ResourceType(type="aws:codepipeline/webhook:Webhook")
 public class Webhook extends com.pulumi.resources.CustomResource {

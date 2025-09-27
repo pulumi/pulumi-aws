@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebhookFilterGroup {
     /**
-     * @return A webhook filter for the group. Filter blocks are documented below.
+     * @return A webhook filter for the group. See filter for details.
      * 
      */
     private @Nullable List<WebhookFilterGroupFilter> filters;
 
     private WebhookFilterGroup() {}
     /**
-     * @return A webhook filter for the group. Filter blocks are documented below.
+     * @return A webhook filter for the group. See filter for details.
      * 
      */
     public List<WebhookFilterGroupFilter> filters() {

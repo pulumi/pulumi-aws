@@ -116,11 +116,17 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * - `arn` (String) Amazon Resource Name (ARN) of the SSO application.
+ * 
  * Using `pulumi import`, import SSO Admin Application using the `id`. For example:
  * 
- * ```sh
- * $ pulumi import aws:ssoadmin/application:Application example arn:aws:sso::123456789012:application/id-12345678
- * ```
+ * console
+ * 
+ * % pulumi import aws_ssoadmin_application.example arn:aws:sso::123456789012:application/id-12345678
  * 
  */
 @ResourceType(type="aws:ssoadmin/application:Application")

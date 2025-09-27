@@ -18,18 +18,20 @@ public final class GetInstancesPlainArgs extends com.pulumi.resources.InvokeArgs
     public static final GetInstancesPlainArgs Empty = new GetInstancesPlainArgs();
 
     /**
-     * One or more name/value pairs to use as filters. There are
-     * several valid keys, for a full reference, check out
-     * [describe-instances in the AWS CLI reference][1].
+     * One or more filters to apply to the search.
+     * If multiple `filter` blocks are provided, they all must be true.
+     * For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+     * See `filter` Block below.
      * 
      */
     @Import(name="filters")
     private @Nullable List<GetInstancesFilter> filters;
 
     /**
-     * @return One or more name/value pairs to use as filters. There are
-     * several valid keys, for a full reference, check out
-     * [describe-instances in the AWS CLI reference][1].
+     * @return One or more filters to apply to the search.
+     * If multiple `filter` blocks are provided, they all must be true.
+     * For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+     * See `filter` Block below.
      * 
      */
     public Optional<List<GetInstancesFilter>> filters() {
@@ -111,9 +113,10 @@ public final class GetInstancesPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param filters One or more name/value pairs to use as filters. There are
-         * several valid keys, for a full reference, check out
-         * [describe-instances in the AWS CLI reference][1].
+         * @param filters One or more filters to apply to the search.
+         * If multiple `filter` blocks are provided, they all must be true.
+         * For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+         * See `filter` Block below.
          * 
          * @return builder
          * 
@@ -124,9 +127,10 @@ public final class GetInstancesPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param filters One or more name/value pairs to use as filters. There are
-         * several valid keys, for a full reference, check out
-         * [describe-instances in the AWS CLI reference][1].
+         * @param filters One or more filters to apply to the search.
+         * If multiple `filter` blocks are provided, they all must be true.
+         * For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+         * See `filter` Block below.
          * 
          * @return builder
          * 

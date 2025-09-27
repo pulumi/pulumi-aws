@@ -50,12 +50,13 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.Bucket;
  * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.s3.BucketAcl;
- * import com.pulumi.aws.s3.BucketAclArgs;
+ * import com.pulumi.aws.acm.AcmFunctions;
+ * import com.pulumi.aws.acm.inputs.GetCertificateArgs;
+ * import com.pulumi.aws.cloudfront.OriginAccessControl;
+ * import com.pulumi.aws.cloudfront.OriginAccessControlArgs;
  * import com.pulumi.aws.cloudfront.Distribution;
  * import com.pulumi.aws.cloudfront.DistributionArgs;
  * import com.pulumi.aws.cloudfront.inputs.DistributionOriginArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionLoggingConfigArgs;
  * import com.pulumi.aws.cloudfront.inputs.DistributionDefaultCacheBehaviorArgs;
  * import com.pulumi.aws.cloudfront.inputs.DistributionDefaultCacheBehaviorForwardedValuesArgs;
  * import com.pulumi.aws.cloudfront.inputs.DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs;
@@ -65,6 +66,16 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudfront.inputs.DistributionRestrictionsArgs;
  * import com.pulumi.aws.cloudfront.inputs.DistributionRestrictionsGeoRestrictionArgs;
  * import com.pulumi.aws.cloudfront.inputs.DistributionViewerCertificateArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.s3.BucketPolicy;
+ * import com.pulumi.aws.s3.BucketPolicyArgs;
+ * import com.pulumi.aws.route53.Route53Functions;
+ * import com.pulumi.aws.route53.inputs.GetZoneArgs;
+ * import com.pulumi.aws.route53.Record;
+ * import com.pulumi.aws.route53.RecordArgs;
+ * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
+ * import com.pulumi.codegen.internal.KeyedValue;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -83,12 +94,22 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("Name", "My bucket"))
  *             .build());
  * 
- *         var bAcl = new BucketAcl("bAcl", BucketAclArgs.builder()
- *             .bucket(b.id())
- *             .acl("private")
+ *         final var s3OriginId = "myS3Origin";
+ * 
+ *         final var myDomain = "mydomain.com";
+ * 
+ *         final var myDomainGetCertificate = AcmFunctions.getCertificate(GetCertificateArgs.builder()
+ *             .region("us-east-1")
+ *             .domain(String.format("*.%s", myDomain))
+ *             .statuses("ISSUED")
  *             .build());
  * 
- *         final var s3OriginId = "myS3Origin";
+ *         var default_ = new OriginAccessControl("default", OriginAccessControlArgs.builder()
+ *             .name("default-oac")
+ *             .originAccessControlOriginType("s3")
+ *             .signingBehavior("always")
+ *             .signingProtocol("sigv4")
+ *             .build());
  * 
  *         var s3Distribution = new Distribution("s3Distribution", DistributionArgs.builder()
  *             .origins(DistributionOriginArgs.builder()
@@ -100,14 +121,9 @@ import javax.annotation.Nullable;
  *             .isIpv6Enabled(true)
  *             .comment("Some comment")
  *             .defaultRootObject("index.html")
- *             .loggingConfig(DistributionLoggingConfigArgs.builder()
- *                 .includeCookies(false)
- *                 .bucket("mylogs.s3.amazonaws.com")
- *                 .prefix("myprefix")
- *                 .build())
  *             .aliases(            
- *                 "mysite.example.com",
- *                 "yoursite.example.com")
+ *                 String.format("mysite.%s", myDomain),
+ *                 String.format("yoursite.%s", myDomain))
  *             .defaultCacheBehavior(DistributionDefaultCacheBehaviorArgs.builder()
  *                 .allowedMethods(                
  *                     "DELETE",
@@ -192,9 +208,54 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .tags(Map.of("Environment", "production"))
  *             .viewerCertificate(DistributionViewerCertificateArgs.builder()
- *                 .cloudfrontDefaultCertificate(true)
+ *                 .acmCertificateArn(myDomainGetCertificate.arn())
+ *                 .sslSupportMethod("sni-only")
  *                 .build())
  *             .build());
+ * 
+ *         // See https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
+ *         final var originBucketPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .sid("AllowCloudFrontServicePrincipalReadWrite")
+ *                 .effect("Allow")
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("Service")
+ *                     .identifiers("cloudfront.amazonaws.com")
+ *                     .build())
+ *                 .actions(                
+ *                     "s3:GetObject",
+ *                     "s3:PutObject")
+ *                 .resources(b.arn().applyValue(_arn -> String.format("%s/*", _arn)))
+ *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+ *                     .test("StringEquals")
+ *                     .variable("AWS:SourceArn")
+ *                     .values(s3Distribution.arn())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var bBucketPolicy = new BucketPolicy("bBucketPolicy", BucketPolicyArgs.builder()
+ *             .bucket(b.bucket())
+ *             .policy(originBucketPolicy.applyValue(_originBucketPolicy -> _originBucketPolicy.json()))
+ *             .build());
+ * 
+ *         // Create Route53 records for the CloudFront distribution aliases
+ *         final var myDomainGetZone = Route53Functions.getZone(GetZoneArgs.builder()
+ *             .name(myDomain)
+ *             .build());
+ * 
+ *         for (var range : KeyedValue.of(s3Distribution.aliases())) {
+ *             new Record("cloudfront-" + range.key(), RecordArgs.builder()
+ *                 .zoneId(myDomainGetZone.zoneId())
+ *                 .name(range.value())
+ *                 .type("A")
+ *                 .aliases(RecordAliasArgs.builder()
+ *                     .name(s3Distribution.domainName())
+ *                     .zoneId(s3Distribution.hostedZoneId())
+ *                     .evaluateTargetHealth(false)
+ *                     .build())
+ *                 .build());
+ *         }
  * 
  *     }
  * }

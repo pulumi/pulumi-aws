@@ -127,9 +127,17 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.rules);
     }
 
+    /**
+     * Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rules_json` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
+     * 
+     */
     @Import(name="rulesJson")
     private @Nullable Output<String> rulesJson;
 
+    /**
+     * @return Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rules_json` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
+     * 
+     */
     public Optional<Output<String>> rulesJson() {
         return Optional.ofNullable(this.rulesJson);
     }
@@ -380,11 +388,23 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
             return rules(List.of(rules));
         }
 
+        /**
+         * @param rulesJson Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rules_json` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rulesJson(@Nullable Output<String> rulesJson) {
             $.rulesJson = rulesJson;
             return this;
         }
 
+        /**
+         * @param rulesJson Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rules_json` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rulesJson(String rulesJson) {
             return rulesJson(Output.of(rulesJson));
         }

@@ -165,6 +165,11 @@ public final class GetFunctionResult {
      */
     private Integer sourceCodeSize;
     /**
+     * @return ARN of the AWS Key Management Service key used to encrypt the function&#39;s `.zip` deployment package.
+     * 
+     */
+    private String sourceKmsKeyArn;
+    /**
      * @return Map of tags assigned to the Lambda Function.
      * 
      */
@@ -394,6 +399,13 @@ public final class GetFunctionResult {
         return this.sourceCodeSize;
     }
     /**
+     * @return ARN of the AWS Key Management Service key used to encrypt the function&#39;s `.zip` deployment package.
+     * 
+     */
+    public String sourceKmsKeyArn() {
+        return this.sourceKmsKeyArn;
+    }
+    /**
      * @return Map of tags assigned to the Lambda Function.
      * 
      */
@@ -468,6 +480,7 @@ public final class GetFunctionResult {
         private String signingProfileVersionArn;
         private String sourceCodeHash;
         private Integer sourceCodeSize;
+        private String sourceKmsKeyArn;
         private Map<String,String> tags;
         private Integer timeout;
         private GetFunctionTracingConfig tracingConfig;
@@ -506,6 +519,7 @@ public final class GetFunctionResult {
     	      this.signingProfileVersionArn = defaults.signingProfileVersionArn;
     	      this.sourceCodeHash = defaults.sourceCodeHash;
     	      this.sourceCodeSize = defaults.sourceCodeSize;
+    	      this.sourceKmsKeyArn = defaults.sourceKmsKeyArn;
     	      this.tags = defaults.tags;
     	      this.timeout = defaults.timeout;
     	      this.tracingConfig = defaults.tracingConfig;
@@ -767,6 +781,14 @@ public final class GetFunctionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder sourceKmsKeyArn(String sourceKmsKeyArn) {
+            if (sourceKmsKeyArn == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "sourceKmsKeyArn");
+            }
+            this.sourceKmsKeyArn = sourceKmsKeyArn;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetFunctionResult", "tags");
@@ -838,6 +860,7 @@ public final class GetFunctionResult {
             _resultValue.signingProfileVersionArn = signingProfileVersionArn;
             _resultValue.sourceCodeHash = sourceCodeHash;
             _resultValue.sourceCodeSize = sourceCodeSize;
+            _resultValue.sourceKmsKeyArn = sourceKmsKeyArn;
             _resultValue.tags = tags;
             _resultValue.timeout = timeout;
             _resultValue.tracingConfig = tracingConfig;

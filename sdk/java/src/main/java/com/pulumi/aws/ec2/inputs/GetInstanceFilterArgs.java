@@ -15,16 +15,34 @@ public final class GetInstanceFilterArgs extends com.pulumi.resources.ResourceAr
 
     public static final GetInstanceFilterArgs Empty = new GetInstanceFilterArgs();
 
+    /**
+     * Name of the filter.
+     * For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return Name of the filter.
+     * For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * One or more values to match.
+     * 
+     */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
+    /**
+     * @return One or more values to match.
+     * 
+     */
     public Output<List<String>> values() {
         return this.values;
     }
@@ -54,24 +72,56 @@ public final class GetInstanceFilterArgs extends com.pulumi.resources.ResourceAr
             $ = new GetInstanceFilterArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Name of the filter.
+         * For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the filter.
+         * For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param values One or more values to match.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
+        /**
+         * @param values One or more values to match.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
+        /**
+         * @param values One or more values to match.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

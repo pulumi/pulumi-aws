@@ -82,11 +82,17 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * - `arn` (String) Amazon Resource Name (ARN) of the Image Builder image recipe.
+ * 
  * Using `pulumi import`, import `aws_imagebuilder_image_recipe` resources using the Amazon Resource Name (ARN). For example:
  * 
- * ```sh
- * $ pulumi import aws:imagebuilder/imageRecipe:ImageRecipe example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
- * ```
+ * console
+ * 
+ * % pulumi import aws_imagebuilder_image_recipe.example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
  * 
  */
 @ResourceType(type="aws:imagebuilder/imageRecipe:ImageRecipe")
@@ -190,14 +196,14 @@ public class ImageRecipe extends com.pulumi.resources.CustomResource {
         return this.owner;
     }
     /**
-     * The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
+     * The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
      * 
      */
     @Export(name="parentImage", refs={String.class}, tree="[0]")
     private Output<String> parentImage;
 
     /**
-     * @return The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
+     * @return The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
      * 
      */
     public Output<String> parentImage() {

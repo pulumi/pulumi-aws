@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.synthetics.outputs;
 
+import com.pulumi.aws.synthetics.outputs.CanaryScheduleRetryConfig;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
@@ -23,6 +24,11 @@ public final class CanarySchedule {
      * 
      */
     private String expression;
+    /**
+     * @return Configuration block for canary retries. Detailed below.
+     * 
+     */
+    private @Nullable CanaryScheduleRetryConfig retryConfig;
 
     private CanarySchedule() {}
     /**
@@ -39,6 +45,13 @@ public final class CanarySchedule {
     public String expression() {
         return this.expression;
     }
+    /**
+     * @return Configuration block for canary retries. Detailed below.
+     * 
+     */
+    public Optional<CanaryScheduleRetryConfig> retryConfig() {
+        return Optional.ofNullable(this.retryConfig);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -51,11 +64,13 @@ public final class CanarySchedule {
     public static final class Builder {
         private @Nullable Integer durationInSeconds;
         private String expression;
+        private @Nullable CanaryScheduleRetryConfig retryConfig;
         public Builder() {}
         public Builder(CanarySchedule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.durationInSeconds = defaults.durationInSeconds;
     	      this.expression = defaults.expression;
+    	      this.retryConfig = defaults.retryConfig;
         }
 
         @CustomType.Setter
@@ -72,10 +87,17 @@ public final class CanarySchedule {
             this.expression = expression;
             return this;
         }
+        @CustomType.Setter
+        public Builder retryConfig(@Nullable CanaryScheduleRetryConfig retryConfig) {
+
+            this.retryConfig = retryConfig;
+            return this;
+        }
         public CanarySchedule build() {
             final var _resultValue = new CanarySchedule();
             _resultValue.durationInSeconds = durationInSeconds;
             _resultValue.expression = expression;
+            _resultValue.retryConfig = retryConfig;
             return _resultValue;
         }
     }

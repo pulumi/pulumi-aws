@@ -79,11 +79,17 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * - `arn` (String) Amazon Resource Name (ARN) of the ECS capacity provider.
+ * 
  * Using `pulumi import`, import ECS Capacity Providers using the `arn`. For example:
  * 
- * ```sh
- * $ pulumi import aws:ecs/capacityProvider:CapacityProvider example arn:aws:ecs:us-west-2:123456789012:capacity-provider/example
- * ```
+ * console
+ * 
+ * % pulumi import aws_ecs_capacity_provider.example arn:aws:ecs:us-west-2:123456789012:capacity-provider/example
  * 
  */
 @ResourceType(type="aws:ecs/capacityProvider:CapacityProvider")

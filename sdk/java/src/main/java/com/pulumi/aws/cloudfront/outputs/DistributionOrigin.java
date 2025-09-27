@@ -61,6 +61,11 @@ public final class DistributionOrigin {
      */
     private @Nullable DistributionOriginOriginShield originShield;
     /**
+     * @return Time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. Must be integer greater than or equal to the value of `origin_read_timeout`. If omitted or explicitly set to `0`, no maximum value is enforced.
+     * 
+     */
+    private @Nullable Integer responseCompletionTimeout;
+    /**
      * @return CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
      * 
      */
@@ -132,6 +137,13 @@ public final class DistributionOrigin {
         return Optional.ofNullable(this.originShield);
     }
     /**
+     * @return Time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. Must be integer greater than or equal to the value of `origin_read_timeout`. If omitted or explicitly set to `0`, no maximum value is enforced.
+     * 
+     */
+    public Optional<Integer> responseCompletionTimeout() {
+        return Optional.ofNullable(this.responseCompletionTimeout);
+    }
+    /**
      * @return CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
      * 
      */
@@ -164,6 +176,7 @@ public final class DistributionOrigin {
         private String originId;
         private @Nullable String originPath;
         private @Nullable DistributionOriginOriginShield originShield;
+        private @Nullable Integer responseCompletionTimeout;
         private @Nullable DistributionOriginS3OriginConfig s3OriginConfig;
         private @Nullable DistributionOriginVpcOriginConfig vpcOriginConfig;
         public Builder() {}
@@ -178,6 +191,7 @@ public final class DistributionOrigin {
     	      this.originId = defaults.originId;
     	      this.originPath = defaults.originPath;
     	      this.originShield = defaults.originShield;
+    	      this.responseCompletionTimeout = defaults.responseCompletionTimeout;
     	      this.s3OriginConfig = defaults.s3OriginConfig;
     	      this.vpcOriginConfig = defaults.vpcOriginConfig;
         }
@@ -244,6 +258,12 @@ public final class DistributionOrigin {
             return this;
         }
         @CustomType.Setter
+        public Builder responseCompletionTimeout(@Nullable Integer responseCompletionTimeout) {
+
+            this.responseCompletionTimeout = responseCompletionTimeout;
+            return this;
+        }
+        @CustomType.Setter
         public Builder s3OriginConfig(@Nullable DistributionOriginS3OriginConfig s3OriginConfig) {
 
             this.s3OriginConfig = s3OriginConfig;
@@ -266,6 +286,7 @@ public final class DistributionOrigin {
             _resultValue.originId = originId;
             _resultValue.originPath = originPath;
             _resultValue.originShield = originShield;
+            _resultValue.responseCompletionTimeout = responseCompletionTimeout;
             _resultValue.s3OriginConfig = s3OriginConfig;
             _resultValue.vpcOriginConfig = vpcOriginConfig;
             return _resultValue;

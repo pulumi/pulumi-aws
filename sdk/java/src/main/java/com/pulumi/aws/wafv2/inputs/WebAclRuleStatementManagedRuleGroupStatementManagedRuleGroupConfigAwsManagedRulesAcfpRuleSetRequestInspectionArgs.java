@@ -21,32 +21,16 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
 
     public static final WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionArgs();
 
-    /**
-     * The names of the fields in the request payload that contain your customer&#39;s primary physical address. See `address_fields` for more details.
-     * 
-     */
     @Import(name="addressFields")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsArgs> addressFields;
 
-    /**
-     * @return The names of the fields in the request payload that contain your customer&#39;s primary physical address. See `address_fields` for more details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsArgs>> addressFields() {
         return Optional.ofNullable(this.addressFields);
     }
 
-    /**
-     * The name of the field in the request payload that contains your customer&#39;s email. See `email_field` for more details.
-     * 
-     */
     @Import(name="emailField")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailFieldArgs> emailField;
 
-    /**
-     * @return The name of the field in the request payload that contains your customer&#39;s email. See `email_field` for more details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailFieldArgs>> emailField() {
         return Optional.ofNullable(this.emailField);
     }
@@ -81,17 +65,9 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         return this.payloadType;
     }
 
-    /**
-     * The names of the fields in the request payload that contain your customer&#39;s primary phone number. See `phone_number_fields` for more details.
-     * 
-     */
     @Import(name="phoneNumberFields")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFieldsArgs> phoneNumberFields;
 
-    /**
-     * @return The names of the fields in the request payload that contain your customer&#39;s primary phone number. See `phone_number_fields` for more details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFieldsArgs>> phoneNumberFields() {
         return Optional.ofNullable(this.phoneNumberFields);
     }
@@ -140,44 +116,20 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
             $ = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param addressFields The names of the fields in the request payload that contain your customer&#39;s primary physical address. See `address_fields` for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder addressFields(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsArgs> addressFields) {
             $.addressFields = addressFields;
             return this;
         }
 
-        /**
-         * @param addressFields The names of the fields in the request payload that contain your customer&#39;s primary physical address. See `address_fields` for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder addressFields(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsArgs addressFields) {
             return addressFields(Output.of(addressFields));
         }
 
-        /**
-         * @param emailField The name of the field in the request payload that contains your customer&#39;s email. See `email_field` for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emailField(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailFieldArgs> emailField) {
             $.emailField = emailField;
             return this;
         }
 
-        /**
-         * @param emailField The name of the field in the request payload that contains your customer&#39;s email. See `email_field` for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emailField(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailFieldArgs emailField) {
             return emailField(Output.of(emailField));
         }
@@ -224,23 +176,11 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
             return payloadType(Output.of(payloadType));
         }
 
-        /**
-         * @param phoneNumberFields The names of the fields in the request payload that contain your customer&#39;s primary phone number. See `phone_number_fields` for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder phoneNumberFields(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFieldsArgs> phoneNumberFields) {
             $.phoneNumberFields = phoneNumberFields;
             return this;
         }
 
-        /**
-         * @param phoneNumberFields The names of the fields in the request payload that contain your customer&#39;s primary phone number. See `phone_number_fields` for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder phoneNumberFields(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFieldsArgs phoneNumberFields) {
             return phoneNumberFields(Output.of(phoneNumberFields));
         }

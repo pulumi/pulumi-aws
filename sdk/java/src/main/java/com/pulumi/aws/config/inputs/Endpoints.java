@@ -1505,6 +1505,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String workmail;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String workspaces;
     /**
      * @return Use this to override the default service endpoint URL
@@ -3608,6 +3613,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> workmail() {
+        return Optional.ofNullable(this.workmail);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> workspaces() {
         return Optional.ofNullable(this.workspaces);
     }
@@ -3933,6 +3945,7 @@ public final class Endpoints {
         private @Nullable String wafregional;
         private @Nullable String wafv2;
         private @Nullable String wellarchitected;
+        private @Nullable String workmail;
         private @Nullable String workspaces;
         private @Nullable String workspacesweb;
         private @Nullable String xray;
@@ -4237,6 +4250,7 @@ public final class Endpoints {
     	      this.wafregional = defaults.wafregional;
     	      this.wafv2 = defaults.wafv2;
     	      this.wellarchitected = defaults.wellarchitected;
+    	      this.workmail = defaults.workmail;
     	      this.workspaces = defaults.workspaces;
     	      this.workspacesweb = defaults.workspacesweb;
     	      this.xray = defaults.xray;
@@ -6031,6 +6045,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder workmail(@Nullable String workmail) {
+
+            this.workmail = workmail;
+            return this;
+        }
+        @CustomType.Setter
         public Builder workspaces(@Nullable String workspaces) {
 
             this.workspaces = workspaces;
@@ -6348,6 +6368,7 @@ public final class Endpoints {
             _resultValue.wafregional = wafregional;
             _resultValue.wafv2 = wafv2;
             _resultValue.wellarchitected = wellarchitected;
+            _resultValue.workmail = workmail;
             _resultValue.workspaces = workspaces;
             _resultValue.workspacesweb = workspacesweb;
             _resultValue.xray = xray;

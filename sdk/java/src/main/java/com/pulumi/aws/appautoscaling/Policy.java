@@ -6,6 +6,7 @@ package com.pulumi.aws.appautoscaling;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.appautoscaling.PolicyArgs;
 import com.pulumi.aws.appautoscaling.inputs.PolicyState;
+import com.pulumi.aws.appautoscaling.outputs.PolicyPredictiveScalingPolicyConfiguration;
 import com.pulumi.aws.appautoscaling.outputs.PolicyStepScalingPolicyConfiguration;
 import com.pulumi.aws.appautoscaling.outputs.PolicyTargetTrackingScalingPolicyConfiguration;
 import com.pulumi.core.Output;
@@ -325,6 +326,52 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Predictive Scaling
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.appautoscaling.Policy;
+ * import com.pulumi.aws.appautoscaling.PolicyArgs;
+ * import com.pulumi.aws.appautoscaling.inputs.PolicyPredictiveScalingPolicyConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Policy("example", PolicyArgs.builder()
+ *             .name("example-policy")
+ *             .resourceId(exampleAwsAppautoscalingTarget.resourceId())
+ *             .scalableDimension(exampleAwsAppautoscalingTarget.scalableDimension())
+ *             .serviceNamespace(exampleAwsAppautoscalingTarget.serviceNamespace())
+ *             .policyType("PredictiveScaling")
+ *             .predictiveScalingPolicyConfiguration(PolicyPredictiveScalingPolicyConfigurationArgs.builder()
+ *                 .metricSpecifications(PolicyPredictiveScalingPolicyConfigurationMetricSpecificationArgs.builder()
+ *                     .targetValue("40")
+ *                     .predefinedMetricPairSpecification(PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs.builder()
+ *                         .predefinedMetricType("ECSServiceMemoryUtilization")
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ### MSK / Kafka Autoscaling
  * 
  * <pre>
@@ -434,18 +481,32 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
+     * Policy type. Valid values are `StepScaling`, `TargetTrackingScaling`, and `PredictiveScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html), [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html), and [Predictive Scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-predictive-scaling.html) documentation.
      * 
      */
     @Export(name="policyType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policyType;
 
     /**
-     * @return Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
+     * @return Policy type. Valid values are `StepScaling`, `TargetTrackingScaling`, and `PredictiveScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html), [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html), and [Predictive Scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-predictive-scaling.html) documentation.
      * 
      */
     public Output<Optional<String>> policyType() {
         return Codegen.optional(this.policyType);
+    }
+    /**
+     * Predictive scaling policy configuration, requires `policy_type = &#34;PredictiveScaling&#34;`. See supported fields below.
+     * 
+     */
+    @Export(name="predictiveScalingPolicyConfiguration", refs={PolicyPredictiveScalingPolicyConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ PolicyPredictiveScalingPolicyConfiguration> predictiveScalingPolicyConfiguration;
+
+    /**
+     * @return Predictive scaling policy configuration, requires `policy_type = &#34;PredictiveScaling&#34;`. See supported fields below.
+     * 
+     */
+    public Output<Optional<PolicyPredictiveScalingPolicyConfiguration>> predictiveScalingPolicyConfiguration() {
+        return Codegen.optional(this.predictiveScalingPolicyConfiguration);
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -518,14 +579,14 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.stepScalingPolicyConfiguration);
     }
     /**
-     * Target tracking policy, requires `policy_type = &#34;TargetTrackingScaling&#34;`. See supported fields below.
+     * Target tracking policy configuration, requires `policy_type = &#34;TargetTrackingScaling&#34;`. See supported fields below.
      * 
      */
     @Export(name="targetTrackingScalingPolicyConfiguration", refs={PolicyTargetTrackingScalingPolicyConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ PolicyTargetTrackingScalingPolicyConfiguration> targetTrackingScalingPolicyConfiguration;
 
     /**
-     * @return Target tracking policy, requires `policy_type = &#34;TargetTrackingScaling&#34;`. See supported fields below.
+     * @return Target tracking policy configuration, requires `policy_type = &#34;TargetTrackingScaling&#34;`. See supported fields below.
      * 
      */
     public Output<Optional<PolicyTargetTrackingScalingPolicyConfiguration>> targetTrackingScalingPolicyConfiguration() {

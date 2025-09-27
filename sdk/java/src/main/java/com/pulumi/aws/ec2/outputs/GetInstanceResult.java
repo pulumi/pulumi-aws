@@ -166,6 +166,11 @@ public final class GetInstanceResult {
      */
     private String placementGroup;
     /**
+     * @return Placement group ID of the Instance.
+     * 
+     */
+    private String placementGroupId;
+    /**
      * @return Number of the partition the instance is in.
      * 
      */
@@ -453,6 +458,13 @@ public final class GetInstanceResult {
         return this.placementGroup;
     }
     /**
+     * @return Placement group ID of the Instance.
+     * 
+     */
+    public String placementGroupId() {
+        return this.placementGroupId;
+    }
+    /**
      * @return Number of the partition the instance is in.
      * 
      */
@@ -609,6 +621,7 @@ public final class GetInstanceResult {
         private String outpostArn;
         private String passwordData;
         private String placementGroup;
+        private String placementGroupId;
         private Integer placementPartitionNumber;
         private String privateDns;
         private List<GetInstancePrivateDnsNameOption> privateDnsNameOptions;
@@ -661,6 +674,7 @@ public final class GetInstanceResult {
     	      this.outpostArn = defaults.outpostArn;
     	      this.passwordData = defaults.passwordData;
     	      this.placementGroup = defaults.placementGroup;
+    	      this.placementGroupId = defaults.placementGroupId;
     	      this.placementPartitionNumber = defaults.placementPartitionNumber;
     	      this.privateDns = defaults.privateDns;
     	      this.privateDnsNameOptions = defaults.privateDnsNameOptions;
@@ -953,6 +967,14 @@ public final class GetInstanceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder placementGroupId(String placementGroupId) {
+            if (placementGroupId == null) {
+              throw new MissingRequiredPropertyException("GetInstanceResult", "placementGroupId");
+            }
+            this.placementGroupId = placementGroupId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder placementPartitionNumber(Integer placementPartitionNumber) {
             if (placementPartitionNumber == null) {
               throw new MissingRequiredPropertyException("GetInstanceResult", "placementPartitionNumber");
@@ -1137,6 +1159,7 @@ public final class GetInstanceResult {
             _resultValue.outpostArn = outpostArn;
             _resultValue.passwordData = passwordData;
             _resultValue.placementGroup = placementGroup;
+            _resultValue.placementGroupId = placementGroupId;
             _resultValue.placementPartitionNumber = placementPartitionNumber;
             _resultValue.privateDns = privateDns;
             _resultValue.privateDnsNameOptions = privateDnsNameOptions;

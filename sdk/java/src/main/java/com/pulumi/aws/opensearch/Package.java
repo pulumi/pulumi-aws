@@ -105,6 +105,20 @@ public class Package extends com.pulumi.resources.CustomResource {
         return this.availablePackageVersion;
     }
     /**
+     * Engine version that the package is compatible with. This argument is required and only valid when `package_type` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
+     * 
+     */
+    @Export(name="engineVersion", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> engineVersion;
+
+    /**
+     * @return Engine version that the package is compatible with. This argument is required and only valid when `package_type` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
+     * 
+     */
+    public Output<Optional<String>> engineVersion() {
+        return Codegen.optional(this.engineVersion);
+    }
+    /**
      * Description of the package.
      * 
      */
@@ -153,14 +167,14 @@ public class Package extends com.pulumi.resources.CustomResource {
         return this.packageSource;
     }
     /**
-     * The type of package.
+     * The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
      * 
      */
     @Export(name="packageType", refs={String.class}, tree="[0]")
     private Output<String> packageType;
 
     /**
-     * @return The type of package.
+     * @return The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
      * 
      */
     public Output<String> packageType() {

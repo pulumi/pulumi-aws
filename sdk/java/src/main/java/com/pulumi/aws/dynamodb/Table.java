@@ -15,6 +15,7 @@ import com.pulumi.aws.dynamodb.outputs.TablePointInTimeRecovery;
 import com.pulumi.aws.dynamodb.outputs.TableReplica;
 import com.pulumi.aws.dynamodb.outputs.TableServerSideEncryption;
 import com.pulumi.aws.dynamodb.outputs.TableTtl;
+import com.pulumi.aws.dynamodb.outputs.TableWarmThroughput;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -722,6 +723,20 @@ public class Table extends com.pulumi.resources.CustomResource {
      */
     public Output<TableTtl> ttl() {
         return this.ttl;
+    }
+    /**
+     * Sets the number of warm read and write units for the specified table. See below.
+     * 
+     */
+    @Export(name="warmThroughput", refs={TableWarmThroughput.class}, tree="[0]")
+    private Output<TableWarmThroughput> warmThroughput;
+
+    /**
+     * @return Sets the number of warm read and write units for the specified table. See below.
+     * 
+     */
+    public Output<TableWarmThroughput> warmThroughput() {
+        return this.warmThroughput;
     }
     /**
      * Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.

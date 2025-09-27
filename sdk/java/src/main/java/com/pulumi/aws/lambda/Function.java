@@ -673,11 +673,23 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `function_name` (String) Name of the Lambda function.
+ * 
+ * #### Optional
+ * 
+ * * `account_id` (String) AWS Account where this resource is managed.
+ * 
+ * * `region` (String) Region where this resource is managed.
+ * 
  * Using `pulumi import`, import Lambda Functions using the `function_name`. For example:
  * 
- * ```sh
- * $ pulumi import aws:lambda/function:Function example example
- * ```
+ * console
+ * 
+ * % pulumi import aws_lambda_function.example example
  * 
  */
 @ResourceType(type="aws:lambda/function:Function")
@@ -1231,6 +1243,20 @@ public class Function extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> sourceCodeSize() {
         return this.sourceCodeSize;
+    }
+    /**
+     * ARN of the AWS Key Management Service key used to encrypt the function&#39;s `.zip` deployment package. Conflicts with `image_uri`.
+     * 
+     */
+    @Export(name="sourceKmsKeyArn", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> sourceKmsKeyArn;
+
+    /**
+     * @return ARN of the AWS Key Management Service key used to encrypt the function&#39;s `.zip` deployment package. Conflicts with `image_uri`.
+     * 
+     */
+    public Output<Optional<String>> sourceKmsKeyArn() {
+        return Codegen.optional(this.sourceKmsKeyArn);
     }
     /**
      * Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

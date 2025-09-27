@@ -1233,6 +1233,8 @@ public final class SsmFunctions {
      * 
      * ## Example Usage
      * 
+     * ### Default
+     * 
      * <pre>
      * {@code
      * package generated_program;
@@ -1257,6 +1259,39 @@ public final class SsmFunctions {
      *     public static void stack(Context ctx) {
      *         final var foo = SsmFunctions.getParameter(GetParameterArgs.builder()
      *             .name("foo")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### With version
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetParameterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = SsmFunctions.getParameter(GetParameterArgs.builder()
+     *             .name("foo:3")
      *             .build());
      * 
      *     }
@@ -1275,6 +1310,8 @@ public final class SsmFunctions {
      * 
      * ## Example Usage
      * 
+     * ### Default
+     * 
      * <pre>
      * {@code
      * package generated_program;
@@ -1299,6 +1336,39 @@ public final class SsmFunctions {
      *     public static void stack(Context ctx) {
      *         final var foo = SsmFunctions.getParameter(GetParameterArgs.builder()
      *             .name("foo")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### With version
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetParameterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = SsmFunctions.getParameter(GetParameterArgs.builder()
+     *             .name("foo:3")
      *             .build());
      * 
      *     }
@@ -1317,6 +1387,8 @@ public final class SsmFunctions {
      * 
      * ## Example Usage
      * 
+     * ### Default
+     * 
      * <pre>
      * {@code
      * package generated_program;
@@ -1341,6 +1413,39 @@ public final class SsmFunctions {
      *     public static void stack(Context ctx) {
      *         final var foo = SsmFunctions.getParameter(GetParameterArgs.builder()
      *             .name("foo")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### With version
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetParameterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = SsmFunctions.getParameter(GetParameterArgs.builder()
+     *             .name("foo:3")
      *             .build());
      * 
      *     }
@@ -1359,6 +1464,8 @@ public final class SsmFunctions {
      * 
      * ## Example Usage
      * 
+     * ### Default
+     * 
      * <pre>
      * {@code
      * package generated_program;
@@ -1390,6 +1497,39 @@ public final class SsmFunctions {
      * }
      * </pre>
      * 
+     * ### With version
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetParameterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = SsmFunctions.getParameter(GetParameterArgs.builder()
+     *             .name("foo:3")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      * &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
      * 
      */
@@ -1400,6 +1540,8 @@ public final class SsmFunctions {
      * Provides an SSM Parameter data source.
      * 
      * ## Example Usage
+     * 
+     * ### Default
      * 
      * <pre>
      * {@code
@@ -1425,6 +1567,39 @@ public final class SsmFunctions {
      *     public static void stack(Context ctx) {
      *         final var foo = SsmFunctions.getParameter(GetParameterArgs.builder()
      *             .name("foo")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### With version
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetParameterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = SsmFunctions.getParameter(GetParameterArgs.builder()
+     *             .name("foo:3")
      *             .build());
      * 
      *     }

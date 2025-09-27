@@ -54,6 +54,21 @@ public final class BudgetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * ARN of the billing view.
+     * 
+     */
+    @Import(name="billingViewArn")
+    private @Nullable Output<String> billingViewArn;
+
+    /**
+     * @return ARN of the billing view.
+     * 
+     */
+    public Optional<Output<String>> billingViewArn() {
+        return Optional.ofNullable(this.billingViewArn);
+    }
+
+    /**
      * Whether this budget tracks monetary cost or usage.
      * 
      */
@@ -263,6 +278,7 @@ public final class BudgetArgs extends com.pulumi.resources.ResourceArgs {
     private BudgetArgs(BudgetArgs $) {
         this.accountId = $.accountId;
         this.autoAdjustData = $.autoAdjustData;
+        this.billingViewArn = $.billingViewArn;
         this.budgetType = $.budgetType;
         this.costFilters = $.costFilters;
         this.costTypes = $.costTypes;
@@ -336,6 +352,27 @@ public final class BudgetArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder autoAdjustData(BudgetAutoAdjustDataArgs autoAdjustData) {
             return autoAdjustData(Output.of(autoAdjustData));
+        }
+
+        /**
+         * @param billingViewArn ARN of the billing view.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder billingViewArn(@Nullable Output<String> billingViewArn) {
+            $.billingViewArn = billingViewArn;
+            return this;
+        }
+
+        /**
+         * @param billingViewArn ARN of the billing view.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder billingViewArn(String billingViewArn) {
+            return billingViewArn(Output.of(billingViewArn));
         }
 
         /**

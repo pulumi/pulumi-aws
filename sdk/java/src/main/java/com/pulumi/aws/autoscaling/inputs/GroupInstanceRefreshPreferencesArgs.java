@@ -140,14 +140,14 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
     }
 
     /**
-     * Replace instances that already have your desired configuration. Defaults to `false`.
+     * Skip replacing instances that already have your desired configuration. Defaults to `false`.
      * 
      */
     @Import(name="skipMatching")
     private @Nullable Output<Boolean> skipMatching;
 
     /**
-     * @return Replace instances that already have your desired configuration. Defaults to `false`.
+     * @return Skip replacing instances that already have your desired configuration. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> skipMatching() {
@@ -381,7 +381,7 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
         }
 
         /**
-         * @param skipMatching Replace instances that already have your desired configuration. Defaults to `false`.
+         * @param skipMatching Skip replacing instances that already have your desired configuration. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -392,7 +392,7 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
         }
 
         /**
-         * @param skipMatching Replace instances that already have your desired configuration. Defaults to `false`.
+         * @param skipMatching Skip replacing instances that already have your desired configuration. Defaults to `false`.
          * 
          * @return builder
          * 

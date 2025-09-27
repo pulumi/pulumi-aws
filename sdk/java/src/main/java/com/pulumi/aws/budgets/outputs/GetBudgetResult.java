@@ -30,6 +30,11 @@ public final class GetBudgetResult {
      */
     private List<GetBudgetAutoAdjustData> autoAdjustDatas;
     /**
+     * @return ARN of the billing view.
+     * 
+     */
+    private String billingViewArn;
+    /**
      * @return Boolean indicating whether this budget has been exceeded.
      * 
      */
@@ -110,6 +115,13 @@ public final class GetBudgetResult {
      */
     public List<GetBudgetAutoAdjustData> autoAdjustDatas() {
         return this.autoAdjustDatas;
+    }
+    /**
+     * @return ARN of the billing view.
+     * 
+     */
+    public String billingViewArn() {
+        return this.billingViewArn;
     }
     /**
      * @return Boolean indicating whether this budget has been exceeded.
@@ -221,6 +233,7 @@ public final class GetBudgetResult {
         private String accountId;
         private String arn;
         private List<GetBudgetAutoAdjustData> autoAdjustDatas;
+        private String billingViewArn;
         private Boolean budgetExceeded;
         private List<GetBudgetBudgetLimit> budgetLimits;
         private String budgetType;
@@ -242,6 +255,7 @@ public final class GetBudgetResult {
     	      this.accountId = defaults.accountId;
     	      this.arn = defaults.arn;
     	      this.autoAdjustDatas = defaults.autoAdjustDatas;
+    	      this.billingViewArn = defaults.billingViewArn;
     	      this.budgetExceeded = defaults.budgetExceeded;
     	      this.budgetLimits = defaults.budgetLimits;
     	      this.budgetType = defaults.budgetType;
@@ -285,6 +299,14 @@ public final class GetBudgetResult {
         }
         public Builder autoAdjustDatas(GetBudgetAutoAdjustData... autoAdjustDatas) {
             return autoAdjustDatas(List.of(autoAdjustDatas));
+        }
+        @CustomType.Setter
+        public Builder billingViewArn(String billingViewArn) {
+            if (billingViewArn == null) {
+              throw new MissingRequiredPropertyException("GetBudgetResult", "billingViewArn");
+            }
+            this.billingViewArn = billingViewArn;
+            return this;
         }
         @CustomType.Setter
         public Builder budgetExceeded(Boolean budgetExceeded) {
@@ -427,6 +449,7 @@ public final class GetBudgetResult {
             _resultValue.accountId = accountId;
             _resultValue.arn = arn;
             _resultValue.autoAdjustDatas = autoAdjustDatas;
+            _resultValue.billingViewArn = billingViewArn;
             _resultValue.budgetExceeded = budgetExceeded;
             _resultValue.budgetLimits = budgetLimits;
             _resultValue.budgetType = budgetType;

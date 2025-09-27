@@ -200,11 +200,17 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * - `arn` (String) Amazon Resource Name (ARN) of the ACM PCA certificate authority.
+ * 
  * Using `pulumi import`, import `aws_acmpca_certificate_authority` using the certificate authority ARN. For example:
  * 
- * ```sh
- * $ pulumi import aws:acmpca/certificateAuthority:CertificateAuthority example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
- * ```
+ * console
+ * 
+ * % pulumi import aws_acmpca_certificate_authority.example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
  * 
  */
 @ResourceType(type="aws:acmpca/certificateAuthority:CertificateAuthority")

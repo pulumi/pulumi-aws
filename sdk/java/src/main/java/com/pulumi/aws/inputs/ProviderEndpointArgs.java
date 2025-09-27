@@ -4489,6 +4489,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="workmail")
+    private @Nullable Output<String> workmail;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> workmail() {
+        return Optional.ofNullable(this.workmail);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="workspaces")
     private @Nullable Output<String> workspaces;
 
@@ -4831,6 +4846,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.wafregional = $.wafregional;
         this.wafv2 = $.wafv2;
         this.wellarchitected = $.wellarchitected;
+        this.workmail = $.workmail;
         this.workspaces = $.workspaces;
         this.workspacesweb = $.workspacesweb;
         this.xray = $.xray;
@@ -11110,6 +11126,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder wellarchitected(String wellarchitected) {
             return wellarchitected(Output.of(wellarchitected));
+        }
+
+        /**
+         * @param workmail Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workmail(@Nullable Output<String> workmail) {
+            $.workmail = workmail;
+            return this;
+        }
+
+        /**
+         * @param workmail Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workmail(String workmail) {
+            return workmail(Output.of(workmail));
         }
 
         /**

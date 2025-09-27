@@ -66,11 +66,17 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator accelerator.
+ * 
  * Using `pulumi import`, import Global Accelerator accelerators using the `arn`. For example:
  * 
- * ```sh
- * $ pulumi import aws:globalaccelerator/accelerator:Accelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
- * ```
+ * console
+ * 
+ * % pulumi import aws_globalaccelerator_accelerator.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
  * 
  */
 @ResourceType(type="aws:globalaccelerator/accelerator:Accelerator")

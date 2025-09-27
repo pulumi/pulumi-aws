@@ -14,16 +14,34 @@ public final class GetInstanceFilter extends com.pulumi.resources.InvokeArgs {
 
     public static final GetInstanceFilter Empty = new GetInstanceFilter();
 
+    /**
+     * Name of the filter.
+     * For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+     * 
+     */
     @Import(name="name", required=true)
     private String name;
 
+    /**
+     * @return Name of the filter.
+     * For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+     * 
+     */
     public String name() {
         return this.name;
     }
 
+    /**
+     * One or more values to match.
+     * 
+     */
     @Import(name="values", required=true)
     private List<String> values;
 
+    /**
+     * @return One or more values to match.
+     * 
+     */
     public List<String> values() {
         return this.values;
     }
@@ -53,16 +71,35 @@ public final class GetInstanceFilter extends com.pulumi.resources.InvokeArgs {
             $ = new GetInstanceFilter(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Name of the filter.
+         * For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param values One or more values to match.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(List<String> values) {
             $.values = values;
             return this;
         }
 
+        /**
+         * @param values One or more values to match.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

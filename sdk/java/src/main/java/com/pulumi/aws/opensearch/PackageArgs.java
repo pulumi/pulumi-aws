@@ -18,6 +18,21 @@ public final class PackageArgs extends com.pulumi.resources.ResourceArgs {
     public static final PackageArgs Empty = new PackageArgs();
 
     /**
+     * Engine version that the package is compatible with. This argument is required and only valid when `package_type` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
+     * 
+     */
+    @Import(name="engineVersion")
+    private @Nullable Output<String> engineVersion;
+
+    /**
+     * @return Engine version that the package is compatible with. This argument is required and only valid when `package_type` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
+     * 
+     */
+    public Optional<Output<String>> engineVersion() {
+        return Optional.ofNullable(this.engineVersion);
+    }
+
+    /**
      * Description of the package.
      * 
      */
@@ -63,14 +78,14 @@ public final class PackageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of package.
+     * The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
      * 
      */
     @Import(name="packageType", required=true)
     private Output<String> packageType;
 
     /**
-     * @return The type of package.
+     * @return The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
      * 
      */
     public Output<String> packageType() {
@@ -95,6 +110,7 @@ public final class PackageArgs extends com.pulumi.resources.ResourceArgs {
     private PackageArgs() {}
 
     private PackageArgs(PackageArgs $) {
+        this.engineVersion = $.engineVersion;
         this.packageDescription = $.packageDescription;
         this.packageName = $.packageName;
         this.packageSource = $.packageSource;
@@ -118,6 +134,27 @@ public final class PackageArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(PackageArgs defaults) {
             $ = new PackageArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param engineVersion Engine version that the package is compatible with. This argument is required and only valid when `package_type` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder engineVersion(@Nullable Output<String> engineVersion) {
+            $.engineVersion = engineVersion;
+            return this;
+        }
+
+        /**
+         * @param engineVersion Engine version that the package is compatible with. This argument is required and only valid when `package_type` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder engineVersion(String engineVersion) {
+            return engineVersion(Output.of(engineVersion));
         }
 
         /**
@@ -184,7 +221,7 @@ public final class PackageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param packageType The type of package.
+         * @param packageType The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
          * 
          * @return builder
          * 
@@ -195,7 +232,7 @@ public final class PackageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param packageType The type of package.
+         * @param packageType The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
          * 
          * @return builder
          * 

@@ -46,11 +46,27 @@ public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigura
         return Optional.ofNullable(this.orphanFileRetentionPeriodInDays);
     }
 
+    /**
+     * interval in hours between orphan file deletion job runs. Defaults to `24`.
+     * 
+     */
+    @Import(name="runRateInHours")
+    private @Nullable Output<Integer> runRateInHours;
+
+    /**
+     * @return interval in hours between orphan file deletion job runs. Defaults to `24`.
+     * 
+     */
+    public Optional<Output<Integer>> runRateInHours() {
+        return Optional.ofNullable(this.runRateInHours);
+    }
+
     private CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs() {}
 
     private CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs $) {
         this.location = $.location;
         this.orphanFileRetentionPeriodInDays = $.orphanFileRetentionPeriodInDays;
+        this.runRateInHours = $.runRateInHours;
     }
 
     public static Builder builder() {
@@ -111,6 +127,27 @@ public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigura
          */
         public Builder orphanFileRetentionPeriodInDays(Integer orphanFileRetentionPeriodInDays) {
             return orphanFileRetentionPeriodInDays(Output.of(orphanFileRetentionPeriodInDays));
+        }
+
+        /**
+         * @param runRateInHours interval in hours between orphan file deletion job runs. Defaults to `24`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder runRateInHours(@Nullable Output<Integer> runRateInHours) {
+            $.runRateInHours = runRateInHours;
+            return this;
+        }
+
+        /**
+         * @param runRateInHours interval in hours between orphan file deletion job runs. Defaults to `24`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder runRateInHours(Integer runRateInHours) {
+            return runRateInHours(Output.of(runRateInHours));
         }
 
         public CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs build() {

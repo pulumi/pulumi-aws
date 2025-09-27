@@ -35,15 +35,15 @@ public final class ClusterRoleAssociationArgs extends com.pulumi.resources.Resou
      * Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
      * 
      */
-    @Import(name="featureName", required=true)
-    private Output<String> featureName;
+    @Import(name="featureName")
+    private @Nullable Output<String> featureName;
 
     /**
      * @return Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
      * 
      */
-    public Output<String> featureName() {
-        return this.featureName;
+    public Optional<Output<String>> featureName() {
+        return Optional.ofNullable(this.featureName);
     }
 
     /**
@@ -130,7 +130,7 @@ public final class ClusterRoleAssociationArgs extends com.pulumi.resources.Resou
          * @return builder
          * 
          */
-        public Builder featureName(Output<String> featureName) {
+        public Builder featureName(@Nullable Output<String> featureName) {
             $.featureName = featureName;
             return this;
         }
@@ -190,9 +190,6 @@ public final class ClusterRoleAssociationArgs extends com.pulumi.resources.Resou
         public ClusterRoleAssociationArgs build() {
             if ($.dbClusterIdentifier == null) {
                 throw new MissingRequiredPropertyException("ClusterRoleAssociationArgs", "dbClusterIdentifier");
-            }
-            if ($.featureName == null) {
-                throw new MissingRequiredPropertyException("ClusterRoleAssociationArgs", "featureName");
             }
             if ($.roleArn == null) {
                 throw new MissingRequiredPropertyException("ClusterRoleAssociationArgs", "roleArn");

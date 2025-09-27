@@ -281,14 +281,14 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
+     * Specify how much storage users or groups can use on the volume. Maximum number of items defined by [FSx for OpenZFS Resource quota](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html#limits-openzfs-resources-file-system). See `user_and_group_quotas` Block Below.
      * 
      */
     @Export(name="userAndGroupQuotas", refs={List.class,OpenZfsVolumeUserAndGroupQuota.class}, tree="[0,1]")
     private Output<List<OpenZfsVolumeUserAndGroupQuota>> userAndGroupQuotas;
 
     /**
-     * @return Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
+     * @return Specify how much storage users or groups can use on the volume. Maximum number of items defined by [FSx for OpenZFS Resource quota](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html#limits-openzfs-resources-file-system). See `user_and_group_quotas` Block Below.
      * 
      */
     public Output<List<OpenZfsVolumeUserAndGroupQuota>> userAndGroupQuotas() {

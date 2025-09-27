@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.appautoscaling;
 
+import com.pulumi.aws.appautoscaling.inputs.PolicyPredictiveScalingPolicyConfigurationArgs;
 import com.pulumi.aws.appautoscaling.inputs.PolicyStepScalingPolicyConfigurationArgs;
 import com.pulumi.aws.appautoscaling.inputs.PolicyTargetTrackingScalingPolicyConfigurationArgs;
 import com.pulumi.core.Output;
@@ -34,18 +35,33 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
+     * Policy type. Valid values are `StepScaling`, `TargetTrackingScaling`, and `PredictiveScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html), [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html), and [Predictive Scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-predictive-scaling.html) documentation.
      * 
      */
     @Import(name="policyType")
     private @Nullable Output<String> policyType;
 
     /**
-     * @return Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
+     * @return Policy type. Valid values are `StepScaling`, `TargetTrackingScaling`, and `PredictiveScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html), [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html), and [Predictive Scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-predictive-scaling.html) documentation.
      * 
      */
     public Optional<Output<String>> policyType() {
         return Optional.ofNullable(this.policyType);
+    }
+
+    /**
+     * Predictive scaling policy configuration, requires `policy_type = &#34;PredictiveScaling&#34;`. See supported fields below.
+     * 
+     */
+    @Import(name="predictiveScalingPolicyConfiguration")
+    private @Nullable Output<PolicyPredictiveScalingPolicyConfigurationArgs> predictiveScalingPolicyConfiguration;
+
+    /**
+     * @return Predictive scaling policy configuration, requires `policy_type = &#34;PredictiveScaling&#34;`. See supported fields below.
+     * 
+     */
+    public Optional<Output<PolicyPredictiveScalingPolicyConfigurationArgs>> predictiveScalingPolicyConfiguration() {
+        return Optional.ofNullable(this.predictiveScalingPolicyConfiguration);
     }
 
     /**
@@ -124,14 +140,14 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Target tracking policy, requires `policy_type = &#34;TargetTrackingScaling&#34;`. See supported fields below.
+     * Target tracking policy configuration, requires `policy_type = &#34;TargetTrackingScaling&#34;`. See supported fields below.
      * 
      */
     @Import(name="targetTrackingScalingPolicyConfiguration")
     private @Nullable Output<PolicyTargetTrackingScalingPolicyConfigurationArgs> targetTrackingScalingPolicyConfiguration;
 
     /**
-     * @return Target tracking policy, requires `policy_type = &#34;TargetTrackingScaling&#34;`. See supported fields below.
+     * @return Target tracking policy configuration, requires `policy_type = &#34;TargetTrackingScaling&#34;`. See supported fields below.
      * 
      */
     public Optional<Output<PolicyTargetTrackingScalingPolicyConfigurationArgs>> targetTrackingScalingPolicyConfiguration() {
@@ -143,6 +159,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     private PolicyArgs(PolicyArgs $) {
         this.name = $.name;
         this.policyType = $.policyType;
+        this.predictiveScalingPolicyConfiguration = $.predictiveScalingPolicyConfiguration;
         this.region = $.region;
         this.resourceId = $.resourceId;
         this.scalableDimension = $.scalableDimension;
@@ -191,7 +208,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyType Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
+         * @param policyType Policy type. Valid values are `StepScaling`, `TargetTrackingScaling`, and `PredictiveScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html), [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html), and [Predictive Scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-predictive-scaling.html) documentation.
          * 
          * @return builder
          * 
@@ -202,13 +219,34 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyType Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
+         * @param policyType Policy type. Valid values are `StepScaling`, `TargetTrackingScaling`, and `PredictiveScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html), [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html), and [Predictive Scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-predictive-scaling.html) documentation.
          * 
          * @return builder
          * 
          */
         public Builder policyType(String policyType) {
             return policyType(Output.of(policyType));
+        }
+
+        /**
+         * @param predictiveScalingPolicyConfiguration Predictive scaling policy configuration, requires `policy_type = &#34;PredictiveScaling&#34;`. See supported fields below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder predictiveScalingPolicyConfiguration(@Nullable Output<PolicyPredictiveScalingPolicyConfigurationArgs> predictiveScalingPolicyConfiguration) {
+            $.predictiveScalingPolicyConfiguration = predictiveScalingPolicyConfiguration;
+            return this;
+        }
+
+        /**
+         * @param predictiveScalingPolicyConfiguration Predictive scaling policy configuration, requires `policy_type = &#34;PredictiveScaling&#34;`. See supported fields below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder predictiveScalingPolicyConfiguration(PolicyPredictiveScalingPolicyConfigurationArgs predictiveScalingPolicyConfiguration) {
+            return predictiveScalingPolicyConfiguration(Output.of(predictiveScalingPolicyConfiguration));
         }
 
         /**
@@ -317,7 +355,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetTrackingScalingPolicyConfiguration Target tracking policy, requires `policy_type = &#34;TargetTrackingScaling&#34;`. See supported fields below.
+         * @param targetTrackingScalingPolicyConfiguration Target tracking policy configuration, requires `policy_type = &#34;TargetTrackingScaling&#34;`. See supported fields below.
          * 
          * @return builder
          * 
@@ -328,7 +366,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetTrackingScalingPolicyConfiguration Target tracking policy, requires `policy_type = &#34;TargetTrackingScaling&#34;`. See supported fields below.
+         * @param targetTrackingScalingPolicyConfiguration Target tracking policy configuration, requires `policy_type = &#34;TargetTrackingScaling&#34;`. See supported fields below.
          * 
          * @return builder
          * 

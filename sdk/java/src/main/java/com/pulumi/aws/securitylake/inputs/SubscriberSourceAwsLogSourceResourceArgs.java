@@ -17,14 +17,14 @@ public final class SubscriberSourceAwsLogSourceResourceArgs extends com.pulumi.r
     public static final SubscriberSourceAwsLogSourceResourceArgs Empty = new SubscriberSourceAwsLogSourceResourceArgs();
 
     /**
-     * Provides data expiration details of Amazon Security Lake object.
+     * The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT` and `WAF`.
      * 
      */
     @Import(name="sourceName", required=true)
     private Output<String> sourceName;
 
     /**
-     * @return Provides data expiration details of Amazon Security Lake object.
+     * @return The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT` and `WAF`.
      * 
      */
     public Output<String> sourceName() {
@@ -32,14 +32,14 @@ public final class SubscriberSourceAwsLogSourceResourceArgs extends com.pulumi.r
     }
 
     /**
-     * Provides data storage transition details of Amazon Security Lake object.
+     * The version for a AWS source. This must be a Regionally unique value.
      * 
      */
     @Import(name="sourceVersion")
     private @Nullable Output<String> sourceVersion;
 
     /**
-     * @return Provides data storage transition details of Amazon Security Lake object.
+     * @return The version for a AWS source. This must be a Regionally unique value.
      * 
      */
     public Optional<Output<String>> sourceVersion() {
@@ -72,7 +72,7 @@ public final class SubscriberSourceAwsLogSourceResourceArgs extends com.pulumi.r
         }
 
         /**
-         * @param sourceName Provides data expiration details of Amazon Security Lake object.
+         * @param sourceName The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT` and `WAF`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class SubscriberSourceAwsLogSourceResourceArgs extends com.pulumi.r
         }
 
         /**
-         * @param sourceName Provides data expiration details of Amazon Security Lake object.
+         * @param sourceName The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT` and `WAF`.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class SubscriberSourceAwsLogSourceResourceArgs extends com.pulumi.r
         }
 
         /**
-         * @param sourceVersion Provides data storage transition details of Amazon Security Lake object.
+         * @param sourceVersion The version for a AWS source. This must be a Regionally unique value.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class SubscriberSourceAwsLogSourceResourceArgs extends com.pulumi.r
         }
 
         /**
-         * @param sourceVersion Provides data storage transition details of Amazon Security Lake object.
+         * @param sourceVersion The version for a AWS source. This must be a Regionally unique value.
          * 
          * @return builder
          * 

@@ -49,6 +49,21 @@ public final class CanaryRunConfigArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Amount of ephemeral storage (in MB) allocated for the canary run during execution. Defaults to 1024.
+     * 
+     */
+    @Import(name="ephemeralStorage")
+    private @Nullable Output<Integer> ephemeralStorage;
+
+    /**
+     * @return Amount of ephemeral storage (in MB) allocated for the canary run during execution. Defaults to 1024.
+     * 
+     */
+    public Optional<Output<Integer>> ephemeralStorage() {
+        return Optional.ofNullable(this.ephemeralStorage);
+    }
+
+    /**
      * Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
      * 
      */
@@ -83,6 +98,7 @@ public final class CanaryRunConfigArgs extends com.pulumi.resources.ResourceArgs
     private CanaryRunConfigArgs(CanaryRunConfigArgs $) {
         this.activeTracing = $.activeTracing;
         this.environmentVariables = $.environmentVariables;
+        this.ephemeralStorage = $.ephemeralStorage;
         this.memoryInMb = $.memoryInMb;
         this.timeoutInSeconds = $.timeoutInSeconds;
     }
@@ -145,6 +161,27 @@ public final class CanaryRunConfigArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder environmentVariables(Map<String,String> environmentVariables) {
             return environmentVariables(Output.of(environmentVariables));
+        }
+
+        /**
+         * @param ephemeralStorage Amount of ephemeral storage (in MB) allocated for the canary run during execution. Defaults to 1024.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ephemeralStorage(@Nullable Output<Integer> ephemeralStorage) {
+            $.ephemeralStorage = ephemeralStorage;
+            return this;
+        }
+
+        /**
+         * @param ephemeralStorage Amount of ephemeral storage (in MB) allocated for the canary run during execution. Defaults to 1024.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ephemeralStorage(Integer ephemeralStorage) {
+            return ephemeralStorage(Output.of(ephemeralStorage));
         }
 
         /**

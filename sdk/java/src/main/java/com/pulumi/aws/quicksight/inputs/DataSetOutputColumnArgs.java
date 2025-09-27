@@ -16,14 +16,14 @@ public final class DataSetOutputColumnArgs extends com.pulumi.resources.Resource
     public static final DataSetOutputColumnArgs Empty = new DataSetOutputColumnArgs();
 
     /**
-     * Field folder description.
+     * The description of the column.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Field folder description.
+     * @return The description of the column.
      * 
      */
     public Optional<Output<String>> description() {
@@ -49,9 +49,17 @@ public final class DataSetOutputColumnArgs extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The data type of the column.
+     * 
+     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
+    /**
+     * @return The data type of the column.
+     * 
+     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -83,7 +91,7 @@ public final class DataSetOutputColumnArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param description Field folder description.
+         * @param description The description of the column.
          * 
          * @return builder
          * 
@@ -94,7 +102,7 @@ public final class DataSetOutputColumnArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param description Field folder description.
+         * @param description The description of the column.
          * 
          * @return builder
          * 
@@ -128,11 +136,23 @@ public final class DataSetOutputColumnArgs extends com.pulumi.resources.Resource
             return name(Output.of(name));
         }
 
+        /**
+         * @param type The data type of the column.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type The data type of the column.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

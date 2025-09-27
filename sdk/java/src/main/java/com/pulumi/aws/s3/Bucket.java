@@ -75,11 +75,23 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `bucket` (String) Name of the S3 bucket.
+ * 
+ * #### Optional
+ * 
+ * * `account_id` (String) AWS Account where this resource is managed.
+ * 
+ * * `region` (String) Region where this resource is managed.
+ * 
  * Using `pulumi import`, import S3 bucket using the `bucket`. For example:
  * 
- * ```sh
- * $ pulumi import aws:s3/bucket:Bucket bucket bucket-name
- * ```
+ * console
+ * 
+ * % pulumi import aws_s3_bucket.example bucket-name
  * 
  */
 @ResourceType(type="aws:s3/bucket:Bucket")

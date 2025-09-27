@@ -13,6 +13,7 @@ import java.util.Objects;
 public final class GetLaunchTemplatePlacement {
     private String affinity;
     private String availabilityZone;
+    private String groupId;
     private String groupName;
     private String hostId;
     private String hostResourceGroupArn;
@@ -26,6 +27,9 @@ public final class GetLaunchTemplatePlacement {
     }
     public String availabilityZone() {
         return this.availabilityZone;
+    }
+    public String groupId() {
+        return this.groupId;
     }
     public String groupName() {
         return this.groupName;
@@ -57,6 +61,7 @@ public final class GetLaunchTemplatePlacement {
     public static final class Builder {
         private String affinity;
         private String availabilityZone;
+        private String groupId;
         private String groupName;
         private String hostId;
         private String hostResourceGroupArn;
@@ -68,6 +73,7 @@ public final class GetLaunchTemplatePlacement {
     	      Objects.requireNonNull(defaults);
     	      this.affinity = defaults.affinity;
     	      this.availabilityZone = defaults.availabilityZone;
+    	      this.groupId = defaults.groupId;
     	      this.groupName = defaults.groupName;
     	      this.hostId = defaults.hostId;
     	      this.hostResourceGroupArn = defaults.hostResourceGroupArn;
@@ -90,6 +96,14 @@ public final class GetLaunchTemplatePlacement {
               throw new MissingRequiredPropertyException("GetLaunchTemplatePlacement", "availabilityZone");
             }
             this.availabilityZone = availabilityZone;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder groupId(String groupId) {
+            if (groupId == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplatePlacement", "groupId");
+            }
+            this.groupId = groupId;
             return this;
         }
         @CustomType.Setter
@@ -144,6 +158,7 @@ public final class GetLaunchTemplatePlacement {
             final var _resultValue = new GetLaunchTemplatePlacement();
             _resultValue.affinity = affinity;
             _resultValue.availabilityZone = availabilityZone;
+            _resultValue.groupId = groupId;
             _resultValue.groupName = groupName;
             _resultValue.hostId = hostId;
             _resultValue.hostResourceGroupArn = hostResourceGroupArn;

@@ -92,6 +92,78 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Using rules_json
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.wafv2.RuleGroup;
+ * import com.pulumi.aws.wafv2.RuleGroupArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupVisibilityConfigArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new RuleGroup("example", RuleGroupArgs.builder()
+ *             .name("example-rule-group")
+ *             .scope("REGIONAL")
+ *             .capacity(100)
+ *             .rulesJson(serializeJson(
+ *                 jsonArray(jsonObject(
+ *                     jsonProperty("Name", "rule-1"),
+ *                     jsonProperty("Priority", 1),
+ *                     jsonProperty("Action", jsonObject(
+ *                         jsonProperty("Count", jsonObject(
+ * 
+ *                         ))
+ *                     )),
+ *                     jsonProperty("Statement", jsonObject(
+ *                         jsonProperty("ByteMatchStatement", jsonObject(
+ *                             jsonProperty("SearchString", "badbot"),
+ *                             jsonProperty("FieldToMatch", jsonObject(
+ *                                 jsonProperty("UriPath", jsonObject(
+ * 
+ *                                 ))
+ *                             )),
+ *                             jsonProperty("TextTransformations", jsonArray(jsonObject(
+ *                                 jsonProperty("Priority", 1),
+ *                                 jsonProperty("Type", "NONE")
+ *                             ))),
+ *                             jsonProperty("PositionalConstraint", "CONTAINS")
+ *                         ))
+ *                     )),
+ *                     jsonProperty("VisibilityConfig", jsonObject(
+ *                         jsonProperty("CloudwatchMetricsEnabled", false),
+ *                         jsonProperty("MetricName", "friendly-rule-metric-name"),
+ *                         jsonProperty("SampledRequestsEnabled", false)
+ *                     ))
+ *                 ))))
+ *             .visibilityConfig(RuleGroupVisibilityConfigArgs.builder()
+ *                 .cloudwatchMetricsEnabled(false)
+ *                 .metricName("friendly-metric-name")
+ *                 .sampledRequestsEnabled(false)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import WAFv2 Rule Group using `ID/name/scope`. For example:
@@ -221,9 +293,17 @@ public class RuleGroup extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<RuleGroupRule>>> rules() {
         return Codegen.optional(this.rules);
     }
+    /**
+     * Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rules_json` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
+     * 
+     */
     @Export(name="rulesJson", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> rulesJson;
 
+    /**
+     * @return Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rules_json` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
+     * 
+     */
     public Output<Optional<String>> rulesJson() {
         return Codegen.optional(this.rulesJson);
     }

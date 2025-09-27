@@ -81,11 +81,23 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `bucket` (String) Name of the S3 bucket.
+ * 
+ * #### Optional
+ * 
+ * * `account_id` (String) AWS Account where this resource is managed.
+ * 
+ * * `region` (String) Region where this resource is managed.
+ * 
  * Using `pulumi import`, import S3 bucket policies using the bucket name. For example:
  * 
- * ```sh
- * $ pulumi import aws:s3/bucketPolicy:BucketPolicy allow_access_from_another_account my-tf-test-bucket
- * ```
+ * console
+ * 
+ * % pulumi import aws_s3_bucket_policy.example my-tf-test-bucket
  * 
  */
 @ResourceType(type="aws:s3/bucketPolicy:BucketPolicy")

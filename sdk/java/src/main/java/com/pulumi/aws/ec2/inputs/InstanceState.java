@@ -570,18 +570,33 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Placement Group to start the instance in.
+     * Placement Group to start the instance in. Conflicts with `placement_group_id`.
      * 
      */
     @Import(name="placementGroup")
     private @Nullable Output<String> placementGroup;
 
     /**
-     * @return Placement Group to start the instance in.
+     * @return Placement Group to start the instance in. Conflicts with `placement_group_id`.
      * 
      */
     public Optional<Output<String>> placementGroup() {
         return Optional.ofNullable(this.placementGroup);
+    }
+
+    /**
+     * Placement Group ID to start the instance in. Conflicts with `placement_group`.
+     * 
+     */
+    @Import(name="placementGroupId")
+    private @Nullable Output<String> placementGroupId;
+
+    /**
+     * @return Placement Group ID to start the instance in. Conflicts with `placement_group`.
+     * 
+     */
+    public Optional<Output<String>> placementGroupId() {
+        return Optional.ofNullable(this.placementGroupId);
     }
 
     /**
@@ -984,6 +999,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         this.outpostArn = $.outpostArn;
         this.passwordData = $.passwordData;
         this.placementGroup = $.placementGroup;
+        this.placementGroupId = $.placementGroupId;
         this.placementPartitionNumber = $.placementPartitionNumber;
         this.primaryNetworkInterface = $.primaryNetworkInterface;
         this.primaryNetworkInterfaceId = $.primaryNetworkInterfaceId;
@@ -1835,7 +1851,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param placementGroup Placement Group to start the instance in.
+         * @param placementGroup Placement Group to start the instance in. Conflicts with `placement_group_id`.
          * 
          * @return builder
          * 
@@ -1846,13 +1862,34 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param placementGroup Placement Group to start the instance in.
+         * @param placementGroup Placement Group to start the instance in. Conflicts with `placement_group_id`.
          * 
          * @return builder
          * 
          */
         public Builder placementGroup(String placementGroup) {
             return placementGroup(Output.of(placementGroup));
+        }
+
+        /**
+         * @param placementGroupId Placement Group ID to start the instance in. Conflicts with `placement_group`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder placementGroupId(@Nullable Output<String> placementGroupId) {
+            $.placementGroupId = placementGroupId;
+            return this;
+        }
+
+        /**
+         * @param placementGroupId Placement Group ID to start the instance in. Conflicts with `placement_group`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder placementGroupId(String placementGroupId) {
+            return placementGroupId(Output.of(placementGroupId));
         }
 
         /**

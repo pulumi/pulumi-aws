@@ -72,16 +72,18 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of EC2 Availability Zones that
-     * instances in the DB cluster can be created in.
+     * A list of EC2 Availability Zones that instances in the DB cluster can be created in.
+     * DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
+     * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
      * 
      */
     @Import(name="availabilityZones")
     private @Nullable Output<List<String>> availabilityZones;
 
     /**
-     * @return A list of EC2 Availability Zones that
-     * instances in the DB cluster can be created in.
+     * @return A list of EC2 Availability Zones that instances in the DB cluster can be created in.
+     * DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
+     * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
      * 
      */
     public Optional<Output<List<String>>> availabilityZones() {
@@ -737,8 +739,9 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZones A list of EC2 Availability Zones that
-         * instances in the DB cluster can be created in.
+         * @param availabilityZones A list of EC2 Availability Zones that instances in the DB cluster can be created in.
+         * DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
+         * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
          * 
          * @return builder
          * 
@@ -749,8 +752,9 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZones A list of EC2 Availability Zones that
-         * instances in the DB cluster can be created in.
+         * @param availabilityZones A list of EC2 Availability Zones that instances in the DB cluster can be created in.
+         * DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
+         * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
          * 
          * @return builder
          * 
@@ -760,8 +764,9 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZones A list of EC2 Availability Zones that
-         * instances in the DB cluster can be created in.
+         * @param availabilityZones A list of EC2 Availability Zones that instances in the DB cluster can be created in.
+         * DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
+         * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
          * 
          * @return builder
          * 

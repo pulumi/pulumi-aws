@@ -19,14 +19,22 @@ public final class BucketAclV2AccessControlPolicyGrantGranteeArgs extends com.pu
     /**
      * Display name of the owner.
      * 
+     * @deprecated
+     * display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
+     * 
      */
+    @Deprecated /* display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version. */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
     /**
      * @return Display name of the owner.
      * 
+     * @deprecated
+     * display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
+     * 
      */
+    @Deprecated /* display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version. */
     public Optional<Output<String>> displayName() {
         return Optional.ofNullable(this.displayName);
     }
@@ -124,7 +132,11 @@ public final class BucketAclV2AccessControlPolicyGrantGranteeArgs extends com.pu
          * 
          * @return builder
          * 
+         * @deprecated
+         * display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
+         * 
          */
+        @Deprecated /* display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version. */
         public Builder displayName(@Nullable Output<String> displayName) {
             $.displayName = displayName;
             return this;
@@ -135,7 +147,11 @@ public final class BucketAclV2AccessControlPolicyGrantGranteeArgs extends com.pu
          * 
          * @return builder
          * 
+         * @deprecated
+         * display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
+         * 
          */
+        @Deprecated /* display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version. */
         public Builder displayName(String displayName) {
             return displayName(Output.of(displayName));
         }

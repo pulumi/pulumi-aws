@@ -451,11 +451,17 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * - `arn` (String) Amazon Resource Name (ARN) of the Chime SDK media insights pipeline configuration.
+ * 
  * Using `pulumi import`, import Chime SDK Media Pipelines Media Insights Pipeline Configuration using the `id`. For example:
  * 
- * ```sh
- * $ pulumi import aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration example abcdef123456
- * ```
+ * console
+ * 
+ * % pulumi import aws_chimesdkmediapipelines_media_insights_pipeline_configuration.example abcdef123456
  * 
  */
 @ResourceType(type="aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration")

@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.synthetics.inputs;
 
+import com.pulumi.aws.synthetics.inputs.CanaryScheduleRetryConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -47,11 +48,27 @@ public final class CanaryScheduleArgs extends com.pulumi.resources.ResourceArgs 
         return this.expression;
     }
 
+    /**
+     * Configuration block for canary retries. Detailed below.
+     * 
+     */
+    @Import(name="retryConfig")
+    private @Nullable Output<CanaryScheduleRetryConfigArgs> retryConfig;
+
+    /**
+     * @return Configuration block for canary retries. Detailed below.
+     * 
+     */
+    public Optional<Output<CanaryScheduleRetryConfigArgs>> retryConfig() {
+        return Optional.ofNullable(this.retryConfig);
+    }
+
     private CanaryScheduleArgs() {}
 
     private CanaryScheduleArgs(CanaryScheduleArgs $) {
         this.durationInSeconds = $.durationInSeconds;
         this.expression = $.expression;
+        this.retryConfig = $.retryConfig;
     }
 
     public static Builder builder() {
@@ -112,6 +129,27 @@ public final class CanaryScheduleArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder expression(String expression) {
             return expression(Output.of(expression));
+        }
+
+        /**
+         * @param retryConfig Configuration block for canary retries. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retryConfig(@Nullable Output<CanaryScheduleRetryConfigArgs> retryConfig) {
+            $.retryConfig = retryConfig;
+            return this;
+        }
+
+        /**
+         * @param retryConfig Configuration block for canary retries. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retryConfig(CanaryScheduleRetryConfigArgs retryConfig) {
+            return retryConfig(Output.of(retryConfig));
         }
 
         public CanaryScheduleArgs build() {

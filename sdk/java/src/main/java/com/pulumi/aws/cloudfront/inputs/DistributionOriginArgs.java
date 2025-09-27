@@ -151,6 +151,21 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * Time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. Must be integer greater than or equal to the value of `origin_read_timeout`. If omitted or explicitly set to `0`, no maximum value is enforced.
+     * 
+     */
+    @Import(name="responseCompletionTimeout")
+    private @Nullable Output<Integer> responseCompletionTimeout;
+
+    /**
+     * @return Time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. Must be integer greater than or equal to the value of `origin_read_timeout`. If omitted or explicitly set to `0`, no maximum value is enforced.
+     * 
+     */
+    public Optional<Output<Integer>> responseCompletionTimeout() {
+        return Optional.ofNullable(this.responseCompletionTimeout);
+    }
+
+    /**
      * CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
      * 
      */
@@ -192,6 +207,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         this.originId = $.originId;
         this.originPath = $.originPath;
         this.originShield = $.originShield;
+        this.responseCompletionTimeout = $.responseCompletionTimeout;
         this.s3OriginConfig = $.s3OriginConfig;
         this.vpcOriginConfig = $.vpcOriginConfig;
     }
@@ -399,6 +415,27 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
          */
         public Builder originShield(DistributionOriginOriginShieldArgs originShield) {
             return originShield(Output.of(originShield));
+        }
+
+        /**
+         * @param responseCompletionTimeout Time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. Must be integer greater than or equal to the value of `origin_read_timeout`. If omitted or explicitly set to `0`, no maximum value is enforced.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder responseCompletionTimeout(@Nullable Output<Integer> responseCompletionTimeout) {
+            $.responseCompletionTimeout = responseCompletionTimeout;
+            return this;
+        }
+
+        /**
+         * @param responseCompletionTimeout Time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. Must be integer greater than or equal to the value of `origin_read_timeout`. If omitted or explicitly set to `0`, no maximum value is enforced.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder responseCompletionTimeout(Integer responseCompletionTimeout) {
+            return responseCompletionTimeout(Output.of(responseCompletionTimeout));
         }
 
         /**

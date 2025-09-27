@@ -73,14 +73,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apigateway/response:Response")
 public class Response extends com.pulumi.resources.CustomResource {
     /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * Region where this resource will be managed. See the [AWS Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints) for supported values. Defaults to the Region set in the provider configuration.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * @return Region where this resource will be managed. See the [AWS Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints) for supported values. Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {
@@ -115,14 +115,14 @@ public class Response extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.responseTemplates);
     }
     /**
-     * Response type of the associated GatewayResponse.
+     * Response type of the associated GatewayResponse. See the [AWS Documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html) for supported values.
      * 
      */
     @Export(name="responseType", refs={String.class}, tree="[0]")
     private Output<String> responseType;
 
     /**
-     * @return Response type of the associated GatewayResponse.
+     * @return Response type of the associated GatewayResponse. See the [AWS Documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html) for supported values.
      * 
      */
     public Output<String> responseType() {

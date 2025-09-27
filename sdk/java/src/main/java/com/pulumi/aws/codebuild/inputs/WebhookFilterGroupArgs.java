@@ -17,14 +17,14 @@ public final class WebhookFilterGroupArgs extends com.pulumi.resources.ResourceA
     public static final WebhookFilterGroupArgs Empty = new WebhookFilterGroupArgs();
 
     /**
-     * A webhook filter for the group. Filter blocks are documented below.
+     * A webhook filter for the group. See filter for details.
      * 
      */
     @Import(name="filters")
     private @Nullable Output<List<WebhookFilterGroupFilterArgs>> filters;
 
     /**
-     * @return A webhook filter for the group. Filter blocks are documented below.
+     * @return A webhook filter for the group. See filter for details.
      * 
      */
     public Optional<Output<List<WebhookFilterGroupFilterArgs>>> filters() {
@@ -56,7 +56,7 @@ public final class WebhookFilterGroupArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param filters A webhook filter for the group. Filter blocks are documented below.
+         * @param filters A webhook filter for the group. See filter for details.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class WebhookFilterGroupArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param filters A webhook filter for the group. Filter blocks are documented below.
+         * @param filters A webhook filter for the group. See filter for details.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class WebhookFilterGroupArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param filters A webhook filter for the group. Filter blocks are documented below.
+         * @param filters A webhook filter for the group. See filter for details.
          * 
          * @return builder
          * 

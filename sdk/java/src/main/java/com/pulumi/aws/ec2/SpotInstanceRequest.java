@@ -537,18 +537,32 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
         return this.passwordData;
     }
     /**
-     * Placement Group to start the instance in.
+     * Placement Group to start the instance in. Conflicts with `placement_group_id`.
      * 
      */
     @Export(name="placementGroup", refs={String.class}, tree="[0]")
     private Output<String> placementGroup;
 
     /**
-     * @return Placement Group to start the instance in.
+     * @return Placement Group to start the instance in. Conflicts with `placement_group_id`.
      * 
      */
     public Output<String> placementGroup() {
         return this.placementGroup;
+    }
+    /**
+     * Placement Group ID to start the instance in. Conflicts with `placement_group`.
+     * 
+     */
+    @Export(name="placementGroupId", refs={String.class}, tree="[0]")
+    private Output<String> placementGroupId;
+
+    /**
+     * @return Placement Group ID to start the instance in. Conflicts with `placement_group`.
+     * 
+     */
+    public Output<String> placementGroupId() {
+        return this.placementGroupId;
     }
     /**
      * Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`.

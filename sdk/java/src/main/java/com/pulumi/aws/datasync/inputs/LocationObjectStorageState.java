@@ -34,14 +34,14 @@ public final class LocationObjectStorageState extends com.pulumi.resources.Resou
     }
 
     /**
-     * A list of DataSync Agent ARNs with which this location will be associated.
+     * A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
      * 
      */
     @Import(name="agentArns")
     private @Nullable Output<List<String>> agentArns;
 
     /**
-     * @return A list of DataSync Agent ARNs with which this location will be associated.
+     * @return A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
      * 
      */
     public Optional<Output<List<String>>> agentArns() {
@@ -287,7 +287,7 @@ public final class LocationObjectStorageState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param agentArns A list of DataSync Agent ARNs with which this location will be associated.
+         * @param agentArns A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
          * 
          * @return builder
          * 
@@ -298,7 +298,7 @@ public final class LocationObjectStorageState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param agentArns A list of DataSync Agent ARNs with which this location will be associated.
+         * @param agentArns A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
          * 
          * @return builder
          * 
@@ -308,7 +308,7 @@ public final class LocationObjectStorageState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param agentArns A list of DataSync Agent ARNs with which this location will be associated.
+         * @param agentArns A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
          * 
          * @return builder
          * 

@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -84,14 +85,14 @@ public class ClusterRoleAssociation extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="featureName", refs={String.class}, tree="[0]")
-    private Output<String> featureName;
+    private Output</* @Nullable */ String> featureName;
 
     /**
      * @return Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
      * 
      */
-    public Output<String> featureName() {
-        return this.featureName;
+    public Output<Optional<String>> featureName() {
+        return Codegen.optional(this.featureName);
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

@@ -17,15 +17,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection {
-    /**
-     * @return The names of the fields in the request payload that contain your customer&#39;s primary physical address. See `address_fields` for more details.
-     * 
-     */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields addressFields;
-    /**
-     * @return The name of the field in the request payload that contains your customer&#39;s email. See `email_field` for more details.
-     * 
-     */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField emailField;
     /**
      * @return Details about your login page password field. See `password_field` for more details.
@@ -37,10 +29,6 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      * 
      */
     private String payloadType;
-    /**
-     * @return The names of the fields in the request payload that contain your customer&#39;s primary phone number. See `phone_number_fields` for more details.
-     * 
-     */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFields phoneNumberFields;
     /**
      * @return Details about your login page username field. See `username_field` for more details.
@@ -49,17 +37,9 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField usernameField;
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection() {}
-    /**
-     * @return The names of the fields in the request payload that contain your customer&#39;s primary physical address. See `address_fields` for more details.
-     * 
-     */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields> addressFields() {
         return Optional.ofNullable(this.addressFields);
     }
-    /**
-     * @return The name of the field in the request payload that contains your customer&#39;s email. See `email_field` for more details.
-     * 
-     */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField> emailField() {
         return Optional.ofNullable(this.emailField);
     }
@@ -77,10 +57,6 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     public String payloadType() {
         return this.payloadType;
     }
-    /**
-     * @return The names of the fields in the request payload that contain your customer&#39;s primary phone number. See `phone_number_fields` for more details.
-     * 
-     */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFields> phoneNumberFields() {
         return Optional.ofNullable(this.phoneNumberFields);
     }

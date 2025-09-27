@@ -83,6 +83,7 @@ const (
 	bedrockFoundationMod        = "BedrockFoundation"        // BedrockFoundation
 	bedrockModelMod             = "BedrockModel"             // BedrockModel
 	bedrockMod                  = "Bedrock"                  // Bedrock
+	billingMod                  = "Billing"                  // Billing
 	bcmDataMod                  = "BcmData"                  // Billing and Cost Management Data
 	budgetsMod                  = "Budgets"                  // Budgets
 	chatbotMod                  = "Chatbot"                  // Chatbot
@@ -198,8 +199,9 @@ const (
 	networkManagerMod           = "NetworkManager"           // Network Manager
 	networkMonitorMod           = "NetworkMonitor"           // Network Monitor
 	notificationsMod            = "Notifications"            // Notifications
-	notificationsContactsMod    = "NotificationsContacts"    // Notificaitions Contacts
+	notificationsContactsMod    = "NotificationsContacts"    // Notifications Contacts
 	oamMod                      = "Oam"                      // Observability Access Manager
+	odbMod                      = "Odb"                      // Oracle Database@AWS
 	opensearchMod               = "OpenSearch"               // OpenSearch
 	organizationsMod            = "Organizations"            // Organizations
 	osisMod                     = "OpenSearchIngest"         // Open Search Ingestion Service
@@ -311,6 +313,7 @@ var moduleMap = map[string]string{
 	"bedrock_foundation":              bedrockFoundationMod,
 	"bedrock_model":                   bedrockModelMod,
 	"bedrock":                         bedrockMod,
+	"billing":                         billingMod,
 	"bcmdataexports":                  bcmDataMod,
 	"budgets":                         budgetsMod,
 	"ce":                              costExplorerMod,
@@ -431,6 +434,7 @@ var moduleMap = map[string]string{
 	"notifications":                   notificationsMod,
 	"notificationsContacts":           notificationsContactsMod,
 	"oam":                             oamMod,
+	"odb":                             odbMod,
 	"opensearch":                      opensearchMod,
 	"organizations":                   organizationsMod,
 	"osis":                            osisMod,
@@ -5918,15 +5922,16 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		"aws_workspacesweb_identity_provider":                              computeID("identityProviderArn"),
 		"aws_workspacesweb_trust_store":                                    computeID("trustStoreArn"),
 		"aws_workspacesweb_session_logger":                                 computeID("sessionLoggerArn"),
-
-		"aws_workspacesweb_browser_settings_association":             computeID("browserSettingsArn", "portalArn"),
-		"aws_workspacesweb_network_settings_association":             computeID("networkSettingsArn", "portalArn"),
-		"aws_workspacesweb_trust_store_association":                  computeID("trustStoreArn", "portalArn"),
-		"aws_workspacesweb_data_protection_settings_association":     computeID("dataProtectionSettingsArn", "portalArn"),
-		"aws_workspacesweb_user_access_logging_settings_association": computeID("userAccessLoggingSettingsArn", "portalArn"),
-		"aws_workspacesweb_user_settings_association":                computeID("userSettingsArn", "portalArn"),
-		"aws_workspacesweb_session_logger_association":               computeID("sessionLoggerArn", "portalArn"),
-		"aws_workspacesweb_ip_access_settings_association":           computeID("ipAccessSettingsArn", "portalArn"),
+		"aws_workspacesweb_browser_settings_association":                   computeID("browserSettingsArn", "portalArn"),
+		"aws_workspacesweb_network_settings_association":                   computeID("networkSettingsArn", "portalArn"),
+		"aws_workspacesweb_trust_store_association":                        computeID("trustStoreArn", "portalArn"),
+		"aws_workspacesweb_data_protection_settings_association":           computeID("dataProtectionSettingsArn", "portalArn"),
+		"aws_workspacesweb_user_access_logging_settings_association":       computeID("userAccessLoggingSettingsArn", "portalArn"),
+		"aws_workspacesweb_user_settings_association":                      computeID("userSettingsArn", "portalArn"),
+		"aws_workspacesweb_session_logger_association":                     computeID("sessionLoggerArn", "portalArn"),
+		"aws_workspacesweb_ip_access_settings_association":                 computeID("ipAccessSettingsArn", "portalArn"),
+		"aws_cognito_managed_login_branding":                               computeID("userPoolId", "managedLoginBrandingId"),
+		"aws_controltower_baseline":                                        computeID("arn"),
 	}
 
 	// Apply configurations

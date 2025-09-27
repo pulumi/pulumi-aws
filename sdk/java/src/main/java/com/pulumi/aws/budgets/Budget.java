@@ -425,6 +425,20 @@ public class Budget extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.autoAdjustData);
     }
     /**
+     * ARN of the billing view.
+     * 
+     */
+    @Export(name="billingViewArn", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> billingViewArn;
+
+    /**
+     * @return ARN of the billing view.
+     * 
+     */
+    public Output<Optional<String>> billingViewArn() {
+        return Codegen.optional(this.billingViewArn);
+    }
+    /**
      * Whether this budget tracks monetary cost or usage.
      * 
      */

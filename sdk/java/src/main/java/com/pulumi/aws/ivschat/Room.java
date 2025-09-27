@@ -56,14 +56,6 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## Import
- * 
- * Using `pulumi import`, import IVS (Interactive Video) Chat Room using the ARN. For example:
- * 
- * ```sh
- * $ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
- * ```
- * 
  */
 @ResourceType(type="aws:ivschat/room:Room")
 public class Room extends com.pulumi.resources.CustomResource {

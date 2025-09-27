@@ -14,7 +14,7 @@ According to https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-la
 preferred one.
 
 diff --git a/internal/service/controltower/landing_zone.go b/internal/service/controltower/landing_zone.go
-index e7b8eee7307..dd0fe7097bf 100644
+index adf27edd188..40bba097115 100644
 --- a/internal/service/controltower/landing_zone.go
 +++ b/internal/service/controltower/landing_zone.go
 @@ -5,8 +5,10 @@ package controltower
@@ -37,7 +37,7 @@ index e7b8eee7307..dd0fe7097bf 100644
  	"github.com/hashicorp/terraform-provider-aws/internal/conns"
  	"github.com/hashicorp/terraform-provider-aws/internal/enum"
 @@ -27,7 +28,6 @@ import (
- 	"github.com/hashicorp/terraform-provider-aws/internal/json"
+ 	tfsmithy "github.com/hashicorp/terraform-provider-aws/internal/smithy"
  	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
  	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
 -	"github.com/hashicorp/terraform-provider-aws/internal/verify"
