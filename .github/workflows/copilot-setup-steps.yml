@@ -32,10 +32,13 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Setup tools
-        uses: ./.github/actions/setup-tools
+      - name: Setup mise
+        uses: jdx/mise-action@v3
         with:
-          tools: pulumictl, pulumicli, nodejs, python, dotnet, go, java
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          cache_key: "mise-{{platform}}-{{file_hash}}"
+          # only saving the cache in the prerequisites job
+          cache_save: false
 
       - name: Prepare local workspace
         # this runs install_plugins and upstream
