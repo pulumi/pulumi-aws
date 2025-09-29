@@ -65,12 +65,13 @@ jobs:
       - uses: MOZGIII/install-ldid-action@v1
         with:
           tag: v2.1.5-procursus2
-      - name: Setup tools
-        uses: ./.github/actions/setup-tools
+      - name: Setup mise
+        uses: jdx/mise-action@v3
         with:
-          tools: pulumictl, go
-          # use per-platform/arch caches instead since we are doing cross-builds
-          cache-go: false
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          cache_key: "mise-{{platform}}-{{file_hash}}"
+          # only saving the cache in the prerequisites job
+          cache_save: false
       # Based on https://github.com/actions/cache/blob/main/examples.md#go---modules
       - name: Get GOCACHE
         id: gocache
