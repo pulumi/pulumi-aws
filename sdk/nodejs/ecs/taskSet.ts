@@ -82,89 +82,89 @@ export class TaskSet extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) that identifies the task set.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The capacity provider strategy to use for the service. Can be one or more.  Defined below.
      */
-    public readonly capacityProviderStrategies!: pulumi.Output<outputs.ecs.TaskSetCapacityProviderStrategy[] | undefined>;
+    declare public readonly capacityProviderStrategies: pulumi.Output<outputs.ecs.TaskSetCapacityProviderStrategy[] | undefined>;
     /**
      * The short name or ARN of the cluster that hosts the service to create the task set in.
      */
-    public readonly cluster!: pulumi.Output<string>;
+    declare public readonly cluster: pulumi.Output<string>;
     /**
      * The external ID associated with the task set.
      */
-    public readonly externalId!: pulumi.Output<string>;
+    declare public readonly externalId: pulumi.Output<string>;
     /**
      * Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
      */
-    public readonly forceDelete!: pulumi.Output<boolean | undefined>;
+    declare public readonly forceDelete: pulumi.Output<boolean | undefined>;
     /**
      * The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
      */
-    public readonly launchType!: pulumi.Output<string>;
+    declare public readonly launchType: pulumi.Output<string>;
     /**
      * Details on load balancers that are used with a task set. Detailed below.
      */
-    public readonly loadBalancers!: pulumi.Output<outputs.ecs.TaskSetLoadBalancer[] | undefined>;
+    declare public readonly loadBalancers: pulumi.Output<outputs.ecs.TaskSetLoadBalancer[] | undefined>;
     /**
      * The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
      */
-    public readonly networkConfiguration!: pulumi.Output<outputs.ecs.TaskSetNetworkConfiguration | undefined>;
+    declare public readonly networkConfiguration: pulumi.Output<outputs.ecs.TaskSetNetworkConfiguration | undefined>;
     /**
      * The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      */
-    public readonly platformVersion!: pulumi.Output<string>;
+    declare public readonly platformVersion: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
      */
-    public readonly scale!: pulumi.Output<outputs.ecs.TaskSetScale>;
+    declare public readonly scale: pulumi.Output<outputs.ecs.TaskSetScale>;
     /**
      * The short name or ARN of the ECS service.
      */
-    public readonly service!: pulumi.Output<string>;
+    declare public readonly service: pulumi.Output<string>;
     /**
      * The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
      */
-    public readonly serviceRegistries!: pulumi.Output<outputs.ecs.TaskSetServiceRegistries | undefined>;
+    declare public readonly serviceRegistries: pulumi.Output<outputs.ecs.TaskSetServiceRegistries | undefined>;
     /**
      * The stability status. This indicates whether the task set has reached a steady state.
      */
-    public /*out*/ readonly stabilityStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly stabilityStatus: pulumi.Output<string>;
     /**
      * The status of the task set.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
      *
      * The following arguments are optional:
      */
-    public readonly taskDefinition!: pulumi.Output<string>;
+    declare public readonly taskDefinition: pulumi.Output<string>;
     /**
      * The ID of the task set.
      */
-    public /*out*/ readonly taskSetId!: pulumi.Output<string>;
+    declare public /*out*/ readonly taskSetId: pulumi.Output<string>;
     /**
      * Whether the provider should wait until the task set has reached `STEADY_STATE`.
      */
-    public readonly waitUntilStable!: pulumi.Output<boolean | undefined>;
+    declare public readonly waitUntilStable: pulumi.Output<boolean | undefined>;
     /**
      * Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
      */
-    public readonly waitUntilStableTimeout!: pulumi.Output<string | undefined>;
+    declare public readonly waitUntilStableTimeout: pulumi.Output<string | undefined>;
 
     /**
      * Create a TaskSet resource with the given unique name, arguments, and options.
@@ -179,54 +179,54 @@ export class TaskSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TaskSetState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["capacityProviderStrategies"] = state ? state.capacityProviderStrategies : undefined;
-            resourceInputs["cluster"] = state ? state.cluster : undefined;
-            resourceInputs["externalId"] = state ? state.externalId : undefined;
-            resourceInputs["forceDelete"] = state ? state.forceDelete : undefined;
-            resourceInputs["launchType"] = state ? state.launchType : undefined;
-            resourceInputs["loadBalancers"] = state ? state.loadBalancers : undefined;
-            resourceInputs["networkConfiguration"] = state ? state.networkConfiguration : undefined;
-            resourceInputs["platformVersion"] = state ? state.platformVersion : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["scale"] = state ? state.scale : undefined;
-            resourceInputs["service"] = state ? state.service : undefined;
-            resourceInputs["serviceRegistries"] = state ? state.serviceRegistries : undefined;
-            resourceInputs["stabilityStatus"] = state ? state.stabilityStatus : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["taskDefinition"] = state ? state.taskDefinition : undefined;
-            resourceInputs["taskSetId"] = state ? state.taskSetId : undefined;
-            resourceInputs["waitUntilStable"] = state ? state.waitUntilStable : undefined;
-            resourceInputs["waitUntilStableTimeout"] = state ? state.waitUntilStableTimeout : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["capacityProviderStrategies"] = state?.capacityProviderStrategies;
+            resourceInputs["cluster"] = state?.cluster;
+            resourceInputs["externalId"] = state?.externalId;
+            resourceInputs["forceDelete"] = state?.forceDelete;
+            resourceInputs["launchType"] = state?.launchType;
+            resourceInputs["loadBalancers"] = state?.loadBalancers;
+            resourceInputs["networkConfiguration"] = state?.networkConfiguration;
+            resourceInputs["platformVersion"] = state?.platformVersion;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["scale"] = state?.scale;
+            resourceInputs["service"] = state?.service;
+            resourceInputs["serviceRegistries"] = state?.serviceRegistries;
+            resourceInputs["stabilityStatus"] = state?.stabilityStatus;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["taskDefinition"] = state?.taskDefinition;
+            resourceInputs["taskSetId"] = state?.taskSetId;
+            resourceInputs["waitUntilStable"] = state?.waitUntilStable;
+            resourceInputs["waitUntilStableTimeout"] = state?.waitUntilStableTimeout;
         } else {
             const args = argsOrState as TaskSetArgs | undefined;
-            if ((!args || args.cluster === undefined) && !opts.urn) {
+            if (args?.cluster === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cluster'");
             }
-            if ((!args || args.service === undefined) && !opts.urn) {
+            if (args?.service === undefined && !opts.urn) {
                 throw new Error("Missing required property 'service'");
             }
-            if ((!args || args.taskDefinition === undefined) && !opts.urn) {
+            if (args?.taskDefinition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'taskDefinition'");
             }
-            resourceInputs["capacityProviderStrategies"] = args ? args.capacityProviderStrategies : undefined;
-            resourceInputs["cluster"] = args ? args.cluster : undefined;
-            resourceInputs["externalId"] = args ? args.externalId : undefined;
-            resourceInputs["forceDelete"] = args ? args.forceDelete : undefined;
-            resourceInputs["launchType"] = args ? args.launchType : undefined;
-            resourceInputs["loadBalancers"] = args ? args.loadBalancers : undefined;
-            resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
-            resourceInputs["platformVersion"] = args ? args.platformVersion : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["scale"] = args ? args.scale : undefined;
-            resourceInputs["service"] = args ? args.service : undefined;
-            resourceInputs["serviceRegistries"] = args ? args.serviceRegistries : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["taskDefinition"] = args ? args.taskDefinition : undefined;
-            resourceInputs["waitUntilStable"] = args ? args.waitUntilStable : undefined;
-            resourceInputs["waitUntilStableTimeout"] = args ? args.waitUntilStableTimeout : undefined;
+            resourceInputs["capacityProviderStrategies"] = args?.capacityProviderStrategies;
+            resourceInputs["cluster"] = args?.cluster;
+            resourceInputs["externalId"] = args?.externalId;
+            resourceInputs["forceDelete"] = args?.forceDelete;
+            resourceInputs["launchType"] = args?.launchType;
+            resourceInputs["loadBalancers"] = args?.loadBalancers;
+            resourceInputs["networkConfiguration"] = args?.networkConfiguration;
+            resourceInputs["platformVersion"] = args?.platformVersion;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["scale"] = args?.scale;
+            resourceInputs["service"] = args?.service;
+            resourceInputs["serviceRegistries"] = args?.serviceRegistries;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["taskDefinition"] = args?.taskDefinition;
+            resourceInputs["waitUntilStable"] = args?.waitUntilStable;
+            resourceInputs["waitUntilStableTimeout"] = args?.waitUntilStableTimeout;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["stabilityStatus"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

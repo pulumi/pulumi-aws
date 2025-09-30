@@ -95,47 +95,47 @@ export class ScheduledAction extends pulumi.CustomResource {
     /**
      * ARN of the scheduled action.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Date and time for the scheduled action to end in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
      */
-    public readonly endTime!: pulumi.Output<string | undefined>;
+    declare public readonly endTime: pulumi.Output<string | undefined>;
     /**
      * Name of the scheduled action.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Identifier of the resource associated with the scheduled action. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
      */
-    public readonly resourceId!: pulumi.Output<string>;
+    declare public readonly resourceId: pulumi.Output<string>;
     /**
      * Scalable dimension. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs:service:DesiredCount
      */
-    public readonly scalableDimension!: pulumi.Output<string>;
+    declare public readonly scalableDimension: pulumi.Output<string>;
     /**
      * New minimum and maximum capacity. You can set both values or just one. See below
      */
-    public readonly scalableTargetAction!: pulumi.Output<outputs.appautoscaling.ScheduledActionScalableTargetAction>;
+    declare public readonly scalableTargetAction: pulumi.Output<outputs.appautoscaling.ScheduledActionScalableTargetAction>;
     /**
      * Schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). Times for at expressions and cron expressions are evaluated using the time zone configured in `timezone`. Documentation can be found in the `Timezone` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
      */
-    public readonly schedule!: pulumi.Output<string>;
+    declare public readonly schedule: pulumi.Output<string>;
     /**
      * Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs
      */
-    public readonly serviceNamespace!: pulumi.Output<string>;
+    declare public readonly serviceNamespace: pulumi.Output<string>;
     /**
      * Date and time for the scheduled action to start in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
      */
-    public readonly startTime!: pulumi.Output<string | undefined>;
+    declare public readonly startTime: pulumi.Output<string | undefined>;
     /**
      * Time zone used when setting a scheduled action by using an at or cron expression. Does not affect timezone for `startTime` and `endTime`. Valid values are the [canonical names of the IANA time zones supported by Joda-Time](https://www.joda.org/joda-time/timezones.html), such as `Etc/GMT+9` or `Pacific/Tahiti`. Default is `UTC`.
      */
-    public readonly timezone!: pulumi.Output<string | undefined>;
+    declare public readonly timezone: pulumi.Output<string | undefined>;
 
     /**
      * Create a ScheduledAction resource with the given unique name, arguments, and options.
@@ -150,44 +150,44 @@ export class ScheduledAction extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScheduledActionState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["endTime"] = state ? state.endTime : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
-            resourceInputs["scalableDimension"] = state ? state.scalableDimension : undefined;
-            resourceInputs["scalableTargetAction"] = state ? state.scalableTargetAction : undefined;
-            resourceInputs["schedule"] = state ? state.schedule : undefined;
-            resourceInputs["serviceNamespace"] = state ? state.serviceNamespace : undefined;
-            resourceInputs["startTime"] = state ? state.startTime : undefined;
-            resourceInputs["timezone"] = state ? state.timezone : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["endTime"] = state?.endTime;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["resourceId"] = state?.resourceId;
+            resourceInputs["scalableDimension"] = state?.scalableDimension;
+            resourceInputs["scalableTargetAction"] = state?.scalableTargetAction;
+            resourceInputs["schedule"] = state?.schedule;
+            resourceInputs["serviceNamespace"] = state?.serviceNamespace;
+            resourceInputs["startTime"] = state?.startTime;
+            resourceInputs["timezone"] = state?.timezone;
         } else {
             const args = argsOrState as ScheduledActionArgs | undefined;
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
+            if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if ((!args || args.scalableDimension === undefined) && !opts.urn) {
+            if (args?.scalableDimension === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scalableDimension'");
             }
-            if ((!args || args.scalableTargetAction === undefined) && !opts.urn) {
+            if (args?.scalableTargetAction === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scalableTargetAction'");
             }
-            if ((!args || args.schedule === undefined) && !opts.urn) {
+            if (args?.schedule === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schedule'");
             }
-            if ((!args || args.serviceNamespace === undefined) && !opts.urn) {
+            if (args?.serviceNamespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceNamespace'");
             }
-            resourceInputs["endTime"] = args ? args.endTime : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["scalableDimension"] = args ? args.scalableDimension : undefined;
-            resourceInputs["scalableTargetAction"] = args ? args.scalableTargetAction : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["serviceNamespace"] = args ? args.serviceNamespace : undefined;
-            resourceInputs["startTime"] = args ? args.startTime : undefined;
-            resourceInputs["timezone"] = args ? args.timezone : undefined;
+            resourceInputs["endTime"] = args?.endTime;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["scalableDimension"] = args?.scalableDimension;
+            resourceInputs["scalableTargetAction"] = args?.scalableTargetAction;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["serviceNamespace"] = args?.serviceNamespace;
+            resourceInputs["startTime"] = args?.startTime;
+            resourceInputs["timezone"] = args?.timezone;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -312,89 +312,89 @@ export class Trail extends pulumi.CustomResource {
     /**
      * Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `eventSelector`.
      */
-    public readonly advancedEventSelectors!: pulumi.Output<outputs.cloudtrail.TrailAdvancedEventSelector[] | undefined>;
+    declare public readonly advancedEventSelectors: pulumi.Output<outputs.cloudtrail.TrailAdvancedEventSelector[] | undefined>;
     /**
      * ARN of the trail.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Log group name using an ARN that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
      */
-    public readonly cloudWatchLogsGroupArn!: pulumi.Output<string | undefined>;
+    declare public readonly cloudWatchLogsGroupArn: pulumi.Output<string | undefined>;
     /**
      * Role for the CloudWatch Logs endpoint to assume to write to a user’s log group.
      */
-    public readonly cloudWatchLogsRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly cloudWatchLogsRoleArn: pulumi.Output<string | undefined>;
     /**
      * Whether log file integrity validation is enabled. Defaults to `false`.
      */
-    public readonly enableLogFileValidation!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableLogFileValidation: pulumi.Output<boolean | undefined>;
     /**
      * Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
      */
-    public readonly enableLogging!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableLogging: pulumi.Output<boolean | undefined>;
     /**
      * Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advancedEventSelector`.
      */
-    public readonly eventSelectors!: pulumi.Output<outputs.cloudtrail.TrailEventSelector[] | undefined>;
+    declare public readonly eventSelectors: pulumi.Output<outputs.cloudtrail.TrailEventSelector[] | undefined>;
     /**
      * Region in which the trail was created.
      */
-    public /*out*/ readonly homeRegion!: pulumi.Output<string>;
+    declare public /*out*/ readonly homeRegion: pulumi.Output<string>;
     /**
      * Whether the trail is publishing events from global services such as IAM to the log files. Defaults to `true`.
      */
-    public readonly includeGlobalServiceEvents!: pulumi.Output<boolean | undefined>;
+    declare public readonly includeGlobalServiceEvents: pulumi.Output<boolean | undefined>;
     /**
      * Configuration block for identifying unusual operational activity. See details below.
      */
-    public readonly insightSelectors!: pulumi.Output<outputs.cloudtrail.TrailInsightSelector[] | undefined>;
+    declare public readonly insightSelectors: pulumi.Output<outputs.cloudtrail.TrailInsightSelector[] | undefined>;
     /**
      * Whether the trail is created in the current region or in all regions. Defaults to `false`.
      */
-    public readonly isMultiRegionTrail!: pulumi.Output<boolean | undefined>;
+    declare public readonly isMultiRegionTrail: pulumi.Output<boolean | undefined>;
     /**
      * Whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
      */
-    public readonly isOrganizationTrail!: pulumi.Output<boolean | undefined>;
+    declare public readonly isOrganizationTrail: pulumi.Output<boolean | undefined>;
     /**
      * KMS key ARN to use to encrypt the logs delivered by CloudTrail.
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * Name of the trail.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Name of the S3 bucket designated for publishing log files.
      *
      * The following arguments are optional:
      */
-    public readonly s3BucketName!: pulumi.Output<string>;
+    declare public readonly s3BucketName: pulumi.Output<string>;
     /**
      * S3 key prefix that follows the name of the bucket you have designated for log file delivery.
      */
-    public readonly s3KeyPrefix!: pulumi.Output<string | undefined>;
+    declare public readonly s3KeyPrefix: pulumi.Output<string | undefined>;
     /**
      * ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered.
      */
-    public /*out*/ readonly snsTopicArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly snsTopicArn: pulumi.Output<string>;
     /**
      * Name of the Amazon SNS topic defined for notification of log file delivery. Specify the SNS topic ARN if it resides in another region.
      */
-    public readonly snsTopicName!: pulumi.Output<string | undefined>;
+    declare public readonly snsTopicName: pulumi.Output<string | undefined>;
     /**
      * Map of tags to assign to the trail. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Trail resource with the given unique name, arguments, and options.
@@ -409,49 +409,49 @@ export class Trail extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TrailState | undefined;
-            resourceInputs["advancedEventSelectors"] = state ? state.advancedEventSelectors : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["cloudWatchLogsGroupArn"] = state ? state.cloudWatchLogsGroupArn : undefined;
-            resourceInputs["cloudWatchLogsRoleArn"] = state ? state.cloudWatchLogsRoleArn : undefined;
-            resourceInputs["enableLogFileValidation"] = state ? state.enableLogFileValidation : undefined;
-            resourceInputs["enableLogging"] = state ? state.enableLogging : undefined;
-            resourceInputs["eventSelectors"] = state ? state.eventSelectors : undefined;
-            resourceInputs["homeRegion"] = state ? state.homeRegion : undefined;
-            resourceInputs["includeGlobalServiceEvents"] = state ? state.includeGlobalServiceEvents : undefined;
-            resourceInputs["insightSelectors"] = state ? state.insightSelectors : undefined;
-            resourceInputs["isMultiRegionTrail"] = state ? state.isMultiRegionTrail : undefined;
-            resourceInputs["isOrganizationTrail"] = state ? state.isOrganizationTrail : undefined;
-            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["s3BucketName"] = state ? state.s3BucketName : undefined;
-            resourceInputs["s3KeyPrefix"] = state ? state.s3KeyPrefix : undefined;
-            resourceInputs["snsTopicArn"] = state ? state.snsTopicArn : undefined;
-            resourceInputs["snsTopicName"] = state ? state.snsTopicName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["advancedEventSelectors"] = state?.advancedEventSelectors;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["cloudWatchLogsGroupArn"] = state?.cloudWatchLogsGroupArn;
+            resourceInputs["cloudWatchLogsRoleArn"] = state?.cloudWatchLogsRoleArn;
+            resourceInputs["enableLogFileValidation"] = state?.enableLogFileValidation;
+            resourceInputs["enableLogging"] = state?.enableLogging;
+            resourceInputs["eventSelectors"] = state?.eventSelectors;
+            resourceInputs["homeRegion"] = state?.homeRegion;
+            resourceInputs["includeGlobalServiceEvents"] = state?.includeGlobalServiceEvents;
+            resourceInputs["insightSelectors"] = state?.insightSelectors;
+            resourceInputs["isMultiRegionTrail"] = state?.isMultiRegionTrail;
+            resourceInputs["isOrganizationTrail"] = state?.isOrganizationTrail;
+            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["s3BucketName"] = state?.s3BucketName;
+            resourceInputs["s3KeyPrefix"] = state?.s3KeyPrefix;
+            resourceInputs["snsTopicArn"] = state?.snsTopicArn;
+            resourceInputs["snsTopicName"] = state?.snsTopicName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as TrailArgs | undefined;
-            if ((!args || args.s3BucketName === undefined) && !opts.urn) {
+            if (args?.s3BucketName === undefined && !opts.urn) {
                 throw new Error("Missing required property 's3BucketName'");
             }
-            resourceInputs["advancedEventSelectors"] = args ? args.advancedEventSelectors : undefined;
-            resourceInputs["cloudWatchLogsGroupArn"] = args ? args.cloudWatchLogsGroupArn : undefined;
-            resourceInputs["cloudWatchLogsRoleArn"] = args ? args.cloudWatchLogsRoleArn : undefined;
-            resourceInputs["enableLogFileValidation"] = args ? args.enableLogFileValidation : undefined;
-            resourceInputs["enableLogging"] = args ? args.enableLogging : undefined;
-            resourceInputs["eventSelectors"] = args ? args.eventSelectors : undefined;
-            resourceInputs["includeGlobalServiceEvents"] = args ? args.includeGlobalServiceEvents : undefined;
-            resourceInputs["insightSelectors"] = args ? args.insightSelectors : undefined;
-            resourceInputs["isMultiRegionTrail"] = args ? args.isMultiRegionTrail : undefined;
-            resourceInputs["isOrganizationTrail"] = args ? args.isOrganizationTrail : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["s3BucketName"] = args ? args.s3BucketName : undefined;
-            resourceInputs["s3KeyPrefix"] = args ? args.s3KeyPrefix : undefined;
-            resourceInputs["snsTopicName"] = args ? args.snsTopicName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["advancedEventSelectors"] = args?.advancedEventSelectors;
+            resourceInputs["cloudWatchLogsGroupArn"] = args?.cloudWatchLogsGroupArn;
+            resourceInputs["cloudWatchLogsRoleArn"] = args?.cloudWatchLogsRoleArn;
+            resourceInputs["enableLogFileValidation"] = args?.enableLogFileValidation;
+            resourceInputs["enableLogging"] = args?.enableLogging;
+            resourceInputs["eventSelectors"] = args?.eventSelectors;
+            resourceInputs["includeGlobalServiceEvents"] = args?.includeGlobalServiceEvents;
+            resourceInputs["insightSelectors"] = args?.insightSelectors;
+            resourceInputs["isMultiRegionTrail"] = args?.isMultiRegionTrail;
+            resourceInputs["isOrganizationTrail"] = args?.isOrganizationTrail;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["s3BucketName"] = args?.s3BucketName;
+            resourceInputs["s3KeyPrefix"] = args?.s3KeyPrefix;
+            resourceInputs["snsTopicName"] = args?.snsTopicName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["homeRegion"] = undefined /*out*/;
             resourceInputs["snsTopicArn"] = undefined /*out*/;

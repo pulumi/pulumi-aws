@@ -69,27 +69,27 @@ export class AuthorizationRule extends pulumi.CustomResource {
     /**
      * The ID of the group to which the authorization rule grants access. One of `accessGroupId` or `authorizeAllGroups` must be set.
      */
-    public readonly accessGroupId!: pulumi.Output<string | undefined>;
+    declare public readonly accessGroupId: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the authorization rule grants access to all clients. One of `accessGroupId` or `authorizeAllGroups` must be set.
      */
-    public readonly authorizeAllGroups!: pulumi.Output<boolean | undefined>;
+    declare public readonly authorizeAllGroups: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Client VPN endpoint.
      */
-    public readonly clientVpnEndpointId!: pulumi.Output<string>;
+    declare public readonly clientVpnEndpointId: pulumi.Output<string>;
     /**
      * A brief description of the authorization rule.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
      */
-    public readonly targetNetworkCidr!: pulumi.Output<string>;
+    declare public readonly targetNetworkCidr: pulumi.Output<string>;
 
     /**
      * Create a AuthorizationRule resource with the given unique name, arguments, and options.
@@ -104,26 +104,26 @@ export class AuthorizationRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AuthorizationRuleState | undefined;
-            resourceInputs["accessGroupId"] = state ? state.accessGroupId : undefined;
-            resourceInputs["authorizeAllGroups"] = state ? state.authorizeAllGroups : undefined;
-            resourceInputs["clientVpnEndpointId"] = state ? state.clientVpnEndpointId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["targetNetworkCidr"] = state ? state.targetNetworkCidr : undefined;
+            resourceInputs["accessGroupId"] = state?.accessGroupId;
+            resourceInputs["authorizeAllGroups"] = state?.authorizeAllGroups;
+            resourceInputs["clientVpnEndpointId"] = state?.clientVpnEndpointId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["targetNetworkCidr"] = state?.targetNetworkCidr;
         } else {
             const args = argsOrState as AuthorizationRuleArgs | undefined;
-            if ((!args || args.clientVpnEndpointId === undefined) && !opts.urn) {
+            if (args?.clientVpnEndpointId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientVpnEndpointId'");
             }
-            if ((!args || args.targetNetworkCidr === undefined) && !opts.urn) {
+            if (args?.targetNetworkCidr === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetNetworkCidr'");
             }
-            resourceInputs["accessGroupId"] = args ? args.accessGroupId : undefined;
-            resourceInputs["authorizeAllGroups"] = args ? args.authorizeAllGroups : undefined;
-            resourceInputs["clientVpnEndpointId"] = args ? args.clientVpnEndpointId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["targetNetworkCidr"] = args ? args.targetNetworkCidr : undefined;
+            resourceInputs["accessGroupId"] = args?.accessGroupId;
+            resourceInputs["authorizeAllGroups"] = args?.authorizeAllGroups;
+            resourceInputs["clientVpnEndpointId"] = args?.clientVpnEndpointId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["targetNetworkCidr"] = args?.targetNetworkCidr;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AuthorizationRule.__pulumiType, name, resourceInputs, opts);

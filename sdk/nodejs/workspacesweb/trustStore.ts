@@ -91,27 +91,27 @@ export class TrustStore extends pulumi.CustomResource {
     /**
      * List of ARNs of the web portals associated with the trust store.
      */
-    public /*out*/ readonly associatedPortalArns!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly associatedPortalArns: pulumi.Output<string[]>;
     /**
      * Set of certificates to include in the trust store. See Certificate below.
      */
-    public readonly certificates!: pulumi.Output<outputs.workspacesweb.TrustStoreCertificate[] | undefined>;
+    declare public readonly certificates: pulumi.Output<outputs.workspacesweb.TrustStoreCertificate[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * ARN of the trust store.
      */
-    public /*out*/ readonly trustStoreArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly trustStoreArn: pulumi.Output<string>;
 
     /**
      * Create a TrustStore resource with the given unique name, arguments, and options.
@@ -126,17 +126,17 @@ export class TrustStore extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TrustStoreState | undefined;
-            resourceInputs["associatedPortalArns"] = state ? state.associatedPortalArns : undefined;
-            resourceInputs["certificates"] = state ? state.certificates : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["trustStoreArn"] = state ? state.trustStoreArn : undefined;
+            resourceInputs["associatedPortalArns"] = state?.associatedPortalArns;
+            resourceInputs["certificates"] = state?.certificates;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["trustStoreArn"] = state?.trustStoreArn;
         } else {
             const args = argsOrState as TrustStoreArgs | undefined;
-            resourceInputs["certificates"] = args ? args.certificates : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["certificates"] = args?.certificates;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["associatedPortalArns"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["trustStoreArn"] = undefined /*out*/;

@@ -74,73 +74,73 @@ export class Product extends pulumi.CustomResource {
     /**
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      */
-    public readonly acceptLanguage!: pulumi.Output<string | undefined>;
+    declare public readonly acceptLanguage: pulumi.Output<string | undefined>;
     /**
      * ARN of the product.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Time when the product was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * Description of the product.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * Distributor (i.e., vendor) of the product.
      */
-    public readonly distributor!: pulumi.Output<string>;
+    declare public readonly distributor: pulumi.Output<string>;
     /**
      * Whether the product has a default path. If the product does not have a default path, call `ListLaunchPaths` to disambiguate between paths.  Otherwise, `ListLaunchPaths` is not required, and the output of ProductViewSummary can be used directly with `DescribeProvisioningParameters`.
      */
-    public /*out*/ readonly hasDefaultPath!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly hasDefaultPath: pulumi.Output<boolean>;
     /**
      * Name of the product.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Owner of the product.
      */
-    public readonly owner!: pulumi.Output<string>;
+    declare public readonly owner: pulumi.Output<string>;
     /**
      * Configuration block for provisioning artifact (i.e., version) parameters. See `provisioningArtifactParameters` Block for details.
      */
-    public readonly provisioningArtifactParameters!: pulumi.Output<outputs.servicecatalog.ProductProvisioningArtifactParameters>;
+    declare public readonly provisioningArtifactParameters: pulumi.Output<outputs.servicecatalog.ProductProvisioningArtifactParameters>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Status of the product.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Support information about the product.
      */
-    public readonly supportDescription!: pulumi.Output<string>;
+    declare public readonly supportDescription: pulumi.Output<string>;
     /**
      * Contact email for product support.
      */
-    public readonly supportEmail!: pulumi.Output<string>;
+    declare public readonly supportEmail: pulumi.Output<string>;
     /**
      * Contact URL for product support.
      */
-    public readonly supportUrl!: pulumi.Output<string>;
+    declare public readonly supportUrl: pulumi.Output<string>;
     /**
      * Tags to apply to the product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
      *
      * The following arguments are optional:
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a Product resource with the given unique name, arguments, and options.
@@ -155,46 +155,46 @@ export class Product extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProductState | undefined;
-            resourceInputs["acceptLanguage"] = state ? state.acceptLanguage : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["distributor"] = state ? state.distributor : undefined;
-            resourceInputs["hasDefaultPath"] = state ? state.hasDefaultPath : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["owner"] = state ? state.owner : undefined;
-            resourceInputs["provisioningArtifactParameters"] = state ? state.provisioningArtifactParameters : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["supportDescription"] = state ? state.supportDescription : undefined;
-            resourceInputs["supportEmail"] = state ? state.supportEmail : undefined;
-            resourceInputs["supportUrl"] = state ? state.supportUrl : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["acceptLanguage"] = state?.acceptLanguage;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["createdTime"] = state?.createdTime;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["distributor"] = state?.distributor;
+            resourceInputs["hasDefaultPath"] = state?.hasDefaultPath;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["owner"] = state?.owner;
+            resourceInputs["provisioningArtifactParameters"] = state?.provisioningArtifactParameters;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["supportDescription"] = state?.supportDescription;
+            resourceInputs["supportEmail"] = state?.supportEmail;
+            resourceInputs["supportUrl"] = state?.supportUrl;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as ProductArgs | undefined;
-            if ((!args || args.owner === undefined) && !opts.urn) {
+            if (args?.owner === undefined && !opts.urn) {
                 throw new Error("Missing required property 'owner'");
             }
-            if ((!args || args.provisioningArtifactParameters === undefined) && !opts.urn) {
+            if (args?.provisioningArtifactParameters === undefined && !opts.urn) {
                 throw new Error("Missing required property 'provisioningArtifactParameters'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["distributor"] = args ? args.distributor : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["owner"] = args ? args.owner : undefined;
-            resourceInputs["provisioningArtifactParameters"] = args ? args.provisioningArtifactParameters : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["supportDescription"] = args ? args.supportDescription : undefined;
-            resourceInputs["supportEmail"] = args ? args.supportEmail : undefined;
-            resourceInputs["supportUrl"] = args ? args.supportUrl : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["acceptLanguage"] = args?.acceptLanguage;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["distributor"] = args?.distributor;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["owner"] = args?.owner;
+            resourceInputs["provisioningArtifactParameters"] = args?.provisioningArtifactParameters;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["supportDescription"] = args?.supportDescription;
+            resourceInputs["supportEmail"] = args?.supportEmail;
+            resourceInputs["supportUrl"] = args?.supportUrl;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["hasDefaultPath"] = undefined /*out*/;

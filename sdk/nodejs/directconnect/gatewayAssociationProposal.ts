@@ -70,31 +70,31 @@ export class GatewayAssociationProposal extends pulumi.CustomResource {
     /**
      * VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
      */
-    public readonly allowedPrefixes!: pulumi.Output<string[]>;
+    declare public readonly allowedPrefixes: pulumi.Output<string[]>;
     /**
      * The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
      */
-    public readonly associatedGatewayId!: pulumi.Output<string>;
+    declare public readonly associatedGatewayId: pulumi.Output<string>;
     /**
      * The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
      */
-    public /*out*/ readonly associatedGatewayOwnerAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly associatedGatewayOwnerAccountId: pulumi.Output<string>;
     /**
      * The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
      */
-    public /*out*/ readonly associatedGatewayType!: pulumi.Output<string>;
+    declare public /*out*/ readonly associatedGatewayType: pulumi.Output<string>;
     /**
      * Direct Connect Gateway identifier.
      */
-    public readonly dxGatewayId!: pulumi.Output<string>;
+    declare public readonly dxGatewayId: pulumi.Output<string>;
     /**
      * AWS Account identifier of the Direct Connect Gateway's owner.
      */
-    public readonly dxGatewayOwnerAccountId!: pulumi.Output<string>;
+    declare public readonly dxGatewayOwnerAccountId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a GatewayAssociationProposal resource with the given unique name, arguments, and options.
@@ -109,29 +109,29 @@ export class GatewayAssociationProposal extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GatewayAssociationProposalState | undefined;
-            resourceInputs["allowedPrefixes"] = state ? state.allowedPrefixes : undefined;
-            resourceInputs["associatedGatewayId"] = state ? state.associatedGatewayId : undefined;
-            resourceInputs["associatedGatewayOwnerAccountId"] = state ? state.associatedGatewayOwnerAccountId : undefined;
-            resourceInputs["associatedGatewayType"] = state ? state.associatedGatewayType : undefined;
-            resourceInputs["dxGatewayId"] = state ? state.dxGatewayId : undefined;
-            resourceInputs["dxGatewayOwnerAccountId"] = state ? state.dxGatewayOwnerAccountId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["allowedPrefixes"] = state?.allowedPrefixes;
+            resourceInputs["associatedGatewayId"] = state?.associatedGatewayId;
+            resourceInputs["associatedGatewayOwnerAccountId"] = state?.associatedGatewayOwnerAccountId;
+            resourceInputs["associatedGatewayType"] = state?.associatedGatewayType;
+            resourceInputs["dxGatewayId"] = state?.dxGatewayId;
+            resourceInputs["dxGatewayOwnerAccountId"] = state?.dxGatewayOwnerAccountId;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as GatewayAssociationProposalArgs | undefined;
-            if ((!args || args.associatedGatewayId === undefined) && !opts.urn) {
+            if (args?.associatedGatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'associatedGatewayId'");
             }
-            if ((!args || args.dxGatewayId === undefined) && !opts.urn) {
+            if (args?.dxGatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dxGatewayId'");
             }
-            if ((!args || args.dxGatewayOwnerAccountId === undefined) && !opts.urn) {
+            if (args?.dxGatewayOwnerAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dxGatewayOwnerAccountId'");
             }
-            resourceInputs["allowedPrefixes"] = args ? args.allowedPrefixes : undefined;
-            resourceInputs["associatedGatewayId"] = args ? args.associatedGatewayId : undefined;
-            resourceInputs["dxGatewayId"] = args ? args.dxGatewayId : undefined;
-            resourceInputs["dxGatewayOwnerAccountId"] = args ? args.dxGatewayOwnerAccountId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["allowedPrefixes"] = args?.allowedPrefixes;
+            resourceInputs["associatedGatewayId"] = args?.associatedGatewayId;
+            resourceInputs["dxGatewayId"] = args?.dxGatewayId;
+            resourceInputs["dxGatewayOwnerAccountId"] = args?.dxGatewayOwnerAccountId;
+            resourceInputs["region"] = args?.region;
             resourceInputs["associatedGatewayOwnerAccountId"] = undefined /*out*/;
             resourceInputs["associatedGatewayType"] = undefined /*out*/;
         }

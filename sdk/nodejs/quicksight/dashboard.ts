@@ -73,75 +73,75 @@ export class Dashboard extends pulumi.CustomResource {
     /**
      * ARN of the dashboard.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly awsAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    declare public readonly awsAccountId: pulumi.Output<string>;
     /**
      * The time that the dashboard was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * Identifier for the dashboard.
      */
-    public readonly dashboardId!: pulumi.Output<string>;
+    declare public readonly dashboardId: pulumi.Output<string>;
     /**
      * Options for publishing the dashboard. See dashboard_publish_options.
      */
-    public readonly dashboardPublishOptions!: pulumi.Output<outputs.quicksight.DashboardDashboardPublishOptions>;
-    public /*out*/ readonly lastPublishedTime!: pulumi.Output<string>;
+    declare public readonly dashboardPublishOptions: pulumi.Output<outputs.quicksight.DashboardDashboardPublishOptions>;
+    declare public /*out*/ readonly lastPublishedTime: pulumi.Output<string>;
     /**
      * The time that the dashboard was last updated.
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
     /**
      * Display name for the dashboard.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
      */
-    public readonly parameters!: pulumi.Output<outputs.quicksight.DashboardParameters>;
+    declare public readonly parameters: pulumi.Output<outputs.quicksight.DashboardParameters>;
     /**
      * A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
      */
-    public readonly permissions!: pulumi.Output<outputs.quicksight.DashboardPermission[] | undefined>;
+    declare public readonly permissions: pulumi.Output<outputs.quicksight.DashboardPermission[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
      */
-    public readonly sourceEntity!: pulumi.Output<outputs.quicksight.DashboardSourceEntity | undefined>;
+    declare public readonly sourceEntity: pulumi.Output<outputs.quicksight.DashboardSourceEntity | undefined>;
     /**
      * Amazon Resource Name (ARN) of a template that was used to create this dashboard.
      */
-    public /*out*/ readonly sourceEntityArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly sourceEntityArn: pulumi.Output<string>;
     /**
      * The dashboard creation status.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
      */
-    public readonly themeArn!: pulumi.Output<string | undefined>;
+    declare public readonly themeArn: pulumi.Output<string | undefined>;
     /**
      * A description of the current dashboard version being created/updated.
      *
      * The following arguments are optional:
      */
-    public readonly versionDescription!: pulumi.Output<string>;
+    declare public readonly versionDescription: pulumi.Output<string>;
     /**
      * The version number of the dashboard version.
      */
-    public /*out*/ readonly versionNumber!: pulumi.Output<number>;
+    declare public /*out*/ readonly versionNumber: pulumi.Output<number>;
 
     /**
      * Create a Dashboard resource with the given unique name, arguments, and options.
@@ -156,44 +156,44 @@ export class Dashboard extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DashboardState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
-            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
-            resourceInputs["dashboardId"] = state ? state.dashboardId : undefined;
-            resourceInputs["dashboardPublishOptions"] = state ? state.dashboardPublishOptions : undefined;
-            resourceInputs["lastPublishedTime"] = state ? state.lastPublishedTime : undefined;
-            resourceInputs["lastUpdatedTime"] = state ? state.lastUpdatedTime : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["permissions"] = state ? state.permissions : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["sourceEntity"] = state ? state.sourceEntity : undefined;
-            resourceInputs["sourceEntityArn"] = state ? state.sourceEntityArn : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["themeArn"] = state ? state.themeArn : undefined;
-            resourceInputs["versionDescription"] = state ? state.versionDescription : undefined;
-            resourceInputs["versionNumber"] = state ? state.versionNumber : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["awsAccountId"] = state?.awsAccountId;
+            resourceInputs["createdTime"] = state?.createdTime;
+            resourceInputs["dashboardId"] = state?.dashboardId;
+            resourceInputs["dashboardPublishOptions"] = state?.dashboardPublishOptions;
+            resourceInputs["lastPublishedTime"] = state?.lastPublishedTime;
+            resourceInputs["lastUpdatedTime"] = state?.lastUpdatedTime;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["permissions"] = state?.permissions;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["sourceEntity"] = state?.sourceEntity;
+            resourceInputs["sourceEntityArn"] = state?.sourceEntityArn;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["themeArn"] = state?.themeArn;
+            resourceInputs["versionDescription"] = state?.versionDescription;
+            resourceInputs["versionNumber"] = state?.versionNumber;
         } else {
             const args = argsOrState as DashboardArgs | undefined;
-            if ((!args || args.dashboardId === undefined) && !opts.urn) {
+            if (args?.dashboardId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dashboardId'");
             }
-            if ((!args || args.versionDescription === undefined) && !opts.urn) {
+            if (args?.versionDescription === undefined && !opts.urn) {
                 throw new Error("Missing required property 'versionDescription'");
             }
-            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["dashboardId"] = args ? args.dashboardId : undefined;
-            resourceInputs["dashboardPublishOptions"] = args ? args.dashboardPublishOptions : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["sourceEntity"] = args ? args.sourceEntity : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["themeArn"] = args ? args.themeArn : undefined;
-            resourceInputs["versionDescription"] = args ? args.versionDescription : undefined;
+            resourceInputs["awsAccountId"] = args?.awsAccountId;
+            resourceInputs["dashboardId"] = args?.dashboardId;
+            resourceInputs["dashboardPublishOptions"] = args?.dashboardPublishOptions;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["sourceEntity"] = args?.sourceEntity;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["themeArn"] = args?.themeArn;
+            resourceInputs["versionDescription"] = args?.versionDescription;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["lastPublishedTime"] = undefined /*out*/;

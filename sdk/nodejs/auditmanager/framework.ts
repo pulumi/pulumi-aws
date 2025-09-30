@@ -74,38 +74,38 @@ export class Framework extends pulumi.CustomResource {
      * Amazon Resource Name (ARN) of the framework.
      * * `control_sets[*].id` - Unique identifier for the framework control set.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
      */
-    public readonly complianceType!: pulumi.Output<string | undefined>;
+    declare public readonly complianceType: pulumi.Output<string | undefined>;
     /**
      * Configuration block(s) for the control sets that are associated with the framework. See `controlSets` Block below for details.
      *
      * The following arguments are optional:
      */
-    public readonly controlSets!: pulumi.Output<outputs.auditmanager.FrameworkControlSet[] | undefined>;
+    declare public readonly controlSets: pulumi.Output<outputs.auditmanager.FrameworkControlSet[] | undefined>;
     /**
      * Description of the framework.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Framework type, such as a custom framework or a standard framework.
      */
-    public /*out*/ readonly frameworkType!: pulumi.Output<string>;
+    declare public /*out*/ readonly frameworkType: pulumi.Output<string>;
     /**
      * Name of the framework.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A map of tags to assign to the framework. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Framework resource with the given unique name, arguments, and options.
@@ -120,23 +120,23 @@ export class Framework extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FrameworkState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["complianceType"] = state ? state.complianceType : undefined;
-            resourceInputs["controlSets"] = state ? state.controlSets : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["frameworkType"] = state ? state.frameworkType : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["complianceType"] = state?.complianceType;
+            resourceInputs["controlSets"] = state?.controlSets;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["frameworkType"] = state?.frameworkType;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as FrameworkArgs | undefined;
-            resourceInputs["complianceType"] = args ? args.complianceType : undefined;
-            resourceInputs["controlSets"] = args ? args.controlSets : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["complianceType"] = args?.complianceType;
+            resourceInputs["controlSets"] = args?.controlSets;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["frameworkType"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

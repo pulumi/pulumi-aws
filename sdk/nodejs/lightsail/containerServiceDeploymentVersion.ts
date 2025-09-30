@@ -89,33 +89,33 @@ export class ContainerServiceDeploymentVersion extends pulumi.CustomResource {
     /**
      * Set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. See below.
      */
-    public readonly containers!: pulumi.Output<outputs.lightsail.ContainerServiceDeploymentVersionContainer[]>;
+    declare public readonly containers: pulumi.Output<outputs.lightsail.ContainerServiceDeploymentVersionContainer[]>;
     /**
      * Date and time when the deployment was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Configuration block that describes the settings of the public endpoint for the container service. See below.
      */
-    public readonly publicEndpoint!: pulumi.Output<outputs.lightsail.ContainerServiceDeploymentVersionPublicEndpoint | undefined>;
+    declare public readonly publicEndpoint: pulumi.Output<outputs.lightsail.ContainerServiceDeploymentVersionPublicEndpoint | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Name of the container service.
      *
      * The following arguments are optional:
      */
-    public readonly serviceName!: pulumi.Output<string>;
+    declare public readonly serviceName: pulumi.Output<string>;
     /**
      * Current state of the container service.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * Version number of the deployment.
      */
-    public /*out*/ readonly version!: pulumi.Output<number>;
+    declare public /*out*/ readonly version: pulumi.Output<number>;
 
     /**
      * Create a ContainerServiceDeploymentVersion resource with the given unique name, arguments, and options.
@@ -130,25 +130,25 @@ export class ContainerServiceDeploymentVersion extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ContainerServiceDeploymentVersionState | undefined;
-            resourceInputs["containers"] = state ? state.containers : undefined;
-            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
-            resourceInputs["publicEndpoint"] = state ? state.publicEndpoint : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["serviceName"] = state ? state.serviceName : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["containers"] = state?.containers;
+            resourceInputs["createdAt"] = state?.createdAt;
+            resourceInputs["publicEndpoint"] = state?.publicEndpoint;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["serviceName"] = state?.serviceName;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as ContainerServiceDeploymentVersionArgs | undefined;
-            if ((!args || args.containers === undefined) && !opts.urn) {
+            if (args?.containers === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containers'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            resourceInputs["containers"] = args ? args.containers : undefined;
-            resourceInputs["publicEndpoint"] = args ? args.publicEndpoint : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["containers"] = args?.containers;
+            resourceInputs["publicEndpoint"] = args?.publicEndpoint;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["serviceName"] = args?.serviceName;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;

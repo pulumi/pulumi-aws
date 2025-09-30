@@ -131,39 +131,39 @@ export class ResponseHeadersPolicy extends pulumi.CustomResource {
     /**
      * The response headers policy ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
      */
-    public readonly corsConfig!: pulumi.Output<outputs.cloudfront.ResponseHeadersPolicyCorsConfig | undefined>;
+    declare public readonly corsConfig: pulumi.Output<outputs.cloudfront.ResponseHeadersPolicyCorsConfig | undefined>;
     /**
      * Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
      */
-    public readonly customHeadersConfig!: pulumi.Output<outputs.cloudfront.ResponseHeadersPolicyCustomHeadersConfig | undefined>;
+    declare public readonly customHeadersConfig: pulumi.Output<outputs.cloudfront.ResponseHeadersPolicyCustomHeadersConfig | undefined>;
     /**
      * The current version of the response headers policy.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * A unique name to identify the response headers policy.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
      */
-    public readonly removeHeadersConfig!: pulumi.Output<outputs.cloudfront.ResponseHeadersPolicyRemoveHeadersConfig | undefined>;
+    declare public readonly removeHeadersConfig: pulumi.Output<outputs.cloudfront.ResponseHeadersPolicyRemoveHeadersConfig | undefined>;
     /**
      * A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
      */
-    public readonly securityHeadersConfig!: pulumi.Output<outputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfig | undefined>;
+    declare public readonly securityHeadersConfig: pulumi.Output<outputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfig | undefined>;
     /**
      * A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
      */
-    public readonly serverTimingHeadersConfig!: pulumi.Output<outputs.cloudfront.ResponseHeadersPolicyServerTimingHeadersConfig | undefined>;
+    declare public readonly serverTimingHeadersConfig: pulumi.Output<outputs.cloudfront.ResponseHeadersPolicyServerTimingHeadersConfig | undefined>;
 
     /**
      * Create a ResponseHeadersPolicy resource with the given unique name, arguments, and options.
@@ -178,24 +178,24 @@ export class ResponseHeadersPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResponseHeadersPolicyState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["corsConfig"] = state ? state.corsConfig : undefined;
-            resourceInputs["customHeadersConfig"] = state ? state.customHeadersConfig : undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["removeHeadersConfig"] = state ? state.removeHeadersConfig : undefined;
-            resourceInputs["securityHeadersConfig"] = state ? state.securityHeadersConfig : undefined;
-            resourceInputs["serverTimingHeadersConfig"] = state ? state.serverTimingHeadersConfig : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["corsConfig"] = state?.corsConfig;
+            resourceInputs["customHeadersConfig"] = state?.customHeadersConfig;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["removeHeadersConfig"] = state?.removeHeadersConfig;
+            resourceInputs["securityHeadersConfig"] = state?.securityHeadersConfig;
+            resourceInputs["serverTimingHeadersConfig"] = state?.serverTimingHeadersConfig;
         } else {
             const args = argsOrState as ResponseHeadersPolicyArgs | undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["corsConfig"] = args ? args.corsConfig : undefined;
-            resourceInputs["customHeadersConfig"] = args ? args.customHeadersConfig : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["removeHeadersConfig"] = args ? args.removeHeadersConfig : undefined;
-            resourceInputs["securityHeadersConfig"] = args ? args.securityHeadersConfig : undefined;
-            resourceInputs["serverTimingHeadersConfig"] = args ? args.serverTimingHeadersConfig : undefined;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["corsConfig"] = args?.corsConfig;
+            resourceInputs["customHeadersConfig"] = args?.customHeadersConfig;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["removeHeadersConfig"] = args?.removeHeadersConfig;
+            resourceInputs["securityHeadersConfig"] = args?.securityHeadersConfig;
+            resourceInputs["serverTimingHeadersConfig"] = args?.serverTimingHeadersConfig;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
         }

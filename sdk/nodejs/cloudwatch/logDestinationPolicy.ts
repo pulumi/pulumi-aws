@@ -74,19 +74,19 @@ export class LogDestinationPolicy extends pulumi.CustomResource {
     /**
      * The policy document. This is a JSON formatted string.
      */
-    public readonly accessPolicy!: pulumi.Output<string>;
+    declare public readonly accessPolicy: pulumi.Output<string>;
     /**
      * A name for the subscription filter
      */
-    public readonly destinationName!: pulumi.Output<string>;
+    declare public readonly destinationName: pulumi.Output<string>;
     /**
      * Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
      */
-    public readonly forceUpdate!: pulumi.Output<boolean | undefined>;
+    declare public readonly forceUpdate: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a LogDestinationPolicy resource with the given unique name, arguments, and options.
@@ -101,22 +101,22 @@ export class LogDestinationPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogDestinationPolicyState | undefined;
-            resourceInputs["accessPolicy"] = state ? state.accessPolicy : undefined;
-            resourceInputs["destinationName"] = state ? state.destinationName : undefined;
-            resourceInputs["forceUpdate"] = state ? state.forceUpdate : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["accessPolicy"] = state?.accessPolicy;
+            resourceInputs["destinationName"] = state?.destinationName;
+            resourceInputs["forceUpdate"] = state?.forceUpdate;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as LogDestinationPolicyArgs | undefined;
-            if ((!args || args.accessPolicy === undefined) && !opts.urn) {
+            if (args?.accessPolicy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessPolicy'");
             }
-            if ((!args || args.destinationName === undefined) && !opts.urn) {
+            if (args?.destinationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationName'");
             }
-            resourceInputs["accessPolicy"] = args ? args.accessPolicy : undefined;
-            resourceInputs["destinationName"] = args ? args.destinationName : undefined;
-            resourceInputs["forceUpdate"] = args ? args.forceUpdate : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["accessPolicy"] = args?.accessPolicy;
+            resourceInputs["destinationName"] = args?.destinationName;
+            resourceInputs["forceUpdate"] = args?.forceUpdate;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogDestinationPolicy.__pulumiType, name, resourceInputs, opts);

@@ -133,49 +133,49 @@ export class StackInstances extends pulumi.CustomResource {
     /**
      * Accounts where you want to create stack instances in the specified `regions`. You can specify either `accounts` or `deploymentTargets`, but not both.
      */
-    public readonly accounts!: pulumi.Output<string[]>;
+    declare public readonly accounts: pulumi.Output<string[]>;
     /**
      * Whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
      */
-    public readonly callAs!: pulumi.Output<string | undefined>;
+    declare public readonly callAs: pulumi.Output<string | undefined>;
     /**
      * AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deploymentTargets below.
      */
-    public readonly deploymentTargets!: pulumi.Output<outputs.cloudformation.StackInstancesDeploymentTargets | undefined>;
+    declare public readonly deploymentTargets: pulumi.Output<outputs.cloudformation.StackInstancesDeploymentTargets | undefined>;
     /**
      * Preferences for how AWS CloudFormation performs a stack set operation. See operationPreferences below.
      */
-    public readonly operationPreferences!: pulumi.Output<outputs.cloudformation.StackInstancesOperationPreferences | undefined>;
+    declare public readonly operationPreferences: pulumi.Output<outputs.cloudformation.StackInstancesOperationPreferences | undefined>;
     /**
      * Key-value map of input parameters to override from the stack set for these instances. This argument's drift detection is limited to the first account and region since each instance can have unique parameters.
      */
-    public readonly parameterOverrides!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameterOverrides: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Regions where you want to create stack instances in the specified `accounts`.
      */
-    public readonly regions!: pulumi.Output<string[]>;
+    declare public readonly regions: pulumi.Output<string[]>;
     /**
      * Whether to remove the stack instances from the stack set, but not delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retainStacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
      */
-    public readonly retainStacks!: pulumi.Output<boolean | undefined>;
+    declare public readonly retainStacks: pulumi.Output<boolean | undefined>;
     /**
      * List of stack instances created from an organizational unit deployment target. This may not always be set depending on whether CloudFormation returns summaries for your configuration. See `stackInstanceSummaries`.
      */
-    public /*out*/ readonly stackInstanceSummaries!: pulumi.Output<outputs.cloudformation.StackInstancesStackInstanceSummary[]>;
+    declare public /*out*/ readonly stackInstanceSummaries: pulumi.Output<outputs.cloudformation.StackInstancesStackInstanceSummary[]>;
     /**
      * Name or unique ID of the stack set that the stack instance is associated with.
      */
-    public /*out*/ readonly stackSetId!: pulumi.Output<string>;
+    declare public /*out*/ readonly stackSetId: pulumi.Output<string>;
     /**
      * Name of the stack set.
      *
      * The following arguments are optional:
      */
-    public readonly stackSetName!: pulumi.Output<string>;
+    declare public readonly stackSetName: pulumi.Output<string>;
 
     /**
      * Create a StackInstances resource with the given unique name, arguments, and options.
@@ -190,31 +190,31 @@ export class StackInstances extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StackInstancesState | undefined;
-            resourceInputs["accounts"] = state ? state.accounts : undefined;
-            resourceInputs["callAs"] = state ? state.callAs : undefined;
-            resourceInputs["deploymentTargets"] = state ? state.deploymentTargets : undefined;
-            resourceInputs["operationPreferences"] = state ? state.operationPreferences : undefined;
-            resourceInputs["parameterOverrides"] = state ? state.parameterOverrides : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["regions"] = state ? state.regions : undefined;
-            resourceInputs["retainStacks"] = state ? state.retainStacks : undefined;
-            resourceInputs["stackInstanceSummaries"] = state ? state.stackInstanceSummaries : undefined;
-            resourceInputs["stackSetId"] = state ? state.stackSetId : undefined;
-            resourceInputs["stackSetName"] = state ? state.stackSetName : undefined;
+            resourceInputs["accounts"] = state?.accounts;
+            resourceInputs["callAs"] = state?.callAs;
+            resourceInputs["deploymentTargets"] = state?.deploymentTargets;
+            resourceInputs["operationPreferences"] = state?.operationPreferences;
+            resourceInputs["parameterOverrides"] = state?.parameterOverrides;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["regions"] = state?.regions;
+            resourceInputs["retainStacks"] = state?.retainStacks;
+            resourceInputs["stackInstanceSummaries"] = state?.stackInstanceSummaries;
+            resourceInputs["stackSetId"] = state?.stackSetId;
+            resourceInputs["stackSetName"] = state?.stackSetName;
         } else {
             const args = argsOrState as StackInstancesArgs | undefined;
-            if ((!args || args.stackSetName === undefined) && !opts.urn) {
+            if (args?.stackSetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stackSetName'");
             }
-            resourceInputs["accounts"] = args ? args.accounts : undefined;
-            resourceInputs["callAs"] = args ? args.callAs : undefined;
-            resourceInputs["deploymentTargets"] = args ? args.deploymentTargets : undefined;
-            resourceInputs["operationPreferences"] = args ? args.operationPreferences : undefined;
-            resourceInputs["parameterOverrides"] = args ? args.parameterOverrides : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["regions"] = args ? args.regions : undefined;
-            resourceInputs["retainStacks"] = args ? args.retainStacks : undefined;
-            resourceInputs["stackSetName"] = args ? args.stackSetName : undefined;
+            resourceInputs["accounts"] = args?.accounts;
+            resourceInputs["callAs"] = args?.callAs;
+            resourceInputs["deploymentTargets"] = args?.deploymentTargets;
+            resourceInputs["operationPreferences"] = args?.operationPreferences;
+            resourceInputs["parameterOverrides"] = args?.parameterOverrides;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["regions"] = args?.regions;
+            resourceInputs["retainStacks"] = args?.retainStacks;
+            resourceInputs["stackSetName"] = args?.stackSetName;
             resourceInputs["stackInstanceSummaries"] = undefined /*out*/;
             resourceInputs["stackSetId"] = undefined /*out*/;
         }

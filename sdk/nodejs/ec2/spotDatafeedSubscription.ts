@@ -62,15 +62,15 @@ export class SpotDatafeedSubscription extends pulumi.CustomResource {
     /**
      * The Amazon S3 bucket in which to store the Spot instance data feed.
      */
-    public readonly bucket!: pulumi.Output<string>;
+    declare public readonly bucket: pulumi.Output<string>;
     /**
      * Path of folder inside bucket to place spot pricing data.
      */
-    public readonly prefix!: pulumi.Output<string | undefined>;
+    declare public readonly prefix: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a SpotDatafeedSubscription resource with the given unique name, arguments, and options.
@@ -85,17 +85,17 @@ export class SpotDatafeedSubscription extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpotDatafeedSubscriptionState | undefined;
-            resourceInputs["bucket"] = state ? state.bucket : undefined;
-            resourceInputs["prefix"] = state ? state.prefix : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["bucket"] = state?.bucket;
+            resourceInputs["prefix"] = state?.prefix;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as SpotDatafeedSubscriptionArgs | undefined;
-            if ((!args || args.bucket === undefined) && !opts.urn) {
+            if (args?.bucket === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            resourceInputs["bucket"] = args ? args.bucket : undefined;
-            resourceInputs["prefix"] = args ? args.prefix : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["bucket"] = args?.bucket;
+            resourceInputs["prefix"] = args?.prefix;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SpotDatafeedSubscription.__pulumiType, name, resourceInputs, opts);

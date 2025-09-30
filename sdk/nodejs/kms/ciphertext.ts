@@ -61,23 +61,23 @@ export class Ciphertext extends pulumi.CustomResource {
     /**
      * Base64 encoded ciphertext
      */
-    public /*out*/ readonly ciphertextBlob!: pulumi.Output<string>;
+    declare public /*out*/ readonly ciphertextBlob: pulumi.Output<string>;
     /**
      * An optional mapping that makes up the encryption context.
      */
-    public readonly context!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly context: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Globally unique key ID for the customer master key.
      */
-    public readonly keyId!: pulumi.Output<string>;
+    declare public readonly keyId: pulumi.Output<string>;
     /**
      * Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
      */
-    public readonly plaintext!: pulumi.Output<string>;
+    declare public readonly plaintext: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a Ciphertext resource with the given unique name, arguments, and options.
@@ -92,23 +92,23 @@ export class Ciphertext extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CiphertextState | undefined;
-            resourceInputs["ciphertextBlob"] = state ? state.ciphertextBlob : undefined;
-            resourceInputs["context"] = state ? state.context : undefined;
-            resourceInputs["keyId"] = state ? state.keyId : undefined;
-            resourceInputs["plaintext"] = state ? state.plaintext : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["ciphertextBlob"] = state?.ciphertextBlob;
+            resourceInputs["context"] = state?.context;
+            resourceInputs["keyId"] = state?.keyId;
+            resourceInputs["plaintext"] = state?.plaintext;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as CiphertextArgs | undefined;
-            if ((!args || args.keyId === undefined) && !opts.urn) {
+            if (args?.keyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyId'");
             }
-            if ((!args || args.plaintext === undefined) && !opts.urn) {
+            if (args?.plaintext === undefined && !opts.urn) {
                 throw new Error("Missing required property 'plaintext'");
             }
-            resourceInputs["context"] = args ? args.context : undefined;
-            resourceInputs["keyId"] = args ? args.keyId : undefined;
+            resourceInputs["context"] = args?.context;
+            resourceInputs["keyId"] = args?.keyId;
             resourceInputs["plaintext"] = args?.plaintext ? pulumi.secret(args.plaintext) : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["region"] = args?.region;
             resourceInputs["ciphertextBlob"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

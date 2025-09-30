@@ -71,32 +71,32 @@ export class DocumentClassifier extends pulumi.CustomResource {
     /**
      * ARN of the Document Classifier version.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ARN for an IAM Role which allows Comprehend to read the training and testing data.
      */
-    public readonly dataAccessRoleArn!: pulumi.Output<string>;
+    declare public readonly dataAccessRoleArn: pulumi.Output<string>;
     /**
      * Configuration for the training and testing data.
      * See the `inputDataConfig` Configuration Block section below.
      */
-    public readonly inputDataConfig!: pulumi.Output<outputs.comprehend.DocumentClassifierInputDataConfig>;
+    declare public readonly inputDataConfig: pulumi.Output<outputs.comprehend.DocumentClassifierInputDataConfig>;
     /**
      * Two-letter language code for the language.
      * One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
      */
-    public readonly languageCode!: pulumi.Output<string>;
+    declare public readonly languageCode: pulumi.Output<string>;
     /**
      * The document classification mode.
      * One of `MULTI_CLASS` or `MULTI_LABEL`.
      * `MULTI_CLASS` is also known as "Single Label" in the AWS Console.
      */
-    public readonly mode!: pulumi.Output<string | undefined>;
+    declare public readonly mode: pulumi.Output<string | undefined>;
     /**
      * KMS Key used to encrypt trained Document Classifiers.
      * Can be a KMS Key ID or a KMS Key ARN.
      */
-    public readonly modelKmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly modelKmsKeyId: pulumi.Output<string | undefined>;
     /**
      * Name for the Document Classifier.
      * Has a maximum length of 63 characters.
@@ -104,24 +104,24 @@ export class DocumentClassifier extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Configuration for the output results of training.
      * See the `outputDataConfig` Configuration Block section below.
      */
-    public readonly outputDataConfig!: pulumi.Output<outputs.comprehend.DocumentClassifierOutputDataConfig>;
+    declare public readonly outputDataConfig: pulumi.Output<outputs.comprehend.DocumentClassifierOutputDataConfig>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Name for the version of the Document Classifier.
      * Each version must have a unique name within the Document Classifier.
@@ -131,24 +131,24 @@ export class DocumentClassifier extends pulumi.CustomResource {
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
      * Conflicts with `versionNamePrefix`.
      */
-    public readonly versionName!: pulumi.Output<string>;
+    declare public readonly versionName: pulumi.Output<string>;
     /**
      * Creates a unique version name beginning with the specified prefix.
      * Has a maximum length of 37 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
      * Conflicts with `versionName`.
      */
-    public readonly versionNamePrefix!: pulumi.Output<string>;
+    declare public readonly versionNamePrefix: pulumi.Output<string>;
     /**
      * KMS Key used to encrypt storage volumes during job processing.
      * Can be a KMS Key ID or a KMS Key ARN.
      */
-    public readonly volumeKmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly volumeKmsKeyId: pulumi.Output<string | undefined>;
     /**
      * Configuration parameters for VPC to contain Document Classifier resources.
      * See the `vpcConfig` Configuration Block section below.
      */
-    public readonly vpcConfig!: pulumi.Output<outputs.comprehend.DocumentClassifierVpcConfig | undefined>;
+    declare public readonly vpcConfig: pulumi.Output<outputs.comprehend.DocumentClassifierVpcConfig | undefined>;
 
     /**
      * Create a DocumentClassifier resource with the given unique name, arguments, and options.
@@ -163,45 +163,45 @@ export class DocumentClassifier extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DocumentClassifierState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["dataAccessRoleArn"] = state ? state.dataAccessRoleArn : undefined;
-            resourceInputs["inputDataConfig"] = state ? state.inputDataConfig : undefined;
-            resourceInputs["languageCode"] = state ? state.languageCode : undefined;
-            resourceInputs["mode"] = state ? state.mode : undefined;
-            resourceInputs["modelKmsKeyId"] = state ? state.modelKmsKeyId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["outputDataConfig"] = state ? state.outputDataConfig : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["versionName"] = state ? state.versionName : undefined;
-            resourceInputs["versionNamePrefix"] = state ? state.versionNamePrefix : undefined;
-            resourceInputs["volumeKmsKeyId"] = state ? state.volumeKmsKeyId : undefined;
-            resourceInputs["vpcConfig"] = state ? state.vpcConfig : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["dataAccessRoleArn"] = state?.dataAccessRoleArn;
+            resourceInputs["inputDataConfig"] = state?.inputDataConfig;
+            resourceInputs["languageCode"] = state?.languageCode;
+            resourceInputs["mode"] = state?.mode;
+            resourceInputs["modelKmsKeyId"] = state?.modelKmsKeyId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["outputDataConfig"] = state?.outputDataConfig;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["versionName"] = state?.versionName;
+            resourceInputs["versionNamePrefix"] = state?.versionNamePrefix;
+            resourceInputs["volumeKmsKeyId"] = state?.volumeKmsKeyId;
+            resourceInputs["vpcConfig"] = state?.vpcConfig;
         } else {
             const args = argsOrState as DocumentClassifierArgs | undefined;
-            if ((!args || args.dataAccessRoleArn === undefined) && !opts.urn) {
+            if (args?.dataAccessRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataAccessRoleArn'");
             }
-            if ((!args || args.inputDataConfig === undefined) && !opts.urn) {
+            if (args?.inputDataConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'inputDataConfig'");
             }
-            if ((!args || args.languageCode === undefined) && !opts.urn) {
+            if (args?.languageCode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'languageCode'");
             }
-            resourceInputs["dataAccessRoleArn"] = args ? args.dataAccessRoleArn : undefined;
-            resourceInputs["inputDataConfig"] = args ? args.inputDataConfig : undefined;
-            resourceInputs["languageCode"] = args ? args.languageCode : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["modelKmsKeyId"] = args ? args.modelKmsKeyId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["outputDataConfig"] = args ? args.outputDataConfig : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["versionName"] = args ? args.versionName : undefined;
-            resourceInputs["versionNamePrefix"] = args ? args.versionNamePrefix : undefined;
-            resourceInputs["volumeKmsKeyId"] = args ? args.volumeKmsKeyId : undefined;
-            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
+            resourceInputs["dataAccessRoleArn"] = args?.dataAccessRoleArn;
+            resourceInputs["inputDataConfig"] = args?.inputDataConfig;
+            resourceInputs["languageCode"] = args?.languageCode;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["modelKmsKeyId"] = args?.modelKmsKeyId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["outputDataConfig"] = args?.outputDataConfig;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["versionName"] = args?.versionName;
+            resourceInputs["versionNamePrefix"] = args?.versionNamePrefix;
+            resourceInputs["volumeKmsKeyId"] = args?.volumeKmsKeyId;
+            resourceInputs["vpcConfig"] = args?.vpcConfig;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

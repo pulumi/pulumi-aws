@@ -59,17 +59,17 @@ export class IpAccessSettingsAssociation extends pulumi.CustomResource {
     /**
      * ARN of the IP access settings to associate with the portal. Forces replacement if changed.
      */
-    public readonly ipAccessSettingsArn!: pulumi.Output<string>;
+    declare public readonly ipAccessSettingsArn: pulumi.Output<string>;
     /**
      * ARN of the portal to associate with the IP access settings. Forces replacement if changed.
      *
      * The following arguments are optional:
      */
-    public readonly portalArn!: pulumi.Output<string>;
+    declare public readonly portalArn: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a IpAccessSettingsAssociation resource with the given unique name, arguments, and options.
@@ -84,20 +84,20 @@ export class IpAccessSettingsAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IpAccessSettingsAssociationState | undefined;
-            resourceInputs["ipAccessSettingsArn"] = state ? state.ipAccessSettingsArn : undefined;
-            resourceInputs["portalArn"] = state ? state.portalArn : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["ipAccessSettingsArn"] = state?.ipAccessSettingsArn;
+            resourceInputs["portalArn"] = state?.portalArn;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as IpAccessSettingsAssociationArgs | undefined;
-            if ((!args || args.ipAccessSettingsArn === undefined) && !opts.urn) {
+            if (args?.ipAccessSettingsArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipAccessSettingsArn'");
             }
-            if ((!args || args.portalArn === undefined) && !opts.urn) {
+            if (args?.portalArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'portalArn'");
             }
-            resourceInputs["ipAccessSettingsArn"] = args ? args.ipAccessSettingsArn : undefined;
-            resourceInputs["portalArn"] = args ? args.portalArn : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["ipAccessSettingsArn"] = args?.ipAccessSettingsArn;
+            resourceInputs["portalArn"] = args?.portalArn;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IpAccessSettingsAssociation.__pulumiType, name, resourceInputs, opts);

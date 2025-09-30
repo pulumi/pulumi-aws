@@ -154,39 +154,39 @@ export class MulticastDomain extends pulumi.CustomResource {
     /**
      * EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
      */
-    public readonly autoAcceptSharedAssociations!: pulumi.Output<string | undefined>;
+    declare public readonly autoAcceptSharedAssociations: pulumi.Output<string | undefined>;
     /**
      * Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
      */
-    public readonly igmpv2Support!: pulumi.Output<string | undefined>;
+    declare public readonly igmpv2Support: pulumi.Output<string | undefined>;
     /**
      * Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
      */
-    public readonly staticSourcesSupport!: pulumi.Output<string | undefined>;
+    declare public readonly staticSourcesSupport: pulumi.Output<string | undefined>;
     /**
      * Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicastSupport` enabled.
      */
-    public readonly transitGatewayId!: pulumi.Output<string>;
+    declare public readonly transitGatewayId: pulumi.Output<string>;
 
     /**
      * Create a MulticastDomain resource with the given unique name, arguments, and options.
@@ -201,26 +201,26 @@ export class MulticastDomain extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MulticastDomainState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["autoAcceptSharedAssociations"] = state ? state.autoAcceptSharedAssociations : undefined;
-            resourceInputs["igmpv2Support"] = state ? state.igmpv2Support : undefined;
-            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["staticSourcesSupport"] = state ? state.staticSourcesSupport : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["autoAcceptSharedAssociations"] = state?.autoAcceptSharedAssociations;
+            resourceInputs["igmpv2Support"] = state?.igmpv2Support;
+            resourceInputs["ownerId"] = state?.ownerId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["staticSourcesSupport"] = state?.staticSourcesSupport;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["transitGatewayId"] = state?.transitGatewayId;
         } else {
             const args = argsOrState as MulticastDomainArgs | undefined;
-            if ((!args || args.transitGatewayId === undefined) && !opts.urn) {
+            if (args?.transitGatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayId'");
             }
-            resourceInputs["autoAcceptSharedAssociations"] = args ? args.autoAcceptSharedAssociations : undefined;
-            resourceInputs["igmpv2Support"] = args ? args.igmpv2Support : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["staticSourcesSupport"] = args ? args.staticSourcesSupport : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
+            resourceInputs["autoAcceptSharedAssociations"] = args?.autoAcceptSharedAssociations;
+            resourceInputs["igmpv2Support"] = args?.igmpv2Support;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["staticSourcesSupport"] = args?.staticSourcesSupport;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transitGatewayId"] = args?.transitGatewayId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

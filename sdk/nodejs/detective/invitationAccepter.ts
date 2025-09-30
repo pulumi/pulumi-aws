@@ -64,11 +64,11 @@ export class InvitationAccepter extends pulumi.CustomResource {
     /**
      * ARN of the behavior graph that the member account is accepting the invitation for.
      */
-    public readonly graphArn!: pulumi.Output<string>;
+    declare public readonly graphArn: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a InvitationAccepter resource with the given unique name, arguments, and options.
@@ -83,15 +83,15 @@ export class InvitationAccepter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InvitationAccepterState | undefined;
-            resourceInputs["graphArn"] = state ? state.graphArn : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["graphArn"] = state?.graphArn;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as InvitationAccepterArgs | undefined;
-            if ((!args || args.graphArn === undefined) && !opts.urn) {
+            if (args?.graphArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'graphArn'");
             }
-            resourceInputs["graphArn"] = args ? args.graphArn : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["graphArn"] = args?.graphArn;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(InvitationAccepter.__pulumiType, name, resourceInputs, opts);

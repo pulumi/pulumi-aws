@@ -61,29 +61,29 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * Date and time when the namespace was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Account ID of the account that created the namespace.
      */
-    public /*out*/ readonly createdBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
      * Name of the namespace.
      * Must be between 1 and 255 characters in length.
      * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      */
-    public readonly namespace!: pulumi.Output<string>;
+    declare public readonly namespace: pulumi.Output<string>;
     /**
      * Account ID of the account that owns the namespace.
      */
-    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * ARN referencing the Table Bucket that contains this Namespace.
      */
-    public readonly tableBucketArn!: pulumi.Output<string>;
+    declare public readonly tableBucketArn: pulumi.Output<string>;
 
     /**
      * Create a Namespace resource with the given unique name, arguments, and options.
@@ -98,23 +98,23 @@ export class Namespace extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NamespaceState | undefined;
-            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
-            resourceInputs["createdBy"] = state ? state.createdBy : undefined;
-            resourceInputs["namespace"] = state ? state.namespace : undefined;
-            resourceInputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tableBucketArn"] = state ? state.tableBucketArn : undefined;
+            resourceInputs["createdAt"] = state?.createdAt;
+            resourceInputs["createdBy"] = state?.createdBy;
+            resourceInputs["namespace"] = state?.namespace;
+            resourceInputs["ownerAccountId"] = state?.ownerAccountId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tableBucketArn"] = state?.tableBucketArn;
         } else {
             const args = argsOrState as NamespaceArgs | undefined;
-            if ((!args || args.namespace === undefined) && !opts.urn) {
+            if (args?.namespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespace'");
             }
-            if ((!args || args.tableBucketArn === undefined) && !opts.urn) {
+            if (args?.tableBucketArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableBucketArn'");
             }
-            resourceInputs["namespace"] = args ? args.namespace : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tableBucketArn"] = args ? args.tableBucketArn : undefined;
+            resourceInputs["namespace"] = args?.namespace;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tableBucketArn"] = args?.tableBucketArn;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;

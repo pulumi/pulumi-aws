@@ -62,41 +62,41 @@ export class KxScalingGroup extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) identifier of the KX Scaling Group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The availability zone identifiers for the requested regions.
      */
-    public readonly availabilityZoneId!: pulumi.Output<string>;
+    declare public readonly availabilityZoneId: pulumi.Output<string>;
     /**
      * The list of Managed kdb clusters that are currently active in the given scaling group.
      */
-    public /*out*/ readonly clusters!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly clusters: pulumi.Output<string[]>;
     /**
      * The timestamp at which the scaling group was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
      */
-    public /*out*/ readonly createdTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTimestamp: pulumi.Output<string>;
     /**
      * A unique identifier for the kdb environment, where you want to create the scaling group.
      */
-    public readonly environmentId!: pulumi.Output<string>;
+    declare public readonly environmentId: pulumi.Output<string>;
     /**
      * The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
      *
      * The following arguments are optional:
      */
-    public readonly hostType!: pulumi.Output<string>;
+    declare public readonly hostType: pulumi.Output<string>;
     /**
      * Last timestamp at which the scaling group was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      */
-    public /*out*/ readonly lastModifiedTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTimestamp: pulumi.Output<string>;
     /**
      * Unique name for the scaling group that you want to create.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The status of scaling group.
      * * `CREATING` - The scaling group creation is in progress.
@@ -108,19 +108,19 @@ export class KxScalingGroup extends pulumi.CustomResource {
      * * `DELETE_FAILED` - The system failed to delete the scaling group.
      * * `DELETED` - The scaling group is successfully deleted.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * The error message when a failed state occurs.
      */
-    public /*out*/ readonly statusReason!: pulumi.Output<string>;
+    declare public /*out*/ readonly statusReason: pulumi.Output<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. You can add up to 50 tags to a scaling group.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a KxScalingGroup resource with the given unique name, arguments, and options.
@@ -135,36 +135,36 @@ export class KxScalingGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KxScalingGroupState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["availabilityZoneId"] = state ? state.availabilityZoneId : undefined;
-            resourceInputs["clusters"] = state ? state.clusters : undefined;
-            resourceInputs["createdTimestamp"] = state ? state.createdTimestamp : undefined;
-            resourceInputs["environmentId"] = state ? state.environmentId : undefined;
-            resourceInputs["hostType"] = state ? state.hostType : undefined;
-            resourceInputs["lastModifiedTimestamp"] = state ? state.lastModifiedTimestamp : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["statusReason"] = state ? state.statusReason : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["availabilityZoneId"] = state?.availabilityZoneId;
+            resourceInputs["clusters"] = state?.clusters;
+            resourceInputs["createdTimestamp"] = state?.createdTimestamp;
+            resourceInputs["environmentId"] = state?.environmentId;
+            resourceInputs["hostType"] = state?.hostType;
+            resourceInputs["lastModifiedTimestamp"] = state?.lastModifiedTimestamp;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["statusReason"] = state?.statusReason;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as KxScalingGroupArgs | undefined;
-            if ((!args || args.availabilityZoneId === undefined) && !opts.urn) {
+            if (args?.availabilityZoneId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'availabilityZoneId'");
             }
-            if ((!args || args.environmentId === undefined) && !opts.urn) {
+            if (args?.environmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentId'");
             }
-            if ((!args || args.hostType === undefined) && !opts.urn) {
+            if (args?.hostType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostType'");
             }
-            resourceInputs["availabilityZoneId"] = args ? args.availabilityZoneId : undefined;
-            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
-            resourceInputs["hostType"] = args ? args.hostType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["availabilityZoneId"] = args?.availabilityZoneId;
+            resourceInputs["environmentId"] = args?.environmentId;
+            resourceInputs["hostType"] = args?.hostType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["clusters"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;

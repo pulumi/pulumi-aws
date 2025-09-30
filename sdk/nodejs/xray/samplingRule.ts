@@ -70,67 +70,67 @@ export class SamplingRule extends pulumi.CustomResource {
     /**
      * The ARN of the sampling rule.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Matches attributes derived from the request.
      */
-    public readonly attributes!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly attributes: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The percentage of matching requests to instrument, after the reservoir is exhausted.
      */
-    public readonly fixedRate!: pulumi.Output<number>;
+    declare public readonly fixedRate: pulumi.Output<number>;
     /**
      * Matches the hostname from a request URL.
      */
-    public readonly host!: pulumi.Output<string>;
+    declare public readonly host: pulumi.Output<string>;
     /**
      * Matches the HTTP method of a request.
      */
-    public readonly httpMethod!: pulumi.Output<string>;
+    declare public readonly httpMethod: pulumi.Output<string>;
     /**
      * The priority of the sampling rule.
      */
-    public readonly priority!: pulumi.Output<number>;
+    declare public readonly priority: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
      */
-    public readonly reservoirSize!: pulumi.Output<number>;
+    declare public readonly reservoirSize: pulumi.Output<number>;
     /**
      * Matches the ARN of the AWS resource on which the service runs.
      */
-    public readonly resourceArn!: pulumi.Output<string>;
+    declare public readonly resourceArn: pulumi.Output<string>;
     /**
      * The name of the sampling rule.
      */
-    public readonly ruleName!: pulumi.Output<string | undefined>;
+    declare public readonly ruleName: pulumi.Output<string | undefined>;
     /**
      * Matches the `name` that the service uses to identify itself in segments.
      */
-    public readonly serviceName!: pulumi.Output<string>;
+    declare public readonly serviceName: pulumi.Output<string>;
     /**
      * Matches the `origin` that the service uses to identify its type in segments.
      */
-    public readonly serviceType!: pulumi.Output<string>;
+    declare public readonly serviceType: pulumi.Output<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Matches the path from a request URL.
      */
-    public readonly urlPath!: pulumi.Output<string>;
+    declare public readonly urlPath: pulumi.Output<string>;
     /**
      * The version of the sampling rule format (`1` )
      */
-    public readonly version!: pulumi.Output<number>;
+    declare public readonly version: pulumi.Output<number>;
 
     /**
      * Create a SamplingRule resource with the given unique name, arguments, and options.
@@ -145,68 +145,68 @@ export class SamplingRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SamplingRuleState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["attributes"] = state ? state.attributes : undefined;
-            resourceInputs["fixedRate"] = state ? state.fixedRate : undefined;
-            resourceInputs["host"] = state ? state.host : undefined;
-            resourceInputs["httpMethod"] = state ? state.httpMethod : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["reservoirSize"] = state ? state.reservoirSize : undefined;
-            resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
-            resourceInputs["ruleName"] = state ? state.ruleName : undefined;
-            resourceInputs["serviceName"] = state ? state.serviceName : undefined;
-            resourceInputs["serviceType"] = state ? state.serviceType : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["urlPath"] = state ? state.urlPath : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["attributes"] = state?.attributes;
+            resourceInputs["fixedRate"] = state?.fixedRate;
+            resourceInputs["host"] = state?.host;
+            resourceInputs["httpMethod"] = state?.httpMethod;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["reservoirSize"] = state?.reservoirSize;
+            resourceInputs["resourceArn"] = state?.resourceArn;
+            resourceInputs["ruleName"] = state?.ruleName;
+            resourceInputs["serviceName"] = state?.serviceName;
+            resourceInputs["serviceType"] = state?.serviceType;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["urlPath"] = state?.urlPath;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as SamplingRuleArgs | undefined;
-            if ((!args || args.fixedRate === undefined) && !opts.urn) {
+            if (args?.fixedRate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fixedRate'");
             }
-            if ((!args || args.host === undefined) && !opts.urn) {
+            if (args?.host === undefined && !opts.urn) {
                 throw new Error("Missing required property 'host'");
             }
-            if ((!args || args.httpMethod === undefined) && !opts.urn) {
+            if (args?.httpMethod === undefined && !opts.urn) {
                 throw new Error("Missing required property 'httpMethod'");
             }
-            if ((!args || args.priority === undefined) && !opts.urn) {
+            if (args?.priority === undefined && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            if ((!args || args.reservoirSize === undefined) && !opts.urn) {
+            if (args?.reservoirSize === undefined && !opts.urn) {
                 throw new Error("Missing required property 'reservoirSize'");
             }
-            if ((!args || args.resourceArn === undefined) && !opts.urn) {
+            if (args?.resourceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.serviceType === undefined) && !opts.urn) {
+            if (args?.serviceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceType'");
             }
-            if ((!args || args.urlPath === undefined) && !opts.urn) {
+            if (args?.urlPath === undefined && !opts.urn) {
                 throw new Error("Missing required property 'urlPath'");
             }
-            if ((!args || args.version === undefined) && !opts.urn) {
+            if (args?.version === undefined && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            resourceInputs["attributes"] = args ? args.attributes : undefined;
-            resourceInputs["fixedRate"] = args ? args.fixedRate : undefined;
-            resourceInputs["host"] = args ? args.host : undefined;
-            resourceInputs["httpMethod"] = args ? args.httpMethod : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["reservoirSize"] = args ? args.reservoirSize : undefined;
-            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
-            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["serviceType"] = args ? args.serviceType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["urlPath"] = args ? args.urlPath : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["attributes"] = args?.attributes;
+            resourceInputs["fixedRate"] = args?.fixedRate;
+            resourceInputs["host"] = args?.host;
+            resourceInputs["httpMethod"] = args?.httpMethod;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["reservoirSize"] = args?.reservoirSize;
+            resourceInputs["resourceArn"] = args?.resourceArn;
+            resourceInputs["ruleName"] = args?.ruleName;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["serviceType"] = args?.serviceType;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["urlPath"] = args?.urlPath;
+            resourceInputs["version"] = args?.version;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

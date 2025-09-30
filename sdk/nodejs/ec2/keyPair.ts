@@ -67,43 +67,43 @@ export class KeyPair extends pulumi.CustomResource {
     /**
      * The key pair ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The MD5 public key fingerprint as specified in section 4 of RFC 4716.
      */
-    public /*out*/ readonly fingerprint!: pulumi.Output<string>;
+    declare public /*out*/ readonly fingerprint: pulumi.Output<string>;
     /**
      * The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
      */
-    public readonly keyName!: pulumi.Output<string>;
+    declare public readonly keyName: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `keyName`. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
      */
-    public readonly keyNamePrefix!: pulumi.Output<string>;
+    declare public readonly keyNamePrefix: pulumi.Output<string>;
     /**
      * The key pair ID.
      */
-    public /*out*/ readonly keyPairId!: pulumi.Output<string>;
+    declare public /*out*/ readonly keyPairId: pulumi.Output<string>;
     /**
      * The type of key pair.
      */
-    public /*out*/ readonly keyType!: pulumi.Output<string>;
+    declare public /*out*/ readonly keyType: pulumi.Output<string>;
     /**
      * The public key material.
      */
-    public readonly publicKey!: pulumi.Output<string>;
+    declare public readonly publicKey: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a KeyPair resource with the given unique name, arguments, and options.
@@ -118,26 +118,26 @@ export class KeyPair extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KeyPairState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["fingerprint"] = state ? state.fingerprint : undefined;
-            resourceInputs["keyName"] = state ? state.keyName : undefined;
-            resourceInputs["keyNamePrefix"] = state ? state.keyNamePrefix : undefined;
-            resourceInputs["keyPairId"] = state ? state.keyPairId : undefined;
-            resourceInputs["keyType"] = state ? state.keyType : undefined;
-            resourceInputs["publicKey"] = state ? state.publicKey : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["fingerprint"] = state?.fingerprint;
+            resourceInputs["keyName"] = state?.keyName;
+            resourceInputs["keyNamePrefix"] = state?.keyNamePrefix;
+            resourceInputs["keyPairId"] = state?.keyPairId;
+            resourceInputs["keyType"] = state?.keyType;
+            resourceInputs["publicKey"] = state?.publicKey;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as KeyPairArgs | undefined;
-            if ((!args || args.publicKey === undefined) && !opts.urn) {
+            if (args?.publicKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publicKey'");
             }
-            resourceInputs["keyName"] = args ? args.keyName : undefined;
-            resourceInputs["keyNamePrefix"] = args ? args.keyNamePrefix : undefined;
-            resourceInputs["publicKey"] = args ? args.publicKey : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["keyName"] = args?.keyName;
+            resourceInputs["keyNamePrefix"] = args?.keyNamePrefix;
+            resourceInputs["publicKey"] = args?.publicKey;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["fingerprint"] = undefined /*out*/;
             resourceInputs["keyPairId"] = undefined /*out*/;

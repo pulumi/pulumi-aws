@@ -77,59 +77,59 @@ export class ReplicationConfig extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the serverless replication config.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Configuration block for provisioning an DMS Serverless replication.
      */
-    public readonly computeConfig!: pulumi.Output<outputs.dms.ReplicationConfigComputeConfig>;
+    declare public readonly computeConfig: pulumi.Output<outputs.dms.ReplicationConfigComputeConfig>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Unique identifier that you want to use to create the config.
      */
-    public readonly replicationConfigIdentifier!: pulumi.Output<string>;
+    declare public readonly replicationConfigIdentifier: pulumi.Output<string>;
     /**
      * An escaped JSON string that are used to provision this replication configuration. For example, [Change processing tuning settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.html)
      */
-    public readonly replicationSettings!: pulumi.Output<string>;
+    declare public readonly replicationSettings: pulumi.Output<string>;
     /**
      * The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
      */
-    public readonly replicationType!: pulumi.Output<string>;
+    declare public readonly replicationType: pulumi.Output<string>;
     /**
      * Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
      */
-    public readonly resourceIdentifier!: pulumi.Output<string>;
+    declare public readonly resourceIdentifier: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
      */
-    public readonly sourceEndpointArn!: pulumi.Output<string>;
+    declare public readonly sourceEndpointArn: pulumi.Output<string>;
     /**
      * Whether to run or stop the serverless replication, default is false.
      */
-    public readonly startReplication!: pulumi.Output<boolean | undefined>;
+    declare public readonly startReplication: pulumi.Output<boolean | undefined>;
     /**
      * JSON settings for specifying supplemental data. For more information see [Specifying supplemental data for task settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html)
      */
-    public readonly supplementalSettings!: pulumi.Output<string | undefined>;
+    declare public readonly supplementalSettings: pulumi.Output<string | undefined>;
     /**
      * An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
      */
-    public readonly tableMappings!: pulumi.Output<string>;
+    declare public readonly tableMappings: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
      */
-    public readonly targetEndpointArn!: pulumi.Output<string>;
+    declare public readonly targetEndpointArn: pulumi.Output<string>;
 
     /**
      * Create a ReplicationConfig resource with the given unique name, arguments, and options.
@@ -144,52 +144,52 @@ export class ReplicationConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReplicationConfigState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["computeConfig"] = state ? state.computeConfig : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["replicationConfigIdentifier"] = state ? state.replicationConfigIdentifier : undefined;
-            resourceInputs["replicationSettings"] = state ? state.replicationSettings : undefined;
-            resourceInputs["replicationType"] = state ? state.replicationType : undefined;
-            resourceInputs["resourceIdentifier"] = state ? state.resourceIdentifier : undefined;
-            resourceInputs["sourceEndpointArn"] = state ? state.sourceEndpointArn : undefined;
-            resourceInputs["startReplication"] = state ? state.startReplication : undefined;
-            resourceInputs["supplementalSettings"] = state ? state.supplementalSettings : undefined;
-            resourceInputs["tableMappings"] = state ? state.tableMappings : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["targetEndpointArn"] = state ? state.targetEndpointArn : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["computeConfig"] = state?.computeConfig;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["replicationConfigIdentifier"] = state?.replicationConfigIdentifier;
+            resourceInputs["replicationSettings"] = state?.replicationSettings;
+            resourceInputs["replicationType"] = state?.replicationType;
+            resourceInputs["resourceIdentifier"] = state?.resourceIdentifier;
+            resourceInputs["sourceEndpointArn"] = state?.sourceEndpointArn;
+            resourceInputs["startReplication"] = state?.startReplication;
+            resourceInputs["supplementalSettings"] = state?.supplementalSettings;
+            resourceInputs["tableMappings"] = state?.tableMappings;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["targetEndpointArn"] = state?.targetEndpointArn;
         } else {
             const args = argsOrState as ReplicationConfigArgs | undefined;
-            if ((!args || args.computeConfig === undefined) && !opts.urn) {
+            if (args?.computeConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'computeConfig'");
             }
-            if ((!args || args.replicationConfigIdentifier === undefined) && !opts.urn) {
+            if (args?.replicationConfigIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'replicationConfigIdentifier'");
             }
-            if ((!args || args.replicationType === undefined) && !opts.urn) {
+            if (args?.replicationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'replicationType'");
             }
-            if ((!args || args.sourceEndpointArn === undefined) && !opts.urn) {
+            if (args?.sourceEndpointArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceEndpointArn'");
             }
-            if ((!args || args.tableMappings === undefined) && !opts.urn) {
+            if (args?.tableMappings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableMappings'");
             }
-            if ((!args || args.targetEndpointArn === undefined) && !opts.urn) {
+            if (args?.targetEndpointArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetEndpointArn'");
             }
-            resourceInputs["computeConfig"] = args ? args.computeConfig : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["replicationConfigIdentifier"] = args ? args.replicationConfigIdentifier : undefined;
-            resourceInputs["replicationSettings"] = args ? args.replicationSettings : undefined;
-            resourceInputs["replicationType"] = args ? args.replicationType : undefined;
-            resourceInputs["resourceIdentifier"] = args ? args.resourceIdentifier : undefined;
-            resourceInputs["sourceEndpointArn"] = args ? args.sourceEndpointArn : undefined;
-            resourceInputs["startReplication"] = args ? args.startReplication : undefined;
-            resourceInputs["supplementalSettings"] = args ? args.supplementalSettings : undefined;
-            resourceInputs["tableMappings"] = args ? args.tableMappings : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetEndpointArn"] = args ? args.targetEndpointArn : undefined;
+            resourceInputs["computeConfig"] = args?.computeConfig;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["replicationConfigIdentifier"] = args?.replicationConfigIdentifier;
+            resourceInputs["replicationSettings"] = args?.replicationSettings;
+            resourceInputs["replicationType"] = args?.replicationType;
+            resourceInputs["resourceIdentifier"] = args?.resourceIdentifier;
+            resourceInputs["sourceEndpointArn"] = args?.sourceEndpointArn;
+            resourceInputs["startReplication"] = args?.startReplication;
+            resourceInputs["supplementalSettings"] = args?.supplementalSettings;
+            resourceInputs["tableMappings"] = args?.tableMappings;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetEndpointArn"] = args?.targetEndpointArn;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

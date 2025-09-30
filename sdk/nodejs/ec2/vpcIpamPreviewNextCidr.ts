@@ -68,23 +68,23 @@ export class VpcIpamPreviewNextCidr extends pulumi.CustomResource {
     /**
      * The previewed CIDR from the pool.
      */
-    public /*out*/ readonly cidr!: pulumi.Output<string>;
+    declare public /*out*/ readonly cidr: pulumi.Output<string>;
     /**
      * Exclude a particular CIDR range from being returned by the pool.
      */
-    public readonly disallowedCidrs!: pulumi.Output<string[] | undefined>;
+    declare public readonly disallowedCidrs: pulumi.Output<string[] | undefined>;
     /**
      * The ID of the pool to which you want to assign a CIDR.
      */
-    public readonly ipamPoolId!: pulumi.Output<string>;
+    declare public readonly ipamPoolId: pulumi.Output<string>;
     /**
      * The netmask length of the CIDR you would like to preview from the IPAM pool.
      */
-    public readonly netmaskLength!: pulumi.Output<number | undefined>;
+    declare public readonly netmaskLength: pulumi.Output<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a VpcIpamPreviewNextCidr resource with the given unique name, arguments, and options.
@@ -99,20 +99,20 @@ export class VpcIpamPreviewNextCidr extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcIpamPreviewNextCidrState | undefined;
-            resourceInputs["cidr"] = state ? state.cidr : undefined;
-            resourceInputs["disallowedCidrs"] = state ? state.disallowedCidrs : undefined;
-            resourceInputs["ipamPoolId"] = state ? state.ipamPoolId : undefined;
-            resourceInputs["netmaskLength"] = state ? state.netmaskLength : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["cidr"] = state?.cidr;
+            resourceInputs["disallowedCidrs"] = state?.disallowedCidrs;
+            resourceInputs["ipamPoolId"] = state?.ipamPoolId;
+            resourceInputs["netmaskLength"] = state?.netmaskLength;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as VpcIpamPreviewNextCidrArgs | undefined;
-            if ((!args || args.ipamPoolId === undefined) && !opts.urn) {
+            if (args?.ipamPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipamPoolId'");
             }
-            resourceInputs["disallowedCidrs"] = args ? args.disallowedCidrs : undefined;
-            resourceInputs["ipamPoolId"] = args ? args.ipamPoolId : undefined;
-            resourceInputs["netmaskLength"] = args ? args.netmaskLength : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["disallowedCidrs"] = args?.disallowedCidrs;
+            resourceInputs["ipamPoolId"] = args?.ipamPoolId;
+            resourceInputs["netmaskLength"] = args?.netmaskLength;
+            resourceInputs["region"] = args?.region;
             resourceInputs["cidr"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

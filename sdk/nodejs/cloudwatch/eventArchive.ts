@@ -143,35 +143,35 @@ export class EventArchive extends pulumi.CustomResource {
     /**
      * ARN of the archive.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Description for the archive.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `eventSourceArn`.
      */
-    public readonly eventPattern!: pulumi.Output<string | undefined>;
+    declare public readonly eventPattern: pulumi.Output<string | undefined>;
     /**
      * ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
      */
-    public readonly eventSourceArn!: pulumi.Output<string>;
+    declare public readonly eventSourceArn: pulumi.Output<string>;
     /**
      * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
      */
-    public readonly kmsKeyIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyIdentifier: pulumi.Output<string | undefined>;
     /**
      * Name of the archive. The archive name cannot exceed 48 characters.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
      */
-    public readonly retentionDays!: pulumi.Output<number | undefined>;
+    declare public readonly retentionDays: pulumi.Output<number | undefined>;
 
     /**
      * Create a EventArchive resource with the given unique name, arguments, and options.
@@ -186,26 +186,26 @@ export class EventArchive extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventArchiveState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["eventPattern"] = state ? state.eventPattern : undefined;
-            resourceInputs["eventSourceArn"] = state ? state.eventSourceArn : undefined;
-            resourceInputs["kmsKeyIdentifier"] = state ? state.kmsKeyIdentifier : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["retentionDays"] = state ? state.retentionDays : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["eventPattern"] = state?.eventPattern;
+            resourceInputs["eventSourceArn"] = state?.eventSourceArn;
+            resourceInputs["kmsKeyIdentifier"] = state?.kmsKeyIdentifier;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["retentionDays"] = state?.retentionDays;
         } else {
             const args = argsOrState as EventArchiveArgs | undefined;
-            if ((!args || args.eventSourceArn === undefined) && !opts.urn) {
+            if (args?.eventSourceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventSourceArn'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["eventPattern"] = args ? args.eventPattern : undefined;
-            resourceInputs["eventSourceArn"] = args ? args.eventSourceArn : undefined;
-            resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["retentionDays"] = args ? args.retentionDays : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["eventPattern"] = args?.eventPattern;
+            resourceInputs["eventSourceArn"] = args?.eventSourceArn;
+            resourceInputs["kmsKeyIdentifier"] = args?.kmsKeyIdentifier;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["retentionDays"] = args?.retentionDays;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

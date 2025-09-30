@@ -103,86 +103,86 @@ export class AgentAgent extends pulumi.CustomResource {
     /**
      * ARN of the agent.
      */
-    public /*out*/ readonly agentArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly agentArn: pulumi.Output<string>;
     /**
      * Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
      */
-    public readonly agentCollaboration!: pulumi.Output<string>;
+    declare public readonly agentCollaboration: pulumi.Output<string>;
     /**
      * Unique identifier of the agent.
      */
-    public /*out*/ readonly agentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly agentId: pulumi.Output<string>;
     /**
      * Name of the agent.
      */
-    public readonly agentName!: pulumi.Output<string>;
+    declare public readonly agentName: pulumi.Output<string>;
     /**
      * ARN of the IAM role with permissions to invoke API operations on the agent.
      */
-    public readonly agentResourceRoleArn!: pulumi.Output<string>;
+    declare public readonly agentResourceRoleArn: pulumi.Output<string>;
     /**
      * Version of the agent.
      */
-    public /*out*/ readonly agentVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly agentVersion: pulumi.Output<string>;
     /**
      * ARN of the AWS KMS key that encrypts the agent.
      */
-    public readonly customerEncryptionKeyArn!: pulumi.Output<string | undefined>;
+    declare public readonly customerEncryptionKeyArn: pulumi.Output<string | undefined>;
     /**
      * Description of the agent.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Foundation model used for orchestration by the agent.
      *
      * The following arguments are optional:
      */
-    public readonly foundationModel!: pulumi.Output<string>;
+    declare public readonly foundationModel: pulumi.Output<string>;
     /**
      * Details about the guardrail associated with the agent. See `guardrailConfiguration` Block for details.
      */
-    public readonly guardrailConfigurations!: pulumi.Output<outputs.bedrock.AgentAgentGuardrailConfiguration[] | undefined>;
+    declare public readonly guardrailConfigurations: pulumi.Output<outputs.bedrock.AgentAgentGuardrailConfiguration[] | undefined>;
     /**
      * Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
      */
-    public readonly idleSessionTtlInSeconds!: pulumi.Output<number>;
+    declare public readonly idleSessionTtlInSeconds: pulumi.Output<number>;
     /**
      * Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
      */
-    public readonly instruction!: pulumi.Output<string>;
+    declare public readonly instruction: pulumi.Output<string>;
     /**
      * Configurations for the agent's ability to retain the conversational context.
      */
-    public readonly memoryConfigurations!: pulumi.Output<outputs.bedrock.AgentAgentMemoryConfiguration[]>;
+    declare public readonly memoryConfigurations: pulumi.Output<outputs.bedrock.AgentAgentMemoryConfiguration[]>;
     /**
      * Whether to prepare the agent after creation or modification. Defaults to `true`.
      */
-    public readonly prepareAgent!: pulumi.Output<boolean>;
+    declare public readonly prepareAgent: pulumi.Output<boolean>;
     /**
      * Timestamp of when the agent was last prepared.
      */
-    public /*out*/ readonly preparedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly preparedAt: pulumi.Output<string>;
     /**
      * Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
      */
-    public readonly promptOverrideConfigurations!: pulumi.Output<outputs.bedrock.AgentAgentPromptOverrideConfiguration[]>;
+    declare public readonly promptOverrideConfigurations: pulumi.Output<outputs.bedrock.AgentAgentPromptOverrideConfiguration[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Whether the in-use check is skipped when deleting the agent.
      */
-    public readonly skipResourceInUseCheck!: pulumi.Output<boolean>;
+    declare public readonly skipResourceInUseCheck: pulumi.Output<boolean>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.bedrock.AgentAgentTimeouts | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    declare public readonly timeouts: pulumi.Output<outputs.bedrock.AgentAgentTimeouts | undefined>;
 
     /**
      * Create a AgentAgent resource with the given unique name, arguments, and options.
@@ -197,54 +197,54 @@ export class AgentAgent extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AgentAgentState | undefined;
-            resourceInputs["agentArn"] = state ? state.agentArn : undefined;
-            resourceInputs["agentCollaboration"] = state ? state.agentCollaboration : undefined;
-            resourceInputs["agentId"] = state ? state.agentId : undefined;
-            resourceInputs["agentName"] = state ? state.agentName : undefined;
-            resourceInputs["agentResourceRoleArn"] = state ? state.agentResourceRoleArn : undefined;
-            resourceInputs["agentVersion"] = state ? state.agentVersion : undefined;
-            resourceInputs["customerEncryptionKeyArn"] = state ? state.customerEncryptionKeyArn : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["foundationModel"] = state ? state.foundationModel : undefined;
-            resourceInputs["guardrailConfigurations"] = state ? state.guardrailConfigurations : undefined;
-            resourceInputs["idleSessionTtlInSeconds"] = state ? state.idleSessionTtlInSeconds : undefined;
-            resourceInputs["instruction"] = state ? state.instruction : undefined;
-            resourceInputs["memoryConfigurations"] = state ? state.memoryConfigurations : undefined;
-            resourceInputs["prepareAgent"] = state ? state.prepareAgent : undefined;
-            resourceInputs["preparedAt"] = state ? state.preparedAt : undefined;
-            resourceInputs["promptOverrideConfigurations"] = state ? state.promptOverrideConfigurations : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["skipResourceInUseCheck"] = state ? state.skipResourceInUseCheck : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["agentArn"] = state?.agentArn;
+            resourceInputs["agentCollaboration"] = state?.agentCollaboration;
+            resourceInputs["agentId"] = state?.agentId;
+            resourceInputs["agentName"] = state?.agentName;
+            resourceInputs["agentResourceRoleArn"] = state?.agentResourceRoleArn;
+            resourceInputs["agentVersion"] = state?.agentVersion;
+            resourceInputs["customerEncryptionKeyArn"] = state?.customerEncryptionKeyArn;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["foundationModel"] = state?.foundationModel;
+            resourceInputs["guardrailConfigurations"] = state?.guardrailConfigurations;
+            resourceInputs["idleSessionTtlInSeconds"] = state?.idleSessionTtlInSeconds;
+            resourceInputs["instruction"] = state?.instruction;
+            resourceInputs["memoryConfigurations"] = state?.memoryConfigurations;
+            resourceInputs["prepareAgent"] = state?.prepareAgent;
+            resourceInputs["preparedAt"] = state?.preparedAt;
+            resourceInputs["promptOverrideConfigurations"] = state?.promptOverrideConfigurations;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["skipResourceInUseCheck"] = state?.skipResourceInUseCheck;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as AgentAgentArgs | undefined;
-            if ((!args || args.agentName === undefined) && !opts.urn) {
+            if (args?.agentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'agentName'");
             }
-            if ((!args || args.agentResourceRoleArn === undefined) && !opts.urn) {
+            if (args?.agentResourceRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'agentResourceRoleArn'");
             }
-            if ((!args || args.foundationModel === undefined) && !opts.urn) {
+            if (args?.foundationModel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'foundationModel'");
             }
-            resourceInputs["agentCollaboration"] = args ? args.agentCollaboration : undefined;
-            resourceInputs["agentName"] = args ? args.agentName : undefined;
-            resourceInputs["agentResourceRoleArn"] = args ? args.agentResourceRoleArn : undefined;
-            resourceInputs["customerEncryptionKeyArn"] = args ? args.customerEncryptionKeyArn : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["foundationModel"] = args ? args.foundationModel : undefined;
-            resourceInputs["guardrailConfigurations"] = args ? args.guardrailConfigurations : undefined;
-            resourceInputs["idleSessionTtlInSeconds"] = args ? args.idleSessionTtlInSeconds : undefined;
-            resourceInputs["instruction"] = args ? args.instruction : undefined;
-            resourceInputs["memoryConfigurations"] = args ? args.memoryConfigurations : undefined;
-            resourceInputs["prepareAgent"] = args ? args.prepareAgent : undefined;
-            resourceInputs["promptOverrideConfigurations"] = args ? args.promptOverrideConfigurations : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["skipResourceInUseCheck"] = args ? args.skipResourceInUseCheck : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["agentCollaboration"] = args?.agentCollaboration;
+            resourceInputs["agentName"] = args?.agentName;
+            resourceInputs["agentResourceRoleArn"] = args?.agentResourceRoleArn;
+            resourceInputs["customerEncryptionKeyArn"] = args?.customerEncryptionKeyArn;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["foundationModel"] = args?.foundationModel;
+            resourceInputs["guardrailConfigurations"] = args?.guardrailConfigurations;
+            resourceInputs["idleSessionTtlInSeconds"] = args?.idleSessionTtlInSeconds;
+            resourceInputs["instruction"] = args?.instruction;
+            resourceInputs["memoryConfigurations"] = args?.memoryConfigurations;
+            resourceInputs["prepareAgent"] = args?.prepareAgent;
+            resourceInputs["promptOverrideConfigurations"] = args?.promptOverrideConfigurations;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["skipResourceInUseCheck"] = args?.skipResourceInUseCheck;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["agentArn"] = undefined /*out*/;
             resourceInputs["agentId"] = undefined /*out*/;
             resourceInputs["agentVersion"] = undefined /*out*/;

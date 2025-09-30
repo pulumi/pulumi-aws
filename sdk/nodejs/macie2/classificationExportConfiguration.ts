@@ -65,11 +65,11 @@ export class ClassificationExportConfiguration extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Configuration block for a S3 Destination. Defined below
      */
-    public readonly s3Destination!: pulumi.Output<outputs.macie2.ClassificationExportConfigurationS3Destination>;
+    declare public readonly s3Destination: pulumi.Output<outputs.macie2.ClassificationExportConfigurationS3Destination>;
 
     /**
      * Create a ClassificationExportConfiguration resource with the given unique name, arguments, and options.
@@ -84,15 +84,15 @@ export class ClassificationExportConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClassificationExportConfigurationState | undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["s3Destination"] = state ? state.s3Destination : undefined;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["s3Destination"] = state?.s3Destination;
         } else {
             const args = argsOrState as ClassificationExportConfigurationArgs | undefined;
-            if ((!args || args.s3Destination === undefined) && !opts.urn) {
+            if (args?.s3Destination === undefined && !opts.urn) {
                 throw new Error("Missing required property 's3Destination'");
             }
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["s3Destination"] = args ? args.s3Destination : undefined;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["s3Destination"] = args?.s3Destination;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ClassificationExportConfiguration.__pulumiType, name, resourceInputs, opts);

@@ -61,45 +61,45 @@ export class PlaceIndex extends pulumi.CustomResource {
     /**
      * The timestamp for when the place index resource was created in ISO 8601 format.
      */
-    public /*out*/ readonly createTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createTime: pulumi.Output<string>;
     /**
      * Specifies the geospatial data provider for the new place index.
      */
-    public readonly dataSource!: pulumi.Output<string>;
+    declare public readonly dataSource: pulumi.Output<string>;
     /**
      * Configuration block with the data storage option chosen for requesting Places. Detailed below.
      */
-    public readonly dataSourceConfiguration!: pulumi.Output<outputs.location.PlaceIndexDataSourceConfiguration>;
+    declare public readonly dataSourceConfiguration: pulumi.Output<outputs.location.PlaceIndexDataSourceConfiguration>;
     /**
      * The optional description for the place index resource.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
      */
-    public /*out*/ readonly indexArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly indexArn: pulumi.Output<string>;
     /**
      * The name of the place index resource.
      *
      * The following arguments are optional:
      */
-    public readonly indexName!: pulumi.Output<string>;
+    declare public readonly indexName: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The timestamp for when the place index resource was last update in ISO 8601.
      */
-    public /*out*/ readonly updateTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly updateTime: pulumi.Output<string>;
 
     /**
      * Create a PlaceIndex resource with the given unique name, arguments, and options.
@@ -114,30 +114,30 @@ export class PlaceIndex extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PlaceIndexState | undefined;
-            resourceInputs["createTime"] = state ? state.createTime : undefined;
-            resourceInputs["dataSource"] = state ? state.dataSource : undefined;
-            resourceInputs["dataSourceConfiguration"] = state ? state.dataSourceConfiguration : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["indexArn"] = state ? state.indexArn : undefined;
-            resourceInputs["indexName"] = state ? state.indexName : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["updateTime"] = state ? state.updateTime : undefined;
+            resourceInputs["createTime"] = state?.createTime;
+            resourceInputs["dataSource"] = state?.dataSource;
+            resourceInputs["dataSourceConfiguration"] = state?.dataSourceConfiguration;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["indexArn"] = state?.indexArn;
+            resourceInputs["indexName"] = state?.indexName;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["updateTime"] = state?.updateTime;
         } else {
             const args = argsOrState as PlaceIndexArgs | undefined;
-            if ((!args || args.dataSource === undefined) && !opts.urn) {
+            if (args?.dataSource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataSource'");
             }
-            if ((!args || args.indexName === undefined) && !opts.urn) {
+            if (args?.indexName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'indexName'");
             }
-            resourceInputs["dataSource"] = args ? args.dataSource : undefined;
-            resourceInputs["dataSourceConfiguration"] = args ? args.dataSourceConfiguration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["indexName"] = args ? args.indexName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dataSource"] = args?.dataSource;
+            resourceInputs["dataSourceConfiguration"] = args?.dataSourceConfiguration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["indexName"] = args?.indexName;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["indexArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

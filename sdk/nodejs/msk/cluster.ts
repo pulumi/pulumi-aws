@@ -198,119 +198,119 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the MSK cluster.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Contains a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts values alphabetically. AWS may not always return all endpoints so this value is not guaranteed to be stable across applies.
      */
-    public /*out*/ readonly bootstrapBrokers!: pulumi.Output<string>;
+    declare public /*out*/ readonly bootstrapBrokers: pulumi.Output<string>;
     /**
      * One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      */
-    public /*out*/ readonly bootstrapBrokersPublicSaslIam!: pulumi.Output<string>;
+    declare public /*out*/ readonly bootstrapBrokersPublicSaslIam: pulumi.Output<string>;
     /**
      * One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      */
-    public /*out*/ readonly bootstrapBrokersPublicSaslScram!: pulumi.Output<string>;
+    declare public /*out*/ readonly bootstrapBrokersPublicSaslScram: pulumi.Output<string>;
     /**
      * One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      */
-    public /*out*/ readonly bootstrapBrokersPublicTls!: pulumi.Output<string>;
+    declare public /*out*/ readonly bootstrapBrokersPublicTls: pulumi.Output<string>;
     /**
      * One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      */
-    public /*out*/ readonly bootstrapBrokersSaslIam!: pulumi.Output<string>;
+    declare public /*out*/ readonly bootstrapBrokersSaslIam: pulumi.Output<string>;
     /**
      * One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      */
-    public /*out*/ readonly bootstrapBrokersSaslScram!: pulumi.Output<string>;
+    declare public /*out*/ readonly bootstrapBrokersSaslScram: pulumi.Output<string>;
     /**
      * One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      */
-    public /*out*/ readonly bootstrapBrokersTls!: pulumi.Output<string>;
+    declare public /*out*/ readonly bootstrapBrokersTls: pulumi.Output<string>;
     /**
      * A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      */
-    public /*out*/ readonly bootstrapBrokersVpcConnectivitySaslIam!: pulumi.Output<string>;
+    declare public /*out*/ readonly bootstrapBrokersVpcConnectivitySaslIam: pulumi.Output<string>;
     /**
      * A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      */
-    public /*out*/ readonly bootstrapBrokersVpcConnectivitySaslScram!: pulumi.Output<string>;
+    declare public /*out*/ readonly bootstrapBrokersVpcConnectivitySaslScram: pulumi.Output<string>;
     /**
      * A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      */
-    public /*out*/ readonly bootstrapBrokersVpcConnectivityTls!: pulumi.Output<string>;
+    declare public /*out*/ readonly bootstrapBrokersVpcConnectivityTls: pulumi.Output<string>;
     /**
      * Configuration block for the broker nodes of the Kafka cluster. See brokerNodeGroupInfo Argument Reference below.
      */
-    public readonly brokerNodeGroupInfo!: pulumi.Output<outputs.msk.ClusterBrokerNodeGroupInfo>;
+    declare public readonly brokerNodeGroupInfo: pulumi.Output<outputs.msk.ClusterBrokerNodeGroupInfo>;
     /**
      * Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
      */
-    public readonly clientAuthentication!: pulumi.Output<outputs.msk.ClusterClientAuthentication | undefined>;
+    declare public readonly clientAuthentication: pulumi.Output<outputs.msk.ClusterClientAuthentication | undefined>;
     /**
      * Name of the MSK cluster.
      */
-    public readonly clusterName!: pulumi.Output<string>;
+    declare public readonly clusterName: pulumi.Output<string>;
     /**
      * UUID of the MSK cluster, for use in IAM policies.
      */
-    public /*out*/ readonly clusterUuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly clusterUuid: pulumi.Output<string>;
     /**
      * Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configurationInfo Argument Reference below.
      */
-    public readonly configurationInfo!: pulumi.Output<outputs.msk.ClusterConfigurationInfo | undefined>;
+    declare public readonly configurationInfo: pulumi.Output<outputs.msk.ClusterConfigurationInfo | undefined>;
     /**
      * Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
      */
-    public /*out*/ readonly currentVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly currentVersion: pulumi.Output<string>;
     /**
      * Configuration block for specifying encryption. See encryptionInfo Argument Reference below.
      */
-    public readonly encryptionInfo!: pulumi.Output<outputs.msk.ClusterEncryptionInfo | undefined>;
+    declare public readonly encryptionInfo: pulumi.Output<outputs.msk.ClusterEncryptionInfo | undefined>;
     /**
      * Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
      */
-    public readonly enhancedMonitoring!: pulumi.Output<string | undefined>;
+    declare public readonly enhancedMonitoring: pulumi.Output<string | undefined>;
     /**
      * Specify the desired Kafka software version.
      */
-    public readonly kafkaVersion!: pulumi.Output<string>;
+    declare public readonly kafkaVersion: pulumi.Output<string>;
     /**
      * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See loggingInfo Argument Reference below.
      */
-    public readonly loggingInfo!: pulumi.Output<outputs.msk.ClusterLoggingInfo | undefined>;
+    declare public readonly loggingInfo: pulumi.Output<outputs.msk.ClusterLoggingInfo | undefined>;
     /**
      * The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
      */
-    public readonly numberOfBrokerNodes!: pulumi.Output<number>;
+    declare public readonly numberOfBrokerNodes: pulumi.Output<number>;
     /**
      * Configuration block for JMX and Node monitoring for the MSK cluster. See openMonitoring Argument Reference below.
      */
-    public readonly openMonitoring!: pulumi.Output<outputs.msk.ClusterOpenMonitoring | undefined>;
+    declare public readonly openMonitoring: pulumi.Output<outputs.msk.ClusterOpenMonitoring | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
      */
-    public readonly storageMode!: pulumi.Output<string>;
+    declare public readonly storageMode: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      */
-    public /*out*/ readonly zookeeperConnectString!: pulumi.Output<string>;
+    declare public /*out*/ readonly zookeeperConnectString: pulumi.Output<string>;
     /**
      * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      */
-    public /*out*/ readonly zookeeperConnectStringTls!: pulumi.Output<string>;
+    declare public /*out*/ readonly zookeeperConnectStringTls: pulumi.Output<string>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -325,59 +325,59 @@ export class Cluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["bootstrapBrokers"] = state ? state.bootstrapBrokers : undefined;
-            resourceInputs["bootstrapBrokersPublicSaslIam"] = state ? state.bootstrapBrokersPublicSaslIam : undefined;
-            resourceInputs["bootstrapBrokersPublicSaslScram"] = state ? state.bootstrapBrokersPublicSaslScram : undefined;
-            resourceInputs["bootstrapBrokersPublicTls"] = state ? state.bootstrapBrokersPublicTls : undefined;
-            resourceInputs["bootstrapBrokersSaslIam"] = state ? state.bootstrapBrokersSaslIam : undefined;
-            resourceInputs["bootstrapBrokersSaslScram"] = state ? state.bootstrapBrokersSaslScram : undefined;
-            resourceInputs["bootstrapBrokersTls"] = state ? state.bootstrapBrokersTls : undefined;
-            resourceInputs["bootstrapBrokersVpcConnectivitySaslIam"] = state ? state.bootstrapBrokersVpcConnectivitySaslIam : undefined;
-            resourceInputs["bootstrapBrokersVpcConnectivitySaslScram"] = state ? state.bootstrapBrokersVpcConnectivitySaslScram : undefined;
-            resourceInputs["bootstrapBrokersVpcConnectivityTls"] = state ? state.bootstrapBrokersVpcConnectivityTls : undefined;
-            resourceInputs["brokerNodeGroupInfo"] = state ? state.brokerNodeGroupInfo : undefined;
-            resourceInputs["clientAuthentication"] = state ? state.clientAuthentication : undefined;
-            resourceInputs["clusterName"] = state ? state.clusterName : undefined;
-            resourceInputs["clusterUuid"] = state ? state.clusterUuid : undefined;
-            resourceInputs["configurationInfo"] = state ? state.configurationInfo : undefined;
-            resourceInputs["currentVersion"] = state ? state.currentVersion : undefined;
-            resourceInputs["encryptionInfo"] = state ? state.encryptionInfo : undefined;
-            resourceInputs["enhancedMonitoring"] = state ? state.enhancedMonitoring : undefined;
-            resourceInputs["kafkaVersion"] = state ? state.kafkaVersion : undefined;
-            resourceInputs["loggingInfo"] = state ? state.loggingInfo : undefined;
-            resourceInputs["numberOfBrokerNodes"] = state ? state.numberOfBrokerNodes : undefined;
-            resourceInputs["openMonitoring"] = state ? state.openMonitoring : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["storageMode"] = state ? state.storageMode : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["zookeeperConnectString"] = state ? state.zookeeperConnectString : undefined;
-            resourceInputs["zookeeperConnectStringTls"] = state ? state.zookeeperConnectStringTls : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["bootstrapBrokers"] = state?.bootstrapBrokers;
+            resourceInputs["bootstrapBrokersPublicSaslIam"] = state?.bootstrapBrokersPublicSaslIam;
+            resourceInputs["bootstrapBrokersPublicSaslScram"] = state?.bootstrapBrokersPublicSaslScram;
+            resourceInputs["bootstrapBrokersPublicTls"] = state?.bootstrapBrokersPublicTls;
+            resourceInputs["bootstrapBrokersSaslIam"] = state?.bootstrapBrokersSaslIam;
+            resourceInputs["bootstrapBrokersSaslScram"] = state?.bootstrapBrokersSaslScram;
+            resourceInputs["bootstrapBrokersTls"] = state?.bootstrapBrokersTls;
+            resourceInputs["bootstrapBrokersVpcConnectivitySaslIam"] = state?.bootstrapBrokersVpcConnectivitySaslIam;
+            resourceInputs["bootstrapBrokersVpcConnectivitySaslScram"] = state?.bootstrapBrokersVpcConnectivitySaslScram;
+            resourceInputs["bootstrapBrokersVpcConnectivityTls"] = state?.bootstrapBrokersVpcConnectivityTls;
+            resourceInputs["brokerNodeGroupInfo"] = state?.brokerNodeGroupInfo;
+            resourceInputs["clientAuthentication"] = state?.clientAuthentication;
+            resourceInputs["clusterName"] = state?.clusterName;
+            resourceInputs["clusterUuid"] = state?.clusterUuid;
+            resourceInputs["configurationInfo"] = state?.configurationInfo;
+            resourceInputs["currentVersion"] = state?.currentVersion;
+            resourceInputs["encryptionInfo"] = state?.encryptionInfo;
+            resourceInputs["enhancedMonitoring"] = state?.enhancedMonitoring;
+            resourceInputs["kafkaVersion"] = state?.kafkaVersion;
+            resourceInputs["loggingInfo"] = state?.loggingInfo;
+            resourceInputs["numberOfBrokerNodes"] = state?.numberOfBrokerNodes;
+            resourceInputs["openMonitoring"] = state?.openMonitoring;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["storageMode"] = state?.storageMode;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["zookeeperConnectString"] = state?.zookeeperConnectString;
+            resourceInputs["zookeeperConnectStringTls"] = state?.zookeeperConnectStringTls;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
-            if ((!args || args.brokerNodeGroupInfo === undefined) && !opts.urn) {
+            if (args?.brokerNodeGroupInfo === undefined && !opts.urn) {
                 throw new Error("Missing required property 'brokerNodeGroupInfo'");
             }
-            if ((!args || args.kafkaVersion === undefined) && !opts.urn) {
+            if (args?.kafkaVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kafkaVersion'");
             }
-            if ((!args || args.numberOfBrokerNodes === undefined) && !opts.urn) {
+            if (args?.numberOfBrokerNodes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'numberOfBrokerNodes'");
             }
-            resourceInputs["brokerNodeGroupInfo"] = args ? args.brokerNodeGroupInfo : undefined;
-            resourceInputs["clientAuthentication"] = args ? args.clientAuthentication : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["configurationInfo"] = args ? args.configurationInfo : undefined;
-            resourceInputs["encryptionInfo"] = args ? args.encryptionInfo : undefined;
-            resourceInputs["enhancedMonitoring"] = args ? args.enhancedMonitoring : undefined;
-            resourceInputs["kafkaVersion"] = args ? args.kafkaVersion : undefined;
-            resourceInputs["loggingInfo"] = args ? args.loggingInfo : undefined;
-            resourceInputs["numberOfBrokerNodes"] = args ? args.numberOfBrokerNodes : undefined;
-            resourceInputs["openMonitoring"] = args ? args.openMonitoring : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["storageMode"] = args ? args.storageMode : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["brokerNodeGroupInfo"] = args?.brokerNodeGroupInfo;
+            resourceInputs["clientAuthentication"] = args?.clientAuthentication;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["configurationInfo"] = args?.configurationInfo;
+            resourceInputs["encryptionInfo"] = args?.encryptionInfo;
+            resourceInputs["enhancedMonitoring"] = args?.enhancedMonitoring;
+            resourceInputs["kafkaVersion"] = args?.kafkaVersion;
+            resourceInputs["loggingInfo"] = args?.loggingInfo;
+            resourceInputs["numberOfBrokerNodes"] = args?.numberOfBrokerNodes;
+            resourceInputs["openMonitoring"] = args?.openMonitoring;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["storageMode"] = args?.storageMode;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["bootstrapBrokers"] = undefined /*out*/;
             resourceInputs["bootstrapBrokersPublicSaslIam"] = undefined /*out*/;

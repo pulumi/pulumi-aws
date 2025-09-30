@@ -34,6 +34,11 @@ backend = "core:node"
 version = "3.190.0"
 backend = "aqua:pulumi/pulumi"
 
+[tools.pulumi.platforms.linux-x64]
+checksum = "sha512:1847aaa3c3c0202cff9cbd3f547c5965abb2b2f83199b47c36c23121d7c860662b6d817226709fc3eadd24551a30ab656699d2eb992d2085bb90db6c195c2379"
+size = 92837374
+url = "https://github.com/pulumi/pulumi/releases/download/v3.190.0/pulumi-v3.190.0-linux-x64.tar.gz"
+
 [[tools.python]]
 version = "3.11.8"
 backend = "core:python"

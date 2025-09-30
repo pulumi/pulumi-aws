@@ -72,75 +72,75 @@ export class KxDataview extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) identifier of the KX dataview.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The option to specify whether you want to apply all the future additions and corrections automatically to the dataview, when you ingest new changesets. The default value is false.
      */
-    public readonly autoUpdate!: pulumi.Output<boolean>;
+    declare public readonly autoUpdate: pulumi.Output<boolean>;
     /**
      * The identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
      */
-    public readonly availabilityZoneId!: pulumi.Output<string | undefined>;
+    declare public readonly availabilityZoneId: pulumi.Output<string | undefined>;
     /**
      * The number of availability zones you want to assign per cluster. This can be one of the following:
      * * `SINGLE` - Assigns one availability zone per cluster.
      * * `MULTI` - Assigns all the availability zones per cluster.
      */
-    public readonly azMode!: pulumi.Output<string>;
+    declare public readonly azMode: pulumi.Output<string>;
     /**
      * A unique identifier of the changeset of the database that you want to use to ingest data.
      */
-    public readonly changesetId!: pulumi.Output<string | undefined>;
+    declare public readonly changesetId: pulumi.Output<string | undefined>;
     /**
      * Timestamp at which the dataview was created in FinSpace. Value determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
      */
-    public /*out*/ readonly createdTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTimestamp: pulumi.Output<string>;
     /**
      * The name of the database where you want to create a dataview.
      */
-    public readonly databaseName!: pulumi.Output<string>;
+    declare public readonly databaseName: pulumi.Output<string>;
     /**
      * A description for the dataview.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Unique identifier for the KX environment.
      */
-    public readonly environmentId!: pulumi.Output<string>;
+    declare public readonly environmentId: pulumi.Output<string>;
     /**
      * The last time that the dataview was updated in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
      */
-    public /*out*/ readonly lastModifiedTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTimestamp: pulumi.Output<string>;
     /**
      * A unique identifier for the dataview.
      *
      * The following arguments are optional:
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
      * * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `autoUpdate` must be set as `false` if `readWrite` is `true` for a dataview.
      * * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
      * * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `readWrite` parameter later.
      */
-    public readonly readWrite!: pulumi.Output<boolean | undefined>;
+    declare public readonly readWrite: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segmentConfigurations below.
      */
-    public readonly segmentConfigurations!: pulumi.Output<outputs.finspace.KxDataviewSegmentConfiguration[] | undefined>;
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public readonly segmentConfigurations: pulumi.Output<outputs.finspace.KxDataviewSegmentConfiguration[] | undefined>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a KxDataview resource with the given unique name, arguments, and options.
@@ -155,49 +155,49 @@ export class KxDataview extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KxDataviewState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["autoUpdate"] = state ? state.autoUpdate : undefined;
-            resourceInputs["availabilityZoneId"] = state ? state.availabilityZoneId : undefined;
-            resourceInputs["azMode"] = state ? state.azMode : undefined;
-            resourceInputs["changesetId"] = state ? state.changesetId : undefined;
-            resourceInputs["createdTimestamp"] = state ? state.createdTimestamp : undefined;
-            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["environmentId"] = state ? state.environmentId : undefined;
-            resourceInputs["lastModifiedTimestamp"] = state ? state.lastModifiedTimestamp : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["readWrite"] = state ? state.readWrite : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["segmentConfigurations"] = state ? state.segmentConfigurations : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["autoUpdate"] = state?.autoUpdate;
+            resourceInputs["availabilityZoneId"] = state?.availabilityZoneId;
+            resourceInputs["azMode"] = state?.azMode;
+            resourceInputs["changesetId"] = state?.changesetId;
+            resourceInputs["createdTimestamp"] = state?.createdTimestamp;
+            resourceInputs["databaseName"] = state?.databaseName;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["environmentId"] = state?.environmentId;
+            resourceInputs["lastModifiedTimestamp"] = state?.lastModifiedTimestamp;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["readWrite"] = state?.readWrite;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["segmentConfigurations"] = state?.segmentConfigurations;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as KxDataviewArgs | undefined;
-            if ((!args || args.autoUpdate === undefined) && !opts.urn) {
+            if (args?.autoUpdate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autoUpdate'");
             }
-            if ((!args || args.azMode === undefined) && !opts.urn) {
+            if (args?.azMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'azMode'");
             }
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.environmentId === undefined) && !opts.urn) {
+            if (args?.environmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentId'");
             }
-            resourceInputs["autoUpdate"] = args ? args.autoUpdate : undefined;
-            resourceInputs["availabilityZoneId"] = args ? args.availabilityZoneId : undefined;
-            resourceInputs["azMode"] = args ? args.azMode : undefined;
-            resourceInputs["changesetId"] = args ? args.changesetId : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["readWrite"] = args ? args.readWrite : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["segmentConfigurations"] = args ? args.segmentConfigurations : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["autoUpdate"] = args?.autoUpdate;
+            resourceInputs["availabilityZoneId"] = args?.availabilityZoneId;
+            resourceInputs["azMode"] = args?.azMode;
+            resourceInputs["changesetId"] = args?.changesetId;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["environmentId"] = args?.environmentId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["readWrite"] = args?.readWrite;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["segmentConfigurations"] = args?.segmentConfigurations;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["lastModifiedTimestamp"] = undefined /*out*/;

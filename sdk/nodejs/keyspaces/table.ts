@@ -72,61 +72,61 @@ export class Table extends pulumi.CustomResource {
     /**
      * The ARN of the table.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Specifies the read/write throughput capacity mode for the table.
      */
-    public readonly capacitySpecification!: pulumi.Output<outputs.keyspaces.TableCapacitySpecification>;
+    declare public readonly capacitySpecification: pulumi.Output<outputs.keyspaces.TableCapacitySpecification>;
     /**
      * Enables client-side timestamps for the table. By default, the setting is disabled.
      */
-    public readonly clientSideTimestamps!: pulumi.Output<outputs.keyspaces.TableClientSideTimestamps | undefined>;
+    declare public readonly clientSideTimestamps: pulumi.Output<outputs.keyspaces.TableClientSideTimestamps | undefined>;
     /**
      * A description of the table.
      */
-    public readonly comment!: pulumi.Output<outputs.keyspaces.TableComment>;
+    declare public readonly comment: pulumi.Output<outputs.keyspaces.TableComment>;
     /**
      * The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
      */
-    public readonly defaultTimeToLive!: pulumi.Output<number | undefined>;
+    declare public readonly defaultTimeToLive: pulumi.Output<number | undefined>;
     /**
      * Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
      */
-    public readonly encryptionSpecification!: pulumi.Output<outputs.keyspaces.TableEncryptionSpecification>;
+    declare public readonly encryptionSpecification: pulumi.Output<outputs.keyspaces.TableEncryptionSpecification>;
     /**
      * The name of the keyspace that the table is going to be created in.
      */
-    public readonly keyspaceName!: pulumi.Output<string>;
+    declare public readonly keyspaceName: pulumi.Output<string>;
     /**
      * Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
      */
-    public readonly pointInTimeRecovery!: pulumi.Output<outputs.keyspaces.TablePointInTimeRecovery>;
+    declare public readonly pointInTimeRecovery: pulumi.Output<outputs.keyspaces.TablePointInTimeRecovery>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Describes the schema of the table.
      */
-    public readonly schemaDefinition!: pulumi.Output<outputs.keyspaces.TableSchemaDefinition>;
+    declare public readonly schemaDefinition: pulumi.Output<outputs.keyspaces.TableSchemaDefinition>;
     /**
      * The name of the table.
      *
      * The following arguments are optional:
      */
-    public readonly tableName!: pulumi.Output<string>;
+    declare public readonly tableName: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
      */
-    public readonly ttl!: pulumi.Output<outputs.keyspaces.TableTtl | undefined>;
+    declare public readonly ttl: pulumi.Output<outputs.keyspaces.TableTtl | undefined>;
 
     /**
      * Create a Table resource with the given unique name, arguments, and options.
@@ -141,43 +141,43 @@ export class Table extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TableState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["capacitySpecification"] = state ? state.capacitySpecification : undefined;
-            resourceInputs["clientSideTimestamps"] = state ? state.clientSideTimestamps : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["defaultTimeToLive"] = state ? state.defaultTimeToLive : undefined;
-            resourceInputs["encryptionSpecification"] = state ? state.encryptionSpecification : undefined;
-            resourceInputs["keyspaceName"] = state ? state.keyspaceName : undefined;
-            resourceInputs["pointInTimeRecovery"] = state ? state.pointInTimeRecovery : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["schemaDefinition"] = state ? state.schemaDefinition : undefined;
-            resourceInputs["tableName"] = state ? state.tableName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["ttl"] = state ? state.ttl : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["capacitySpecification"] = state?.capacitySpecification;
+            resourceInputs["clientSideTimestamps"] = state?.clientSideTimestamps;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["defaultTimeToLive"] = state?.defaultTimeToLive;
+            resourceInputs["encryptionSpecification"] = state?.encryptionSpecification;
+            resourceInputs["keyspaceName"] = state?.keyspaceName;
+            resourceInputs["pointInTimeRecovery"] = state?.pointInTimeRecovery;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["schemaDefinition"] = state?.schemaDefinition;
+            resourceInputs["tableName"] = state?.tableName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["ttl"] = state?.ttl;
         } else {
             const args = argsOrState as TableArgs | undefined;
-            if ((!args || args.keyspaceName === undefined) && !opts.urn) {
+            if (args?.keyspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyspaceName'");
             }
-            if ((!args || args.schemaDefinition === undefined) && !opts.urn) {
+            if (args?.schemaDefinition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaDefinition'");
             }
-            if ((!args || args.tableName === undefined) && !opts.urn) {
+            if (args?.tableName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
-            resourceInputs["capacitySpecification"] = args ? args.capacitySpecification : undefined;
-            resourceInputs["clientSideTimestamps"] = args ? args.clientSideTimestamps : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["defaultTimeToLive"] = args ? args.defaultTimeToLive : undefined;
-            resourceInputs["encryptionSpecification"] = args ? args.encryptionSpecification : undefined;
-            resourceInputs["keyspaceName"] = args ? args.keyspaceName : undefined;
-            resourceInputs["pointInTimeRecovery"] = args ? args.pointInTimeRecovery : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["schemaDefinition"] = args ? args.schemaDefinition : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["ttl"] = args ? args.ttl : undefined;
+            resourceInputs["capacitySpecification"] = args?.capacitySpecification;
+            resourceInputs["clientSideTimestamps"] = args?.clientSideTimestamps;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["defaultTimeToLive"] = args?.defaultTimeToLive;
+            resourceInputs["encryptionSpecification"] = args?.encryptionSpecification;
+            resourceInputs["keyspaceName"] = args?.keyspaceName;
+            resourceInputs["pointInTimeRecovery"] = args?.pointInTimeRecovery;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["schemaDefinition"] = args?.schemaDefinition;
+            resourceInputs["tableName"] = args?.tableName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["ttl"] = args?.ttl;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

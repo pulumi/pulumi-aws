@@ -117,31 +117,31 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
     /**
      * The ARN of the ElastiCache Global Replication Group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A flag that indicate whether the encryption at rest is enabled.
      */
-    public /*out*/ readonly atRestEncryptionEnabled!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly atRestEncryptionEnabled: pulumi.Output<boolean>;
     /**
      * A flag that indicate whether AuthToken (password) is enabled.
      */
-    public /*out*/ readonly authTokenEnabled!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly authTokenEnabled: pulumi.Output<boolean>;
     /**
      * Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
      * When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
      */
-    public readonly automaticFailoverEnabled!: pulumi.Output<boolean>;
+    declare public readonly automaticFailoverEnabled: pulumi.Output<boolean>;
     /**
      * The instance class used.
      * See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
      * and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
      * When creating, by default the Global Replication Group inherits the node type of the primary replication group.
      */
-    public readonly cacheNodeType!: pulumi.Output<string>;
+    declare public readonly cacheNodeType: pulumi.Output<string>;
     /**
      * Indicates whether the Global Datastore is cluster enabled.
      */
-    public /*out*/ readonly clusterEnabled!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly clusterEnabled: pulumi.Output<boolean>;
     /**
      * The name of the cache engine to be used for the clusters in this global replication group.
      * When creating, by default the Global Replication Group inherits the engine of the primary replication group.
@@ -149,7 +149,7 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
      * Valid values are `redis` or `valkey`.
      * Default is `redis` if `engineVersion` is specified.
      */
-    public readonly engine!: pulumi.Output<string>;
+    declare public readonly engine: pulumi.Output<string>;
     /**
      * Engine version to use for the Global Replication Group.
      * When creating, by default the Global Replication Group inherits the version of the primary replication group.
@@ -160,51 +160,51 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
      */
-    public readonly engineVersion!: pulumi.Output<string>;
+    declare public readonly engineVersion: pulumi.Output<string>;
     /**
      * The full version number of the cache engine running on the members of this global replication group.
      */
-    public /*out*/ readonly engineVersionActual!: pulumi.Output<string>;
+    declare public /*out*/ readonly engineVersionActual: pulumi.Output<string>;
     /**
      * Set of node groups (shards) on the global replication group.
      * Has the values:
      */
-    public /*out*/ readonly globalNodeGroups!: pulumi.Output<outputs.elasticache.GlobalReplicationGroupGlobalNodeGroup[]>;
+    declare public /*out*/ readonly globalNodeGroups: pulumi.Output<outputs.elasticache.GlobalReplicationGroupGlobalNodeGroup[]>;
     /**
      * A user-created description for the global replication group.
      */
-    public readonly globalReplicationGroupDescription!: pulumi.Output<string | undefined>;
+    declare public readonly globalReplicationGroupDescription: pulumi.Output<string | undefined>;
     /**
      * The full ID of the global replication group.
      */
-    public /*out*/ readonly globalReplicationGroupId!: pulumi.Output<string>;
+    declare public /*out*/ readonly globalReplicationGroupId: pulumi.Output<string>;
     /**
      * The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
      */
-    public readonly globalReplicationGroupIdSuffix!: pulumi.Output<string>;
+    declare public readonly globalReplicationGroupIdSuffix: pulumi.Output<string>;
     /**
      * The number of node groups (shards) on the global replication group.
      */
-    public readonly numNodeGroups!: pulumi.Output<number>;
+    declare public readonly numNodeGroups: pulumi.Output<number>;
     /**
      * An ElastiCache Parameter Group to use for the Global Replication Group.
      * Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
      * Specifying without a major version upgrade will fail.
      * Note that ElastiCache creates a copy of this parameter group for each member replication group.
      */
-    public readonly parameterGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly parameterGroupName: pulumi.Output<string | undefined>;
     /**
      * The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
      */
-    public readonly primaryReplicationGroupId!: pulumi.Output<string>;
+    declare public readonly primaryReplicationGroupId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A flag that indicates whether the encryption in transit is enabled.
      */
-    public /*out*/ readonly transitEncryptionEnabled!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly transitEncryptionEnabled: pulumi.Output<boolean>;
 
     /**
      * Create a GlobalReplicationGroup resource with the given unique name, arguments, and options.
@@ -219,42 +219,42 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GlobalReplicationGroupState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["atRestEncryptionEnabled"] = state ? state.atRestEncryptionEnabled : undefined;
-            resourceInputs["authTokenEnabled"] = state ? state.authTokenEnabled : undefined;
-            resourceInputs["automaticFailoverEnabled"] = state ? state.automaticFailoverEnabled : undefined;
-            resourceInputs["cacheNodeType"] = state ? state.cacheNodeType : undefined;
-            resourceInputs["clusterEnabled"] = state ? state.clusterEnabled : undefined;
-            resourceInputs["engine"] = state ? state.engine : undefined;
-            resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
-            resourceInputs["engineVersionActual"] = state ? state.engineVersionActual : undefined;
-            resourceInputs["globalNodeGroups"] = state ? state.globalNodeGroups : undefined;
-            resourceInputs["globalReplicationGroupDescription"] = state ? state.globalReplicationGroupDescription : undefined;
-            resourceInputs["globalReplicationGroupId"] = state ? state.globalReplicationGroupId : undefined;
-            resourceInputs["globalReplicationGroupIdSuffix"] = state ? state.globalReplicationGroupIdSuffix : undefined;
-            resourceInputs["numNodeGroups"] = state ? state.numNodeGroups : undefined;
-            resourceInputs["parameterGroupName"] = state ? state.parameterGroupName : undefined;
-            resourceInputs["primaryReplicationGroupId"] = state ? state.primaryReplicationGroupId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["transitEncryptionEnabled"] = state ? state.transitEncryptionEnabled : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["atRestEncryptionEnabled"] = state?.atRestEncryptionEnabled;
+            resourceInputs["authTokenEnabled"] = state?.authTokenEnabled;
+            resourceInputs["automaticFailoverEnabled"] = state?.automaticFailoverEnabled;
+            resourceInputs["cacheNodeType"] = state?.cacheNodeType;
+            resourceInputs["clusterEnabled"] = state?.clusterEnabled;
+            resourceInputs["engine"] = state?.engine;
+            resourceInputs["engineVersion"] = state?.engineVersion;
+            resourceInputs["engineVersionActual"] = state?.engineVersionActual;
+            resourceInputs["globalNodeGroups"] = state?.globalNodeGroups;
+            resourceInputs["globalReplicationGroupDescription"] = state?.globalReplicationGroupDescription;
+            resourceInputs["globalReplicationGroupId"] = state?.globalReplicationGroupId;
+            resourceInputs["globalReplicationGroupIdSuffix"] = state?.globalReplicationGroupIdSuffix;
+            resourceInputs["numNodeGroups"] = state?.numNodeGroups;
+            resourceInputs["parameterGroupName"] = state?.parameterGroupName;
+            resourceInputs["primaryReplicationGroupId"] = state?.primaryReplicationGroupId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["transitEncryptionEnabled"] = state?.transitEncryptionEnabled;
         } else {
             const args = argsOrState as GlobalReplicationGroupArgs | undefined;
-            if ((!args || args.globalReplicationGroupIdSuffix === undefined) && !opts.urn) {
+            if (args?.globalReplicationGroupIdSuffix === undefined && !opts.urn) {
                 throw new Error("Missing required property 'globalReplicationGroupIdSuffix'");
             }
-            if ((!args || args.primaryReplicationGroupId === undefined) && !opts.urn) {
+            if (args?.primaryReplicationGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'primaryReplicationGroupId'");
             }
-            resourceInputs["automaticFailoverEnabled"] = args ? args.automaticFailoverEnabled : undefined;
-            resourceInputs["cacheNodeType"] = args ? args.cacheNodeType : undefined;
-            resourceInputs["engine"] = args ? args.engine : undefined;
-            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
-            resourceInputs["globalReplicationGroupDescription"] = args ? args.globalReplicationGroupDescription : undefined;
-            resourceInputs["globalReplicationGroupIdSuffix"] = args ? args.globalReplicationGroupIdSuffix : undefined;
-            resourceInputs["numNodeGroups"] = args ? args.numNodeGroups : undefined;
-            resourceInputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
-            resourceInputs["primaryReplicationGroupId"] = args ? args.primaryReplicationGroupId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["automaticFailoverEnabled"] = args?.automaticFailoverEnabled;
+            resourceInputs["cacheNodeType"] = args?.cacheNodeType;
+            resourceInputs["engine"] = args?.engine;
+            resourceInputs["engineVersion"] = args?.engineVersion;
+            resourceInputs["globalReplicationGroupDescription"] = args?.globalReplicationGroupDescription;
+            resourceInputs["globalReplicationGroupIdSuffix"] = args?.globalReplicationGroupIdSuffix;
+            resourceInputs["numNodeGroups"] = args?.numNodeGroups;
+            resourceInputs["parameterGroupName"] = args?.parameterGroupName;
+            resourceInputs["primaryReplicationGroupId"] = args?.primaryReplicationGroupId;
+            resourceInputs["region"] = args?.region;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["atRestEncryptionEnabled"] = undefined /*out*/;
             resourceInputs["authTokenEnabled"] = undefined /*out*/;

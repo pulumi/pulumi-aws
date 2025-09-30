@@ -183,45 +183,45 @@ export class SessionLogger extends pulumi.CustomResource {
     /**
      * Map of additional encryption context key-value pairs.
      */
-    public readonly additionalEncryptionContext!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly additionalEncryptionContext: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of ARNs of the web portals associated with the session logger.
      */
-    public /*out*/ readonly associatedPortalArns!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly associatedPortalArns: pulumi.Output<string[]>;
     /**
      * ARN of the customer managed KMS key used to encrypt sensitive information.
      */
-    public readonly customerManagedKey!: pulumi.Output<string | undefined>;
+    declare public readonly customerManagedKey: pulumi.Output<string | undefined>;
     /**
      * Human-readable display name for the session logger resource. Forces replacement if changed.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * Event filter that determines which events are logged. See Event Filter below.
      */
-    public readonly eventFilter!: pulumi.Output<outputs.workspacesweb.SessionLoggerEventFilter | undefined>;
+    declare public readonly eventFilter: pulumi.Output<outputs.workspacesweb.SessionLoggerEventFilter | undefined>;
     /**
      * Configuration block for specifying where logs are delivered. See Log Configuration below.
      *
      * The following arguments are optional:
      */
-    public readonly logConfiguration!: pulumi.Output<outputs.workspacesweb.SessionLoggerLogConfiguration | undefined>;
+    declare public readonly logConfiguration: pulumi.Output<outputs.workspacesweb.SessionLoggerLogConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * ARN of the session logger.
      */
-    public /*out*/ readonly sessionLoggerArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly sessionLoggerArn: pulumi.Output<string>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a SessionLogger resource with the given unique name, arguments, and options.
@@ -236,25 +236,25 @@ export class SessionLogger extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SessionLoggerState | undefined;
-            resourceInputs["additionalEncryptionContext"] = state ? state.additionalEncryptionContext : undefined;
-            resourceInputs["associatedPortalArns"] = state ? state.associatedPortalArns : undefined;
-            resourceInputs["customerManagedKey"] = state ? state.customerManagedKey : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["eventFilter"] = state ? state.eventFilter : undefined;
-            resourceInputs["logConfiguration"] = state ? state.logConfiguration : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["sessionLoggerArn"] = state ? state.sessionLoggerArn : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["additionalEncryptionContext"] = state?.additionalEncryptionContext;
+            resourceInputs["associatedPortalArns"] = state?.associatedPortalArns;
+            resourceInputs["customerManagedKey"] = state?.customerManagedKey;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["eventFilter"] = state?.eventFilter;
+            resourceInputs["logConfiguration"] = state?.logConfiguration;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["sessionLoggerArn"] = state?.sessionLoggerArn;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as SessionLoggerArgs | undefined;
-            resourceInputs["additionalEncryptionContext"] = args ? args.additionalEncryptionContext : undefined;
-            resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["eventFilter"] = args ? args.eventFilter : undefined;
-            resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["additionalEncryptionContext"] = args?.additionalEncryptionContext;
+            resourceInputs["customerManagedKey"] = args?.customerManagedKey;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["eventFilter"] = args?.eventFilter;
+            resourceInputs["logConfiguration"] = args?.logConfiguration;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["associatedPortalArns"] = undefined /*out*/;
             resourceInputs["sessionLoggerArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

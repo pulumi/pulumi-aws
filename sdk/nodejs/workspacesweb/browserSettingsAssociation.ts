@@ -68,17 +68,17 @@ export class BrowserSettingsAssociation extends pulumi.CustomResource {
     /**
      * ARN of the browser settings to associate with the portal. Forces replacement if changed.
      */
-    public readonly browserSettingsArn!: pulumi.Output<string>;
+    declare public readonly browserSettingsArn: pulumi.Output<string>;
     /**
      * ARN of the portal to associate with the browser settings. Forces replacement if changed.
      *
      * The following arguments are optional:
      */
-    public readonly portalArn!: pulumi.Output<string>;
+    declare public readonly portalArn: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a BrowserSettingsAssociation resource with the given unique name, arguments, and options.
@@ -93,20 +93,20 @@ export class BrowserSettingsAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BrowserSettingsAssociationState | undefined;
-            resourceInputs["browserSettingsArn"] = state ? state.browserSettingsArn : undefined;
-            resourceInputs["portalArn"] = state ? state.portalArn : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["browserSettingsArn"] = state?.browserSettingsArn;
+            resourceInputs["portalArn"] = state?.portalArn;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as BrowserSettingsAssociationArgs | undefined;
-            if ((!args || args.browserSettingsArn === undefined) && !opts.urn) {
+            if (args?.browserSettingsArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'browserSettingsArn'");
             }
-            if ((!args || args.portalArn === undefined) && !opts.urn) {
+            if (args?.portalArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'portalArn'");
             }
-            resourceInputs["browserSettingsArn"] = args ? args.browserSettingsArn : undefined;
-            resourceInputs["portalArn"] = args ? args.portalArn : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["browserSettingsArn"] = args?.browserSettingsArn;
+            resourceInputs["portalArn"] = args?.portalArn;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BrowserSettingsAssociation.__pulumiType, name, resourceInputs, opts);

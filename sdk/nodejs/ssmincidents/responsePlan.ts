@@ -141,47 +141,47 @@ export class ResponsePlan extends pulumi.CustomResource {
     /**
      * The actions that the response plan starts at the beginning of an incident.
      */
-    public readonly action!: pulumi.Output<outputs.ssmincidents.ResponsePlanAction | undefined>;
+    declare public readonly action: pulumi.Output<outputs.ssmincidents.ResponsePlanAction | undefined>;
     /**
      * The ARN of the response plan.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The Chatbot chat channel used for collaboration during an incident.
      */
-    public readonly chatChannels!: pulumi.Output<string[] | undefined>;
+    declare public readonly chatChannels: pulumi.Output<string[] | undefined>;
     /**
      * The long format of the response plan name. This field can contain spaces.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
      */
-    public readonly engagements!: pulumi.Output<string[] | undefined>;
+    declare public readonly engagements: pulumi.Output<string[] | undefined>;
     /**
      * The `incidentTemplate` configuration block is required and supports the following arguments:
      */
-    public readonly incidentTemplate!: pulumi.Output<outputs.ssmincidents.ResponsePlanIncidentTemplate>;
+    declare public readonly incidentTemplate: pulumi.Output<outputs.ssmincidents.ResponsePlanIncidentTemplate>;
     /**
      * Information about third-party services integrated into the response plan. The following values are supported:
      */
-    public readonly integration!: pulumi.Output<outputs.ssmincidents.ResponsePlanIntegration | undefined>;
+    declare public readonly integration: pulumi.Output<outputs.ssmincidents.ResponsePlanIntegration | undefined>;
     /**
      * The name of the response plan.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The tags applied to the response plan.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ResponsePlan resource with the given unique name, arguments, and options.
@@ -196,31 +196,31 @@ export class ResponsePlan extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResponsePlanState | undefined;
-            resourceInputs["action"] = state ? state.action : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["chatChannels"] = state ? state.chatChannels : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["engagements"] = state ? state.engagements : undefined;
-            resourceInputs["incidentTemplate"] = state ? state.incidentTemplate : undefined;
-            resourceInputs["integration"] = state ? state.integration : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["action"] = state?.action;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["chatChannels"] = state?.chatChannels;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["engagements"] = state?.engagements;
+            resourceInputs["incidentTemplate"] = state?.incidentTemplate;
+            resourceInputs["integration"] = state?.integration;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as ResponsePlanArgs | undefined;
-            if ((!args || args.incidentTemplate === undefined) && !opts.urn) {
+            if (args?.incidentTemplate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'incidentTemplate'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["chatChannels"] = args ? args.chatChannels : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["engagements"] = args ? args.engagements : undefined;
-            resourceInputs["incidentTemplate"] = args ? args.incidentTemplate : undefined;
-            resourceInputs["integration"] = args ? args.integration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["action"] = args?.action;
+            resourceInputs["chatChannels"] = args?.chatChannels;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["engagements"] = args?.engagements;
+            resourceInputs["incidentTemplate"] = args?.incidentTemplate;
+            resourceInputs["integration"] = args?.integration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

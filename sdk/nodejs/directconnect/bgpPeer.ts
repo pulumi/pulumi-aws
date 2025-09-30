@@ -51,45 +51,45 @@ export class BgpPeer extends pulumi.CustomResource {
     /**
      * The address family for the BGP peer. `ipv4 ` or `ipv6`.
      */
-    public readonly addressFamily!: pulumi.Output<string>;
+    declare public readonly addressFamily: pulumi.Output<string>;
     /**
      * The IPv4 CIDR address to use to send traffic to Amazon.
      * Required for IPv4 BGP peers on public virtual interfaces.
      */
-    public readonly amazonAddress!: pulumi.Output<string>;
+    declare public readonly amazonAddress: pulumi.Output<string>;
     /**
      * The Direct Connect endpoint on which the BGP peer terminates.
      */
-    public /*out*/ readonly awsDevice!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsDevice: pulumi.Output<string>;
     /**
      * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
      */
-    public readonly bgpAsn!: pulumi.Output<number>;
+    declare public readonly bgpAsn: pulumi.Output<number>;
     /**
      * The authentication key for BGP configuration.
      */
-    public readonly bgpAuthKey!: pulumi.Output<string>;
+    declare public readonly bgpAuthKey: pulumi.Output<string>;
     /**
      * The ID of the BGP peer.
      */
-    public /*out*/ readonly bgpPeerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly bgpPeerId: pulumi.Output<string>;
     /**
      * The Up/Down state of the BGP peer.
      */
-    public /*out*/ readonly bgpStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly bgpStatus: pulumi.Output<string>;
     /**
      * The IPv4 CIDR destination address to which Amazon should send traffic.
      * Required for IPv4 BGP peers on public virtual interfaces.
      */
-    public readonly customerAddress!: pulumi.Output<string>;
+    declare public readonly customerAddress: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The ID of the Direct Connect virtual interface on which to create the BGP peer.
      */
-    public readonly virtualInterfaceId!: pulumi.Output<string>;
+    declare public readonly virtualInterfaceId: pulumi.Output<string>;
 
     /**
      * Create a BgpPeer resource with the given unique name, arguments, and options.
@@ -104,34 +104,34 @@ export class BgpPeer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BgpPeerState | undefined;
-            resourceInputs["addressFamily"] = state ? state.addressFamily : undefined;
-            resourceInputs["amazonAddress"] = state ? state.amazonAddress : undefined;
-            resourceInputs["awsDevice"] = state ? state.awsDevice : undefined;
-            resourceInputs["bgpAsn"] = state ? state.bgpAsn : undefined;
-            resourceInputs["bgpAuthKey"] = state ? state.bgpAuthKey : undefined;
-            resourceInputs["bgpPeerId"] = state ? state.bgpPeerId : undefined;
-            resourceInputs["bgpStatus"] = state ? state.bgpStatus : undefined;
-            resourceInputs["customerAddress"] = state ? state.customerAddress : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["virtualInterfaceId"] = state ? state.virtualInterfaceId : undefined;
+            resourceInputs["addressFamily"] = state?.addressFamily;
+            resourceInputs["amazonAddress"] = state?.amazonAddress;
+            resourceInputs["awsDevice"] = state?.awsDevice;
+            resourceInputs["bgpAsn"] = state?.bgpAsn;
+            resourceInputs["bgpAuthKey"] = state?.bgpAuthKey;
+            resourceInputs["bgpPeerId"] = state?.bgpPeerId;
+            resourceInputs["bgpStatus"] = state?.bgpStatus;
+            resourceInputs["customerAddress"] = state?.customerAddress;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["virtualInterfaceId"] = state?.virtualInterfaceId;
         } else {
             const args = argsOrState as BgpPeerArgs | undefined;
-            if ((!args || args.addressFamily === undefined) && !opts.urn) {
+            if (args?.addressFamily === undefined && !opts.urn) {
                 throw new Error("Missing required property 'addressFamily'");
             }
-            if ((!args || args.bgpAsn === undefined) && !opts.urn) {
+            if (args?.bgpAsn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bgpAsn'");
             }
-            if ((!args || args.virtualInterfaceId === undefined) && !opts.urn) {
+            if (args?.virtualInterfaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualInterfaceId'");
             }
-            resourceInputs["addressFamily"] = args ? args.addressFamily : undefined;
-            resourceInputs["amazonAddress"] = args ? args.amazonAddress : undefined;
-            resourceInputs["bgpAsn"] = args ? args.bgpAsn : undefined;
-            resourceInputs["bgpAuthKey"] = args ? args.bgpAuthKey : undefined;
-            resourceInputs["customerAddress"] = args ? args.customerAddress : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["virtualInterfaceId"] = args ? args.virtualInterfaceId : undefined;
+            resourceInputs["addressFamily"] = args?.addressFamily;
+            resourceInputs["amazonAddress"] = args?.amazonAddress;
+            resourceInputs["bgpAsn"] = args?.bgpAsn;
+            resourceInputs["bgpAuthKey"] = args?.bgpAuthKey;
+            resourceInputs["customerAddress"] = args?.customerAddress;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["virtualInterfaceId"] = args?.virtualInterfaceId;
             resourceInputs["awsDevice"] = undefined /*out*/;
             resourceInputs["bgpPeerId"] = undefined /*out*/;
             resourceInputs["bgpStatus"] = undefined /*out*/;

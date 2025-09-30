@@ -76,31 +76,31 @@ export class HostedPrivateVirtualInterfaceAccepter extends pulumi.CustomResource
     /**
      * The ARN of the virtual interface.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ID of the Direct Connect gateway to which to connect the virtual interface.
      */
-    public readonly dxGatewayId!: pulumi.Output<string | undefined>;
+    declare public readonly dxGatewayId: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the Direct Connect virtual interface to accept.
      */
-    public readonly virtualInterfaceId!: pulumi.Output<string>;
+    declare public readonly virtualInterfaceId: pulumi.Output<string>;
     /**
      * The ID of the virtual private gateway to which to connect the virtual interface.
      */
-    public readonly vpnGatewayId!: pulumi.Output<string | undefined>;
+    declare public readonly vpnGatewayId: pulumi.Output<string | undefined>;
 
     /**
      * Create a HostedPrivateVirtualInterfaceAccepter resource with the given unique name, arguments, and options.
@@ -115,23 +115,23 @@ export class HostedPrivateVirtualInterfaceAccepter extends pulumi.CustomResource
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HostedPrivateVirtualInterfaceAccepterState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["dxGatewayId"] = state ? state.dxGatewayId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["virtualInterfaceId"] = state ? state.virtualInterfaceId : undefined;
-            resourceInputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["dxGatewayId"] = state?.dxGatewayId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["virtualInterfaceId"] = state?.virtualInterfaceId;
+            resourceInputs["vpnGatewayId"] = state?.vpnGatewayId;
         } else {
             const args = argsOrState as HostedPrivateVirtualInterfaceAccepterArgs | undefined;
-            if ((!args || args.virtualInterfaceId === undefined) && !opts.urn) {
+            if (args?.virtualInterfaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualInterfaceId'");
             }
-            resourceInputs["dxGatewayId"] = args ? args.dxGatewayId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualInterfaceId"] = args ? args.virtualInterfaceId : undefined;
-            resourceInputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
+            resourceInputs["dxGatewayId"] = args?.dxGatewayId;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualInterfaceId"] = args?.virtualInterfaceId;
+            resourceInputs["vpnGatewayId"] = args?.vpnGatewayId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

@@ -62,39 +62,39 @@ export class EndpointAccess extends pulumi.CustomResource {
     /**
      * The DNS address of the endpoint.
      */
-    public /*out*/ readonly address!: pulumi.Output<string>;
+    declare public /*out*/ readonly address: pulumi.Output<string>;
     /**
      * The cluster identifier of the cluster to access.
      */
-    public readonly clusterIdentifier!: pulumi.Output<string>;
+    declare public readonly clusterIdentifier: pulumi.Output<string>;
     /**
      * The Redshift-managed VPC endpoint name.
      */
-    public readonly endpointName!: pulumi.Output<string>;
+    declare public readonly endpointName: pulumi.Output<string>;
     /**
      * The port number on which the cluster accepts incoming connections.
      */
-    public /*out*/ readonly port!: pulumi.Output<number>;
+    declare public /*out*/ readonly port: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
      */
-    public readonly resourceOwner!: pulumi.Output<string>;
+    declare public readonly resourceOwner: pulumi.Output<string>;
     /**
      * The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
      */
-    public readonly subnetGroupName!: pulumi.Output<string>;
+    declare public readonly subnetGroupName: pulumi.Output<string>;
     /**
      * The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.
      */
-    public /*out*/ readonly vpcEndpoints!: pulumi.Output<outputs.redshift.EndpointAccessVpcEndpoint[]>;
+    declare public /*out*/ readonly vpcEndpoints: pulumi.Output<outputs.redshift.EndpointAccessVpcEndpoint[]>;
     /**
      * The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
      */
-    public readonly vpcSecurityGroupIds!: pulumi.Output<string[]>;
+    declare public readonly vpcSecurityGroupIds: pulumi.Output<string[]>;
 
     /**
      * Create a EndpointAccess resource with the given unique name, arguments, and options.
@@ -109,32 +109,32 @@ export class EndpointAccess extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointAccessState | undefined;
-            resourceInputs["address"] = state ? state.address : undefined;
-            resourceInputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
-            resourceInputs["endpointName"] = state ? state.endpointName : undefined;
-            resourceInputs["port"] = state ? state.port : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["resourceOwner"] = state ? state.resourceOwner : undefined;
-            resourceInputs["subnetGroupName"] = state ? state.subnetGroupName : undefined;
-            resourceInputs["vpcEndpoints"] = state ? state.vpcEndpoints : undefined;
-            resourceInputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
+            resourceInputs["address"] = state?.address;
+            resourceInputs["clusterIdentifier"] = state?.clusterIdentifier;
+            resourceInputs["endpointName"] = state?.endpointName;
+            resourceInputs["port"] = state?.port;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["resourceOwner"] = state?.resourceOwner;
+            resourceInputs["subnetGroupName"] = state?.subnetGroupName;
+            resourceInputs["vpcEndpoints"] = state?.vpcEndpoints;
+            resourceInputs["vpcSecurityGroupIds"] = state?.vpcSecurityGroupIds;
         } else {
             const args = argsOrState as EndpointAccessArgs | undefined;
-            if ((!args || args.clusterIdentifier === undefined) && !opts.urn) {
+            if (args?.clusterIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterIdentifier'");
             }
-            if ((!args || args.endpointName === undefined) && !opts.urn) {
+            if (args?.endpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointName'");
             }
-            if ((!args || args.subnetGroupName === undefined) && !opts.urn) {
+            if (args?.subnetGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetGroupName'");
             }
-            resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
-            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["resourceOwner"] = args ? args.resourceOwner : undefined;
-            resourceInputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
-            resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            resourceInputs["clusterIdentifier"] = args?.clusterIdentifier;
+            resourceInputs["endpointName"] = args?.endpointName;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["resourceOwner"] = args?.resourceOwner;
+            resourceInputs["subnetGroupName"] = args?.subnetGroupName;
+            resourceInputs["vpcSecurityGroupIds"] = args?.vpcSecurityGroupIds;
             resourceInputs["address"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;
             resourceInputs["vpcEndpoints"] = undefined /*out*/;

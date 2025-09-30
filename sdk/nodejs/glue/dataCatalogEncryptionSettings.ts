@@ -68,15 +68,15 @@ export class DataCatalogEncryptionSettings extends pulumi.CustomResource {
     /**
      * The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
      */
-    public readonly catalogId!: pulumi.Output<string>;
+    declare public readonly catalogId: pulumi.Output<string>;
     /**
      * The security configuration to set. see Data Catalog Encryption Settings.
      */
-    public readonly dataCatalogEncryptionSettings!: pulumi.Output<outputs.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings>;
+    declare public readonly dataCatalogEncryptionSettings: pulumi.Output<outputs.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a DataCatalogEncryptionSettings resource with the given unique name, arguments, and options.
@@ -91,17 +91,17 @@ export class DataCatalogEncryptionSettings extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataCatalogEncryptionSettingsState | undefined;
-            resourceInputs["catalogId"] = state ? state.catalogId : undefined;
-            resourceInputs["dataCatalogEncryptionSettings"] = state ? state.dataCatalogEncryptionSettings : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["catalogId"] = state?.catalogId;
+            resourceInputs["dataCatalogEncryptionSettings"] = state?.dataCatalogEncryptionSettings;
+            resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as DataCatalogEncryptionSettingsArgs | undefined;
-            if ((!args || args.dataCatalogEncryptionSettings === undefined) && !opts.urn) {
+            if (args?.dataCatalogEncryptionSettings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataCatalogEncryptionSettings'");
             }
-            resourceInputs["catalogId"] = args ? args.catalogId : undefined;
-            resourceInputs["dataCatalogEncryptionSettings"] = args ? args.dataCatalogEncryptionSettings : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["catalogId"] = args?.catalogId;
+            resourceInputs["dataCatalogEncryptionSettings"] = args?.dataCatalogEncryptionSettings;
+            resourceInputs["region"] = args?.region;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DataCatalogEncryptionSettings.__pulumiType, name, resourceInputs, opts);

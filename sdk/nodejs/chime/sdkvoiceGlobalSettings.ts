@@ -62,7 +62,7 @@ export class SdkvoiceGlobalSettings extends pulumi.CustomResource {
     /**
      * The Voice Connector settings. See voice_connector.
      */
-    public readonly voiceConnector!: pulumi.Output<outputs.chime.SdkvoiceGlobalSettingsVoiceConnector>;
+    declare public readonly voiceConnector: pulumi.Output<outputs.chime.SdkvoiceGlobalSettingsVoiceConnector>;
 
     /**
      * Create a SdkvoiceGlobalSettings resource with the given unique name, arguments, and options.
@@ -77,13 +77,13 @@ export class SdkvoiceGlobalSettings extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SdkvoiceGlobalSettingsState | undefined;
-            resourceInputs["voiceConnector"] = state ? state.voiceConnector : undefined;
+            resourceInputs["voiceConnector"] = state?.voiceConnector;
         } else {
             const args = argsOrState as SdkvoiceGlobalSettingsArgs | undefined;
-            if ((!args || args.voiceConnector === undefined) && !opts.urn) {
+            if (args?.voiceConnector === undefined && !opts.urn) {
                 throw new Error("Missing required property 'voiceConnector'");
             }
-            resourceInputs["voiceConnector"] = args ? args.voiceConnector : undefined;
+            resourceInputs["voiceConnector"] = args?.voiceConnector;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SdkvoiceGlobalSettings.__pulumiType, name, resourceInputs, opts);

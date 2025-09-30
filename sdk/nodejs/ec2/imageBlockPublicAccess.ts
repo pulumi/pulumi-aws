@@ -55,7 +55,7 @@ export class ImageBlockPublicAccess extends pulumi.CustomResource {
     /**
      * The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `unblocked` and `block-new-sharing`.
      */
-    public readonly state!: pulumi.Output<string>;
+    declare public readonly state: pulumi.Output<string>;
 
     /**
      * Create a ImageBlockPublicAccess resource with the given unique name, arguments, and options.
@@ -70,13 +70,13 @@ export class ImageBlockPublicAccess extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ImageBlockPublicAccessState | undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["state"] = state?.state;
         } else {
             const args = argsOrState as ImageBlockPublicAccessArgs | undefined;
-            if ((!args || args.state === undefined) && !opts.urn) {
+            if (args?.state === undefined && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
-            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["state"] = args?.state;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ImageBlockPublicAccess.__pulumiType, name, resourceInputs, opts);

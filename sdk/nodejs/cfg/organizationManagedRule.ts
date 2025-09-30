@@ -68,51 +68,51 @@ export class OrganizationManagedRule extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the rule
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Description of the rule
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * List of AWS account identifiers to exclude from the rule
      */
-    public readonly excludedAccounts!: pulumi.Output<string[] | undefined>;
+    declare public readonly excludedAccounts: pulumi.Output<string[] | undefined>;
     /**
      * A string in JSON format that is passed to the AWS Config Rule Lambda Function
      */
-    public readonly inputParameters!: pulumi.Output<string | undefined>;
+    declare public readonly inputParameters: pulumi.Output<string | undefined>;
     /**
      * The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
      */
-    public readonly maximumExecutionFrequency!: pulumi.Output<string | undefined>;
+    declare public readonly maximumExecutionFrequency: pulumi.Output<string | undefined>;
     /**
      * The name of the rule
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Identifier of the AWS resource to evaluate
      */
-    public readonly resourceIdScope!: pulumi.Output<string | undefined>;
+    declare public readonly resourceIdScope: pulumi.Output<string | undefined>;
     /**
      * List of types of AWS resources to evaluate
      */
-    public readonly resourceTypesScopes!: pulumi.Output<string[] | undefined>;
+    declare public readonly resourceTypesScopes: pulumi.Output<string[] | undefined>;
     /**
      * Identifier of an available AWS Config Managed Rule to call. For available values, see the [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html) documentation
      */
-    public readonly ruleIdentifier!: pulumi.Output<string>;
+    declare public readonly ruleIdentifier: pulumi.Output<string>;
     /**
      * Tag key of AWS resources to evaluate
      */
-    public readonly tagKeyScope!: pulumi.Output<string | undefined>;
+    declare public readonly tagKeyScope: pulumi.Output<string | undefined>;
     /**
      * Tag value of AWS resources to evaluate
      */
-    public readonly tagValueScope!: pulumi.Output<string | undefined>;
+    declare public readonly tagValueScope: pulumi.Output<string | undefined>;
 
     /**
      * Create a OrganizationManagedRule resource with the given unique name, arguments, and options.
@@ -127,34 +127,34 @@ export class OrganizationManagedRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrganizationManagedRuleState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["excludedAccounts"] = state ? state.excludedAccounts : undefined;
-            resourceInputs["inputParameters"] = state ? state.inputParameters : undefined;
-            resourceInputs["maximumExecutionFrequency"] = state ? state.maximumExecutionFrequency : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["resourceIdScope"] = state ? state.resourceIdScope : undefined;
-            resourceInputs["resourceTypesScopes"] = state ? state.resourceTypesScopes : undefined;
-            resourceInputs["ruleIdentifier"] = state ? state.ruleIdentifier : undefined;
-            resourceInputs["tagKeyScope"] = state ? state.tagKeyScope : undefined;
-            resourceInputs["tagValueScope"] = state ? state.tagValueScope : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["excludedAccounts"] = state?.excludedAccounts;
+            resourceInputs["inputParameters"] = state?.inputParameters;
+            resourceInputs["maximumExecutionFrequency"] = state?.maximumExecutionFrequency;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["resourceIdScope"] = state?.resourceIdScope;
+            resourceInputs["resourceTypesScopes"] = state?.resourceTypesScopes;
+            resourceInputs["ruleIdentifier"] = state?.ruleIdentifier;
+            resourceInputs["tagKeyScope"] = state?.tagKeyScope;
+            resourceInputs["tagValueScope"] = state?.tagValueScope;
         } else {
             const args = argsOrState as OrganizationManagedRuleArgs | undefined;
-            if ((!args || args.ruleIdentifier === undefined) && !opts.urn) {
+            if (args?.ruleIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleIdentifier'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["excludedAccounts"] = args ? args.excludedAccounts : undefined;
-            resourceInputs["inputParameters"] = args ? args.inputParameters : undefined;
-            resourceInputs["maximumExecutionFrequency"] = args ? args.maximumExecutionFrequency : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["resourceIdScope"] = args ? args.resourceIdScope : undefined;
-            resourceInputs["resourceTypesScopes"] = args ? args.resourceTypesScopes : undefined;
-            resourceInputs["ruleIdentifier"] = args ? args.ruleIdentifier : undefined;
-            resourceInputs["tagKeyScope"] = args ? args.tagKeyScope : undefined;
-            resourceInputs["tagValueScope"] = args ? args.tagValueScope : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["excludedAccounts"] = args?.excludedAccounts;
+            resourceInputs["inputParameters"] = args?.inputParameters;
+            resourceInputs["maximumExecutionFrequency"] = args?.maximumExecutionFrequency;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["resourceIdScope"] = args?.resourceIdScope;
+            resourceInputs["resourceTypesScopes"] = args?.resourceTypesScopes;
+            resourceInputs["ruleIdentifier"] = args?.ruleIdentifier;
+            resourceInputs["tagKeyScope"] = args?.tagKeyScope;
+            resourceInputs["tagValueScope"] = args?.tagValueScope;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

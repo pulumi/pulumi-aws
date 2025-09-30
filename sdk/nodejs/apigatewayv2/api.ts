@@ -78,92 +78,92 @@ export class Api extends pulumi.CustomResource {
     /**
      * URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
      */
-    public /*out*/ readonly apiEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly apiEndpoint: pulumi.Output<string>;
     /**
      * An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
      * Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`.
      * Applicable for WebSocket APIs.
      */
-    public readonly apiKeySelectionExpression!: pulumi.Output<string | undefined>;
+    declare public readonly apiKeySelectionExpression: pulumi.Output<string | undefined>;
     /**
      * ARN of the API.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
      */
-    public readonly body!: pulumi.Output<string | undefined>;
+    declare public readonly body: pulumi.Output<string | undefined>;
     /**
      * Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
      */
-    public readonly corsConfiguration!: pulumi.Output<outputs.apigatewayv2.ApiCorsConfiguration | undefined>;
+    declare public readonly corsConfiguration: pulumi.Output<outputs.apigatewayv2.ApiCorsConfiguration | undefined>;
     /**
      * Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
      */
-    public readonly credentialsArn!: pulumi.Output<string | undefined>;
+    declare public readonly credentialsArn: pulumi.Output<string | undefined>;
     /**
      * Description of the API. Must be less than or equal to 1024 characters in length.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Whether clients can invoke the API by using the default `execute-api` endpoint.
      * By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`.
      * To require that clients use a custom domain name to invoke the API, disable the default endpoint.
      */
-    public readonly disableExecuteApiEndpoint!: pulumi.Output<boolean | undefined>;
+    declare public readonly disableExecuteApiEndpoint: pulumi.Output<boolean | undefined>;
     /**
      * ARN prefix to be used in an `aws.lambda.Permission`'s `sourceArn` attribute
      * or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      */
-    public /*out*/ readonly executionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly executionArn: pulumi.Output<string>;
     /**
      * Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
      */
-    public readonly failOnWarnings!: pulumi.Output<boolean | undefined>;
+    declare public readonly failOnWarnings: pulumi.Output<boolean | undefined>;
     /**
      * The IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
      */
-    public readonly ipAddressType!: pulumi.Output<string>;
+    declare public readonly ipAddressType: pulumi.Output<string>;
     /**
      * Name of the API. Must be less than or equal to 128 characters in length.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * API protocol. Valid values: `HTTP`, `WEBSOCKET`.
      */
-    public readonly protocolType!: pulumi.Output<string>;
+    declare public readonly protocolType: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Part of _quick create_. Specifies any [route key](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html). Applicable for HTTP APIs.
      */
-    public readonly routeKey!: pulumi.Output<string | undefined>;
+    declare public readonly routeKey: pulumi.Output<string | undefined>;
     /**
      * The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
      * Defaults to `$request.method $request.path`.
      */
-    public readonly routeSelectionExpression!: pulumi.Output<string | undefined>;
+    declare public readonly routeSelectionExpression: pulumi.Output<string | undefined>;
     /**
      * Map of tags to assign to the API. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
      * For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
      * The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
      */
-    public readonly target!: pulumi.Output<string | undefined>;
+    declare public readonly target: pulumi.Output<string | undefined>;
     /**
      * Version identifier for the API. Must be between 1 and 64 characters in length.
      */
-    public readonly version!: pulumi.Output<string | undefined>;
+    declare public readonly version: pulumi.Output<string | undefined>;
 
     /**
      * Create a Api resource with the given unique name, arguments, and options.
@@ -178,47 +178,47 @@ export class Api extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiState | undefined;
-            resourceInputs["apiEndpoint"] = state ? state.apiEndpoint : undefined;
-            resourceInputs["apiKeySelectionExpression"] = state ? state.apiKeySelectionExpression : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["body"] = state ? state.body : undefined;
-            resourceInputs["corsConfiguration"] = state ? state.corsConfiguration : undefined;
-            resourceInputs["credentialsArn"] = state ? state.credentialsArn : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["disableExecuteApiEndpoint"] = state ? state.disableExecuteApiEndpoint : undefined;
-            resourceInputs["executionArn"] = state ? state.executionArn : undefined;
-            resourceInputs["failOnWarnings"] = state ? state.failOnWarnings : undefined;
-            resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["protocolType"] = state ? state.protocolType : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["routeKey"] = state ? state.routeKey : undefined;
-            resourceInputs["routeSelectionExpression"] = state ? state.routeSelectionExpression : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["target"] = state ? state.target : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["apiEndpoint"] = state?.apiEndpoint;
+            resourceInputs["apiKeySelectionExpression"] = state?.apiKeySelectionExpression;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["body"] = state?.body;
+            resourceInputs["corsConfiguration"] = state?.corsConfiguration;
+            resourceInputs["credentialsArn"] = state?.credentialsArn;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["disableExecuteApiEndpoint"] = state?.disableExecuteApiEndpoint;
+            resourceInputs["executionArn"] = state?.executionArn;
+            resourceInputs["failOnWarnings"] = state?.failOnWarnings;
+            resourceInputs["ipAddressType"] = state?.ipAddressType;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["protocolType"] = state?.protocolType;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["routeKey"] = state?.routeKey;
+            resourceInputs["routeSelectionExpression"] = state?.routeSelectionExpression;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["target"] = state?.target;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as ApiArgs | undefined;
-            if ((!args || args.protocolType === undefined) && !opts.urn) {
+            if (args?.protocolType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocolType'");
             }
-            resourceInputs["apiKeySelectionExpression"] = args ? args.apiKeySelectionExpression : undefined;
-            resourceInputs["body"] = args ? args.body : undefined;
-            resourceInputs["corsConfiguration"] = args ? args.corsConfiguration : undefined;
-            resourceInputs["credentialsArn"] = args ? args.credentialsArn : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["disableExecuteApiEndpoint"] = args ? args.disableExecuteApiEndpoint : undefined;
-            resourceInputs["failOnWarnings"] = args ? args.failOnWarnings : undefined;
-            resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["protocolType"] = args ? args.protocolType : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["routeKey"] = args ? args.routeKey : undefined;
-            resourceInputs["routeSelectionExpression"] = args ? args.routeSelectionExpression : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["target"] = args ? args.target : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["apiKeySelectionExpression"] = args?.apiKeySelectionExpression;
+            resourceInputs["body"] = args?.body;
+            resourceInputs["corsConfiguration"] = args?.corsConfiguration;
+            resourceInputs["credentialsArn"] = args?.credentialsArn;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["disableExecuteApiEndpoint"] = args?.disableExecuteApiEndpoint;
+            resourceInputs["failOnWarnings"] = args?.failOnWarnings;
+            resourceInputs["ipAddressType"] = args?.ipAddressType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["protocolType"] = args?.protocolType;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["routeKey"] = args?.routeKey;
+            resourceInputs["routeSelectionExpression"] = args?.routeSelectionExpression;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["target"] = args?.target;
+            resourceInputs["version"] = args?.version;
             resourceInputs["apiEndpoint"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["executionArn"] = undefined /*out*/;

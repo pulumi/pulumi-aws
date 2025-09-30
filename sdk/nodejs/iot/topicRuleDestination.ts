@@ -61,19 +61,19 @@ export class TopicRuleDestination extends pulumi.CustomResource {
     /**
      * The ARN of the topic rule destination
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Whether or not to enable the destination. Default: `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
      */
-    public readonly vpcConfiguration!: pulumi.Output<outputs.iot.TopicRuleDestinationVpcConfiguration>;
+    declare public readonly vpcConfiguration: pulumi.Output<outputs.iot.TopicRuleDestinationVpcConfiguration>;
 
     /**
      * Create a TopicRuleDestination resource with the given unique name, arguments, and options.
@@ -88,18 +88,18 @@ export class TopicRuleDestination extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TopicRuleDestinationState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["vpcConfiguration"] = state ? state.vpcConfiguration : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["vpcConfiguration"] = state?.vpcConfiguration;
         } else {
             const args = argsOrState as TopicRuleDestinationArgs | undefined;
-            if ((!args || args.vpcConfiguration === undefined) && !opts.urn) {
+            if (args?.vpcConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcConfiguration'");
             }
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["vpcConfiguration"] = args?.vpcConfiguration;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

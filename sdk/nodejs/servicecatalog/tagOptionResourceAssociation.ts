@@ -62,31 +62,31 @@ export class TagOptionResourceAssociation extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * ARN of the resource.
      */
-    public /*out*/ readonly resourceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
     /**
      * Creation time of the resource.
      */
-    public /*out*/ readonly resourceCreatedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceCreatedTime: pulumi.Output<string>;
     /**
      * Description of the resource.
      */
-    public /*out*/ readonly resourceDescription!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceDescription: pulumi.Output<string>;
     /**
      * Resource identifier.
      */
-    public readonly resourceId!: pulumi.Output<string>;
+    declare public readonly resourceId: pulumi.Output<string>;
     /**
      * Description of the resource.
      */
-    public /*out*/ readonly resourceName!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceName: pulumi.Output<string>;
     /**
      * Tag Option identifier.
      */
-    public readonly tagOptionId!: pulumi.Output<string>;
+    declare public readonly tagOptionId: pulumi.Output<string>;
 
     /**
      * Create a TagOptionResourceAssociation resource with the given unique name, arguments, and options.
@@ -101,24 +101,24 @@ export class TagOptionResourceAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TagOptionResourceAssociationState | undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
-            resourceInputs["resourceCreatedTime"] = state ? state.resourceCreatedTime : undefined;
-            resourceInputs["resourceDescription"] = state ? state.resourceDescription : undefined;
-            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
-            resourceInputs["resourceName"] = state ? state.resourceName : undefined;
-            resourceInputs["tagOptionId"] = state ? state.tagOptionId : undefined;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["resourceArn"] = state?.resourceArn;
+            resourceInputs["resourceCreatedTime"] = state?.resourceCreatedTime;
+            resourceInputs["resourceDescription"] = state?.resourceDescription;
+            resourceInputs["resourceId"] = state?.resourceId;
+            resourceInputs["resourceName"] = state?.resourceName;
+            resourceInputs["tagOptionId"] = state?.tagOptionId;
         } else {
             const args = argsOrState as TagOptionResourceAssociationArgs | undefined;
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
+            if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if ((!args || args.tagOptionId === undefined) && !opts.urn) {
+            if (args?.tagOptionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tagOptionId'");
             }
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["tagOptionId"] = args ? args.tagOptionId : undefined;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["tagOptionId"] = args?.tagOptionId;
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["resourceCreatedTime"] = undefined /*out*/;
             resourceInputs["resourceDescription"] = undefined /*out*/;

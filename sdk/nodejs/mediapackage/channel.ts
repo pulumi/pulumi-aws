@@ -61,31 +61,31 @@ export class Channel extends pulumi.CustomResource {
     /**
      * The ARN of the channel
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A unique identifier describing the channel
      */
-    public readonly channelId!: pulumi.Output<string>;
+    declare public readonly channelId: pulumi.Output<string>;
     /**
      * A description of the channel
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * A single item list of HLS ingest information
      */
-    public /*out*/ readonly hlsIngests!: pulumi.Output<outputs.mediapackage.ChannelHlsIngest[]>;
+    declare public /*out*/ readonly hlsIngests: pulumi.Output<outputs.mediapackage.ChannelHlsIngest[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Channel resource with the given unique name, arguments, and options.
@@ -100,22 +100,22 @@ export class Channel extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ChannelState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["channelId"] = state ? state.channelId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["hlsIngests"] = state ? state.hlsIngests : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["channelId"] = state?.channelId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["hlsIngests"] = state?.hlsIngests;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as ChannelArgs | undefined;
-            if ((!args || args.channelId === undefined) && !opts.urn) {
+            if (args?.channelId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channelId'");
             }
-            resourceInputs["channelId"] = args ? args.channelId : undefined;
-            resourceInputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["channelId"] = args?.channelId;
+            resourceInputs["description"] = (args?.description) ?? "Managed by Pulumi";
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["hlsIngests"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

@@ -105,65 +105,65 @@ export class ConnectAttachment extends pulumi.CustomResource {
     /**
      * ARN of the attachment.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * ID of the attachment.
      */
-    public /*out*/ readonly attachmentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly attachmentId: pulumi.Output<string>;
     /**
      * Policy rule number associated with the attachment.
      */
-    public /*out*/ readonly attachmentPolicyRuleNumber!: pulumi.Output<number>;
+    declare public /*out*/ readonly attachmentPolicyRuleNumber: pulumi.Output<number>;
     /**
      * Type of attachment.
      */
-    public /*out*/ readonly attachmentType!: pulumi.Output<string>;
+    declare public /*out*/ readonly attachmentType: pulumi.Output<string>;
     /**
      * ARN of a core network.
      */
-    public /*out*/ readonly coreNetworkArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly coreNetworkArn: pulumi.Output<string>;
     /**
      * ID of a core network where you want to create the attachment.
      */
-    public readonly coreNetworkId!: pulumi.Output<string>;
+    declare public readonly coreNetworkId: pulumi.Output<string>;
     /**
      * Region where the edge is located.
      */
-    public readonly edgeLocation!: pulumi.Output<string>;
+    declare public readonly edgeLocation: pulumi.Output<string>;
     /**
      * Options block. See options for more information.
      */
-    public readonly options!: pulumi.Output<outputs.networkmanager.ConnectAttachmentOptions>;
+    declare public readonly options: pulumi.Output<outputs.networkmanager.ConnectAttachmentOptions>;
     /**
      * ID of the attachment account owner.
      */
-    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
     /**
      * Attachment resource ARN.
      */
-    public /*out*/ readonly resourceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
     /**
      * Name of the segment attachment.
      */
-    public /*out*/ readonly segmentName!: pulumi.Output<string>;
+    declare public /*out*/ readonly segmentName: pulumi.Output<string>;
     /**
      * State of the attachment.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * ID of the attachment between the two connections.
      *
      * The following arguments are optional:
      */
-    public readonly transportAttachmentId!: pulumi.Output<string>;
+    declare public readonly transportAttachmentId: pulumi.Output<string>;
 
     /**
      * Create a ConnectAttachment resource with the given unique name, arguments, and options.
@@ -178,40 +178,40 @@ export class ConnectAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConnectAttachmentState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["attachmentId"] = state ? state.attachmentId : undefined;
-            resourceInputs["attachmentPolicyRuleNumber"] = state ? state.attachmentPolicyRuleNumber : undefined;
-            resourceInputs["attachmentType"] = state ? state.attachmentType : undefined;
-            resourceInputs["coreNetworkArn"] = state ? state.coreNetworkArn : undefined;
-            resourceInputs["coreNetworkId"] = state ? state.coreNetworkId : undefined;
-            resourceInputs["edgeLocation"] = state ? state.edgeLocation : undefined;
-            resourceInputs["options"] = state ? state.options : undefined;
-            resourceInputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
-            resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
-            resourceInputs["segmentName"] = state ? state.segmentName : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["transportAttachmentId"] = state ? state.transportAttachmentId : undefined;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["attachmentId"] = state?.attachmentId;
+            resourceInputs["attachmentPolicyRuleNumber"] = state?.attachmentPolicyRuleNumber;
+            resourceInputs["attachmentType"] = state?.attachmentType;
+            resourceInputs["coreNetworkArn"] = state?.coreNetworkArn;
+            resourceInputs["coreNetworkId"] = state?.coreNetworkId;
+            resourceInputs["edgeLocation"] = state?.edgeLocation;
+            resourceInputs["options"] = state?.options;
+            resourceInputs["ownerAccountId"] = state?.ownerAccountId;
+            resourceInputs["resourceArn"] = state?.resourceArn;
+            resourceInputs["segmentName"] = state?.segmentName;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["transportAttachmentId"] = state?.transportAttachmentId;
         } else {
             const args = argsOrState as ConnectAttachmentArgs | undefined;
-            if ((!args || args.coreNetworkId === undefined) && !opts.urn) {
+            if (args?.coreNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'coreNetworkId'");
             }
-            if ((!args || args.edgeLocation === undefined) && !opts.urn) {
+            if (args?.edgeLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'edgeLocation'");
             }
-            if ((!args || args.options === undefined) && !opts.urn) {
+            if (args?.options === undefined && !opts.urn) {
                 throw new Error("Missing required property 'options'");
             }
-            if ((!args || args.transportAttachmentId === undefined) && !opts.urn) {
+            if (args?.transportAttachmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transportAttachmentId'");
             }
-            resourceInputs["coreNetworkId"] = args ? args.coreNetworkId : undefined;
-            resourceInputs["edgeLocation"] = args ? args.edgeLocation : undefined;
-            resourceInputs["options"] = args ? args.options : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transportAttachmentId"] = args ? args.transportAttachmentId : undefined;
+            resourceInputs["coreNetworkId"] = args?.coreNetworkId;
+            resourceInputs["edgeLocation"] = args?.edgeLocation;
+            resourceInputs["options"] = args?.options;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transportAttachmentId"] = args?.transportAttachmentId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["attachmentId"] = undefined /*out*/;
             resourceInputs["attachmentPolicyRuleNumber"] = undefined /*out*/;

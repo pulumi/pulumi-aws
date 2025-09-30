@@ -108,20 +108,20 @@ export class SshKey extends pulumi.CustomResource {
     /**
      * The public key portion of an SSH key pair.
      */
-    public readonly body!: pulumi.Output<string>;
+    declare public readonly body: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The Server ID of the Transfer Server (e.g., `s-12345678`)
      */
-    public readonly serverId!: pulumi.Output<string>;
-    public /*out*/ readonly sshKeyId!: pulumi.Output<string>;
+    declare public readonly serverId: pulumi.Output<string>;
+    declare public /*out*/ readonly sshKeyId: pulumi.Output<string>;
     /**
      * The name of the user account that is assigned to one or more servers.
      */
-    public readonly userName!: pulumi.Output<string>;
+    declare public readonly userName: pulumi.Output<string>;
 
     /**
      * Create a SshKey resource with the given unique name, arguments, and options.
@@ -136,26 +136,26 @@ export class SshKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SshKeyState | undefined;
-            resourceInputs["body"] = state ? state.body : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["serverId"] = state ? state.serverId : undefined;
-            resourceInputs["sshKeyId"] = state ? state.sshKeyId : undefined;
-            resourceInputs["userName"] = state ? state.userName : undefined;
+            resourceInputs["body"] = state?.body;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["serverId"] = state?.serverId;
+            resourceInputs["sshKeyId"] = state?.sshKeyId;
+            resourceInputs["userName"] = state?.userName;
         } else {
             const args = argsOrState as SshKeyArgs | undefined;
-            if ((!args || args.body === undefined) && !opts.urn) {
+            if (args?.body === undefined && !opts.urn) {
                 throw new Error("Missing required property 'body'");
             }
-            if ((!args || args.serverId === undefined) && !opts.urn) {
+            if (args?.serverId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            if ((!args || args.userName === undefined) && !opts.urn) {
+            if (args?.userName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
-            resourceInputs["body"] = args ? args.body : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["serverId"] = args ? args.serverId : undefined;
-            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["body"] = args?.body;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["serverId"] = args?.serverId;
+            resourceInputs["userName"] = args?.userName;
             resourceInputs["sshKeyId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
