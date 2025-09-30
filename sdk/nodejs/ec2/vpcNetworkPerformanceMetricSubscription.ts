@@ -50,27 +50,27 @@ export class VpcNetworkPerformanceMetricSubscription extends pulumi.CustomResour
     /**
      * The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
      */
-    declare public readonly destination: pulumi.Output<string>;
+    public readonly destination!: pulumi.Output<string>;
     /**
      * The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
      */
-    declare public readonly metric: pulumi.Output<string | undefined>;
+    public readonly metric!: pulumi.Output<string | undefined>;
     /**
      * The data aggregation time for the subscription.
      */
-    declare public /*out*/ readonly period: pulumi.Output<string>;
+    public /*out*/ readonly period!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
      */
-    declare public readonly source: pulumi.Output<string>;
+    public readonly source!: pulumi.Output<string>;
     /**
      * The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
      */
-    declare public readonly statistic: pulumi.Output<string | undefined>;
+    public readonly statistic!: pulumi.Output<string | undefined>;
 
     /**
      * Create a VpcNetworkPerformanceMetricSubscription resource with the given unique name, arguments, and options.
@@ -85,25 +85,25 @@ export class VpcNetworkPerformanceMetricSubscription extends pulumi.CustomResour
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcNetworkPerformanceMetricSubscriptionState | undefined;
-            resourceInputs["destination"] = state?.destination;
-            resourceInputs["metric"] = state?.metric;
-            resourceInputs["period"] = state?.period;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["source"] = state?.source;
-            resourceInputs["statistic"] = state?.statistic;
+            resourceInputs["destination"] = state ? state.destination : undefined;
+            resourceInputs["metric"] = state ? state.metric : undefined;
+            resourceInputs["period"] = state ? state.period : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["source"] = state ? state.source : undefined;
+            resourceInputs["statistic"] = state ? state.statistic : undefined;
         } else {
             const args = argsOrState as VpcNetworkPerformanceMetricSubscriptionArgs | undefined;
-            if (args?.destination === undefined && !opts.urn) {
+            if ((!args || args.destination === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destination'");
             }
-            if (args?.source === undefined && !opts.urn) {
+            if ((!args || args.source === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            resourceInputs["destination"] = args?.destination;
-            resourceInputs["metric"] = args?.metric;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["source"] = args?.source;
-            resourceInputs["statistic"] = args?.statistic;
+            resourceInputs["destination"] = args ? args.destination : undefined;
+            resourceInputs["metric"] = args ? args.metric : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["statistic"] = args ? args.statistic : undefined;
             resourceInputs["period"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -66,55 +66,55 @@ export class PrimaryContact extends pulumi.CustomResource {
     /**
      * The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
      */
-    declare public readonly accountId: pulumi.Output<string | undefined>;
+    public readonly accountId!: pulumi.Output<string | undefined>;
     /**
      * The first line of the primary contact address.
      */
-    declare public readonly addressLine1: pulumi.Output<string>;
+    public readonly addressLine1!: pulumi.Output<string>;
     /**
      * The second line of the primary contact address, if any.
      */
-    declare public readonly addressLine2: pulumi.Output<string | undefined>;
+    public readonly addressLine2!: pulumi.Output<string | undefined>;
     /**
      * The third line of the primary contact address, if any.
      */
-    declare public readonly addressLine3: pulumi.Output<string | undefined>;
+    public readonly addressLine3!: pulumi.Output<string | undefined>;
     /**
      * The city of the primary contact address.
      */
-    declare public readonly city: pulumi.Output<string>;
+    public readonly city!: pulumi.Output<string>;
     /**
      * The name of the company associated with the primary contact information, if any.
      */
-    declare public readonly companyName: pulumi.Output<string | undefined>;
+    public readonly companyName!: pulumi.Output<string | undefined>;
     /**
      * The ISO-3166 two-letter country code for the primary contact address.
      */
-    declare public readonly countryCode: pulumi.Output<string>;
+    public readonly countryCode!: pulumi.Output<string>;
     /**
      * The district or county of the primary contact address, if any.
      */
-    declare public readonly districtOrCounty: pulumi.Output<string | undefined>;
+    public readonly districtOrCounty!: pulumi.Output<string | undefined>;
     /**
      * The full name of the primary contact address.
      */
-    declare public readonly fullName: pulumi.Output<string>;
+    public readonly fullName!: pulumi.Output<string>;
     /**
      * The phone number of the primary contact information. The number will be validated and, in some countries, checked for activation.
      */
-    declare public readonly phoneNumber: pulumi.Output<string>;
+    public readonly phoneNumber!: pulumi.Output<string>;
     /**
      * The postal code of the primary contact address.
      */
-    declare public readonly postalCode: pulumi.Output<string>;
+    public readonly postalCode!: pulumi.Output<string>;
     /**
      * The state or region of the primary contact address. This field is required in selected countries.
      */
-    declare public readonly stateOrRegion: pulumi.Output<string | undefined>;
+    public readonly stateOrRegion!: pulumi.Output<string | undefined>;
     /**
      * The URL of the website associated with the primary contact information, if any.
      */
-    declare public readonly websiteUrl: pulumi.Output<string | undefined>;
+    public readonly websiteUrl!: pulumi.Output<string | undefined>;
 
     /**
      * Create a PrimaryContact resource with the given unique name, arguments, and options.
@@ -129,52 +129,52 @@ export class PrimaryContact extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PrimaryContactState | undefined;
-            resourceInputs["accountId"] = state?.accountId;
-            resourceInputs["addressLine1"] = state?.addressLine1;
-            resourceInputs["addressLine2"] = state?.addressLine2;
-            resourceInputs["addressLine3"] = state?.addressLine3;
-            resourceInputs["city"] = state?.city;
-            resourceInputs["companyName"] = state?.companyName;
-            resourceInputs["countryCode"] = state?.countryCode;
-            resourceInputs["districtOrCounty"] = state?.districtOrCounty;
-            resourceInputs["fullName"] = state?.fullName;
-            resourceInputs["phoneNumber"] = state?.phoneNumber;
-            resourceInputs["postalCode"] = state?.postalCode;
-            resourceInputs["stateOrRegion"] = state?.stateOrRegion;
-            resourceInputs["websiteUrl"] = state?.websiteUrl;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["addressLine1"] = state ? state.addressLine1 : undefined;
+            resourceInputs["addressLine2"] = state ? state.addressLine2 : undefined;
+            resourceInputs["addressLine3"] = state ? state.addressLine3 : undefined;
+            resourceInputs["city"] = state ? state.city : undefined;
+            resourceInputs["companyName"] = state ? state.companyName : undefined;
+            resourceInputs["countryCode"] = state ? state.countryCode : undefined;
+            resourceInputs["districtOrCounty"] = state ? state.districtOrCounty : undefined;
+            resourceInputs["fullName"] = state ? state.fullName : undefined;
+            resourceInputs["phoneNumber"] = state ? state.phoneNumber : undefined;
+            resourceInputs["postalCode"] = state ? state.postalCode : undefined;
+            resourceInputs["stateOrRegion"] = state ? state.stateOrRegion : undefined;
+            resourceInputs["websiteUrl"] = state ? state.websiteUrl : undefined;
         } else {
             const args = argsOrState as PrimaryContactArgs | undefined;
-            if (args?.addressLine1 === undefined && !opts.urn) {
+            if ((!args || args.addressLine1 === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'addressLine1'");
             }
-            if (args?.city === undefined && !opts.urn) {
+            if ((!args || args.city === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'city'");
             }
-            if (args?.countryCode === undefined && !opts.urn) {
+            if ((!args || args.countryCode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'countryCode'");
             }
-            if (args?.fullName === undefined && !opts.urn) {
+            if ((!args || args.fullName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fullName'");
             }
-            if (args?.phoneNumber === undefined && !opts.urn) {
+            if ((!args || args.phoneNumber === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'phoneNumber'");
             }
-            if (args?.postalCode === undefined && !opts.urn) {
+            if ((!args || args.postalCode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'postalCode'");
             }
-            resourceInputs["accountId"] = args?.accountId;
-            resourceInputs["addressLine1"] = args?.addressLine1;
-            resourceInputs["addressLine2"] = args?.addressLine2;
-            resourceInputs["addressLine3"] = args?.addressLine3;
-            resourceInputs["city"] = args?.city;
-            resourceInputs["companyName"] = args?.companyName;
-            resourceInputs["countryCode"] = args?.countryCode;
-            resourceInputs["districtOrCounty"] = args?.districtOrCounty;
-            resourceInputs["fullName"] = args?.fullName;
-            resourceInputs["phoneNumber"] = args?.phoneNumber;
-            resourceInputs["postalCode"] = args?.postalCode;
-            resourceInputs["stateOrRegion"] = args?.stateOrRegion;
-            resourceInputs["websiteUrl"] = args?.websiteUrl;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["addressLine1"] = args ? args.addressLine1 : undefined;
+            resourceInputs["addressLine2"] = args ? args.addressLine2 : undefined;
+            resourceInputs["addressLine3"] = args ? args.addressLine3 : undefined;
+            resourceInputs["city"] = args ? args.city : undefined;
+            resourceInputs["companyName"] = args ? args.companyName : undefined;
+            resourceInputs["countryCode"] = args ? args.countryCode : undefined;
+            resourceInputs["districtOrCounty"] = args ? args.districtOrCounty : undefined;
+            resourceInputs["fullName"] = args ? args.fullName : undefined;
+            resourceInputs["phoneNumber"] = args ? args.phoneNumber : undefined;
+            resourceInputs["postalCode"] = args ? args.postalCode : undefined;
+            resourceInputs["stateOrRegion"] = args ? args.stateOrRegion : undefined;
+            resourceInputs["websiteUrl"] = args ? args.websiteUrl : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PrimaryContact.__pulumiType, name, resourceInputs, opts);

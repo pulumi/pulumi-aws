@@ -91,54 +91,54 @@ export class Application extends pulumi.CustomResource {
     /**
      * Id of the Application.
      */
-    declare public /*out*/ readonly applicationId: pulumi.Output<string>;
+    public /*out*/ readonly applicationId!: pulumi.Output<string>;
     /**
      * ARN of the Application.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Current version of the application deployed.
      */
-    declare public /*out*/ readonly currentVersion: pulumi.Output<number>;
+    public /*out*/ readonly currentVersion!: pulumi.Output<number>;
     /**
      * The application definition for this application. You can specify either inline JSON or an S3 bucket location.
      */
-    declare public readonly definition: pulumi.Output<outputs.m2.ApplicationDefinition | undefined>;
+    public readonly definition!: pulumi.Output<outputs.m2.ApplicationDefinition | undefined>;
     /**
      * Description of the application.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Engine type must be `microfocus | bluage`.
      */
-    declare public readonly engineType: pulumi.Output<string>;
+    public readonly engineType!: pulumi.Output<string>;
     /**
      * KMS Key to use for the Application.
      */
-    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * Unique identifier of the application.
      *
      * The following arguments are optional:
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ARN of role for application to use to access AWS resources.
      */
-    declare public readonly roleArn: pulumi.Output<string | undefined>;
+    public readonly roleArn!: pulumi.Output<string | undefined>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public readonly timeouts: pulumi.Output<outputs.m2.ApplicationTimeouts | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly timeouts!: pulumi.Output<outputs.m2.ApplicationTimeouts | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -153,33 +153,33 @@ export class Application extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationState | undefined;
-            resourceInputs["applicationId"] = state?.applicationId;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["currentVersion"] = state?.currentVersion;
-            resourceInputs["definition"] = state?.definition;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["engineType"] = state?.engineType;
-            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["roleArn"] = state?.roleArn;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["applicationId"] = state ? state.applicationId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["currentVersion"] = state ? state.currentVersion : undefined;
+            resourceInputs["definition"] = state ? state.definition : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["engineType"] = state ? state.engineType : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as ApplicationArgs | undefined;
-            if (args?.engineType === undefined && !opts.urn) {
+            if ((!args || args.engineType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engineType'");
             }
-            resourceInputs["definition"] = args?.definition;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["engineType"] = args?.engineType;
-            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["roleArn"] = args?.roleArn;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["definition"] = args ? args.definition : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["engineType"] = args ? args.engineType : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["applicationId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["currentVersion"] = undefined /*out*/;

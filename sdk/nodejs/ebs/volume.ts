@@ -61,67 +61,67 @@ export class Volume extends pulumi.CustomResource {
     /**
      * Volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Availability zone where the EBS volume will exist.
      */
-    declare public readonly availabilityZone: pulumi.Output<string>;
+    public readonly availabilityZone!: pulumi.Output<string>;
     /**
      * Timestamp when volume creation was initiated.
      */
-    declare public /*out*/ readonly createTime: pulumi.Output<string>;
+    public /*out*/ readonly createTime!: pulumi.Output<string>;
     /**
      * If true, the disk will be encrypted.
      */
-    declare public readonly encrypted: pulumi.Output<boolean>;
+    public readonly encrypted!: pulumi.Output<boolean>;
     /**
      * If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
      */
-    declare public readonly finalSnapshot: pulumi.Output<boolean | undefined>;
+    public readonly finalSnapshot!: pulumi.Output<boolean | undefined>;
     /**
      * Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
      */
-    declare public readonly iops: pulumi.Output<number>;
+    public readonly iops!: pulumi.Output<number>;
     /**
      * ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
      */
-    declare public readonly kmsKeyId: pulumi.Output<string>;
+    public readonly kmsKeyId!: pulumi.Output<string>;
     /**
      * Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
      */
-    declare public readonly multiAttachEnabled: pulumi.Output<boolean | undefined>;
+    public readonly multiAttachEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Amazon Resource Name (ARN) of the Outpost.
      */
-    declare public readonly outpostArn: pulumi.Output<string | undefined>;
+    public readonly outpostArn!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Size of the drive in GiBs.
      */
-    declare public readonly size: pulumi.Output<number>;
+    public readonly size!: pulumi.Output<number>;
     /**
      * A snapshot to base the EBS volume off of.
      */
-    declare public readonly snapshotId: pulumi.Output<string>;
+    public readonly snapshotId!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
      */
-    declare public readonly throughput: pulumi.Output<number>;
+    public readonly throughput!: pulumi.Output<number>;
     /**
      * Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
      */
-    declare public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
     /**
      * EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `snapshotId` is specified.
      *
@@ -129,7 +129,7 @@ export class Volume extends pulumi.CustomResource {
      *
      * > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
      */
-    declare public readonly volumeInitializationRate: pulumi.Output<number | undefined>;
+    public readonly volumeInitializationRate!: pulumi.Output<number | undefined>;
 
     /**
      * Create a Volume resource with the given unique name, arguments, and options.
@@ -144,42 +144,42 @@ export class Volume extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VolumeState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["availabilityZone"] = state?.availabilityZone;
-            resourceInputs["createTime"] = state?.createTime;
-            resourceInputs["encrypted"] = state?.encrypted;
-            resourceInputs["finalSnapshot"] = state?.finalSnapshot;
-            resourceInputs["iops"] = state?.iops;
-            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
-            resourceInputs["multiAttachEnabled"] = state?.multiAttachEnabled;
-            resourceInputs["outpostArn"] = state?.outpostArn;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["size"] = state?.size;
-            resourceInputs["snapshotId"] = state?.snapshotId;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["throughput"] = state?.throughput;
-            resourceInputs["type"] = state?.type;
-            resourceInputs["volumeInitializationRate"] = state?.volumeInitializationRate;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            resourceInputs["createTime"] = state ? state.createTime : undefined;
+            resourceInputs["encrypted"] = state ? state.encrypted : undefined;
+            resourceInputs["finalSnapshot"] = state ? state.finalSnapshot : undefined;
+            resourceInputs["iops"] = state ? state.iops : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["multiAttachEnabled"] = state ? state.multiAttachEnabled : undefined;
+            resourceInputs["outpostArn"] = state ? state.outpostArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["size"] = state ? state.size : undefined;
+            resourceInputs["snapshotId"] = state ? state.snapshotId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["throughput"] = state ? state.throughput : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["volumeInitializationRate"] = state ? state.volumeInitializationRate : undefined;
         } else {
             const args = argsOrState as VolumeArgs | undefined;
-            if (args?.availabilityZone === undefined && !opts.urn) {
+            if ((!args || args.availabilityZone === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'availabilityZone'");
             }
-            resourceInputs["availabilityZone"] = args?.availabilityZone;
-            resourceInputs["encrypted"] = args?.encrypted;
-            resourceInputs["finalSnapshot"] = args?.finalSnapshot;
-            resourceInputs["iops"] = args?.iops;
-            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
-            resourceInputs["multiAttachEnabled"] = args?.multiAttachEnabled;
-            resourceInputs["outpostArn"] = args?.outpostArn;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["size"] = args?.size;
-            resourceInputs["snapshotId"] = args?.snapshotId;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["throughput"] = args?.throughput;
-            resourceInputs["type"] = args?.type;
-            resourceInputs["volumeInitializationRate"] = args?.volumeInitializationRate;
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["encrypted"] = args ? args.encrypted : undefined;
+            resourceInputs["finalSnapshot"] = args ? args.finalSnapshot : undefined;
+            resourceInputs["iops"] = args ? args.iops : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["multiAttachEnabled"] = args ? args.multiAttachEnabled : undefined;
+            resourceInputs["outpostArn"] = args ? args.outpostArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["size"] = args ? args.size : undefined;
+            resourceInputs["snapshotId"] = args ? args.snapshotId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["throughput"] = args ? args.throughput : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["volumeInitializationRate"] = args ? args.volumeInitializationRate : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

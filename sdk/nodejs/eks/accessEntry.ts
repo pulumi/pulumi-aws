@@ -63,49 +63,49 @@ export class AccessEntry extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the Access Entry.
      */
-    declare public /*out*/ readonly accessEntryArn: pulumi.Output<string>;
+    public /*out*/ readonly accessEntryArn!: pulumi.Output<string>;
     /**
      * Name of the EKS Cluster.
      */
-    declare public readonly clusterName: pulumi.Output<string>;
+    public readonly clusterName!: pulumi.Output<string>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
      */
-    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
      * List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
      */
-    declare public readonly kubernetesGroups: pulumi.Output<string[]>;
+    public readonly kubernetesGroups!: pulumi.Output<string[]>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
      */
-    declare public /*out*/ readonly modifiedAt: pulumi.Output<string>;
+    public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
     /**
      * The IAM Principal ARN which requires Authentication access to the EKS cluster.
      *
      * The following arguments are optional:
      */
-    declare public readonly principalArn: pulumi.Output<string>;
+    public readonly principalArn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
      */
-    declare public readonly type: pulumi.Output<string | undefined>;
+    public readonly type!: pulumi.Output<string | undefined>;
     /**
      * Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
      */
-    declare public readonly userName: pulumi.Output<string>;
+    public readonly userName!: pulumi.Output<string>;
 
     /**
      * Create a AccessEntry resource with the given unique name, arguments, and options.
@@ -120,32 +120,32 @@ export class AccessEntry extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccessEntryState | undefined;
-            resourceInputs["accessEntryArn"] = state?.accessEntryArn;
-            resourceInputs["clusterName"] = state?.clusterName;
-            resourceInputs["createdAt"] = state?.createdAt;
-            resourceInputs["kubernetesGroups"] = state?.kubernetesGroups;
-            resourceInputs["modifiedAt"] = state?.modifiedAt;
-            resourceInputs["principalArn"] = state?.principalArn;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["type"] = state?.type;
-            resourceInputs["userName"] = state?.userName;
+            resourceInputs["accessEntryArn"] = state ? state.accessEntryArn : undefined;
+            resourceInputs["clusterName"] = state ? state.clusterName : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["kubernetesGroups"] = state ? state.kubernetesGroups : undefined;
+            resourceInputs["modifiedAt"] = state ? state.modifiedAt : undefined;
+            resourceInputs["principalArn"] = state ? state.principalArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["userName"] = state ? state.userName : undefined;
         } else {
             const args = argsOrState as AccessEntryArgs | undefined;
-            if (args?.clusterName === undefined && !opts.urn) {
+            if ((!args || args.clusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if (args?.principalArn === undefined && !opts.urn) {
+            if ((!args || args.principalArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principalArn'");
             }
-            resourceInputs["clusterName"] = args?.clusterName;
-            resourceInputs["kubernetesGroups"] = args?.kubernetesGroups;
-            resourceInputs["principalArn"] = args?.principalArn;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["type"] = args?.type;
-            resourceInputs["userName"] = args?.userName;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["kubernetesGroups"] = args ? args.kubernetesGroups : undefined;
+            resourceInputs["principalArn"] = args ? args.principalArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["userName"] = args ? args.userName : undefined;
             resourceInputs["accessEntryArn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;

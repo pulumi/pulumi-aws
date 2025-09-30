@@ -74,67 +74,67 @@ export class ReceiptRule extends pulumi.CustomResource {
     /**
      * A list of Add Header Action blocks. Documented below.
      */
-    declare public readonly addHeaderActions: pulumi.Output<outputs.ses.ReceiptRuleAddHeaderAction[] | undefined>;
+    public readonly addHeaderActions!: pulumi.Output<outputs.ses.ReceiptRuleAddHeaderAction[] | undefined>;
     /**
      * The name of the rule to place this rule after
      */
-    declare public readonly after: pulumi.Output<string | undefined>;
+    public readonly after!: pulumi.Output<string | undefined>;
     /**
      * The SES receipt rule ARN.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A list of Bounce Action blocks. Documented below.
      */
-    declare public readonly bounceActions: pulumi.Output<outputs.ses.ReceiptRuleBounceAction[] | undefined>;
+    public readonly bounceActions!: pulumi.Output<outputs.ses.ReceiptRuleBounceAction[] | undefined>;
     /**
      * If true, the rule will be enabled
      */
-    declare public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * A list of Lambda Action blocks. Documented below.
      */
-    declare public readonly lambdaActions: pulumi.Output<outputs.ses.ReceiptRuleLambdaAction[] | undefined>;
+    public readonly lambdaActions!: pulumi.Output<outputs.ses.ReceiptRuleLambdaAction[] | undefined>;
     /**
      * The name of the rule
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A list of email addresses
      */
-    declare public readonly recipients: pulumi.Output<string[] | undefined>;
+    public readonly recipients!: pulumi.Output<string[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The name of the rule set
      */
-    declare public readonly ruleSetName: pulumi.Output<string>;
+    public readonly ruleSetName!: pulumi.Output<string>;
     /**
      * A list of S3 Action blocks. Documented below.
      */
-    declare public readonly s3Actions: pulumi.Output<outputs.ses.ReceiptRuleS3Action[] | undefined>;
+    public readonly s3Actions!: pulumi.Output<outputs.ses.ReceiptRuleS3Action[] | undefined>;
     /**
      * If true, incoming emails will be scanned for spam and viruses
      */
-    declare public readonly scanEnabled: pulumi.Output<boolean | undefined>;
+    public readonly scanEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * A list of SNS Action blocks. Documented below.
      */
-    declare public readonly snsActions: pulumi.Output<outputs.ses.ReceiptRuleSnsAction[] | undefined>;
+    public readonly snsActions!: pulumi.Output<outputs.ses.ReceiptRuleSnsAction[] | undefined>;
     /**
      * A list of Stop Action blocks. Documented below.
      */
-    declare public readonly stopActions: pulumi.Output<outputs.ses.ReceiptRuleStopAction[] | undefined>;
+    public readonly stopActions!: pulumi.Output<outputs.ses.ReceiptRuleStopAction[] | undefined>;
     /**
      * `Require` or `Optional`
      */
-    declare public readonly tlsPolicy: pulumi.Output<string>;
+    public readonly tlsPolicy!: pulumi.Output<string>;
     /**
      * A list of WorkMail Action blocks. Documented below.
      */
-    declare public readonly workmailActions: pulumi.Output<outputs.ses.ReceiptRuleWorkmailAction[] | undefined>;
+    public readonly workmailActions!: pulumi.Output<outputs.ses.ReceiptRuleWorkmailAction[] | undefined>;
 
     /**
      * Create a ReceiptRule resource with the given unique name, arguments, and options.
@@ -149,42 +149,42 @@ export class ReceiptRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReceiptRuleState | undefined;
-            resourceInputs["addHeaderActions"] = state?.addHeaderActions;
-            resourceInputs["after"] = state?.after;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["bounceActions"] = state?.bounceActions;
-            resourceInputs["enabled"] = state?.enabled;
-            resourceInputs["lambdaActions"] = state?.lambdaActions;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["recipients"] = state?.recipients;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["ruleSetName"] = state?.ruleSetName;
-            resourceInputs["s3Actions"] = state?.s3Actions;
-            resourceInputs["scanEnabled"] = state?.scanEnabled;
-            resourceInputs["snsActions"] = state?.snsActions;
-            resourceInputs["stopActions"] = state?.stopActions;
-            resourceInputs["tlsPolicy"] = state?.tlsPolicy;
-            resourceInputs["workmailActions"] = state?.workmailActions;
+            resourceInputs["addHeaderActions"] = state ? state.addHeaderActions : undefined;
+            resourceInputs["after"] = state ? state.after : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["bounceActions"] = state ? state.bounceActions : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["lambdaActions"] = state ? state.lambdaActions : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["recipients"] = state ? state.recipients : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["ruleSetName"] = state ? state.ruleSetName : undefined;
+            resourceInputs["s3Actions"] = state ? state.s3Actions : undefined;
+            resourceInputs["scanEnabled"] = state ? state.scanEnabled : undefined;
+            resourceInputs["snsActions"] = state ? state.snsActions : undefined;
+            resourceInputs["stopActions"] = state ? state.stopActions : undefined;
+            resourceInputs["tlsPolicy"] = state ? state.tlsPolicy : undefined;
+            resourceInputs["workmailActions"] = state ? state.workmailActions : undefined;
         } else {
             const args = argsOrState as ReceiptRuleArgs | undefined;
-            if (args?.ruleSetName === undefined && !opts.urn) {
+            if ((!args || args.ruleSetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleSetName'");
             }
-            resourceInputs["addHeaderActions"] = args?.addHeaderActions;
-            resourceInputs["after"] = args?.after;
-            resourceInputs["bounceActions"] = args?.bounceActions;
-            resourceInputs["enabled"] = args?.enabled;
-            resourceInputs["lambdaActions"] = args?.lambdaActions;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["recipients"] = args?.recipients;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["ruleSetName"] = args?.ruleSetName;
-            resourceInputs["s3Actions"] = args?.s3Actions;
-            resourceInputs["scanEnabled"] = args?.scanEnabled;
-            resourceInputs["snsActions"] = args?.snsActions;
-            resourceInputs["stopActions"] = args?.stopActions;
-            resourceInputs["tlsPolicy"] = args?.tlsPolicy;
-            resourceInputs["workmailActions"] = args?.workmailActions;
+            resourceInputs["addHeaderActions"] = args ? args.addHeaderActions : undefined;
+            resourceInputs["after"] = args ? args.after : undefined;
+            resourceInputs["bounceActions"] = args ? args.bounceActions : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["lambdaActions"] = args ? args.lambdaActions : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["recipients"] = args ? args.recipients : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["ruleSetName"] = args ? args.ruleSetName : undefined;
+            resourceInputs["s3Actions"] = args ? args.s3Actions : undefined;
+            resourceInputs["scanEnabled"] = args ? args.scanEnabled : undefined;
+            resourceInputs["snsActions"] = args ? args.snsActions : undefined;
+            resourceInputs["stopActions"] = args ? args.stopActions : undefined;
+            resourceInputs["tlsPolicy"] = args ? args.tlsPolicy : undefined;
+            resourceInputs["workmailActions"] = args ? args.workmailActions : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

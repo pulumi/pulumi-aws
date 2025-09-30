@@ -84,96 +84,96 @@ export class Subnet extends pulumi.CustomResource {
     /**
      * The ARN of the subnet.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Specify true to indicate
      * that network interfaces created in the specified subnet should be
      * assigned an IPv6 address. Default is `false`
      */
-    declare public readonly assignIpv6AddressOnCreation: pulumi.Output<boolean | undefined>;
+    public readonly assignIpv6AddressOnCreation!: pulumi.Output<boolean | undefined>;
     /**
      * AZ for the subnet.
      */
-    declare public readonly availabilityZone: pulumi.Output<string>;
+    public readonly availabilityZone!: pulumi.Output<string>;
     /**
      * AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availabilityZone` instead.
      */
-    declare public readonly availabilityZoneId: pulumi.Output<string>;
+    public readonly availabilityZoneId!: pulumi.Output<string>;
     /**
      * The IPv4 CIDR block for the subnet.
      */
-    declare public readonly cidrBlock: pulumi.Output<string | undefined>;
+    public readonly cidrBlock!: pulumi.Output<string | undefined>;
     /**
      * The customer owned IPv4 address pool. Typically used with the `mapCustomerOwnedIpOnLaunch` argument. The `outpostArn` argument must be specified when configured.
      */
-    declare public readonly customerOwnedIpv4Pool: pulumi.Output<string | undefined>;
+    public readonly customerOwnedIpv4Pool!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. Default: `false`.
      */
-    declare public readonly enableDns64: pulumi.Output<boolean | undefined>;
+    public readonly enableDns64!: pulumi.Output<boolean | undefined>;
     /**
      * Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
      */
-    declare public readonly enableLniAtDeviceIndex: pulumi.Output<number | undefined>;
+    public readonly enableLniAtDeviceIndex!: pulumi.Output<number | undefined>;
     /**
      * Indicates whether to respond to DNS queries for instance hostnames with DNS A records. Default: `false`.
      */
-    declare public readonly enableResourceNameDnsARecordOnLaunch: pulumi.Output<boolean | undefined>;
+    public readonly enableResourceNameDnsARecordOnLaunch!: pulumi.Output<boolean | undefined>;
     /**
      * Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. Default: `false`.
      */
-    declare public readonly enableResourceNameDnsAaaaRecordOnLaunch: pulumi.Output<boolean | undefined>;
+    public readonly enableResourceNameDnsAaaaRecordOnLaunch!: pulumi.Output<boolean | undefined>;
     /**
      * The IPv6 network range for the subnet,
      * in CIDR notation. The subnet size must use a /64 prefix length.
      */
-    declare public readonly ipv6CidrBlock: pulumi.Output<string | undefined>;
+    public readonly ipv6CidrBlock!: pulumi.Output<string | undefined>;
     /**
      * The association ID for the IPv6 CIDR block.
      */
-    declare public /*out*/ readonly ipv6CidrBlockAssociationId: pulumi.Output<string>;
+    public /*out*/ readonly ipv6CidrBlockAssociationId!: pulumi.Output<string>;
     /**
      * Indicates whether to create an IPv6-only subnet. Default: `false`.
      */
-    declare public readonly ipv6Native: pulumi.Output<boolean | undefined>;
+    public readonly ipv6Native!: pulumi.Output<boolean | undefined>;
     /**
      * Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customerOwnedIpv4Pool` and `outpostArn` arguments must be specified when set to `true`. Default is `false`.
      */
-    declare public readonly mapCustomerOwnedIpOnLaunch: pulumi.Output<boolean | undefined>;
+    public readonly mapCustomerOwnedIpOnLaunch!: pulumi.Output<boolean | undefined>;
     /**
      * Specify true to indicate
      * that instances launched into the subnet should be assigned
      * a public IP address. Default is `false`.
      */
-    declare public readonly mapPublicIpOnLaunch: pulumi.Output<boolean | undefined>;
+    public readonly mapPublicIpOnLaunch!: pulumi.Output<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Outpost.
      */
-    declare public readonly outpostArn: pulumi.Output<string | undefined>;
+    public readonly outpostArn!: pulumi.Output<string | undefined>;
     /**
      * The ID of the AWS account that owns the subnet.
      */
-    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
      * The type of hostnames to assign to instances in the subnet at launch. For IPv6-only subnets, an instance DNS name must be based on the instance ID. For dual-stack and IPv4-only subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name`, `resource-name`.
      */
-    declare public readonly privateDnsHostnameTypeOnLaunch: pulumi.Output<string>;
+    public readonly privateDnsHostnameTypeOnLaunch!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The VPC ID.
      */
-    declare public readonly vpcId: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a Subnet resource with the given unique name, arguments, and options.
@@ -188,51 +188,51 @@ export class Subnet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SubnetState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["assignIpv6AddressOnCreation"] = state?.assignIpv6AddressOnCreation;
-            resourceInputs["availabilityZone"] = state?.availabilityZone;
-            resourceInputs["availabilityZoneId"] = state?.availabilityZoneId;
-            resourceInputs["cidrBlock"] = state?.cidrBlock;
-            resourceInputs["customerOwnedIpv4Pool"] = state?.customerOwnedIpv4Pool;
-            resourceInputs["enableDns64"] = state?.enableDns64;
-            resourceInputs["enableLniAtDeviceIndex"] = state?.enableLniAtDeviceIndex;
-            resourceInputs["enableResourceNameDnsARecordOnLaunch"] = state?.enableResourceNameDnsARecordOnLaunch;
-            resourceInputs["enableResourceNameDnsAaaaRecordOnLaunch"] = state?.enableResourceNameDnsAaaaRecordOnLaunch;
-            resourceInputs["ipv6CidrBlock"] = state?.ipv6CidrBlock;
-            resourceInputs["ipv6CidrBlockAssociationId"] = state?.ipv6CidrBlockAssociationId;
-            resourceInputs["ipv6Native"] = state?.ipv6Native;
-            resourceInputs["mapCustomerOwnedIpOnLaunch"] = state?.mapCustomerOwnedIpOnLaunch;
-            resourceInputs["mapPublicIpOnLaunch"] = state?.mapPublicIpOnLaunch;
-            resourceInputs["outpostArn"] = state?.outpostArn;
-            resourceInputs["ownerId"] = state?.ownerId;
-            resourceInputs["privateDnsHostnameTypeOnLaunch"] = state?.privateDnsHostnameTypeOnLaunch;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["vpcId"] = state?.vpcId;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["assignIpv6AddressOnCreation"] = state ? state.assignIpv6AddressOnCreation : undefined;
+            resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            resourceInputs["availabilityZoneId"] = state ? state.availabilityZoneId : undefined;
+            resourceInputs["cidrBlock"] = state ? state.cidrBlock : undefined;
+            resourceInputs["customerOwnedIpv4Pool"] = state ? state.customerOwnedIpv4Pool : undefined;
+            resourceInputs["enableDns64"] = state ? state.enableDns64 : undefined;
+            resourceInputs["enableLniAtDeviceIndex"] = state ? state.enableLniAtDeviceIndex : undefined;
+            resourceInputs["enableResourceNameDnsARecordOnLaunch"] = state ? state.enableResourceNameDnsARecordOnLaunch : undefined;
+            resourceInputs["enableResourceNameDnsAaaaRecordOnLaunch"] = state ? state.enableResourceNameDnsAaaaRecordOnLaunch : undefined;
+            resourceInputs["ipv6CidrBlock"] = state ? state.ipv6CidrBlock : undefined;
+            resourceInputs["ipv6CidrBlockAssociationId"] = state ? state.ipv6CidrBlockAssociationId : undefined;
+            resourceInputs["ipv6Native"] = state ? state.ipv6Native : undefined;
+            resourceInputs["mapCustomerOwnedIpOnLaunch"] = state ? state.mapCustomerOwnedIpOnLaunch : undefined;
+            resourceInputs["mapPublicIpOnLaunch"] = state ? state.mapPublicIpOnLaunch : undefined;
+            resourceInputs["outpostArn"] = state ? state.outpostArn : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["privateDnsHostnameTypeOnLaunch"] = state ? state.privateDnsHostnameTypeOnLaunch : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as SubnetArgs | undefined;
-            if (args?.vpcId === undefined && !opts.urn) {
+            if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["assignIpv6AddressOnCreation"] = args?.assignIpv6AddressOnCreation;
-            resourceInputs["availabilityZone"] = args?.availabilityZone;
-            resourceInputs["availabilityZoneId"] = args?.availabilityZoneId;
-            resourceInputs["cidrBlock"] = args?.cidrBlock;
-            resourceInputs["customerOwnedIpv4Pool"] = args?.customerOwnedIpv4Pool;
-            resourceInputs["enableDns64"] = args?.enableDns64;
-            resourceInputs["enableLniAtDeviceIndex"] = args?.enableLniAtDeviceIndex;
-            resourceInputs["enableResourceNameDnsARecordOnLaunch"] = args?.enableResourceNameDnsARecordOnLaunch;
-            resourceInputs["enableResourceNameDnsAaaaRecordOnLaunch"] = args?.enableResourceNameDnsAaaaRecordOnLaunch;
-            resourceInputs["ipv6CidrBlock"] = args?.ipv6CidrBlock;
-            resourceInputs["ipv6Native"] = args?.ipv6Native;
-            resourceInputs["mapCustomerOwnedIpOnLaunch"] = args?.mapCustomerOwnedIpOnLaunch;
-            resourceInputs["mapPublicIpOnLaunch"] = args?.mapPublicIpOnLaunch;
-            resourceInputs["outpostArn"] = args?.outpostArn;
-            resourceInputs["privateDnsHostnameTypeOnLaunch"] = args?.privateDnsHostnameTypeOnLaunch;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["vpcId"] = args?.vpcId;
+            resourceInputs["assignIpv6AddressOnCreation"] = args ? args.assignIpv6AddressOnCreation : undefined;
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["availabilityZoneId"] = args ? args.availabilityZoneId : undefined;
+            resourceInputs["cidrBlock"] = args ? args.cidrBlock : undefined;
+            resourceInputs["customerOwnedIpv4Pool"] = args ? args.customerOwnedIpv4Pool : undefined;
+            resourceInputs["enableDns64"] = args ? args.enableDns64 : undefined;
+            resourceInputs["enableLniAtDeviceIndex"] = args ? args.enableLniAtDeviceIndex : undefined;
+            resourceInputs["enableResourceNameDnsARecordOnLaunch"] = args ? args.enableResourceNameDnsARecordOnLaunch : undefined;
+            resourceInputs["enableResourceNameDnsAaaaRecordOnLaunch"] = args ? args.enableResourceNameDnsAaaaRecordOnLaunch : undefined;
+            resourceInputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
+            resourceInputs["ipv6Native"] = args ? args.ipv6Native : undefined;
+            resourceInputs["mapCustomerOwnedIpOnLaunch"] = args ? args.mapCustomerOwnedIpOnLaunch : undefined;
+            resourceInputs["mapPublicIpOnLaunch"] = args ? args.mapPublicIpOnLaunch : undefined;
+            resourceInputs["outpostArn"] = args ? args.outpostArn : undefined;
+            resourceInputs["privateDnsHostnameTypeOnLaunch"] = args ? args.privateDnsHostnameTypeOnLaunch : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ipv6CidrBlockAssociationId"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;

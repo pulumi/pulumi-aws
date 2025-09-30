@@ -69,41 +69,41 @@ export class Filter extends pulumi.CustomResource {
     /**
      * Action to be applied to the findings that maatch the filter. Possible values are `NONE` and `SUPPRESS`
      */
-    declare public readonly action: pulumi.Output<string>;
+    public readonly action!: pulumi.Output<string>;
     /**
      * ARN of the Filter.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Description
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Details on the filter criteria. Documented below.
      *
      * The following arguments are optional:
      */
-    declare public readonly filterCriterias: pulumi.Output<outputs.inspector2.FilterFilterCriteria[] | undefined>;
+    public readonly filterCriterias!: pulumi.Output<outputs.inspector2.FilterFilterCriteria[] | undefined>;
     /**
      * Name of the filter.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Reason for creating the filter
      */
-    declare public readonly reason: pulumi.Output<string | undefined>;
+    public readonly reason!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Filter resource with the given unique name, arguments, and options.
@@ -118,27 +118,27 @@ export class Filter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FilterState | undefined;
-            resourceInputs["action"] = state?.action;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["filterCriterias"] = state?.filterCriterias;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["reason"] = state?.reason;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["action"] = state ? state.action : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["filterCriterias"] = state ? state.filterCriterias : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["reason"] = state ? state.reason : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as FilterArgs | undefined;
-            if (args?.action === undefined && !opts.urn) {
+            if ((!args || args.action === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'action'");
             }
-            resourceInputs["action"] = args?.action;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["filterCriterias"] = args?.filterCriterias;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["reason"] = args?.reason;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["action"] = args ? args.action : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["filterCriterias"] = args ? args.filterCriterias : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["reason"] = args ? args.reason : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

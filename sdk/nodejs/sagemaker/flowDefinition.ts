@@ -144,43 +144,43 @@ export class FlowDefinition extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name of your flow definition.
      */
-    declare public readonly flowDefinitionName: pulumi.Output<string>;
+    public readonly flowDefinitionName!: pulumi.Output<string>;
     /**
      * An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
      */
-    declare public readonly humanLoopActivationConfig: pulumi.Output<outputs.sagemaker.FlowDefinitionHumanLoopActivationConfig | undefined>;
+    public readonly humanLoopActivationConfig!: pulumi.Output<outputs.sagemaker.FlowDefinitionHumanLoopActivationConfig | undefined>;
     /**
      * An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
      */
-    declare public readonly humanLoopConfig: pulumi.Output<outputs.sagemaker.FlowDefinitionHumanLoopConfig>;
+    public readonly humanLoopConfig!: pulumi.Output<outputs.sagemaker.FlowDefinitionHumanLoopConfig>;
     /**
      * Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
      */
-    declare public readonly humanLoopRequestSource: pulumi.Output<outputs.sagemaker.FlowDefinitionHumanLoopRequestSource | undefined>;
+    public readonly humanLoopRequestSource!: pulumi.Output<outputs.sagemaker.FlowDefinitionHumanLoopRequestSource | undefined>;
     /**
      * An object containing information about where the human review results will be uploaded. See Output Config details below.
      */
-    declare public readonly outputConfig: pulumi.Output<outputs.sagemaker.FlowDefinitionOutputConfig>;
+    public readonly outputConfig!: pulumi.Output<outputs.sagemaker.FlowDefinitionOutputConfig>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
      */
-    declare public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a FlowDefinition resource with the given unique name, arguments, and options.
@@ -195,38 +195,38 @@ export class FlowDefinition extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FlowDefinitionState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["flowDefinitionName"] = state?.flowDefinitionName;
-            resourceInputs["humanLoopActivationConfig"] = state?.humanLoopActivationConfig;
-            resourceInputs["humanLoopConfig"] = state?.humanLoopConfig;
-            resourceInputs["humanLoopRequestSource"] = state?.humanLoopRequestSource;
-            resourceInputs["outputConfig"] = state?.outputConfig;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["roleArn"] = state?.roleArn;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["flowDefinitionName"] = state ? state.flowDefinitionName : undefined;
+            resourceInputs["humanLoopActivationConfig"] = state ? state.humanLoopActivationConfig : undefined;
+            resourceInputs["humanLoopConfig"] = state ? state.humanLoopConfig : undefined;
+            resourceInputs["humanLoopRequestSource"] = state ? state.humanLoopRequestSource : undefined;
+            resourceInputs["outputConfig"] = state ? state.outputConfig : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as FlowDefinitionArgs | undefined;
-            if (args?.flowDefinitionName === undefined && !opts.urn) {
+            if ((!args || args.flowDefinitionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'flowDefinitionName'");
             }
-            if (args?.humanLoopConfig === undefined && !opts.urn) {
+            if ((!args || args.humanLoopConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'humanLoopConfig'");
             }
-            if (args?.outputConfig === undefined && !opts.urn) {
+            if ((!args || args.outputConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'outputConfig'");
             }
-            if (args?.roleArn === undefined && !opts.urn) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["flowDefinitionName"] = args?.flowDefinitionName;
-            resourceInputs["humanLoopActivationConfig"] = args?.humanLoopActivationConfig;
-            resourceInputs["humanLoopConfig"] = args?.humanLoopConfig;
-            resourceInputs["humanLoopRequestSource"] = args?.humanLoopRequestSource;
-            resourceInputs["outputConfig"] = args?.outputConfig;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["roleArn"] = args?.roleArn;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["flowDefinitionName"] = args ? args.flowDefinitionName : undefined;
+            resourceInputs["humanLoopActivationConfig"] = args ? args.humanLoopActivationConfig : undefined;
+            resourceInputs["humanLoopConfig"] = args ? args.humanLoopConfig : undefined;
+            resourceInputs["humanLoopRequestSource"] = args ? args.humanLoopRequestSource : undefined;
+            resourceInputs["outputConfig"] = args ? args.outputConfig : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

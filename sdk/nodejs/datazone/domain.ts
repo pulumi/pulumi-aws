@@ -186,55 +186,55 @@ export class Domain extends pulumi.CustomResource {
     /**
      * ARN of the Domain.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Description of the Domain.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * ARN of the role used by DataZone to configure the Domain.
      *
      * The following arguments are optional:
      */
-    declare public readonly domainExecutionRole: pulumi.Output<string>;
+    public readonly domainExecutionRole!: pulumi.Output<string>;
     /**
      * Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
      */
-    declare public readonly domainVersion: pulumi.Output<string>;
+    public readonly domainVersion!: pulumi.Output<string>;
     /**
      * ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
      */
-    declare public readonly kmsKeyIdentifier: pulumi.Output<string | undefined>;
+    public readonly kmsKeyIdentifier!: pulumi.Output<string | undefined>;
     /**
      * Name of the Domain.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * URL of the data portal for the Domain.
      */
-    declare public /*out*/ readonly portalUrl: pulumi.Output<string>;
+    public /*out*/ readonly portalUrl!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
      */
-    declare public readonly serviceRole: pulumi.Output<string | undefined>;
+    public readonly serviceRole!: pulumi.Output<string | undefined>;
     /**
      * Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
      */
-    declare public readonly singleSignOn: pulumi.Output<outputs.datazone.DomainSingleSignOn | undefined>;
+    public readonly singleSignOn!: pulumi.Output<outputs.datazone.DomainSingleSignOn | undefined>;
     /**
      * Whether to skip the deletion check for the Domain.
      */
-    declare public readonly skipDeletionCheck: pulumi.Output<boolean | undefined>;
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly skipDeletionCheck!: pulumi.Output<boolean | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public readonly timeouts: pulumi.Output<outputs.datazone.DomainTimeouts | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly timeouts!: pulumi.Output<outputs.datazone.DomainTimeouts | undefined>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -249,36 +249,36 @@ export class Domain extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["domainExecutionRole"] = state?.domainExecutionRole;
-            resourceInputs["domainVersion"] = state?.domainVersion;
-            resourceInputs["kmsKeyIdentifier"] = state?.kmsKeyIdentifier;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["portalUrl"] = state?.portalUrl;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["serviceRole"] = state?.serviceRole;
-            resourceInputs["singleSignOn"] = state?.singleSignOn;
-            resourceInputs["skipDeletionCheck"] = state?.skipDeletionCheck;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["domainExecutionRole"] = state ? state.domainExecutionRole : undefined;
+            resourceInputs["domainVersion"] = state ? state.domainVersion : undefined;
+            resourceInputs["kmsKeyIdentifier"] = state ? state.kmsKeyIdentifier : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["portalUrl"] = state ? state.portalUrl : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["serviceRole"] = state ? state.serviceRole : undefined;
+            resourceInputs["singleSignOn"] = state ? state.singleSignOn : undefined;
+            resourceInputs["skipDeletionCheck"] = state ? state.skipDeletionCheck : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as DomainArgs | undefined;
-            if (args?.domainExecutionRole === undefined && !opts.urn) {
+            if ((!args || args.domainExecutionRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainExecutionRole'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["domainExecutionRole"] = args?.domainExecutionRole;
-            resourceInputs["domainVersion"] = args?.domainVersion;
-            resourceInputs["kmsKeyIdentifier"] = args?.kmsKeyIdentifier;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["serviceRole"] = args?.serviceRole;
-            resourceInputs["singleSignOn"] = args?.singleSignOn;
-            resourceInputs["skipDeletionCheck"] = args?.skipDeletionCheck;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["domainExecutionRole"] = args ? args.domainExecutionRole : undefined;
+            resourceInputs["domainVersion"] = args ? args.domainVersion : undefined;
+            resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["serviceRole"] = args ? args.serviceRole : undefined;
+            resourceInputs["singleSignOn"] = args ? args.singleSignOn : undefined;
+            resourceInputs["skipDeletionCheck"] = args ? args.skipDeletionCheck : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["portalUrl"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

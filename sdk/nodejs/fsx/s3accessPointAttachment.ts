@@ -71,34 +71,34 @@ export class S3AccessPointAttachment extends pulumi.CustomResource {
     /**
      * Name of the S3 access point.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfsConfiguration` Block for details.
      */
-    declare public readonly openzfsConfiguration: pulumi.Output<outputs.fsx.S3AccessPointAttachmentOpenzfsConfiguration | undefined>;
+    public readonly openzfsConfiguration!: pulumi.Output<outputs.fsx.S3AccessPointAttachmentOpenzfsConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * S3 access point configuration. See `s3AccessPoint` Block for details.
      */
-    declare public readonly s3AccessPoint: pulumi.Output<outputs.fsx.S3AccessPointAttachmentS3AccessPoint | undefined>;
+    public readonly s3AccessPoint!: pulumi.Output<outputs.fsx.S3AccessPointAttachmentS3AccessPoint | undefined>;
     /**
      * S3 access point's alias.
      */
-    declare public /*out*/ readonly s3AccessPointAlias: pulumi.Output<string>;
+    public /*out*/ readonly s3AccessPointAlias!: pulumi.Output<string>;
     /**
      * S3 access point's ARN.
      */
-    declare public /*out*/ readonly s3AccessPointArn: pulumi.Output<string>;
-    declare public readonly timeouts: pulumi.Output<outputs.fsx.S3AccessPointAttachmentTimeouts | undefined>;
+    public /*out*/ readonly s3AccessPointArn!: pulumi.Output<string>;
+    public readonly timeouts!: pulumi.Output<outputs.fsx.S3AccessPointAttachmentTimeouts | undefined>;
     /**
      * Type of S3 access point. Valid values: `OpenZFS`.
      *
      * The following arguments are optional:
      */
-    declare public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a S3AccessPointAttachment resource with the given unique name, arguments, and options.
@@ -113,25 +113,25 @@ export class S3AccessPointAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as S3AccessPointAttachmentState | undefined;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["openzfsConfiguration"] = state?.openzfsConfiguration;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["s3AccessPoint"] = state?.s3AccessPoint;
-            resourceInputs["s3AccessPointAlias"] = state?.s3AccessPointAlias;
-            resourceInputs["s3AccessPointArn"] = state?.s3AccessPointArn;
-            resourceInputs["timeouts"] = state?.timeouts;
-            resourceInputs["type"] = state?.type;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["openzfsConfiguration"] = state ? state.openzfsConfiguration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["s3AccessPoint"] = state ? state.s3AccessPoint : undefined;
+            resourceInputs["s3AccessPointAlias"] = state ? state.s3AccessPointAlias : undefined;
+            resourceInputs["s3AccessPointArn"] = state ? state.s3AccessPointArn : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as S3AccessPointAttachmentArgs | undefined;
-            if (args?.type === undefined && !opts.urn) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["name"] = args?.name;
-            resourceInputs["openzfsConfiguration"] = args?.openzfsConfiguration;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["s3AccessPoint"] = args?.s3AccessPoint;
-            resourceInputs["timeouts"] = args?.timeouts;
-            resourceInputs["type"] = args?.type;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["openzfsConfiguration"] = args ? args.openzfsConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["s3AccessPoint"] = args ? args.s3AccessPoint : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["s3AccessPointAlias"] = undefined /*out*/;
             resourceInputs["s3AccessPointArn"] = undefined /*out*/;
         }

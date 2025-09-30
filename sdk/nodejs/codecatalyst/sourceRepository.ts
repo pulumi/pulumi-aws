@@ -61,25 +61,25 @@ export class SourceRepository extends pulumi.CustomResource {
     /**
      * The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the project in the CodeCatalyst space.
      *
      * The following arguments are optional:
      */
-    declare public readonly projectName: pulumi.Output<string>;
+    public readonly projectName!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The name of the CodeCatalyst space.
      */
-    declare public readonly spaceName: pulumi.Output<string>;
+    public readonly spaceName!: pulumi.Output<string>;
 
     /**
      * Create a SourceRepository resource with the given unique name, arguments, and options.
@@ -94,24 +94,24 @@ export class SourceRepository extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SourceRepositoryState | undefined;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["projectName"] = state?.projectName;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["spaceName"] = state?.spaceName;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["projectName"] = state ? state.projectName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["spaceName"] = state ? state.spaceName : undefined;
         } else {
             const args = argsOrState as SourceRepositoryArgs | undefined;
-            if (args?.projectName === undefined && !opts.urn) {
+            if ((!args || args.projectName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
-            if (args?.spaceName === undefined && !opts.urn) {
+            if ((!args || args.spaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'spaceName'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["projectName"] = args?.projectName;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["spaceName"] = args?.spaceName;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["projectName"] = args ? args.projectName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["spaceName"] = args ? args.spaceName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SourceRepository.__pulumiType, name, resourceInputs, opts);

@@ -242,75 +242,75 @@ export class FlowLog extends pulumi.CustomResource {
     /**
      * ARN of the Flow Log.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
      */
-    declare public readonly deliverCrossAccountRole: pulumi.Output<string | undefined>;
+    public readonly deliverCrossAccountRole!: pulumi.Output<string | undefined>;
     /**
      * Describes the destination options for a flow log. More details below.
      */
-    declare public readonly destinationOptions: pulumi.Output<outputs.ec2.FlowLogDestinationOptions | undefined>;
+    public readonly destinationOptions!: pulumi.Output<outputs.ec2.FlowLogDestinationOptions | undefined>;
     /**
      * Elastic Network Interface ID to attach to.
      */
-    declare public readonly eniId: pulumi.Output<string | undefined>;
+    public readonly eniId!: pulumi.Output<string | undefined>;
     /**
      * ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
      */
-    declare public readonly iamRoleArn: pulumi.Output<string | undefined>;
+    public readonly iamRoleArn!: pulumi.Output<string | undefined>;
     /**
      * ARN of the logging destination.
      */
-    declare public readonly logDestination: pulumi.Output<string>;
+    public readonly logDestination!: pulumi.Output<string>;
     /**
      * Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
      */
-    declare public readonly logDestinationType: pulumi.Output<string | undefined>;
+    public readonly logDestinationType!: pulumi.Output<string | undefined>;
     /**
      * The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
      */
-    declare public readonly logFormat: pulumi.Output<string>;
+    public readonly logFormat!: pulumi.Output<string>;
     /**
      * The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
      * Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
      * When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
      */
-    declare public readonly maxAggregationInterval: pulumi.Output<number | undefined>;
+    public readonly maxAggregationInterval!: pulumi.Output<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Subnet ID to attach to.
      */
-    declare public readonly subnetId: pulumi.Output<string | undefined>;
+    public readonly subnetId!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * > **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
      */
-    declare public readonly trafficType: pulumi.Output<string | undefined>;
+    public readonly trafficType!: pulumi.Output<string | undefined>;
     /**
      * Transit Gateway Attachment ID to attach to.
      */
-    declare public readonly transitGatewayAttachmentId: pulumi.Output<string | undefined>;
+    public readonly transitGatewayAttachmentId!: pulumi.Output<string | undefined>;
     /**
      * Transit Gateway ID to attach to.
      */
-    declare public readonly transitGatewayId: pulumi.Output<string | undefined>;
+    public readonly transitGatewayId!: pulumi.Output<string | undefined>;
     /**
      * VPC ID to attach to.
      */
-    declare public readonly vpcId: pulumi.Output<string | undefined>;
+    public readonly vpcId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a FlowLog resource with the given unique name, arguments, and options.
@@ -325,40 +325,40 @@ export class FlowLog extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FlowLogState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["deliverCrossAccountRole"] = state?.deliverCrossAccountRole;
-            resourceInputs["destinationOptions"] = state?.destinationOptions;
-            resourceInputs["eniId"] = state?.eniId;
-            resourceInputs["iamRoleArn"] = state?.iamRoleArn;
-            resourceInputs["logDestination"] = state?.logDestination;
-            resourceInputs["logDestinationType"] = state?.logDestinationType;
-            resourceInputs["logFormat"] = state?.logFormat;
-            resourceInputs["maxAggregationInterval"] = state?.maxAggregationInterval;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["subnetId"] = state?.subnetId;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["trafficType"] = state?.trafficType;
-            resourceInputs["transitGatewayAttachmentId"] = state?.transitGatewayAttachmentId;
-            resourceInputs["transitGatewayId"] = state?.transitGatewayId;
-            resourceInputs["vpcId"] = state?.vpcId;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["deliverCrossAccountRole"] = state ? state.deliverCrossAccountRole : undefined;
+            resourceInputs["destinationOptions"] = state ? state.destinationOptions : undefined;
+            resourceInputs["eniId"] = state ? state.eniId : undefined;
+            resourceInputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
+            resourceInputs["logDestination"] = state ? state.logDestination : undefined;
+            resourceInputs["logDestinationType"] = state ? state.logDestinationType : undefined;
+            resourceInputs["logFormat"] = state ? state.logFormat : undefined;
+            resourceInputs["maxAggregationInterval"] = state ? state.maxAggregationInterval : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["trafficType"] = state ? state.trafficType : undefined;
+            resourceInputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;
+            resourceInputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as FlowLogArgs | undefined;
-            resourceInputs["deliverCrossAccountRole"] = args?.deliverCrossAccountRole;
-            resourceInputs["destinationOptions"] = args?.destinationOptions;
-            resourceInputs["eniId"] = args?.eniId;
-            resourceInputs["iamRoleArn"] = args?.iamRoleArn;
-            resourceInputs["logDestination"] = args?.logDestination;
-            resourceInputs["logDestinationType"] = args?.logDestinationType;
-            resourceInputs["logFormat"] = args?.logFormat;
-            resourceInputs["maxAggregationInterval"] = args?.maxAggregationInterval;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["subnetId"] = args?.subnetId;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["trafficType"] = args?.trafficType;
-            resourceInputs["transitGatewayAttachmentId"] = args?.transitGatewayAttachmentId;
-            resourceInputs["transitGatewayId"] = args?.transitGatewayId;
-            resourceInputs["vpcId"] = args?.vpcId;
+            resourceInputs["deliverCrossAccountRole"] = args ? args.deliverCrossAccountRole : undefined;
+            resourceInputs["destinationOptions"] = args ? args.destinationOptions : undefined;
+            resourceInputs["eniId"] = args ? args.eniId : undefined;
+            resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
+            resourceInputs["logDestination"] = args ? args.logDestination : undefined;
+            resourceInputs["logDestinationType"] = args ? args.logDestinationType : undefined;
+            resourceInputs["logFormat"] = args ? args.logFormat : undefined;
+            resourceInputs["maxAggregationInterval"] = args ? args.maxAggregationInterval : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["trafficType"] = args ? args.trafficType : undefined;
+            resourceInputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
+            resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

@@ -62,15 +62,15 @@ export class NetworkAclAssociation extends pulumi.CustomResource {
     /**
      * The ID of the network ACL.
      */
-    declare public readonly networkAclId: pulumi.Output<string>;
+    public readonly networkAclId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ID of the associated Subnet.
      */
-    declare public readonly subnetId: pulumi.Output<string>;
+    public readonly subnetId!: pulumi.Output<string>;
 
     /**
      * Create a NetworkAclAssociation resource with the given unique name, arguments, and options.
@@ -85,20 +85,20 @@ export class NetworkAclAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkAclAssociationState | undefined;
-            resourceInputs["networkAclId"] = state?.networkAclId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["subnetId"] = state?.subnetId;
+            resourceInputs["networkAclId"] = state ? state.networkAclId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
             const args = argsOrState as NetworkAclAssociationArgs | undefined;
-            if (args?.networkAclId === undefined && !opts.urn) {
+            if ((!args || args.networkAclId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkAclId'");
             }
-            if (args?.subnetId === undefined && !opts.urn) {
+            if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["networkAclId"] = args?.networkAclId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["networkAclId"] = args ? args.networkAclId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkAclAssociation.__pulumiType, name, resourceInputs, opts);

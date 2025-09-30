@@ -175,90 +175,90 @@ export class Distribution extends pulumi.CustomResource {
     /**
      * Alternate domain names of the distribution.
      */
-    declare public /*out*/ readonly alternativeDomainNames: pulumi.Output<string[]>;
+    public /*out*/ readonly alternativeDomainNames!: pulumi.Output<string[]>;
     /**
      * ARN of the distribution.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Bundle ID to use for the distribution.
      */
-    declare public readonly bundleId: pulumi.Output<string>;
+    public readonly bundleId!: pulumi.Output<string>;
     /**
      * Cache behavior settings of the distribution. See below.
      */
-    declare public readonly cacheBehaviorSettings: pulumi.Output<outputs.lightsail.DistributionCacheBehaviorSettings | undefined>;
+    public readonly cacheBehaviorSettings!: pulumi.Output<outputs.lightsail.DistributionCacheBehaviorSettings | undefined>;
     /**
      * Per-path cache behavior of the distribution. See below.
      */
-    declare public readonly cacheBehaviors: pulumi.Output<outputs.lightsail.DistributionCacheBehavior[] | undefined>;
+    public readonly cacheBehaviors!: pulumi.Output<outputs.lightsail.DistributionCacheBehavior[] | undefined>;
     /**
      * Name of the SSL/TLS certificate attached to the distribution.
      */
-    declare public readonly certificateName: pulumi.Output<string | undefined>;
+    public readonly certificateName!: pulumi.Output<string | undefined>;
     /**
      * Timestamp when the distribution was created.
      */
-    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
      * Default cache behavior of the distribution. See below.
      */
-    declare public readonly defaultCacheBehavior: pulumi.Output<outputs.lightsail.DistributionDefaultCacheBehavior>;
+    public readonly defaultCacheBehavior!: pulumi.Output<outputs.lightsail.DistributionDefaultCacheBehavior>;
     /**
      * Domain name of the distribution.
      */
-    declare public /*out*/ readonly domainName: pulumi.Output<string>;
+    public /*out*/ readonly domainName!: pulumi.Output<string>;
     /**
      * IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
      */
-    declare public readonly ipAddressType: pulumi.Output<string | undefined>;
+    public readonly ipAddressType!: pulumi.Output<string | undefined>;
     /**
      * Whether the distribution is enabled. Default: `true`.
      */
-    declare public readonly isEnabled: pulumi.Output<boolean | undefined>;
+    public readonly isEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Location of the distribution, such as the AWS Region and Availability Zone. See below.
      */
-    declare public /*out*/ readonly locations: pulumi.Output<outputs.lightsail.DistributionLocation[]>;
+    public /*out*/ readonly locations!: pulumi.Output<outputs.lightsail.DistributionLocation[]>;
     /**
      * Name of the distribution.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
      *
      * The following arguments are optional:
      */
-    declare public readonly origin: pulumi.Output<outputs.lightsail.DistributionOrigin>;
+    public readonly origin!: pulumi.Output<outputs.lightsail.DistributionOrigin>;
     /**
      * Public DNS of the origin.
      * * `origin[0].resource_type` - Resource type of the origin resource (e.g., Instance).
      */
-    declare public /*out*/ readonly originPublicDns: pulumi.Output<string>;
+    public /*out*/ readonly originPublicDns!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Lightsail resource type (e.g., Distribution).
      */
-    declare public /*out*/ readonly resourceType: pulumi.Output<string>;
+    public /*out*/ readonly resourceType!: pulumi.Output<string>;
     /**
      * Status of the distribution.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
      */
-    declare public /*out*/ readonly supportCode: pulumi.Output<string>;
+    public /*out*/ readonly supportCode!: pulumi.Output<string>;
     /**
      * Map of tags for the Lightsail Distribution. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Distribution resource with the given unique name, arguments, and options.
@@ -273,49 +273,49 @@ export class Distribution extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DistributionState | undefined;
-            resourceInputs["alternativeDomainNames"] = state?.alternativeDomainNames;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["bundleId"] = state?.bundleId;
-            resourceInputs["cacheBehaviorSettings"] = state?.cacheBehaviorSettings;
-            resourceInputs["cacheBehaviors"] = state?.cacheBehaviors;
-            resourceInputs["certificateName"] = state?.certificateName;
-            resourceInputs["createdAt"] = state?.createdAt;
-            resourceInputs["defaultCacheBehavior"] = state?.defaultCacheBehavior;
-            resourceInputs["domainName"] = state?.domainName;
-            resourceInputs["ipAddressType"] = state?.ipAddressType;
-            resourceInputs["isEnabled"] = state?.isEnabled;
-            resourceInputs["locations"] = state?.locations;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["origin"] = state?.origin;
-            resourceInputs["originPublicDns"] = state?.originPublicDns;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceType"] = state?.resourceType;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["supportCode"] = state?.supportCode;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["alternativeDomainNames"] = state ? state.alternativeDomainNames : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["bundleId"] = state ? state.bundleId : undefined;
+            resourceInputs["cacheBehaviorSettings"] = state ? state.cacheBehaviorSettings : undefined;
+            resourceInputs["cacheBehaviors"] = state ? state.cacheBehaviors : undefined;
+            resourceInputs["certificateName"] = state ? state.certificateName : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["defaultCacheBehavior"] = state ? state.defaultCacheBehavior : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
+            resourceInputs["isEnabled"] = state ? state.isEnabled : undefined;
+            resourceInputs["locations"] = state ? state.locations : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["origin"] = state ? state.origin : undefined;
+            resourceInputs["originPublicDns"] = state ? state.originPublicDns : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceType"] = state ? state.resourceType : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["supportCode"] = state ? state.supportCode : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as DistributionArgs | undefined;
-            if (args?.bundleId === undefined && !opts.urn) {
+            if ((!args || args.bundleId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bundleId'");
             }
-            if (args?.defaultCacheBehavior === undefined && !opts.urn) {
+            if ((!args || args.defaultCacheBehavior === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'defaultCacheBehavior'");
             }
-            if (args?.origin === undefined && !opts.urn) {
+            if ((!args || args.origin === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'origin'");
             }
-            resourceInputs["bundleId"] = args?.bundleId;
-            resourceInputs["cacheBehaviorSettings"] = args?.cacheBehaviorSettings;
-            resourceInputs["cacheBehaviors"] = args?.cacheBehaviors;
-            resourceInputs["certificateName"] = args?.certificateName;
-            resourceInputs["defaultCacheBehavior"] = args?.defaultCacheBehavior;
-            resourceInputs["ipAddressType"] = args?.ipAddressType;
-            resourceInputs["isEnabled"] = args?.isEnabled;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["origin"] = args?.origin;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["bundleId"] = args ? args.bundleId : undefined;
+            resourceInputs["cacheBehaviorSettings"] = args ? args.cacheBehaviorSettings : undefined;
+            resourceInputs["cacheBehaviors"] = args ? args.cacheBehaviors : undefined;
+            resourceInputs["certificateName"] = args ? args.certificateName : undefined;
+            resourceInputs["defaultCacheBehavior"] = args ? args.defaultCacheBehavior : undefined;
+            resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
+            resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["origin"] = args ? args.origin : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["alternativeDomainNames"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

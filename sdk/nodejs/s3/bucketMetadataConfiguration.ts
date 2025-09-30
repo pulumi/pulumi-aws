@@ -82,19 +82,19 @@ export class BucketMetadataConfiguration extends pulumi.CustomResource {
     /**
      * General purpose bucket that you want to create the metadata configuration for.
      */
-    declare public readonly bucket: pulumi.Output<string>;
-    declare public readonly expectedBucketOwner: pulumi.Output<string | undefined>;
+    public readonly bucket!: pulumi.Output<string>;
+    public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
     /**
      * Metadata configuration. See `metadataConfiguration` Block for details.
      *
      * The following arguments are optional:
      */
-    declare public readonly metadataConfiguration: pulumi.Output<outputs.s3.BucketMetadataConfigurationMetadataConfiguration | undefined>;
+    public readonly metadataConfiguration!: pulumi.Output<outputs.s3.BucketMetadataConfigurationMetadataConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
-    declare public readonly timeouts: pulumi.Output<outputs.s3.BucketMetadataConfigurationTimeouts | undefined>;
+    public readonly region!: pulumi.Output<string>;
+    public readonly timeouts!: pulumi.Output<outputs.s3.BucketMetadataConfigurationTimeouts | undefined>;
 
     /**
      * Create a BucketMetadataConfiguration resource with the given unique name, arguments, and options.
@@ -109,21 +109,21 @@ export class BucketMetadataConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketMetadataConfigurationState | undefined;
-            resourceInputs["bucket"] = state?.bucket;
-            resourceInputs["expectedBucketOwner"] = state?.expectedBucketOwner;
-            resourceInputs["metadataConfiguration"] = state?.metadataConfiguration;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["bucket"] = state ? state.bucket : undefined;
+            resourceInputs["expectedBucketOwner"] = state ? state.expectedBucketOwner : undefined;
+            resourceInputs["metadataConfiguration"] = state ? state.metadataConfiguration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as BucketMetadataConfigurationArgs | undefined;
-            if (args?.bucket === undefined && !opts.urn) {
+            if ((!args || args.bucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            resourceInputs["bucket"] = args?.bucket;
-            resourceInputs["expectedBucketOwner"] = args?.expectedBucketOwner;
-            resourceInputs["metadataConfiguration"] = args?.metadataConfiguration;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
+            resourceInputs["metadataConfiguration"] = args ? args.metadataConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BucketMetadataConfiguration.__pulumiType, name, resourceInputs, opts);

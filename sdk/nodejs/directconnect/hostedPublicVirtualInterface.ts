@@ -68,56 +68,56 @@ export class HostedPublicVirtualInterface extends pulumi.CustomResource {
     /**
      * The address family for the BGP peer. `ipv4 ` or `ipv6`.
      */
-    declare public readonly addressFamily: pulumi.Output<string>;
+    public readonly addressFamily!: pulumi.Output<string>;
     /**
      * The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
      */
-    declare public readonly amazonAddress: pulumi.Output<string>;
-    declare public /*out*/ readonly amazonSideAsn: pulumi.Output<string>;
+    public readonly amazonAddress!: pulumi.Output<string>;
+    public /*out*/ readonly amazonSideAsn!: pulumi.Output<string>;
     /**
      * The ARN of the virtual interface.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The Direct Connect endpoint on which the virtual interface terminates.
      */
-    declare public /*out*/ readonly awsDevice: pulumi.Output<string>;
+    public /*out*/ readonly awsDevice!: pulumi.Output<string>;
     /**
      * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
      */
-    declare public readonly bgpAsn: pulumi.Output<number>;
+    public readonly bgpAsn!: pulumi.Output<number>;
     /**
      * The authentication key for BGP configuration.
      */
-    declare public readonly bgpAuthKey: pulumi.Output<string>;
+    public readonly bgpAuthKey!: pulumi.Output<string>;
     /**
      * The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
      */
-    declare public readonly connectionId: pulumi.Output<string>;
+    public readonly connectionId!: pulumi.Output<string>;
     /**
      * The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
      */
-    declare public readonly customerAddress: pulumi.Output<string>;
+    public readonly customerAddress!: pulumi.Output<string>;
     /**
      * The name for the virtual interface.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The AWS account that will own the new virtual interface.
      */
-    declare public readonly ownerAccountId: pulumi.Output<string>;
+    public readonly ownerAccountId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A list of routes to be advertised to the AWS network in this region.
      */
-    declare public readonly routeFilterPrefixes: pulumi.Output<string[]>;
+    public readonly routeFilterPrefixes!: pulumi.Output<string[]>;
     /**
      * The VLAN ID.
      */
-    declare public readonly vlan: pulumi.Output<number>;
+    public readonly vlan!: pulumi.Output<number>;
 
     /**
      * Create a HostedPublicVirtualInterface resource with the given unique name, arguments, and options.
@@ -132,51 +132,51 @@ export class HostedPublicVirtualInterface extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HostedPublicVirtualInterfaceState | undefined;
-            resourceInputs["addressFamily"] = state?.addressFamily;
-            resourceInputs["amazonAddress"] = state?.amazonAddress;
-            resourceInputs["amazonSideAsn"] = state?.amazonSideAsn;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["awsDevice"] = state?.awsDevice;
-            resourceInputs["bgpAsn"] = state?.bgpAsn;
-            resourceInputs["bgpAuthKey"] = state?.bgpAuthKey;
-            resourceInputs["connectionId"] = state?.connectionId;
-            resourceInputs["customerAddress"] = state?.customerAddress;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["ownerAccountId"] = state?.ownerAccountId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["routeFilterPrefixes"] = state?.routeFilterPrefixes;
-            resourceInputs["vlan"] = state?.vlan;
+            resourceInputs["addressFamily"] = state ? state.addressFamily : undefined;
+            resourceInputs["amazonAddress"] = state ? state.amazonAddress : undefined;
+            resourceInputs["amazonSideAsn"] = state ? state.amazonSideAsn : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["awsDevice"] = state ? state.awsDevice : undefined;
+            resourceInputs["bgpAsn"] = state ? state.bgpAsn : undefined;
+            resourceInputs["bgpAuthKey"] = state ? state.bgpAuthKey : undefined;
+            resourceInputs["connectionId"] = state ? state.connectionId : undefined;
+            resourceInputs["customerAddress"] = state ? state.customerAddress : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["routeFilterPrefixes"] = state ? state.routeFilterPrefixes : undefined;
+            resourceInputs["vlan"] = state ? state.vlan : undefined;
         } else {
             const args = argsOrState as HostedPublicVirtualInterfaceArgs | undefined;
-            if (args?.addressFamily === undefined && !opts.urn) {
+            if ((!args || args.addressFamily === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'addressFamily'");
             }
-            if (args?.bgpAsn === undefined && !opts.urn) {
+            if ((!args || args.bgpAsn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bgpAsn'");
             }
-            if (args?.connectionId === undefined && !opts.urn) {
+            if ((!args || args.connectionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectionId'");
             }
-            if (args?.ownerAccountId === undefined && !opts.urn) {
+            if ((!args || args.ownerAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ownerAccountId'");
             }
-            if (args?.routeFilterPrefixes === undefined && !opts.urn) {
+            if ((!args || args.routeFilterPrefixes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'routeFilterPrefixes'");
             }
-            if (args?.vlan === undefined && !opts.urn) {
+            if ((!args || args.vlan === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vlan'");
             }
-            resourceInputs["addressFamily"] = args?.addressFamily;
-            resourceInputs["amazonAddress"] = args?.amazonAddress;
-            resourceInputs["bgpAsn"] = args?.bgpAsn;
-            resourceInputs["bgpAuthKey"] = args?.bgpAuthKey;
-            resourceInputs["connectionId"] = args?.connectionId;
-            resourceInputs["customerAddress"] = args?.customerAddress;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["ownerAccountId"] = args?.ownerAccountId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["routeFilterPrefixes"] = args?.routeFilterPrefixes;
-            resourceInputs["vlan"] = args?.vlan;
+            resourceInputs["addressFamily"] = args ? args.addressFamily : undefined;
+            resourceInputs["amazonAddress"] = args ? args.amazonAddress : undefined;
+            resourceInputs["bgpAsn"] = args ? args.bgpAsn : undefined;
+            resourceInputs["bgpAuthKey"] = args ? args.bgpAuthKey : undefined;
+            resourceInputs["connectionId"] = args ? args.connectionId : undefined;
+            resourceInputs["customerAddress"] = args ? args.customerAddress : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ownerAccountId"] = args ? args.ownerAccountId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["routeFilterPrefixes"] = args ? args.routeFilterPrefixes : undefined;
+            resourceInputs["vlan"] = args ? args.vlan : undefined;
             resourceInputs["amazonSideAsn"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsDevice"] = undefined /*out*/;

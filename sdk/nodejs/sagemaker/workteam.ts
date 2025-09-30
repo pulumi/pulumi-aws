@@ -89,47 +89,47 @@ export class Workteam extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A description of the work team.
      */
-    declare public readonly description: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognitoMemberDefinition`. For workforces created using your own OIDC identity provider (IdP) use `oidcMemberDefinition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
      */
-    declare public readonly memberDefinitions: pulumi.Output<outputs.sagemaker.WorkteamMemberDefinition[]>;
+    public readonly memberDefinitions!: pulumi.Output<outputs.sagemaker.WorkteamMemberDefinition[]>;
     /**
      * Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
      */
-    declare public readonly notificationConfiguration: pulumi.Output<outputs.sagemaker.WorkteamNotificationConfiguration | undefined>;
+    public readonly notificationConfiguration!: pulumi.Output<outputs.sagemaker.WorkteamNotificationConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The subdomain for your OIDC Identity Provider.
      */
-    declare public /*out*/ readonly subdomain: pulumi.Output<string>;
+    public /*out*/ readonly subdomain!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
      */
-    declare public readonly workerAccessConfiguration: pulumi.Output<outputs.sagemaker.WorkteamWorkerAccessConfiguration>;
+    public readonly workerAccessConfiguration!: pulumi.Output<outputs.sagemaker.WorkteamWorkerAccessConfiguration>;
     /**
      * The name of the workforce.
      */
-    declare public readonly workforceName: pulumi.Output<string | undefined>;
+    public readonly workforceName!: pulumi.Output<string | undefined>;
     /**
      * The name of the Workteam (must be unique).
      */
-    declare public readonly workteamName: pulumi.Output<string>;
+    public readonly workteamName!: pulumi.Output<string>;
 
     /**
      * Create a Workteam resource with the given unique name, arguments, and options.
@@ -144,36 +144,36 @@ export class Workteam extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkteamState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["memberDefinitions"] = state?.memberDefinitions;
-            resourceInputs["notificationConfiguration"] = state?.notificationConfiguration;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["subdomain"] = state?.subdomain;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["workerAccessConfiguration"] = state?.workerAccessConfiguration;
-            resourceInputs["workforceName"] = state?.workforceName;
-            resourceInputs["workteamName"] = state?.workteamName;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["memberDefinitions"] = state ? state.memberDefinitions : undefined;
+            resourceInputs["notificationConfiguration"] = state ? state.notificationConfiguration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["subdomain"] = state ? state.subdomain : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["workerAccessConfiguration"] = state ? state.workerAccessConfiguration : undefined;
+            resourceInputs["workforceName"] = state ? state.workforceName : undefined;
+            resourceInputs["workteamName"] = state ? state.workteamName : undefined;
         } else {
             const args = argsOrState as WorkteamArgs | undefined;
-            if (args?.description === undefined && !opts.urn) {
+            if ((!args || args.description === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if (args?.memberDefinitions === undefined && !opts.urn) {
+            if ((!args || args.memberDefinitions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'memberDefinitions'");
             }
-            if (args?.workteamName === undefined && !opts.urn) {
+            if ((!args || args.workteamName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workteamName'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["memberDefinitions"] = args?.memberDefinitions;
-            resourceInputs["notificationConfiguration"] = args?.notificationConfiguration;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["workerAccessConfiguration"] = args?.workerAccessConfiguration;
-            resourceInputs["workforceName"] = args?.workforceName;
-            resourceInputs["workteamName"] = args?.workteamName;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["memberDefinitions"] = args ? args.memberDefinitions : undefined;
+            resourceInputs["notificationConfiguration"] = args ? args.notificationConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["workerAccessConfiguration"] = args ? args.workerAccessConfiguration : undefined;
+            resourceInputs["workforceName"] = args ? args.workforceName : undefined;
+            resourceInputs["workteamName"] = args ? args.workteamName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["subdomain"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

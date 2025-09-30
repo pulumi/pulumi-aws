@@ -71,19 +71,19 @@ export class KinesisStreamingDestination extends pulumi.CustomResource {
     /**
      * Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
      */
-    declare public readonly approximateCreationDateTimePrecision: pulumi.Output<string>;
+    public readonly approximateCreationDateTimePrecision!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
      */
-    declare public readonly streamArn: pulumi.Output<string>;
+    public readonly streamArn!: pulumi.Output<string>;
     /**
      * The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
      */
-    declare public readonly tableName: pulumi.Output<string>;
+    public readonly tableName!: pulumi.Output<string>;
 
     /**
      * Create a KinesisStreamingDestination resource with the given unique name, arguments, and options.
@@ -98,22 +98,22 @@ export class KinesisStreamingDestination extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KinesisStreamingDestinationState | undefined;
-            resourceInputs["approximateCreationDateTimePrecision"] = state?.approximateCreationDateTimePrecision;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["streamArn"] = state?.streamArn;
-            resourceInputs["tableName"] = state?.tableName;
+            resourceInputs["approximateCreationDateTimePrecision"] = state ? state.approximateCreationDateTimePrecision : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["streamArn"] = state ? state.streamArn : undefined;
+            resourceInputs["tableName"] = state ? state.tableName : undefined;
         } else {
             const args = argsOrState as KinesisStreamingDestinationArgs | undefined;
-            if (args?.streamArn === undefined && !opts.urn) {
+            if ((!args || args.streamArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'streamArn'");
             }
-            if (args?.tableName === undefined && !opts.urn) {
+            if ((!args || args.tableName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
-            resourceInputs["approximateCreationDateTimePrecision"] = args?.approximateCreationDateTimePrecision;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["streamArn"] = args?.streamArn;
-            resourceInputs["tableName"] = args?.tableName;
+            resourceInputs["approximateCreationDateTimePrecision"] = args ? args.approximateCreationDateTimePrecision : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["streamArn"] = args ? args.streamArn : undefined;
+            resourceInputs["tableName"] = args ? args.tableName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(KinesisStreamingDestination.__pulumiType, name, resourceInputs, opts);

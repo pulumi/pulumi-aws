@@ -55,28 +55,28 @@ export class AppAuthorizationConnection extends pulumi.CustomResource {
     /**
      * The name of the application.
      */
-    declare public /*out*/ readonly app: pulumi.Output<string>;
+    public /*out*/ readonly app!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
      */
-    declare public readonly appAuthorizationArn: pulumi.Output<string>;
+    public readonly appAuthorizationArn!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the app bundle to use for the request.
      */
-    declare public readonly appBundleArn: pulumi.Output<string>;
+    public readonly appBundleArn!: pulumi.Output<string>;
     /**
      * Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
      */
-    declare public readonly authRequest: pulumi.Output<outputs.appfabric.AppAuthorizationConnectionAuthRequest | undefined>;
+    public readonly authRequest!: pulumi.Output<outputs.appfabric.AppAuthorizationConnectionAuthRequest | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Contains information about an application tenant, such as the application display name and identifier.
      */
-    declare public /*out*/ readonly tenants: pulumi.Output<outputs.appfabric.AppAuthorizationConnectionTenant[]>;
-    declare public readonly timeouts: pulumi.Output<outputs.appfabric.AppAuthorizationConnectionTimeouts | undefined>;
+    public /*out*/ readonly tenants!: pulumi.Output<outputs.appfabric.AppAuthorizationConnectionTenant[]>;
+    public readonly timeouts!: pulumi.Output<outputs.appfabric.AppAuthorizationConnectionTimeouts | undefined>;
 
     /**
      * Create a AppAuthorizationConnection resource with the given unique name, arguments, and options.
@@ -91,26 +91,26 @@ export class AppAuthorizationConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppAuthorizationConnectionState | undefined;
-            resourceInputs["app"] = state?.app;
-            resourceInputs["appAuthorizationArn"] = state?.appAuthorizationArn;
-            resourceInputs["appBundleArn"] = state?.appBundleArn;
-            resourceInputs["authRequest"] = state?.authRequest;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tenants"] = state?.tenants;
-            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["app"] = state ? state.app : undefined;
+            resourceInputs["appAuthorizationArn"] = state ? state.appAuthorizationArn : undefined;
+            resourceInputs["appBundleArn"] = state ? state.appBundleArn : undefined;
+            resourceInputs["authRequest"] = state ? state.authRequest : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tenants"] = state ? state.tenants : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as AppAuthorizationConnectionArgs | undefined;
-            if (args?.appAuthorizationArn === undefined && !opts.urn) {
+            if ((!args || args.appAuthorizationArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'appAuthorizationArn'");
             }
-            if (args?.appBundleArn === undefined && !opts.urn) {
+            if ((!args || args.appBundleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'appBundleArn'");
             }
-            resourceInputs["appAuthorizationArn"] = args?.appAuthorizationArn;
-            resourceInputs["appBundleArn"] = args?.appBundleArn;
-            resourceInputs["authRequest"] = args?.authRequest;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["appAuthorizationArn"] = args ? args.appAuthorizationArn : undefined;
+            resourceInputs["appBundleArn"] = args ? args.appBundleArn : undefined;
+            resourceInputs["authRequest"] = args ? args.authRequest : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["app"] = undefined /*out*/;
             resourceInputs["tenants"] = undefined /*out*/;
         }

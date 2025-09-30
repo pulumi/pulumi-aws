@@ -62,23 +62,23 @@ export class Device extends pulumi.CustomResource {
         return obj['__pulumiType'] === Device.__pulumiType;
     }
 
-    declare public /*out*/ readonly agentVersion: pulumi.Output<string>;
+    public /*out*/ readonly agentVersion!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Device.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The device to register with SageMaker AI Edge Manager. See Device details below.
      */
-    declare public readonly device: pulumi.Output<outputs.sagemaker.DeviceDevice>;
+    public readonly device!: pulumi.Output<outputs.sagemaker.DeviceDevice>;
     /**
      * The name of the Device Fleet.
      */
-    declare public readonly deviceFleetName: pulumi.Output<string>;
+    public readonly deviceFleetName!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a Device resource with the given unique name, arguments, and options.
@@ -93,22 +93,22 @@ export class Device extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DeviceState | undefined;
-            resourceInputs["agentVersion"] = state?.agentVersion;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["device"] = state?.device;
-            resourceInputs["deviceFleetName"] = state?.deviceFleetName;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["agentVersion"] = state ? state.agentVersion : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["device"] = state ? state.device : undefined;
+            resourceInputs["deviceFleetName"] = state ? state.deviceFleetName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as DeviceArgs | undefined;
-            if (args?.device === undefined && !opts.urn) {
+            if ((!args || args.device === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'device'");
             }
-            if (args?.deviceFleetName === undefined && !opts.urn) {
+            if ((!args || args.deviceFleetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deviceFleetName'");
             }
-            resourceInputs["device"] = args?.device;
-            resourceInputs["deviceFleetName"] = args?.deviceFleetName;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["device"] = args ? args.device : undefined;
+            resourceInputs["deviceFleetName"] = args ? args.deviceFleetName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["agentVersion"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
         }

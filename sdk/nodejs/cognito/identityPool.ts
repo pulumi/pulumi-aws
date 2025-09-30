@@ -87,52 +87,52 @@ export class IdentityPool extends pulumi.CustomResource {
     /**
      * Enables or disables the classic / basic authentication flow. Default is `false`.
      */
-    declare public readonly allowClassicFlow: pulumi.Output<boolean | undefined>;
+    public readonly allowClassicFlow!: pulumi.Output<boolean | undefined>;
     /**
      * Whether the identity pool supports unauthenticated logins or not.
      */
-    declare public readonly allowUnauthenticatedIdentities: pulumi.Output<boolean | undefined>;
+    public readonly allowUnauthenticatedIdentities!: pulumi.Output<boolean | undefined>;
     /**
      * The ARN of the identity pool.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * An array of Amazon Cognito Identity user pools and their client IDs.
      */
-    declare public readonly cognitoIdentityProviders: pulumi.Output<outputs.cognito.IdentityPoolCognitoIdentityProvider[] | undefined>;
+    public readonly cognitoIdentityProviders!: pulumi.Output<outputs.cognito.IdentityPoolCognitoIdentityProvider[] | undefined>;
     /**
      * The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your
      * backend and the Cognito service to communicate about the developer provider.
      */
-    declare public readonly developerProviderName: pulumi.Output<string | undefined>;
+    public readonly developerProviderName!: pulumi.Output<string | undefined>;
     /**
      * The Cognito Identity Pool name.
      */
-    declare public readonly identityPoolName: pulumi.Output<string>;
+    public readonly identityPoolName!: pulumi.Output<string>;
     /**
      * Set of OpendID Connect provider ARNs.
      */
-    declare public readonly openidConnectProviderArns: pulumi.Output<string[] | undefined>;
+    public readonly openidConnectProviderArns!: pulumi.Output<string[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
      */
-    declare public readonly samlProviderArns: pulumi.Output<string[] | undefined>;
+    public readonly samlProviderArns!: pulumi.Output<string[] | undefined>;
     /**
      * Key-Value pairs mapping provider names to provider app IDs.
      */
-    declare public readonly supportedLoginProviders: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly supportedLoginProviders!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags to assign to the Identity Pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a IdentityPool resource with the given unique name, arguments, and options.
@@ -147,33 +147,33 @@ export class IdentityPool extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IdentityPoolState | undefined;
-            resourceInputs["allowClassicFlow"] = state?.allowClassicFlow;
-            resourceInputs["allowUnauthenticatedIdentities"] = state?.allowUnauthenticatedIdentities;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["cognitoIdentityProviders"] = state?.cognitoIdentityProviders;
-            resourceInputs["developerProviderName"] = state?.developerProviderName;
-            resourceInputs["identityPoolName"] = state?.identityPoolName;
-            resourceInputs["openidConnectProviderArns"] = state?.openidConnectProviderArns;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["samlProviderArns"] = state?.samlProviderArns;
-            resourceInputs["supportedLoginProviders"] = state?.supportedLoginProviders;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["allowClassicFlow"] = state ? state.allowClassicFlow : undefined;
+            resourceInputs["allowUnauthenticatedIdentities"] = state ? state.allowUnauthenticatedIdentities : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["cognitoIdentityProviders"] = state ? state.cognitoIdentityProviders : undefined;
+            resourceInputs["developerProviderName"] = state ? state.developerProviderName : undefined;
+            resourceInputs["identityPoolName"] = state ? state.identityPoolName : undefined;
+            resourceInputs["openidConnectProviderArns"] = state ? state.openidConnectProviderArns : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["samlProviderArns"] = state ? state.samlProviderArns : undefined;
+            resourceInputs["supportedLoginProviders"] = state ? state.supportedLoginProviders : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as IdentityPoolArgs | undefined;
-            if (args?.identityPoolName === undefined && !opts.urn) {
+            if ((!args || args.identityPoolName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identityPoolName'");
             }
-            resourceInputs["allowClassicFlow"] = args?.allowClassicFlow;
-            resourceInputs["allowUnauthenticatedIdentities"] = args?.allowUnauthenticatedIdentities;
-            resourceInputs["cognitoIdentityProviders"] = args?.cognitoIdentityProviders;
-            resourceInputs["developerProviderName"] = args?.developerProviderName;
-            resourceInputs["identityPoolName"] = args?.identityPoolName;
-            resourceInputs["openidConnectProviderArns"] = args?.openidConnectProviderArns;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["samlProviderArns"] = args?.samlProviderArns;
-            resourceInputs["supportedLoginProviders"] = args?.supportedLoginProviders;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["allowClassicFlow"] = args ? args.allowClassicFlow : undefined;
+            resourceInputs["allowUnauthenticatedIdentities"] = args ? args.allowUnauthenticatedIdentities : undefined;
+            resourceInputs["cognitoIdentityProviders"] = args ? args.cognitoIdentityProviders : undefined;
+            resourceInputs["developerProviderName"] = args ? args.developerProviderName : undefined;
+            resourceInputs["identityPoolName"] = args ? args.identityPoolName : undefined;
+            resourceInputs["openidConnectProviderArns"] = args ? args.openidConnectProviderArns : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["samlProviderArns"] = args ? args.samlProviderArns : undefined;
+            resourceInputs["supportedLoginProviders"] = args ? args.supportedLoginProviders : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

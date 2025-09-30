@@ -107,19 +107,19 @@ export class Instance extends pulumi.CustomResource {
     /**
      * A map contains the attributes of the instance. Check the [doc](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#API_RegisterInstance_RequestSyntax) for the supported attributes and syntax.
      */
-    declare public readonly attributes: pulumi.Output<{[key: string]: string}>;
+    public readonly attributes!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the service instance.
      */
-    declare public readonly instanceId: pulumi.Output<string>;
+    public readonly instanceId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ID of the service that you want to use to create the instance.
      */
-    declare public readonly serviceId: pulumi.Output<string>;
+    public readonly serviceId!: pulumi.Output<string>;
 
     /**
      * Create a Instance resource with the given unique name, arguments, and options.
@@ -134,25 +134,25 @@ export class Instance extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InstanceState | undefined;
-            resourceInputs["attributes"] = state?.attributes;
-            resourceInputs["instanceId"] = state?.instanceId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["serviceId"] = state?.serviceId;
+            resourceInputs["attributes"] = state ? state.attributes : undefined;
+            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["serviceId"] = state ? state.serviceId : undefined;
         } else {
             const args = argsOrState as InstanceArgs | undefined;
-            if (args?.attributes === undefined && !opts.urn) {
+            if ((!args || args.attributes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'attributes'");
             }
-            if (args?.instanceId === undefined && !opts.urn) {
+            if ((!args || args.instanceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            if (args?.serviceId === undefined && !opts.urn) {
+            if ((!args || args.serviceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceId'");
             }
-            resourceInputs["attributes"] = args?.attributes;
-            resourceInputs["instanceId"] = args?.instanceId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["serviceId"] = args?.serviceId;
+            resourceInputs["attributes"] = args ? args.attributes : undefined;
+            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["serviceId"] = args ? args.serviceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Instance.__pulumiType, name, resourceInputs, opts);

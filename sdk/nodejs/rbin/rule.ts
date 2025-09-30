@@ -94,51 +94,51 @@ export class Rule extends pulumi.CustomResource {
         return obj['__pulumiType'] === Rule.__pulumiType;
     }
 
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Retention rule description.
      */
-    declare public readonly description: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `excludeResourceTags` below.
      */
-    declare public readonly excludeResourceTags: pulumi.Output<outputs.rbin.RuleExcludeResourceTag[] | undefined>;
+    public readonly excludeResourceTags!: pulumi.Output<outputs.rbin.RuleExcludeResourceTag[] | undefined>;
     /**
      * Information about the retention rule lock configuration. See `lockConfiguration` below.
      */
-    declare public readonly lockConfiguration: pulumi.Output<outputs.rbin.RuleLockConfiguration | undefined>;
+    public readonly lockConfiguration!: pulumi.Output<outputs.rbin.RuleLockConfiguration | undefined>;
     /**
      * (Timestamp) Date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
      */
-    declare public /*out*/ readonly lockEndTime: pulumi.Output<string>;
+    public /*out*/ readonly lockEndTime!: pulumi.Output<string>;
     /**
      * (Optional) Lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pendingUnlock`, `unlocked`.
      */
-    declare public /*out*/ readonly lockState: pulumi.Output<string>;
+    public /*out*/ readonly lockState!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
      */
-    declare public readonly resourceTags: pulumi.Output<outputs.rbin.RuleResourceTag[] | undefined>;
+    public readonly resourceTags!: pulumi.Output<outputs.rbin.RuleResourceTag[] | undefined>;
     /**
      * Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
      */
-    declare public readonly resourceType: pulumi.Output<string>;
+    public readonly resourceType!: pulumi.Output<string>;
     /**
      * Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
      *
      * The following arguments are optional:
      */
-    declare public readonly retentionPeriod: pulumi.Output<outputs.rbin.RuleRetentionPeriod>;
+    public readonly retentionPeriod!: pulumi.Output<outputs.rbin.RuleRetentionPeriod>;
     /**
      * (String) State of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Rule resource with the given unique name, arguments, and options.
@@ -153,35 +153,35 @@ export class Rule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RuleState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["excludeResourceTags"] = state?.excludeResourceTags;
-            resourceInputs["lockConfiguration"] = state?.lockConfiguration;
-            resourceInputs["lockEndTime"] = state?.lockEndTime;
-            resourceInputs["lockState"] = state?.lockState;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceTags"] = state?.resourceTags;
-            resourceInputs["resourceType"] = state?.resourceType;
-            resourceInputs["retentionPeriod"] = state?.retentionPeriod;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["excludeResourceTags"] = state ? state.excludeResourceTags : undefined;
+            resourceInputs["lockConfiguration"] = state ? state.lockConfiguration : undefined;
+            resourceInputs["lockEndTime"] = state ? state.lockEndTime : undefined;
+            resourceInputs["lockState"] = state ? state.lockState : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceTags"] = state ? state.resourceTags : undefined;
+            resourceInputs["resourceType"] = state ? state.resourceType : undefined;
+            resourceInputs["retentionPeriod"] = state ? state.retentionPeriod : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as RuleArgs | undefined;
-            if (args?.resourceType === undefined && !opts.urn) {
+            if ((!args || args.resourceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            if (args?.retentionPeriod === undefined && !opts.urn) {
+            if ((!args || args.retentionPeriod === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'retentionPeriod'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["excludeResourceTags"] = args?.excludeResourceTags;
-            resourceInputs["lockConfiguration"] = args?.lockConfiguration;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resourceTags"] = args?.resourceTags;
-            resourceInputs["resourceType"] = args?.resourceType;
-            resourceInputs["retentionPeriod"] = args?.retentionPeriod;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["excludeResourceTags"] = args ? args.excludeResourceTags : undefined;
+            resourceInputs["lockConfiguration"] = args ? args.lockConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
+            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
+            resourceInputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["lockEndTime"] = undefined /*out*/;
             resourceInputs["lockState"] = undefined /*out*/;

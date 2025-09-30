@@ -55,45 +55,45 @@ export class Tracker extends pulumi.CustomResource {
     /**
      * The timestamp for when the tracker resource was created in ISO 8601 format.
      */
-    declare public /*out*/ readonly createTime: pulumi.Output<string>;
+    public /*out*/ readonly createTime!: pulumi.Output<string>;
     /**
      * The optional description for the tracker resource.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
      */
-    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
      */
-    declare public readonly positionFiltering: pulumi.Output<string | undefined>;
+    public readonly positionFiltering!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value tags for the tracker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
      */
-    declare public /*out*/ readonly trackerArn: pulumi.Output<string>;
+    public /*out*/ readonly trackerArn!: pulumi.Output<string>;
     /**
      * The name of the tracker resource.
      *
      * The following arguments are optional:
      */
-    declare public readonly trackerName: pulumi.Output<string>;
+    public readonly trackerName!: pulumi.Output<string>;
     /**
      * The timestamp for when the tracker resource was last updated in ISO 8601 format.
      */
-    declare public /*out*/ readonly updateTime: pulumi.Output<string>;
+    public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
     /**
      * Create a Tracker resource with the given unique name, arguments, and options.
@@ -108,27 +108,27 @@ export class Tracker extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TrackerState | undefined;
-            resourceInputs["createTime"] = state?.createTime;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
-            resourceInputs["positionFiltering"] = state?.positionFiltering;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["trackerArn"] = state?.trackerArn;
-            resourceInputs["trackerName"] = state?.trackerName;
-            resourceInputs["updateTime"] = state?.updateTime;
+            resourceInputs["createTime"] = state ? state.createTime : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["positionFiltering"] = state ? state.positionFiltering : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["trackerArn"] = state ? state.trackerArn : undefined;
+            resourceInputs["trackerName"] = state ? state.trackerName : undefined;
+            resourceInputs["updateTime"] = state ? state.updateTime : undefined;
         } else {
             const args = argsOrState as TrackerArgs | undefined;
-            if (args?.trackerName === undefined && !opts.urn) {
+            if ((!args || args.trackerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'trackerName'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
-            resourceInputs["positionFiltering"] = args?.positionFiltering;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["trackerName"] = args?.trackerName;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["positionFiltering"] = args ? args.positionFiltering : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["trackerName"] = args ? args.trackerName : undefined;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["trackerArn"] = undefined /*out*/;

@@ -74,25 +74,25 @@ export class SubscriberNotification extends pulumi.CustomResource {
     /**
      * Specify the configuration using which you want to create the subscriber notification..
      */
-    declare public readonly configuration: pulumi.Output<outputs.securitylake.SubscriberNotificationConfiguration | undefined>;
+    public readonly configuration!: pulumi.Output<outputs.securitylake.SubscriberNotificationConfiguration | undefined>;
     /**
      * (**Deprecated**) The subscriber endpoint to which exception messages are posted.
      *
      * @deprecated Use subscriberEndpoint instead
      */
-    declare public /*out*/ readonly endpointId: pulumi.Output<string>;
+    public /*out*/ readonly endpointId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The subscriber endpoint to which exception messages are posted.
      */
-    declare public /*out*/ readonly subscriberEndpoint: pulumi.Output<string>;
+    public /*out*/ readonly subscriberEndpoint!: pulumi.Output<string>;
     /**
      * The subscriber ID for the notification subscription.
      */
-    declare public readonly subscriberId: pulumi.Output<string>;
+    public readonly subscriberId!: pulumi.Output<string>;
 
     /**
      * Create a SubscriberNotification resource with the given unique name, arguments, and options.
@@ -107,19 +107,19 @@ export class SubscriberNotification extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SubscriberNotificationState | undefined;
-            resourceInputs["configuration"] = state?.configuration;
-            resourceInputs["endpointId"] = state?.endpointId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["subscriberEndpoint"] = state?.subscriberEndpoint;
-            resourceInputs["subscriberId"] = state?.subscriberId;
+            resourceInputs["configuration"] = state ? state.configuration : undefined;
+            resourceInputs["endpointId"] = state ? state.endpointId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["subscriberEndpoint"] = state ? state.subscriberEndpoint : undefined;
+            resourceInputs["subscriberId"] = state ? state.subscriberId : undefined;
         } else {
             const args = argsOrState as SubscriberNotificationArgs | undefined;
-            if (args?.subscriberId === undefined && !opts.urn) {
+            if ((!args || args.subscriberId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subscriberId'");
             }
-            resourceInputs["configuration"] = args?.configuration;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["subscriberId"] = args?.subscriberId;
+            resourceInputs["configuration"] = args ? args.configuration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["subscriberId"] = args ? args.subscriberId : undefined;
             resourceInputs["endpointId"] = undefined /*out*/;
             resourceInputs["subscriberEndpoint"] = undefined /*out*/;
         }

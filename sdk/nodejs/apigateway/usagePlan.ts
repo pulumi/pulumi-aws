@@ -49,43 +49,43 @@ export class UsagePlan extends pulumi.CustomResource {
     /**
      * Associated API stages of the usage plan.
      */
-    declare public readonly apiStages: pulumi.Output<outputs.apigateway.UsagePlanApiStage[] | undefined>;
+    public readonly apiStages!: pulumi.Output<outputs.apigateway.UsagePlanApiStage[] | undefined>;
     /**
      * ARN
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Description of a usage plan.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Name of the usage plan.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
      */
-    declare public readonly productCode: pulumi.Output<string | undefined>;
+    public readonly productCode!: pulumi.Output<string | undefined>;
     /**
      * The quota settings of the usage plan.
      */
-    declare public readonly quotaSettings: pulumi.Output<outputs.apigateway.UsagePlanQuotaSettings | undefined>;
+    public readonly quotaSettings!: pulumi.Output<outputs.apigateway.UsagePlanQuotaSettings | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The throttling limits of the usage plan.
      */
-    declare public readonly throttleSettings: pulumi.Output<outputs.apigateway.UsagePlanThrottleSettings | undefined>;
+    public readonly throttleSettings!: pulumi.Output<outputs.apigateway.UsagePlanThrottleSettings | undefined>;
 
     /**
      * Create a UsagePlan resource with the given unique name, arguments, and options.
@@ -100,26 +100,26 @@ export class UsagePlan extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UsagePlanState | undefined;
-            resourceInputs["apiStages"] = state?.apiStages;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["productCode"] = state?.productCode;
-            resourceInputs["quotaSettings"] = state?.quotaSettings;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["throttleSettings"] = state?.throttleSettings;
+            resourceInputs["apiStages"] = state ? state.apiStages : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["productCode"] = state ? state.productCode : undefined;
+            resourceInputs["quotaSettings"] = state ? state.quotaSettings : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["throttleSettings"] = state ? state.throttleSettings : undefined;
         } else {
             const args = argsOrState as UsagePlanArgs | undefined;
-            resourceInputs["apiStages"] = args?.apiStages;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["productCode"] = args?.productCode;
-            resourceInputs["quotaSettings"] = args?.quotaSettings;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["throttleSettings"] = args?.throttleSettings;
+            resourceInputs["apiStages"] = args ? args.apiStages : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["productCode"] = args ? args.productCode : undefined;
+            resourceInputs["quotaSettings"] = args ? args.quotaSettings : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["throttleSettings"] = args ? args.throttleSettings : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

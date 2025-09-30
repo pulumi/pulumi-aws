@@ -63,43 +63,43 @@ export class UserProfile extends pulumi.CustomResource {
     /**
      * The user profile Amazon Resource Name (ARN).
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The ID of the associated Domain.
      */
-    declare public readonly domainId: pulumi.Output<string>;
+    public readonly domainId!: pulumi.Output<string>;
     /**
      * The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
      */
-    declare public /*out*/ readonly homeEfsFileSystemUid: pulumi.Output<string>;
+    public /*out*/ readonly homeEfsFileSystemUid!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A specifier for the type of value specified in `singleSignOnUserValue`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
      */
-    declare public readonly singleSignOnUserIdentifier: pulumi.Output<string | undefined>;
+    public readonly singleSignOnUserIdentifier!: pulumi.Output<string | undefined>;
     /**
      * The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
      */
-    declare public readonly singleSignOnUserValue: pulumi.Output<string | undefined>;
+    public readonly singleSignOnUserValue!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The name for the User Profile.
      */
-    declare public readonly userProfileName: pulumi.Output<string>;
+    public readonly userProfileName!: pulumi.Output<string>;
     /**
      * The user settings. See User Settings below.
      */
-    declare public readonly userSettings: pulumi.Output<outputs.sagemaker.UserProfileUserSettings | undefined>;
+    public readonly userSettings!: pulumi.Output<outputs.sagemaker.UserProfileUserSettings | undefined>;
 
     /**
      * Create a UserProfile resource with the given unique name, arguments, and options.
@@ -114,31 +114,31 @@ export class UserProfile extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserProfileState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["domainId"] = state?.domainId;
-            resourceInputs["homeEfsFileSystemUid"] = state?.homeEfsFileSystemUid;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["singleSignOnUserIdentifier"] = state?.singleSignOnUserIdentifier;
-            resourceInputs["singleSignOnUserValue"] = state?.singleSignOnUserValue;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["userProfileName"] = state?.userProfileName;
-            resourceInputs["userSettings"] = state?.userSettings;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["domainId"] = state ? state.domainId : undefined;
+            resourceInputs["homeEfsFileSystemUid"] = state ? state.homeEfsFileSystemUid : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["singleSignOnUserIdentifier"] = state ? state.singleSignOnUserIdentifier : undefined;
+            resourceInputs["singleSignOnUserValue"] = state ? state.singleSignOnUserValue : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["userProfileName"] = state ? state.userProfileName : undefined;
+            resourceInputs["userSettings"] = state ? state.userSettings : undefined;
         } else {
             const args = argsOrState as UserProfileArgs | undefined;
-            if (args?.domainId === undefined && !opts.urn) {
+            if ((!args || args.domainId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainId'");
             }
-            if (args?.userProfileName === undefined && !opts.urn) {
+            if ((!args || args.userProfileName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userProfileName'");
             }
-            resourceInputs["domainId"] = args?.domainId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["singleSignOnUserIdentifier"] = args?.singleSignOnUserIdentifier;
-            resourceInputs["singleSignOnUserValue"] = args?.singleSignOnUserValue;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["userProfileName"] = args?.userProfileName;
-            resourceInputs["userSettings"] = args?.userSettings;
+            resourceInputs["domainId"] = args ? args.domainId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["singleSignOnUserIdentifier"] = args ? args.singleSignOnUserIdentifier : undefined;
+            resourceInputs["singleSignOnUserValue"] = args ? args.singleSignOnUserValue : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userProfileName"] = args ? args.userProfileName : undefined;
+            resourceInputs["userSettings"] = args ? args.userSettings : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["homeEfsFileSystemUid"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

@@ -75,39 +75,39 @@ export class VpcIpv6CidrBlockAssociation extends pulumi.CustomResource {
     /**
      * Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`, `ipv6Pool`, `ipv6CidrBlock` and `ipv6NetmaskLength`.
      */
-    declare public readonly assignGeneratedIpv6CidrBlock: pulumi.Output<boolean>;
+    public readonly assignGeneratedIpv6CidrBlock!: pulumi.Output<boolean>;
     /**
      * The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
      */
-    declare public /*out*/ readonly ipSource: pulumi.Output<string>;
+    public /*out*/ readonly ipSource!: pulumi.Output<string>;
     /**
      * Public IPv6 addresses are those advertised on the internet from AWS. Private IP addresses are not and cannot be advertised on the internet from AWS. Values: `public`, `private`.
      */
-    declare public /*out*/ readonly ipv6AddressAttribute: pulumi.Output<string>;
+    public /*out*/ readonly ipv6AddressAttribute!: pulumi.Output<string>;
     /**
      * The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6NetmaskLength`. This parameter is required if `ipv6NetmaskLength` is not set and the IPAM pool does not have `allocationDefaultNetmask` set. Conflicts with `assignGeneratedIpv6CidrBlock`.
      */
-    declare public readonly ipv6CidrBlock: pulumi.Output<string>;
+    public readonly ipv6CidrBlock!: pulumi.Output<string>;
     /**
      * The ID of an IPv6 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Conflict with `assignGeneratedIpv6CidrBlock` and `ipv6Pool`.
      */
-    declare public readonly ipv6IpamPoolId: pulumi.Output<string | undefined>;
+    public readonly ipv6IpamPoolId!: pulumi.Output<string | undefined>;
     /**
      * The netmask length of the IPv6 CIDR you want to allocate to this VPC. Requires specifying a `ipv6IpamPoolId`. This parameter is optional if the IPAM pool has `allocationDefaultNetmask` set, otherwise it or `ipv6CidrBlock` are required. Conflicts with `ipv6CidrBlock`.
      */
-    declare public readonly ipv6NetmaskLength: pulumi.Output<number | undefined>;
+    public readonly ipv6NetmaskLength!: pulumi.Output<number | undefined>;
     /**
      * The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assignGeneratedIpv6CidrBlock` and `ipv6IpamPoolId`.
      */
-    declare public readonly ipv6Pool: pulumi.Output<string>;
+    public readonly ipv6Pool!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ID of the VPC to make the association with.
      */
-    declare public readonly vpcId: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a VpcIpv6CidrBlockAssociation resource with the given unique name, arguments, and options.
@@ -122,27 +122,27 @@ export class VpcIpv6CidrBlockAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcIpv6CidrBlockAssociationState | undefined;
-            resourceInputs["assignGeneratedIpv6CidrBlock"] = state?.assignGeneratedIpv6CidrBlock;
-            resourceInputs["ipSource"] = state?.ipSource;
-            resourceInputs["ipv6AddressAttribute"] = state?.ipv6AddressAttribute;
-            resourceInputs["ipv6CidrBlock"] = state?.ipv6CidrBlock;
-            resourceInputs["ipv6IpamPoolId"] = state?.ipv6IpamPoolId;
-            resourceInputs["ipv6NetmaskLength"] = state?.ipv6NetmaskLength;
-            resourceInputs["ipv6Pool"] = state?.ipv6Pool;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["vpcId"] = state?.vpcId;
+            resourceInputs["assignGeneratedIpv6CidrBlock"] = state ? state.assignGeneratedIpv6CidrBlock : undefined;
+            resourceInputs["ipSource"] = state ? state.ipSource : undefined;
+            resourceInputs["ipv6AddressAttribute"] = state ? state.ipv6AddressAttribute : undefined;
+            resourceInputs["ipv6CidrBlock"] = state ? state.ipv6CidrBlock : undefined;
+            resourceInputs["ipv6IpamPoolId"] = state ? state.ipv6IpamPoolId : undefined;
+            resourceInputs["ipv6NetmaskLength"] = state ? state.ipv6NetmaskLength : undefined;
+            resourceInputs["ipv6Pool"] = state ? state.ipv6Pool : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as VpcIpv6CidrBlockAssociationArgs | undefined;
-            if (args?.vpcId === undefined && !opts.urn) {
+            if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["assignGeneratedIpv6CidrBlock"] = args?.assignGeneratedIpv6CidrBlock;
-            resourceInputs["ipv6CidrBlock"] = args?.ipv6CidrBlock;
-            resourceInputs["ipv6IpamPoolId"] = args?.ipv6IpamPoolId;
-            resourceInputs["ipv6NetmaskLength"] = args?.ipv6NetmaskLength;
-            resourceInputs["ipv6Pool"] = args?.ipv6Pool;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["vpcId"] = args?.vpcId;
+            resourceInputs["assignGeneratedIpv6CidrBlock"] = args ? args.assignGeneratedIpv6CidrBlock : undefined;
+            resourceInputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
+            resourceInputs["ipv6IpamPoolId"] = args ? args.ipv6IpamPoolId : undefined;
+            resourceInputs["ipv6NetmaskLength"] = args ? args.ipv6NetmaskLength : undefined;
+            resourceInputs["ipv6Pool"] = args ? args.ipv6Pool : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["ipSource"] = undefined /*out*/;
             resourceInputs["ipv6AddressAttribute"] = undefined /*out*/;
         }

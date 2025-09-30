@@ -91,58 +91,58 @@ export class Workflow extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the workflow.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Change description of the workflow.
      */
-    declare public readonly changeDescription: pulumi.Output<string | undefined>;
+    public readonly changeDescription!: pulumi.Output<string | undefined>;
     /**
      * Inline YAML string with data of the workflow. Exactly one of `data` and `uri` can be specified.
      */
-    declare public readonly data: pulumi.Output<string>;
+    public readonly data!: pulumi.Output<string>;
     /**
      * Date the workflow was created.
      */
-    declare public /*out*/ readonly dateCreated: pulumi.Output<string>;
+    public /*out*/ readonly dateCreated!: pulumi.Output<string>;
     /**
      * Description of the workflow.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
      */
-    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * Name of the workflow.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Owner of the workflow.
      */
-    declare public /*out*/ readonly owner: pulumi.Output<string>;
+    public /*out*/ readonly owner!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags for the workflow. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Type of the workflow. Valid values: `BUILD`, `TEST`.
      */
-    declare public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
     /**
      * S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
      */
-    declare public readonly uri: pulumi.Output<string | undefined>;
+    public readonly uri!: pulumi.Output<string | undefined>;
     /**
      * Version of the workflow.
      *
      * The following arguments are optional:
      */
-    declare public readonly version: pulumi.Output<string>;
+    public readonly version!: pulumi.Output<string>;
 
     /**
      * Create a Workflow resource with the given unique name, arguments, and options.
@@ -157,38 +157,38 @@ export class Workflow extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkflowState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["changeDescription"] = state?.changeDescription;
-            resourceInputs["data"] = state?.data;
-            resourceInputs["dateCreated"] = state?.dateCreated;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["owner"] = state?.owner;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["type"] = state?.type;
-            resourceInputs["uri"] = state?.uri;
-            resourceInputs["version"] = state?.version;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["changeDescription"] = state ? state.changeDescription : undefined;
+            resourceInputs["data"] = state ? state.data : undefined;
+            resourceInputs["dateCreated"] = state ? state.dateCreated : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["owner"] = state ? state.owner : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["uri"] = state ? state.uri : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as WorkflowArgs | undefined;
-            if (args?.type === undefined && !opts.urn) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            if (args?.version === undefined && !opts.urn) {
+            if ((!args || args.version === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            resourceInputs["changeDescription"] = args?.changeDescription;
-            resourceInputs["data"] = args?.data;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["type"] = args?.type;
-            resourceInputs["uri"] = args?.uri;
-            resourceInputs["version"] = args?.version;
+            resourceInputs["changeDescription"] = args ? args.changeDescription : undefined;
+            resourceInputs["data"] = args ? args.data : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["uri"] = args ? args.uri : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dateCreated"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;

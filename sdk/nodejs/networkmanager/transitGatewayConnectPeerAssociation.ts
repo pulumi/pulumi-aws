@@ -59,21 +59,21 @@ export class TransitGatewayConnectPeerAssociation extends pulumi.CustomResource 
     /**
      * ID of the device.
      */
-    declare public readonly deviceId: pulumi.Output<string>;
+    public readonly deviceId!: pulumi.Output<string>;
     /**
      * ID of the global network.
      */
-    declare public readonly globalNetworkId: pulumi.Output<string>;
+    public readonly globalNetworkId!: pulumi.Output<string>;
     /**
      * ID of the link.
      */
-    declare public readonly linkId: pulumi.Output<string | undefined>;
+    public readonly linkId!: pulumi.Output<string | undefined>;
     /**
      * ARN of the Connect peer.
      *
      * The following arguments are optional:
      */
-    declare public readonly transitGatewayConnectPeerArn: pulumi.Output<string>;
+    public readonly transitGatewayConnectPeerArn!: pulumi.Output<string>;
 
     /**
      * Create a TransitGatewayConnectPeerAssociation resource with the given unique name, arguments, and options.
@@ -88,25 +88,25 @@ export class TransitGatewayConnectPeerAssociation extends pulumi.CustomResource 
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TransitGatewayConnectPeerAssociationState | undefined;
-            resourceInputs["deviceId"] = state?.deviceId;
-            resourceInputs["globalNetworkId"] = state?.globalNetworkId;
-            resourceInputs["linkId"] = state?.linkId;
-            resourceInputs["transitGatewayConnectPeerArn"] = state?.transitGatewayConnectPeerArn;
+            resourceInputs["deviceId"] = state ? state.deviceId : undefined;
+            resourceInputs["globalNetworkId"] = state ? state.globalNetworkId : undefined;
+            resourceInputs["linkId"] = state ? state.linkId : undefined;
+            resourceInputs["transitGatewayConnectPeerArn"] = state ? state.transitGatewayConnectPeerArn : undefined;
         } else {
             const args = argsOrState as TransitGatewayConnectPeerAssociationArgs | undefined;
-            if (args?.deviceId === undefined && !opts.urn) {
+            if ((!args || args.deviceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deviceId'");
             }
-            if (args?.globalNetworkId === undefined && !opts.urn) {
+            if ((!args || args.globalNetworkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'globalNetworkId'");
             }
-            if (args?.transitGatewayConnectPeerArn === undefined && !opts.urn) {
+            if ((!args || args.transitGatewayConnectPeerArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayConnectPeerArn'");
             }
-            resourceInputs["deviceId"] = args?.deviceId;
-            resourceInputs["globalNetworkId"] = args?.globalNetworkId;
-            resourceInputs["linkId"] = args?.linkId;
-            resourceInputs["transitGatewayConnectPeerArn"] = args?.transitGatewayConnectPeerArn;
+            resourceInputs["deviceId"] = args ? args.deviceId : undefined;
+            resourceInputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
+            resourceInputs["linkId"] = args ? args.linkId : undefined;
+            resourceInputs["transitGatewayConnectPeerArn"] = args ? args.transitGatewayConnectPeerArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TransitGatewayConnectPeerAssociation.__pulumiType, name, resourceInputs, opts);

@@ -61,39 +61,39 @@ export class ResolverFirewallRuleGroupAssociation extends pulumi.CustomResource 
     /**
      * The ARN (Amazon Resource Name) of the firewall rule group association.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The unique identifier of the firewall rule group.
      */
-    declare public readonly firewallRuleGroupId: pulumi.Output<string>;
+    public readonly firewallRuleGroupId!: pulumi.Output<string>;
     /**
      * If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
      */
-    declare public readonly mutationProtection: pulumi.Output<string>;
+    public readonly mutationProtection!: pulumi.Output<string>;
     /**
      * A name that lets you identify the rule group association, to manage and use it.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
      */
-    declare public readonly priority: pulumi.Output<number>;
+    public readonly priority!: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The unique identifier of the VPC that you want to associate with the rule group.
      */
-    declare public readonly vpcId: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a ResolverFirewallRuleGroupAssociation resource with the given unique name, arguments, and options.
@@ -108,33 +108,33 @@ export class ResolverFirewallRuleGroupAssociation extends pulumi.CustomResource 
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResolverFirewallRuleGroupAssociationState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["firewallRuleGroupId"] = state?.firewallRuleGroupId;
-            resourceInputs["mutationProtection"] = state?.mutationProtection;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["priority"] = state?.priority;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["vpcId"] = state?.vpcId;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["firewallRuleGroupId"] = state ? state.firewallRuleGroupId : undefined;
+            resourceInputs["mutationProtection"] = state ? state.mutationProtection : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as ResolverFirewallRuleGroupAssociationArgs | undefined;
-            if (args?.firewallRuleGroupId === undefined && !opts.urn) {
+            if ((!args || args.firewallRuleGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'firewallRuleGroupId'");
             }
-            if (args?.priority === undefined && !opts.urn) {
+            if ((!args || args.priority === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            if (args?.vpcId === undefined && !opts.urn) {
+            if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["firewallRuleGroupId"] = args?.firewallRuleGroupId;
-            resourceInputs["mutationProtection"] = args?.mutationProtection;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["priority"] = args?.priority;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["vpcId"] = args?.vpcId;
+            resourceInputs["firewallRuleGroupId"] = args ? args.firewallRuleGroupId : undefined;
+            resourceInputs["mutationProtection"] = args ? args.mutationProtection : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

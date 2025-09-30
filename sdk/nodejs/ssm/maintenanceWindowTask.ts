@@ -172,63 +172,63 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
     /**
      * The ARN of the maintenance window task.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
      */
-    declare public readonly cutoffBehavior: pulumi.Output<string | undefined>;
+    public readonly cutoffBehavior!: pulumi.Output<string | undefined>;
     /**
      * The description of the maintenance window task.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The maximum number of targets this task can be run for in parallel.
      */
-    declare public readonly maxConcurrency: pulumi.Output<string>;
+    public readonly maxConcurrency!: pulumi.Output<string>;
     /**
      * The maximum number of errors allowed before this task stops being scheduled.
      */
-    declare public readonly maxErrors: pulumi.Output<string>;
+    public readonly maxErrors!: pulumi.Output<string>;
     /**
      * The name of the maintenance window task.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
      */
-    declare public readonly priority: pulumi.Output<number | undefined>;
+    public readonly priority!: pulumi.Output<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
      */
-    declare public readonly serviceRoleArn: pulumi.Output<string>;
+    public readonly serviceRoleArn!: pulumi.Output<string>;
     /**
      * The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
      */
-    declare public readonly targets: pulumi.Output<outputs.ssm.MaintenanceWindowTaskTarget[] | undefined>;
+    public readonly targets!: pulumi.Output<outputs.ssm.MaintenanceWindowTaskTarget[] | undefined>;
     /**
      * The ARN of the task to execute.
      */
-    declare public readonly taskArn: pulumi.Output<string>;
+    public readonly taskArn!: pulumi.Output<string>;
     /**
      * Configuration block with parameters for task execution.
      */
-    declare public readonly taskInvocationParameters: pulumi.Output<outputs.ssm.MaintenanceWindowTaskTaskInvocationParameters | undefined>;
+    public readonly taskInvocationParameters!: pulumi.Output<outputs.ssm.MaintenanceWindowTaskTaskInvocationParameters | undefined>;
     /**
      * The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
      */
-    declare public readonly taskType: pulumi.Output<string>;
+    public readonly taskType!: pulumi.Output<string>;
     /**
      * The Id of the maintenance window to register the task with.
      */
-    declare public readonly windowId: pulumi.Output<string>;
+    public readonly windowId!: pulumi.Output<string>;
     /**
      * The ID of the maintenance window task.
      */
-    declare public /*out*/ readonly windowTaskId: pulumi.Output<string>;
+    public /*out*/ readonly windowTaskId!: pulumi.Output<string>;
 
     /**
      * Create a MaintenanceWindowTask resource with the given unique name, arguments, and options.
@@ -243,45 +243,45 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MaintenanceWindowTaskState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["cutoffBehavior"] = state?.cutoffBehavior;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["maxConcurrency"] = state?.maxConcurrency;
-            resourceInputs["maxErrors"] = state?.maxErrors;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["priority"] = state?.priority;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["serviceRoleArn"] = state?.serviceRoleArn;
-            resourceInputs["targets"] = state?.targets;
-            resourceInputs["taskArn"] = state?.taskArn;
-            resourceInputs["taskInvocationParameters"] = state?.taskInvocationParameters;
-            resourceInputs["taskType"] = state?.taskType;
-            resourceInputs["windowId"] = state?.windowId;
-            resourceInputs["windowTaskId"] = state?.windowTaskId;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["cutoffBehavior"] = state ? state.cutoffBehavior : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["maxConcurrency"] = state ? state.maxConcurrency : undefined;
+            resourceInputs["maxErrors"] = state ? state.maxErrors : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["serviceRoleArn"] = state ? state.serviceRoleArn : undefined;
+            resourceInputs["targets"] = state ? state.targets : undefined;
+            resourceInputs["taskArn"] = state ? state.taskArn : undefined;
+            resourceInputs["taskInvocationParameters"] = state ? state.taskInvocationParameters : undefined;
+            resourceInputs["taskType"] = state ? state.taskType : undefined;
+            resourceInputs["windowId"] = state ? state.windowId : undefined;
+            resourceInputs["windowTaskId"] = state ? state.windowTaskId : undefined;
         } else {
             const args = argsOrState as MaintenanceWindowTaskArgs | undefined;
-            if (args?.taskArn === undefined && !opts.urn) {
+            if ((!args || args.taskArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'taskArn'");
             }
-            if (args?.taskType === undefined && !opts.urn) {
+            if ((!args || args.taskType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'taskType'");
             }
-            if (args?.windowId === undefined && !opts.urn) {
+            if ((!args || args.windowId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'windowId'");
             }
-            resourceInputs["cutoffBehavior"] = args?.cutoffBehavior;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["maxConcurrency"] = args?.maxConcurrency;
-            resourceInputs["maxErrors"] = args?.maxErrors;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["priority"] = args?.priority;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["serviceRoleArn"] = args?.serviceRoleArn;
-            resourceInputs["targets"] = args?.targets;
-            resourceInputs["taskArn"] = args?.taskArn;
-            resourceInputs["taskInvocationParameters"] = args?.taskInvocationParameters;
-            resourceInputs["taskType"] = args?.taskType;
-            resourceInputs["windowId"] = args?.windowId;
+            resourceInputs["cutoffBehavior"] = args ? args.cutoffBehavior : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["maxConcurrency"] = args ? args.maxConcurrency : undefined;
+            resourceInputs["maxErrors"] = args ? args.maxErrors : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
+            resourceInputs["targets"] = args ? args.targets : undefined;
+            resourceInputs["taskArn"] = args ? args.taskArn : undefined;
+            resourceInputs["taskInvocationParameters"] = args ? args.taskInvocationParameters : undefined;
+            resourceInputs["taskType"] = args ? args.taskType : undefined;
+            resourceInputs["windowId"] = args ? args.windowId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["windowTaskId"] = undefined /*out*/;
         }

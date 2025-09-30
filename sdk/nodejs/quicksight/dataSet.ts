@@ -209,75 +209,75 @@ export class DataSet extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the data set.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
-    declare public readonly awsAccountId: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public readonly awsAccountId!: pulumi.Output<string>;
     /**
      * Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
      */
-    declare public readonly columnGroups: pulumi.Output<outputs.quicksight.DataSetColumnGroup[] | undefined>;
+    public readonly columnGroups!: pulumi.Output<outputs.quicksight.DataSetColumnGroup[] | undefined>;
     /**
      * A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
      */
-    declare public readonly columnLevelPermissionRules: pulumi.Output<outputs.quicksight.DataSetColumnLevelPermissionRule[] | undefined>;
+    public readonly columnLevelPermissionRules!: pulumi.Output<outputs.quicksight.DataSetColumnLevelPermissionRule[] | undefined>;
     /**
      * Identifier for the data set.
      */
-    declare public readonly dataSetId: pulumi.Output<string>;
+    public readonly dataSetId!: pulumi.Output<string>;
     /**
      * The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
      */
-    declare public readonly dataSetUsageConfiguration: pulumi.Output<outputs.quicksight.DataSetDataSetUsageConfiguration>;
+    public readonly dataSetUsageConfiguration!: pulumi.Output<outputs.quicksight.DataSetDataSetUsageConfiguration>;
     /**
      * The folder that contains fields and nested subfolders for your dataset. See field_folders.
      */
-    declare public readonly fieldFolders: pulumi.Output<outputs.quicksight.DataSetFieldFolder[] | undefined>;
+    public readonly fieldFolders!: pulumi.Output<outputs.quicksight.DataSetFieldFolder[] | undefined>;
     /**
      * Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
      */
-    declare public readonly importMode: pulumi.Output<string>;
+    public readonly importMode!: pulumi.Output<string>;
     /**
      * Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
      */
-    declare public readonly logicalTableMaps: pulumi.Output<outputs.quicksight.DataSetLogicalTableMap[]>;
+    public readonly logicalTableMaps!: pulumi.Output<outputs.quicksight.DataSetLogicalTableMap[]>;
     /**
      * Display name for the dataset.
      *
      * The following arguments are optional:
      */
-    declare public readonly name: pulumi.Output<string>;
-    declare public /*out*/ readonly outputColumns: pulumi.Output<outputs.quicksight.DataSetOutputColumn[]>;
+    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly outputColumns!: pulumi.Output<outputs.quicksight.DataSetOutputColumn[]>;
     /**
      * A set of resource permissions on the data source. Maximum of 64 items. See permissions.
      */
-    declare public readonly permissions: pulumi.Output<outputs.quicksight.DataSetPermission[] | undefined>;
+    public readonly permissions!: pulumi.Output<outputs.quicksight.DataSetPermission[] | undefined>;
     /**
      * Declares the physical tables that are available in the underlying data sources. See physical_table_map.
      */
-    declare public readonly physicalTableMaps: pulumi.Output<outputs.quicksight.DataSetPhysicalTableMap[] | undefined>;
+    public readonly physicalTableMaps!: pulumi.Output<outputs.quicksight.DataSetPhysicalTableMap[] | undefined>;
     /**
      * The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
      */
-    declare public readonly refreshProperties: pulumi.Output<outputs.quicksight.DataSetRefreshProperties | undefined>;
+    public readonly refreshProperties!: pulumi.Output<outputs.quicksight.DataSetRefreshProperties | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
      */
-    declare public readonly rowLevelPermissionDataSet: pulumi.Output<outputs.quicksight.DataSetRowLevelPermissionDataSet | undefined>;
+    public readonly rowLevelPermissionDataSet!: pulumi.Output<outputs.quicksight.DataSetRowLevelPermissionDataSet | undefined>;
     /**
      * The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
      */
-    declare public readonly rowLevelPermissionTagConfiguration: pulumi.Output<outputs.quicksight.DataSetRowLevelPermissionTagConfiguration | undefined>;
+    public readonly rowLevelPermissionTagConfiguration!: pulumi.Output<outputs.quicksight.DataSetRowLevelPermissionTagConfiguration | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a DataSet resource with the given unique name, arguments, and options.
@@ -292,49 +292,49 @@ export class DataSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataSetState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["awsAccountId"] = state?.awsAccountId;
-            resourceInputs["columnGroups"] = state?.columnGroups;
-            resourceInputs["columnLevelPermissionRules"] = state?.columnLevelPermissionRules;
-            resourceInputs["dataSetId"] = state?.dataSetId;
-            resourceInputs["dataSetUsageConfiguration"] = state?.dataSetUsageConfiguration;
-            resourceInputs["fieldFolders"] = state?.fieldFolders;
-            resourceInputs["importMode"] = state?.importMode;
-            resourceInputs["logicalTableMaps"] = state?.logicalTableMaps;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["outputColumns"] = state?.outputColumns;
-            resourceInputs["permissions"] = state?.permissions;
-            resourceInputs["physicalTableMaps"] = state?.physicalTableMaps;
-            resourceInputs["refreshProperties"] = state?.refreshProperties;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["rowLevelPermissionDataSet"] = state?.rowLevelPermissionDataSet;
-            resourceInputs["rowLevelPermissionTagConfiguration"] = state?.rowLevelPermissionTagConfiguration;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
+            resourceInputs["columnGroups"] = state ? state.columnGroups : undefined;
+            resourceInputs["columnLevelPermissionRules"] = state ? state.columnLevelPermissionRules : undefined;
+            resourceInputs["dataSetId"] = state ? state.dataSetId : undefined;
+            resourceInputs["dataSetUsageConfiguration"] = state ? state.dataSetUsageConfiguration : undefined;
+            resourceInputs["fieldFolders"] = state ? state.fieldFolders : undefined;
+            resourceInputs["importMode"] = state ? state.importMode : undefined;
+            resourceInputs["logicalTableMaps"] = state ? state.logicalTableMaps : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["outputColumns"] = state ? state.outputColumns : undefined;
+            resourceInputs["permissions"] = state ? state.permissions : undefined;
+            resourceInputs["physicalTableMaps"] = state ? state.physicalTableMaps : undefined;
+            resourceInputs["refreshProperties"] = state ? state.refreshProperties : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["rowLevelPermissionDataSet"] = state ? state.rowLevelPermissionDataSet : undefined;
+            resourceInputs["rowLevelPermissionTagConfiguration"] = state ? state.rowLevelPermissionTagConfiguration : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as DataSetArgs | undefined;
-            if (args?.dataSetId === undefined && !opts.urn) {
+            if ((!args || args.dataSetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataSetId'");
             }
-            if (args?.importMode === undefined && !opts.urn) {
+            if ((!args || args.importMode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'importMode'");
             }
-            resourceInputs["awsAccountId"] = args?.awsAccountId;
-            resourceInputs["columnGroups"] = args?.columnGroups;
-            resourceInputs["columnLevelPermissionRules"] = args?.columnLevelPermissionRules;
-            resourceInputs["dataSetId"] = args?.dataSetId;
-            resourceInputs["dataSetUsageConfiguration"] = args?.dataSetUsageConfiguration;
-            resourceInputs["fieldFolders"] = args?.fieldFolders;
-            resourceInputs["importMode"] = args?.importMode;
-            resourceInputs["logicalTableMaps"] = args?.logicalTableMaps;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["permissions"] = args?.permissions;
-            resourceInputs["physicalTableMaps"] = args?.physicalTableMaps;
-            resourceInputs["refreshProperties"] = args?.refreshProperties;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["rowLevelPermissionDataSet"] = args?.rowLevelPermissionDataSet;
-            resourceInputs["rowLevelPermissionTagConfiguration"] = args?.rowLevelPermissionTagConfiguration;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
+            resourceInputs["columnGroups"] = args ? args.columnGroups : undefined;
+            resourceInputs["columnLevelPermissionRules"] = args ? args.columnLevelPermissionRules : undefined;
+            resourceInputs["dataSetId"] = args ? args.dataSetId : undefined;
+            resourceInputs["dataSetUsageConfiguration"] = args ? args.dataSetUsageConfiguration : undefined;
+            resourceInputs["fieldFolders"] = args ? args.fieldFolders : undefined;
+            resourceInputs["importMode"] = args ? args.importMode : undefined;
+            resourceInputs["logicalTableMaps"] = args ? args.logicalTableMaps : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["physicalTableMaps"] = args ? args.physicalTableMaps : undefined;
+            resourceInputs["refreshProperties"] = args ? args.refreshProperties : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["rowLevelPermissionDataSet"] = args ? args.rowLevelPermissionDataSet : undefined;
+            resourceInputs["rowLevelPermissionTagConfiguration"] = args ? args.rowLevelPermissionTagConfiguration : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["outputColumns"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

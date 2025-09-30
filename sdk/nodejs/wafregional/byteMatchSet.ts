@@ -69,15 +69,15 @@ export class ByteMatchSet extends pulumi.CustomResource {
     /**
      * Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
      */
-    declare public readonly byteMatchTuples: pulumi.Output<outputs.wafregional.ByteMatchSetByteMatchTuple[] | undefined>;
+    public readonly byteMatchTuples!: pulumi.Output<outputs.wafregional.ByteMatchSetByteMatchTuple[] | undefined>;
     /**
      * The name or description of the ByteMatchSet.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ByteMatchSet resource with the given unique name, arguments, and options.
@@ -92,14 +92,14 @@ export class ByteMatchSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ByteMatchSetState | undefined;
-            resourceInputs["byteMatchTuples"] = state?.byteMatchTuples;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["byteMatchTuples"] = state ? state.byteMatchTuples : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ByteMatchSetArgs | undefined;
-            resourceInputs["byteMatchTuples"] = args?.byteMatchTuples;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["byteMatchTuples"] = args ? args.byteMatchTuples : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ByteMatchSet.__pulumiType, name, resourceInputs, opts);

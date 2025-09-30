@@ -66,73 +66,73 @@ export class Stage extends pulumi.CustomResource {
      * Settings for logging access in this stage.
      * Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
      */
-    declare public readonly accessLogSettings: pulumi.Output<outputs.apigatewayv2.StageAccessLogSettings | undefined>;
+    public readonly accessLogSettings!: pulumi.Output<outputs.apigatewayv2.StageAccessLogSettings | undefined>;
     /**
      * API identifier.
      */
-    declare public readonly apiId: pulumi.Output<string>;
+    public readonly apiId!: pulumi.Output<string>;
     /**
      * ARN of the stage.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs.
      */
-    declare public readonly autoDeploy: pulumi.Output<boolean | undefined>;
+    public readonly autoDeploy!: pulumi.Output<boolean | undefined>;
     /**
      * Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
      * Supported only for WebSocket APIs.
      */
-    declare public readonly clientCertificateId: pulumi.Output<string | undefined>;
+    public readonly clientCertificateId!: pulumi.Output<string | undefined>;
     /**
      * Default route settings for the stage.
      */
-    declare public readonly defaultRouteSettings: pulumi.Output<outputs.apigatewayv2.StageDefaultRouteSettings | undefined>;
+    public readonly defaultRouteSettings!: pulumi.Output<outputs.apigatewayv2.StageDefaultRouteSettings | undefined>;
     /**
      * Deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
      */
-    declare public readonly deploymentId: pulumi.Output<string>;
+    public readonly deploymentId!: pulumi.Output<string>;
     /**
      * Description for the stage. Must be less than or equal to 1024 characters in length.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * ARN prefix to be used in an `aws.lambda.Permission`'s `sourceArn` attribute.
      * For WebSocket APIs this attribute can additionally be used in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      */
-    declare public /*out*/ readonly executionArn: pulumi.Output<string>;
+    public /*out*/ readonly executionArn!: pulumi.Output<string>;
     /**
      * URL to invoke the API pointing to the stage,
      * e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
      */
-    declare public /*out*/ readonly invokeUrl: pulumi.Output<string>;
+    public /*out*/ readonly invokeUrl!: pulumi.Output<string>;
     /**
      * Name of the stage. Must be between 1 and 128 characters in length.
      *
      * The following arguments are optional:
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Route settings for the stage.
      */
-    declare public readonly routeSettings: pulumi.Output<outputs.apigatewayv2.StageRouteSetting[] | undefined>;
+    public readonly routeSettings!: pulumi.Output<outputs.apigatewayv2.StageRouteSetting[] | undefined>;
     /**
      * Map that defines the stage variables for the stage.
      */
-    declare public readonly stageVariables: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly stageVariables!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags to assign to the stage. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Stage resource with the given unique name, arguments, and options.
@@ -147,39 +147,39 @@ export class Stage extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StageState | undefined;
-            resourceInputs["accessLogSettings"] = state?.accessLogSettings;
-            resourceInputs["apiId"] = state?.apiId;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["autoDeploy"] = state?.autoDeploy;
-            resourceInputs["clientCertificateId"] = state?.clientCertificateId;
-            resourceInputs["defaultRouteSettings"] = state?.defaultRouteSettings;
-            resourceInputs["deploymentId"] = state?.deploymentId;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["executionArn"] = state?.executionArn;
-            resourceInputs["invokeUrl"] = state?.invokeUrl;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["routeSettings"] = state?.routeSettings;
-            resourceInputs["stageVariables"] = state?.stageVariables;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["accessLogSettings"] = state ? state.accessLogSettings : undefined;
+            resourceInputs["apiId"] = state ? state.apiId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["autoDeploy"] = state ? state.autoDeploy : undefined;
+            resourceInputs["clientCertificateId"] = state ? state.clientCertificateId : undefined;
+            resourceInputs["defaultRouteSettings"] = state ? state.defaultRouteSettings : undefined;
+            resourceInputs["deploymentId"] = state ? state.deploymentId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["executionArn"] = state ? state.executionArn : undefined;
+            resourceInputs["invokeUrl"] = state ? state.invokeUrl : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["routeSettings"] = state ? state.routeSettings : undefined;
+            resourceInputs["stageVariables"] = state ? state.stageVariables : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as StageArgs | undefined;
-            if (args?.apiId === undefined && !opts.urn) {
+            if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            resourceInputs["accessLogSettings"] = args?.accessLogSettings;
-            resourceInputs["apiId"] = args?.apiId;
-            resourceInputs["autoDeploy"] = args?.autoDeploy;
-            resourceInputs["clientCertificateId"] = args?.clientCertificateId;
-            resourceInputs["defaultRouteSettings"] = args?.defaultRouteSettings;
-            resourceInputs["deploymentId"] = args?.deploymentId;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["routeSettings"] = args?.routeSettings;
-            resourceInputs["stageVariables"] = args?.stageVariables;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["accessLogSettings"] = args ? args.accessLogSettings : undefined;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["autoDeploy"] = args ? args.autoDeploy : undefined;
+            resourceInputs["clientCertificateId"] = args ? args.clientCertificateId : undefined;
+            resourceInputs["defaultRouteSettings"] = args ? args.defaultRouteSettings : undefined;
+            resourceInputs["deploymentId"] = args ? args.deploymentId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["routeSettings"] = args ? args.routeSettings : undefined;
+            resourceInputs["stageVariables"] = args ? args.stageVariables : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["executionArn"] = undefined /*out*/;
             resourceInputs["invokeUrl"] = undefined /*out*/;

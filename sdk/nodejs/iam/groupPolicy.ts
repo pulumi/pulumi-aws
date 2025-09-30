@@ -75,21 +75,21 @@ export class GroupPolicy extends pulumi.CustomResource {
     /**
      * The IAM group to attach to the policy.
      */
-    declare public readonly group: pulumi.Output<string>;
+    public readonly group!: pulumi.Output<string>;
     /**
      * The name of the policy. If omitted, the provider will
      * assign a random, unique name.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    declare public readonly namePrefix: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string>;
     /**
      * The policy document. This is a JSON formatted string.
      */
-    declare public readonly policy: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string>;
 
     /**
      * Create a GroupPolicy resource with the given unique name, arguments, and options.
@@ -104,22 +104,22 @@ export class GroupPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupPolicyState | undefined;
-            resourceInputs["group"] = state?.group;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["namePrefix"] = state?.namePrefix;
-            resourceInputs["policy"] = state?.policy;
+            resourceInputs["group"] = state ? state.group : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
         } else {
             const args = argsOrState as GroupPolicyArgs | undefined;
-            if (args?.group === undefined && !opts.urn) {
+            if ((!args || args.group === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'group'");
             }
-            if (args?.policy === undefined && !opts.urn) {
+            if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            resourceInputs["group"] = args?.group;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["namePrefix"] = args?.namePrefix;
-            resourceInputs["policy"] = args?.policy;
+            resourceInputs["group"] = args ? args.group : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GroupPolicy.__pulumiType, name, resourceInputs, opts);

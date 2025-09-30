@@ -60,25 +60,25 @@ export class PrincipalPortfolioAssociation extends pulumi.CustomResource {
     /**
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      */
-    declare public readonly acceptLanguage: pulumi.Output<string | undefined>;
+    public readonly acceptLanguage!: pulumi.Output<string | undefined>;
     /**
      * Portfolio identifier.
      */
-    declare public readonly portfolioId: pulumi.Output<string>;
+    public readonly portfolioId!: pulumi.Output<string>;
     /**
      * Principal ARN.
      *
      * The following arguments are optional:
      */
-    declare public readonly principalArn: pulumi.Output<string>;
+    public readonly principalArn!: pulumi.Output<string>;
     /**
      * Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
      */
-    declare public readonly principalType: pulumi.Output<string | undefined>;
+    public readonly principalType!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a PrincipalPortfolioAssociation resource with the given unique name, arguments, and options.
@@ -93,24 +93,24 @@ export class PrincipalPortfolioAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PrincipalPortfolioAssociationState | undefined;
-            resourceInputs["acceptLanguage"] = state?.acceptLanguage;
-            resourceInputs["portfolioId"] = state?.portfolioId;
-            resourceInputs["principalArn"] = state?.principalArn;
-            resourceInputs["principalType"] = state?.principalType;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["acceptLanguage"] = state ? state.acceptLanguage : undefined;
+            resourceInputs["portfolioId"] = state ? state.portfolioId : undefined;
+            resourceInputs["principalArn"] = state ? state.principalArn : undefined;
+            resourceInputs["principalType"] = state ? state.principalType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as PrincipalPortfolioAssociationArgs | undefined;
-            if (args?.portfolioId === undefined && !opts.urn) {
+            if ((!args || args.portfolioId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'portfolioId'");
             }
-            if (args?.principalArn === undefined && !opts.urn) {
+            if ((!args || args.principalArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principalArn'");
             }
-            resourceInputs["acceptLanguage"] = args?.acceptLanguage;
-            resourceInputs["portfolioId"] = args?.portfolioId;
-            resourceInputs["principalArn"] = args?.principalArn;
-            resourceInputs["principalType"] = args?.principalType;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
+            resourceInputs["portfolioId"] = args ? args.portfolioId : undefined;
+            resourceInputs["principalArn"] = args ? args.principalArn : undefined;
+            resourceInputs["principalType"] = args ? args.principalType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PrincipalPortfolioAssociation.__pulumiType, name, resourceInputs, opts);

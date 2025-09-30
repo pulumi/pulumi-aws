@@ -69,39 +69,39 @@ export class View extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the Resource Explorer view.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
      */
-    declare public readonly defaultView: pulumi.Output<boolean>;
+    public readonly defaultView!: pulumi.Output<boolean>;
     /**
      * Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
      */
-    declare public readonly filters: pulumi.Output<outputs.resourceexplorer.ViewFilters | undefined>;
+    public readonly filters!: pulumi.Output<outputs.resourceexplorer.ViewFilters | undefined>;
     /**
      * Optional fields to be included in search results from this view. See Included Properties below for more details.
      */
-    declare public readonly includedProperties: pulumi.Output<outputs.resourceexplorer.ViewIncludedProperty[] | undefined>;
+    public readonly includedProperties!: pulumi.Output<outputs.resourceexplorer.ViewIncludedProperty[] | undefined>;
     /**
      * The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
      */
-    declare public readonly scope: pulumi.Output<string>;
+    public readonly scope!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a View resource with the given unique name, arguments, and options.
@@ -116,24 +116,24 @@ export class View extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ViewState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["defaultView"] = state?.defaultView;
-            resourceInputs["filters"] = state?.filters;
-            resourceInputs["includedProperties"] = state?.includedProperties;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["scope"] = state?.scope;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["defaultView"] = state ? state.defaultView : undefined;
+            resourceInputs["filters"] = state ? state.filters : undefined;
+            resourceInputs["includedProperties"] = state ? state.includedProperties : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["scope"] = state ? state.scope : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ViewArgs | undefined;
-            resourceInputs["defaultView"] = args?.defaultView;
-            resourceInputs["filters"] = args?.filters;
-            resourceInputs["includedProperties"] = args?.includedProperties;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["scope"] = args?.scope;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["defaultView"] = args ? args.defaultView : undefined;
+            resourceInputs["filters"] = args ? args.filters : undefined;
+            resourceInputs["includedProperties"] = args ? args.includedProperties : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

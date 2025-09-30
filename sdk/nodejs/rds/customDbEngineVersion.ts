@@ -131,83 +131,83 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the custom engine version.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The date and time that the CEV was created.
      */
-    declare public /*out*/ readonly createTime: pulumi.Output<string>;
+    public /*out*/ readonly createTime!: pulumi.Output<string>;
     /**
      * The name of the Amazon S3 bucket that contains the database installation files.
      */
-    declare public readonly databaseInstallationFilesS3BucketName: pulumi.Output<string | undefined>;
+    public readonly databaseInstallationFilesS3BucketName!: pulumi.Output<string | undefined>;
     /**
      * The prefix for the Amazon S3 bucket that contains the database installation files.
      */
-    declare public readonly databaseInstallationFilesS3Prefix: pulumi.Output<string | undefined>;
+    public readonly databaseInstallationFilesS3Prefix!: pulumi.Output<string | undefined>;
     /**
      * The name of the DB parameter group family for the CEV.
      */
-    declare public /*out*/ readonly dbParameterGroupFamily: pulumi.Output<string>;
+    public /*out*/ readonly dbParameterGroupFamily!: pulumi.Output<string>;
     /**
      * The description of the CEV.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
      */
-    declare public readonly engine: pulumi.Output<string>;
+    public readonly engine!: pulumi.Output<string>;
     /**
      * The version of the database engine.
      */
-    declare public readonly engineVersion: pulumi.Output<string>;
+    public readonly engineVersion!: pulumi.Output<string>;
     /**
      * The name of the manifest file within the local filesystem. Conflicts with `manifest`.
      */
-    declare public readonly filename: pulumi.Output<string | undefined>;
+    public readonly filename!: pulumi.Output<string | undefined>;
     /**
      * The ID of the AMI that was created with the CEV.
      */
-    declare public /*out*/ readonly imageId: pulumi.Output<string>;
+    public /*out*/ readonly imageId!: pulumi.Output<string>;
     /**
      * The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
      */
-    declare public readonly kmsKeyId: pulumi.Output<string>;
+    public readonly kmsKeyId!: pulumi.Output<string>;
     /**
      * The major version of the database engine.
      */
-    declare public /*out*/ readonly majorEngineVersion: pulumi.Output<string>;
+    public /*out*/ readonly majorEngineVersion!: pulumi.Output<string>;
     /**
      * The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
      */
-    declare public readonly manifest: pulumi.Output<string | undefined>;
+    public readonly manifest!: pulumi.Output<string | undefined>;
     /**
      * The returned manifest file, in JSON format, service generated and often different from input `manifest`.
      */
-    declare public /*out*/ readonly manifestComputed: pulumi.Output<string>;
+    public /*out*/ readonly manifestComputed!: pulumi.Output<string>;
     /**
      * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
      */
-    declare public readonly manifestHash: pulumi.Output<string | undefined>;
+    public readonly manifestHash!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
      */
-    declare public readonly sourceImageId: pulumi.Output<string | undefined>;
+    public readonly sourceImageId!: pulumi.Output<string | undefined>;
     /**
      * The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
      */
-    declare public readonly status: pulumi.Output<string>;
+    public readonly status!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a CustomDbEngineVersion resource with the given unique name, arguments, and options.
@@ -222,47 +222,47 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomDbEngineVersionState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["createTime"] = state?.createTime;
-            resourceInputs["databaseInstallationFilesS3BucketName"] = state?.databaseInstallationFilesS3BucketName;
-            resourceInputs["databaseInstallationFilesS3Prefix"] = state?.databaseInstallationFilesS3Prefix;
-            resourceInputs["dbParameterGroupFamily"] = state?.dbParameterGroupFamily;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["engine"] = state?.engine;
-            resourceInputs["engineVersion"] = state?.engineVersion;
-            resourceInputs["filename"] = state?.filename;
-            resourceInputs["imageId"] = state?.imageId;
-            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
-            resourceInputs["majorEngineVersion"] = state?.majorEngineVersion;
-            resourceInputs["manifest"] = state?.manifest;
-            resourceInputs["manifestComputed"] = state?.manifestComputed;
-            resourceInputs["manifestHash"] = state?.manifestHash;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["sourceImageId"] = state?.sourceImageId;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["createTime"] = state ? state.createTime : undefined;
+            resourceInputs["databaseInstallationFilesS3BucketName"] = state ? state.databaseInstallationFilesS3BucketName : undefined;
+            resourceInputs["databaseInstallationFilesS3Prefix"] = state ? state.databaseInstallationFilesS3Prefix : undefined;
+            resourceInputs["dbParameterGroupFamily"] = state ? state.dbParameterGroupFamily : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["engine"] = state ? state.engine : undefined;
+            resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
+            resourceInputs["filename"] = state ? state.filename : undefined;
+            resourceInputs["imageId"] = state ? state.imageId : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["majorEngineVersion"] = state ? state.majorEngineVersion : undefined;
+            resourceInputs["manifest"] = state ? state.manifest : undefined;
+            resourceInputs["manifestComputed"] = state ? state.manifestComputed : undefined;
+            resourceInputs["manifestHash"] = state ? state.manifestHash : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["sourceImageId"] = state ? state.sourceImageId : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as CustomDbEngineVersionArgs | undefined;
-            if (args?.engine === undefined && !opts.urn) {
+            if ((!args || args.engine === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engine'");
             }
-            if (args?.engineVersion === undefined && !opts.urn) {
+            if ((!args || args.engineVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engineVersion'");
             }
-            resourceInputs["databaseInstallationFilesS3BucketName"] = args?.databaseInstallationFilesS3BucketName;
-            resourceInputs["databaseInstallationFilesS3Prefix"] = args?.databaseInstallationFilesS3Prefix;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["engine"] = args?.engine;
-            resourceInputs["engineVersion"] = args?.engineVersion;
-            resourceInputs["filename"] = args?.filename;
-            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
-            resourceInputs["manifest"] = args?.manifest;
-            resourceInputs["manifestHash"] = args?.manifestHash;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["sourceImageId"] = args?.sourceImageId;
-            resourceInputs["status"] = args?.status;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["databaseInstallationFilesS3BucketName"] = args ? args.databaseInstallationFilesS3BucketName : undefined;
+            resourceInputs["databaseInstallationFilesS3Prefix"] = args ? args.databaseInstallationFilesS3Prefix : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["engine"] = args ? args.engine : undefined;
+            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
+            resourceInputs["filename"] = args ? args.filename : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["manifest"] = args ? args.manifest : undefined;
+            resourceInputs["manifestHash"] = args ? args.manifestHash : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["sourceImageId"] = args ? args.sourceImageId : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["dbParameterGroupFamily"] = undefined /*out*/;

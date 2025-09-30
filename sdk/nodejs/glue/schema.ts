@@ -61,59 +61,59 @@ export class Schema extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the schema.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
      */
-    declare public readonly compatibility: pulumi.Output<string>;
+    public readonly compatibility!: pulumi.Output<string>;
     /**
      * The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
      */
-    declare public readonly dataFormat: pulumi.Output<string>;
+    public readonly dataFormat!: pulumi.Output<string>;
     /**
      * A description of the schema.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The latest version of the schema associated with the returned schema definition.
      */
-    declare public /*out*/ readonly latestSchemaVersion: pulumi.Output<number>;
+    public /*out*/ readonly latestSchemaVersion!: pulumi.Output<number>;
     /**
      * The next version of the schema associated with the returned schema definition.
      */
-    declare public /*out*/ readonly nextSchemaVersion: pulumi.Output<number>;
+    public /*out*/ readonly nextSchemaVersion!: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ARN of the Glue Registry to create the schema in.
      */
-    declare public readonly registryArn: pulumi.Output<string>;
+    public readonly registryArn!: pulumi.Output<string>;
     /**
      * The name of the Glue Registry.
      */
-    declare public /*out*/ readonly registryName: pulumi.Output<string>;
+    public /*out*/ readonly registryName!: pulumi.Output<string>;
     /**
      * The version number of the checkpoint (the last time the compatibility mode was changed).
      */
-    declare public /*out*/ readonly schemaCheckpoint: pulumi.Output<number>;
+    public /*out*/ readonly schemaCheckpoint!: pulumi.Output<number>;
     /**
      * The schema definition using the `dataFormat` setting for `schemaName`.
      */
-    declare public readonly schemaDefinition: pulumi.Output<string>;
+    public readonly schemaDefinition!: pulumi.Output<string>;
     /**
      * The Name of the schema.
      */
-    declare public readonly schemaName: pulumi.Output<string>;
+    public readonly schemaName!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Schema resource with the given unique name, arguments, and options.
@@ -128,42 +128,42 @@ export class Schema extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SchemaState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["compatibility"] = state?.compatibility;
-            resourceInputs["dataFormat"] = state?.dataFormat;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["latestSchemaVersion"] = state?.latestSchemaVersion;
-            resourceInputs["nextSchemaVersion"] = state?.nextSchemaVersion;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["registryArn"] = state?.registryArn;
-            resourceInputs["registryName"] = state?.registryName;
-            resourceInputs["schemaCheckpoint"] = state?.schemaCheckpoint;
-            resourceInputs["schemaDefinition"] = state?.schemaDefinition;
-            resourceInputs["schemaName"] = state?.schemaName;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["compatibility"] = state ? state.compatibility : undefined;
+            resourceInputs["dataFormat"] = state ? state.dataFormat : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["latestSchemaVersion"] = state ? state.latestSchemaVersion : undefined;
+            resourceInputs["nextSchemaVersion"] = state ? state.nextSchemaVersion : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["registryArn"] = state ? state.registryArn : undefined;
+            resourceInputs["registryName"] = state ? state.registryName : undefined;
+            resourceInputs["schemaCheckpoint"] = state ? state.schemaCheckpoint : undefined;
+            resourceInputs["schemaDefinition"] = state ? state.schemaDefinition : undefined;
+            resourceInputs["schemaName"] = state ? state.schemaName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as SchemaArgs | undefined;
-            if (args?.compatibility === undefined && !opts.urn) {
+            if ((!args || args.compatibility === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'compatibility'");
             }
-            if (args?.dataFormat === undefined && !opts.urn) {
+            if ((!args || args.dataFormat === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataFormat'");
             }
-            if (args?.schemaDefinition === undefined && !opts.urn) {
+            if ((!args || args.schemaDefinition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schemaDefinition'");
             }
-            if (args?.schemaName === undefined && !opts.urn) {
+            if ((!args || args.schemaName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schemaName'");
             }
-            resourceInputs["compatibility"] = args?.compatibility;
-            resourceInputs["dataFormat"] = args?.dataFormat;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["registryArn"] = args?.registryArn;
-            resourceInputs["schemaDefinition"] = args?.schemaDefinition;
-            resourceInputs["schemaName"] = args?.schemaName;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["compatibility"] = args ? args.compatibility : undefined;
+            resourceInputs["dataFormat"] = args ? args.dataFormat : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["registryArn"] = args ? args.registryArn : undefined;
+            resourceInputs["schemaDefinition"] = args ? args.schemaDefinition : undefined;
+            resourceInputs["schemaName"] = args ? args.schemaName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["latestSchemaVersion"] = undefined /*out*/;
             resourceInputs["nextSchemaVersion"] = undefined /*out*/;

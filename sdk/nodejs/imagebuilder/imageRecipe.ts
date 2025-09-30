@@ -83,69 +83,69 @@ export class ImageRecipe extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the image recipe.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Configuration block(s) with block device mappings for the image recipe. Detailed below.
      */
-    declare public readonly blockDeviceMappings: pulumi.Output<outputs.imagebuilder.ImageRecipeBlockDeviceMapping[] | undefined>;
+    public readonly blockDeviceMappings!: pulumi.Output<outputs.imagebuilder.ImageRecipeBlockDeviceMapping[] | undefined>;
     /**
      * Ordered configuration block(s) with components for the image recipe. Detailed below.
      */
-    declare public readonly components: pulumi.Output<outputs.imagebuilder.ImageRecipeComponent[]>;
+    public readonly components!: pulumi.Output<outputs.imagebuilder.ImageRecipeComponent[]>;
     /**
      * Date the image recipe was created.
      */
-    declare public /*out*/ readonly dateCreated: pulumi.Output<string>;
+    public /*out*/ readonly dateCreated!: pulumi.Output<string>;
     /**
      * Description of the image recipe.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Name of the image recipe.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Owner of the image recipe.
      */
-    declare public /*out*/ readonly owner: pulumi.Output<string>;
+    public /*out*/ readonly owner!: pulumi.Output<string>;
     /**
      * The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
      */
-    declare public readonly parentImage: pulumi.Output<string>;
+    public readonly parentImage!: pulumi.Output<string>;
     /**
      * Platform of the image recipe.
      */
-    declare public /*out*/ readonly platform: pulumi.Output<string>;
+    public /*out*/ readonly platform!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
      */
-    declare public readonly systemsManagerAgent: pulumi.Output<outputs.imagebuilder.ImageRecipeSystemsManagerAgent>;
+    public readonly systemsManagerAgent!: pulumi.Output<outputs.imagebuilder.ImageRecipeSystemsManagerAgent>;
     /**
      * Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
      */
-    declare public readonly userDataBase64: pulumi.Output<string>;
+    public readonly userDataBase64!: pulumi.Output<string>;
     /**
      * The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
      *
      * The following arguments are optional:
      */
-    declare public readonly version: pulumi.Output<string>;
+    public readonly version!: pulumi.Output<string>;
     /**
      * The working directory to be used during build and test workflows.
      */
-    declare public readonly workingDirectory: pulumi.Output<string | undefined>;
+    public readonly workingDirectory!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ImageRecipe resource with the given unique name, arguments, and options.
@@ -160,44 +160,44 @@ export class ImageRecipe extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ImageRecipeState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["blockDeviceMappings"] = state?.blockDeviceMappings;
-            resourceInputs["components"] = state?.components;
-            resourceInputs["dateCreated"] = state?.dateCreated;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["owner"] = state?.owner;
-            resourceInputs["parentImage"] = state?.parentImage;
-            resourceInputs["platform"] = state?.platform;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["systemsManagerAgent"] = state?.systemsManagerAgent;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["userDataBase64"] = state?.userDataBase64;
-            resourceInputs["version"] = state?.version;
-            resourceInputs["workingDirectory"] = state?.workingDirectory;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["blockDeviceMappings"] = state ? state.blockDeviceMappings : undefined;
+            resourceInputs["components"] = state ? state.components : undefined;
+            resourceInputs["dateCreated"] = state ? state.dateCreated : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["owner"] = state ? state.owner : undefined;
+            resourceInputs["parentImage"] = state ? state.parentImage : undefined;
+            resourceInputs["platform"] = state ? state.platform : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["systemsManagerAgent"] = state ? state.systemsManagerAgent : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["userDataBase64"] = state ? state.userDataBase64 : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["workingDirectory"] = state ? state.workingDirectory : undefined;
         } else {
             const args = argsOrState as ImageRecipeArgs | undefined;
-            if (args?.components === undefined && !opts.urn) {
+            if ((!args || args.components === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'components'");
             }
-            if (args?.parentImage === undefined && !opts.urn) {
+            if ((!args || args.parentImage === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'parentImage'");
             }
-            if (args?.version === undefined && !opts.urn) {
+            if ((!args || args.version === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            resourceInputs["blockDeviceMappings"] = args?.blockDeviceMappings;
-            resourceInputs["components"] = args?.components;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["parentImage"] = args?.parentImage;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["systemsManagerAgent"] = args?.systemsManagerAgent;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["userDataBase64"] = args?.userDataBase64;
-            resourceInputs["version"] = args?.version;
-            resourceInputs["workingDirectory"] = args?.workingDirectory;
+            resourceInputs["blockDeviceMappings"] = args ? args.blockDeviceMappings : undefined;
+            resourceInputs["components"] = args ? args.components : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parentImage"] = args ? args.parentImage : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["systemsManagerAgent"] = args ? args.systemsManagerAgent : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userDataBase64"] = args ? args.userDataBase64 : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["workingDirectory"] = args ? args.workingDirectory : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dateCreated"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;

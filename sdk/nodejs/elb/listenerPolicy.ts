@@ -122,23 +122,23 @@ export class ListenerPolicy extends pulumi.CustomResource {
     /**
      * The load balancer to attach the policy to.
      */
-    declare public readonly loadBalancerName: pulumi.Output<string>;
+    public readonly loadBalancerName!: pulumi.Output<string>;
     /**
      * The load balancer listener port to apply the policy to.
      */
-    declare public readonly loadBalancerPort: pulumi.Output<number>;
+    public readonly loadBalancerPort!: pulumi.Output<number>;
     /**
      * List of Policy Names to apply to the backend server.
      */
-    declare public readonly policyNames: pulumi.Output<string[] | undefined>;
+    public readonly policyNames!: pulumi.Output<string[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Map of arbitrary keys and values that, when changed, will trigger an update.
      */
-    declare public readonly triggers: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly triggers!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ListenerPolicy resource with the given unique name, arguments, and options.
@@ -153,24 +153,24 @@ export class ListenerPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ListenerPolicyState | undefined;
-            resourceInputs["loadBalancerName"] = state?.loadBalancerName;
-            resourceInputs["loadBalancerPort"] = state?.loadBalancerPort;
-            resourceInputs["policyNames"] = state?.policyNames;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["triggers"] = state?.triggers;
+            resourceInputs["loadBalancerName"] = state ? state.loadBalancerName : undefined;
+            resourceInputs["loadBalancerPort"] = state ? state.loadBalancerPort : undefined;
+            resourceInputs["policyNames"] = state ? state.policyNames : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["triggers"] = state ? state.triggers : undefined;
         } else {
             const args = argsOrState as ListenerPolicyArgs | undefined;
-            if (args?.loadBalancerName === undefined && !opts.urn) {
+            if ((!args || args.loadBalancerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerName'");
             }
-            if (args?.loadBalancerPort === undefined && !opts.urn) {
+            if ((!args || args.loadBalancerPort === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerPort'");
             }
-            resourceInputs["loadBalancerName"] = args?.loadBalancerName;
-            resourceInputs["loadBalancerPort"] = args?.loadBalancerPort;
-            resourceInputs["policyNames"] = args?.policyNames;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["triggers"] = args?.triggers;
+            resourceInputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
+            resourceInputs["loadBalancerPort"] = args ? args.loadBalancerPort : undefined;
+            resourceInputs["policyNames"] = args ? args.policyNames : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["triggers"] = args ? args.triggers : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/listenerPolicy:ListenerPolicy" }] };

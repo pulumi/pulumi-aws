@@ -98,41 +98,41 @@ export class InstanceFleet extends pulumi.CustomResource {
     /**
      * ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
      */
-    declare public readonly clusterId: pulumi.Output<string>;
+    public readonly clusterId!: pulumi.Output<string>;
     /**
      * Configuration block for instance fleet
      */
-    declare public readonly instanceTypeConfigs: pulumi.Output<outputs.emr.InstanceFleetInstanceTypeConfig[] | undefined>;
+    public readonly instanceTypeConfigs!: pulumi.Output<outputs.emr.InstanceFleetInstanceTypeConfig[] | undefined>;
     /**
      * Configuration block for launch specification
      */
-    declare public readonly launchSpecifications: pulumi.Output<outputs.emr.InstanceFleetLaunchSpecifications | undefined>;
+    public readonly launchSpecifications!: pulumi.Output<outputs.emr.InstanceFleetLaunchSpecifications | undefined>;
     /**
      * Friendly name given to the instance fleet.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The number of On-Demand units that have been provisioned for the instance
      * fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
      */
-    declare public /*out*/ readonly provisionedOnDemandCapacity: pulumi.Output<number>;
+    public /*out*/ readonly provisionedOnDemandCapacity!: pulumi.Output<number>;
     /**
      * The number of Spot units that have been provisioned for this instance fleet
      * to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
      */
-    declare public /*out*/ readonly provisionedSpotCapacity: pulumi.Output<number>;
+    public /*out*/ readonly provisionedSpotCapacity!: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
      */
-    declare public readonly targetOnDemandCapacity: pulumi.Output<number | undefined>;
+    public readonly targetOnDemandCapacity!: pulumi.Output<number | undefined>;
     /**
      * The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
      */
-    declare public readonly targetSpotCapacity: pulumi.Output<number | undefined>;
+    public readonly targetSpotCapacity!: pulumi.Output<number | undefined>;
 
     /**
      * Create a InstanceFleet resource with the given unique name, arguments, and options.
@@ -147,27 +147,27 @@ export class InstanceFleet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InstanceFleetState | undefined;
-            resourceInputs["clusterId"] = state?.clusterId;
-            resourceInputs["instanceTypeConfigs"] = state?.instanceTypeConfigs;
-            resourceInputs["launchSpecifications"] = state?.launchSpecifications;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["provisionedOnDemandCapacity"] = state?.provisionedOnDemandCapacity;
-            resourceInputs["provisionedSpotCapacity"] = state?.provisionedSpotCapacity;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["targetOnDemandCapacity"] = state?.targetOnDemandCapacity;
-            resourceInputs["targetSpotCapacity"] = state?.targetSpotCapacity;
+            resourceInputs["clusterId"] = state ? state.clusterId : undefined;
+            resourceInputs["instanceTypeConfigs"] = state ? state.instanceTypeConfigs : undefined;
+            resourceInputs["launchSpecifications"] = state ? state.launchSpecifications : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["provisionedOnDemandCapacity"] = state ? state.provisionedOnDemandCapacity : undefined;
+            resourceInputs["provisionedSpotCapacity"] = state ? state.provisionedSpotCapacity : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["targetOnDemandCapacity"] = state ? state.targetOnDemandCapacity : undefined;
+            resourceInputs["targetSpotCapacity"] = state ? state.targetSpotCapacity : undefined;
         } else {
             const args = argsOrState as InstanceFleetArgs | undefined;
-            if (args?.clusterId === undefined && !opts.urn) {
+            if ((!args || args.clusterId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterId'");
             }
-            resourceInputs["clusterId"] = args?.clusterId;
-            resourceInputs["instanceTypeConfigs"] = args?.instanceTypeConfigs;
-            resourceInputs["launchSpecifications"] = args?.launchSpecifications;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["targetOnDemandCapacity"] = args?.targetOnDemandCapacity;
-            resourceInputs["targetSpotCapacity"] = args?.targetSpotCapacity;
+            resourceInputs["clusterId"] = args ? args.clusterId : undefined;
+            resourceInputs["instanceTypeConfigs"] = args ? args.instanceTypeConfigs : undefined;
+            resourceInputs["launchSpecifications"] = args ? args.launchSpecifications : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["targetOnDemandCapacity"] = args ? args.targetOnDemandCapacity : undefined;
+            resourceInputs["targetSpotCapacity"] = args ? args.targetSpotCapacity : undefined;
             resourceInputs["provisionedOnDemandCapacity"] = undefined /*out*/;
             resourceInputs["provisionedSpotCapacity"] = undefined /*out*/;
         }

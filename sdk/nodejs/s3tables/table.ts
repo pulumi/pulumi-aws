@@ -117,87 +117,87 @@ export class Table extends pulumi.CustomResource {
     /**
      * ARN of the table.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Date and time when the namespace was created.
      */
-    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
      * Account ID of the account that created the namespace.
      */
-    declare public /*out*/ readonly createdBy: pulumi.Output<string>;
+    public /*out*/ readonly createdBy!: pulumi.Output<string>;
     /**
      * A single table bucket encryption configuration object.
      * See `encryptionConfiguration` below.
      */
-    declare public readonly encryptionConfiguration: pulumi.Output<outputs.s3tables.TableEncryptionConfiguration>;
+    public readonly encryptionConfiguration!: pulumi.Output<outputs.s3tables.TableEncryptionConfiguration>;
     /**
      * Format of the table.
      * Must be `ICEBERG`.
      */
-    declare public readonly format: pulumi.Output<string>;
+    public readonly format!: pulumi.Output<string>;
     /**
      * A single table bucket maintenance configuration object.
      * See `maintenanceConfiguration` below.
      */
-    declare public readonly maintenanceConfiguration: pulumi.Output<outputs.s3tables.TableMaintenanceConfiguration>;
+    public readonly maintenanceConfiguration!: pulumi.Output<outputs.s3tables.TableMaintenanceConfiguration>;
     /**
      * Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
      * See `metadata` below.
      */
-    declare public readonly metadata: pulumi.Output<outputs.s3tables.TableMetadata | undefined>;
+    public readonly metadata!: pulumi.Output<outputs.s3tables.TableMetadata | undefined>;
     /**
      * Location of table metadata.
      */
-    declare public /*out*/ readonly metadataLocation: pulumi.Output<string>;
+    public /*out*/ readonly metadataLocation!: pulumi.Output<string>;
     /**
      * Date and time when the namespace was last modified.
      */
-    declare public /*out*/ readonly modifiedAt: pulumi.Output<string>;
+    public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
     /**
      * Account ID of the account that last modified the namespace.
      */
-    declare public /*out*/ readonly modifiedBy: pulumi.Output<string>;
+    public /*out*/ readonly modifiedBy!: pulumi.Output<string>;
     /**
      * Name of the table.
      * Must be between 1 and 255 characters in length.
      * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      * A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Name of the namespace for this table.
      * Must be between 1 and 255 characters in length.
      * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      */
-    declare public readonly namespace: pulumi.Output<string>;
+    public readonly namespace!: pulumi.Output<string>;
     /**
      * Account ID of the account that owns the namespace.
      */
-    declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
+    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ARN referencing the Table Bucket that contains this Namespace.
      *
      * The following arguments are optional:
      */
-    declare public readonly tableBucketArn: pulumi.Output<string>;
+    public readonly tableBucketArn!: pulumi.Output<string>;
     /**
      * Type of the table.
      * One of `customer` or `aws`.
      */
-    declare public /*out*/ readonly type: pulumi.Output<string>;
+    public /*out*/ readonly type!: pulumi.Output<string>;
     /**
      * Identifier for the current version of table data.
      */
-    declare public /*out*/ readonly versionToken: pulumi.Output<string>;
+    public /*out*/ readonly versionToken!: pulumi.Output<string>;
     /**
      * S3 URI pointing to the S3 Bucket that contains the table data.
      */
-    declare public /*out*/ readonly warehouseLocation: pulumi.Output<string>;
+    public /*out*/ readonly warehouseLocation!: pulumi.Output<string>;
 
     /**
      * Create a Table resource with the given unique name, arguments, and options.
@@ -212,43 +212,43 @@ export class Table extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TableState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["createdAt"] = state?.createdAt;
-            resourceInputs["createdBy"] = state?.createdBy;
-            resourceInputs["encryptionConfiguration"] = state?.encryptionConfiguration;
-            resourceInputs["format"] = state?.format;
-            resourceInputs["maintenanceConfiguration"] = state?.maintenanceConfiguration;
-            resourceInputs["metadata"] = state?.metadata;
-            resourceInputs["metadataLocation"] = state?.metadataLocation;
-            resourceInputs["modifiedAt"] = state?.modifiedAt;
-            resourceInputs["modifiedBy"] = state?.modifiedBy;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["namespace"] = state?.namespace;
-            resourceInputs["ownerAccountId"] = state?.ownerAccountId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tableBucketArn"] = state?.tableBucketArn;
-            resourceInputs["type"] = state?.type;
-            resourceInputs["versionToken"] = state?.versionToken;
-            resourceInputs["warehouseLocation"] = state?.warehouseLocation;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["createdBy"] = state ? state.createdBy : undefined;
+            resourceInputs["encryptionConfiguration"] = state ? state.encryptionConfiguration : undefined;
+            resourceInputs["format"] = state ? state.format : undefined;
+            resourceInputs["maintenanceConfiguration"] = state ? state.maintenanceConfiguration : undefined;
+            resourceInputs["metadata"] = state ? state.metadata : undefined;
+            resourceInputs["metadataLocation"] = state ? state.metadataLocation : undefined;
+            resourceInputs["modifiedAt"] = state ? state.modifiedAt : undefined;
+            resourceInputs["modifiedBy"] = state ? state.modifiedBy : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namespace"] = state ? state.namespace : undefined;
+            resourceInputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tableBucketArn"] = state ? state.tableBucketArn : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["versionToken"] = state ? state.versionToken : undefined;
+            resourceInputs["warehouseLocation"] = state ? state.warehouseLocation : undefined;
         } else {
             const args = argsOrState as TableArgs | undefined;
-            if (args?.format === undefined && !opts.urn) {
+            if ((!args || args.format === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'format'");
             }
-            if (args?.namespace === undefined && !opts.urn) {
+            if ((!args || args.namespace === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespace'");
             }
-            if (args?.tableBucketArn === undefined && !opts.urn) {
+            if ((!args || args.tableBucketArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tableBucketArn'");
             }
-            resourceInputs["encryptionConfiguration"] = args?.encryptionConfiguration;
-            resourceInputs["format"] = args?.format;
-            resourceInputs["maintenanceConfiguration"] = args?.maintenanceConfiguration;
-            resourceInputs["metadata"] = args?.metadata;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["namespace"] = args?.namespace;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tableBucketArn"] = args?.tableBucketArn;
+            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
+            resourceInputs["format"] = args ? args.format : undefined;
+            resourceInputs["maintenanceConfiguration"] = args ? args.maintenanceConfiguration : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namespace"] = args ? args.namespace : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tableBucketArn"] = args ? args.tableBucketArn : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;

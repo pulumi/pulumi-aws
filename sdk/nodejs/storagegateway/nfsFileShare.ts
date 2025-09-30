@@ -63,103 +63,103 @@ export class NfsFileShare extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the NFS File Share.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the storage used for audit logs.
      */
-    declare public readonly auditDestinationArn: pulumi.Output<string | undefined>;
+    public readonly auditDestinationArn!: pulumi.Output<string | undefined>;
     /**
      * The region of the S3 bucket used by the file share. Required when specifying `vpcEndpointDnsName`.
      */
-    declare public readonly bucketRegion: pulumi.Output<string | undefined>;
+    public readonly bucketRegion!: pulumi.Output<string | undefined>;
     /**
      * Refresh cache information. see Cache Attributes for more details.
      */
-    declare public readonly cacheAttributes: pulumi.Output<outputs.storagegateway.NfsFileShareCacheAttributes | undefined>;
+    public readonly cacheAttributes!: pulumi.Output<outputs.storagegateway.NfsFileShareCacheAttributes | undefined>;
     /**
      * The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
      */
-    declare public readonly clientLists: pulumi.Output<string[]>;
+    public readonly clientLists!: pulumi.Output<string[]>;
     /**
      * The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
      */
-    declare public readonly defaultStorageClass: pulumi.Output<string | undefined>;
+    public readonly defaultStorageClass!: pulumi.Output<string | undefined>;
     /**
      * The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
      */
-    declare public readonly fileShareName: pulumi.Output<string>;
+    public readonly fileShareName!: pulumi.Output<string>;
     /**
      * ID of the NFS File Share.
      */
-    declare public /*out*/ readonly fileshareId: pulumi.Output<string>;
+    public /*out*/ readonly fileshareId!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the file gateway.
      */
-    declare public readonly gatewayArn: pulumi.Output<string>;
+    public readonly gatewayArn!: pulumi.Output<string>;
     /**
      * Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
      */
-    declare public readonly guessMimeTypeEnabled: pulumi.Output<boolean | undefined>;
+    public readonly guessMimeTypeEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
      */
-    declare public readonly kmsEncrypted: pulumi.Output<boolean | undefined>;
+    public readonly kmsEncrypted!: pulumi.Output<boolean | undefined>;
     /**
      * Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
      */
-    declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
+    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the backed storage used for storing file data.
      */
-    declare public readonly locationArn: pulumi.Output<string>;
+    public readonly locationArn!: pulumi.Output<string>;
     /**
      * Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
      */
-    declare public readonly nfsFileShareDefaults: pulumi.Output<outputs.storagegateway.NfsFileShareNfsFileShareDefaults | undefined>;
+    public readonly nfsFileShareDefaults!: pulumi.Output<outputs.storagegateway.NfsFileShareNfsFileShareDefaults | undefined>;
     /**
      * The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
      */
-    declare public readonly notificationPolicy: pulumi.Output<string | undefined>;
+    public readonly notificationPolicy!: pulumi.Output<string | undefined>;
     /**
      * Access Control List permission for S3 objects. Defaults to `private`.
      */
-    declare public readonly objectAcl: pulumi.Output<string | undefined>;
+    public readonly objectAcl!: pulumi.Output<string | undefined>;
     /**
      * File share path used by the NFS client to identify the mount point.
      */
-    declare public /*out*/ readonly path: pulumi.Output<string>;
+    public /*out*/ readonly path!: pulumi.Output<string>;
     /**
      * Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
      */
-    declare public readonly readOnly: pulumi.Output<boolean | undefined>;
+    public readonly readOnly!: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
      */
-    declare public readonly requesterPays: pulumi.Output<boolean | undefined>;
+    public readonly requesterPays!: pulumi.Output<boolean | undefined>;
     /**
      * The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
      */
-    declare public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
      */
-    declare public readonly squash: pulumi.Output<string | undefined>;
+    public readonly squash!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The DNS name of the VPC endpoint for S3 PrivateLink.
      */
-    declare public readonly vpcEndpointDnsName: pulumi.Output<string | undefined>;
+    public readonly vpcEndpointDnsName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a NfsFileShare resource with the given unique name, arguments, and options.
@@ -174,66 +174,66 @@ export class NfsFileShare extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NfsFileShareState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["auditDestinationArn"] = state?.auditDestinationArn;
-            resourceInputs["bucketRegion"] = state?.bucketRegion;
-            resourceInputs["cacheAttributes"] = state?.cacheAttributes;
-            resourceInputs["clientLists"] = state?.clientLists;
-            resourceInputs["defaultStorageClass"] = state?.defaultStorageClass;
-            resourceInputs["fileShareName"] = state?.fileShareName;
-            resourceInputs["fileshareId"] = state?.fileshareId;
-            resourceInputs["gatewayArn"] = state?.gatewayArn;
-            resourceInputs["guessMimeTypeEnabled"] = state?.guessMimeTypeEnabled;
-            resourceInputs["kmsEncrypted"] = state?.kmsEncrypted;
-            resourceInputs["kmsKeyArn"] = state?.kmsKeyArn;
-            resourceInputs["locationArn"] = state?.locationArn;
-            resourceInputs["nfsFileShareDefaults"] = state?.nfsFileShareDefaults;
-            resourceInputs["notificationPolicy"] = state?.notificationPolicy;
-            resourceInputs["objectAcl"] = state?.objectAcl;
-            resourceInputs["path"] = state?.path;
-            resourceInputs["readOnly"] = state?.readOnly;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["requesterPays"] = state?.requesterPays;
-            resourceInputs["roleArn"] = state?.roleArn;
-            resourceInputs["squash"] = state?.squash;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["vpcEndpointDnsName"] = state?.vpcEndpointDnsName;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["auditDestinationArn"] = state ? state.auditDestinationArn : undefined;
+            resourceInputs["bucketRegion"] = state ? state.bucketRegion : undefined;
+            resourceInputs["cacheAttributes"] = state ? state.cacheAttributes : undefined;
+            resourceInputs["clientLists"] = state ? state.clientLists : undefined;
+            resourceInputs["defaultStorageClass"] = state ? state.defaultStorageClass : undefined;
+            resourceInputs["fileShareName"] = state ? state.fileShareName : undefined;
+            resourceInputs["fileshareId"] = state ? state.fileshareId : undefined;
+            resourceInputs["gatewayArn"] = state ? state.gatewayArn : undefined;
+            resourceInputs["guessMimeTypeEnabled"] = state ? state.guessMimeTypeEnabled : undefined;
+            resourceInputs["kmsEncrypted"] = state ? state.kmsEncrypted : undefined;
+            resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
+            resourceInputs["locationArn"] = state ? state.locationArn : undefined;
+            resourceInputs["nfsFileShareDefaults"] = state ? state.nfsFileShareDefaults : undefined;
+            resourceInputs["notificationPolicy"] = state ? state.notificationPolicy : undefined;
+            resourceInputs["objectAcl"] = state ? state.objectAcl : undefined;
+            resourceInputs["path"] = state ? state.path : undefined;
+            resourceInputs["readOnly"] = state ? state.readOnly : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["requesterPays"] = state ? state.requesterPays : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["squash"] = state ? state.squash : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcEndpointDnsName"] = state ? state.vpcEndpointDnsName : undefined;
         } else {
             const args = argsOrState as NfsFileShareArgs | undefined;
-            if (args?.clientLists === undefined && !opts.urn) {
+            if ((!args || args.clientLists === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clientLists'");
             }
-            if (args?.gatewayArn === undefined && !opts.urn) {
+            if ((!args || args.gatewayArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'gatewayArn'");
             }
-            if (args?.locationArn === undefined && !opts.urn) {
+            if ((!args || args.locationArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'locationArn'");
             }
-            if (args?.roleArn === undefined && !opts.urn) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["auditDestinationArn"] = args?.auditDestinationArn;
-            resourceInputs["bucketRegion"] = args?.bucketRegion;
-            resourceInputs["cacheAttributes"] = args?.cacheAttributes;
-            resourceInputs["clientLists"] = args?.clientLists;
-            resourceInputs["defaultStorageClass"] = args?.defaultStorageClass;
-            resourceInputs["fileShareName"] = args?.fileShareName;
-            resourceInputs["gatewayArn"] = args?.gatewayArn;
-            resourceInputs["guessMimeTypeEnabled"] = args?.guessMimeTypeEnabled;
-            resourceInputs["kmsEncrypted"] = args?.kmsEncrypted;
-            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
-            resourceInputs["locationArn"] = args?.locationArn;
-            resourceInputs["nfsFileShareDefaults"] = args?.nfsFileShareDefaults;
-            resourceInputs["notificationPolicy"] = args?.notificationPolicy;
-            resourceInputs["objectAcl"] = args?.objectAcl;
-            resourceInputs["readOnly"] = args?.readOnly;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["requesterPays"] = args?.requesterPays;
-            resourceInputs["roleArn"] = args?.roleArn;
-            resourceInputs["squash"] = args?.squash;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["vpcEndpointDnsName"] = args?.vpcEndpointDnsName;
+            resourceInputs["auditDestinationArn"] = args ? args.auditDestinationArn : undefined;
+            resourceInputs["bucketRegion"] = args ? args.bucketRegion : undefined;
+            resourceInputs["cacheAttributes"] = args ? args.cacheAttributes : undefined;
+            resourceInputs["clientLists"] = args ? args.clientLists : undefined;
+            resourceInputs["defaultStorageClass"] = args ? args.defaultStorageClass : undefined;
+            resourceInputs["fileShareName"] = args ? args.fileShareName : undefined;
+            resourceInputs["gatewayArn"] = args ? args.gatewayArn : undefined;
+            resourceInputs["guessMimeTypeEnabled"] = args ? args.guessMimeTypeEnabled : undefined;
+            resourceInputs["kmsEncrypted"] = args ? args.kmsEncrypted : undefined;
+            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
+            resourceInputs["locationArn"] = args ? args.locationArn : undefined;
+            resourceInputs["nfsFileShareDefaults"] = args ? args.nfsFileShareDefaults : undefined;
+            resourceInputs["notificationPolicy"] = args ? args.notificationPolicy : undefined;
+            resourceInputs["objectAcl"] = args ? args.objectAcl : undefined;
+            resourceInputs["readOnly"] = args ? args.readOnly : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["requesterPays"] = args ? args.requesterPays : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["squash"] = args ? args.squash : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcEndpointDnsName"] = args ? args.vpcEndpointDnsName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["fileshareId"] = undefined /*out*/;
             resourceInputs["path"] = undefined /*out*/;

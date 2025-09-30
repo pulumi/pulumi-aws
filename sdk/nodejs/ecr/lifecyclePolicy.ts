@@ -127,19 +127,19 @@ export class LifecyclePolicy extends pulumi.CustomResource {
     /**
      * The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `policy` argument.
      */
-    declare public readonly policy: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The registry ID where the repository was created.
      */
-    declare public /*out*/ readonly registryId: pulumi.Output<string>;
+    public /*out*/ readonly registryId!: pulumi.Output<string>;
     /**
      * Name of the repository to apply the policy.
      */
-    declare public readonly repository: pulumi.Output<string>;
+    public readonly repository!: pulumi.Output<string>;
 
     /**
      * Create a LifecyclePolicy resource with the given unique name, arguments, and options.
@@ -154,21 +154,21 @@ export class LifecyclePolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LifecyclePolicyState | undefined;
-            resourceInputs["policy"] = state?.policy;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["registryId"] = state?.registryId;
-            resourceInputs["repository"] = state?.repository;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["registryId"] = state ? state.registryId : undefined;
+            resourceInputs["repository"] = state ? state.repository : undefined;
         } else {
             const args = argsOrState as LifecyclePolicyArgs | undefined;
-            if (args?.policy === undefined && !opts.urn) {
+            if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            if (args?.repository === undefined && !opts.urn) {
+            if ((!args || args.repository === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            resourceInputs["policy"] = args?.policy;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["repository"] = args?.repository;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["repository"] = args ? args.repository : undefined;
             resourceInputs["registryId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

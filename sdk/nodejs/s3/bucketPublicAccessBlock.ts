@@ -62,34 +62,34 @@ export class BucketPublicAccessBlock extends pulumi.CustomResource {
      * * PUT Bucket ACL and PUT Object ACL calls will fail if the specified ACL allows public access.
      * * PUT Object calls will fail if the request includes an object ACL.
      */
-    declare public readonly blockPublicAcls: pulumi.Output<boolean | undefined>;
+    public readonly blockPublicAcls!: pulumi.Output<boolean | undefined>;
     /**
      * Whether Amazon S3 should block public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the existing bucket policy. When set to `true` causes Amazon S3 to:
      * * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
      */
-    declare public readonly blockPublicPolicy: pulumi.Output<boolean | undefined>;
+    public readonly blockPublicPolicy!: pulumi.Output<boolean | undefined>;
     /**
      * S3 Bucket to which this Public Access Block configuration should be applied.
      */
-    declare public readonly bucket: pulumi.Output<string>;
+    public readonly bucket!: pulumi.Output<string>;
     /**
      * Whether Amazon S3 should ignore public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
      * * Ignore public ACLs on this bucket and any objects that it contains.
      */
-    declare public readonly ignorePublicAcls: pulumi.Output<boolean | undefined>;
+    public readonly ignorePublicAcls!: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
      * * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
      */
-    declare public readonly restrictPublicBuckets: pulumi.Output<boolean | undefined>;
+    public readonly restrictPublicBuckets!: pulumi.Output<boolean | undefined>;
     /**
      * Whether to retain the public access block upon destruction. If set to `true`, the resource is simply removed from state instead. This may be desirable in certain scenarios to prevent the removal of a public access block before deletion of the associated bucket.
      */
-    declare public readonly skipDestroy: pulumi.Output<boolean | undefined>;
+    public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a BucketPublicAccessBlock resource with the given unique name, arguments, and options.
@@ -104,25 +104,25 @@ export class BucketPublicAccessBlock extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketPublicAccessBlockState | undefined;
-            resourceInputs["blockPublicAcls"] = state?.blockPublicAcls;
-            resourceInputs["blockPublicPolicy"] = state?.blockPublicPolicy;
-            resourceInputs["bucket"] = state?.bucket;
-            resourceInputs["ignorePublicAcls"] = state?.ignorePublicAcls;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["restrictPublicBuckets"] = state?.restrictPublicBuckets;
-            resourceInputs["skipDestroy"] = state?.skipDestroy;
+            resourceInputs["blockPublicAcls"] = state ? state.blockPublicAcls : undefined;
+            resourceInputs["blockPublicPolicy"] = state ? state.blockPublicPolicy : undefined;
+            resourceInputs["bucket"] = state ? state.bucket : undefined;
+            resourceInputs["ignorePublicAcls"] = state ? state.ignorePublicAcls : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["restrictPublicBuckets"] = state ? state.restrictPublicBuckets : undefined;
+            resourceInputs["skipDestroy"] = state ? state.skipDestroy : undefined;
         } else {
             const args = argsOrState as BucketPublicAccessBlockArgs | undefined;
-            if (args?.bucket === undefined && !opts.urn) {
+            if ((!args || args.bucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            resourceInputs["blockPublicAcls"] = args?.blockPublicAcls;
-            resourceInputs["blockPublicPolicy"] = args?.blockPublicPolicy;
-            resourceInputs["bucket"] = args?.bucket;
-            resourceInputs["ignorePublicAcls"] = args?.ignorePublicAcls;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["restrictPublicBuckets"] = args?.restrictPublicBuckets;
-            resourceInputs["skipDestroy"] = args?.skipDestroy;
+            resourceInputs["blockPublicAcls"] = args ? args.blockPublicAcls : undefined;
+            resourceInputs["blockPublicPolicy"] = args ? args.blockPublicPolicy : undefined;
+            resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["ignorePublicAcls"] = args ? args.ignorePublicAcls : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["restrictPublicBuckets"] = args ? args.restrictPublicBuckets : undefined;
+            resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BucketPublicAccessBlock.__pulumiType, name, resourceInputs, opts);

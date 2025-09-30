@@ -79,21 +79,21 @@ export class FileSystemPolicy extends pulumi.CustomResource {
     /**
      * A flag to indicate whether to bypass the `aws.efs.FileSystemPolicy` lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request will be locked out from making future `PutFileSystemPolicy` requests on the file system. Set `bypassPolicyLockoutSafetyCheck` to `true` only when you intend to prevent the principal that is making the request from making a subsequent `PutFileSystemPolicy` request on the file system. The default value is `false`.
      */
-    declare public readonly bypassPolicyLockoutSafetyCheck: pulumi.Output<boolean | undefined>;
+    public readonly bypassPolicyLockoutSafetyCheck!: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the EFS file system.
      */
-    declare public readonly fileSystemId: pulumi.Output<string>;
+    public readonly fileSystemId!: pulumi.Output<string>;
     /**
      * The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
      *
      * The following arguments are optional:
      */
-    declare public readonly policy: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a FileSystemPolicy resource with the given unique name, arguments, and options.
@@ -108,22 +108,22 @@ export class FileSystemPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FileSystemPolicyState | undefined;
-            resourceInputs["bypassPolicyLockoutSafetyCheck"] = state?.bypassPolicyLockoutSafetyCheck;
-            resourceInputs["fileSystemId"] = state?.fileSystemId;
-            resourceInputs["policy"] = state?.policy;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["bypassPolicyLockoutSafetyCheck"] = state ? state.bypassPolicyLockoutSafetyCheck : undefined;
+            resourceInputs["fileSystemId"] = state ? state.fileSystemId : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as FileSystemPolicyArgs | undefined;
-            if (args?.fileSystemId === undefined && !opts.urn) {
+            if ((!args || args.fileSystemId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fileSystemId'");
             }
-            if (args?.policy === undefined && !opts.urn) {
+            if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            resourceInputs["bypassPolicyLockoutSafetyCheck"] = args?.bypassPolicyLockoutSafetyCheck;
-            resourceInputs["fileSystemId"] = args?.fileSystemId;
-            resourceInputs["policy"] = args?.policy;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["bypassPolicyLockoutSafetyCheck"] = args ? args.bypassPolicyLockoutSafetyCheck : undefined;
+            resourceInputs["fileSystemId"] = args ? args.fileSystemId : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FileSystemPolicy.__pulumiType, name, resourceInputs, opts);

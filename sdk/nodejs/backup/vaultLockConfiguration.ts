@@ -60,27 +60,27 @@ export class VaultLockConfiguration extends pulumi.CustomResource {
     /**
      * The ARN of the vault.
      */
-    declare public /*out*/ readonly backupVaultArn: pulumi.Output<string>;
+    public /*out*/ readonly backupVaultArn!: pulumi.Output<string>;
     /**
      * Name of the backup vault to add a lock configuration for.
      */
-    declare public readonly backupVaultName: pulumi.Output<string>;
+    public readonly backupVaultName!: pulumi.Output<string>;
     /**
      * The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
      */
-    declare public readonly changeableForDays: pulumi.Output<number | undefined>;
+    public readonly changeableForDays!: pulumi.Output<number | undefined>;
     /**
      * The maximum retention period that the vault retains its recovery points.
      */
-    declare public readonly maxRetentionDays: pulumi.Output<number | undefined>;
+    public readonly maxRetentionDays!: pulumi.Output<number | undefined>;
     /**
      * The minimum retention period that the vault retains its recovery points.
      */
-    declare public readonly minRetentionDays: pulumi.Output<number | undefined>;
+    public readonly minRetentionDays!: pulumi.Output<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a VaultLockConfiguration resource with the given unique name, arguments, and options.
@@ -95,22 +95,22 @@ export class VaultLockConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VaultLockConfigurationState | undefined;
-            resourceInputs["backupVaultArn"] = state?.backupVaultArn;
-            resourceInputs["backupVaultName"] = state?.backupVaultName;
-            resourceInputs["changeableForDays"] = state?.changeableForDays;
-            resourceInputs["maxRetentionDays"] = state?.maxRetentionDays;
-            resourceInputs["minRetentionDays"] = state?.minRetentionDays;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["backupVaultArn"] = state ? state.backupVaultArn : undefined;
+            resourceInputs["backupVaultName"] = state ? state.backupVaultName : undefined;
+            resourceInputs["changeableForDays"] = state ? state.changeableForDays : undefined;
+            resourceInputs["maxRetentionDays"] = state ? state.maxRetentionDays : undefined;
+            resourceInputs["minRetentionDays"] = state ? state.minRetentionDays : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as VaultLockConfigurationArgs | undefined;
-            if (args?.backupVaultName === undefined && !opts.urn) {
+            if ((!args || args.backupVaultName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'backupVaultName'");
             }
-            resourceInputs["backupVaultName"] = args?.backupVaultName;
-            resourceInputs["changeableForDays"] = args?.changeableForDays;
-            resourceInputs["maxRetentionDays"] = args?.maxRetentionDays;
-            resourceInputs["minRetentionDays"] = args?.minRetentionDays;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["backupVaultName"] = args ? args.backupVaultName : undefined;
+            resourceInputs["changeableForDays"] = args ? args.changeableForDays : undefined;
+            resourceInputs["maxRetentionDays"] = args ? args.maxRetentionDays : undefined;
+            resourceInputs["minRetentionDays"] = args ? args.minRetentionDays : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["backupVaultArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

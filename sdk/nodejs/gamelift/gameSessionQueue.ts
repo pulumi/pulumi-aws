@@ -75,43 +75,43 @@ export class GameSessionQueue extends pulumi.CustomResource {
     /**
      * Game Session Queue ARN.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Information to be added to all events that are related to this game session queue.
      */
-    declare public readonly customEventData: pulumi.Output<string | undefined>;
+    public readonly customEventData!: pulumi.Output<string | undefined>;
     /**
      * List of fleet/alias ARNs used by session queue for placing game sessions.
      */
-    declare public readonly destinations: pulumi.Output<string[] | undefined>;
+    public readonly destinations!: pulumi.Output<string[] | undefined>;
     /**
      * Name of the session queue.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * An SNS topic ARN that is set up to receive game session placement notifications.
      */
-    declare public readonly notificationTarget: pulumi.Output<string | undefined>;
+    public readonly notificationTarget!: pulumi.Output<string | undefined>;
     /**
      * One or more policies used to choose fleet based on player latency. See below.
      */
-    declare public readonly playerLatencyPolicies: pulumi.Output<outputs.gamelift.GameSessionQueuePlayerLatencyPolicy[] | undefined>;
+    public readonly playerLatencyPolicies!: pulumi.Output<outputs.gamelift.GameSessionQueuePlayerLatencyPolicy[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Maximum time a game session request can remain in the queue.
      */
-    declare public readonly timeoutInSeconds: pulumi.Output<number | undefined>;
+    public readonly timeoutInSeconds!: pulumi.Output<number | undefined>;
 
     /**
      * Create a GameSessionQueue resource with the given unique name, arguments, and options.
@@ -126,26 +126,26 @@ export class GameSessionQueue extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GameSessionQueueState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["customEventData"] = state?.customEventData;
-            resourceInputs["destinations"] = state?.destinations;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["notificationTarget"] = state?.notificationTarget;
-            resourceInputs["playerLatencyPolicies"] = state?.playerLatencyPolicies;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timeoutInSeconds"] = state?.timeoutInSeconds;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["customEventData"] = state ? state.customEventData : undefined;
+            resourceInputs["destinations"] = state ? state.destinations : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notificationTarget"] = state ? state.notificationTarget : undefined;
+            resourceInputs["playerLatencyPolicies"] = state ? state.playerLatencyPolicies : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeoutInSeconds"] = state ? state.timeoutInSeconds : undefined;
         } else {
             const args = argsOrState as GameSessionQueueArgs | undefined;
-            resourceInputs["customEventData"] = args?.customEventData;
-            resourceInputs["destinations"] = args?.destinations;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["notificationTarget"] = args?.notificationTarget;
-            resourceInputs["playerLatencyPolicies"] = args?.playerLatencyPolicies;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timeoutInSeconds"] = args?.timeoutInSeconds;
+            resourceInputs["customEventData"] = args ? args.customEventData : undefined;
+            resourceInputs["destinations"] = args ? args.destinations : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notificationTarget"] = args ? args.notificationTarget : undefined;
+            resourceInputs["playerLatencyPolicies"] = args ? args.playerLatencyPolicies : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeoutInSeconds"] = args ? args.timeoutInSeconds : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

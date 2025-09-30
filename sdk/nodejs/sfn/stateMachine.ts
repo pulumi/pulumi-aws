@@ -193,70 +193,70 @@ export class StateMachine extends pulumi.CustomResource {
     /**
      * The ARN of the state machine.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The date the state machine was created.
      */
-    declare public /*out*/ readonly creationDate: pulumi.Output<string>;
+    public /*out*/ readonly creationDate!: pulumi.Output<string>;
     /**
      * The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
      */
-    declare public readonly definition: pulumi.Output<string>;
-    declare public /*out*/ readonly description: pulumi.Output<string>;
+    public readonly definition!: pulumi.Output<string>;
+    public /*out*/ readonly description!: pulumi.Output<string>;
     /**
      * Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
      */
-    declare public readonly encryptionConfiguration: pulumi.Output<outputs.sfn.StateMachineEncryptionConfiguration>;
+    public readonly encryptionConfiguration!: pulumi.Output<outputs.sfn.StateMachineEncryptionConfiguration>;
     /**
      * Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is valid when `type` is set to `STANDARD` or `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html), [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) and [Logging Configuration](https://docs.aws.amazon.com/step-functions/latest/apireference/API_CreateStateMachine.html) in the AWS Step Functions User Guide.
      */
-    declare public readonly loggingConfiguration: pulumi.Output<outputs.sfn.StateMachineLoggingConfiguration>;
+    public readonly loggingConfiguration!: pulumi.Output<outputs.sfn.StateMachineLoggingConfiguration>;
     /**
      * The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    declare public readonly namePrefix: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string>;
     /**
      * Set to true to publish a version of the state machine during creation. Default: false.
      */
-    declare public readonly publish: pulumi.Output<boolean | undefined>;
+    public readonly publish!: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
-    declare public /*out*/ readonly revisionId: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
+    public /*out*/ readonly revisionId!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
      */
-    declare public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * The ARN of the state machine version.
      */
-    declare public /*out*/ readonly stateMachineVersionArn: pulumi.Output<string>;
+    public /*out*/ readonly stateMachineVersionArn!: pulumi.Output<string>;
     /**
      * The current status of the state machine. Either `ACTIVE` or `DELETING`.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Selects whether AWS X-Ray tracing is enabled.
      */
-    declare public readonly tracingConfiguration: pulumi.Output<outputs.sfn.StateMachineTracingConfiguration>;
+    public readonly tracingConfiguration!: pulumi.Output<outputs.sfn.StateMachineTracingConfiguration>;
     /**
      * Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
      */
-    declare public readonly type: pulumi.Output<string | undefined>;
-    declare public /*out*/ readonly versionDescription: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly versionDescription!: pulumi.Output<string>;
 
     /**
      * Create a StateMachine resource with the given unique name, arguments, and options.
@@ -271,44 +271,44 @@ export class StateMachine extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StateMachineState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["creationDate"] = state?.creationDate;
-            resourceInputs["definition"] = state?.definition;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["encryptionConfiguration"] = state?.encryptionConfiguration;
-            resourceInputs["loggingConfiguration"] = state?.loggingConfiguration;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["namePrefix"] = state?.namePrefix;
-            resourceInputs["publish"] = state?.publish;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["revisionId"] = state?.revisionId;
-            resourceInputs["roleArn"] = state?.roleArn;
-            resourceInputs["stateMachineVersionArn"] = state?.stateMachineVersionArn;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["tracingConfiguration"] = state?.tracingConfiguration;
-            resourceInputs["type"] = state?.type;
-            resourceInputs["versionDescription"] = state?.versionDescription;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["creationDate"] = state ? state.creationDate : undefined;
+            resourceInputs["definition"] = state ? state.definition : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["encryptionConfiguration"] = state ? state.encryptionConfiguration : undefined;
+            resourceInputs["loggingConfiguration"] = state ? state.loggingConfiguration : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["publish"] = state ? state.publish : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["revisionId"] = state ? state.revisionId : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["stateMachineVersionArn"] = state ? state.stateMachineVersionArn : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["tracingConfiguration"] = state ? state.tracingConfiguration : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["versionDescription"] = state ? state.versionDescription : undefined;
         } else {
             const args = argsOrState as StateMachineArgs | undefined;
-            if (args?.definition === undefined && !opts.urn) {
+            if ((!args || args.definition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'definition'");
             }
-            if (args?.roleArn === undefined && !opts.urn) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["definition"] = args?.definition;
-            resourceInputs["encryptionConfiguration"] = args?.encryptionConfiguration;
-            resourceInputs["loggingConfiguration"] = args?.loggingConfiguration;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["namePrefix"] = args?.namePrefix;
-            resourceInputs["publish"] = args?.publish;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["roleArn"] = args?.roleArn;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["tracingConfiguration"] = args?.tracingConfiguration;
-            resourceInputs["type"] = args?.type;
+            resourceInputs["definition"] = args ? args.definition : undefined;
+            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
+            resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["publish"] = args ? args.publish : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tracingConfiguration"] = args ? args.tracingConfiguration : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

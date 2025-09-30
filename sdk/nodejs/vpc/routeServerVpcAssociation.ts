@@ -63,18 +63,18 @@ export class RouteServerVpcAssociation extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The unique identifier for the route server to be associated.
      */
-    declare public readonly routeServerId: pulumi.Output<string>;
-    declare public readonly timeouts: pulumi.Output<outputs.vpc.RouteServerVpcAssociationTimeouts | undefined>;
+    public readonly routeServerId!: pulumi.Output<string>;
+    public readonly timeouts!: pulumi.Output<outputs.vpc.RouteServerVpcAssociationTimeouts | undefined>;
     /**
      * The ID of the VPC to associate with the route server.
      *
      * The following arguments are optional:
      */
-    declare public readonly vpcId: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a RouteServerVpcAssociation resource with the given unique name, arguments, and options.
@@ -89,22 +89,22 @@ export class RouteServerVpcAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteServerVpcAssociationState | undefined;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["routeServerId"] = state?.routeServerId;
-            resourceInputs["timeouts"] = state?.timeouts;
-            resourceInputs["vpcId"] = state?.vpcId;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["routeServerId"] = state ? state.routeServerId : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as RouteServerVpcAssociationArgs | undefined;
-            if (args?.routeServerId === undefined && !opts.urn) {
+            if ((!args || args.routeServerId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'routeServerId'");
             }
-            if (args?.vpcId === undefined && !opts.urn) {
+            if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["region"] = args?.region;
-            resourceInputs["routeServerId"] = args?.routeServerId;
-            resourceInputs["timeouts"] = args?.timeouts;
-            resourceInputs["vpcId"] = args?.vpcId;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["routeServerId"] = args ? args.routeServerId : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RouteServerVpcAssociation.__pulumiType, name, resourceInputs, opts);

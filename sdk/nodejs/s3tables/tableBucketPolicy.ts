@@ -64,15 +64,15 @@ export class TableBucketPolicy extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Amazon Web Services resource-based policy document in JSON format.
      */
-    declare public readonly resourcePolicy: pulumi.Output<string>;
+    public readonly resourcePolicy!: pulumi.Output<string>;
     /**
      * ARN referencing the Table Bucket that owns this policy.
      */
-    declare public readonly tableBucketArn: pulumi.Output<string>;
+    public readonly tableBucketArn!: pulumi.Output<string>;
 
     /**
      * Create a TableBucketPolicy resource with the given unique name, arguments, and options.
@@ -87,20 +87,20 @@ export class TableBucketPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TableBucketPolicyState | undefined;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourcePolicy"] = state?.resourcePolicy;
-            resourceInputs["tableBucketArn"] = state?.tableBucketArn;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourcePolicy"] = state ? state.resourcePolicy : undefined;
+            resourceInputs["tableBucketArn"] = state ? state.tableBucketArn : undefined;
         } else {
             const args = argsOrState as TableBucketPolicyArgs | undefined;
-            if (args?.resourcePolicy === undefined && !opts.urn) {
+            if ((!args || args.resourcePolicy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourcePolicy'");
             }
-            if (args?.tableBucketArn === undefined && !opts.urn) {
+            if ((!args || args.tableBucketArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tableBucketArn'");
             }
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resourcePolicy"] = args?.resourcePolicy;
-            resourceInputs["tableBucketArn"] = args?.tableBucketArn;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourcePolicy"] = args ? args.resourcePolicy : undefined;
+            resourceInputs["tableBucketArn"] = args ? args.tableBucketArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TableBucketPolicy.__pulumiType, name, resourceInputs, opts);

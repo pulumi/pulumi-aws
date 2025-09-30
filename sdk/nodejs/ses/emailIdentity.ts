@@ -55,15 +55,15 @@ export class EmailIdentity extends pulumi.CustomResource {
     /**
      * The ARN of the email identity.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The email address to assign to SES.
      */
-    declare public readonly email: pulumi.Output<string>;
+    public readonly email!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a EmailIdentity resource with the given unique name, arguments, and options.
@@ -78,16 +78,16 @@ export class EmailIdentity extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EmailIdentityState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["email"] = state?.email;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["email"] = state ? state.email : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as EmailIdentityArgs | undefined;
-            if (args?.email === undefined && !opts.urn) {
+            if ((!args || args.email === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            resourceInputs["email"] = args?.email;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["email"] = args ? args.email : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

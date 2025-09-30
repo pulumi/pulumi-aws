@@ -107,52 +107,52 @@ export class Faq extends pulumi.CustomResource {
     /**
      * ARN of the FAQ.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The Unix datetime that the FAQ was created.
      */
-    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * When the Status field value is `FAILED`, this contains a message that explains why.
      */
-    declare public /*out*/ readonly errorMessage: pulumi.Output<string>;
+    public /*out*/ readonly errorMessage!: pulumi.Output<string>;
     /**
      * The identifier of the FAQ.
      */
-    declare public /*out*/ readonly faqId: pulumi.Output<string>;
-    declare public readonly fileFormat: pulumi.Output<string | undefined>;
+    public /*out*/ readonly faqId!: pulumi.Output<string>;
+    public readonly fileFormat!: pulumi.Output<string | undefined>;
     /**
      * The identifier of the index for a FAQ.
      */
-    declare public readonly indexId: pulumi.Output<string>;
-    declare public readonly languageCode: pulumi.Output<string>;
+    public readonly indexId!: pulumi.Output<string>;
+    public readonly languageCode!: pulumi.Output<string>;
     /**
      * The name that should be associated with the FAQ.
      */
-    declare public readonly name: pulumi.Output<string>;
-    declare public readonly region: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      */
-    declare public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * The S3 location of the FAQ input data. Detailed below.
      */
-    declare public readonly s3Path: pulumi.Output<outputs.kendra.FaqS3Path>;
+    public readonly s3Path!: pulumi.Output<outputs.kendra.FaqS3Path>;
     /**
      * The status of the FAQ. It is ready to use when the status is ACTIVE.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The date and time that the FAQ was last updated.
      */
-    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
+    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
     /**
      * Create a Faq resource with the given unique name, arguments, and options.
@@ -167,42 +167,42 @@ export class Faq extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FaqState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["createdAt"] = state?.createdAt;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["errorMessage"] = state?.errorMessage;
-            resourceInputs["faqId"] = state?.faqId;
-            resourceInputs["fileFormat"] = state?.fileFormat;
-            resourceInputs["indexId"] = state?.indexId;
-            resourceInputs["languageCode"] = state?.languageCode;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["roleArn"] = state?.roleArn;
-            resourceInputs["s3Path"] = state?.s3Path;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["updatedAt"] = state?.updatedAt;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["errorMessage"] = state ? state.errorMessage : undefined;
+            resourceInputs["faqId"] = state ? state.faqId : undefined;
+            resourceInputs["fileFormat"] = state ? state.fileFormat : undefined;
+            resourceInputs["indexId"] = state ? state.indexId : undefined;
+            resourceInputs["languageCode"] = state ? state.languageCode : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["s3Path"] = state ? state.s3Path : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
         } else {
             const args = argsOrState as FaqArgs | undefined;
-            if (args?.indexId === undefined && !opts.urn) {
+            if ((!args || args.indexId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'indexId'");
             }
-            if (args?.roleArn === undefined && !opts.urn) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if (args?.s3Path === undefined && !opts.urn) {
+            if ((!args || args.s3Path === undefined) && !opts.urn) {
                 throw new Error("Missing required property 's3Path'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["fileFormat"] = args?.fileFormat;
-            resourceInputs["indexId"] = args?.indexId;
-            resourceInputs["languageCode"] = args?.languageCode;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["roleArn"] = args?.roleArn;
-            resourceInputs["s3Path"] = args?.s3Path;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["fileFormat"] = args ? args.fileFormat : undefined;
+            resourceInputs["indexId"] = args ? args.indexId : undefined;
+            resourceInputs["languageCode"] = args ? args.languageCode : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["s3Path"] = args ? args.s3Path : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["errorMessage"] = undefined /*out*/;

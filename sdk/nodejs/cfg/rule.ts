@@ -160,51 +160,51 @@ export class Rule extends pulumi.CustomResource {
     /**
      * The ARN of the config rule
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Description of the rule
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
      */
-    declare public readonly evaluationModes: pulumi.Output<outputs.cfg.RuleEvaluationMode[]>;
+    public readonly evaluationModes!: pulumi.Output<outputs.cfg.RuleEvaluationMode[]>;
     /**
      * A string in JSON format that is passed to the AWS Config rule Lambda function.
      */
-    declare public readonly inputParameters: pulumi.Output<string | undefined>;
+    public readonly inputParameters!: pulumi.Output<string | undefined>;
     /**
      * The maximum frequency with which AWS Config runs evaluations for a rule.
      */
-    declare public readonly maximumExecutionFrequency: pulumi.Output<string | undefined>;
+    public readonly maximumExecutionFrequency!: pulumi.Output<string | undefined>;
     /**
      * The name of the rule
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ID of the config rule
      */
-    declare public /*out*/ readonly ruleId: pulumi.Output<string>;
+    public /*out*/ readonly ruleId!: pulumi.Output<string>;
     /**
      * Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
      */
-    declare public readonly scope: pulumi.Output<outputs.cfg.RuleScope | undefined>;
+    public readonly scope!: pulumi.Output<outputs.cfg.RuleScope | undefined>;
     /**
      * Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
      */
-    declare public readonly source: pulumi.Output<outputs.cfg.RuleSource>;
+    public readonly source!: pulumi.Output<outputs.cfg.RuleSource>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Rule resource with the given unique name, arguments, and options.
@@ -219,32 +219,32 @@ export class Rule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RuleState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["evaluationModes"] = state?.evaluationModes;
-            resourceInputs["inputParameters"] = state?.inputParameters;
-            resourceInputs["maximumExecutionFrequency"] = state?.maximumExecutionFrequency;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["ruleId"] = state?.ruleId;
-            resourceInputs["scope"] = state?.scope;
-            resourceInputs["source"] = state?.source;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["evaluationModes"] = state ? state.evaluationModes : undefined;
+            resourceInputs["inputParameters"] = state ? state.inputParameters : undefined;
+            resourceInputs["maximumExecutionFrequency"] = state ? state.maximumExecutionFrequency : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["ruleId"] = state ? state.ruleId : undefined;
+            resourceInputs["scope"] = state ? state.scope : undefined;
+            resourceInputs["source"] = state ? state.source : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as RuleArgs | undefined;
-            if (args?.source === undefined && !opts.urn) {
+            if ((!args || args.source === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["evaluationModes"] = args?.evaluationModes;
-            resourceInputs["inputParameters"] = args?.inputParameters;
-            resourceInputs["maximumExecutionFrequency"] = args?.maximumExecutionFrequency;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["scope"] = args?.scope;
-            resourceInputs["source"] = args?.source;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["evaluationModes"] = args ? args.evaluationModes : undefined;
+            resourceInputs["inputParameters"] = args ? args.inputParameters : undefined;
+            resourceInputs["maximumExecutionFrequency"] = args ? args.maximumExecutionFrequency : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ruleId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

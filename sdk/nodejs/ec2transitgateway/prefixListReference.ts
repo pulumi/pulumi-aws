@@ -74,26 +74,26 @@ export class PrefixListReference extends pulumi.CustomResource {
     /**
      * Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
      */
-    declare public readonly blackhole: pulumi.Output<boolean | undefined>;
+    public readonly blackhole!: pulumi.Output<boolean | undefined>;
     /**
      * Identifier of EC2 Prefix List.
      */
-    declare public readonly prefixListId: pulumi.Output<string>;
-    declare public /*out*/ readonly prefixListOwnerId: pulumi.Output<string>;
+    public readonly prefixListId!: pulumi.Output<string>;
+    public /*out*/ readonly prefixListOwnerId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Identifier of EC2 Transit Gateway Attachment.
      */
-    declare public readonly transitGatewayAttachmentId: pulumi.Output<string | undefined>;
+    public readonly transitGatewayAttachmentId!: pulumi.Output<string | undefined>;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      *
      * The following arguments are optional:
      */
-    declare public readonly transitGatewayRouteTableId: pulumi.Output<string>;
+    public readonly transitGatewayRouteTableId!: pulumi.Output<string>;
 
     /**
      * Create a PrefixListReference resource with the given unique name, arguments, and options.
@@ -108,25 +108,25 @@ export class PrefixListReference extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PrefixListReferenceState | undefined;
-            resourceInputs["blackhole"] = state?.blackhole;
-            resourceInputs["prefixListId"] = state?.prefixListId;
-            resourceInputs["prefixListOwnerId"] = state?.prefixListOwnerId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["transitGatewayAttachmentId"] = state?.transitGatewayAttachmentId;
-            resourceInputs["transitGatewayRouteTableId"] = state?.transitGatewayRouteTableId;
+            resourceInputs["blackhole"] = state ? state.blackhole : undefined;
+            resourceInputs["prefixListId"] = state ? state.prefixListId : undefined;
+            resourceInputs["prefixListOwnerId"] = state ? state.prefixListOwnerId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;
+            resourceInputs["transitGatewayRouteTableId"] = state ? state.transitGatewayRouteTableId : undefined;
         } else {
             const args = argsOrState as PrefixListReferenceArgs | undefined;
-            if (args?.prefixListId === undefined && !opts.urn) {
+            if ((!args || args.prefixListId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'prefixListId'");
             }
-            if (args?.transitGatewayRouteTableId === undefined && !opts.urn) {
+            if ((!args || args.transitGatewayRouteTableId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayRouteTableId'");
             }
-            resourceInputs["blackhole"] = args?.blackhole;
-            resourceInputs["prefixListId"] = args?.prefixListId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["transitGatewayAttachmentId"] = args?.transitGatewayAttachmentId;
-            resourceInputs["transitGatewayRouteTableId"] = args?.transitGatewayRouteTableId;
+            resourceInputs["blackhole"] = args ? args.blackhole : undefined;
+            resourceInputs["prefixListId"] = args ? args.prefixListId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
+            resourceInputs["transitGatewayRouteTableId"] = args ? args.transitGatewayRouteTableId : undefined;
             resourceInputs["prefixListOwnerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

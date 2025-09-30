@@ -60,39 +60,39 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * ARN of the Namespace.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
-    declare public readonly awsAccountId: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public readonly awsAccountId!: pulumi.Output<string>;
     /**
      * Namespace AWS Region.
      */
-    declare public /*out*/ readonly capacityRegion: pulumi.Output<string>;
+    public /*out*/ readonly capacityRegion!: pulumi.Output<string>;
     /**
      * Creation status of the namespace.
      */
-    declare public /*out*/ readonly creationStatus: pulumi.Output<string>;
+    public /*out*/ readonly creationStatus!: pulumi.Output<string>;
     /**
      * User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
      */
-    declare public readonly identityStore: pulumi.Output<string>;
+    public readonly identityStore!: pulumi.Output<string>;
     /**
      * Name of the namespace.
      *
      * The following arguments are optional:
      */
-    declare public readonly namespace: pulumi.Output<string>;
+    public readonly namespace!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public readonly timeouts: pulumi.Output<outputs.quicksight.NamespaceTimeouts | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly timeouts!: pulumi.Output<outputs.quicksight.NamespaceTimeouts | undefined>;
 
     /**
      * Create a Namespace resource with the given unique name, arguments, and options.
@@ -107,27 +107,27 @@ export class Namespace extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NamespaceState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["awsAccountId"] = state?.awsAccountId;
-            resourceInputs["capacityRegion"] = state?.capacityRegion;
-            resourceInputs["creationStatus"] = state?.creationStatus;
-            resourceInputs["identityStore"] = state?.identityStore;
-            resourceInputs["namespace"] = state?.namespace;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
+            resourceInputs["capacityRegion"] = state ? state.capacityRegion : undefined;
+            resourceInputs["creationStatus"] = state ? state.creationStatus : undefined;
+            resourceInputs["identityStore"] = state ? state.identityStore : undefined;
+            resourceInputs["namespace"] = state ? state.namespace : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as NamespaceArgs | undefined;
-            if (args?.namespace === undefined && !opts.urn) {
+            if ((!args || args.namespace === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespace'");
             }
-            resourceInputs["awsAccountId"] = args?.awsAccountId;
-            resourceInputs["identityStore"] = args?.identityStore;
-            resourceInputs["namespace"] = args?.namespace;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
+            resourceInputs["identityStore"] = args ? args.identityStore : undefined;
+            resourceInputs["namespace"] = args ? args.namespace : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["capacityRegion"] = undefined /*out*/;
             resourceInputs["creationStatus"] = undefined /*out*/;

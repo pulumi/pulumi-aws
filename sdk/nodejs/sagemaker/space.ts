@@ -63,51 +63,51 @@ export class Space extends pulumi.CustomResource {
     /**
      * The space's Amazon Resource Name (ARN).
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The ID of the associated Domain.
      */
-    declare public readonly domainId: pulumi.Output<string>;
+    public readonly domainId!: pulumi.Output<string>;
     /**
      * The ID of the space's profile in the Amazon Elastic File System volume.
      */
-    declare public /*out*/ readonly homeEfsFileSystemUid: pulumi.Output<string>;
+    public /*out*/ readonly homeEfsFileSystemUid!: pulumi.Output<string>;
     /**
      * A collection of ownership settings. Required if `spaceSharingSettings` is set. See `ownershipSettings` Block below.
      */
-    declare public readonly ownershipSettings: pulumi.Output<outputs.sagemaker.SpaceOwnershipSettings | undefined>;
+    public readonly ownershipSettings!: pulumi.Output<outputs.sagemaker.SpaceOwnershipSettings | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The name of the space that appears in the SageMaker AI Studio UI.
      */
-    declare public readonly spaceDisplayName: pulumi.Output<string | undefined>;
+    public readonly spaceDisplayName!: pulumi.Output<string | undefined>;
     /**
      * The name of the space.
      */
-    declare public readonly spaceName: pulumi.Output<string>;
+    public readonly spaceName!: pulumi.Output<string>;
     /**
      * A collection of space settings. See `spaceSettings` Block below.
      */
-    declare public readonly spaceSettings: pulumi.Output<outputs.sagemaker.SpaceSpaceSettings | undefined>;
+    public readonly spaceSettings!: pulumi.Output<outputs.sagemaker.SpaceSpaceSettings | undefined>;
     /**
      * A collection of space sharing settings. Required if `ownershipSettings` is set. See `spaceSharingSettings` Block below.
      */
-    declare public readonly spaceSharingSettings: pulumi.Output<outputs.sagemaker.SpaceSpaceSharingSettings | undefined>;
+    public readonly spaceSharingSettings!: pulumi.Output<outputs.sagemaker.SpaceSpaceSharingSettings | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
      */
-    declare public /*out*/ readonly url: pulumi.Output<string>;
+    public /*out*/ readonly url!: pulumi.Output<string>;
 
     /**
      * Create a Space resource with the given unique name, arguments, and options.
@@ -122,34 +122,34 @@ export class Space extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpaceState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["domainId"] = state?.domainId;
-            resourceInputs["homeEfsFileSystemUid"] = state?.homeEfsFileSystemUid;
-            resourceInputs["ownershipSettings"] = state?.ownershipSettings;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["spaceDisplayName"] = state?.spaceDisplayName;
-            resourceInputs["spaceName"] = state?.spaceName;
-            resourceInputs["spaceSettings"] = state?.spaceSettings;
-            resourceInputs["spaceSharingSettings"] = state?.spaceSharingSettings;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["url"] = state?.url;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["domainId"] = state ? state.domainId : undefined;
+            resourceInputs["homeEfsFileSystemUid"] = state ? state.homeEfsFileSystemUid : undefined;
+            resourceInputs["ownershipSettings"] = state ? state.ownershipSettings : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["spaceDisplayName"] = state ? state.spaceDisplayName : undefined;
+            resourceInputs["spaceName"] = state ? state.spaceName : undefined;
+            resourceInputs["spaceSettings"] = state ? state.spaceSettings : undefined;
+            resourceInputs["spaceSharingSettings"] = state ? state.spaceSharingSettings : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as SpaceArgs | undefined;
-            if (args?.domainId === undefined && !opts.urn) {
+            if ((!args || args.domainId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainId'");
             }
-            if (args?.spaceName === undefined && !opts.urn) {
+            if ((!args || args.spaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'spaceName'");
             }
-            resourceInputs["domainId"] = args?.domainId;
-            resourceInputs["ownershipSettings"] = args?.ownershipSettings;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["spaceDisplayName"] = args?.spaceDisplayName;
-            resourceInputs["spaceName"] = args?.spaceName;
-            resourceInputs["spaceSettings"] = args?.spaceSettings;
-            resourceInputs["spaceSharingSettings"] = args?.spaceSharingSettings;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["domainId"] = args ? args.domainId : undefined;
+            resourceInputs["ownershipSettings"] = args ? args.ownershipSettings : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["spaceDisplayName"] = args ? args.spaceDisplayName : undefined;
+            resourceInputs["spaceName"] = args ? args.spaceName : undefined;
+            resourceInputs["spaceSettings"] = args ? args.spaceSettings : undefined;
+            resourceInputs["spaceSharingSettings"] = args ? args.spaceSharingSettings : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["homeEfsFileSystemUid"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

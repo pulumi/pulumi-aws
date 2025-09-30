@@ -170,113 +170,113 @@ export class BucketObject extends pulumi.CustomResource {
     /**
      * [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
      */
-    declare public readonly acl: pulumi.Output<string | undefined>;
+    public readonly acl!: pulumi.Output<string | undefined>;
     /**
      * ARN of the object.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
      */
-    declare public readonly bucket: pulumi.Output<string>;
+    public readonly bucket!: pulumi.Output<string>;
     /**
      * Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
      */
-    declare public readonly bucketKeyEnabled: pulumi.Output<boolean>;
+    public readonly bucketKeyEnabled!: pulumi.Output<boolean>;
     /**
      * Caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */
-    declare public readonly cacheControl: pulumi.Output<string | undefined>;
+    public readonly cacheControl!: pulumi.Output<string | undefined>;
     /**
      * Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
      */
-    declare public readonly content: pulumi.Output<string | undefined>;
+    public readonly content!: pulumi.Output<string | undefined>;
     /**
      * Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
      */
-    declare public readonly contentBase64: pulumi.Output<string | undefined>;
+    public readonly contentBase64!: pulumi.Output<string | undefined>;
     /**
      * Presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
      */
-    declare public readonly contentDisposition: pulumi.Output<string | undefined>;
+    public readonly contentDisposition!: pulumi.Output<string | undefined>;
     /**
      * Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
      */
-    declare public readonly contentEncoding: pulumi.Output<string | undefined>;
+    public readonly contentEncoding!: pulumi.Output<string | undefined>;
     /**
      * Language the content is in e.g., en-US or en-GB.
      */
-    declare public readonly contentLanguage: pulumi.Output<string | undefined>;
+    public readonly contentLanguage!: pulumi.Output<string | undefined>;
     /**
      * Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
      */
-    declare public readonly contentType: pulumi.Output<string>;
+    public readonly contentType!: pulumi.Output<string>;
     /**
      * Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"` (see `sourceHash` instead).
      */
-    declare public readonly etag: pulumi.Output<string>;
+    public readonly etag!: pulumi.Output<string>;
     /**
      * Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
      */
-    declare public readonly forceDestroy: pulumi.Output<boolean | undefined>;
+    public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
     /**
      * Name of the object once it is in the bucket.
      *
      * The following arguments are optional:
      */
-    declare public readonly key: pulumi.Output<string>;
+    public readonly key!: pulumi.Output<string>;
     /**
      * ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
      */
-    declare public readonly kmsKeyId: pulumi.Output<string>;
+    public readonly kmsKeyId!: pulumi.Output<string>;
     /**
      * Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
      */
-    declare public readonly metadata: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
      */
-    declare public readonly objectLockLegalHoldStatus: pulumi.Output<string | undefined>;
+    public readonly objectLockLegalHoldStatus!: pulumi.Output<string | undefined>;
     /**
      * Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
      */
-    declare public readonly objectLockMode: pulumi.Output<string | undefined>;
+    public readonly objectLockMode!: pulumi.Output<string | undefined>;
     /**
      * Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
      */
-    declare public readonly objectLockRetainUntilDate: pulumi.Output<string | undefined>;
+    public readonly objectLockRetainUntilDate!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
      */
-    declare public readonly serverSideEncryption: pulumi.Output<string>;
+    public readonly serverSideEncryption!: pulumi.Output<string>;
     /**
      * Path to a file that will be read and uploaded as raw bytes for the object content.
      */
-    declare public readonly source: pulumi.Output<pulumi.asset.Asset | pulumi.asset.Archive | undefined>;
+    public readonly source!: pulumi.Output<pulumi.asset.Asset | pulumi.asset.Archive | undefined>;
     /**
      * Triggers updates like `etag` but useful to address `etag` encryption limitations.
      */
-    declare public readonly sourceHash: pulumi.Output<string | undefined>;
+    public readonly sourceHash!: pulumi.Output<string | undefined>;
     /**
      * [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
      */
-    declare public readonly storageClass: pulumi.Output<string>;
+    public readonly storageClass!: pulumi.Output<string>;
     /**
      * Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Unique version ID value for the object, if bucket versioning is enabled.
      */
-    declare public /*out*/ readonly versionId: pulumi.Output<string>;
+    public /*out*/ readonly versionId!: pulumi.Output<string>;
     /**
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      *
@@ -284,7 +284,7 @@ export class BucketObject extends pulumi.CustomResource {
      *
      * > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
      */
-    declare public readonly websiteRedirect: pulumi.Output<string | undefined>;
+    public readonly websiteRedirect!: pulumi.Output<string | undefined>;
 
     /**
      * Create a BucketObject resource with the given unique name, arguments, and options.
@@ -299,64 +299,64 @@ export class BucketObject extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketObjectState | undefined;
-            resourceInputs["acl"] = state?.acl;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["bucket"] = state?.bucket;
-            resourceInputs["bucketKeyEnabled"] = state?.bucketKeyEnabled;
-            resourceInputs["cacheControl"] = state?.cacheControl;
-            resourceInputs["content"] = state?.content;
-            resourceInputs["contentBase64"] = state?.contentBase64;
-            resourceInputs["contentDisposition"] = state?.contentDisposition;
-            resourceInputs["contentEncoding"] = state?.contentEncoding;
-            resourceInputs["contentLanguage"] = state?.contentLanguage;
-            resourceInputs["contentType"] = state?.contentType;
-            resourceInputs["etag"] = state?.etag;
-            resourceInputs["forceDestroy"] = state?.forceDestroy;
-            resourceInputs["key"] = state?.key;
-            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
-            resourceInputs["metadata"] = state?.metadata;
-            resourceInputs["objectLockLegalHoldStatus"] = state?.objectLockLegalHoldStatus;
-            resourceInputs["objectLockMode"] = state?.objectLockMode;
-            resourceInputs["objectLockRetainUntilDate"] = state?.objectLockRetainUntilDate;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["serverSideEncryption"] = state?.serverSideEncryption;
-            resourceInputs["source"] = state?.source;
-            resourceInputs["sourceHash"] = state?.sourceHash;
-            resourceInputs["storageClass"] = state?.storageClass;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["versionId"] = state?.versionId;
-            resourceInputs["websiteRedirect"] = state?.websiteRedirect;
+            resourceInputs["acl"] = state ? state.acl : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["bucket"] = state ? state.bucket : undefined;
+            resourceInputs["bucketKeyEnabled"] = state ? state.bucketKeyEnabled : undefined;
+            resourceInputs["cacheControl"] = state ? state.cacheControl : undefined;
+            resourceInputs["content"] = state ? state.content : undefined;
+            resourceInputs["contentBase64"] = state ? state.contentBase64 : undefined;
+            resourceInputs["contentDisposition"] = state ? state.contentDisposition : undefined;
+            resourceInputs["contentEncoding"] = state ? state.contentEncoding : undefined;
+            resourceInputs["contentLanguage"] = state ? state.contentLanguage : undefined;
+            resourceInputs["contentType"] = state ? state.contentType : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
+            resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["metadata"] = state ? state.metadata : undefined;
+            resourceInputs["objectLockLegalHoldStatus"] = state ? state.objectLockLegalHoldStatus : undefined;
+            resourceInputs["objectLockMode"] = state ? state.objectLockMode : undefined;
+            resourceInputs["objectLockRetainUntilDate"] = state ? state.objectLockRetainUntilDate : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
+            resourceInputs["source"] = state ? state.source : undefined;
+            resourceInputs["sourceHash"] = state ? state.sourceHash : undefined;
+            resourceInputs["storageClass"] = state ? state.storageClass : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["versionId"] = state ? state.versionId : undefined;
+            resourceInputs["websiteRedirect"] = state ? state.websiteRedirect : undefined;
         } else {
             const args = argsOrState as BucketObjectArgs | undefined;
-            if (args?.bucket === undefined && !opts.urn) {
+            if ((!args || args.bucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            resourceInputs["acl"] = args?.acl;
-            resourceInputs["bucket"] = args?.bucket;
-            resourceInputs["bucketKeyEnabled"] = args?.bucketKeyEnabled;
-            resourceInputs["cacheControl"] = args?.cacheControl;
-            resourceInputs["content"] = args?.content;
-            resourceInputs["contentBase64"] = args?.contentBase64;
-            resourceInputs["contentDisposition"] = args?.contentDisposition;
-            resourceInputs["contentEncoding"] = args?.contentEncoding;
-            resourceInputs["contentLanguage"] = args?.contentLanguage;
-            resourceInputs["contentType"] = args?.contentType;
-            resourceInputs["etag"] = args?.etag;
-            resourceInputs["forceDestroy"] = args?.forceDestroy;
-            resourceInputs["key"] = args?.key;
-            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
-            resourceInputs["metadata"] = args?.metadata;
-            resourceInputs["objectLockLegalHoldStatus"] = args?.objectLockLegalHoldStatus;
-            resourceInputs["objectLockMode"] = args?.objectLockMode;
-            resourceInputs["objectLockRetainUntilDate"] = args?.objectLockRetainUntilDate;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["serverSideEncryption"] = args?.serverSideEncryption;
-            resourceInputs["source"] = args?.source;
-            resourceInputs["sourceHash"] = args?.sourceHash;
-            resourceInputs["storageClass"] = args?.storageClass;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["websiteRedirect"] = args?.websiteRedirect;
+            resourceInputs["acl"] = args ? args.acl : undefined;
+            resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["bucketKeyEnabled"] = args ? args.bucketKeyEnabled : undefined;
+            resourceInputs["cacheControl"] = args ? args.cacheControl : undefined;
+            resourceInputs["content"] = args ? args.content : undefined;
+            resourceInputs["contentBase64"] = args ? args.contentBase64 : undefined;
+            resourceInputs["contentDisposition"] = args ? args.contentDisposition : undefined;
+            resourceInputs["contentEncoding"] = args ? args.contentEncoding : undefined;
+            resourceInputs["contentLanguage"] = args ? args.contentLanguage : undefined;
+            resourceInputs["contentType"] = args ? args.contentType : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
+            resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["objectLockLegalHoldStatus"] = args ? args.objectLockLegalHoldStatus : undefined;
+            resourceInputs["objectLockMode"] = args ? args.objectLockMode : undefined;
+            resourceInputs["objectLockRetainUntilDate"] = args ? args.objectLockRetainUntilDate : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
+            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["sourceHash"] = args ? args.sourceHash : undefined;
+            resourceInputs["storageClass"] = args ? args.storageClass : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["websiteRedirect"] = args ? args.websiteRedirect : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["versionId"] = undefined /*out*/;

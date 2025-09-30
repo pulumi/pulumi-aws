@@ -84,19 +84,19 @@ export class DirectoryBucketAccessPointScope extends pulumi.CustomResource {
     /**
      * The AWS account ID that owns the specified access point.
      */
-    declare public readonly accountId: pulumi.Output<string>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * The name of the access point that you want to apply the scope to.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
      */
-    declare public readonly scope: pulumi.Output<outputs.s3control.DirectoryBucketAccessPointScopeScope | undefined>;
+    public readonly scope!: pulumi.Output<outputs.s3control.DirectoryBucketAccessPointScopeScope | undefined>;
 
     /**
      * Create a DirectoryBucketAccessPointScope resource with the given unique name, arguments, and options.
@@ -111,19 +111,19 @@ export class DirectoryBucketAccessPointScope extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DirectoryBucketAccessPointScopeState | undefined;
-            resourceInputs["accountId"] = state?.accountId;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["scope"] = state?.scope;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["scope"] = state ? state.scope : undefined;
         } else {
             const args = argsOrState as DirectoryBucketAccessPointScopeArgs | undefined;
-            if (args?.accountId === undefined && !opts.urn) {
+            if ((!args || args.accountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
             }
-            resourceInputs["accountId"] = args?.accountId;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["scope"] = args?.scope;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DirectoryBucketAccessPointScope.__pulumiType, name, resourceInputs, opts);

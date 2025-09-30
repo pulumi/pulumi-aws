@@ -76,15 +76,15 @@ export class Association extends pulumi.CustomResource {
     /**
      * ARN of the license configuration.
      */
-    declare public readonly licenseConfigurationArn: pulumi.Output<string>;
+    public readonly licenseConfigurationArn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ARN of the resource associated with the license configuration.
      */
-    declare public readonly resourceArn: pulumi.Output<string>;
+    public readonly resourceArn!: pulumi.Output<string>;
 
     /**
      * Create a Association resource with the given unique name, arguments, and options.
@@ -99,20 +99,20 @@ export class Association extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AssociationState | undefined;
-            resourceInputs["licenseConfigurationArn"] = state?.licenseConfigurationArn;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceArn"] = state?.resourceArn;
+            resourceInputs["licenseConfigurationArn"] = state ? state.licenseConfigurationArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
         } else {
             const args = argsOrState as AssociationArgs | undefined;
-            if (args?.licenseConfigurationArn === undefined && !opts.urn) {
+            if ((!args || args.licenseConfigurationArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'licenseConfigurationArn'");
             }
-            if (args?.resourceArn === undefined && !opts.urn) {
+            if ((!args || args.resourceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            resourceInputs["licenseConfigurationArn"] = args?.licenseConfigurationArn;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resourceArn"] = args?.resourceArn;
+            resourceInputs["licenseConfigurationArn"] = args ? args.licenseConfigurationArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Association.__pulumiType, name, resourceInputs, opts);

@@ -103,40 +103,40 @@ export class VpcIpamPoolCidrAllocation extends pulumi.CustomResource {
     /**
      * The CIDR you want to assign to the pool.
      */
-    declare public readonly cidr: pulumi.Output<string>;
+    public readonly cidr!: pulumi.Output<string>;
     /**
      * The description for the allocation.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Exclude a particular CIDR range from being returned by the pool.
      */
-    declare public readonly disallowedCidrs: pulumi.Output<string[] | undefined>;
-    declare public /*out*/ readonly ipamPoolAllocationId: pulumi.Output<string>;
+    public readonly disallowedCidrs!: pulumi.Output<string[] | undefined>;
+    public /*out*/ readonly ipamPoolAllocationId!: pulumi.Output<string>;
     /**
      * The ID of the pool to which you want to assign a CIDR.
      */
-    declare public readonly ipamPoolId: pulumi.Output<string>;
+    public readonly ipamPoolId!: pulumi.Output<string>;
     /**
      * The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
      */
-    declare public readonly netmaskLength: pulumi.Output<number>;
+    public readonly netmaskLength!: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ID of the resource.
      */
-    declare public /*out*/ readonly resourceId: pulumi.Output<string>;
+    public /*out*/ readonly resourceId!: pulumi.Output<string>;
     /**
      * The owner of the resource.
      */
-    declare public /*out*/ readonly resourceOwner: pulumi.Output<string>;
+    public /*out*/ readonly resourceOwner!: pulumi.Output<string>;
     /**
      * The type of the resource.
      */
-    declare public /*out*/ readonly resourceType: pulumi.Output<string>;
+    public /*out*/ readonly resourceType!: pulumi.Output<string>;
 
     /**
      * Create a VpcIpamPoolCidrAllocation resource with the given unique name, arguments, and options.
@@ -151,27 +151,27 @@ export class VpcIpamPoolCidrAllocation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcIpamPoolCidrAllocationState | undefined;
-            resourceInputs["cidr"] = state?.cidr;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["disallowedCidrs"] = state?.disallowedCidrs;
-            resourceInputs["ipamPoolAllocationId"] = state?.ipamPoolAllocationId;
-            resourceInputs["ipamPoolId"] = state?.ipamPoolId;
-            resourceInputs["netmaskLength"] = state?.netmaskLength;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceId"] = state?.resourceId;
-            resourceInputs["resourceOwner"] = state?.resourceOwner;
-            resourceInputs["resourceType"] = state?.resourceType;
+            resourceInputs["cidr"] = state ? state.cidr : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["disallowedCidrs"] = state ? state.disallowedCidrs : undefined;
+            resourceInputs["ipamPoolAllocationId"] = state ? state.ipamPoolAllocationId : undefined;
+            resourceInputs["ipamPoolId"] = state ? state.ipamPoolId : undefined;
+            resourceInputs["netmaskLength"] = state ? state.netmaskLength : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
+            resourceInputs["resourceOwner"] = state ? state.resourceOwner : undefined;
+            resourceInputs["resourceType"] = state ? state.resourceType : undefined;
         } else {
             const args = argsOrState as VpcIpamPoolCidrAllocationArgs | undefined;
-            if (args?.ipamPoolId === undefined && !opts.urn) {
+            if ((!args || args.ipamPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ipamPoolId'");
             }
-            resourceInputs["cidr"] = args?.cidr;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["disallowedCidrs"] = args?.disallowedCidrs;
-            resourceInputs["ipamPoolId"] = args?.ipamPoolId;
-            resourceInputs["netmaskLength"] = args?.netmaskLength;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["cidr"] = args ? args.cidr : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["disallowedCidrs"] = args ? args.disallowedCidrs : undefined;
+            resourceInputs["ipamPoolId"] = args ? args.ipamPoolId : undefined;
+            resourceInputs["netmaskLength"] = args ? args.netmaskLength : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["ipamPoolAllocationId"] = undefined /*out*/;
             resourceInputs["resourceId"] = undefined /*out*/;
             resourceInputs["resourceOwner"] = undefined /*out*/;

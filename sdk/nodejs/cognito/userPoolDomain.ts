@@ -88,47 +88,47 @@ export class UserPoolDomain extends pulumi.CustomResource {
     /**
      * The AWS account ID for the user pool owner.
      */
-    declare public /*out*/ readonly awsAccountId: pulumi.Output<string>;
+    public /*out*/ readonly awsAccountId!: pulumi.Output<string>;
     /**
      * The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
      */
-    declare public readonly certificateArn: pulumi.Output<string | undefined>;
+    public readonly certificateArn!: pulumi.Output<string | undefined>;
     /**
      * The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
      */
-    declare public /*out*/ readonly cloudfrontDistribution: pulumi.Output<string>;
+    public /*out*/ readonly cloudfrontDistribution!: pulumi.Output<string>;
     /**
      * The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`
      */
-    declare public /*out*/ readonly cloudfrontDistributionArn: pulumi.Output<string>;
+    public /*out*/ readonly cloudfrontDistributionArn!: pulumi.Output<string>;
     /**
      * The Route 53 hosted zone ID of the CloudFront distribution.
      */
-    declare public /*out*/ readonly cloudfrontDistributionZoneId: pulumi.Output<string>;
+    public /*out*/ readonly cloudfrontDistributionZoneId!: pulumi.Output<string>;
     /**
      * For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
      */
-    declare public readonly domain: pulumi.Output<string>;
+    public readonly domain!: pulumi.Output<string>;
     /**
      * A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
      */
-    declare public readonly managedLoginVersion: pulumi.Output<number>;
+    public readonly managedLoginVersion!: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The S3 bucket where the static files for this domain are stored.
      */
-    declare public /*out*/ readonly s3Bucket: pulumi.Output<string>;
+    public /*out*/ readonly s3Bucket!: pulumi.Output<string>;
     /**
      * The user pool ID.
      */
-    declare public readonly userPoolId: pulumi.Output<string>;
+    public readonly userPoolId!: pulumi.Output<string>;
     /**
      * The app version.
      */
-    declare public /*out*/ readonly version: pulumi.Output<string>;
+    public /*out*/ readonly version!: pulumi.Output<string>;
 
     /**
      * Create a UserPoolDomain resource with the given unique name, arguments, and options.
@@ -143,30 +143,30 @@ export class UserPoolDomain extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserPoolDomainState | undefined;
-            resourceInputs["awsAccountId"] = state?.awsAccountId;
-            resourceInputs["certificateArn"] = state?.certificateArn;
-            resourceInputs["cloudfrontDistribution"] = state?.cloudfrontDistribution;
-            resourceInputs["cloudfrontDistributionArn"] = state?.cloudfrontDistributionArn;
-            resourceInputs["cloudfrontDistributionZoneId"] = state?.cloudfrontDistributionZoneId;
-            resourceInputs["domain"] = state?.domain;
-            resourceInputs["managedLoginVersion"] = state?.managedLoginVersion;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["s3Bucket"] = state?.s3Bucket;
-            resourceInputs["userPoolId"] = state?.userPoolId;
-            resourceInputs["version"] = state?.version;
+            resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
+            resourceInputs["certificateArn"] = state ? state.certificateArn : undefined;
+            resourceInputs["cloudfrontDistribution"] = state ? state.cloudfrontDistribution : undefined;
+            resourceInputs["cloudfrontDistributionArn"] = state ? state.cloudfrontDistributionArn : undefined;
+            resourceInputs["cloudfrontDistributionZoneId"] = state ? state.cloudfrontDistributionZoneId : undefined;
+            resourceInputs["domain"] = state ? state.domain : undefined;
+            resourceInputs["managedLoginVersion"] = state ? state.managedLoginVersion : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["s3Bucket"] = state ? state.s3Bucket : undefined;
+            resourceInputs["userPoolId"] = state ? state.userPoolId : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as UserPoolDomainArgs | undefined;
-            if (args?.domain === undefined && !opts.urn) {
+            if ((!args || args.domain === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domain'");
             }
-            if (args?.userPoolId === undefined && !opts.urn) {
+            if ((!args || args.userPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            resourceInputs["certificateArn"] = args?.certificateArn;
-            resourceInputs["domain"] = args?.domain;
-            resourceInputs["managedLoginVersion"] = args?.managedLoginVersion;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["userPoolId"] = args?.userPoolId;
+            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
+            resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["managedLoginVersion"] = args ? args.managedLoginVersion : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
             resourceInputs["awsAccountId"] = undefined /*out*/;
             resourceInputs["cloudfrontDistribution"] = undefined /*out*/;
             resourceInputs["cloudfrontDistributionArn"] = undefined /*out*/;

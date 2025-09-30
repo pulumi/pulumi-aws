@@ -60,32 +60,32 @@ export class PeeringAttachmentAccepter extends pulumi.CustomResource {
     /**
      * Identifier of the AWS account that owns the EC2 TGW peering.
      */
-    declare public /*out*/ readonly peerAccountId: pulumi.Output<string>;
-    declare public /*out*/ readonly peerRegion: pulumi.Output<string>;
+    public /*out*/ readonly peerAccountId!: pulumi.Output<string>;
+    public /*out*/ readonly peerRegion!: pulumi.Output<string>;
     /**
      * Identifier of EC2 Transit Gateway to peer with.
      */
-    declare public /*out*/ readonly peerTransitGatewayId: pulumi.Output<string>;
+    public /*out*/ readonly peerTransitGatewayId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the EC2 Transit Gateway Peering Attachment to manage.
      */
-    declare public readonly transitGatewayAttachmentId: pulumi.Output<string>;
+    public readonly transitGatewayAttachmentId!: pulumi.Output<string>;
     /**
      * Identifier of EC2 Transit Gateway.
      */
-    declare public /*out*/ readonly transitGatewayId: pulumi.Output<string>;
+    public /*out*/ readonly transitGatewayId!: pulumi.Output<string>;
 
     /**
      * Create a PeeringAttachmentAccepter resource with the given unique name, arguments, and options.
@@ -100,22 +100,22 @@ export class PeeringAttachmentAccepter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PeeringAttachmentAccepterState | undefined;
-            resourceInputs["peerAccountId"] = state?.peerAccountId;
-            resourceInputs["peerRegion"] = state?.peerRegion;
-            resourceInputs["peerTransitGatewayId"] = state?.peerTransitGatewayId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["transitGatewayAttachmentId"] = state?.transitGatewayAttachmentId;
-            resourceInputs["transitGatewayId"] = state?.transitGatewayId;
+            resourceInputs["peerAccountId"] = state ? state.peerAccountId : undefined;
+            resourceInputs["peerRegion"] = state ? state.peerRegion : undefined;
+            resourceInputs["peerTransitGatewayId"] = state ? state.peerTransitGatewayId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;
+            resourceInputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
         } else {
             const args = argsOrState as PeeringAttachmentAccepterArgs | undefined;
-            if (args?.transitGatewayAttachmentId === undefined && !opts.urn) {
+            if ((!args || args.transitGatewayAttachmentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayAttachmentId'");
             }
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["transitGatewayAttachmentId"] = args?.transitGatewayAttachmentId;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
             resourceInputs["peerAccountId"] = undefined /*out*/;
             resourceInputs["peerRegion"] = undefined /*out*/;
             resourceInputs["peerTransitGatewayId"] = undefined /*out*/;

@@ -91,53 +91,53 @@ export class TrafficMirrorFilterRule extends pulumi.CustomResource {
     /**
      * ARN of the traffic mirror filter rule.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Description of the traffic mirror filter rule.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Destination CIDR block to assign to the Traffic Mirror rule.
      */
-    declare public readonly destinationCidrBlock: pulumi.Output<string>;
+    public readonly destinationCidrBlock!: pulumi.Output<string>;
     /**
      * Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
      */
-    declare public readonly destinationPortRange: pulumi.Output<outputs.ec2.TrafficMirrorFilterRuleDestinationPortRange | undefined>;
+    public readonly destinationPortRange!: pulumi.Output<outputs.ec2.TrafficMirrorFilterRuleDestinationPortRange | undefined>;
     /**
      * Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
      */
-    declare public readonly protocol: pulumi.Output<number | undefined>;
+    public readonly protocol!: pulumi.Output<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
      */
-    declare public readonly ruleAction: pulumi.Output<string>;
+    public readonly ruleAction!: pulumi.Output<string>;
     /**
      * Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
      */
-    declare public readonly ruleNumber: pulumi.Output<number>;
+    public readonly ruleNumber!: pulumi.Output<number>;
     /**
      * Source CIDR block to assign to the Traffic Mirror rule.
      */
-    declare public readonly sourceCidrBlock: pulumi.Output<string>;
+    public readonly sourceCidrBlock!: pulumi.Output<string>;
     /**
      * Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
      */
-    declare public readonly sourcePortRange: pulumi.Output<outputs.ec2.TrafficMirrorFilterRuleSourcePortRange | undefined>;
+    public readonly sourcePortRange!: pulumi.Output<outputs.ec2.TrafficMirrorFilterRuleSourcePortRange | undefined>;
     /**
      * Direction of traffic to be captured. Valid values are `ingress` and `egress`
      *
      * Traffic mirror port range support following attributes:
      */
-    declare public readonly trafficDirection: pulumi.Output<string>;
+    public readonly trafficDirection!: pulumi.Output<string>;
     /**
      * ID of the traffic mirror filter to which this rule should be added
      */
-    declare public readonly trafficMirrorFilterId: pulumi.Output<string>;
+    public readonly trafficMirrorFilterId!: pulumi.Output<string>;
 
     /**
      * Create a TrafficMirrorFilterRule resource with the given unique name, arguments, and options.
@@ -152,49 +152,49 @@ export class TrafficMirrorFilterRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TrafficMirrorFilterRuleState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["destinationCidrBlock"] = state?.destinationCidrBlock;
-            resourceInputs["destinationPortRange"] = state?.destinationPortRange;
-            resourceInputs["protocol"] = state?.protocol;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["ruleAction"] = state?.ruleAction;
-            resourceInputs["ruleNumber"] = state?.ruleNumber;
-            resourceInputs["sourceCidrBlock"] = state?.sourceCidrBlock;
-            resourceInputs["sourcePortRange"] = state?.sourcePortRange;
-            resourceInputs["trafficDirection"] = state?.trafficDirection;
-            resourceInputs["trafficMirrorFilterId"] = state?.trafficMirrorFilterId;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["destinationCidrBlock"] = state ? state.destinationCidrBlock : undefined;
+            resourceInputs["destinationPortRange"] = state ? state.destinationPortRange : undefined;
+            resourceInputs["protocol"] = state ? state.protocol : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["ruleAction"] = state ? state.ruleAction : undefined;
+            resourceInputs["ruleNumber"] = state ? state.ruleNumber : undefined;
+            resourceInputs["sourceCidrBlock"] = state ? state.sourceCidrBlock : undefined;
+            resourceInputs["sourcePortRange"] = state ? state.sourcePortRange : undefined;
+            resourceInputs["trafficDirection"] = state ? state.trafficDirection : undefined;
+            resourceInputs["trafficMirrorFilterId"] = state ? state.trafficMirrorFilterId : undefined;
         } else {
             const args = argsOrState as TrafficMirrorFilterRuleArgs | undefined;
-            if (args?.destinationCidrBlock === undefined && !opts.urn) {
+            if ((!args || args.destinationCidrBlock === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destinationCidrBlock'");
             }
-            if (args?.ruleAction === undefined && !opts.urn) {
+            if ((!args || args.ruleAction === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleAction'");
             }
-            if (args?.ruleNumber === undefined && !opts.urn) {
+            if ((!args || args.ruleNumber === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleNumber'");
             }
-            if (args?.sourceCidrBlock === undefined && !opts.urn) {
+            if ((!args || args.sourceCidrBlock === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceCidrBlock'");
             }
-            if (args?.trafficDirection === undefined && !opts.urn) {
+            if ((!args || args.trafficDirection === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'trafficDirection'");
             }
-            if (args?.trafficMirrorFilterId === undefined && !opts.urn) {
+            if ((!args || args.trafficMirrorFilterId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'trafficMirrorFilterId'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["destinationCidrBlock"] = args?.destinationCidrBlock;
-            resourceInputs["destinationPortRange"] = args?.destinationPortRange;
-            resourceInputs["protocol"] = args?.protocol;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["ruleAction"] = args?.ruleAction;
-            resourceInputs["ruleNumber"] = args?.ruleNumber;
-            resourceInputs["sourceCidrBlock"] = args?.sourceCidrBlock;
-            resourceInputs["sourcePortRange"] = args?.sourcePortRange;
-            resourceInputs["trafficDirection"] = args?.trafficDirection;
-            resourceInputs["trafficMirrorFilterId"] = args?.trafficMirrorFilterId;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
+            resourceInputs["destinationPortRange"] = args ? args.destinationPortRange : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["ruleAction"] = args ? args.ruleAction : undefined;
+            resourceInputs["ruleNumber"] = args ? args.ruleNumber : undefined;
+            resourceInputs["sourceCidrBlock"] = args ? args.sourceCidrBlock : undefined;
+            resourceInputs["sourcePortRange"] = args ? args.sourcePortRange : undefined;
+            resourceInputs["trafficDirection"] = args ? args.trafficDirection : undefined;
+            resourceInputs["trafficMirrorFilterId"] = args ? args.trafficMirrorFilterId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

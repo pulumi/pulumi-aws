@@ -47,11 +47,11 @@ export class ConnectionConfirmation extends pulumi.CustomResource {
     /**
      * The ID of the hosted connection.
      */
-    declare public readonly connectionId: pulumi.Output<string>;
+    public readonly connectionId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ConnectionConfirmation resource with the given unique name, arguments, and options.
@@ -66,15 +66,15 @@ export class ConnectionConfirmation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConnectionConfirmationState | undefined;
-            resourceInputs["connectionId"] = state?.connectionId;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["connectionId"] = state ? state.connectionId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ConnectionConfirmationArgs | undefined;
-            if (args?.connectionId === undefined && !opts.urn) {
+            if ((!args || args.connectionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectionId'");
             }
-            resourceInputs["connectionId"] = args?.connectionId;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["connectionId"] = args ? args.connectionId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ConnectionConfirmation.__pulumiType, name, resourceInputs, opts);

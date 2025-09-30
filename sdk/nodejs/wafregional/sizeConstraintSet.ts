@@ -65,19 +65,19 @@ export class SizeConstraintSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === SizeConstraintSet.__pulumiType;
     }
 
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name or description of the Size Constraint Set.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Specifies the parts of web requests that you want to inspect the size of.
      */
-    declare public readonly sizeConstraints: pulumi.Output<outputs.wafregional.SizeConstraintSetSizeConstraint[] | undefined>;
+    public readonly sizeConstraints!: pulumi.Output<outputs.wafregional.SizeConstraintSetSizeConstraint[] | undefined>;
 
     /**
      * Create a SizeConstraintSet resource with the given unique name, arguments, and options.
@@ -92,15 +92,15 @@ export class SizeConstraintSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SizeConstraintSetState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["sizeConstraints"] = state?.sizeConstraints;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["sizeConstraints"] = state ? state.sizeConstraints : undefined;
         } else {
             const args = argsOrState as SizeConstraintSetArgs | undefined;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["sizeConstraints"] = args?.sizeConstraints;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["sizeConstraints"] = args ? args.sizeConstraints : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

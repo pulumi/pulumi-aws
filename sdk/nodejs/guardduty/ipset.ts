@@ -74,39 +74,39 @@ export class IPSet extends pulumi.CustomResource {
     /**
      * Specifies whether GuardDuty is to start using the uploaded IPSet.
      */
-    declare public readonly activate: pulumi.Output<boolean>;
+    public readonly activate!: pulumi.Output<boolean>;
     /**
      * Amazon Resource Name (ARN) of the GuardDuty IPSet.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The detector ID of the GuardDuty.
      */
-    declare public readonly detectorId: pulumi.Output<string>;
+    public readonly detectorId!: pulumi.Output<string>;
     /**
      * The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
      */
-    declare public readonly format: pulumi.Output<string>;
+    public readonly format!: pulumi.Output<string>;
     /**
      * The URI of the file that contains the IPSet.
      */
-    declare public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The friendly name to identify the IPSet.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a IPSet resource with the given unique name, arguments, and options.
@@ -121,36 +121,36 @@ export class IPSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IPSetState | undefined;
-            resourceInputs["activate"] = state?.activate;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["detectorId"] = state?.detectorId;
-            resourceInputs["format"] = state?.format;
-            resourceInputs["location"] = state?.location;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["activate"] = state ? state.activate : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["detectorId"] = state ? state.detectorId : undefined;
+            resourceInputs["format"] = state ? state.format : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as IPSetArgs | undefined;
-            if (args?.activate === undefined && !opts.urn) {
+            if ((!args || args.activate === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'activate'");
             }
-            if (args?.detectorId === undefined && !opts.urn) {
+            if ((!args || args.detectorId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'detectorId'");
             }
-            if (args?.format === undefined && !opts.urn) {
+            if ((!args || args.format === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'format'");
             }
-            if (args?.location === undefined && !opts.urn) {
+            if ((!args || args.location === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'location'");
             }
-            resourceInputs["activate"] = args?.activate;
-            resourceInputs["detectorId"] = args?.detectorId;
-            resourceInputs["format"] = args?.format;
-            resourceInputs["location"] = args?.location;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["activate"] = args ? args.activate : undefined;
+            resourceInputs["detectorId"] = args ? args.detectorId : undefined;
+            resourceInputs["format"] = args ? args.format : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

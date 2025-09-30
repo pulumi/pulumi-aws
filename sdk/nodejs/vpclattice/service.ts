@@ -64,45 +64,45 @@ export class Service extends pulumi.CustomResource {
     /**
      * ARN of the service.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Type of IAM policy. Either `NONE` or `AWS_IAM`.
      */
-    declare public readonly authType: pulumi.Output<string>;
+    public readonly authType!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the certificate.
      */
-    declare public readonly certificateArn: pulumi.Output<string | undefined>;
+    public readonly certificateArn!: pulumi.Output<string | undefined>;
     /**
      * Custom domain name of the service.
      */
-    declare public readonly customDomainName: pulumi.Output<string | undefined>;
+    public readonly customDomainName!: pulumi.Output<string | undefined>;
     /**
      * DNS name of the service.
      */
-    declare public /*out*/ readonly dnsEntries: pulumi.Output<outputs.vpclattice.ServiceDnsEntry[]>;
+    public /*out*/ readonly dnsEntries!: pulumi.Output<outputs.vpclattice.ServiceDnsEntry[]>;
     /**
      * Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
      *
      * The following arguments are optional:
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Status of the service.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -117,24 +117,24 @@ export class Service extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["authType"] = state?.authType;
-            resourceInputs["certificateArn"] = state?.certificateArn;
-            resourceInputs["customDomainName"] = state?.customDomainName;
-            resourceInputs["dnsEntries"] = state?.dnsEntries;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["authType"] = state ? state.authType : undefined;
+            resourceInputs["certificateArn"] = state ? state.certificateArn : undefined;
+            resourceInputs["customDomainName"] = state ? state.customDomainName : undefined;
+            resourceInputs["dnsEntries"] = state ? state.dnsEntries : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
-            resourceInputs["authType"] = args?.authType;
-            resourceInputs["certificateArn"] = args?.certificateArn;
-            resourceInputs["customDomainName"] = args?.customDomainName;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["authType"] = args ? args.authType : undefined;
+            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
+            resourceInputs["customDomainName"] = args ? args.customDomainName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dnsEntries"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

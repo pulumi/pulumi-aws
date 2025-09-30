@@ -110,29 +110,29 @@ export class LanguageModel extends pulumi.CustomResource {
     /**
      * ARN of the LanguageModel.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Name of reference base model.
      */
-    declare public readonly baseModelName: pulumi.Output<string>;
+    public readonly baseModelName!: pulumi.Output<string>;
     /**
      * The input data config for the LanguageModel. See Input Data Config for more details.
      */
-    declare public readonly inputDataConfig: pulumi.Output<outputs.transcribe.LanguageModelInputDataConfig>;
+    public readonly inputDataConfig!: pulumi.Output<outputs.transcribe.LanguageModelInputDataConfig>;
     /**
      * The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
      */
-    declare public readonly languageCode: pulumi.Output<string>;
+    public readonly languageCode!: pulumi.Output<string>;
     /**
      * The model name.
      */
-    declare public readonly modelName: pulumi.Output<string>;
+    public readonly modelName!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public readonly region!: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a LanguageModel resource with the given unique name, arguments, and options.
@@ -147,34 +147,34 @@ export class LanguageModel extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LanguageModelState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["baseModelName"] = state?.baseModelName;
-            resourceInputs["inputDataConfig"] = state?.inputDataConfig;
-            resourceInputs["languageCode"] = state?.languageCode;
-            resourceInputs["modelName"] = state?.modelName;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["baseModelName"] = state ? state.baseModelName : undefined;
+            resourceInputs["inputDataConfig"] = state ? state.inputDataConfig : undefined;
+            resourceInputs["languageCode"] = state ? state.languageCode : undefined;
+            resourceInputs["modelName"] = state ? state.modelName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as LanguageModelArgs | undefined;
-            if (args?.baseModelName === undefined && !opts.urn) {
+            if ((!args || args.baseModelName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'baseModelName'");
             }
-            if (args?.inputDataConfig === undefined && !opts.urn) {
+            if ((!args || args.inputDataConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'inputDataConfig'");
             }
-            if (args?.languageCode === undefined && !opts.urn) {
+            if ((!args || args.languageCode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'languageCode'");
             }
-            if (args?.modelName === undefined && !opts.urn) {
+            if ((!args || args.modelName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'modelName'");
             }
-            resourceInputs["baseModelName"] = args?.baseModelName;
-            resourceInputs["inputDataConfig"] = args?.inputDataConfig;
-            resourceInputs["languageCode"] = args?.languageCode;
-            resourceInputs["modelName"] = args?.modelName;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["baseModelName"] = args ? args.baseModelName : undefined;
+            resourceInputs["inputDataConfig"] = args ? args.inputDataConfig : undefined;
+            resourceInputs["languageCode"] = args ? args.languageCode : undefined;
+            resourceInputs["modelName"] = args ? args.modelName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

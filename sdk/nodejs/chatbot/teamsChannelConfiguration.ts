@@ -71,66 +71,66 @@ export class TeamsChannelConfiguration extends pulumi.CustomResource {
     /**
      * ID of the Microsoft Teams channel.
      */
-    declare public readonly channelId: pulumi.Output<string>;
+    public readonly channelId!: pulumi.Output<string>;
     /**
      * Name of the Microsoft Teams channel.
      */
-    declare public readonly channelName: pulumi.Output<string>;
+    public readonly channelName!: pulumi.Output<string>;
     /**
      * ARN of the Microsoft Teams channel configuration.
      */
-    declare public /*out*/ readonly chatConfigurationArn: pulumi.Output<string>;
+    public /*out*/ readonly chatConfigurationArn!: pulumi.Output<string>;
     /**
      * Name of the Microsoft Teams channel configuration.
      */
-    declare public readonly configurationName: pulumi.Output<string>;
+    public readonly configurationName!: pulumi.Output<string>;
     /**
      * List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
      */
-    declare public readonly guardrailPolicyArns: pulumi.Output<string[]>;
+    public readonly guardrailPolicyArns!: pulumi.Output<string[]>;
     /**
      * ARN of the IAM role that defines the permissions for AWS Chatbot. This is a user-defined role that AWS Chatbot will assume. This is not the service-linked role.
      */
-    declare public readonly iamRoleArn: pulumi.Output<string>;
+    public readonly iamRoleArn!: pulumi.Output<string>;
     /**
      * Logging levels include `ERROR`, `INFO`, or `NONE`.
      */
-    declare public readonly loggingLevel: pulumi.Output<string>;
+    public readonly loggingLevel!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ARNs of the SNS topics that deliver notifications to AWS Chatbot.
      */
-    declare public readonly snsTopicArns: pulumi.Output<string[]>;
+    public readonly snsTopicArns!: pulumi.Output<string[]>;
     /**
      * Map of tags assigned to the resource.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * ID of the Microsoft Team authorized with AWS Chatbot. To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console.
      */
-    declare public readonly teamId: pulumi.Output<string>;
+    public readonly teamId!: pulumi.Output<string>;
     /**
      * Name of the Microsoft Teams team.
      */
-    declare public readonly teamName: pulumi.Output<string>;
+    public readonly teamName!: pulumi.Output<string>;
     /**
      * ID of the Microsoft Teams tenant.
      *
      * The following arguments are optional:
      */
-    declare public readonly tenantId: pulumi.Output<string>;
-    declare public readonly timeouts: pulumi.Output<outputs.chatbot.TeamsChannelConfigurationTimeouts | undefined>;
+    public readonly tenantId!: pulumi.Output<string>;
+    public readonly timeouts!: pulumi.Output<outputs.chatbot.TeamsChannelConfigurationTimeouts | undefined>;
     /**
      * Enables use of a user role requirement in your chat configuration.
      */
-    declare public readonly userAuthorizationRequired: pulumi.Output<boolean>;
+    public readonly userAuthorizationRequired!: pulumi.Output<boolean>;
 
     /**
      * Create a TeamsChannelConfiguration resource with the given unique name, arguments, and options.
@@ -145,53 +145,53 @@ export class TeamsChannelConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TeamsChannelConfigurationState | undefined;
-            resourceInputs["channelId"] = state?.channelId;
-            resourceInputs["channelName"] = state?.channelName;
-            resourceInputs["chatConfigurationArn"] = state?.chatConfigurationArn;
-            resourceInputs["configurationName"] = state?.configurationName;
-            resourceInputs["guardrailPolicyArns"] = state?.guardrailPolicyArns;
-            resourceInputs["iamRoleArn"] = state?.iamRoleArn;
-            resourceInputs["loggingLevel"] = state?.loggingLevel;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["snsTopicArns"] = state?.snsTopicArns;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["teamId"] = state?.teamId;
-            resourceInputs["teamName"] = state?.teamName;
-            resourceInputs["tenantId"] = state?.tenantId;
-            resourceInputs["timeouts"] = state?.timeouts;
-            resourceInputs["userAuthorizationRequired"] = state?.userAuthorizationRequired;
+            resourceInputs["channelId"] = state ? state.channelId : undefined;
+            resourceInputs["channelName"] = state ? state.channelName : undefined;
+            resourceInputs["chatConfigurationArn"] = state ? state.chatConfigurationArn : undefined;
+            resourceInputs["configurationName"] = state ? state.configurationName : undefined;
+            resourceInputs["guardrailPolicyArns"] = state ? state.guardrailPolicyArns : undefined;
+            resourceInputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
+            resourceInputs["loggingLevel"] = state ? state.loggingLevel : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["snsTopicArns"] = state ? state.snsTopicArns : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["teamId"] = state ? state.teamId : undefined;
+            resourceInputs["teamName"] = state ? state.teamName : undefined;
+            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["userAuthorizationRequired"] = state ? state.userAuthorizationRequired : undefined;
         } else {
             const args = argsOrState as TeamsChannelConfigurationArgs | undefined;
-            if (args?.channelId === undefined && !opts.urn) {
+            if ((!args || args.channelId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'channelId'");
             }
-            if (args?.configurationName === undefined && !opts.urn) {
+            if ((!args || args.configurationName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'configurationName'");
             }
-            if (args?.iamRoleArn === undefined && !opts.urn) {
+            if ((!args || args.iamRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'iamRoleArn'");
             }
-            if (args?.teamId === undefined && !opts.urn) {
+            if ((!args || args.teamId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'teamId'");
             }
-            if (args?.tenantId === undefined && !opts.urn) {
+            if ((!args || args.tenantId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
-            resourceInputs["channelId"] = args?.channelId;
-            resourceInputs["channelName"] = args?.channelName;
-            resourceInputs["configurationName"] = args?.configurationName;
-            resourceInputs["guardrailPolicyArns"] = args?.guardrailPolicyArns;
-            resourceInputs["iamRoleArn"] = args?.iamRoleArn;
-            resourceInputs["loggingLevel"] = args?.loggingLevel;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["snsTopicArns"] = args?.snsTopicArns;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["teamId"] = args?.teamId;
-            resourceInputs["teamName"] = args?.teamName;
-            resourceInputs["tenantId"] = args?.tenantId;
-            resourceInputs["timeouts"] = args?.timeouts;
-            resourceInputs["userAuthorizationRequired"] = args?.userAuthorizationRequired;
+            resourceInputs["channelId"] = args ? args.channelId : undefined;
+            resourceInputs["channelName"] = args ? args.channelName : undefined;
+            resourceInputs["configurationName"] = args ? args.configurationName : undefined;
+            resourceInputs["guardrailPolicyArns"] = args ? args.guardrailPolicyArns : undefined;
+            resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
+            resourceInputs["loggingLevel"] = args ? args.loggingLevel : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["snsTopicArns"] = args ? args.snsTopicArns : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["teamId"] = args ? args.teamId : undefined;
+            resourceInputs["teamName"] = args ? args.teamName : undefined;
+            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["userAuthorizationRequired"] = args ? args.userAuthorizationRequired : undefined;
             resourceInputs["chatConfigurationArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

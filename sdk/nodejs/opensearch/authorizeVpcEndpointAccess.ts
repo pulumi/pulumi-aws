@@ -64,19 +64,19 @@ export class AuthorizeVpcEndpointAccess extends pulumi.CustomResource {
     /**
      * AWS account ID to grant access to.
      */
-    declare public readonly account: pulumi.Output<string>;
+    public readonly account!: pulumi.Output<string>;
     /**
      * Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
      */
-    declare public /*out*/ readonly authorizedPrincipals: pulumi.Output<outputs.opensearch.AuthorizeVpcEndpointAccessAuthorizedPrincipal[]>;
+    public /*out*/ readonly authorizedPrincipals!: pulumi.Output<outputs.opensearch.AuthorizeVpcEndpointAccessAuthorizedPrincipal[]>;
     /**
      * Name of OpenSearch Service domain to provide access to.
      */
-    declare public readonly domainName: pulumi.Output<string>;
+    public readonly domainName!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a AuthorizeVpcEndpointAccess resource with the given unique name, arguments, and options.
@@ -91,21 +91,21 @@ export class AuthorizeVpcEndpointAccess extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AuthorizeVpcEndpointAccessState | undefined;
-            resourceInputs["account"] = state?.account;
-            resourceInputs["authorizedPrincipals"] = state?.authorizedPrincipals;
-            resourceInputs["domainName"] = state?.domainName;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["account"] = state ? state.account : undefined;
+            resourceInputs["authorizedPrincipals"] = state ? state.authorizedPrincipals : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as AuthorizeVpcEndpointAccessArgs | undefined;
-            if (args?.account === undefined && !opts.urn) {
+            if ((!args || args.account === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'account'");
             }
-            if (args?.domainName === undefined && !opts.urn) {
+            if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            resourceInputs["account"] = args?.account;
-            resourceInputs["domainName"] = args?.domainName;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["account"] = args ? args.account : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["authorizedPrincipals"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

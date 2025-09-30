@@ -70,43 +70,43 @@ export class UserDefinedFunction extends pulumi.CustomResource {
     /**
      * The ARN of the Glue User Defined Function.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
      */
-    declare public readonly catalogId: pulumi.Output<string | undefined>;
+    public readonly catalogId!: pulumi.Output<string | undefined>;
     /**
      * The Java class that contains the function code.
      */
-    declare public readonly className: pulumi.Output<string>;
+    public readonly className!: pulumi.Output<string>;
     /**
      * The time at which the function was created.
      */
-    declare public /*out*/ readonly createTime: pulumi.Output<string>;
+    public /*out*/ readonly createTime!: pulumi.Output<string>;
     /**
      * The name of the Database to create the Function.
      */
-    declare public readonly databaseName: pulumi.Output<string>;
+    public readonly databaseName!: pulumi.Output<string>;
     /**
      * The name of the function.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The owner of the function.
      */
-    declare public readonly ownerName: pulumi.Output<string>;
+    public readonly ownerName!: pulumi.Output<string>;
     /**
      * The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
      */
-    declare public readonly ownerType: pulumi.Output<string>;
+    public readonly ownerType!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The configuration block for Resource URIs. See resource uris below for more details.
      */
-    declare public readonly resourceUris: pulumi.Output<outputs.glue.UserDefinedFunctionResourceUri[] | undefined>;
+    public readonly resourceUris!: pulumi.Output<outputs.glue.UserDefinedFunctionResourceUri[] | undefined>;
 
     /**
      * Create a UserDefinedFunction resource with the given unique name, arguments, and options.
@@ -121,38 +121,38 @@ export class UserDefinedFunction extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserDefinedFunctionState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["catalogId"] = state?.catalogId;
-            resourceInputs["className"] = state?.className;
-            resourceInputs["createTime"] = state?.createTime;
-            resourceInputs["databaseName"] = state?.databaseName;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["ownerName"] = state?.ownerName;
-            resourceInputs["ownerType"] = state?.ownerType;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceUris"] = state?.resourceUris;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["catalogId"] = state ? state.catalogId : undefined;
+            resourceInputs["className"] = state ? state.className : undefined;
+            resourceInputs["createTime"] = state ? state.createTime : undefined;
+            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ownerName"] = state ? state.ownerName : undefined;
+            resourceInputs["ownerType"] = state ? state.ownerType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceUris"] = state ? state.resourceUris : undefined;
         } else {
             const args = argsOrState as UserDefinedFunctionArgs | undefined;
-            if (args?.className === undefined && !opts.urn) {
+            if ((!args || args.className === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'className'");
             }
-            if (args?.databaseName === undefined && !opts.urn) {
+            if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if (args?.ownerName === undefined && !opts.urn) {
+            if ((!args || args.ownerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ownerName'");
             }
-            if (args?.ownerType === undefined && !opts.urn) {
+            if ((!args || args.ownerType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ownerType'");
             }
-            resourceInputs["catalogId"] = args?.catalogId;
-            resourceInputs["className"] = args?.className;
-            resourceInputs["databaseName"] = args?.databaseName;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["ownerName"] = args?.ownerName;
-            resourceInputs["ownerType"] = args?.ownerType;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resourceUris"] = args?.resourceUris;
+            resourceInputs["catalogId"] = args ? args.catalogId : undefined;
+            resourceInputs["className"] = args ? args.className : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ownerName"] = args ? args.ownerName : undefined;
+            resourceInputs["ownerType"] = args ? args.ownerType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourceUris"] = args ? args.resourceUris : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
         }

@@ -60,23 +60,23 @@ export class IdentityNotificationTopic extends pulumi.CustomResource {
     /**
      * The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
      */
-    declare public readonly identity: pulumi.Output<string>;
+    public readonly identity!: pulumi.Output<string>;
     /**
      * Whether SES should include original email headers in SNS notifications of this type. `false` by default.
      */
-    declare public readonly includeOriginalHeaders: pulumi.Output<boolean | undefined>;
+    public readonly includeOriginalHeaders!: pulumi.Output<boolean | undefined>;
     /**
      * The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
      */
-    declare public readonly notificationType: pulumi.Output<string>;
+    public readonly notificationType!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
      */
-    declare public readonly topicArn: pulumi.Output<string | undefined>;
+    public readonly topicArn!: pulumi.Output<string | undefined>;
 
     /**
      * Create a IdentityNotificationTopic resource with the given unique name, arguments, and options.
@@ -91,24 +91,24 @@ export class IdentityNotificationTopic extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IdentityNotificationTopicState | undefined;
-            resourceInputs["identity"] = state?.identity;
-            resourceInputs["includeOriginalHeaders"] = state?.includeOriginalHeaders;
-            resourceInputs["notificationType"] = state?.notificationType;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["topicArn"] = state?.topicArn;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["includeOriginalHeaders"] = state ? state.includeOriginalHeaders : undefined;
+            resourceInputs["notificationType"] = state ? state.notificationType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["topicArn"] = state ? state.topicArn : undefined;
         } else {
             const args = argsOrState as IdentityNotificationTopicArgs | undefined;
-            if (args?.identity === undefined && !opts.urn) {
+            if ((!args || args.identity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identity'");
             }
-            if (args?.notificationType === undefined && !opts.urn) {
+            if ((!args || args.notificationType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'notificationType'");
             }
-            resourceInputs["identity"] = args?.identity;
-            resourceInputs["includeOriginalHeaders"] = args?.includeOriginalHeaders;
-            resourceInputs["notificationType"] = args?.notificationType;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["topicArn"] = args?.topicArn;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["includeOriginalHeaders"] = args ? args.includeOriginalHeaders : undefined;
+            resourceInputs["notificationType"] = args ? args.notificationType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["topicArn"] = args ? args.topicArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IdentityNotificationTopic.__pulumiType, name, resourceInputs, opts);

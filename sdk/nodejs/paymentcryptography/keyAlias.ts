@@ -76,15 +76,15 @@ export class KeyAlias extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    declare public readonly aliasName: pulumi.Output<string>;
+    public readonly aliasName!: pulumi.Output<string>;
     /**
      * ARN of the key.
      */
-    declare public readonly keyArn: pulumi.Output<string | undefined>;
+    public readonly keyArn!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a KeyAlias resource with the given unique name, arguments, and options.
@@ -99,17 +99,17 @@ export class KeyAlias extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KeyAliasState | undefined;
-            resourceInputs["aliasName"] = state?.aliasName;
-            resourceInputs["keyArn"] = state?.keyArn;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["aliasName"] = state ? state.aliasName : undefined;
+            resourceInputs["keyArn"] = state ? state.keyArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as KeyAliasArgs | undefined;
-            if (args?.aliasName === undefined && !opts.urn) {
+            if ((!args || args.aliasName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'aliasName'");
             }
-            resourceInputs["aliasName"] = args?.aliasName;
-            resourceInputs["keyArn"] = args?.keyArn;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["aliasName"] = args ? args.aliasName : undefined;
+            resourceInputs["keyArn"] = args ? args.keyArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(KeyAlias.__pulumiType, name, resourceInputs, opts);

@@ -79,19 +79,19 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * Boolean flag to indicate if the certificate should be active
      */
-    declare public readonly active: pulumi.Output<boolean>;
+    public readonly active!: pulumi.Output<boolean>;
     /**
      * The ARN of the created certificate.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The certificate ID of the CA certificate used to sign the certificate.
      */
-    declare public /*out*/ readonly caCertificateId: pulumi.Output<string>;
+    public /*out*/ readonly caCertificateId!: pulumi.Output<string>;
     /**
      * The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
      */
-    declare public readonly caPem: pulumi.Output<string | undefined>;
+    public readonly caPem!: pulumi.Output<string | undefined>;
     /**
      * The certificate to be registered. If `caPem` is unspecified, review
      * [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
@@ -99,7 +99,7 @@ export class Certificate extends pulumi.CustomResource {
      * [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
      * for more information on registering a certificate.
      */
-    declare public readonly certificatePem: pulumi.Output<string>;
+    public readonly certificatePem!: pulumi.Output<string>;
     /**
      * The certificate signing request. Review
      * [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
@@ -107,19 +107,19 @@ export class Certificate extends pulumi.CustomResource {
      * If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
      * for more information on generating keys and a certificate.
      */
-    declare public readonly csr: pulumi.Output<string | undefined>;
+    public readonly csr!: pulumi.Output<string | undefined>;
     /**
      * When neither CSR nor certificate is provided, the private key.
      */
-    declare public /*out*/ readonly privateKey: pulumi.Output<string>;
+    public /*out*/ readonly privateKey!: pulumi.Output<string>;
     /**
      * When neither CSR nor certificate is provided, the public key.
      */
-    declare public /*out*/ readonly publicKey: pulumi.Output<string>;
+    public /*out*/ readonly publicKey!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -134,25 +134,25 @@ export class Certificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateState | undefined;
-            resourceInputs["active"] = state?.active;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["caCertificateId"] = state?.caCertificateId;
-            resourceInputs["caPem"] = state?.caPem;
-            resourceInputs["certificatePem"] = state?.certificatePem;
-            resourceInputs["csr"] = state?.csr;
-            resourceInputs["privateKey"] = state?.privateKey;
-            resourceInputs["publicKey"] = state?.publicKey;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["active"] = state ? state.active : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["caCertificateId"] = state ? state.caCertificateId : undefined;
+            resourceInputs["caPem"] = state ? state.caPem : undefined;
+            resourceInputs["certificatePem"] = state ? state.certificatePem : undefined;
+            resourceInputs["csr"] = state ? state.csr : undefined;
+            resourceInputs["privateKey"] = state ? state.privateKey : undefined;
+            resourceInputs["publicKey"] = state ? state.publicKey : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
-            if (args?.active === undefined && !opts.urn) {
+            if ((!args || args.active === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'active'");
             }
-            resourceInputs["active"] = args?.active;
+            resourceInputs["active"] = args ? args.active : undefined;
             resourceInputs["caPem"] = args?.caPem ? pulumi.secret(args.caPem) : undefined;
             resourceInputs["certificatePem"] = args?.certificatePem ? pulumi.secret(args.certificatePem) : undefined;
-            resourceInputs["csr"] = args?.csr;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["csr"] = args ? args.csr : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["caCertificateId"] = undefined /*out*/;
             resourceInputs["privateKey"] = undefined /*out*/;

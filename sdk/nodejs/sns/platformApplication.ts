@@ -91,65 +91,65 @@ export class PlatformApplication extends pulumi.CustomResource {
     /**
      * The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
      */
-    declare public readonly applePlatformBundleId: pulumi.Output<string | undefined>;
+    public readonly applePlatformBundleId!: pulumi.Output<string | undefined>;
     /**
      * The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
      */
-    declare public readonly applePlatformTeamId: pulumi.Output<string | undefined>;
+    public readonly applePlatformTeamId!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the SNS platform application
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
      */
-    declare public readonly eventDeliveryFailureTopicArn: pulumi.Output<string | undefined>;
+    public readonly eventDeliveryFailureTopicArn!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
      */
-    declare public readonly eventEndpointCreatedTopicArn: pulumi.Output<string | undefined>;
+    public readonly eventEndpointCreatedTopicArn!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
      */
-    declare public readonly eventEndpointDeletedTopicArn: pulumi.Output<string | undefined>;
+    public readonly eventEndpointDeletedTopicArn!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
      */
-    declare public readonly eventEndpointUpdatedTopicArn: pulumi.Output<string | undefined>;
+    public readonly eventEndpointUpdatedTopicArn!: pulumi.Output<string | undefined>;
     /**
      * The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
      */
-    declare public readonly failureFeedbackRoleArn: pulumi.Output<string | undefined>;
+    public readonly failureFeedbackRoleArn!: pulumi.Output<string | undefined>;
     /**
      * The friendly name for the SNS platform application
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
      */
-    declare public readonly platform: pulumi.Output<string>;
+    public readonly platform!: pulumi.Output<string>;
     /**
      * Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
      */
-    declare public readonly platformCredential: pulumi.Output<string>;
+    public readonly platformCredential!: pulumi.Output<string>;
     /**
      * Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
      */
-    declare public readonly platformPrincipal: pulumi.Output<string | undefined>;
+    public readonly platformPrincipal!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
      */
-    declare public readonly successFeedbackRoleArn: pulumi.Output<string | undefined>;
+    public readonly successFeedbackRoleArn!: pulumi.Output<string | undefined>;
     /**
      * The sample rate percentage (0-100) of successfully delivered messages.
      *
      * The following attributes are needed only when using APNS token credentials:
      */
-    declare public readonly successFeedbackSampleRate: pulumi.Output<string | undefined>;
+    public readonly successFeedbackSampleRate!: pulumi.Output<string | undefined>;
 
     /**
      * Create a PlatformApplication resource with the given unique name, arguments, and options.
@@ -164,43 +164,43 @@ export class PlatformApplication extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PlatformApplicationState | undefined;
-            resourceInputs["applePlatformBundleId"] = state?.applePlatformBundleId;
-            resourceInputs["applePlatformTeamId"] = state?.applePlatformTeamId;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["eventDeliveryFailureTopicArn"] = state?.eventDeliveryFailureTopicArn;
-            resourceInputs["eventEndpointCreatedTopicArn"] = state?.eventEndpointCreatedTopicArn;
-            resourceInputs["eventEndpointDeletedTopicArn"] = state?.eventEndpointDeletedTopicArn;
-            resourceInputs["eventEndpointUpdatedTopicArn"] = state?.eventEndpointUpdatedTopicArn;
-            resourceInputs["failureFeedbackRoleArn"] = state?.failureFeedbackRoleArn;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["platform"] = state?.platform;
-            resourceInputs["platformCredential"] = state?.platformCredential;
-            resourceInputs["platformPrincipal"] = state?.platformPrincipal;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["successFeedbackRoleArn"] = state?.successFeedbackRoleArn;
-            resourceInputs["successFeedbackSampleRate"] = state?.successFeedbackSampleRate;
+            resourceInputs["applePlatformBundleId"] = state ? state.applePlatformBundleId : undefined;
+            resourceInputs["applePlatformTeamId"] = state ? state.applePlatformTeamId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["eventDeliveryFailureTopicArn"] = state ? state.eventDeliveryFailureTopicArn : undefined;
+            resourceInputs["eventEndpointCreatedTopicArn"] = state ? state.eventEndpointCreatedTopicArn : undefined;
+            resourceInputs["eventEndpointDeletedTopicArn"] = state ? state.eventEndpointDeletedTopicArn : undefined;
+            resourceInputs["eventEndpointUpdatedTopicArn"] = state ? state.eventEndpointUpdatedTopicArn : undefined;
+            resourceInputs["failureFeedbackRoleArn"] = state ? state.failureFeedbackRoleArn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["platform"] = state ? state.platform : undefined;
+            resourceInputs["platformCredential"] = state ? state.platformCredential : undefined;
+            resourceInputs["platformPrincipal"] = state ? state.platformPrincipal : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["successFeedbackRoleArn"] = state ? state.successFeedbackRoleArn : undefined;
+            resourceInputs["successFeedbackSampleRate"] = state ? state.successFeedbackSampleRate : undefined;
         } else {
             const args = argsOrState as PlatformApplicationArgs | undefined;
-            if (args?.platform === undefined && !opts.urn) {
+            if ((!args || args.platform === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'platform'");
             }
-            if (args?.platformCredential === undefined && !opts.urn) {
+            if ((!args || args.platformCredential === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'platformCredential'");
             }
-            resourceInputs["applePlatformBundleId"] = args?.applePlatformBundleId;
-            resourceInputs["applePlatformTeamId"] = args?.applePlatformTeamId;
-            resourceInputs["eventDeliveryFailureTopicArn"] = args?.eventDeliveryFailureTopicArn;
-            resourceInputs["eventEndpointCreatedTopicArn"] = args?.eventEndpointCreatedTopicArn;
-            resourceInputs["eventEndpointDeletedTopicArn"] = args?.eventEndpointDeletedTopicArn;
-            resourceInputs["eventEndpointUpdatedTopicArn"] = args?.eventEndpointUpdatedTopicArn;
-            resourceInputs["failureFeedbackRoleArn"] = args?.failureFeedbackRoleArn;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["platform"] = args?.platform;
+            resourceInputs["applePlatformBundleId"] = args ? args.applePlatformBundleId : undefined;
+            resourceInputs["applePlatformTeamId"] = args ? args.applePlatformTeamId : undefined;
+            resourceInputs["eventDeliveryFailureTopicArn"] = args ? args.eventDeliveryFailureTopicArn : undefined;
+            resourceInputs["eventEndpointCreatedTopicArn"] = args ? args.eventEndpointCreatedTopicArn : undefined;
+            resourceInputs["eventEndpointDeletedTopicArn"] = args ? args.eventEndpointDeletedTopicArn : undefined;
+            resourceInputs["eventEndpointUpdatedTopicArn"] = args ? args.eventEndpointUpdatedTopicArn : undefined;
+            resourceInputs["failureFeedbackRoleArn"] = args ? args.failureFeedbackRoleArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["platform"] = args ? args.platform : undefined;
             resourceInputs["platformCredential"] = args?.platformCredential ? pulumi.secret(args.platformCredential) : undefined;
             resourceInputs["platformPrincipal"] = args?.platformPrincipal ? pulumi.secret(args.platformPrincipal) : undefined;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["successFeedbackRoleArn"] = args?.successFeedbackRoleArn;
-            resourceInputs["successFeedbackSampleRate"] = args?.successFeedbackSampleRate;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["successFeedbackRoleArn"] = args ? args.successFeedbackRoleArn : undefined;
+            resourceInputs["successFeedbackSampleRate"] = args ? args.successFeedbackSampleRate : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

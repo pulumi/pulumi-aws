@@ -73,15 +73,15 @@ export class DomainDkim extends pulumi.CustomResource {
      * Find out more about verifying domains in Amazon SES
      * in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html).
      */
-    declare public /*out*/ readonly dkimTokens: pulumi.Output<string[]>;
+    public /*out*/ readonly dkimTokens!: pulumi.Output<string[]>;
     /**
      * Verified domain name to generate DKIM tokens for.
      */
-    declare public readonly domain: pulumi.Output<string>;
+    public readonly domain!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a DomainDkim resource with the given unique name, arguments, and options.
@@ -96,16 +96,16 @@ export class DomainDkim extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainDkimState | undefined;
-            resourceInputs["dkimTokens"] = state?.dkimTokens;
-            resourceInputs["domain"] = state?.domain;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["dkimTokens"] = state ? state.dkimTokens : undefined;
+            resourceInputs["domain"] = state ? state.domain : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as DomainDkimArgs | undefined;
-            if (args?.domain === undefined && !opts.urn) {
+            if ((!args || args.domain === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domain'");
             }
-            resourceInputs["domain"] = args?.domain;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["dkimTokens"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

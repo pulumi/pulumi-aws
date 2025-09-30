@@ -168,59 +168,59 @@ export class SecurityGroupRule extends pulumi.CustomResource {
     /**
      * List of CIDR blocks. Cannot be specified with `sourceSecurityGroupId` or `self`.
      */
-    declare public readonly cidrBlocks: pulumi.Output<string[] | undefined>;
+    public readonly cidrBlocks!: pulumi.Output<string[] | undefined>;
     /**
      * Description of the rule.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
      */
-    declare public readonly fromPort: pulumi.Output<number>;
+    public readonly fromPort!: pulumi.Output<number>;
     /**
      * List of IPv6 CIDR blocks. Cannot be specified with `sourceSecurityGroupId` or `self`.
      */
-    declare public readonly ipv6CidrBlocks: pulumi.Output<string[] | undefined>;
+    public readonly ipv6CidrBlocks!: pulumi.Output<string[] | undefined>;
     /**
      * List of Prefix List IDs.
      */
-    declare public readonly prefixListIds: pulumi.Output<string[] | undefined>;
+    public readonly prefixListIds!: pulumi.Output<string[] | undefined>;
     /**
      * Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
      */
-    declare public readonly protocol: pulumi.Output<string>;
+    public readonly protocol!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Security group to apply this rule to.
      */
-    declare public readonly securityGroupId: pulumi.Output<string>;
+    public readonly securityGroupId!: pulumi.Output<string>;
     /**
      * If the `aws.ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
      */
-    declare public /*out*/ readonly securityGroupRuleId: pulumi.Output<string>;
+    public /*out*/ readonly securityGroupRuleId!: pulumi.Output<string>;
     /**
      * Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `sourceSecurityGroupId`.
      */
-    declare public readonly self: pulumi.Output<boolean | undefined>;
+    public readonly self!: pulumi.Output<boolean | undefined>;
     /**
      * Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
      */
-    declare public readonly sourceSecurityGroupId: pulumi.Output<string>;
+    public readonly sourceSecurityGroupId!: pulumi.Output<string>;
     /**
      * End port (or ICMP code if protocol is "icmp").
      */
-    declare public readonly toPort: pulumi.Output<number>;
+    public readonly toPort!: pulumi.Output<number>;
     /**
      * Type of rule being created. Valid options are `ingress` (inbound)
      * or `egress` (outbound).
      *
      * The following arguments are optional:
      */
-    declare public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a SecurityGroupRule resource with the given unique name, arguments, and options.
@@ -235,48 +235,48 @@ export class SecurityGroupRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecurityGroupRuleState | undefined;
-            resourceInputs["cidrBlocks"] = state?.cidrBlocks;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["fromPort"] = state?.fromPort;
-            resourceInputs["ipv6CidrBlocks"] = state?.ipv6CidrBlocks;
-            resourceInputs["prefixListIds"] = state?.prefixListIds;
-            resourceInputs["protocol"] = state?.protocol;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["securityGroupId"] = state?.securityGroupId;
-            resourceInputs["securityGroupRuleId"] = state?.securityGroupRuleId;
-            resourceInputs["self"] = state?.self;
-            resourceInputs["sourceSecurityGroupId"] = state?.sourceSecurityGroupId;
-            resourceInputs["toPort"] = state?.toPort;
-            resourceInputs["type"] = state?.type;
+            resourceInputs["cidrBlocks"] = state ? state.cidrBlocks : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["fromPort"] = state ? state.fromPort : undefined;
+            resourceInputs["ipv6CidrBlocks"] = state ? state.ipv6CidrBlocks : undefined;
+            resourceInputs["prefixListIds"] = state ? state.prefixListIds : undefined;
+            resourceInputs["protocol"] = state ? state.protocol : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["securityGroupId"] = state ? state.securityGroupId : undefined;
+            resourceInputs["securityGroupRuleId"] = state ? state.securityGroupRuleId : undefined;
+            resourceInputs["self"] = state ? state.self : undefined;
+            resourceInputs["sourceSecurityGroupId"] = state ? state.sourceSecurityGroupId : undefined;
+            resourceInputs["toPort"] = state ? state.toPort : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as SecurityGroupRuleArgs | undefined;
-            if (args?.fromPort === undefined && !opts.urn) {
+            if ((!args || args.fromPort === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fromPort'");
             }
-            if (args?.protocol === undefined && !opts.urn) {
+            if ((!args || args.protocol === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if (args?.securityGroupId === undefined && !opts.urn) {
+            if ((!args || args.securityGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'securityGroupId'");
             }
-            if (args?.toPort === undefined && !opts.urn) {
+            if ((!args || args.toPort === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'toPort'");
             }
-            if (args?.type === undefined && !opts.urn) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["cidrBlocks"] = args?.cidrBlocks;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["fromPort"] = args?.fromPort;
-            resourceInputs["ipv6CidrBlocks"] = args?.ipv6CidrBlocks;
-            resourceInputs["prefixListIds"] = args?.prefixListIds;
-            resourceInputs["protocol"] = args?.protocol;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["securityGroupId"] = args?.securityGroupId;
-            resourceInputs["self"] = args?.self;
-            resourceInputs["sourceSecurityGroupId"] = args?.sourceSecurityGroupId;
-            resourceInputs["toPort"] = args?.toPort;
-            resourceInputs["type"] = args?.type;
+            resourceInputs["cidrBlocks"] = args ? args.cidrBlocks : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["fromPort"] = args ? args.fromPort : undefined;
+            resourceInputs["ipv6CidrBlocks"] = args ? args.ipv6CidrBlocks : undefined;
+            resourceInputs["prefixListIds"] = args ? args.prefixListIds : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["securityGroupId"] = args ? args.securityGroupId : undefined;
+            resourceInputs["self"] = args ? args.self : undefined;
+            resourceInputs["sourceSecurityGroupId"] = args ? args.sourceSecurityGroupId : undefined;
+            resourceInputs["toPort"] = args ? args.toPort : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["securityGroupRuleId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -82,19 +82,19 @@ export class BucketServerSideEncryptionConfiguration extends pulumi.CustomResour
     /**
      * ID (name) of the bucket.
      */
-    declare public readonly bucket: pulumi.Output<string>;
+    public readonly bucket!: pulumi.Output<string>;
     /**
      * Account ID of the expected bucket owner.
      */
-    declare public readonly expectedBucketOwner: pulumi.Output<string | undefined>;
+    public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
      */
-    declare public readonly rules: pulumi.Output<outputs.s3.BucketServerSideEncryptionConfigurationRule[]>;
+    public readonly rules!: pulumi.Output<outputs.s3.BucketServerSideEncryptionConfigurationRule[]>;
 
     /**
      * Create a BucketServerSideEncryptionConfiguration resource with the given unique name, arguments, and options.
@@ -109,22 +109,22 @@ export class BucketServerSideEncryptionConfiguration extends pulumi.CustomResour
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketServerSideEncryptionConfigurationState | undefined;
-            resourceInputs["bucket"] = state?.bucket;
-            resourceInputs["expectedBucketOwner"] = state?.expectedBucketOwner;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["rules"] = state?.rules;
+            resourceInputs["bucket"] = state ? state.bucket : undefined;
+            resourceInputs["expectedBucketOwner"] = state ? state.expectedBucketOwner : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["rules"] = state ? state.rules : undefined;
         } else {
             const args = argsOrState as BucketServerSideEncryptionConfigurationArgs | undefined;
-            if (args?.bucket === undefined && !opts.urn) {
+            if ((!args || args.bucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            if (args?.rules === undefined && !opts.urn) {
+            if ((!args || args.rules === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
-            resourceInputs["bucket"] = args?.bucket;
-            resourceInputs["expectedBucketOwner"] = args?.expectedBucketOwner;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["rules"] = args?.rules;
+            resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["rules"] = args ? args.rules : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2" }] };

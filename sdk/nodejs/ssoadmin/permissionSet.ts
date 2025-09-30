@@ -64,43 +64,43 @@ export class PermissionSet extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Permission Set.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The date the Permission Set was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
-    declare public /*out*/ readonly createdDate: pulumi.Output<string>;
+    public /*out*/ readonly createdDate!: pulumi.Output<string>;
     /**
      * The description of the Permission Set.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
      */
-    declare public readonly instanceArn: pulumi.Output<string>;
+    public readonly instanceArn!: pulumi.Output<string>;
     /**
      * The name of the Permission Set.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The relay state URL used to redirect users within the application during the federation authentication process.
      */
-    declare public readonly relayState: pulumi.Output<string | undefined>;
+    public readonly relayState!: pulumi.Output<string | undefined>;
     /**
      * The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
      */
-    declare public readonly sessionDuration: pulumi.Output<string | undefined>;
+    public readonly sessionDuration!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a PermissionSet resource with the given unique name, arguments, and options.
@@ -115,28 +115,28 @@ export class PermissionSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PermissionSetState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["createdDate"] = state?.createdDate;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["instanceArn"] = state?.instanceArn;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["relayState"] = state?.relayState;
-            resourceInputs["sessionDuration"] = state?.sessionDuration;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["createdDate"] = state ? state.createdDate : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["instanceArn"] = state ? state.instanceArn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["relayState"] = state ? state.relayState : undefined;
+            resourceInputs["sessionDuration"] = state ? state.sessionDuration : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as PermissionSetArgs | undefined;
-            if (args?.instanceArn === undefined && !opts.urn) {
+            if ((!args || args.instanceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["instanceArn"] = args?.instanceArn;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["relayState"] = args?.relayState;
-            resourceInputs["sessionDuration"] = args?.sessionDuration;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["relayState"] = args ? args.relayState : undefined;
+            resourceInputs["sessionDuration"] = args ? args.sessionDuration : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

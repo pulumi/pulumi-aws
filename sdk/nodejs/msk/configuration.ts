@@ -61,31 +61,31 @@ export class Configuration extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the configuration.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Description of the configuration.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * List of Apache Kafka versions which can use this configuration.
      */
-    declare public readonly kafkaVersions: pulumi.Output<string[] | undefined>;
+    public readonly kafkaVersions!: pulumi.Output<string[] | undefined>;
     /**
      * Latest revision of the configuration.
      */
-    declare public /*out*/ readonly latestRevision: pulumi.Output<number>;
+    public /*out*/ readonly latestRevision!: pulumi.Output<number>;
     /**
      * Name of the configuration.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
      */
-    declare public readonly serverProperties: pulumi.Output<string>;
+    public readonly serverProperties!: pulumi.Output<string>;
 
     /**
      * Create a Configuration resource with the given unique name, arguments, and options.
@@ -100,23 +100,23 @@ export class Configuration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConfigurationState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["kafkaVersions"] = state?.kafkaVersions;
-            resourceInputs["latestRevision"] = state?.latestRevision;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["serverProperties"] = state?.serverProperties;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["kafkaVersions"] = state ? state.kafkaVersions : undefined;
+            resourceInputs["latestRevision"] = state ? state.latestRevision : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["serverProperties"] = state ? state.serverProperties : undefined;
         } else {
             const args = argsOrState as ConfigurationArgs | undefined;
-            if (args?.serverProperties === undefined && !opts.urn) {
+            if ((!args || args.serverProperties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverProperties'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["kafkaVersions"] = args?.kafkaVersions;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["serverProperties"] = args?.serverProperties;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["kafkaVersions"] = args ? args.kafkaVersions : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["serverProperties"] = args ? args.serverProperties : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["latestRevision"] = undefined /*out*/;
         }

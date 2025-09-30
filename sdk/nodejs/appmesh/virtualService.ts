@@ -89,47 +89,47 @@ export class VirtualService extends pulumi.CustomResource {
     /**
      * ARN of the virtual service.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Creation date of the virtual service.
      */
-    declare public /*out*/ readonly createdDate: pulumi.Output<string>;
+    public /*out*/ readonly createdDate!: pulumi.Output<string>;
     /**
      * Last update date of the virtual service.
      */
-    declare public /*out*/ readonly lastUpdatedDate: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
     /**
      * Name of the service mesh in which to create the virtual service. Must be between 1 and 255 characters in length.
      */
-    declare public readonly meshName: pulumi.Output<string>;
+    public readonly meshName!: pulumi.Output<string>;
     /**
      * AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
      */
-    declare public readonly meshOwner: pulumi.Output<string>;
+    public readonly meshOwner!: pulumi.Output<string>;
     /**
      * Name to use for the virtual service. Must be between 1 and 255 characters in length.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Resource owner's AWS account ID.
      */
-    declare public /*out*/ readonly resourceOwner: pulumi.Output<string>;
+    public /*out*/ readonly resourceOwner!: pulumi.Output<string>;
     /**
      * Virtual service specification to apply.
      */
-    declare public readonly spec: pulumi.Output<outputs.appmesh.VirtualServiceSpec>;
+    public readonly spec!: pulumi.Output<outputs.appmesh.VirtualServiceSpec>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a VirtualService resource with the given unique name, arguments, and options.
@@ -144,31 +144,31 @@ export class VirtualService extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualServiceState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["createdDate"] = state?.createdDate;
-            resourceInputs["lastUpdatedDate"] = state?.lastUpdatedDate;
-            resourceInputs["meshName"] = state?.meshName;
-            resourceInputs["meshOwner"] = state?.meshOwner;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceOwner"] = state?.resourceOwner;
-            resourceInputs["spec"] = state?.spec;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["createdDate"] = state ? state.createdDate : undefined;
+            resourceInputs["lastUpdatedDate"] = state ? state.lastUpdatedDate : undefined;
+            resourceInputs["meshName"] = state ? state.meshName : undefined;
+            resourceInputs["meshOwner"] = state ? state.meshOwner : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceOwner"] = state ? state.resourceOwner : undefined;
+            resourceInputs["spec"] = state ? state.spec : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as VirtualServiceArgs | undefined;
-            if (args?.meshName === undefined && !opts.urn) {
+            if ((!args || args.meshName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'meshName'");
             }
-            if (args?.spec === undefined && !opts.urn) {
+            if ((!args || args.spec === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'spec'");
             }
-            resourceInputs["meshName"] = args?.meshName;
-            resourceInputs["meshOwner"] = args?.meshOwner;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["spec"] = args?.spec;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["meshName"] = args ? args.meshName : undefined;
+            resourceInputs["meshOwner"] = args ? args.meshOwner : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["spec"] = args ? args.spec : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["lastUpdatedDate"] = undefined /*out*/;

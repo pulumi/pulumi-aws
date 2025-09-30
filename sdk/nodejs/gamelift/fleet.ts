@@ -69,84 +69,84 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Fleet ARN.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Build ARN.
      */
-    declare public /*out*/ readonly buildArn: pulumi.Output<string>;
+    public /*out*/ readonly buildArn!: pulumi.Output<string>;
     /**
      * ID of the GameLift Build to be deployed on the fleet. Conflicts with `scriptId`.
      */
-    declare public readonly buildId: pulumi.Output<string | undefined>;
+    public readonly buildId!: pulumi.Output<string | undefined>;
     /**
      * Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
      */
-    declare public readonly certificateConfiguration: pulumi.Output<outputs.gamelift.FleetCertificateConfiguration>;
+    public readonly certificateConfiguration!: pulumi.Output<outputs.gamelift.FleetCertificateConfiguration>;
     /**
      * Human-readable description of the fleet.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
      */
-    declare public readonly ec2InboundPermissions: pulumi.Output<outputs.gamelift.FleetEc2InboundPermission[]>;
+    public readonly ec2InboundPermissions!: pulumi.Output<outputs.gamelift.FleetEc2InboundPermission[]>;
     /**
      * Name of an EC2 instance typeE.g., `t2.micro`
      */
-    declare public readonly ec2InstanceType: pulumi.Output<string>;
+    public readonly ec2InstanceType!: pulumi.Output<string>;
     /**
      * Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
      */
-    declare public readonly fleetType: pulumi.Output<string | undefined>;
+    public readonly fleetType!: pulumi.Output<string | undefined>;
     /**
      * ARN of an IAM role that instances in the fleet can assume.
      */
-    declare public readonly instanceRoleArn: pulumi.Output<string | undefined>;
-    declare public /*out*/ readonly logPaths: pulumi.Output<string[]>;
+    public readonly instanceRoleArn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly logPaths!: pulumi.Output<string[]>;
     /**
      * List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
      */
-    declare public readonly metricGroups: pulumi.Output<string[]>;
+    public readonly metricGroups!: pulumi.Output<string[]>;
     /**
      * The name of the fleet.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
      */
-    declare public readonly newGameSessionProtectionPolicy: pulumi.Output<string | undefined>;
+    public readonly newGameSessionProtectionPolicy!: pulumi.Output<string | undefined>;
     /**
      * Operating system of the fleet's computing resources.
      */
-    declare public /*out*/ readonly operatingSystem: pulumi.Output<string>;
+    public /*out*/ readonly operatingSystem!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
      */
-    declare public readonly resourceCreationLimitPolicy: pulumi.Output<outputs.gamelift.FleetResourceCreationLimitPolicy | undefined>;
+    public readonly resourceCreationLimitPolicy!: pulumi.Output<outputs.gamelift.FleetResourceCreationLimitPolicy | undefined>;
     /**
      * Instructions for launching server processes on each instance in the fleet. See below.
      */
-    declare public readonly runtimeConfiguration: pulumi.Output<outputs.gamelift.FleetRuntimeConfiguration | undefined>;
+    public readonly runtimeConfiguration!: pulumi.Output<outputs.gamelift.FleetRuntimeConfiguration | undefined>;
     /**
      * Script ARN.
      */
-    declare public /*out*/ readonly scriptArn: pulumi.Output<string>;
+    public /*out*/ readonly scriptArn!: pulumi.Output<string>;
     /**
      * ID of the GameLift Script to be deployed on the fleet. Conflicts with `buildId`.
      */
-    declare public readonly scriptId: pulumi.Output<string | undefined>;
+    public readonly scriptId!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Fleet resource with the given unique name, arguments, and options.
@@ -161,47 +161,47 @@ export class Fleet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FleetState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["buildArn"] = state?.buildArn;
-            resourceInputs["buildId"] = state?.buildId;
-            resourceInputs["certificateConfiguration"] = state?.certificateConfiguration;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["ec2InboundPermissions"] = state?.ec2InboundPermissions;
-            resourceInputs["ec2InstanceType"] = state?.ec2InstanceType;
-            resourceInputs["fleetType"] = state?.fleetType;
-            resourceInputs["instanceRoleArn"] = state?.instanceRoleArn;
-            resourceInputs["logPaths"] = state?.logPaths;
-            resourceInputs["metricGroups"] = state?.metricGroups;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["newGameSessionProtectionPolicy"] = state?.newGameSessionProtectionPolicy;
-            resourceInputs["operatingSystem"] = state?.operatingSystem;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceCreationLimitPolicy"] = state?.resourceCreationLimitPolicy;
-            resourceInputs["runtimeConfiguration"] = state?.runtimeConfiguration;
-            resourceInputs["scriptArn"] = state?.scriptArn;
-            resourceInputs["scriptId"] = state?.scriptId;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["buildArn"] = state ? state.buildArn : undefined;
+            resourceInputs["buildId"] = state ? state.buildId : undefined;
+            resourceInputs["certificateConfiguration"] = state ? state.certificateConfiguration : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["ec2InboundPermissions"] = state ? state.ec2InboundPermissions : undefined;
+            resourceInputs["ec2InstanceType"] = state ? state.ec2InstanceType : undefined;
+            resourceInputs["fleetType"] = state ? state.fleetType : undefined;
+            resourceInputs["instanceRoleArn"] = state ? state.instanceRoleArn : undefined;
+            resourceInputs["logPaths"] = state ? state.logPaths : undefined;
+            resourceInputs["metricGroups"] = state ? state.metricGroups : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["newGameSessionProtectionPolicy"] = state ? state.newGameSessionProtectionPolicy : undefined;
+            resourceInputs["operatingSystem"] = state ? state.operatingSystem : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceCreationLimitPolicy"] = state ? state.resourceCreationLimitPolicy : undefined;
+            resourceInputs["runtimeConfiguration"] = state ? state.runtimeConfiguration : undefined;
+            resourceInputs["scriptArn"] = state ? state.scriptArn : undefined;
+            resourceInputs["scriptId"] = state ? state.scriptId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as FleetArgs | undefined;
-            if (args?.ec2InstanceType === undefined && !opts.urn) {
+            if ((!args || args.ec2InstanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ec2InstanceType'");
             }
-            resourceInputs["buildId"] = args?.buildId;
-            resourceInputs["certificateConfiguration"] = args?.certificateConfiguration;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["ec2InboundPermissions"] = args?.ec2InboundPermissions;
-            resourceInputs["ec2InstanceType"] = args?.ec2InstanceType;
-            resourceInputs["fleetType"] = args?.fleetType;
-            resourceInputs["instanceRoleArn"] = args?.instanceRoleArn;
-            resourceInputs["metricGroups"] = args?.metricGroups;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["newGameSessionProtectionPolicy"] = args?.newGameSessionProtectionPolicy;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resourceCreationLimitPolicy"] = args?.resourceCreationLimitPolicy;
-            resourceInputs["runtimeConfiguration"] = args?.runtimeConfiguration;
-            resourceInputs["scriptId"] = args?.scriptId;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["buildId"] = args ? args.buildId : undefined;
+            resourceInputs["certificateConfiguration"] = args ? args.certificateConfiguration : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["ec2InboundPermissions"] = args ? args.ec2InboundPermissions : undefined;
+            resourceInputs["ec2InstanceType"] = args ? args.ec2InstanceType : undefined;
+            resourceInputs["fleetType"] = args ? args.fleetType : undefined;
+            resourceInputs["instanceRoleArn"] = args ? args.instanceRoleArn : undefined;
+            resourceInputs["metricGroups"] = args ? args.metricGroups : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["newGameSessionProtectionPolicy"] = args ? args.newGameSessionProtectionPolicy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourceCreationLimitPolicy"] = args ? args.resourceCreationLimitPolicy : undefined;
+            resourceInputs["runtimeConfiguration"] = args ? args.runtimeConfiguration : undefined;
+            resourceInputs["scriptId"] = args ? args.scriptId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["buildArn"] = undefined /*out*/;
             resourceInputs["logPaths"] = undefined /*out*/;

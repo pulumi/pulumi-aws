@@ -91,37 +91,37 @@ export class BrowserSettings extends pulumi.CustomResource {
     /**
      * Additional encryption context for the browser settings.
      */
-    declare public readonly additionalEncryptionContext: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly additionalEncryptionContext!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of web portal ARNs to associate with the browser settings.
      */
-    declare public /*out*/ readonly associatedPortalArns: pulumi.Output<string[]>;
+    public /*out*/ readonly associatedPortalArns!: pulumi.Output<string[]>;
     /**
      * Browser policy for the browser settings. This is a JSON string that defines the browser settings policy.
      *
      * The following arguments are optional:
      */
-    declare public readonly browserPolicy: pulumi.Output<string>;
+    public readonly browserPolicy!: pulumi.Output<string>;
     /**
      * ARN of the browser settings resource.
      */
-    declare public /*out*/ readonly browserSettingsArn: pulumi.Output<string>;
+    public /*out*/ readonly browserSettingsArn!: pulumi.Output<string>;
     /**
      * ARN of the customer managed KMS key.
      */
-    declare public readonly customerManagedKey: pulumi.Output<string | undefined>;
+    public readonly customerManagedKey!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a BrowserSettings resource with the given unique name, arguments, and options.
@@ -136,24 +136,24 @@ export class BrowserSettings extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BrowserSettingsState | undefined;
-            resourceInputs["additionalEncryptionContext"] = state?.additionalEncryptionContext;
-            resourceInputs["associatedPortalArns"] = state?.associatedPortalArns;
-            resourceInputs["browserPolicy"] = state?.browserPolicy;
-            resourceInputs["browserSettingsArn"] = state?.browserSettingsArn;
-            resourceInputs["customerManagedKey"] = state?.customerManagedKey;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["additionalEncryptionContext"] = state ? state.additionalEncryptionContext : undefined;
+            resourceInputs["associatedPortalArns"] = state ? state.associatedPortalArns : undefined;
+            resourceInputs["browserPolicy"] = state ? state.browserPolicy : undefined;
+            resourceInputs["browserSettingsArn"] = state ? state.browserSettingsArn : undefined;
+            resourceInputs["customerManagedKey"] = state ? state.customerManagedKey : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as BrowserSettingsArgs | undefined;
-            if (args?.browserPolicy === undefined && !opts.urn) {
+            if ((!args || args.browserPolicy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'browserPolicy'");
             }
-            resourceInputs["additionalEncryptionContext"] = args?.additionalEncryptionContext;
-            resourceInputs["browserPolicy"] = args?.browserPolicy;
-            resourceInputs["customerManagedKey"] = args?.customerManagedKey;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["additionalEncryptionContext"] = args ? args.additionalEncryptionContext : undefined;
+            resourceInputs["browserPolicy"] = args ? args.browserPolicy : undefined;
+            resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["associatedPortalArns"] = undefined /*out*/;
             resourceInputs["browserSettingsArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

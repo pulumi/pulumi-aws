@@ -60,15 +60,15 @@ export class LogDeliveryDestinationPolicy extends pulumi.CustomResource {
     /**
      * The name of the delivery destination to assign this policy to.
      */
-    declare public readonly deliveryDestinationName: pulumi.Output<string>;
+    public readonly deliveryDestinationName!: pulumi.Output<string>;
     /**
      * The contents of the policy.
      */
-    declare public readonly deliveryDestinationPolicy: pulumi.Output<string>;
+    public readonly deliveryDestinationPolicy!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a LogDeliveryDestinationPolicy resource with the given unique name, arguments, and options.
@@ -83,20 +83,20 @@ export class LogDeliveryDestinationPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogDeliveryDestinationPolicyState | undefined;
-            resourceInputs["deliveryDestinationName"] = state?.deliveryDestinationName;
-            resourceInputs["deliveryDestinationPolicy"] = state?.deliveryDestinationPolicy;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["deliveryDestinationName"] = state ? state.deliveryDestinationName : undefined;
+            resourceInputs["deliveryDestinationPolicy"] = state ? state.deliveryDestinationPolicy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as LogDeliveryDestinationPolicyArgs | undefined;
-            if (args?.deliveryDestinationName === undefined && !opts.urn) {
+            if ((!args || args.deliveryDestinationName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deliveryDestinationName'");
             }
-            if (args?.deliveryDestinationPolicy === undefined && !opts.urn) {
+            if ((!args || args.deliveryDestinationPolicy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deliveryDestinationPolicy'");
             }
-            resourceInputs["deliveryDestinationName"] = args?.deliveryDestinationName;
-            resourceInputs["deliveryDestinationPolicy"] = args?.deliveryDestinationPolicy;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["deliveryDestinationName"] = args ? args.deliveryDestinationName : undefined;
+            resourceInputs["deliveryDestinationPolicy"] = args ? args.deliveryDestinationPolicy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogDeliveryDestinationPolicy.__pulumiType, name, resourceInputs, opts);

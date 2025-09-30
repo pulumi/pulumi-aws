@@ -73,51 +73,51 @@ export class Key extends pulumi.CustomResource {
     /**
      * ARN of the key.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
-    declare public readonly deletionWindowInDays: pulumi.Output<number>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public readonly deletionWindowInDays!: pulumi.Output<number>;
     /**
      * Whether to enable the key.
      */
-    declare public readonly enabled: pulumi.Output<boolean>;
+    public readonly enabled!: pulumi.Output<boolean>;
     /**
      * Whether the key is exportable from the service.
      */
-    declare public readonly exportable: pulumi.Output<boolean>;
+    public readonly exportable!: pulumi.Output<boolean>;
     /**
      * Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
      *
      * The following arguments are optional:
      */
-    declare public readonly keyAttributes: pulumi.Output<outputs.paymentcryptography.KeyKeyAttribute[] | undefined>;
+    public readonly keyAttributes!: pulumi.Output<outputs.paymentcryptography.KeyKeyAttribute[] | undefined>;
     /**
      * Key check value (KCV) is used to check if all parties holding a given key have the same key or to detect that a key has changed.
      */
-    declare public /*out*/ readonly keyCheckValue: pulumi.Output<string>;
+    public /*out*/ readonly keyCheckValue!: pulumi.Output<string>;
     /**
      * Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
      */
-    declare public readonly keyCheckValueAlgorithm: pulumi.Output<string>;
+    public readonly keyCheckValueAlgorithm!: pulumi.Output<string>;
     /**
      * Source of the key material.
      */
-    declare public /*out*/ readonly keyOrigin: pulumi.Output<string>;
+    public /*out*/ readonly keyOrigin!: pulumi.Output<string>;
     /**
      * State of key that is being created or deleted.
      */
-    declare public /*out*/ readonly keyState: pulumi.Output<string>;
+    public /*out*/ readonly keyState!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public readonly timeouts: pulumi.Output<outputs.paymentcryptography.KeyTimeouts | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly timeouts!: pulumi.Output<outputs.paymentcryptography.KeyTimeouts | undefined>;
 
     /**
      * Create a Key resource with the given unique name, arguments, and options.
@@ -132,32 +132,32 @@ export class Key extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KeyState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["deletionWindowInDays"] = state?.deletionWindowInDays;
-            resourceInputs["enabled"] = state?.enabled;
-            resourceInputs["exportable"] = state?.exportable;
-            resourceInputs["keyAttributes"] = state?.keyAttributes;
-            resourceInputs["keyCheckValue"] = state?.keyCheckValue;
-            resourceInputs["keyCheckValueAlgorithm"] = state?.keyCheckValueAlgorithm;
-            resourceInputs["keyOrigin"] = state?.keyOrigin;
-            resourceInputs["keyState"] = state?.keyState;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["deletionWindowInDays"] = state ? state.deletionWindowInDays : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["exportable"] = state ? state.exportable : undefined;
+            resourceInputs["keyAttributes"] = state ? state.keyAttributes : undefined;
+            resourceInputs["keyCheckValue"] = state ? state.keyCheckValue : undefined;
+            resourceInputs["keyCheckValueAlgorithm"] = state ? state.keyCheckValueAlgorithm : undefined;
+            resourceInputs["keyOrigin"] = state ? state.keyOrigin : undefined;
+            resourceInputs["keyState"] = state ? state.keyState : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as KeyArgs | undefined;
-            if (args?.exportable === undefined && !opts.urn) {
+            if ((!args || args.exportable === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'exportable'");
             }
-            resourceInputs["deletionWindowInDays"] = args?.deletionWindowInDays;
-            resourceInputs["enabled"] = args?.enabled;
-            resourceInputs["exportable"] = args?.exportable;
-            resourceInputs["keyAttributes"] = args?.keyAttributes;
-            resourceInputs["keyCheckValueAlgorithm"] = args?.keyCheckValueAlgorithm;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["deletionWindowInDays"] = args ? args.deletionWindowInDays : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["exportable"] = args ? args.exportable : undefined;
+            resourceInputs["keyAttributes"] = args ? args.keyAttributes : undefined;
+            resourceInputs["keyCheckValueAlgorithm"] = args ? args.keyCheckValueAlgorithm : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["keyCheckValue"] = undefined /*out*/;
             resourceInputs["keyOrigin"] = undefined /*out*/;

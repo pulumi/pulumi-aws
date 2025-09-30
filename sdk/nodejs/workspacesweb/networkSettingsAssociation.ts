@@ -103,17 +103,17 @@ export class NetworkSettingsAssociation extends pulumi.CustomResource {
     /**
      * ARN of the network settings to associate with the portal. Forces replacement if changed.
      */
-    declare public readonly networkSettingsArn: pulumi.Output<string>;
+    public readonly networkSettingsArn!: pulumi.Output<string>;
     /**
      * ARN of the portal to associate with the network settings. Forces replacement if changed.
      *
      * The following arguments are optional:
      */
-    declare public readonly portalArn: pulumi.Output<string>;
+    public readonly portalArn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a NetworkSettingsAssociation resource with the given unique name, arguments, and options.
@@ -128,20 +128,20 @@ export class NetworkSettingsAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkSettingsAssociationState | undefined;
-            resourceInputs["networkSettingsArn"] = state?.networkSettingsArn;
-            resourceInputs["portalArn"] = state?.portalArn;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["networkSettingsArn"] = state ? state.networkSettingsArn : undefined;
+            resourceInputs["portalArn"] = state ? state.portalArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as NetworkSettingsAssociationArgs | undefined;
-            if (args?.networkSettingsArn === undefined && !opts.urn) {
+            if ((!args || args.networkSettingsArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkSettingsArn'");
             }
-            if (args?.portalArn === undefined && !opts.urn) {
+            if ((!args || args.portalArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'portalArn'");
             }
-            resourceInputs["networkSettingsArn"] = args?.networkSettingsArn;
-            resourceInputs["portalArn"] = args?.portalArn;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["networkSettingsArn"] = args ? args.networkSettingsArn : undefined;
+            resourceInputs["portalArn"] = args ? args.portalArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkSettingsAssociation.__pulumiType, name, resourceInputs, opts);

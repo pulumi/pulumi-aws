@@ -59,19 +59,19 @@ export class PhoneNumberContactFlowAssociation extends pulumi.CustomResource {
     /**
      * Contact flow ID.
      */
-    declare public readonly contactFlowId: pulumi.Output<string>;
+    public readonly contactFlowId!: pulumi.Output<string>;
     /**
      * Amazon Connect instance ID.
      */
-    declare public readonly instanceId: pulumi.Output<string>;
+    public readonly instanceId!: pulumi.Output<string>;
     /**
      * Phone number ID.
      */
-    declare public readonly phoneNumberId: pulumi.Output<string>;
+    public readonly phoneNumberId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a PhoneNumberContactFlowAssociation resource with the given unique name, arguments, and options.
@@ -86,25 +86,25 @@ export class PhoneNumberContactFlowAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PhoneNumberContactFlowAssociationState | undefined;
-            resourceInputs["contactFlowId"] = state?.contactFlowId;
-            resourceInputs["instanceId"] = state?.instanceId;
-            resourceInputs["phoneNumberId"] = state?.phoneNumberId;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["contactFlowId"] = state ? state.contactFlowId : undefined;
+            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
+            resourceInputs["phoneNumberId"] = state ? state.phoneNumberId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as PhoneNumberContactFlowAssociationArgs | undefined;
-            if (args?.contactFlowId === undefined && !opts.urn) {
+            if ((!args || args.contactFlowId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'contactFlowId'");
             }
-            if (args?.instanceId === undefined && !opts.urn) {
+            if ((!args || args.instanceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            if (args?.phoneNumberId === undefined && !opts.urn) {
+            if ((!args || args.phoneNumberId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'phoneNumberId'");
             }
-            resourceInputs["contactFlowId"] = args?.contactFlowId;
-            resourceInputs["instanceId"] = args?.instanceId;
-            resourceInputs["phoneNumberId"] = args?.phoneNumberId;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["contactFlowId"] = args ? args.contactFlowId : undefined;
+            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["phoneNumberId"] = args ? args.phoneNumberId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PhoneNumberContactFlowAssociation.__pulumiType, name, resourceInputs, opts);

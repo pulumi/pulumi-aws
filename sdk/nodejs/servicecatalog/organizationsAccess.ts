@@ -51,7 +51,7 @@ export class OrganizationsAccess extends pulumi.CustomResource {
     /**
      * Whether to enable AWS Organizations access.
      */
-    declare public readonly enabled: pulumi.Output<boolean>;
+    public readonly enabled!: pulumi.Output<boolean>;
 
     /**
      * Create a OrganizationsAccess resource with the given unique name, arguments, and options.
@@ -66,13 +66,13 @@ export class OrganizationsAccess extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrganizationsAccessState | undefined;
-            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
         } else {
             const args = argsOrState as OrganizationsAccessArgs | undefined;
-            if (args?.enabled === undefined && !opts.urn) {
+            if ((!args || args.enabled === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(OrganizationsAccess.__pulumiType, name, resourceInputs, opts);

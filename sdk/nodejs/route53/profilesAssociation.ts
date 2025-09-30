@@ -48,41 +48,41 @@ export class ProfilesAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === ProfilesAssociation.__pulumiType;
     }
 
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_' ']+)`.
      */
-    declare public readonly name: pulumi.Output<string>;
-    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
      * ID of the profile associated with the VPC.
      */
-    declare public readonly profileId: pulumi.Output<string>;
+    public readonly profileId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Resource ID of the VPC the profile to be associated with.
      */
-    declare public readonly resourceId: pulumi.Output<string>;
+    public readonly resourceId!: pulumi.Output<string>;
     /**
      * Status of the Profile Association.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Status message of the Profile Association.
      */
-    declare public /*out*/ readonly statusMessage: pulumi.Output<string>;
+    public /*out*/ readonly statusMessage!: pulumi.Output<string>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public readonly timeouts: pulumi.Output<outputs.route53.ProfilesAssociationTimeouts | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly timeouts!: pulumi.Output<outputs.route53.ProfilesAssociationTimeouts | undefined>;
 
     /**
      * Create a ProfilesAssociation resource with the given unique name, arguments, and options.
@@ -97,31 +97,31 @@ export class ProfilesAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProfilesAssociationState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["ownerId"] = state?.ownerId;
-            resourceInputs["profileId"] = state?.profileId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceId"] = state?.resourceId;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["statusMessage"] = state?.statusMessage;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["profileId"] = state ? state.profileId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["statusMessage"] = state ? state.statusMessage : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as ProfilesAssociationArgs | undefined;
-            if (args?.profileId === undefined && !opts.urn) {
+            if ((!args || args.profileId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'profileId'");
             }
-            if (args?.resourceId === undefined && !opts.urn) {
+            if ((!args || args.resourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            resourceInputs["name"] = args?.name;
-            resourceInputs["profileId"] = args?.profileId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resourceId"] = args?.resourceId;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["profileId"] = args ? args.profileId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

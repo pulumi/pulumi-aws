@@ -88,46 +88,46 @@ export class User extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) for the user.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
-    declare public readonly awsAccountId: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public readonly awsAccountId!: pulumi.Output<string>;
     /**
      * Email address of the user that you want to register.
      */
-    declare public readonly email: pulumi.Output<string>;
+    public readonly email!: pulumi.Output<string>;
     /**
      * ARN of the IAM user or role that you are registering with Amazon QuickSight. Required only for users with an identity type of `IAM`.
      */
-    declare public readonly iamArn: pulumi.Output<string | undefined>;
+    public readonly iamArn!: pulumi.Output<string | undefined>;
     /**
      * Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`, `IAM_IDENTITY_CENTER`.
      */
-    declare public readonly identityType: pulumi.Output<string>;
+    public readonly identityType!: pulumi.Output<string>;
     /**
      * The Amazon Quicksight namespace to create the user in. Defaults to `default`.
      */
-    declare public readonly namespace: pulumi.Output<string | undefined>;
+    public readonly namespace!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
      */
-    declare public readonly sessionName: pulumi.Output<string | undefined>;
+    public readonly sessionName!: pulumi.Output<string | undefined>;
     /**
      * URL the user visits to complete registration and provide a password. Returned only for users with an identity type of `QUICKSIGHT`.
      */
-    declare public /*out*/ readonly userInvitationUrl: pulumi.Output<string>;
+    public /*out*/ readonly userInvitationUrl!: pulumi.Output<string>;
     /**
      * Amazon QuickSight user name that you want to create for the user you are registering. Required only for users with an identity type of `QUICKSIGHT`.
      */
-    declare public readonly userName: pulumi.Output<string>;
+    public readonly userName!: pulumi.Output<string>;
     /**
      * Amazon QuickSight role for the user. Valid values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`, `RESTRICTED_AUTHOR`, `RESTRICTED_READER`.
      *
      * The following arguments are optional:
      */
-    declare public readonly userRole: pulumi.Output<string>;
+    public readonly userRole!: pulumi.Output<string>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -142,37 +142,37 @@ export class User extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["awsAccountId"] = state?.awsAccountId;
-            resourceInputs["email"] = state?.email;
-            resourceInputs["iamArn"] = state?.iamArn;
-            resourceInputs["identityType"] = state?.identityType;
-            resourceInputs["namespace"] = state?.namespace;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["sessionName"] = state?.sessionName;
-            resourceInputs["userInvitationUrl"] = state?.userInvitationUrl;
-            resourceInputs["userName"] = state?.userName;
-            resourceInputs["userRole"] = state?.userRole;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
+            resourceInputs["email"] = state ? state.email : undefined;
+            resourceInputs["iamArn"] = state ? state.iamArn : undefined;
+            resourceInputs["identityType"] = state ? state.identityType : undefined;
+            resourceInputs["namespace"] = state ? state.namespace : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["sessionName"] = state ? state.sessionName : undefined;
+            resourceInputs["userInvitationUrl"] = state ? state.userInvitationUrl : undefined;
+            resourceInputs["userName"] = state ? state.userName : undefined;
+            resourceInputs["userRole"] = state ? state.userRole : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
-            if (args?.email === undefined && !opts.urn) {
+            if ((!args || args.email === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            if (args?.identityType === undefined && !opts.urn) {
+            if ((!args || args.identityType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identityType'");
             }
-            if (args?.userRole === undefined && !opts.urn) {
+            if ((!args || args.userRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userRole'");
             }
-            resourceInputs["awsAccountId"] = args?.awsAccountId;
-            resourceInputs["email"] = args?.email;
-            resourceInputs["iamArn"] = args?.iamArn;
-            resourceInputs["identityType"] = args?.identityType;
-            resourceInputs["namespace"] = args?.namespace;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["sessionName"] = args?.sessionName;
-            resourceInputs["userName"] = args?.userName;
-            resourceInputs["userRole"] = args?.userRole;
+            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
+            resourceInputs["email"] = args ? args.email : undefined;
+            resourceInputs["iamArn"] = args ? args.iamArn : undefined;
+            resourceInputs["identityType"] = args ? args.identityType : undefined;
+            resourceInputs["namespace"] = args ? args.namespace : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["sessionName"] = args ? args.sessionName : undefined;
+            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["userRole"] = args ? args.userRole : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["userInvitationUrl"] = undefined /*out*/;
         }

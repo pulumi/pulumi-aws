@@ -67,49 +67,49 @@ export class Application extends pulumi.CustomResource {
     /**
      * ARN of the Application.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
      */
-    declare public readonly autoConfigEnabled: pulumi.Output<boolean | undefined>;
+    public readonly autoConfigEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Configures all of the resources in the resource group by applying the recommended configurations.
      */
-    declare public readonly autoCreate: pulumi.Output<boolean | undefined>;
+    public readonly autoCreate!: pulumi.Output<boolean | undefined>;
     /**
      * Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
      */
-    declare public readonly cweMonitorEnabled: pulumi.Output<boolean | undefined>;
+    public readonly cweMonitorEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
      */
-    declare public readonly groupingType: pulumi.Output<string | undefined>;
+    public readonly groupingType!: pulumi.Output<string | undefined>;
     /**
      * When set to `true`, creates opsItems for any problems detected on an application.
      */
-    declare public readonly opsCenterEnabled: pulumi.Output<boolean | undefined>;
+    public readonly opsCenterEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
      */
-    declare public readonly opsItemSnsTopicArn: pulumi.Output<string | undefined>;
+    public readonly opsItemSnsTopicArn!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Name of the resource group.
      *
      * The following arguments are optional:
      */
-    declare public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -124,31 +124,31 @@ export class Application extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["autoConfigEnabled"] = state?.autoConfigEnabled;
-            resourceInputs["autoCreate"] = state?.autoCreate;
-            resourceInputs["cweMonitorEnabled"] = state?.cweMonitorEnabled;
-            resourceInputs["groupingType"] = state?.groupingType;
-            resourceInputs["opsCenterEnabled"] = state?.opsCenterEnabled;
-            resourceInputs["opsItemSnsTopicArn"] = state?.opsItemSnsTopicArn;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["autoConfigEnabled"] = state ? state.autoConfigEnabled : undefined;
+            resourceInputs["autoCreate"] = state ? state.autoCreate : undefined;
+            resourceInputs["cweMonitorEnabled"] = state ? state.cweMonitorEnabled : undefined;
+            resourceInputs["groupingType"] = state ? state.groupingType : undefined;
+            resourceInputs["opsCenterEnabled"] = state ? state.opsCenterEnabled : undefined;
+            resourceInputs["opsItemSnsTopicArn"] = state ? state.opsItemSnsTopicArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ApplicationArgs | undefined;
-            if (args?.resourceGroupName === undefined && !opts.urn) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["autoConfigEnabled"] = args?.autoConfigEnabled;
-            resourceInputs["autoCreate"] = args?.autoCreate;
-            resourceInputs["cweMonitorEnabled"] = args?.cweMonitorEnabled;
-            resourceInputs["groupingType"] = args?.groupingType;
-            resourceInputs["opsCenterEnabled"] = args?.opsCenterEnabled;
-            resourceInputs["opsItemSnsTopicArn"] = args?.opsItemSnsTopicArn;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["autoConfigEnabled"] = args ? args.autoConfigEnabled : undefined;
+            resourceInputs["autoCreate"] = args ? args.autoCreate : undefined;
+            resourceInputs["cweMonitorEnabled"] = args ? args.cweMonitorEnabled : undefined;
+            resourceInputs["groupingType"] = args ? args.groupingType : undefined;
+            resourceInputs["opsCenterEnabled"] = args ? args.opsCenterEnabled : undefined;
+            resourceInputs["opsItemSnsTopicArn"] = args ? args.opsItemSnsTopicArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

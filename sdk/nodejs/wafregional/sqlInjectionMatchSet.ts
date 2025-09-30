@@ -66,15 +66,15 @@ export class SqlInjectionMatchSet extends pulumi.CustomResource {
     /**
      * The name or description of the SizeConstraintSet.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
      */
-    declare public readonly sqlInjectionMatchTuples: pulumi.Output<outputs.wafregional.SqlInjectionMatchSetSqlInjectionMatchTuple[] | undefined>;
+    public readonly sqlInjectionMatchTuples!: pulumi.Output<outputs.wafregional.SqlInjectionMatchSetSqlInjectionMatchTuple[] | undefined>;
 
     /**
      * Create a SqlInjectionMatchSet resource with the given unique name, arguments, and options.
@@ -89,14 +89,14 @@ export class SqlInjectionMatchSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SqlInjectionMatchSetState | undefined;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["sqlInjectionMatchTuples"] = state?.sqlInjectionMatchTuples;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["sqlInjectionMatchTuples"] = state ? state.sqlInjectionMatchTuples : undefined;
         } else {
             const args = argsOrState as SqlInjectionMatchSetArgs | undefined;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["sqlInjectionMatchTuples"] = args?.sqlInjectionMatchTuples;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["sqlInjectionMatchTuples"] = args ? args.sqlInjectionMatchTuples : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SqlInjectionMatchSet.__pulumiType, name, resourceInputs, opts);

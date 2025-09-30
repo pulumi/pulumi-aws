@@ -60,11 +60,11 @@ export class TransitGatewayRegistration extends pulumi.CustomResource {
     /**
      * ID of the Global Network to register to.
      */
-    declare public readonly globalNetworkId: pulumi.Output<string>;
+    public readonly globalNetworkId!: pulumi.Output<string>;
     /**
      * ARN of the Transit Gateway to register.
      */
-    declare public readonly transitGatewayArn: pulumi.Output<string>;
+    public readonly transitGatewayArn!: pulumi.Output<string>;
 
     /**
      * Create a TransitGatewayRegistration resource with the given unique name, arguments, and options.
@@ -79,18 +79,18 @@ export class TransitGatewayRegistration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TransitGatewayRegistrationState | undefined;
-            resourceInputs["globalNetworkId"] = state?.globalNetworkId;
-            resourceInputs["transitGatewayArn"] = state?.transitGatewayArn;
+            resourceInputs["globalNetworkId"] = state ? state.globalNetworkId : undefined;
+            resourceInputs["transitGatewayArn"] = state ? state.transitGatewayArn : undefined;
         } else {
             const args = argsOrState as TransitGatewayRegistrationArgs | undefined;
-            if (args?.globalNetworkId === undefined && !opts.urn) {
+            if ((!args || args.globalNetworkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'globalNetworkId'");
             }
-            if (args?.transitGatewayArn === undefined && !opts.urn) {
+            if ((!args || args.transitGatewayArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayArn'");
             }
-            resourceInputs["globalNetworkId"] = args?.globalNetworkId;
-            resourceInputs["transitGatewayArn"] = args?.transitGatewayArn;
+            resourceInputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
+            resourceInputs["transitGatewayArn"] = args ? args.transitGatewayArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TransitGatewayRegistration.__pulumiType, name, resourceInputs, opts);

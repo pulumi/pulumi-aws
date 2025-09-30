@@ -64,15 +64,15 @@ export class AlertManagerDefinition extends pulumi.CustomResource {
     /**
      * the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
      */
-    declare public readonly definition: pulumi.Output<string>;
+    public readonly definition!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ID of the prometheus workspace the alert manager definition should be linked to
      */
-    declare public readonly workspaceId: pulumi.Output<string>;
+    public readonly workspaceId!: pulumi.Output<string>;
 
     /**
      * Create a AlertManagerDefinition resource with the given unique name, arguments, and options.
@@ -87,20 +87,20 @@ export class AlertManagerDefinition extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlertManagerDefinitionState | undefined;
-            resourceInputs["definition"] = state?.definition;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["workspaceId"] = state?.workspaceId;
+            resourceInputs["definition"] = state ? state.definition : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
         } else {
             const args = argsOrState as AlertManagerDefinitionArgs | undefined;
-            if (args?.definition === undefined && !opts.urn) {
+            if ((!args || args.definition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'definition'");
             }
-            if (args?.workspaceId === undefined && !opts.urn) {
+            if ((!args || args.workspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["definition"] = args?.definition;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["workspaceId"] = args?.workspaceId;
+            resourceInputs["definition"] = args ? args.definition : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AlertManagerDefinition.__pulumiType, name, resourceInputs, opts);

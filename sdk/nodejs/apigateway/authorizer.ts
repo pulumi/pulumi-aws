@@ -114,48 +114,48 @@ export class Authorizer extends pulumi.CustomResource {
     /**
      * ARN of the API Gateway Authorizer
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
      */
-    declare public readonly authorizerCredentials: pulumi.Output<string | undefined>;
+    public readonly authorizerCredentials!: pulumi.Output<string | undefined>;
     /**
      * TTL of cached authorizer results in seconds. Defaults to `300`.
      */
-    declare public readonly authorizerResultTtlInSeconds: pulumi.Output<number | undefined>;
+    public readonly authorizerResultTtlInSeconds!: pulumi.Output<number | undefined>;
     /**
      * Authorizer's Uniform Resource Identifier (URI). This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`,
      * e.g., `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
      */
-    declare public readonly authorizerUri: pulumi.Output<string | undefined>;
+    public readonly authorizerUri!: pulumi.Output<string | undefined>;
     /**
      * Source of the identity in an incoming request. Defaults to `method.request.header.Authorization`. For `REQUEST` type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g., `"method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName"`
      */
-    declare public readonly identitySource: pulumi.Output<string | undefined>;
+    public readonly identitySource!: pulumi.Output<string | undefined>;
     /**
      * Validation expression for the incoming identity. For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn't match, the client receives a 401 Unauthorized response.
      */
-    declare public readonly identityValidationExpression: pulumi.Output<string | undefined>;
+    public readonly identityValidationExpression!: pulumi.Output<string | undefined>;
     /**
      * Name of the authorizer
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * List of the Amazon Cognito user pool ARNs. Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
      */
-    declare public readonly providerArns: pulumi.Output<string[] | undefined>;
+    public readonly providerArns!: pulumi.Output<string[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ID of the associated REST API
      */
-    declare public readonly restApi: pulumi.Output<string>;
+    public readonly restApi!: pulumi.Output<string>;
     /**
      * Type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.
      */
-    declare public readonly type: pulumi.Output<string | undefined>;
+    public readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Authorizer resource with the given unique name, arguments, and options.
@@ -170,32 +170,32 @@ export class Authorizer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AuthorizerState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["authorizerCredentials"] = state?.authorizerCredentials;
-            resourceInputs["authorizerResultTtlInSeconds"] = state?.authorizerResultTtlInSeconds;
-            resourceInputs["authorizerUri"] = state?.authorizerUri;
-            resourceInputs["identitySource"] = state?.identitySource;
-            resourceInputs["identityValidationExpression"] = state?.identityValidationExpression;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["providerArns"] = state?.providerArns;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["restApi"] = state?.restApi;
-            resourceInputs["type"] = state?.type;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["authorizerCredentials"] = state ? state.authorizerCredentials : undefined;
+            resourceInputs["authorizerResultTtlInSeconds"] = state ? state.authorizerResultTtlInSeconds : undefined;
+            resourceInputs["authorizerUri"] = state ? state.authorizerUri : undefined;
+            resourceInputs["identitySource"] = state ? state.identitySource : undefined;
+            resourceInputs["identityValidationExpression"] = state ? state.identityValidationExpression : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["providerArns"] = state ? state.providerArns : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["restApi"] = state ? state.restApi : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as AuthorizerArgs | undefined;
-            if (args?.restApi === undefined && !opts.urn) {
+            if ((!args || args.restApi === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApi'");
             }
-            resourceInputs["authorizerCredentials"] = args?.authorizerCredentials;
-            resourceInputs["authorizerResultTtlInSeconds"] = args?.authorizerResultTtlInSeconds;
-            resourceInputs["authorizerUri"] = args?.authorizerUri;
-            resourceInputs["identitySource"] = args?.identitySource;
-            resourceInputs["identityValidationExpression"] = args?.identityValidationExpression;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["providerArns"] = args?.providerArns;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["restApi"] = args?.restApi;
-            resourceInputs["type"] = args?.type;
+            resourceInputs["authorizerCredentials"] = args ? args.authorizerCredentials : undefined;
+            resourceInputs["authorizerResultTtlInSeconds"] = args ? args.authorizerResultTtlInSeconds : undefined;
+            resourceInputs["authorizerUri"] = args ? args.authorizerUri : undefined;
+            resourceInputs["identitySource"] = args ? args.identitySource : undefined;
+            resourceInputs["identityValidationExpression"] = args ? args.identityValidationExpression : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["providerArns"] = args ? args.providerArns : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["restApi"] = args ? args.restApi : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

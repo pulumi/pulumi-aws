@@ -204,68 +204,68 @@ export class GlobalCluster extends pulumi.CustomResource {
     /**
      * RDS Global Cluster Amazon Resource Name (ARN).
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
      */
-    declare public readonly databaseName: pulumi.Output<string>;
+    public readonly databaseName!: pulumi.Output<string>;
     /**
      * If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
      */
-    declare public readonly deletionProtection: pulumi.Output<boolean | undefined>;
+    public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
     /**
      * Writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
      */
-    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
      * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `sourceDbClusterIdentifier`.
      */
-    declare public readonly engine: pulumi.Output<string>;
+    public readonly engine!: pulumi.Output<string>;
     /**
      * The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
      */
-    declare public readonly engineLifecycleSupport: pulumi.Output<string>;
+    public readonly engineLifecycleSupport!: pulumi.Output<string>;
     /**
      * Engine version of the Aurora global database. The `engine`, `engineVersion`, and `instanceClass` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignoreChanges` for `engineVersion` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.
      */
-    declare public readonly engineVersion: pulumi.Output<string>;
-    declare public /*out*/ readonly engineVersionActual: pulumi.Output<string>;
+    public readonly engineVersion!: pulumi.Output<string>;
+    public /*out*/ readonly engineVersionActual!: pulumi.Output<string>;
     /**
      * Enable to remove DB Cluster members from Global Cluster on destroy. Required with `sourceDbClusterIdentifier`.
      */
-    declare public readonly forceDestroy: pulumi.Output<boolean | undefined>;
+    public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
     /**
      * Global cluster identifier.
      */
-    declare public readonly globalClusterIdentifier: pulumi.Output<string>;
+    public readonly globalClusterIdentifier!: pulumi.Output<string>;
     /**
      * Set of objects containing Global Cluster members.
      */
-    declare public /*out*/ readonly globalClusterMembers: pulumi.Output<outputs.rds.GlobalClusterGlobalClusterMember[]>;
+    public /*out*/ readonly globalClusterMembers!: pulumi.Output<outputs.rds.GlobalClusterGlobalClusterMember[]>;
     /**
      * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
      */
-    declare public /*out*/ readonly globalClusterResourceId: pulumi.Output<string>;
+    public /*out*/ readonly globalClusterResourceId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
      */
-    declare public readonly sourceDbClusterIdentifier: pulumi.Output<string>;
+    public readonly sourceDbClusterIdentifier!: pulumi.Output<string>;
     /**
      * Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
      */
-    declare public readonly storageEncrypted: pulumi.Output<boolean>;
+    public readonly storageEncrypted!: pulumi.Output<boolean>;
     /**
      * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a GlobalCluster resource with the given unique name, arguments, and options.
@@ -280,39 +280,39 @@ export class GlobalCluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GlobalClusterState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["databaseName"] = state?.databaseName;
-            resourceInputs["deletionProtection"] = state?.deletionProtection;
-            resourceInputs["endpoint"] = state?.endpoint;
-            resourceInputs["engine"] = state?.engine;
-            resourceInputs["engineLifecycleSupport"] = state?.engineLifecycleSupport;
-            resourceInputs["engineVersion"] = state?.engineVersion;
-            resourceInputs["engineVersionActual"] = state?.engineVersionActual;
-            resourceInputs["forceDestroy"] = state?.forceDestroy;
-            resourceInputs["globalClusterIdentifier"] = state?.globalClusterIdentifier;
-            resourceInputs["globalClusterMembers"] = state?.globalClusterMembers;
-            resourceInputs["globalClusterResourceId"] = state?.globalClusterResourceId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["sourceDbClusterIdentifier"] = state?.sourceDbClusterIdentifier;
-            resourceInputs["storageEncrypted"] = state?.storageEncrypted;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["deletionProtection"] = state ? state.deletionProtection : undefined;
+            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
+            resourceInputs["engine"] = state ? state.engine : undefined;
+            resourceInputs["engineLifecycleSupport"] = state ? state.engineLifecycleSupport : undefined;
+            resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
+            resourceInputs["engineVersionActual"] = state ? state.engineVersionActual : undefined;
+            resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
+            resourceInputs["globalClusterIdentifier"] = state ? state.globalClusterIdentifier : undefined;
+            resourceInputs["globalClusterMembers"] = state ? state.globalClusterMembers : undefined;
+            resourceInputs["globalClusterResourceId"] = state ? state.globalClusterResourceId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["sourceDbClusterIdentifier"] = state ? state.sourceDbClusterIdentifier : undefined;
+            resourceInputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as GlobalClusterArgs | undefined;
-            if (args?.globalClusterIdentifier === undefined && !opts.urn) {
+            if ((!args || args.globalClusterIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'globalClusterIdentifier'");
             }
-            resourceInputs["databaseName"] = args?.databaseName;
-            resourceInputs["deletionProtection"] = args?.deletionProtection;
-            resourceInputs["engine"] = args?.engine;
-            resourceInputs["engineLifecycleSupport"] = args?.engineLifecycleSupport;
-            resourceInputs["engineVersion"] = args?.engineVersion;
-            resourceInputs["forceDestroy"] = args?.forceDestroy;
-            resourceInputs["globalClusterIdentifier"] = args?.globalClusterIdentifier;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["sourceDbClusterIdentifier"] = args?.sourceDbClusterIdentifier;
-            resourceInputs["storageEncrypted"] = args?.storageEncrypted;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
+            resourceInputs["engine"] = args ? args.engine : undefined;
+            resourceInputs["engineLifecycleSupport"] = args ? args.engineLifecycleSupport : undefined;
+            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
+            resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
+            resourceInputs["globalClusterIdentifier"] = args ? args.globalClusterIdentifier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["sourceDbClusterIdentifier"] = args ? args.sourceDbClusterIdentifier : undefined;
+            resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["engineVersionActual"] = undefined /*out*/;

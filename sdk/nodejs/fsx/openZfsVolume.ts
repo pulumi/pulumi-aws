@@ -62,68 +62,68 @@ export class OpenZfsVolume extends pulumi.CustomResource {
     /**
      * Amazon Resource Name of the file system.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
      */
-    declare public readonly copyTagsToSnapshots: pulumi.Output<boolean | undefined>;
+    public readonly copyTagsToSnapshots!: pulumi.Output<boolean | undefined>;
     /**
      * Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
      */
-    declare public readonly dataCompressionType: pulumi.Output<string | undefined>;
+    public readonly dataCompressionType!: pulumi.Output<string | undefined>;
     /**
      * Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
      */
-    declare public readonly deleteVolumeOptions: pulumi.Output<string | undefined>;
+    public readonly deleteVolumeOptions!: pulumi.Output<string | undefined>;
     /**
      * The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * NFS export configuration for the root volume. Exactly 1 item. See `nfsExports` Block Below for details.
      */
-    declare public readonly nfsExports: pulumi.Output<outputs.fsx.OpenZfsVolumeNfsExports | undefined>;
+    public readonly nfsExports!: pulumi.Output<outputs.fsx.OpenZfsVolumeNfsExports | undefined>;
     /**
      * Specifies the configuration to use when creating the OpenZFS volume. See `originSnapshot` Block below for details.
      */
-    declare public readonly originSnapshot: pulumi.Output<outputs.fsx.OpenZfsVolumeOriginSnapshot | undefined>;
+    public readonly originSnapshot!: pulumi.Output<outputs.fsx.OpenZfsVolumeOriginSnapshot | undefined>;
     /**
      * The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `rootVolumeId` or the `id` property of another `aws.fsx.OpenZfsVolume`.
      */
-    declare public readonly parentVolumeId: pulumi.Output<string>;
+    public readonly parentVolumeId!: pulumi.Output<string>;
     /**
      * specifies whether the volume is read-only. Default is false.
      */
-    declare public readonly readOnly: pulumi.Output<boolean>;
+    public readonly readOnly!: pulumi.Output<boolean>;
     /**
      * The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
      */
-    declare public readonly recordSizeKib: pulumi.Output<number | undefined>;
+    public readonly recordSizeKib!: pulumi.Output<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
      */
-    declare public readonly storageCapacityQuotaGib: pulumi.Output<number>;
+    public readonly storageCapacityQuotaGib!: pulumi.Output<number>;
     /**
      * The amount of storage in gibibytes (GiB) to reserve from the parent volume.
      */
-    declare public readonly storageCapacityReservationGib: pulumi.Output<number>;
+    public readonly storageCapacityReservationGib!: pulumi.Output<number>;
     /**
      * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block Below.
      */
-    declare public readonly userAndGroupQuotas: pulumi.Output<outputs.fsx.OpenZfsVolumeUserAndGroupQuota[]>;
-    declare public readonly volumeType: pulumi.Output<string | undefined>;
+    public readonly userAndGroupQuotas!: pulumi.Output<outputs.fsx.OpenZfsVolumeUserAndGroupQuota[]>;
+    public readonly volumeType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a OpenZfsVolume resource with the given unique name, arguments, and options.
@@ -138,43 +138,43 @@ export class OpenZfsVolume extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OpenZfsVolumeState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["copyTagsToSnapshots"] = state?.copyTagsToSnapshots;
-            resourceInputs["dataCompressionType"] = state?.dataCompressionType;
-            resourceInputs["deleteVolumeOptions"] = state?.deleteVolumeOptions;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["nfsExports"] = state?.nfsExports;
-            resourceInputs["originSnapshot"] = state?.originSnapshot;
-            resourceInputs["parentVolumeId"] = state?.parentVolumeId;
-            resourceInputs["readOnly"] = state?.readOnly;
-            resourceInputs["recordSizeKib"] = state?.recordSizeKib;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["storageCapacityQuotaGib"] = state?.storageCapacityQuotaGib;
-            resourceInputs["storageCapacityReservationGib"] = state?.storageCapacityReservationGib;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["userAndGroupQuotas"] = state?.userAndGroupQuotas;
-            resourceInputs["volumeType"] = state?.volumeType;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["copyTagsToSnapshots"] = state ? state.copyTagsToSnapshots : undefined;
+            resourceInputs["dataCompressionType"] = state ? state.dataCompressionType : undefined;
+            resourceInputs["deleteVolumeOptions"] = state ? state.deleteVolumeOptions : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["nfsExports"] = state ? state.nfsExports : undefined;
+            resourceInputs["originSnapshot"] = state ? state.originSnapshot : undefined;
+            resourceInputs["parentVolumeId"] = state ? state.parentVolumeId : undefined;
+            resourceInputs["readOnly"] = state ? state.readOnly : undefined;
+            resourceInputs["recordSizeKib"] = state ? state.recordSizeKib : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["storageCapacityQuotaGib"] = state ? state.storageCapacityQuotaGib : undefined;
+            resourceInputs["storageCapacityReservationGib"] = state ? state.storageCapacityReservationGib : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["userAndGroupQuotas"] = state ? state.userAndGroupQuotas : undefined;
+            resourceInputs["volumeType"] = state ? state.volumeType : undefined;
         } else {
             const args = argsOrState as OpenZfsVolumeArgs | undefined;
-            if (args?.parentVolumeId === undefined && !opts.urn) {
+            if ((!args || args.parentVolumeId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'parentVolumeId'");
             }
-            resourceInputs["copyTagsToSnapshots"] = args?.copyTagsToSnapshots;
-            resourceInputs["dataCompressionType"] = args?.dataCompressionType;
-            resourceInputs["deleteVolumeOptions"] = args?.deleteVolumeOptions;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["nfsExports"] = args?.nfsExports;
-            resourceInputs["originSnapshot"] = args?.originSnapshot;
-            resourceInputs["parentVolumeId"] = args?.parentVolumeId;
-            resourceInputs["readOnly"] = args?.readOnly;
-            resourceInputs["recordSizeKib"] = args?.recordSizeKib;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["storageCapacityQuotaGib"] = args?.storageCapacityQuotaGib;
-            resourceInputs["storageCapacityReservationGib"] = args?.storageCapacityReservationGib;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["userAndGroupQuotas"] = args?.userAndGroupQuotas;
-            resourceInputs["volumeType"] = args?.volumeType;
+            resourceInputs["copyTagsToSnapshots"] = args ? args.copyTagsToSnapshots : undefined;
+            resourceInputs["dataCompressionType"] = args ? args.dataCompressionType : undefined;
+            resourceInputs["deleteVolumeOptions"] = args ? args.deleteVolumeOptions : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["nfsExports"] = args ? args.nfsExports : undefined;
+            resourceInputs["originSnapshot"] = args ? args.originSnapshot : undefined;
+            resourceInputs["parentVolumeId"] = args ? args.parentVolumeId : undefined;
+            resourceInputs["readOnly"] = args ? args.readOnly : undefined;
+            resourceInputs["recordSizeKib"] = args ? args.recordSizeKib : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["storageCapacityQuotaGib"] = args ? args.storageCapacityQuotaGib : undefined;
+            resourceInputs["storageCapacityReservationGib"] = args ? args.storageCapacityReservationGib : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userAndGroupQuotas"] = args ? args.userAndGroupQuotas : undefined;
+            resourceInputs["volumeType"] = args ? args.volumeType : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

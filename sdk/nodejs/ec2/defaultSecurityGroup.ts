@@ -107,45 +107,45 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
     /**
      * ARN of the security group.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Description of the security group.
      */
-    declare public /*out*/ readonly description: pulumi.Output<string>;
+    public /*out*/ readonly description!: pulumi.Output<string>;
     /**
      * Configuration block. Detailed below.
      */
-    declare public readonly egress: pulumi.Output<outputs.ec2.DefaultSecurityGroupEgress[]>;
+    public readonly egress!: pulumi.Output<outputs.ec2.DefaultSecurityGroupEgress[]>;
     /**
      * Configuration block. Detailed below.
      */
-    declare public readonly ingress: pulumi.Output<outputs.ec2.DefaultSecurityGroupIngress[]>;
+    public readonly ingress!: pulumi.Output<outputs.ec2.DefaultSecurityGroupIngress[]>;
     /**
      * Name of the security group.
      */
-    declare public /*out*/ readonly name: pulumi.Output<string>;
-    declare public /*out*/ readonly namePrefix: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly namePrefix!: pulumi.Output<string>;
     /**
      * Owner ID.
      */
-    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
-    declare public readonly revokeRulesOnDelete: pulumi.Output<boolean | undefined>;
+    public readonly region!: pulumi.Output<string>;
+    public readonly revokeRulesOnDelete!: pulumi.Output<boolean | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
      */
-    declare public readonly vpcId: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a DefaultSecurityGroup resource with the given unique name, arguments, and options.
@@ -160,26 +160,26 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DefaultSecurityGroupState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["egress"] = state?.egress;
-            resourceInputs["ingress"] = state?.ingress;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["namePrefix"] = state?.namePrefix;
-            resourceInputs["ownerId"] = state?.ownerId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["revokeRulesOnDelete"] = state?.revokeRulesOnDelete;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["vpcId"] = state?.vpcId;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["egress"] = state ? state.egress : undefined;
+            resourceInputs["ingress"] = state ? state.ingress : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["revokeRulesOnDelete"] = state ? state.revokeRulesOnDelete : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as DefaultSecurityGroupArgs | undefined;
-            resourceInputs["egress"] = args?.egress;
-            resourceInputs["ingress"] = args?.ingress;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["revokeRulesOnDelete"] = args?.revokeRulesOnDelete;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["vpcId"] = args?.vpcId;
+            resourceInputs["egress"] = args ? args.egress : undefined;
+            resourceInputs["ingress"] = args ? args.ingress : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["revokeRulesOnDelete"] = args ? args.revokeRulesOnDelete : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -76,25 +76,25 @@ export class ProvisionedConcurrencyConfig extends pulumi.CustomResource {
     /**
      * Name or Amazon Resource Name (ARN) of the Lambda Function.
      */
-    declare public readonly functionName: pulumi.Output<string>;
+    public readonly functionName!: pulumi.Output<string>;
     /**
      * Amount of capacity to allocate. Must be greater than or equal to 1.
      */
-    declare public readonly provisionedConcurrentExecutions: pulumi.Output<number>;
+    public readonly provisionedConcurrentExecutions!: pulumi.Output<number>;
     /**
      * Lambda Function version or Lambda Alias name.
      *
      * The following arguments are optional:
      */
-    declare public readonly qualifier: pulumi.Output<string>;
+    public readonly qualifier!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
      */
-    declare public readonly skipDestroy: pulumi.Output<boolean | undefined>;
+    public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a ProvisionedConcurrencyConfig resource with the given unique name, arguments, and options.
@@ -109,27 +109,27 @@ export class ProvisionedConcurrencyConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProvisionedConcurrencyConfigState | undefined;
-            resourceInputs["functionName"] = state?.functionName;
-            resourceInputs["provisionedConcurrentExecutions"] = state?.provisionedConcurrentExecutions;
-            resourceInputs["qualifier"] = state?.qualifier;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["skipDestroy"] = state?.skipDestroy;
+            resourceInputs["functionName"] = state ? state.functionName : undefined;
+            resourceInputs["provisionedConcurrentExecutions"] = state ? state.provisionedConcurrentExecutions : undefined;
+            resourceInputs["qualifier"] = state ? state.qualifier : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["skipDestroy"] = state ? state.skipDestroy : undefined;
         } else {
             const args = argsOrState as ProvisionedConcurrencyConfigArgs | undefined;
-            if (args?.functionName === undefined && !opts.urn) {
+            if ((!args || args.functionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'functionName'");
             }
-            if (args?.provisionedConcurrentExecutions === undefined && !opts.urn) {
+            if ((!args || args.provisionedConcurrentExecutions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'provisionedConcurrentExecutions'");
             }
-            if (args?.qualifier === undefined && !opts.urn) {
+            if ((!args || args.qualifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'qualifier'");
             }
-            resourceInputs["functionName"] = args?.functionName;
-            resourceInputs["provisionedConcurrentExecutions"] = args?.provisionedConcurrentExecutions;
-            resourceInputs["qualifier"] = args?.qualifier;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["skipDestroy"] = args?.skipDestroy;
+            resourceInputs["functionName"] = args ? args.functionName : undefined;
+            resourceInputs["provisionedConcurrentExecutions"] = args ? args.provisionedConcurrentExecutions : undefined;
+            resourceInputs["qualifier"] = args ? args.qualifier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProvisionedConcurrencyConfig.__pulumiType, name, resourceInputs, opts);

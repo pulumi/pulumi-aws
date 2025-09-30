@@ -62,51 +62,51 @@ export class DedicatedHost extends pulumi.CustomResource {
     /**
      * The ARN of the Dedicated Host.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
      */
-    declare public readonly assetId: pulumi.Output<string>;
+    public readonly assetId!: pulumi.Output<string>;
     /**
      * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
      */
-    declare public readonly autoPlacement: pulumi.Output<string | undefined>;
+    public readonly autoPlacement!: pulumi.Output<string | undefined>;
     /**
      * The Availability Zone in which to allocate the Dedicated Host.
      */
-    declare public readonly availabilityZone: pulumi.Output<string>;
+    public readonly availabilityZone!: pulumi.Output<string>;
     /**
      * Indicates whether to enable or disable host recovery for the Dedicated Host. Valid values: `on`, `off`. Default: `off`.
      */
-    declare public readonly hostRecovery: pulumi.Output<string | undefined>;
+    public readonly hostRecovery!: pulumi.Output<string | undefined>;
     /**
      * Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `instanceFamily` or `instanceType` must be specified.
      */
-    declare public readonly instanceFamily: pulumi.Output<string | undefined>;
+    public readonly instanceFamily!: pulumi.Output<string | undefined>;
     /**
      * Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instanceFamily` or `instanceType` must be specified.
      */
-    declare public readonly instanceType: pulumi.Output<string | undefined>;
+    public readonly instanceType!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
      */
-    declare public readonly outpostArn: pulumi.Output<string | undefined>;
+    public readonly outpostArn!: pulumi.Output<string | undefined>;
     /**
      * The ID of the AWS account that owns the Dedicated Host.
      */
-    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a DedicatedHost resource with the given unique name, arguments, and options.
@@ -121,32 +121,32 @@ export class DedicatedHost extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DedicatedHostState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["assetId"] = state?.assetId;
-            resourceInputs["autoPlacement"] = state?.autoPlacement;
-            resourceInputs["availabilityZone"] = state?.availabilityZone;
-            resourceInputs["hostRecovery"] = state?.hostRecovery;
-            resourceInputs["instanceFamily"] = state?.instanceFamily;
-            resourceInputs["instanceType"] = state?.instanceType;
-            resourceInputs["outpostArn"] = state?.outpostArn;
-            resourceInputs["ownerId"] = state?.ownerId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["assetId"] = state ? state.assetId : undefined;
+            resourceInputs["autoPlacement"] = state ? state.autoPlacement : undefined;
+            resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            resourceInputs["hostRecovery"] = state ? state.hostRecovery : undefined;
+            resourceInputs["instanceFamily"] = state ? state.instanceFamily : undefined;
+            resourceInputs["instanceType"] = state ? state.instanceType : undefined;
+            resourceInputs["outpostArn"] = state ? state.outpostArn : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as DedicatedHostArgs | undefined;
-            if (args?.availabilityZone === undefined && !opts.urn) {
+            if ((!args || args.availabilityZone === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'availabilityZone'");
             }
-            resourceInputs["assetId"] = args?.assetId;
-            resourceInputs["autoPlacement"] = args?.autoPlacement;
-            resourceInputs["availabilityZone"] = args?.availabilityZone;
-            resourceInputs["hostRecovery"] = args?.hostRecovery;
-            resourceInputs["instanceFamily"] = args?.instanceFamily;
-            resourceInputs["instanceType"] = args?.instanceType;
-            resourceInputs["outpostArn"] = args?.outpostArn;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["assetId"] = args ? args.assetId : undefined;
+            resourceInputs["autoPlacement"] = args ? args.autoPlacement : undefined;
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["hostRecovery"] = args ? args.hostRecovery : undefined;
+            resourceInputs["instanceFamily"] = args ? args.instanceFamily : undefined;
+            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
+            resourceInputs["outpostArn"] = args ? args.outpostArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

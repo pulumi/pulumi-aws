@@ -117,77 +117,77 @@ export class ContainerService extends pulumi.CustomResource {
     /**
      * ARN of the container service.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Availability Zone. Follows the format us-east-2a (case-sensitive).
      */
-    declare public /*out*/ readonly availabilityZone: pulumi.Output<string>;
+    public /*out*/ readonly availabilityZone!: pulumi.Output<string>;
     /**
      * Date and time when the container service was created.
      */
-    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
      * Whether to disable the container service. Defaults to `false`.
      */
-    declare public readonly isDisabled: pulumi.Output<boolean | undefined>;
+    public readonly isDisabled!: pulumi.Output<boolean | undefined>;
     /**
      * Name of the container service. Names must be of length 1 to 63, and be unique within each AWS Region in your Lightsail account.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
      */
-    declare public readonly power: pulumi.Output<string>;
+    public readonly power!: pulumi.Output<string>;
     /**
      * Power ID of the container service.
      */
-    declare public /*out*/ readonly powerId: pulumi.Output<string>;
+    public /*out*/ readonly powerId!: pulumi.Output<string>;
     /**
      * Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
      */
-    declare public /*out*/ readonly principalArn: pulumi.Output<string>;
+    public /*out*/ readonly principalArn!: pulumi.Output<string>;
     /**
      * Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
      */
-    declare public /*out*/ readonly privateDomainName: pulumi.Output<string>;
+    public /*out*/ readonly privateDomainName!: pulumi.Output<string>;
     /**
      * Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
      */
-    declare public readonly privateRegistryAccess: pulumi.Output<outputs.lightsail.ContainerServicePrivateRegistryAccess>;
+    public readonly privateRegistryAccess!: pulumi.Output<outputs.lightsail.ContainerServicePrivateRegistryAccess>;
     /**
      * Public domain names to use with the container service, such as example.com and www.example.com. You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don't specify public domain names, then you can use the default domain of the container service. See below.
      */
-    declare public readonly publicDomainNames: pulumi.Output<outputs.lightsail.ContainerServicePublicDomainNames | undefined>;
+    public readonly publicDomainNames!: pulumi.Output<outputs.lightsail.ContainerServicePublicDomainNames | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Lightsail resource type of the container service (i.e., ContainerService).
      */
-    declare public /*out*/ readonly resourceType: pulumi.Output<string>;
+    public /*out*/ readonly resourceType!: pulumi.Output<string>;
     /**
      * Scale specification for the container service. The scale specifies the allocated compute nodes of the container service.
      *
      * The following arguments are optional:
      */
-    declare public readonly scale: pulumi.Output<number>;
+    public readonly scale!: pulumi.Output<number>;
     /**
      * Current state of the container service.
      */
-    declare public /*out*/ readonly state: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Publicly accessible URL of the container service. If no public endpoint is specified in the currentDeployment, this URL returns a 404 response.
      */
-    declare public /*out*/ readonly url: pulumi.Output<string>;
+    public /*out*/ readonly url!: pulumi.Output<string>;
 
     /**
      * Create a ContainerService resource with the given unique name, arguments, and options.
@@ -202,40 +202,40 @@ export class ContainerService extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ContainerServiceState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["availabilityZone"] = state?.availabilityZone;
-            resourceInputs["createdAt"] = state?.createdAt;
-            resourceInputs["isDisabled"] = state?.isDisabled;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["power"] = state?.power;
-            resourceInputs["powerId"] = state?.powerId;
-            resourceInputs["principalArn"] = state?.principalArn;
-            resourceInputs["privateDomainName"] = state?.privateDomainName;
-            resourceInputs["privateRegistryAccess"] = state?.privateRegistryAccess;
-            resourceInputs["publicDomainNames"] = state?.publicDomainNames;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceType"] = state?.resourceType;
-            resourceInputs["scale"] = state?.scale;
-            resourceInputs["state"] = state?.state;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["url"] = state?.url;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["isDisabled"] = state ? state.isDisabled : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["power"] = state ? state.power : undefined;
+            resourceInputs["powerId"] = state ? state.powerId : undefined;
+            resourceInputs["principalArn"] = state ? state.principalArn : undefined;
+            resourceInputs["privateDomainName"] = state ? state.privateDomainName : undefined;
+            resourceInputs["privateRegistryAccess"] = state ? state.privateRegistryAccess : undefined;
+            resourceInputs["publicDomainNames"] = state ? state.publicDomainNames : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceType"] = state ? state.resourceType : undefined;
+            resourceInputs["scale"] = state ? state.scale : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as ContainerServiceArgs | undefined;
-            if (args?.power === undefined && !opts.urn) {
+            if ((!args || args.power === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'power'");
             }
-            if (args?.scale === undefined && !opts.urn) {
+            if ((!args || args.scale === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scale'");
             }
-            resourceInputs["isDisabled"] = args?.isDisabled;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["power"] = args?.power;
-            resourceInputs["privateRegistryAccess"] = args?.privateRegistryAccess;
-            resourceInputs["publicDomainNames"] = args?.publicDomainNames;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["scale"] = args?.scale;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["isDisabled"] = args ? args.isDisabled : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["power"] = args ? args.power : undefined;
+            resourceInputs["privateRegistryAccess"] = args ? args.privateRegistryAccess : undefined;
+            resourceInputs["publicDomainNames"] = args ? args.publicDomainNames : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["scale"] = args ? args.scale : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

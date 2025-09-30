@@ -58,23 +58,23 @@ export class OrganizationDelegatedAdminAccount extends pulumi.CustomResource {
     /**
      * An organization member account ID that you want to designate as a delegated administrator.
      */
-    declare public readonly accountId: pulumi.Output<string>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the delegated administrator's account.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The email address that is associated with the delegated administrator's AWS account.
      */
-    declare public /*out*/ readonly email: pulumi.Output<string>;
+    public /*out*/ readonly email!: pulumi.Output<string>;
     /**
      * The friendly name of the delegated administrator's account.
      */
-    declare public /*out*/ readonly name: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The AWS CloudTrail service principal name.
      */
-    declare public /*out*/ readonly servicePrincipal: pulumi.Output<string>;
+    public /*out*/ readonly servicePrincipal!: pulumi.Output<string>;
 
     /**
      * Create a OrganizationDelegatedAdminAccount resource with the given unique name, arguments, and options.
@@ -89,17 +89,17 @@ export class OrganizationDelegatedAdminAccount extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrganizationDelegatedAdminAccountState | undefined;
-            resourceInputs["accountId"] = state?.accountId;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["email"] = state?.email;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["servicePrincipal"] = state?.servicePrincipal;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["email"] = state ? state.email : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["servicePrincipal"] = state ? state.servicePrincipal : undefined;
         } else {
             const args = argsOrState as OrganizationDelegatedAdminAccountArgs | undefined;
-            if (args?.accountId === undefined && !opts.urn) {
+            if ((!args || args.accountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
             }
-            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["email"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

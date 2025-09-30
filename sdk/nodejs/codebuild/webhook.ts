@@ -102,43 +102,43 @@ export class Webhook extends pulumi.CustomResource {
     /**
      * A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filterGroup` over `branchFilter`.
      */
-    declare public readonly branchFilter: pulumi.Output<string | undefined>;
+    public readonly branchFilter!: pulumi.Output<string | undefined>;
     /**
      * The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
      */
-    declare public readonly buildType: pulumi.Output<string | undefined>;
+    public readonly buildType!: pulumi.Output<string | undefined>;
     /**
      * Information about the webhook's trigger. Filter group blocks are documented below.
      */
-    declare public readonly filterGroups: pulumi.Output<outputs.codebuild.WebhookFilterGroup[] | undefined>;
+    public readonly filterGroups!: pulumi.Output<outputs.codebuild.WebhookFilterGroup[] | undefined>;
     /**
      * If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payloadUrl` and `secret` values for the webhook. The `payloadUrl` and `secret` values in the output can be used to manually create a webhook within GitHub.
      */
-    declare public readonly manualCreation: pulumi.Output<boolean | undefined>;
+    public readonly manualCreation!: pulumi.Output<boolean | undefined>;
     /**
      * The CodeBuild endpoint where webhook events are sent.
      */
-    declare public /*out*/ readonly payloadUrl: pulumi.Output<string>;
+    public /*out*/ readonly payloadUrl!: pulumi.Output<string>;
     /**
      * The name of the build project.
      */
-    declare public readonly projectName: pulumi.Output<string>;
+    public readonly projectName!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
      */
-    declare public readonly scopeConfiguration: pulumi.Output<outputs.codebuild.WebhookScopeConfiguration | undefined>;
+    public readonly scopeConfiguration!: pulumi.Output<outputs.codebuild.WebhookScopeConfiguration | undefined>;
     /**
      * The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
      */
-    declare public /*out*/ readonly secret: pulumi.Output<string>;
+    public /*out*/ readonly secret!: pulumi.Output<string>;
     /**
      * The URL to the webhook.
      */
-    declare public /*out*/ readonly url: pulumi.Output<string>;
+    public /*out*/ readonly url!: pulumi.Output<string>;
 
     /**
      * Create a Webhook resource with the given unique name, arguments, and options.
@@ -153,28 +153,28 @@ export class Webhook extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebhookState | undefined;
-            resourceInputs["branchFilter"] = state?.branchFilter;
-            resourceInputs["buildType"] = state?.buildType;
-            resourceInputs["filterGroups"] = state?.filterGroups;
-            resourceInputs["manualCreation"] = state?.manualCreation;
-            resourceInputs["payloadUrl"] = state?.payloadUrl;
-            resourceInputs["projectName"] = state?.projectName;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["scopeConfiguration"] = state?.scopeConfiguration;
-            resourceInputs["secret"] = state?.secret;
-            resourceInputs["url"] = state?.url;
+            resourceInputs["branchFilter"] = state ? state.branchFilter : undefined;
+            resourceInputs["buildType"] = state ? state.buildType : undefined;
+            resourceInputs["filterGroups"] = state ? state.filterGroups : undefined;
+            resourceInputs["manualCreation"] = state ? state.manualCreation : undefined;
+            resourceInputs["payloadUrl"] = state ? state.payloadUrl : undefined;
+            resourceInputs["projectName"] = state ? state.projectName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["scopeConfiguration"] = state ? state.scopeConfiguration : undefined;
+            resourceInputs["secret"] = state ? state.secret : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as WebhookArgs | undefined;
-            if (args?.projectName === undefined && !opts.urn) {
+            if ((!args || args.projectName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
-            resourceInputs["branchFilter"] = args?.branchFilter;
-            resourceInputs["buildType"] = args?.buildType;
-            resourceInputs["filterGroups"] = args?.filterGroups;
-            resourceInputs["manualCreation"] = args?.manualCreation;
-            resourceInputs["projectName"] = args?.projectName;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["scopeConfiguration"] = args?.scopeConfiguration;
+            resourceInputs["branchFilter"] = args ? args.branchFilter : undefined;
+            resourceInputs["buildType"] = args ? args.buildType : undefined;
+            resourceInputs["filterGroups"] = args ? args.filterGroups : undefined;
+            resourceInputs["manualCreation"] = args ? args.manualCreation : undefined;
+            resourceInputs["projectName"] = args ? args.projectName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["scopeConfiguration"] = args ? args.scopeConfiguration : undefined;
             resourceInputs["payloadUrl"] = undefined /*out*/;
             resourceInputs["secret"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;

@@ -83,27 +83,27 @@ export class ResourceServer extends pulumi.CustomResource {
     /**
      * An identifier for the resource server.
      */
-    declare public readonly identifier: pulumi.Output<string>;
+    public readonly identifier!: pulumi.Output<string>;
     /**
      * A name for the resource server.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A list of all scopes configured for this resource server in the format identifier/scope_name.
      */
-    declare public /*out*/ readonly scopeIdentifiers: pulumi.Output<string[]>;
+    public /*out*/ readonly scopeIdentifiers!: pulumi.Output<string[]>;
     /**
      * A list of Authorization Scope.
      */
-    declare public readonly scopes: pulumi.Output<outputs.cognito.ResourceServerScope[] | undefined>;
+    public readonly scopes!: pulumi.Output<outputs.cognito.ResourceServerScope[] | undefined>;
     /**
      * User pool the client belongs to.
      */
-    declare public readonly userPoolId: pulumi.Output<string>;
+    public readonly userPoolId!: pulumi.Output<string>;
 
     /**
      * Create a ResourceServer resource with the given unique name, arguments, and options.
@@ -118,25 +118,25 @@ export class ResourceServer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceServerState | undefined;
-            resourceInputs["identifier"] = state?.identifier;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["scopeIdentifiers"] = state?.scopeIdentifiers;
-            resourceInputs["scopes"] = state?.scopes;
-            resourceInputs["userPoolId"] = state?.userPoolId;
+            resourceInputs["identifier"] = state ? state.identifier : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["scopeIdentifiers"] = state ? state.scopeIdentifiers : undefined;
+            resourceInputs["scopes"] = state ? state.scopes : undefined;
+            resourceInputs["userPoolId"] = state ? state.userPoolId : undefined;
         } else {
             const args = argsOrState as ResourceServerArgs | undefined;
-            if (args?.identifier === undefined && !opts.urn) {
+            if ((!args || args.identifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identifier'");
             }
-            if (args?.userPoolId === undefined && !opts.urn) {
+            if ((!args || args.userPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            resourceInputs["identifier"] = args?.identifier;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["scopes"] = args?.scopes;
-            resourceInputs["userPoolId"] = args?.userPoolId;
+            resourceInputs["identifier"] = args ? args.identifier : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["scopes"] = args ? args.scopes : undefined;
+            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
             resourceInputs["scopeIdentifiers"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

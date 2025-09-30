@@ -91,53 +91,53 @@ export class PodIdentityAssociation extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the association.
      */
-    declare public /*out*/ readonly associationArn: pulumi.Output<string>;
+    public /*out*/ readonly associationArn!: pulumi.Output<string>;
     /**
      * The ID of the association.
      */
-    declare public /*out*/ readonly associationId: pulumi.Output<string>;
+    public /*out*/ readonly associationId!: pulumi.Output<string>;
     /**
      * The name of the cluster to create the association in.
      */
-    declare public readonly clusterName: pulumi.Output<string>;
+    public readonly clusterName!: pulumi.Output<string>;
     /**
      * Disable the tags that are automatically added to role session by Amazon EKS.
      */
-    declare public readonly disableSessionTags: pulumi.Output<boolean>;
+    public readonly disableSessionTags!: pulumi.Output<boolean>;
     /**
      * The unique identifier for this association for a target IAM role. You put this value in the trust policy of the target role, in a Condition to match the sts.ExternalId.
      */
-    declare public /*out*/ readonly externalId: pulumi.Output<string>;
+    public /*out*/ readonly externalId!: pulumi.Output<string>;
     /**
      * The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
      */
-    declare public readonly namespace: pulumi.Output<string>;
+    public readonly namespace!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
      */
-    declare public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
      *
      * The following arguments are optional:
      */
-    declare public readonly serviceAccount: pulumi.Output<string>;
+    public readonly serviceAccount!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `roleArn`.
      */
-    declare public readonly targetRoleArn: pulumi.Output<string | undefined>;
+    public readonly targetRoleArn!: pulumi.Output<string | undefined>;
 
     /**
      * Create a PodIdentityAssociation resource with the given unique name, arguments, and options.
@@ -152,40 +152,40 @@ export class PodIdentityAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PodIdentityAssociationState | undefined;
-            resourceInputs["associationArn"] = state?.associationArn;
-            resourceInputs["associationId"] = state?.associationId;
-            resourceInputs["clusterName"] = state?.clusterName;
-            resourceInputs["disableSessionTags"] = state?.disableSessionTags;
-            resourceInputs["externalId"] = state?.externalId;
-            resourceInputs["namespace"] = state?.namespace;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["roleArn"] = state?.roleArn;
-            resourceInputs["serviceAccount"] = state?.serviceAccount;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["targetRoleArn"] = state?.targetRoleArn;
+            resourceInputs["associationArn"] = state ? state.associationArn : undefined;
+            resourceInputs["associationId"] = state ? state.associationId : undefined;
+            resourceInputs["clusterName"] = state ? state.clusterName : undefined;
+            resourceInputs["disableSessionTags"] = state ? state.disableSessionTags : undefined;
+            resourceInputs["externalId"] = state ? state.externalId : undefined;
+            resourceInputs["namespace"] = state ? state.namespace : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["serviceAccount"] = state ? state.serviceAccount : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["targetRoleArn"] = state ? state.targetRoleArn : undefined;
         } else {
             const args = argsOrState as PodIdentityAssociationArgs | undefined;
-            if (args?.clusterName === undefined && !opts.urn) {
+            if ((!args || args.clusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if (args?.namespace === undefined && !opts.urn) {
+            if ((!args || args.namespace === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespace'");
             }
-            if (args?.roleArn === undefined && !opts.urn) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if (args?.serviceAccount === undefined && !opts.urn) {
+            if ((!args || args.serviceAccount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceAccount'");
             }
-            resourceInputs["clusterName"] = args?.clusterName;
-            resourceInputs["disableSessionTags"] = args?.disableSessionTags;
-            resourceInputs["namespace"] = args?.namespace;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["roleArn"] = args?.roleArn;
-            resourceInputs["serviceAccount"] = args?.serviceAccount;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["targetRoleArn"] = args?.targetRoleArn;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["disableSessionTags"] = args ? args.disableSessionTags : undefined;
+            resourceInputs["namespace"] = args ? args.namespace : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["serviceAccount"] = args ? args.serviceAccount : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetRoleArn"] = args ? args.targetRoleArn : undefined;
             resourceInputs["associationArn"] = undefined /*out*/;
             resourceInputs["associationId"] = undefined /*out*/;
             resourceInputs["externalId"] = undefined /*out*/;

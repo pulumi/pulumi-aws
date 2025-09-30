@@ -103,56 +103,56 @@ export class ServerCertificate extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) specifying the server certificate.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The contents of the public key certificate in
      * PEM-encoded format.
      */
-    declare public readonly certificateBody: pulumi.Output<string>;
+    public readonly certificateBody!: pulumi.Output<string>;
     /**
      * The contents of the certificate chain.
      * This is typically a concatenation of the PEM-encoded public key certificates
      * of the chain.
      */
-    declare public readonly certificateChain: pulumi.Output<string | undefined>;
+    public readonly certificateChain!: pulumi.Output<string | undefined>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
      */
-    declare public /*out*/ readonly expiration: pulumi.Output<string>;
+    public /*out*/ readonly expiration!: pulumi.Output<string>;
     /**
      * The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    declare public readonly namePrefix: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string>;
     /**
      * The IAM path for the server certificate.  If it is not
      * included, it defaults to a slash (/). If this certificate is for use with
      * AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
      * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
      */
-    declare public readonly path: pulumi.Output<string | undefined>;
+    public readonly path!: pulumi.Output<string | undefined>;
     /**
      * The contents of the private key in PEM-encoded format.
      */
-    declare public readonly privateKey: pulumi.Output<string>;
+    public readonly privateKey!: pulumi.Output<string>;
     /**
      * Map of resource tags for the server certificate. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * > **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificateBody` contains only one certificate. All other certificates should go in `certificateChain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
      */
-    declare public /*out*/ readonly uploadDate: pulumi.Output<string>;
+    public /*out*/ readonly uploadDate!: pulumi.Output<string>;
 
     /**
      * Create a ServerCertificate resource with the given unique name, arguments, and options.
@@ -167,32 +167,32 @@ export class ServerCertificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerCertificateState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["certificateBody"] = state?.certificateBody;
-            resourceInputs["certificateChain"] = state?.certificateChain;
-            resourceInputs["expiration"] = state?.expiration;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["namePrefix"] = state?.namePrefix;
-            resourceInputs["path"] = state?.path;
-            resourceInputs["privateKey"] = state?.privateKey;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["uploadDate"] = state?.uploadDate;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["certificateBody"] = state ? state.certificateBody : undefined;
+            resourceInputs["certificateChain"] = state ? state.certificateChain : undefined;
+            resourceInputs["expiration"] = state ? state.expiration : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["path"] = state ? state.path : undefined;
+            resourceInputs["privateKey"] = state ? state.privateKey : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["uploadDate"] = state ? state.uploadDate : undefined;
         } else {
             const args = argsOrState as ServerCertificateArgs | undefined;
-            if (args?.certificateBody === undefined && !opts.urn) {
+            if ((!args || args.certificateBody === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'certificateBody'");
             }
-            if (args?.privateKey === undefined && !opts.urn) {
+            if ((!args || args.privateKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'privateKey'");
             }
-            resourceInputs["certificateBody"] = args?.certificateBody;
-            resourceInputs["certificateChain"] = args?.certificateChain;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["namePrefix"] = args?.namePrefix;
-            resourceInputs["path"] = args?.path;
+            resourceInputs["certificateBody"] = args ? args.certificateBody : undefined;
+            resourceInputs["certificateChain"] = args ? args.certificateChain : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["path"] = args ? args.path : undefined;
             resourceInputs["privateKey"] = args?.privateKey ? pulumi.secret(args.privateKey) : undefined;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["expiration"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

@@ -178,23 +178,23 @@ export class BucketAcl extends pulumi.CustomResource {
     /**
      * Configuration block that sets the ACL permissions for an object per grantee. See below.
      */
-    declare public readonly accessControlPolicy: pulumi.Output<outputs.s3.BucketAclAccessControlPolicy>;
+    public readonly accessControlPolicy!: pulumi.Output<outputs.s3.BucketAclAccessControlPolicy>;
     /**
      * Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
      */
-    declare public readonly acl: pulumi.Output<string | undefined>;
+    public readonly acl!: pulumi.Output<string | undefined>;
     /**
      * Bucket to which to apply the ACL.
      */
-    declare public readonly bucket: pulumi.Output<string>;
+    public readonly bucket!: pulumi.Output<string>;
     /**
      * Account ID of the expected bucket owner.
      */
-    declare public readonly expectedBucketOwner: pulumi.Output<string | undefined>;
+    public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a BucketAcl resource with the given unique name, arguments, and options.
@@ -209,21 +209,21 @@ export class BucketAcl extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketAclState | undefined;
-            resourceInputs["accessControlPolicy"] = state?.accessControlPolicy;
-            resourceInputs["acl"] = state?.acl;
-            resourceInputs["bucket"] = state?.bucket;
-            resourceInputs["expectedBucketOwner"] = state?.expectedBucketOwner;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["accessControlPolicy"] = state ? state.accessControlPolicy : undefined;
+            resourceInputs["acl"] = state ? state.acl : undefined;
+            resourceInputs["bucket"] = state ? state.bucket : undefined;
+            resourceInputs["expectedBucketOwner"] = state ? state.expectedBucketOwner : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as BucketAclArgs | undefined;
-            if (args?.bucket === undefined && !opts.urn) {
+            if ((!args || args.bucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            resourceInputs["accessControlPolicy"] = args?.accessControlPolicy;
-            resourceInputs["acl"] = args?.acl;
-            resourceInputs["bucket"] = args?.bucket;
-            resourceInputs["expectedBucketOwner"] = args?.expectedBucketOwner;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["accessControlPolicy"] = args ? args.accessControlPolicy : undefined;
+            resourceInputs["acl"] = args ? args.acl : undefined;
+            resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:s3/bucketAclV2:BucketAclV2" }] };

@@ -48,74 +48,74 @@ export class Environment extends pulumi.CustomResource {
         return obj['__pulumiType'] === Environment.__pulumiType;
     }
 
-    declare public readonly applyChangesDuringMaintenanceWindow: pulumi.Output<boolean | undefined>;
+    public readonly applyChangesDuringMaintenanceWindow!: pulumi.Output<boolean | undefined>;
     /**
      * ARN of the Environment.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Engine type must be `microfocus` or `bluage`.
      */
-    declare public readonly engineType: pulumi.Output<string>;
+    public readonly engineType!: pulumi.Output<string>;
     /**
      * The specific version of the engine for the Environment.
      */
-    declare public readonly engineVersion: pulumi.Output<string>;
+    public readonly engineVersion!: pulumi.Output<string>;
     /**
      * The id of the Environment.
      */
-    declare public /*out*/ readonly environmentId: pulumi.Output<string>;
+    public /*out*/ readonly environmentId!: pulumi.Output<string>;
     /**
      * Force update the environment even if applications are running.
      */
-    declare public readonly forceUpdate: pulumi.Output<boolean | undefined>;
-    declare public readonly highAvailabilityConfig: pulumi.Output<outputs.m2.EnvironmentHighAvailabilityConfig | undefined>;
+    public readonly forceUpdate!: pulumi.Output<boolean | undefined>;
+    public readonly highAvailabilityConfig!: pulumi.Output<outputs.m2.EnvironmentHighAvailabilityConfig | undefined>;
     /**
      * M2 Instance Type.
      *
      * The following arguments are optional:
      */
-    declare public readonly instanceType: pulumi.Output<string>;
+    public readonly instanceType!: pulumi.Output<string>;
     /**
      * ARN of the KMS key to use for the Environment.
      */
-    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * ARN of the load balancer created by the Environment.
      */
-    declare public /*out*/ readonly loadBalancerArn: pulumi.Output<string>;
+    public /*out*/ readonly loadBalancerArn!: pulumi.Output<string>;
     /**
      * Name of the runtime environment. Must be unique within the account.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
      */
-    declare public readonly preferredMaintenanceWindow: pulumi.Output<string>;
+    public readonly preferredMaintenanceWindow!: pulumi.Output<string>;
     /**
      * Allow applications deployed to this environment to be publicly accessible.
      */
-    declare public readonly publiclyAccessible: pulumi.Output<boolean>;
+    public readonly publiclyAccessible!: pulumi.Output<boolean>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * List of security group ids.
      */
-    declare public readonly securityGroupIds: pulumi.Output<string[]>;
-    declare public readonly storageConfiguration: pulumi.Output<outputs.m2.EnvironmentStorageConfiguration | undefined>;
+    public readonly securityGroupIds!: pulumi.Output<string[]>;
+    public readonly storageConfiguration!: pulumi.Output<outputs.m2.EnvironmentStorageConfiguration | undefined>;
     /**
      * List of subnet ids to deploy environment to.
      */
-    declare public readonly subnetIds: pulumi.Output<string[]>;
+    public readonly subnetIds!: pulumi.Output<string[]>;
     /**
      * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public readonly timeouts: pulumi.Output<outputs.m2.EnvironmentTimeouts | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly timeouts!: pulumi.Output<outputs.m2.EnvironmentTimeouts | undefined>;
 
     /**
      * Create a Environment resource with the given unique name, arguments, and options.
@@ -130,52 +130,52 @@ export class Environment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnvironmentState | undefined;
-            resourceInputs["applyChangesDuringMaintenanceWindow"] = state?.applyChangesDuringMaintenanceWindow;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["engineType"] = state?.engineType;
-            resourceInputs["engineVersion"] = state?.engineVersion;
-            resourceInputs["environmentId"] = state?.environmentId;
-            resourceInputs["forceUpdate"] = state?.forceUpdate;
-            resourceInputs["highAvailabilityConfig"] = state?.highAvailabilityConfig;
-            resourceInputs["instanceType"] = state?.instanceType;
-            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
-            resourceInputs["loadBalancerArn"] = state?.loadBalancerArn;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["preferredMaintenanceWindow"] = state?.preferredMaintenanceWindow;
-            resourceInputs["publiclyAccessible"] = state?.publiclyAccessible;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["securityGroupIds"] = state?.securityGroupIds;
-            resourceInputs["storageConfiguration"] = state?.storageConfiguration;
-            resourceInputs["subnetIds"] = state?.subnetIds;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["applyChangesDuringMaintenanceWindow"] = state ? state.applyChangesDuringMaintenanceWindow : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["engineType"] = state ? state.engineType : undefined;
+            resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
+            resourceInputs["environmentId"] = state ? state.environmentId : undefined;
+            resourceInputs["forceUpdate"] = state ? state.forceUpdate : undefined;
+            resourceInputs["highAvailabilityConfig"] = state ? state.highAvailabilityConfig : undefined;
+            resourceInputs["instanceType"] = state ? state.instanceType : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["loadBalancerArn"] = state ? state.loadBalancerArn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
+            resourceInputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
+            resourceInputs["storageConfiguration"] = state ? state.storageConfiguration : undefined;
+            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as EnvironmentArgs | undefined;
-            if (args?.engineType === undefined && !opts.urn) {
+            if ((!args || args.engineType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engineType'");
             }
-            if (args?.instanceType === undefined && !opts.urn) {
+            if ((!args || args.instanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            resourceInputs["applyChangesDuringMaintenanceWindow"] = args?.applyChangesDuringMaintenanceWindow;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["engineType"] = args?.engineType;
-            resourceInputs["engineVersion"] = args?.engineVersion;
-            resourceInputs["forceUpdate"] = args?.forceUpdate;
-            resourceInputs["highAvailabilityConfig"] = args?.highAvailabilityConfig;
-            resourceInputs["instanceType"] = args?.instanceType;
-            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["preferredMaintenanceWindow"] = args?.preferredMaintenanceWindow;
-            resourceInputs["publiclyAccessible"] = args?.publiclyAccessible;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
-            resourceInputs["storageConfiguration"] = args?.storageConfiguration;
-            resourceInputs["subnetIds"] = args?.subnetIds;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["applyChangesDuringMaintenanceWindow"] = args ? args.applyChangesDuringMaintenanceWindow : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["engineType"] = args ? args.engineType : undefined;
+            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
+            resourceInputs["forceUpdate"] = args ? args.forceUpdate : undefined;
+            resourceInputs["highAvailabilityConfig"] = args ? args.highAvailabilityConfig : undefined;
+            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
+            resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
+            resourceInputs["storageConfiguration"] = args ? args.storageConfiguration : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["environmentId"] = undefined /*out*/;
             resourceInputs["loadBalancerArn"] = undefined /*out*/;

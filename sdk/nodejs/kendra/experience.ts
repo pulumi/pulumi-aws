@@ -74,47 +74,47 @@ export class Experience extends pulumi.CustomResource {
     /**
      * ARN of the Experience.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
      *
      * > **NOTE:** By default of the AWS Kendra API, updates to an existing `aws.kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
      */
-    declare public readonly configuration: pulumi.Output<outputs.kendra.ExperienceConfiguration>;
+    public readonly configuration!: pulumi.Output<outputs.kendra.ExperienceConfiguration>;
     /**
      * A description for your Amazon Kendra experience.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
      */
-    declare public /*out*/ readonly endpoints: pulumi.Output<outputs.kendra.ExperienceEndpoint[]>;
+    public /*out*/ readonly endpoints!: pulumi.Output<outputs.kendra.ExperienceEndpoint[]>;
     /**
      * The unique identifier of the experience.
      */
-    declare public /*out*/ readonly experienceId: pulumi.Output<string>;
+    public /*out*/ readonly experienceId!: pulumi.Output<string>;
     /**
      * The identifier of the index for your Amazon Kendra experience.
      */
-    declare public readonly indexId: pulumi.Output<string>;
+    public readonly indexId!: pulumi.Output<string>;
     /**
      * A name for your Amazon Kendra experience.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      *
      * The following arguments are optional:
      */
-    declare public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * The current processing status of your Amazon Kendra experience.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
 
     /**
      * Create a Experience resource with the given unique name, arguments, and options.
@@ -129,30 +129,30 @@ export class Experience extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExperienceState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["configuration"] = state?.configuration;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["endpoints"] = state?.endpoints;
-            resourceInputs["experienceId"] = state?.experienceId;
-            resourceInputs["indexId"] = state?.indexId;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["roleArn"] = state?.roleArn;
-            resourceInputs["status"] = state?.status;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["configuration"] = state ? state.configuration : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["endpoints"] = state ? state.endpoints : undefined;
+            resourceInputs["experienceId"] = state ? state.experienceId : undefined;
+            resourceInputs["indexId"] = state ? state.indexId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as ExperienceArgs | undefined;
-            if (args?.indexId === undefined && !opts.urn) {
+            if ((!args || args.indexId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'indexId'");
             }
-            if (args?.roleArn === undefined && !opts.urn) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["configuration"] = args?.configuration;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["indexId"] = args?.indexId;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["configuration"] = args ? args.configuration : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["indexId"] = args ? args.indexId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["endpoints"] = undefined /*out*/;
             resourceInputs["experienceId"] = undefined /*out*/;

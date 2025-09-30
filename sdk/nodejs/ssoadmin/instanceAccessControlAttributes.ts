@@ -75,17 +75,17 @@ export class InstanceAccessControlAttributes extends pulumi.CustomResource {
     /**
      * See AccessControlAttribute for more details.
      */
-    declare public readonly attributes: pulumi.Output<outputs.ssoadmin.InstanceAccessControlAttributesAttribute[]>;
+    public readonly attributes!: pulumi.Output<outputs.ssoadmin.InstanceAccessControlAttributesAttribute[]>;
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance.
      */
-    declare public readonly instanceArn: pulumi.Output<string>;
+    public readonly instanceArn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
-    declare public /*out*/ readonly status: pulumi.Output<string>;
-    declare public /*out*/ readonly statusReason: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly statusReason!: pulumi.Output<string>;
 
     /**
      * Create a InstanceAccessControlAttributes resource with the given unique name, arguments, and options.
@@ -100,22 +100,22 @@ export class InstanceAccessControlAttributes extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InstanceAccessControlAttributesState | undefined;
-            resourceInputs["attributes"] = state?.attributes;
-            resourceInputs["instanceArn"] = state?.instanceArn;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["statusReason"] = state?.statusReason;
+            resourceInputs["attributes"] = state ? state.attributes : undefined;
+            resourceInputs["instanceArn"] = state ? state.instanceArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["statusReason"] = state ? state.statusReason : undefined;
         } else {
             const args = argsOrState as InstanceAccessControlAttributesArgs | undefined;
-            if (args?.attributes === undefined && !opts.urn) {
+            if ((!args || args.attributes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'attributes'");
             }
-            if (args?.instanceArn === undefined && !opts.urn) {
+            if ((!args || args.instanceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            resourceInputs["attributes"] = args?.attributes;
-            resourceInputs["instanceArn"] = args?.instanceArn;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["attributes"] = args ? args.attributes : undefined;
+            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["statusReason"] = undefined /*out*/;
         }

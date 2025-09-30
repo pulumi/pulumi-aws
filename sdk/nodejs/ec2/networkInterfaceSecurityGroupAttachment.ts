@@ -111,15 +111,15 @@ export class NetworkInterfaceSecurityGroupAttachment extends pulumi.CustomResour
     /**
      * The ID of the network interface to attach to.
      */
-    declare public readonly networkInterfaceId: pulumi.Output<string>;
+    public readonly networkInterfaceId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ID of the security group.
      */
-    declare public readonly securityGroupId: pulumi.Output<string>;
+    public readonly securityGroupId!: pulumi.Output<string>;
 
     /**
      * Create a NetworkInterfaceSecurityGroupAttachment resource with the given unique name, arguments, and options.
@@ -134,20 +134,20 @@ export class NetworkInterfaceSecurityGroupAttachment extends pulumi.CustomResour
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkInterfaceSecurityGroupAttachmentState | undefined;
-            resourceInputs["networkInterfaceId"] = state?.networkInterfaceId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["securityGroupId"] = state?.securityGroupId;
+            resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["securityGroupId"] = state ? state.securityGroupId : undefined;
         } else {
             const args = argsOrState as NetworkInterfaceSecurityGroupAttachmentArgs | undefined;
-            if (args?.networkInterfaceId === undefined && !opts.urn) {
+            if ((!args || args.networkInterfaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaceId'");
             }
-            if (args?.securityGroupId === undefined && !opts.urn) {
+            if ((!args || args.securityGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'securityGroupId'");
             }
-            resourceInputs["networkInterfaceId"] = args?.networkInterfaceId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["securityGroupId"] = args?.securityGroupId;
+            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["securityGroupId"] = args ? args.securityGroupId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkInterfaceSecurityGroupAttachment.__pulumiType, name, resourceInputs, opts);

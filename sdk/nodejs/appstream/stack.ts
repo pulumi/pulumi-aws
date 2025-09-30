@@ -109,70 +109,70 @@ export class Stack extends pulumi.CustomResource {
      * Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
      * See `accessEndpoints` below.
      */
-    declare public readonly accessEndpoints: pulumi.Output<outputs.appstream.StackAccessEndpoint[]>;
+    public readonly accessEndpoints!: pulumi.Output<outputs.appstream.StackAccessEndpoint[]>;
     /**
      * Settings for application settings persistence.
      * See `applicationSettings` below.
      */
-    declare public readonly applicationSettings: pulumi.Output<outputs.appstream.StackApplicationSettings>;
+    public readonly applicationSettings!: pulumi.Output<outputs.appstream.StackApplicationSettings>;
     /**
      * ARN of the appstream stack.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Date and time, in UTC and extended RFC 3339 format, when the stack was created.
      */
-    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
      * Description for the AppStream stack.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Stack name to display.
      */
-    declare public readonly displayName: pulumi.Output<string | undefined>;
+    public readonly displayName!: pulumi.Output<string | undefined>;
     /**
      * Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
      */
-    declare public readonly embedHostDomains: pulumi.Output<string[]>;
+    public readonly embedHostDomains!: pulumi.Output<string[]>;
     /**
      * URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
      */
-    declare public readonly feedbackUrl: pulumi.Output<string>;
+    public readonly feedbackUrl!: pulumi.Output<string>;
     /**
      * Unique name for the AppStream stack.
      *
      * The following arguments are optional:
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * URL that users are redirected to after their streaming session ends.
      */
-    declare public readonly redirectUrl: pulumi.Output<string>;
+    public readonly redirectUrl!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Configuration block for the storage connectors to enable.
      * See `storageConnectors` below.
      */
-    declare public readonly storageConnectors: pulumi.Output<outputs.appstream.StackStorageConnector[]>;
+    public readonly storageConnectors!: pulumi.Output<outputs.appstream.StackStorageConnector[]>;
     /**
      * The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
      * See `streamingExperienceSettings` below.
      */
-    declare public readonly streamingExperienceSettings: pulumi.Output<outputs.appstream.StackStreamingExperienceSettings>;
+    public readonly streamingExperienceSettings!: pulumi.Output<outputs.appstream.StackStreamingExperienceSettings>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
      * See `userSettings` below.
      */
-    declare public readonly userSettings: pulumi.Output<outputs.appstream.StackUserSetting[]>;
+    public readonly userSettings!: pulumi.Output<outputs.appstream.StackUserSetting[]>;
 
     /**
      * Create a Stack resource with the given unique name, arguments, and options.
@@ -187,37 +187,37 @@ export class Stack extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StackState | undefined;
-            resourceInputs["accessEndpoints"] = state?.accessEndpoints;
-            resourceInputs["applicationSettings"] = state?.applicationSettings;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["createdTime"] = state?.createdTime;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["displayName"] = state?.displayName;
-            resourceInputs["embedHostDomains"] = state?.embedHostDomains;
-            resourceInputs["feedbackUrl"] = state?.feedbackUrl;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["redirectUrl"] = state?.redirectUrl;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["storageConnectors"] = state?.storageConnectors;
-            resourceInputs["streamingExperienceSettings"] = state?.streamingExperienceSettings;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["userSettings"] = state?.userSettings;
+            resourceInputs["accessEndpoints"] = state ? state.accessEndpoints : undefined;
+            resourceInputs["applicationSettings"] = state ? state.applicationSettings : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["embedHostDomains"] = state ? state.embedHostDomains : undefined;
+            resourceInputs["feedbackUrl"] = state ? state.feedbackUrl : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["redirectUrl"] = state ? state.redirectUrl : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["storageConnectors"] = state ? state.storageConnectors : undefined;
+            resourceInputs["streamingExperienceSettings"] = state ? state.streamingExperienceSettings : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["userSettings"] = state ? state.userSettings : undefined;
         } else {
             const args = argsOrState as StackArgs | undefined;
-            resourceInputs["accessEndpoints"] = args?.accessEndpoints;
-            resourceInputs["applicationSettings"] = args?.applicationSettings;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["displayName"] = args?.displayName;
-            resourceInputs["embedHostDomains"] = args?.embedHostDomains;
-            resourceInputs["feedbackUrl"] = args?.feedbackUrl;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["redirectUrl"] = args?.redirectUrl;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["storageConnectors"] = args?.storageConnectors;
-            resourceInputs["streamingExperienceSettings"] = args?.streamingExperienceSettings;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["userSettings"] = args?.userSettings;
+            resourceInputs["accessEndpoints"] = args ? args.accessEndpoints : undefined;
+            resourceInputs["applicationSettings"] = args ? args.applicationSettings : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["embedHostDomains"] = args ? args.embedHostDomains : undefined;
+            resourceInputs["feedbackUrl"] = args ? args.feedbackUrl : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["redirectUrl"] = args ? args.redirectUrl : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["storageConnectors"] = args ? args.storageConnectors : undefined;
+            resourceInputs["streamingExperienceSettings"] = args ? args.streamingExperienceSettings : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userSettings"] = args ? args.userSettings : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

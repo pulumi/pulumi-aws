@@ -69,21 +69,21 @@ export class StaticIpAttachment extends pulumi.CustomResource {
     /**
      * Name of the Lightsail instance to attach the IP to.
      */
-    declare public readonly instanceName: pulumi.Output<string>;
+    public readonly instanceName!: pulumi.Output<string>;
     /**
      * Allocated static IP address.
      */
-    declare public /*out*/ readonly ipAddress: pulumi.Output<string>;
+    public /*out*/ readonly ipAddress!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Name of the allocated static IP.
      *
      * The following arguments are optional:
      */
-    declare public readonly staticIpName: pulumi.Output<string>;
+    public readonly staticIpName!: pulumi.Output<string>;
 
     /**
      * Create a StaticIpAttachment resource with the given unique name, arguments, and options.
@@ -98,21 +98,21 @@ export class StaticIpAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StaticIpAttachmentState | undefined;
-            resourceInputs["instanceName"] = state?.instanceName;
-            resourceInputs["ipAddress"] = state?.ipAddress;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["staticIpName"] = state?.staticIpName;
+            resourceInputs["instanceName"] = state ? state.instanceName : undefined;
+            resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["staticIpName"] = state ? state.staticIpName : undefined;
         } else {
             const args = argsOrState as StaticIpAttachmentArgs | undefined;
-            if (args?.instanceName === undefined && !opts.urn) {
+            if ((!args || args.instanceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceName'");
             }
-            if (args?.staticIpName === undefined && !opts.urn) {
+            if ((!args || args.staticIpName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'staticIpName'");
             }
-            resourceInputs["instanceName"] = args?.instanceName;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["staticIpName"] = args?.staticIpName;
+            resourceInputs["instanceName"] = args ? args.instanceName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["staticIpName"] = args ? args.staticIpName : undefined;
             resourceInputs["ipAddress"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

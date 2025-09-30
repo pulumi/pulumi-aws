@@ -62,73 +62,73 @@ export class SnapshotImport extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the EBS Snapshot.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The client-specific data. Detailed below.
      */
-    declare public readonly clientData: pulumi.Output<outputs.ebs.SnapshotImportClientData | undefined>;
+    public readonly clientData!: pulumi.Output<outputs.ebs.SnapshotImportClientData | undefined>;
     /**
      * The data encryption key identifier for the snapshot.
      */
-    declare public /*out*/ readonly dataEncryptionKeyId: pulumi.Output<string>;
+    public /*out*/ readonly dataEncryptionKeyId!: pulumi.Output<string>;
     /**
      * The description string for the import snapshot task.
      */
-    declare public readonly description: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * Information about the disk container. Detailed below.
      */
-    declare public readonly diskContainer: pulumi.Output<outputs.ebs.SnapshotImportDiskContainer>;
+    public readonly diskContainer!: pulumi.Output<outputs.ebs.SnapshotImportDiskContainer>;
     /**
      * Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
      */
-    declare public readonly encrypted: pulumi.Output<boolean | undefined>;
+    public readonly encrypted!: pulumi.Output<boolean | undefined>;
     /**
      * An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
      */
-    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
-    declare public /*out*/ readonly outpostArn: pulumi.Output<string>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly outpostArn!: pulumi.Output<string>;
     /**
      * Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
      */
-    declare public /*out*/ readonly ownerAlias: pulumi.Output<string>;
+    public /*out*/ readonly ownerAlias!: pulumi.Output<string>;
     /**
      * The AWS account ID of the EBS snapshot owner.
      */
-    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
      * Indicates whether to permanently restore an archived snapshot.
      */
-    declare public readonly permanentRestore: pulumi.Output<boolean | undefined>;
+    public readonly permanentRestore!: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
      */
-    declare public readonly roleName: pulumi.Output<string | undefined>;
+    public readonly roleName!: pulumi.Output<string | undefined>;
     /**
      * The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
      */
-    declare public readonly storageTier: pulumi.Output<string>;
+    public readonly storageTier!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the snapshot.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
      */
-    declare public readonly temporaryRestoreDays: pulumi.Output<number | undefined>;
-    declare public /*out*/ readonly volumeId: pulumi.Output<string>;
+    public readonly temporaryRestoreDays!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly volumeId!: pulumi.Output<string>;
     /**
      * The size of the drive in GiBs.
      */
-    declare public /*out*/ readonly volumeSize: pulumi.Output<number>;
+    public /*out*/ readonly volumeSize!: pulumi.Output<number>;
 
     /**
      * Create a SnapshotImport resource with the given unique name, arguments, and options.
@@ -143,41 +143,41 @@ export class SnapshotImport extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SnapshotImportState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["clientData"] = state?.clientData;
-            resourceInputs["dataEncryptionKeyId"] = state?.dataEncryptionKeyId;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["diskContainer"] = state?.diskContainer;
-            resourceInputs["encrypted"] = state?.encrypted;
-            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
-            resourceInputs["outpostArn"] = state?.outpostArn;
-            resourceInputs["ownerAlias"] = state?.ownerAlias;
-            resourceInputs["ownerId"] = state?.ownerId;
-            resourceInputs["permanentRestore"] = state?.permanentRestore;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["roleName"] = state?.roleName;
-            resourceInputs["storageTier"] = state?.storageTier;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["temporaryRestoreDays"] = state?.temporaryRestoreDays;
-            resourceInputs["volumeId"] = state?.volumeId;
-            resourceInputs["volumeSize"] = state?.volumeSize;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["clientData"] = state ? state.clientData : undefined;
+            resourceInputs["dataEncryptionKeyId"] = state ? state.dataEncryptionKeyId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["diskContainer"] = state ? state.diskContainer : undefined;
+            resourceInputs["encrypted"] = state ? state.encrypted : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["outpostArn"] = state ? state.outpostArn : undefined;
+            resourceInputs["ownerAlias"] = state ? state.ownerAlias : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["permanentRestore"] = state ? state.permanentRestore : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["roleName"] = state ? state.roleName : undefined;
+            resourceInputs["storageTier"] = state ? state.storageTier : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["temporaryRestoreDays"] = state ? state.temporaryRestoreDays : undefined;
+            resourceInputs["volumeId"] = state ? state.volumeId : undefined;
+            resourceInputs["volumeSize"] = state ? state.volumeSize : undefined;
         } else {
             const args = argsOrState as SnapshotImportArgs | undefined;
-            if (args?.diskContainer === undefined && !opts.urn) {
+            if ((!args || args.diskContainer === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'diskContainer'");
             }
-            resourceInputs["clientData"] = args?.clientData;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["diskContainer"] = args?.diskContainer;
-            resourceInputs["encrypted"] = args?.encrypted;
-            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
-            resourceInputs["permanentRestore"] = args?.permanentRestore;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["roleName"] = args?.roleName;
-            resourceInputs["storageTier"] = args?.storageTier;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["temporaryRestoreDays"] = args?.temporaryRestoreDays;
+            resourceInputs["clientData"] = args ? args.clientData : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["diskContainer"] = args ? args.diskContainer : undefined;
+            resourceInputs["encrypted"] = args ? args.encrypted : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["permanentRestore"] = args ? args.permanentRestore : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["roleName"] = args ? args.roleName : undefined;
+            resourceInputs["storageTier"] = args ? args.storageTier : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["temporaryRestoreDays"] = args ? args.temporaryRestoreDays : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dataEncryptionKeyId"] = undefined /*out*/;
             resourceInputs["outpostArn"] = undefined /*out*/;

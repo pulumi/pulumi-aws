@@ -75,52 +75,52 @@ export class Stream extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
      */
-    declare public readonly arn: pulumi.Output<string>;
+    public readonly arn!: pulumi.Output<string>;
     /**
      * The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
      */
-    declare public readonly encryptionType: pulumi.Output<string | undefined>;
+    public readonly encryptionType!: pulumi.Output<string | undefined>;
     /**
      * A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
      */
-    declare public readonly enforceConsumerDeletion: pulumi.Output<boolean | undefined>;
+    public readonly enforceConsumerDeletion!: pulumi.Output<boolean | undefined>;
     /**
      * The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
      */
-    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
      */
-    declare public readonly retentionPeriod: pulumi.Output<number | undefined>;
+    public readonly retentionPeriod!: pulumi.Output<number | undefined>;
     /**
      * The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
      * Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
      */
-    declare public readonly shardCount: pulumi.Output<number | undefined>;
+    public readonly shardCount!: pulumi.Output<number | undefined>;
     /**
      * A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
      */
-    declare public readonly shardLevelMetrics: pulumi.Output<string[] | undefined>;
+    public readonly shardLevelMetrics!: pulumi.Output<string[] | undefined>;
     /**
      * Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
      */
-    declare public readonly streamModeDetails: pulumi.Output<outputs.kinesis.StreamStreamModeDetails>;
+    public readonly streamModeDetails!: pulumi.Output<outputs.kinesis.StreamStreamModeDetails>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Stream resource with the given unique name, arguments, and options.
@@ -135,31 +135,31 @@ export class Stream extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StreamState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["encryptionType"] = state?.encryptionType;
-            resourceInputs["enforceConsumerDeletion"] = state?.enforceConsumerDeletion;
-            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["retentionPeriod"] = state?.retentionPeriod;
-            resourceInputs["shardCount"] = state?.shardCount;
-            resourceInputs["shardLevelMetrics"] = state?.shardLevelMetrics;
-            resourceInputs["streamModeDetails"] = state?.streamModeDetails;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["encryptionType"] = state ? state.encryptionType : undefined;
+            resourceInputs["enforceConsumerDeletion"] = state ? state.enforceConsumerDeletion : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["retentionPeriod"] = state ? state.retentionPeriod : undefined;
+            resourceInputs["shardCount"] = state ? state.shardCount : undefined;
+            resourceInputs["shardLevelMetrics"] = state ? state.shardLevelMetrics : undefined;
+            resourceInputs["streamModeDetails"] = state ? state.streamModeDetails : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as StreamArgs | undefined;
-            resourceInputs["arn"] = args?.arn;
-            resourceInputs["encryptionType"] = args?.encryptionType;
-            resourceInputs["enforceConsumerDeletion"] = args?.enforceConsumerDeletion;
-            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["retentionPeriod"] = args?.retentionPeriod;
-            resourceInputs["shardCount"] = args?.shardCount;
-            resourceInputs["shardLevelMetrics"] = args?.shardLevelMetrics;
-            resourceInputs["streamModeDetails"] = args?.streamModeDetails;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["arn"] = args ? args.arn : undefined;
+            resourceInputs["encryptionType"] = args ? args.encryptionType : undefined;
+            resourceInputs["enforceConsumerDeletion"] = args ? args.enforceConsumerDeletion : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
+            resourceInputs["shardCount"] = args ? args.shardCount : undefined;
+            resourceInputs["shardLevelMetrics"] = args ? args.shardLevelMetrics : undefined;
+            resourceInputs["streamModeDetails"] = args ? args.streamModeDetails : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

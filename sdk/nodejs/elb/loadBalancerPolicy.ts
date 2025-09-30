@@ -118,23 +118,23 @@ export class LoadBalancerPolicy extends pulumi.CustomResource {
     /**
      * The load balancer on which the policy is defined.
      */
-    declare public readonly loadBalancerName: pulumi.Output<string>;
+    public readonly loadBalancerName!: pulumi.Output<string>;
     /**
      * Policy attribute to apply to the policy.
      */
-    declare public readonly policyAttributes: pulumi.Output<outputs.elb.LoadBalancerPolicyPolicyAttribute[]>;
+    public readonly policyAttributes!: pulumi.Output<outputs.elb.LoadBalancerPolicyPolicyAttribute[]>;
     /**
      * The name of the load balancer policy.
      */
-    declare public readonly policyName: pulumi.Output<string>;
+    public readonly policyName!: pulumi.Output<string>;
     /**
      * The policy type.
      */
-    declare public readonly policyTypeName: pulumi.Output<string>;
+    public readonly policyTypeName!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a LoadBalancerPolicy resource with the given unique name, arguments, and options.
@@ -149,27 +149,27 @@ export class LoadBalancerPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LoadBalancerPolicyState | undefined;
-            resourceInputs["loadBalancerName"] = state?.loadBalancerName;
-            resourceInputs["policyAttributes"] = state?.policyAttributes;
-            resourceInputs["policyName"] = state?.policyName;
-            resourceInputs["policyTypeName"] = state?.policyTypeName;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["loadBalancerName"] = state ? state.loadBalancerName : undefined;
+            resourceInputs["policyAttributes"] = state ? state.policyAttributes : undefined;
+            resourceInputs["policyName"] = state ? state.policyName : undefined;
+            resourceInputs["policyTypeName"] = state ? state.policyTypeName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as LoadBalancerPolicyArgs | undefined;
-            if (args?.loadBalancerName === undefined && !opts.urn) {
+            if ((!args || args.loadBalancerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerName'");
             }
-            if (args?.policyName === undefined && !opts.urn) {
+            if ((!args || args.policyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyName'");
             }
-            if (args?.policyTypeName === undefined && !opts.urn) {
+            if ((!args || args.policyTypeName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyTypeName'");
             }
-            resourceInputs["loadBalancerName"] = args?.loadBalancerName;
-            resourceInputs["policyAttributes"] = args?.policyAttributes;
-            resourceInputs["policyName"] = args?.policyName;
-            resourceInputs["policyTypeName"] = args?.policyTypeName;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
+            resourceInputs["policyAttributes"] = args ? args.policyAttributes : undefined;
+            resourceInputs["policyName"] = args ? args.policyName : undefined;
+            resourceInputs["policyTypeName"] = args ? args.policyTypeName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/loadBalancerPolicy:LoadBalancerPolicy" }] };

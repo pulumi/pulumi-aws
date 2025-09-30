@@ -123,35 +123,35 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
     /**
      * Application ID.
      */
-    declare public readonly applicationId: pulumi.Output<string>;
+    public readonly applicationId!: pulumi.Output<string>;
     /**
      * ARN of the AppConfig  hosted configuration version.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Configuration profile ID.
      */
-    declare public readonly configurationProfileId: pulumi.Output<string>;
+    public readonly configurationProfileId!: pulumi.Output<string>;
     /**
      * Content of the configuration or the configuration data.
      */
-    declare public readonly content: pulumi.Output<string>;
+    public readonly content!: pulumi.Output<string>;
     /**
      * Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
      */
-    declare public readonly contentType: pulumi.Output<string>;
+    public readonly contentType!: pulumi.Output<string>;
     /**
      * Description of the configuration.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Version number of the hosted configuration.
      */
-    declare public /*out*/ readonly versionNumber: pulumi.Output<number>;
+    public /*out*/ readonly versionNumber!: pulumi.Output<number>;
 
     /**
      * Create a HostedConfigurationVersion resource with the given unique name, arguments, and options.
@@ -166,34 +166,34 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HostedConfigurationVersionState | undefined;
-            resourceInputs["applicationId"] = state?.applicationId;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["configurationProfileId"] = state?.configurationProfileId;
-            resourceInputs["content"] = state?.content;
-            resourceInputs["contentType"] = state?.contentType;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["versionNumber"] = state?.versionNumber;
+            resourceInputs["applicationId"] = state ? state.applicationId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["configurationProfileId"] = state ? state.configurationProfileId : undefined;
+            resourceInputs["content"] = state ? state.content : undefined;
+            resourceInputs["contentType"] = state ? state.contentType : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["versionNumber"] = state ? state.versionNumber : undefined;
         } else {
             const args = argsOrState as HostedConfigurationVersionArgs | undefined;
-            if (args?.applicationId === undefined && !opts.urn) {
+            if ((!args || args.applicationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if (args?.configurationProfileId === undefined && !opts.urn) {
+            if ((!args || args.configurationProfileId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'configurationProfileId'");
             }
-            if (args?.content === undefined && !opts.urn) {
+            if ((!args || args.content === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            if (args?.contentType === undefined && !opts.urn) {
+            if ((!args || args.contentType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'contentType'");
             }
-            resourceInputs["applicationId"] = args?.applicationId;
-            resourceInputs["configurationProfileId"] = args?.configurationProfileId;
+            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["configurationProfileId"] = args ? args.configurationProfileId : undefined;
             resourceInputs["content"] = args?.content ? pulumi.secret(args.content) : undefined;
-            resourceInputs["contentType"] = args?.contentType;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["contentType"] = args ? args.contentType : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["versionNumber"] = undefined /*out*/;
         }

@@ -67,61 +67,61 @@ export class SecurityGroupEgressRule extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the security group rule.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The destination IPv4 CIDR range.
      */
-    declare public readonly cidrIpv4: pulumi.Output<string | undefined>;
+    public readonly cidrIpv4!: pulumi.Output<string | undefined>;
     /**
      * The destination IPv6 CIDR range.
      */
-    declare public readonly cidrIpv6: pulumi.Output<string | undefined>;
+    public readonly cidrIpv6!: pulumi.Output<string | undefined>;
     /**
      * The security group rule description.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
      */
-    declare public readonly fromPort: pulumi.Output<number | undefined>;
+    public readonly fromPort!: pulumi.Output<number | undefined>;
     /**
      * The IP protocol name or number. Use `-1` to specify all protocols. Note that if `ipProtocol` is set to `-1`, it translates to all protocols, all port ranges, and `fromPort` and `toPort` values should not be defined.
      */
-    declare public readonly ipProtocol: pulumi.Output<string>;
+    public readonly ipProtocol!: pulumi.Output<string>;
     /**
      * The ID of the destination prefix list.
      */
-    declare public readonly prefixListId: pulumi.Output<string | undefined>;
+    public readonly prefixListId!: pulumi.Output<string | undefined>;
     /**
      * The destination security group that is referenced in the rule.
      */
-    declare public readonly referencedSecurityGroupId: pulumi.Output<string | undefined>;
+    public readonly referencedSecurityGroupId!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ID of the security group.
      */
-    declare public readonly securityGroupId: pulumi.Output<string>;
+    public readonly securityGroupId!: pulumi.Output<string>;
     /**
      * The ID of the security group rule.
      */
-    declare public /*out*/ readonly securityGroupRuleId: pulumi.Output<string>;
+    public /*out*/ readonly securityGroupRuleId!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
      *
      * > **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
      */
-    declare public readonly toPort: pulumi.Output<number | undefined>;
+    public readonly toPort!: pulumi.Output<number | undefined>;
 
     /**
      * Create a SecurityGroupEgressRule resource with the given unique name, arguments, and options.
@@ -136,39 +136,39 @@ export class SecurityGroupEgressRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecurityGroupEgressRuleState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["cidrIpv4"] = state?.cidrIpv4;
-            resourceInputs["cidrIpv6"] = state?.cidrIpv6;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["fromPort"] = state?.fromPort;
-            resourceInputs["ipProtocol"] = state?.ipProtocol;
-            resourceInputs["prefixListId"] = state?.prefixListId;
-            resourceInputs["referencedSecurityGroupId"] = state?.referencedSecurityGroupId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["securityGroupId"] = state?.securityGroupId;
-            resourceInputs["securityGroupRuleId"] = state?.securityGroupRuleId;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["toPort"] = state?.toPort;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["cidrIpv4"] = state ? state.cidrIpv4 : undefined;
+            resourceInputs["cidrIpv6"] = state ? state.cidrIpv6 : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["fromPort"] = state ? state.fromPort : undefined;
+            resourceInputs["ipProtocol"] = state ? state.ipProtocol : undefined;
+            resourceInputs["prefixListId"] = state ? state.prefixListId : undefined;
+            resourceInputs["referencedSecurityGroupId"] = state ? state.referencedSecurityGroupId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["securityGroupId"] = state ? state.securityGroupId : undefined;
+            resourceInputs["securityGroupRuleId"] = state ? state.securityGroupRuleId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["toPort"] = state ? state.toPort : undefined;
         } else {
             const args = argsOrState as SecurityGroupEgressRuleArgs | undefined;
-            if (args?.ipProtocol === undefined && !opts.urn) {
+            if ((!args || args.ipProtocol === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ipProtocol'");
             }
-            if (args?.securityGroupId === undefined && !opts.urn) {
+            if ((!args || args.securityGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'securityGroupId'");
             }
-            resourceInputs["cidrIpv4"] = args?.cidrIpv4;
-            resourceInputs["cidrIpv6"] = args?.cidrIpv6;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["fromPort"] = args?.fromPort;
-            resourceInputs["ipProtocol"] = args?.ipProtocol;
-            resourceInputs["prefixListId"] = args?.prefixListId;
-            resourceInputs["referencedSecurityGroupId"] = args?.referencedSecurityGroupId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["securityGroupId"] = args?.securityGroupId;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["toPort"] = args?.toPort;
+            resourceInputs["cidrIpv4"] = args ? args.cidrIpv4 : undefined;
+            resourceInputs["cidrIpv6"] = args ? args.cidrIpv6 : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["fromPort"] = args ? args.fromPort : undefined;
+            resourceInputs["ipProtocol"] = args ? args.ipProtocol : undefined;
+            resourceInputs["prefixListId"] = args ? args.prefixListId : undefined;
+            resourceInputs["referencedSecurityGroupId"] = args ? args.referencedSecurityGroupId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["securityGroupId"] = args ? args.securityGroupId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["toPort"] = args ? args.toPort : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["securityGroupRuleId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

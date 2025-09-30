@@ -72,16 +72,16 @@ export class ProxyProtocolPolicy extends pulumi.CustomResource {
      * List of instance ports to which the policy
      * should be applied. This can be specified if the protocol is SSL or TCP.
      */
-    declare public readonly instancePorts: pulumi.Output<string[]>;
+    public readonly instancePorts!: pulumi.Output<string[]>;
     /**
      * The load balancer to which the policy
      * should be attached.
      */
-    declare public readonly loadBalancer: pulumi.Output<string>;
+    public readonly loadBalancer!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ProxyProtocolPolicy resource with the given unique name, arguments, and options.
@@ -96,20 +96,20 @@ export class ProxyProtocolPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProxyProtocolPolicyState | undefined;
-            resourceInputs["instancePorts"] = state?.instancePorts;
-            resourceInputs["loadBalancer"] = state?.loadBalancer;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["instancePorts"] = state ? state.instancePorts : undefined;
+            resourceInputs["loadBalancer"] = state ? state.loadBalancer : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ProxyProtocolPolicyArgs | undefined;
-            if (args?.instancePorts === undefined && !opts.urn) {
+            if ((!args || args.instancePorts === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instancePorts'");
             }
-            if (args?.loadBalancer === undefined && !opts.urn) {
+            if ((!args || args.loadBalancer === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancer'");
             }
-            resourceInputs["instancePorts"] = args?.instancePorts;
-            resourceInputs["loadBalancer"] = args?.loadBalancer;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["instancePorts"] = args ? args.instancePorts : undefined;
+            resourceInputs["loadBalancer"] = args ? args.loadBalancer : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProxyProtocolPolicy.__pulumiType, name, resourceInputs, opts);

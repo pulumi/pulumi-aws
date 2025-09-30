@@ -69,34 +69,34 @@ export class ConfigurationTemplate extends pulumi.CustomResource {
     /**
      * name of the application to associate with this configuration template
      */
-    declare public readonly application: pulumi.Output<string>;
+    public readonly application!: pulumi.Output<string>;
     /**
      * Short description of the Template
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The ID of the environment used with this configuration template
      */
-    declare public readonly environmentId: pulumi.Output<string | undefined>;
+    public readonly environmentId!: pulumi.Output<string | undefined>;
     /**
      * A unique name for this Template.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Option settings to configure the new Environment. These
      * override specific values that are set as defaults. The format is detailed
      * below in Option Settings
      */
-    declare public readonly settings: pulumi.Output<outputs.elasticbeanstalk.ConfigurationTemplateSetting[]>;
+    public readonly settings!: pulumi.Output<outputs.elasticbeanstalk.ConfigurationTemplateSetting[]>;
     /**
      * A solution stack to base your Template
      * off of. Example stacks can be found in the [Amazon API documentation][1]
      */
-    declare public readonly solutionStackName: pulumi.Output<string | undefined>;
+    public readonly solutionStackName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ConfigurationTemplate resource with the given unique name, arguments, and options.
@@ -111,25 +111,25 @@ export class ConfigurationTemplate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConfigurationTemplateState | undefined;
-            resourceInputs["application"] = state?.application;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["environmentId"] = state?.environmentId;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["settings"] = state?.settings;
-            resourceInputs["solutionStackName"] = state?.solutionStackName;
+            resourceInputs["application"] = state ? state.application : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["environmentId"] = state ? state.environmentId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["settings"] = state ? state.settings : undefined;
+            resourceInputs["solutionStackName"] = state ? state.solutionStackName : undefined;
         } else {
             const args = argsOrState as ConfigurationTemplateArgs | undefined;
-            if (args?.application === undefined && !opts.urn) {
+            if ((!args || args.application === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'application'");
             }
-            resourceInputs["application"] = args?.application;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["environmentId"] = args?.environmentId;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["settings"] = args?.settings;
-            resourceInputs["solutionStackName"] = args?.solutionStackName;
+            resourceInputs["application"] = args ? args.application : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["settings"] = args ? args.settings : undefined;
+            resourceInputs["solutionStackName"] = args ? args.solutionStackName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ConfigurationTemplate.__pulumiType, name, resourceInputs, opts);

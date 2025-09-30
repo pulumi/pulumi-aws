@@ -124,50 +124,50 @@ export class ListenerRule extends pulumi.CustomResource {
      * The action for the listener rule.
      * See `action` Block for details.
      */
-    declare public readonly action: pulumi.Output<outputs.vpclattice.ListenerRuleAction>;
+    public readonly action!: pulumi.Output<outputs.vpclattice.ListenerRuleAction>;
     /**
      * The ARN for the listener rule.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The ID or Amazon Resource Name (ARN) of the listener.
      */
-    declare public readonly listenerIdentifier: pulumi.Output<string>;
+    public readonly listenerIdentifier!: pulumi.Output<string>;
     /**
      * The rule match.
      * See `match` Block
      */
-    declare public readonly match: pulumi.Output<outputs.vpclattice.ListenerRuleMatch>;
+    public readonly match!: pulumi.Output<outputs.vpclattice.ListenerRuleMatch>;
     /**
      * The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
      *
      * The following arguments are optional:
      */
-    declare public readonly priority: pulumi.Output<number>;
+    public readonly priority!: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Unique identifier for the listener rule.
      */
-    declare public /*out*/ readonly ruleId: pulumi.Output<string>;
+    public /*out*/ readonly ruleId!: pulumi.Output<string>;
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service.
      */
-    declare public readonly serviceIdentifier: pulumi.Output<string>;
+    public readonly serviceIdentifier!: pulumi.Output<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ListenerRule resource with the given unique name, arguments, and options.
@@ -182,42 +182,42 @@ export class ListenerRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ListenerRuleState | undefined;
-            resourceInputs["action"] = state?.action;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["listenerIdentifier"] = state?.listenerIdentifier;
-            resourceInputs["match"] = state?.match;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["priority"] = state?.priority;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["ruleId"] = state?.ruleId;
-            resourceInputs["serviceIdentifier"] = state?.serviceIdentifier;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["action"] = state ? state.action : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["listenerIdentifier"] = state ? state.listenerIdentifier : undefined;
+            resourceInputs["match"] = state ? state.match : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["ruleId"] = state ? state.ruleId : undefined;
+            resourceInputs["serviceIdentifier"] = state ? state.serviceIdentifier : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ListenerRuleArgs | undefined;
-            if (args?.action === undefined && !opts.urn) {
+            if ((!args || args.action === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'action'");
             }
-            if (args?.listenerIdentifier === undefined && !opts.urn) {
+            if ((!args || args.listenerIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'listenerIdentifier'");
             }
-            if (args?.match === undefined && !opts.urn) {
+            if ((!args || args.match === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'match'");
             }
-            if (args?.priority === undefined && !opts.urn) {
+            if ((!args || args.priority === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            if (args?.serviceIdentifier === undefined && !opts.urn) {
+            if ((!args || args.serviceIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceIdentifier'");
             }
-            resourceInputs["action"] = args?.action;
-            resourceInputs["listenerIdentifier"] = args?.listenerIdentifier;
-            resourceInputs["match"] = args?.match;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["priority"] = args?.priority;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["serviceIdentifier"] = args?.serviceIdentifier;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["action"] = args ? args.action : undefined;
+            resourceInputs["listenerIdentifier"] = args ? args.listenerIdentifier : undefined;
+            resourceInputs["match"] = args ? args.match : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["serviceIdentifier"] = args ? args.serviceIdentifier : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ruleId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

@@ -63,15 +63,15 @@ export class LogIndexPolicy extends pulumi.CustomResource {
     /**
      * Log group name to set the policy for.
      */
-    declare public readonly logGroupName: pulumi.Output<string>;
+    public readonly logGroupName!: pulumi.Output<string>;
     /**
      * JSON policy document. This is a JSON formatted string.
      */
-    declare public readonly policyDocument: pulumi.Output<string>;
+    public readonly policyDocument!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a LogIndexPolicy resource with the given unique name, arguments, and options.
@@ -86,20 +86,20 @@ export class LogIndexPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogIndexPolicyState | undefined;
-            resourceInputs["logGroupName"] = state?.logGroupName;
-            resourceInputs["policyDocument"] = state?.policyDocument;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["logGroupName"] = state ? state.logGroupName : undefined;
+            resourceInputs["policyDocument"] = state ? state.policyDocument : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as LogIndexPolicyArgs | undefined;
-            if (args?.logGroupName === undefined && !opts.urn) {
+            if ((!args || args.logGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logGroupName'");
             }
-            if (args?.policyDocument === undefined && !opts.urn) {
+            if ((!args || args.policyDocument === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyDocument'");
             }
-            resourceInputs["logGroupName"] = args?.logGroupName;
-            resourceInputs["policyDocument"] = args?.policyDocument;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
+            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogIndexPolicy.__pulumiType, name, resourceInputs, opts);

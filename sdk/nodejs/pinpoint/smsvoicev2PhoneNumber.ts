@@ -63,69 +63,69 @@ export class Smsvoicev2PhoneNumber extends pulumi.CustomResource {
     /**
      * ARN of the phone number.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * By default this is set to `false`. When set to true the phone number can’t be deleted.
      */
-    declare public readonly deletionProtectionEnabled: pulumi.Output<boolean>;
+    public readonly deletionProtectionEnabled!: pulumi.Output<boolean>;
     /**
      * The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
      */
-    declare public readonly isoCountryCode: pulumi.Output<string>;
+    public readonly isoCountryCode!: pulumi.Output<string>;
     /**
      * The type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
      */
-    declare public readonly messageType: pulumi.Output<string>;
+    public readonly messageType!: pulumi.Output<string>;
     /**
      * The monthly price, in US dollars, to lease the phone number.
      */
-    declare public /*out*/ readonly monthlyLeasingPrice: pulumi.Output<string>;
+    public /*out*/ readonly monthlyLeasingPrice!: pulumi.Output<string>;
     /**
      * Describes if the origination identity can be used for text messages, voice calls or both. valid values are `SMS` and `VOICE`.
      */
-    declare public readonly numberCapabilities: pulumi.Output<string[]>;
+    public readonly numberCapabilities!: pulumi.Output<string[]>;
     /**
      * The type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
      */
-    declare public readonly numberType: pulumi.Output<string>;
+    public readonly numberType!: pulumi.Output<string>;
     /**
      * The name of the opt-out list to associate with the phone number.
      */
-    declare public readonly optOutListName: pulumi.Output<string>;
+    public readonly optOutListName!: pulumi.Output<string>;
     /**
      * The new phone number that was requested.
      */
-    declare public /*out*/ readonly phoneNumber: pulumi.Output<string>;
+    public /*out*/ readonly phoneNumber!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Use this field to attach your phone number for an external registration process.
      */
-    declare public readonly registrationId: pulumi.Output<string | undefined>;
+    public readonly registrationId!: pulumi.Output<string | undefined>;
     /**
      * When set to `false` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
      */
-    declare public readonly selfManagedOptOutsEnabled: pulumi.Output<boolean>;
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly selfManagedOptOutsEnabled!: pulumi.Output<boolean>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public readonly timeouts: pulumi.Output<outputs.pinpoint.Smsvoicev2PhoneNumberTimeouts | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly timeouts!: pulumi.Output<outputs.pinpoint.Smsvoicev2PhoneNumberTimeouts | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the two way channel.
      */
-    declare public readonly twoWayChannelArn: pulumi.Output<string | undefined>;
+    public readonly twoWayChannelArn!: pulumi.Output<string | undefined>;
     /**
      * By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
      */
-    declare public readonly twoWayChannelEnabled: pulumi.Output<boolean>;
+    public readonly twoWayChannelEnabled!: pulumi.Output<boolean>;
     /**
      * IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
      */
-    declare public readonly twoWayChannelRole: pulumi.Output<string | undefined>;
+    public readonly twoWayChannelRole!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Smsvoicev2PhoneNumber resource with the given unique name, arguments, and options.
@@ -140,52 +140,52 @@ export class Smsvoicev2PhoneNumber extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as Smsvoicev2PhoneNumberState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["deletionProtectionEnabled"] = state?.deletionProtectionEnabled;
-            resourceInputs["isoCountryCode"] = state?.isoCountryCode;
-            resourceInputs["messageType"] = state?.messageType;
-            resourceInputs["monthlyLeasingPrice"] = state?.monthlyLeasingPrice;
-            resourceInputs["numberCapabilities"] = state?.numberCapabilities;
-            resourceInputs["numberType"] = state?.numberType;
-            resourceInputs["optOutListName"] = state?.optOutListName;
-            resourceInputs["phoneNumber"] = state?.phoneNumber;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["registrationId"] = state?.registrationId;
-            resourceInputs["selfManagedOptOutsEnabled"] = state?.selfManagedOptOutsEnabled;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timeouts"] = state?.timeouts;
-            resourceInputs["twoWayChannelArn"] = state?.twoWayChannelArn;
-            resourceInputs["twoWayChannelEnabled"] = state?.twoWayChannelEnabled;
-            resourceInputs["twoWayChannelRole"] = state?.twoWayChannelRole;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["deletionProtectionEnabled"] = state ? state.deletionProtectionEnabled : undefined;
+            resourceInputs["isoCountryCode"] = state ? state.isoCountryCode : undefined;
+            resourceInputs["messageType"] = state ? state.messageType : undefined;
+            resourceInputs["monthlyLeasingPrice"] = state ? state.monthlyLeasingPrice : undefined;
+            resourceInputs["numberCapabilities"] = state ? state.numberCapabilities : undefined;
+            resourceInputs["numberType"] = state ? state.numberType : undefined;
+            resourceInputs["optOutListName"] = state ? state.optOutListName : undefined;
+            resourceInputs["phoneNumber"] = state ? state.phoneNumber : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["registrationId"] = state ? state.registrationId : undefined;
+            resourceInputs["selfManagedOptOutsEnabled"] = state ? state.selfManagedOptOutsEnabled : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["twoWayChannelArn"] = state ? state.twoWayChannelArn : undefined;
+            resourceInputs["twoWayChannelEnabled"] = state ? state.twoWayChannelEnabled : undefined;
+            resourceInputs["twoWayChannelRole"] = state ? state.twoWayChannelRole : undefined;
         } else {
             const args = argsOrState as Smsvoicev2PhoneNumberArgs | undefined;
-            if (args?.isoCountryCode === undefined && !opts.urn) {
+            if ((!args || args.isoCountryCode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'isoCountryCode'");
             }
-            if (args?.messageType === undefined && !opts.urn) {
+            if ((!args || args.messageType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'messageType'");
             }
-            if (args?.numberCapabilities === undefined && !opts.urn) {
+            if ((!args || args.numberCapabilities === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'numberCapabilities'");
             }
-            if (args?.numberType === undefined && !opts.urn) {
+            if ((!args || args.numberType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'numberType'");
             }
-            resourceInputs["deletionProtectionEnabled"] = args?.deletionProtectionEnabled;
-            resourceInputs["isoCountryCode"] = args?.isoCountryCode;
-            resourceInputs["messageType"] = args?.messageType;
-            resourceInputs["numberCapabilities"] = args?.numberCapabilities;
-            resourceInputs["numberType"] = args?.numberType;
-            resourceInputs["optOutListName"] = args?.optOutListName;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["registrationId"] = args?.registrationId;
-            resourceInputs["selfManagedOptOutsEnabled"] = args?.selfManagedOptOutsEnabled;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timeouts"] = args?.timeouts;
-            resourceInputs["twoWayChannelArn"] = args?.twoWayChannelArn;
-            resourceInputs["twoWayChannelEnabled"] = args?.twoWayChannelEnabled;
-            resourceInputs["twoWayChannelRole"] = args?.twoWayChannelRole;
+            resourceInputs["deletionProtectionEnabled"] = args ? args.deletionProtectionEnabled : undefined;
+            resourceInputs["isoCountryCode"] = args ? args.isoCountryCode : undefined;
+            resourceInputs["messageType"] = args ? args.messageType : undefined;
+            resourceInputs["numberCapabilities"] = args ? args.numberCapabilities : undefined;
+            resourceInputs["numberType"] = args ? args.numberType : undefined;
+            resourceInputs["optOutListName"] = args ? args.optOutListName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["registrationId"] = args ? args.registrationId : undefined;
+            resourceInputs["selfManagedOptOutsEnabled"] = args ? args.selfManagedOptOutsEnabled : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["twoWayChannelArn"] = args ? args.twoWayChannelArn : undefined;
+            resourceInputs["twoWayChannelEnabled"] = args ? args.twoWayChannelEnabled : undefined;
+            resourceInputs["twoWayChannelRole"] = args ? args.twoWayChannelRole : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["monthlyLeasingPrice"] = undefined /*out*/;
             resourceInputs["phoneNumber"] = undefined /*out*/;

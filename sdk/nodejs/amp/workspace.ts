@@ -91,35 +91,35 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
      */
-    declare public readonly alias: pulumi.Output<string | undefined>;
+    public readonly alias!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the workspace.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
      */
-    declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
+    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     /**
      * Logging configuration for the workspace. See Logging Configuration below for details.
      */
-    declare public readonly loggingConfiguration: pulumi.Output<outputs.amp.WorkspaceLoggingConfiguration | undefined>;
+    public readonly loggingConfiguration!: pulumi.Output<outputs.amp.WorkspaceLoggingConfiguration | undefined>;
     /**
      * Prometheus endpoint available for this workspace.
      */
-    declare public /*out*/ readonly prometheusEndpoint: pulumi.Output<string>;
+    public /*out*/ readonly prometheusEndpoint!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.
@@ -134,21 +134,21 @@ export class Workspace extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceState | undefined;
-            resourceInputs["alias"] = state?.alias;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["kmsKeyArn"] = state?.kmsKeyArn;
-            resourceInputs["loggingConfiguration"] = state?.loggingConfiguration;
-            resourceInputs["prometheusEndpoint"] = state?.prometheusEndpoint;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["alias"] = state ? state.alias : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
+            resourceInputs["loggingConfiguration"] = state ? state.loggingConfiguration : undefined;
+            resourceInputs["prometheusEndpoint"] = state ? state.prometheusEndpoint : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as WorkspaceArgs | undefined;
-            resourceInputs["alias"] = args?.alias;
-            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
-            resourceInputs["loggingConfiguration"] = args?.loggingConfiguration;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["alias"] = args ? args.alias : undefined;
+            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
+            resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["prometheusEndpoint"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

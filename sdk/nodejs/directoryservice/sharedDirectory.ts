@@ -74,29 +74,29 @@ export class SharedDirectory extends pulumi.CustomResource {
     /**
      * Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
      */
-    declare public readonly directoryId: pulumi.Output<string>;
+    public readonly directoryId!: pulumi.Output<string>;
     /**
      * Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
      */
-    declare public readonly method: pulumi.Output<string | undefined>;
+    public readonly method!: pulumi.Output<string | undefined>;
     /**
      * Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
      */
-    declare public readonly notes: pulumi.Output<string | undefined>;
+    public readonly notes!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
      */
-    declare public /*out*/ readonly sharedDirectoryId: pulumi.Output<string>;
+    public /*out*/ readonly sharedDirectoryId!: pulumi.Output<string>;
     /**
      * Identifier for the directory consumer account with whom the directory is to be shared. See below.
      *
      * The following arguments are optional:
      */
-    declare public readonly target: pulumi.Output<outputs.directoryservice.SharedDirectoryTarget>;
+    public readonly target!: pulumi.Output<outputs.directoryservice.SharedDirectoryTarget>;
 
     /**
      * Create a SharedDirectory resource with the given unique name, arguments, and options.
@@ -111,25 +111,25 @@ export class SharedDirectory extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SharedDirectoryState | undefined;
-            resourceInputs["directoryId"] = state?.directoryId;
-            resourceInputs["method"] = state?.method;
-            resourceInputs["notes"] = state?.notes;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["sharedDirectoryId"] = state?.sharedDirectoryId;
-            resourceInputs["target"] = state?.target;
+            resourceInputs["directoryId"] = state ? state.directoryId : undefined;
+            resourceInputs["method"] = state ? state.method : undefined;
+            resourceInputs["notes"] = state ? state.notes : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["sharedDirectoryId"] = state ? state.sharedDirectoryId : undefined;
+            resourceInputs["target"] = state ? state.target : undefined;
         } else {
             const args = argsOrState as SharedDirectoryArgs | undefined;
-            if (args?.directoryId === undefined && !opts.urn) {
+            if ((!args || args.directoryId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'directoryId'");
             }
-            if (args?.target === undefined && !opts.urn) {
+            if ((!args || args.target === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'target'");
             }
-            resourceInputs["directoryId"] = args?.directoryId;
-            resourceInputs["method"] = args?.method;
+            resourceInputs["directoryId"] = args ? args.directoryId : undefined;
+            resourceInputs["method"] = args ? args.method : undefined;
             resourceInputs["notes"] = args?.notes ? pulumi.secret(args.notes) : undefined;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["target"] = args?.target;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["target"] = args ? args.target : undefined;
             resourceInputs["sharedDirectoryId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

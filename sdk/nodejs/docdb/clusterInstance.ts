@@ -80,63 +80,63 @@ export class ClusterInstance extends pulumi.CustomResource {
      * Specifies whether any database modifications
      * are applied immediately, or during the next maintenance window. Default is`false`.
      */
-    declare public readonly applyImmediately: pulumi.Output<boolean | undefined>;
+    public readonly applyImmediately!: pulumi.Output<boolean | undefined>;
     /**
      * Amazon Resource Name (ARN) of cluster instance
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
      */
-    declare public readonly autoMinorVersionUpgrade: pulumi.Output<boolean | undefined>;
+    public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean | undefined>;
     /**
      * The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
      */
-    declare public readonly availabilityZone: pulumi.Output<string>;
+    public readonly availabilityZone!: pulumi.Output<string>;
     /**
      * The identifier of the certificate authority (CA) certificate for the DB instance.
      */
-    declare public readonly caCertIdentifier: pulumi.Output<string>;
+    public readonly caCertIdentifier!: pulumi.Output<string>;
     /**
      * The identifier of the `aws.docdb.Cluster` in which to launch this instance.
      */
-    declare public readonly clusterIdentifier: pulumi.Output<string>;
+    public readonly clusterIdentifier!: pulumi.Output<string>;
     /**
      * Copy all DB instance `tags` to snapshots. Default is `false`.
      */
-    declare public readonly copyTagsToSnapshot: pulumi.Output<boolean | undefined>;
+    public readonly copyTagsToSnapshot!: pulumi.Output<boolean | undefined>;
     /**
      * The DB subnet group to associate with this DB instance.
      */
-    declare public /*out*/ readonly dbSubnetGroupName: pulumi.Output<string>;
+    public /*out*/ readonly dbSubnetGroupName!: pulumi.Output<string>;
     /**
      * The region-unique, immutable identifier for the DB instance.
      */
-    declare public /*out*/ readonly dbiResourceId: pulumi.Output<string>;
+    public /*out*/ readonly dbiResourceId!: pulumi.Output<string>;
     /**
      * A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
      */
-    declare public readonly enablePerformanceInsights: pulumi.Output<boolean | undefined>;
+    public readonly enablePerformanceInsights!: pulumi.Output<boolean | undefined>;
     /**
      * The DNS address for this instance. May not be writable
      */
-    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
      * The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
      */
-    declare public readonly engine: pulumi.Output<string | undefined>;
+    public readonly engine!: pulumi.Output<string | undefined>;
     /**
      * The database engine version
      */
-    declare public /*out*/ readonly engineVersion: pulumi.Output<string>;
+    public /*out*/ readonly engineVersion!: pulumi.Output<string>;
     /**
      * The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
      */
-    declare public readonly identifier: pulumi.Output<string>;
+    public readonly identifier!: pulumi.Output<string>;
     /**
      * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
-    declare public readonly identifierPrefix: pulumi.Output<string>;
+    public readonly identifierPrefix!: pulumi.Output<string>;
     /**
      * The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
      * DocumentDB currently supports the below instance classes.
@@ -163,53 +163,53 @@ export class ClusterInstance extends pulumi.CustomResource {
      * - db.t4g.medium
      * - db.t3.medium
      */
-    declare public readonly instanceClass: pulumi.Output<string>;
+    public readonly instanceClass!: pulumi.Output<string>;
     /**
      * The ARN for the KMS encryption key if one is set to the cluster.
      */
-    declare public /*out*/ readonly kmsKeyId: pulumi.Output<string>;
+    public /*out*/ readonly kmsKeyId!: pulumi.Output<string>;
     /**
      * The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
      */
-    declare public readonly performanceInsightsKmsKeyId: pulumi.Output<string>;
+    public readonly performanceInsightsKmsKeyId!: pulumi.Output<string>;
     /**
      * The database port
      */
-    declare public /*out*/ readonly port: pulumi.Output<number>;
+    public /*out*/ readonly port!: pulumi.Output<number>;
     /**
      * The daily time range during which automated backups are created if automated backups are enabled.
      */
-    declare public /*out*/ readonly preferredBackupWindow: pulumi.Output<string>;
+    public /*out*/ readonly preferredBackupWindow!: pulumi.Output<string>;
     /**
      * The window to perform maintenance in.
      * Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
      */
-    declare public readonly preferredMaintenanceWindow: pulumi.Output<string>;
+    public readonly preferredMaintenanceWindow!: pulumi.Output<string>;
     /**
      * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
      */
-    declare public readonly promotionTier: pulumi.Output<number | undefined>;
-    declare public /*out*/ readonly publiclyAccessible: pulumi.Output<boolean>;
+    public readonly promotionTier!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly publiclyAccessible!: pulumi.Output<boolean>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Specifies whether the DB cluster is encrypted.
      */
-    declare public /*out*/ readonly storageEncrypted: pulumi.Output<boolean>;
+    public /*out*/ readonly storageEncrypted!: pulumi.Output<boolean>;
     /**
      * A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
      */
-    declare public /*out*/ readonly writer: pulumi.Output<boolean>;
+    public /*out*/ readonly writer!: pulumi.Output<boolean>;
 
     /**
      * Create a ClusterInstance resource with the given unique name, arguments, and options.
@@ -224,58 +224,58 @@ export class ClusterInstance extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterInstanceState | undefined;
-            resourceInputs["applyImmediately"] = state?.applyImmediately;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["autoMinorVersionUpgrade"] = state?.autoMinorVersionUpgrade;
-            resourceInputs["availabilityZone"] = state?.availabilityZone;
-            resourceInputs["caCertIdentifier"] = state?.caCertIdentifier;
-            resourceInputs["clusterIdentifier"] = state?.clusterIdentifier;
-            resourceInputs["copyTagsToSnapshot"] = state?.copyTagsToSnapshot;
-            resourceInputs["dbSubnetGroupName"] = state?.dbSubnetGroupName;
-            resourceInputs["dbiResourceId"] = state?.dbiResourceId;
-            resourceInputs["enablePerformanceInsights"] = state?.enablePerformanceInsights;
-            resourceInputs["endpoint"] = state?.endpoint;
-            resourceInputs["engine"] = state?.engine;
-            resourceInputs["engineVersion"] = state?.engineVersion;
-            resourceInputs["identifier"] = state?.identifier;
-            resourceInputs["identifierPrefix"] = state?.identifierPrefix;
-            resourceInputs["instanceClass"] = state?.instanceClass;
-            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
-            resourceInputs["performanceInsightsKmsKeyId"] = state?.performanceInsightsKmsKeyId;
-            resourceInputs["port"] = state?.port;
-            resourceInputs["preferredBackupWindow"] = state?.preferredBackupWindow;
-            resourceInputs["preferredMaintenanceWindow"] = state?.preferredMaintenanceWindow;
-            resourceInputs["promotionTier"] = state?.promotionTier;
-            resourceInputs["publiclyAccessible"] = state?.publiclyAccessible;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["storageEncrypted"] = state?.storageEncrypted;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["writer"] = state?.writer;
+            resourceInputs["applyImmediately"] = state ? state.applyImmediately : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
+            resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            resourceInputs["caCertIdentifier"] = state ? state.caCertIdentifier : undefined;
+            resourceInputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
+            resourceInputs["copyTagsToSnapshot"] = state ? state.copyTagsToSnapshot : undefined;
+            resourceInputs["dbSubnetGroupName"] = state ? state.dbSubnetGroupName : undefined;
+            resourceInputs["dbiResourceId"] = state ? state.dbiResourceId : undefined;
+            resourceInputs["enablePerformanceInsights"] = state ? state.enablePerformanceInsights : undefined;
+            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
+            resourceInputs["engine"] = state ? state.engine : undefined;
+            resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
+            resourceInputs["identifier"] = state ? state.identifier : undefined;
+            resourceInputs["identifierPrefix"] = state ? state.identifierPrefix : undefined;
+            resourceInputs["instanceClass"] = state ? state.instanceClass : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["performanceInsightsKmsKeyId"] = state ? state.performanceInsightsKmsKeyId : undefined;
+            resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["preferredBackupWindow"] = state ? state.preferredBackupWindow : undefined;
+            resourceInputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
+            resourceInputs["promotionTier"] = state ? state.promotionTier : undefined;
+            resourceInputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["writer"] = state ? state.writer : undefined;
         } else {
             const args = argsOrState as ClusterInstanceArgs | undefined;
-            if (args?.clusterIdentifier === undefined && !opts.urn) {
+            if ((!args || args.clusterIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterIdentifier'");
             }
-            if (args?.instanceClass === undefined && !opts.urn) {
+            if ((!args || args.instanceClass === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceClass'");
             }
-            resourceInputs["applyImmediately"] = args?.applyImmediately;
-            resourceInputs["autoMinorVersionUpgrade"] = args?.autoMinorVersionUpgrade;
-            resourceInputs["availabilityZone"] = args?.availabilityZone;
-            resourceInputs["caCertIdentifier"] = args?.caCertIdentifier;
-            resourceInputs["clusterIdentifier"] = args?.clusterIdentifier;
-            resourceInputs["copyTagsToSnapshot"] = args?.copyTagsToSnapshot;
-            resourceInputs["enablePerformanceInsights"] = args?.enablePerformanceInsights;
-            resourceInputs["engine"] = args?.engine;
-            resourceInputs["identifier"] = args?.identifier;
-            resourceInputs["identifierPrefix"] = args?.identifierPrefix;
-            resourceInputs["instanceClass"] = args?.instanceClass;
-            resourceInputs["performanceInsightsKmsKeyId"] = args?.performanceInsightsKmsKeyId;
-            resourceInputs["preferredMaintenanceWindow"] = args?.preferredMaintenanceWindow;
-            resourceInputs["promotionTier"] = args?.promotionTier;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["applyImmediately"] = args ? args.applyImmediately : undefined;
+            resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["caCertIdentifier"] = args ? args.caCertIdentifier : undefined;
+            resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
+            resourceInputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
+            resourceInputs["enablePerformanceInsights"] = args ? args.enablePerformanceInsights : undefined;
+            resourceInputs["engine"] = args ? args.engine : undefined;
+            resourceInputs["identifier"] = args ? args.identifier : undefined;
+            resourceInputs["identifierPrefix"] = args ? args.identifierPrefix : undefined;
+            resourceInputs["instanceClass"] = args ? args.instanceClass : undefined;
+            resourceInputs["performanceInsightsKmsKeyId"] = args ? args.performanceInsightsKmsKeyId : undefined;
+            resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
+            resourceInputs["promotionTier"] = args ? args.promotionTier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dbSubnetGroupName"] = undefined /*out*/;
             resourceInputs["dbiResourceId"] = undefined /*out*/;

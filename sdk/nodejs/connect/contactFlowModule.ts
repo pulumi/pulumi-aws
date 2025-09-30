@@ -140,47 +140,47 @@ export class ContactFlowModule extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Contact Flow Module.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The identifier of the Contact Flow Module.
      */
-    declare public /*out*/ readonly contactFlowModuleId: pulumi.Output<string>;
+    public /*out*/ readonly contactFlowModuleId!: pulumi.Output<string>;
     /**
      * Specifies the content of the Contact Flow Module, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
      */
-    declare public readonly content: pulumi.Output<string>;
+    public readonly content!: pulumi.Output<string>;
     /**
      * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow Module source specified with `filename`.
      */
-    declare public readonly contentHash: pulumi.Output<string | undefined>;
+    public readonly contentHash!: pulumi.Output<string | undefined>;
     /**
      * Specifies the description of the Contact Flow Module.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The path to the Contact Flow Module source within the local filesystem. Conflicts with `content`.
      */
-    declare public readonly filename: pulumi.Output<string | undefined>;
+    public readonly filename!: pulumi.Output<string | undefined>;
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      */
-    declare public readonly instanceId: pulumi.Output<string>;
+    public readonly instanceId!: pulumi.Output<string>;
     /**
      * Specifies the name of the Contact Flow Module.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Tags to apply to the Contact Flow Module. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ContactFlowModule resource with the given unique name, arguments, and options.
@@ -195,30 +195,30 @@ export class ContactFlowModule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ContactFlowModuleState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["contactFlowModuleId"] = state?.contactFlowModuleId;
-            resourceInputs["content"] = state?.content;
-            resourceInputs["contentHash"] = state?.contentHash;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["filename"] = state?.filename;
-            resourceInputs["instanceId"] = state?.instanceId;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["contactFlowModuleId"] = state ? state.contactFlowModuleId : undefined;
+            resourceInputs["content"] = state ? state.content : undefined;
+            resourceInputs["contentHash"] = state ? state.contentHash : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["filename"] = state ? state.filename : undefined;
+            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ContactFlowModuleArgs | undefined;
-            if (args?.instanceId === undefined && !opts.urn) {
+            if ((!args || args.instanceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            resourceInputs["content"] = args?.content;
-            resourceInputs["contentHash"] = args?.contentHash;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["filename"] = args?.filename;
-            resourceInputs["instanceId"] = args?.instanceId;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["content"] = args ? args.content : undefined;
+            resourceInputs["contentHash"] = args ? args.contentHash : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["filename"] = args ? args.filename : undefined;
+            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["contactFlowModuleId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

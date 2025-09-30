@@ -66,59 +66,59 @@ export class VpcAttachmentAccepter extends pulumi.CustomResource {
     /**
      * Whether Appliance Mode support is enabled. Valid values: `disable`, `enable`.
      */
-    declare public /*out*/ readonly applianceModeSupport: pulumi.Output<string>;
+    public /*out*/ readonly applianceModeSupport!: pulumi.Output<string>;
     /**
      * Whether DNS support is enabled. Valid values: `disable`, `enable`.
      */
-    declare public /*out*/ readonly dnsSupport: pulumi.Output<string>;
+    public /*out*/ readonly dnsSupport!: pulumi.Output<string>;
     /**
      * Whether IPv6 support is enabled. Valid values: `disable`, `enable`.
      */
-    declare public /*out*/ readonly ipv6Support: pulumi.Output<string>;
+    public /*out*/ readonly ipv6Support!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
      */
-    declare public /*out*/ readonly securityGroupReferencingSupport: pulumi.Output<string>;
+    public /*out*/ readonly securityGroupReferencingSupport!: pulumi.Output<string>;
     /**
      * Identifiers of EC2 Subnets.
      */
-    declare public /*out*/ readonly subnetIds: pulumi.Output<string[]>;
+    public /*out*/ readonly subnetIds!: pulumi.Output<string[]>;
     /**
      * Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the EC2 Transit Gateway Attachment to manage.
      */
-    declare public readonly transitGatewayAttachmentId: pulumi.Output<string>;
+    public readonly transitGatewayAttachmentId!: pulumi.Output<string>;
     /**
      * Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. Default value: `true`.
      */
-    declare public readonly transitGatewayDefaultRouteTableAssociation: pulumi.Output<boolean | undefined>;
+    public readonly transitGatewayDefaultRouteTableAssociation!: pulumi.Output<boolean | undefined>;
     /**
      * Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. Default value: `true`.
      */
-    declare public readonly transitGatewayDefaultRouteTablePropagation: pulumi.Output<boolean | undefined>;
+    public readonly transitGatewayDefaultRouteTablePropagation!: pulumi.Output<boolean | undefined>;
     /**
      * Identifier of EC2 Transit Gateway.
      */
-    declare public /*out*/ readonly transitGatewayId: pulumi.Output<string>;
+    public /*out*/ readonly transitGatewayId!: pulumi.Output<string>;
     /**
      * Identifier of EC2 VPC.
      */
-    declare public /*out*/ readonly vpcId: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string>;
     /**
      * Identifier of the AWS account that owns the EC2 VPC.
      */
-    declare public /*out*/ readonly vpcOwnerId: pulumi.Output<string>;
+    public /*out*/ readonly vpcOwnerId!: pulumi.Output<string>;
 
     /**
      * Create a VpcAttachmentAccepter resource with the given unique name, arguments, and options.
@@ -133,30 +133,30 @@ export class VpcAttachmentAccepter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcAttachmentAccepterState | undefined;
-            resourceInputs["applianceModeSupport"] = state?.applianceModeSupport;
-            resourceInputs["dnsSupport"] = state?.dnsSupport;
-            resourceInputs["ipv6Support"] = state?.ipv6Support;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["securityGroupReferencingSupport"] = state?.securityGroupReferencingSupport;
-            resourceInputs["subnetIds"] = state?.subnetIds;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["transitGatewayAttachmentId"] = state?.transitGatewayAttachmentId;
-            resourceInputs["transitGatewayDefaultRouteTableAssociation"] = state?.transitGatewayDefaultRouteTableAssociation;
-            resourceInputs["transitGatewayDefaultRouteTablePropagation"] = state?.transitGatewayDefaultRouteTablePropagation;
-            resourceInputs["transitGatewayId"] = state?.transitGatewayId;
-            resourceInputs["vpcId"] = state?.vpcId;
-            resourceInputs["vpcOwnerId"] = state?.vpcOwnerId;
+            resourceInputs["applianceModeSupport"] = state ? state.applianceModeSupport : undefined;
+            resourceInputs["dnsSupport"] = state ? state.dnsSupport : undefined;
+            resourceInputs["ipv6Support"] = state ? state.ipv6Support : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["securityGroupReferencingSupport"] = state ? state.securityGroupReferencingSupport : undefined;
+            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;
+            resourceInputs["transitGatewayDefaultRouteTableAssociation"] = state ? state.transitGatewayDefaultRouteTableAssociation : undefined;
+            resourceInputs["transitGatewayDefaultRouteTablePropagation"] = state ? state.transitGatewayDefaultRouteTablePropagation : undefined;
+            resourceInputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["vpcOwnerId"] = state ? state.vpcOwnerId : undefined;
         } else {
             const args = argsOrState as VpcAttachmentAccepterArgs | undefined;
-            if (args?.transitGatewayAttachmentId === undefined && !opts.urn) {
+            if ((!args || args.transitGatewayAttachmentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayAttachmentId'");
             }
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["transitGatewayAttachmentId"] = args?.transitGatewayAttachmentId;
-            resourceInputs["transitGatewayDefaultRouteTableAssociation"] = args?.transitGatewayDefaultRouteTableAssociation;
-            resourceInputs["transitGatewayDefaultRouteTablePropagation"] = args?.transitGatewayDefaultRouteTablePropagation;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
+            resourceInputs["transitGatewayDefaultRouteTableAssociation"] = args ? args.transitGatewayDefaultRouteTableAssociation : undefined;
+            resourceInputs["transitGatewayDefaultRouteTablePropagation"] = args ? args.transitGatewayDefaultRouteTablePropagation : undefined;
             resourceInputs["applianceModeSupport"] = undefined /*out*/;
             resourceInputs["dnsSupport"] = undefined /*out*/;
             resourceInputs["ipv6Support"] = undefined /*out*/;

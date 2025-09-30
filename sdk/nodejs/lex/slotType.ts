@@ -81,50 +81,50 @@ export class SlotType extends pulumi.CustomResource {
      * Checksum identifying the version of the slot type that was created. The checksum is
      * not included as an argument because the resource will add it automatically when updating the slot type.
      */
-    declare public /*out*/ readonly checksum: pulumi.Output<string>;
+    public /*out*/ readonly checksum!: pulumi.Output<string>;
     /**
      * Determines if a new slot type version is created when the initial resource is created and on each
      * update. Defaults to `false`.
      */
-    declare public readonly createVersion: pulumi.Output<boolean | undefined>;
+    public readonly createVersion!: pulumi.Output<boolean | undefined>;
     /**
      * The date when the slot type version was created.
      */
-    declare public /*out*/ readonly createdDate: pulumi.Output<string>;
+    public /*out*/ readonly createdDate!: pulumi.Output<string>;
     /**
      * A description of the slot type. Must be less than or equal to 200 characters in length.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * A list of EnumerationValue objects that defines the values that
      * the slot type can take. Each value can have a list of synonyms, which are additional values that help
      * train the machine learning model about the values that it resolves for a slot. Attributes are
      * documented under enumeration_value.
      */
-    declare public readonly enumerationValues: pulumi.Output<outputs.lex.SlotTypeEnumerationValue[]>;
+    public readonly enumerationValues!: pulumi.Output<outputs.lex.SlotTypeEnumerationValue[]>;
     /**
      * The date when the `$LATEST` version of this slot type was updated.
      */
-    declare public /*out*/ readonly lastUpdatedDate: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
     /**
      * The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Determines the slot resolution strategy that Amazon Lex
      * uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
      * value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
      * if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
      */
-    declare public readonly valueSelectionStrategy: pulumi.Output<string | undefined>;
+    public readonly valueSelectionStrategy!: pulumi.Output<string | undefined>;
     /**
      * The version of the slot type.
      */
-    declare public /*out*/ readonly version: pulumi.Output<string>;
+    public /*out*/ readonly version!: pulumi.Output<string>;
 
     /**
      * Create a SlotType resource with the given unique name, arguments, and options.
@@ -139,27 +139,27 @@ export class SlotType extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SlotTypeState | undefined;
-            resourceInputs["checksum"] = state?.checksum;
-            resourceInputs["createVersion"] = state?.createVersion;
-            resourceInputs["createdDate"] = state?.createdDate;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["enumerationValues"] = state?.enumerationValues;
-            resourceInputs["lastUpdatedDate"] = state?.lastUpdatedDate;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["valueSelectionStrategy"] = state?.valueSelectionStrategy;
-            resourceInputs["version"] = state?.version;
+            resourceInputs["checksum"] = state ? state.checksum : undefined;
+            resourceInputs["createVersion"] = state ? state.createVersion : undefined;
+            resourceInputs["createdDate"] = state ? state.createdDate : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enumerationValues"] = state ? state.enumerationValues : undefined;
+            resourceInputs["lastUpdatedDate"] = state ? state.lastUpdatedDate : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["valueSelectionStrategy"] = state ? state.valueSelectionStrategy : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as SlotTypeArgs | undefined;
-            if (args?.enumerationValues === undefined && !opts.urn) {
+            if ((!args || args.enumerationValues === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'enumerationValues'");
             }
-            resourceInputs["createVersion"] = args?.createVersion;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["enumerationValues"] = args?.enumerationValues;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["valueSelectionStrategy"] = args?.valueSelectionStrategy;
+            resourceInputs["createVersion"] = args ? args.createVersion : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enumerationValues"] = args ? args.enumerationValues : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["valueSelectionStrategy"] = args ? args.valueSelectionStrategy : undefined;
             resourceInputs["checksum"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["lastUpdatedDate"] = undefined /*out*/;

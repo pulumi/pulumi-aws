@@ -64,34 +64,34 @@ export class UserProfile extends pulumi.CustomResource {
     /**
      * Details about the user profile.
      */
-    declare public /*out*/ readonly details: pulumi.Output<outputs.datazone.UserProfileDetail[]>;
+    public /*out*/ readonly details!: pulumi.Output<outputs.datazone.UserProfileDetail[]>;
     /**
      * The domain identifier.
      */
-    declare public readonly domainIdentifier: pulumi.Output<string>;
+    public readonly domainIdentifier!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The user profile status.
      */
-    declare public readonly status: pulumi.Output<string>;
-    declare public readonly timeouts: pulumi.Output<outputs.datazone.UserProfileTimeouts | undefined>;
+    public readonly status!: pulumi.Output<string>;
+    public readonly timeouts!: pulumi.Output<outputs.datazone.UserProfileTimeouts | undefined>;
     /**
      * The user profile type.
      */
-    declare public /*out*/ readonly type: pulumi.Output<string>;
+    public /*out*/ readonly type!: pulumi.Output<string>;
     /**
      * The user identifier.
      *
      * The following arguments are optional:
      */
-    declare public readonly userIdentifier: pulumi.Output<string>;
+    public readonly userIdentifier!: pulumi.Output<string>;
     /**
      * The user type.
      */
-    declare public readonly userType: pulumi.Output<string>;
+    public readonly userType!: pulumi.Output<string>;
 
     /**
      * Create a UserProfile resource with the given unique name, arguments, and options.
@@ -106,28 +106,28 @@ export class UserProfile extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserProfileState | undefined;
-            resourceInputs["details"] = state?.details;
-            resourceInputs["domainIdentifier"] = state?.domainIdentifier;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["timeouts"] = state?.timeouts;
-            resourceInputs["type"] = state?.type;
-            resourceInputs["userIdentifier"] = state?.userIdentifier;
-            resourceInputs["userType"] = state?.userType;
+            resourceInputs["details"] = state ? state.details : undefined;
+            resourceInputs["domainIdentifier"] = state ? state.domainIdentifier : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["userIdentifier"] = state ? state.userIdentifier : undefined;
+            resourceInputs["userType"] = state ? state.userType : undefined;
         } else {
             const args = argsOrState as UserProfileArgs | undefined;
-            if (args?.domainIdentifier === undefined && !opts.urn) {
+            if ((!args || args.domainIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            if (args?.userIdentifier === undefined && !opts.urn) {
+            if ((!args || args.userIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userIdentifier'");
             }
-            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["status"] = args?.status;
-            resourceInputs["timeouts"] = args?.timeouts;
-            resourceInputs["userIdentifier"] = args?.userIdentifier;
-            resourceInputs["userType"] = args?.userType;
+            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["userIdentifier"] = args ? args.userIdentifier : undefined;
+            resourceInputs["userType"] = args ? args.userType : undefined;
             resourceInputs["details"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }

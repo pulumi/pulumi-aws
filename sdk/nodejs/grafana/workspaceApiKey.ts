@@ -54,27 +54,27 @@ export class WorkspaceApiKey extends pulumi.CustomResource {
     /**
      * The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
      */
-    declare public /*out*/ readonly key: pulumi.Output<string>;
+    public /*out*/ readonly key!: pulumi.Output<string>;
     /**
      * Specifies the name of the API key. Key names must be unique to the workspace.
      */
-    declare public readonly keyName: pulumi.Output<string>;
+    public readonly keyName!: pulumi.Output<string>;
     /**
      * Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
      */
-    declare public readonly keyRole: pulumi.Output<string>;
+    public readonly keyRole!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
      */
-    declare public readonly secondsToLive: pulumi.Output<number>;
+    public readonly secondsToLive!: pulumi.Output<number>;
     /**
      * The ID of the workspace that the API key is valid for.
      */
-    declare public readonly workspaceId: pulumi.Output<string>;
+    public readonly workspaceId!: pulumi.Output<string>;
 
     /**
      * Create a WorkspaceApiKey resource with the given unique name, arguments, and options.
@@ -89,31 +89,31 @@ export class WorkspaceApiKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceApiKeyState | undefined;
-            resourceInputs["key"] = state?.key;
-            resourceInputs["keyName"] = state?.keyName;
-            resourceInputs["keyRole"] = state?.keyRole;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["secondsToLive"] = state?.secondsToLive;
-            resourceInputs["workspaceId"] = state?.workspaceId;
+            resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["keyName"] = state ? state.keyName : undefined;
+            resourceInputs["keyRole"] = state ? state.keyRole : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["secondsToLive"] = state ? state.secondsToLive : undefined;
+            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
         } else {
             const args = argsOrState as WorkspaceApiKeyArgs | undefined;
-            if (args?.keyName === undefined && !opts.urn) {
+            if ((!args || args.keyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyName'");
             }
-            if (args?.keyRole === undefined && !opts.urn) {
+            if ((!args || args.keyRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyRole'");
             }
-            if (args?.secondsToLive === undefined && !opts.urn) {
+            if ((!args || args.secondsToLive === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'secondsToLive'");
             }
-            if (args?.workspaceId === undefined && !opts.urn) {
+            if ((!args || args.workspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["keyName"] = args?.keyName;
-            resourceInputs["keyRole"] = args?.keyRole;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["secondsToLive"] = args?.secondsToLive;
-            resourceInputs["workspaceId"] = args?.workspaceId;
+            resourceInputs["keyName"] = args ? args.keyName : undefined;
+            resourceInputs["keyRole"] = args ? args.keyRole : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["secondsToLive"] = args ? args.secondsToLive : undefined;
+            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
             resourceInputs["key"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

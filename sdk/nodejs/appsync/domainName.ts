@@ -58,27 +58,27 @@ export class DomainName extends pulumi.CustomResource {
     /**
      * Domain name that AppSync provides.
      */
-    declare public /*out*/ readonly appsyncDomainName: pulumi.Output<string>;
+    public /*out*/ readonly appsyncDomainName!: pulumi.Output<string>;
     /**
      * ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
      */
-    declare public readonly certificateArn: pulumi.Output<string>;
+    public readonly certificateArn!: pulumi.Output<string>;
     /**
      * A description of the Domain Name.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Domain name.
      */
-    declare public readonly domainName: pulumi.Output<string>;
+    public readonly domainName!: pulumi.Output<string>;
     /**
      * ID of your Amazon Route 53 hosted zone.
      */
-    declare public /*out*/ readonly hostedZoneId: pulumi.Output<string>;
+    public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a DomainName resource with the given unique name, arguments, and options.
@@ -93,24 +93,24 @@ export class DomainName extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainNameState | undefined;
-            resourceInputs["appsyncDomainName"] = state?.appsyncDomainName;
-            resourceInputs["certificateArn"] = state?.certificateArn;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["domainName"] = state?.domainName;
-            resourceInputs["hostedZoneId"] = state?.hostedZoneId;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["appsyncDomainName"] = state ? state.appsyncDomainName : undefined;
+            resourceInputs["certificateArn"] = state ? state.certificateArn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as DomainNameArgs | undefined;
-            if (args?.certificateArn === undefined && !opts.urn) {
+            if ((!args || args.certificateArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'certificateArn'");
             }
-            if (args?.domainName === undefined && !opts.urn) {
+            if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            resourceInputs["certificateArn"] = args?.certificateArn;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["domainName"] = args?.domainName;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["appsyncDomainName"] = undefined /*out*/;
             resourceInputs["hostedZoneId"] = undefined /*out*/;
         }

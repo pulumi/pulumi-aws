@@ -78,27 +78,27 @@ export class FieldLevelEncryptionProfile extends pulumi.CustomResource {
     /**
      * The Field Level Encryption Profile ARN.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
      */
-    declare public /*out*/ readonly callerReference: pulumi.Output<string>;
+    public /*out*/ readonly callerReference!: pulumi.Output<string>;
     /**
      * An optional comment about the Field Level Encryption Profile.
      */
-    declare public readonly comment: pulumi.Output<string | undefined>;
+    public readonly comment!: pulumi.Output<string | undefined>;
     /**
      * The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
      */
-    declare public readonly encryptionEntities: pulumi.Output<outputs.cloudfront.FieldLevelEncryptionProfileEncryptionEntities>;
+    public readonly encryptionEntities!: pulumi.Output<outputs.cloudfront.FieldLevelEncryptionProfileEncryptionEntities>;
     /**
      * The current version of the Field Level Encryption Profile. For example: `E2QWRUHAPOMQZL`.
      */
-    declare public /*out*/ readonly etag: pulumi.Output<string>;
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * The name of the Field Level Encryption Profile.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
 
     /**
      * Create a FieldLevelEncryptionProfile resource with the given unique name, arguments, and options.
@@ -113,20 +113,20 @@ export class FieldLevelEncryptionProfile extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FieldLevelEncryptionProfileState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["callerReference"] = state?.callerReference;
-            resourceInputs["comment"] = state?.comment;
-            resourceInputs["encryptionEntities"] = state?.encryptionEntities;
-            resourceInputs["etag"] = state?.etag;
-            resourceInputs["name"] = state?.name;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["callerReference"] = state ? state.callerReference : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["encryptionEntities"] = state ? state.encryptionEntities : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as FieldLevelEncryptionProfileArgs | undefined;
-            if (args?.encryptionEntities === undefined && !opts.urn) {
+            if ((!args || args.encryptionEntities === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'encryptionEntities'");
             }
-            resourceInputs["comment"] = args?.comment;
-            resourceInputs["encryptionEntities"] = args?.encryptionEntities;
-            resourceInputs["name"] = args?.name;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["encryptionEntities"] = args ? args.encryptionEntities : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["callerReference"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

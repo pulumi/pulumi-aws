@@ -65,49 +65,49 @@ export class Probe extends pulumi.CustomResource {
         return obj['__pulumiType'] === Probe.__pulumiType;
     }
 
-    declare public /*out*/ readonly addressFamily: pulumi.Output<string>;
+    public /*out*/ readonly addressFamily!: pulumi.Output<string>;
     /**
      * The ARN of the attachment.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The destination IP address. This must be either IPV4 or IPV6.
      */
-    declare public readonly destination: pulumi.Output<string>;
+    public readonly destination!: pulumi.Output<string>;
     /**
      * The port associated with the destination. This is required only if the protocol is TCP and must be a number between 1 and 65536.
      */
-    declare public readonly destinationPort: pulumi.Output<number | undefined>;
+    public readonly destinationPort!: pulumi.Output<number | undefined>;
     /**
      * The name of the monitor.
      */
-    declare public readonly monitorName: pulumi.Output<string>;
+    public readonly monitorName!: pulumi.Output<string>;
     /**
      * The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
      */
-    declare public readonly packetSize: pulumi.Output<number>;
-    declare public /*out*/ readonly probeId: pulumi.Output<string>;
+    public readonly packetSize!: pulumi.Output<number>;
+    public /*out*/ readonly probeId!: pulumi.Output<string>;
     /**
      * The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
      */
-    declare public readonly protocol: pulumi.Output<string>;
+    public readonly protocol!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ARN of the subnet.
      */
-    declare public readonly sourceArn: pulumi.Output<string>;
+    public readonly sourceArn!: pulumi.Output<string>;
     /**
      * Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public /*out*/ readonly vpcId: pulumi.Output<string>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a Probe resource with the given unique name, arguments, and options.
@@ -122,41 +122,41 @@ export class Probe extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProbeState | undefined;
-            resourceInputs["addressFamily"] = state?.addressFamily;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["destination"] = state?.destination;
-            resourceInputs["destinationPort"] = state?.destinationPort;
-            resourceInputs["monitorName"] = state?.monitorName;
-            resourceInputs["packetSize"] = state?.packetSize;
-            resourceInputs["probeId"] = state?.probeId;
-            resourceInputs["protocol"] = state?.protocol;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["sourceArn"] = state?.sourceArn;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["vpcId"] = state?.vpcId;
+            resourceInputs["addressFamily"] = state ? state.addressFamily : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["destination"] = state ? state.destination : undefined;
+            resourceInputs["destinationPort"] = state ? state.destinationPort : undefined;
+            resourceInputs["monitorName"] = state ? state.monitorName : undefined;
+            resourceInputs["packetSize"] = state ? state.packetSize : undefined;
+            resourceInputs["probeId"] = state ? state.probeId : undefined;
+            resourceInputs["protocol"] = state ? state.protocol : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["sourceArn"] = state ? state.sourceArn : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as ProbeArgs | undefined;
-            if (args?.destination === undefined && !opts.urn) {
+            if ((!args || args.destination === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destination'");
             }
-            if (args?.monitorName === undefined && !opts.urn) {
+            if ((!args || args.monitorName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'monitorName'");
             }
-            if (args?.protocol === undefined && !opts.urn) {
+            if ((!args || args.protocol === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if (args?.sourceArn === undefined && !opts.urn) {
+            if ((!args || args.sourceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceArn'");
             }
-            resourceInputs["destination"] = args?.destination;
-            resourceInputs["destinationPort"] = args?.destinationPort;
-            resourceInputs["monitorName"] = args?.monitorName;
-            resourceInputs["packetSize"] = args?.packetSize;
-            resourceInputs["protocol"] = args?.protocol;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["sourceArn"] = args?.sourceArn;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["destination"] = args ? args.destination : undefined;
+            resourceInputs["destinationPort"] = args ? args.destinationPort : undefined;
+            resourceInputs["monitorName"] = args ? args.monitorName : undefined;
+            resourceInputs["packetSize"] = args ? args.packetSize : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["sourceArn"] = args ? args.sourceArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["addressFamily"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["probeId"] = undefined /*out*/;

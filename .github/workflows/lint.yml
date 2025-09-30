@@ -24,13 +24,11 @@ jobs:
       with:
         submodules: true
         persist-credentials: false
-    - name: Install go
-      uses: actions/setup-go@d35c59abb061a4a6fb18e82ac0862c26744d6ab5 # v5
+    - name: Setup mise
+      uses: jdx/mise-action@v3
       with:
-        # The versions of golangci-lint and setup-go here cross-depend and need to update together.
-        go-version: 1.23
-        # Either this action or golangci-lint needs to disable the cache
-        cache: false
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        cache_save: false # A different job handles caching our tools.
     - name: disarm go:embed directives to enable lint
       continue-on-error: true # this fails if there are no go:embed directives
       run: |
@@ -43,5 +41,5 @@ jobs:
     - name: golangci-lint
       uses: golangci/golangci-lint-action@55c2c1448f86e01eaae002a5a3a9624417608d84 # v6
       with:
-        version: v1.64.6
+        install-mode: none # Handled by mise.
         working-directory: provider

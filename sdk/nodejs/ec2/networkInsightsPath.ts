@@ -62,55 +62,55 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
     /**
      * ARN of the Network Insights Path.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destinationAddress` argument in the `filterAtSource` block must be specified.
      */
-    declare public readonly destination: pulumi.Output<string | undefined>;
+    public readonly destination!: pulumi.Output<string | undefined>;
     /**
      * ARN of the destination.
      */
-    declare public /*out*/ readonly destinationArn: pulumi.Output<string>;
+    public /*out*/ readonly destinationArn!: pulumi.Output<string>;
     /**
      * IP address of the destination resource.
      */
-    declare public readonly destinationIp: pulumi.Output<string | undefined>;
+    public readonly destinationIp!: pulumi.Output<string | undefined>;
     /**
      * Destination port to analyze access to.
      */
-    declare public readonly destinationPort: pulumi.Output<number | undefined>;
-    declare public readonly filterAtDestination: pulumi.Output<outputs.ec2.NetworkInsightsPathFilterAtDestination>;
-    declare public readonly filterAtSource: pulumi.Output<outputs.ec2.NetworkInsightsPathFilterAtSource>;
+    public readonly destinationPort!: pulumi.Output<number | undefined>;
+    public readonly filterAtDestination!: pulumi.Output<outputs.ec2.NetworkInsightsPathFilterAtDestination>;
+    public readonly filterAtSource!: pulumi.Output<outputs.ec2.NetworkInsightsPathFilterAtSource>;
     /**
      * Protocol to use for analysis. Valid options are `tcp` or `udp`.
      *
      * The following arguments are optional:
      */
-    declare public readonly protocol: pulumi.Output<string>;
+    public readonly protocol!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
      */
-    declare public readonly source: pulumi.Output<string>;
+    public readonly source!: pulumi.Output<string>;
     /**
      * ARN of the source.
      */
-    declare public /*out*/ readonly sourceArn: pulumi.Output<string>;
+    public /*out*/ readonly sourceArn!: pulumi.Output<string>;
     /**
      * IP address of the source resource.
      */
-    declare public readonly sourceIp: pulumi.Output<string | undefined>;
+    public readonly sourceIp!: pulumi.Output<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a NetworkInsightsPath resource with the given unique name, arguments, and options.
@@ -125,38 +125,38 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkInsightsPathState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["destination"] = state?.destination;
-            resourceInputs["destinationArn"] = state?.destinationArn;
-            resourceInputs["destinationIp"] = state?.destinationIp;
-            resourceInputs["destinationPort"] = state?.destinationPort;
-            resourceInputs["filterAtDestination"] = state?.filterAtDestination;
-            resourceInputs["filterAtSource"] = state?.filterAtSource;
-            resourceInputs["protocol"] = state?.protocol;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["source"] = state?.source;
-            resourceInputs["sourceArn"] = state?.sourceArn;
-            resourceInputs["sourceIp"] = state?.sourceIp;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["destination"] = state ? state.destination : undefined;
+            resourceInputs["destinationArn"] = state ? state.destinationArn : undefined;
+            resourceInputs["destinationIp"] = state ? state.destinationIp : undefined;
+            resourceInputs["destinationPort"] = state ? state.destinationPort : undefined;
+            resourceInputs["filterAtDestination"] = state ? state.filterAtDestination : undefined;
+            resourceInputs["filterAtSource"] = state ? state.filterAtSource : undefined;
+            resourceInputs["protocol"] = state ? state.protocol : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["source"] = state ? state.source : undefined;
+            resourceInputs["sourceArn"] = state ? state.sourceArn : undefined;
+            resourceInputs["sourceIp"] = state ? state.sourceIp : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as NetworkInsightsPathArgs | undefined;
-            if (args?.protocol === undefined && !opts.urn) {
+            if ((!args || args.protocol === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if (args?.source === undefined && !opts.urn) {
+            if ((!args || args.source === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            resourceInputs["destination"] = args?.destination;
-            resourceInputs["destinationIp"] = args?.destinationIp;
-            resourceInputs["destinationPort"] = args?.destinationPort;
-            resourceInputs["filterAtDestination"] = args?.filterAtDestination;
-            resourceInputs["filterAtSource"] = args?.filterAtSource;
-            resourceInputs["protocol"] = args?.protocol;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["source"] = args?.source;
-            resourceInputs["sourceIp"] = args?.sourceIp;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["destination"] = args ? args.destination : undefined;
+            resourceInputs["destinationIp"] = args ? args.destinationIp : undefined;
+            resourceInputs["destinationPort"] = args ? args.destinationPort : undefined;
+            resourceInputs["filterAtDestination"] = args ? args.filterAtDestination : undefined;
+            resourceInputs["filterAtSource"] = args ? args.filterAtSource : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["sourceIp"] = args ? args.sourceIp : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["destinationArn"] = undefined /*out*/;
             resourceInputs["sourceArn"] = undefined /*out*/;

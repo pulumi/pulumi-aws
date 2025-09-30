@@ -122,85 +122,85 @@ export class LayerVersion extends pulumi.CustomResource {
     /**
      * ARN of the Lambda Layer with version.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
      */
-    declare public readonly code: pulumi.Output<pulumi.asset.Archive | undefined>;
+    public readonly code!: pulumi.Output<pulumi.asset.Archive | undefined>;
     /**
      * Base64-encoded representation of raw SHA-256 sum of the zip file.
      */
-    declare public /*out*/ readonly codeSha256: pulumi.Output<string>;
+    public /*out*/ readonly codeSha256!: pulumi.Output<string>;
     /**
      * List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x8664` and `arm64` can be specified.
      */
-    declare public readonly compatibleArchitectures: pulumi.Output<string[] | undefined>;
+    public readonly compatibleArchitectures!: pulumi.Output<string[] | undefined>;
     /**
      * List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
      */
-    declare public readonly compatibleRuntimes: pulumi.Output<string[] | undefined>;
+    public readonly compatibleRuntimes!: pulumi.Output<string[] | undefined>;
     /**
      * Date this resource was created.
      */
-    declare public /*out*/ readonly createdDate: pulumi.Output<string>;
+    public /*out*/ readonly createdDate!: pulumi.Output<string>;
     /**
      * Description of what your Lambda Layer does.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * ARN of the Lambda Layer without version.
      */
-    declare public /*out*/ readonly layerArn: pulumi.Output<string>;
+    public /*out*/ readonly layerArn!: pulumi.Output<string>;
     /**
      * Unique name for your Lambda Layer.
      *
      * The following arguments are optional:
      */
-    declare public readonly layerName: pulumi.Output<string>;
+    public readonly layerName!: pulumi.Output<string>;
     /**
      * License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
      */
-    declare public readonly licenseInfo: pulumi.Output<string | undefined>;
+    public readonly licenseInfo!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
      */
-    declare public readonly s3Bucket: pulumi.Output<string | undefined>;
+    public readonly s3Bucket!: pulumi.Output<string | undefined>;
     /**
      * S3 key of an object containing the function's deployment package. Conflicts with `filename`.
      */
-    declare public readonly s3Key: pulumi.Output<string | undefined>;
+    public readonly s3Key!: pulumi.Output<string | undefined>;
     /**
      * Object version containing the function's deployment package. Conflicts with `filename`.
      */
-    declare public readonly s3ObjectVersion: pulumi.Output<string | undefined>;
+    public readonly s3ObjectVersion!: pulumi.Output<string | undefined>;
     /**
      * ARN of a signing job.
      */
-    declare public /*out*/ readonly signingJobArn: pulumi.Output<string>;
+    public /*out*/ readonly signingJobArn!: pulumi.Output<string>;
     /**
      * ARN for a signing profile version.
      */
-    declare public /*out*/ readonly signingProfileVersionArn: pulumi.Output<string>;
+    public /*out*/ readonly signingProfileVersionArn!: pulumi.Output<string>;
     /**
      * Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
      */
-    declare public readonly skipDestroy: pulumi.Output<boolean | undefined>;
+    public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
     /**
      * Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `filebase64sha256("file.zip")` or `base64sha256(file("file.zip"))`, where "file.zip" is the local filename of the lambda layer source archive.
      */
-    declare public readonly sourceCodeHash: pulumi.Output<string>;
+    public readonly sourceCodeHash!: pulumi.Output<string>;
     /**
      * Size in bytes of the function .zip file.
      */
-    declare public /*out*/ readonly sourceCodeSize: pulumi.Output<number>;
+    public /*out*/ readonly sourceCodeSize!: pulumi.Output<number>;
     /**
      * Lambda Layer version.
      */
-    declare public /*out*/ readonly version: pulumi.Output<string>;
+    public /*out*/ readonly version!: pulumi.Output<string>;
 
     /**
      * Create a LayerVersion resource with the given unique name, arguments, and options.
@@ -215,43 +215,43 @@ export class LayerVersion extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LayerVersionState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["code"] = state?.code;
-            resourceInputs["codeSha256"] = state?.codeSha256;
-            resourceInputs["compatibleArchitectures"] = state?.compatibleArchitectures;
-            resourceInputs["compatibleRuntimes"] = state?.compatibleRuntimes;
-            resourceInputs["createdDate"] = state?.createdDate;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["layerArn"] = state?.layerArn;
-            resourceInputs["layerName"] = state?.layerName;
-            resourceInputs["licenseInfo"] = state?.licenseInfo;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["s3Bucket"] = state?.s3Bucket;
-            resourceInputs["s3Key"] = state?.s3Key;
-            resourceInputs["s3ObjectVersion"] = state?.s3ObjectVersion;
-            resourceInputs["signingJobArn"] = state?.signingJobArn;
-            resourceInputs["signingProfileVersionArn"] = state?.signingProfileVersionArn;
-            resourceInputs["skipDestroy"] = state?.skipDestroy;
-            resourceInputs["sourceCodeHash"] = state?.sourceCodeHash;
-            resourceInputs["sourceCodeSize"] = state?.sourceCodeSize;
-            resourceInputs["version"] = state?.version;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["code"] = state ? state.code : undefined;
+            resourceInputs["codeSha256"] = state ? state.codeSha256 : undefined;
+            resourceInputs["compatibleArchitectures"] = state ? state.compatibleArchitectures : undefined;
+            resourceInputs["compatibleRuntimes"] = state ? state.compatibleRuntimes : undefined;
+            resourceInputs["createdDate"] = state ? state.createdDate : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["layerArn"] = state ? state.layerArn : undefined;
+            resourceInputs["layerName"] = state ? state.layerName : undefined;
+            resourceInputs["licenseInfo"] = state ? state.licenseInfo : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["s3Bucket"] = state ? state.s3Bucket : undefined;
+            resourceInputs["s3Key"] = state ? state.s3Key : undefined;
+            resourceInputs["s3ObjectVersion"] = state ? state.s3ObjectVersion : undefined;
+            resourceInputs["signingJobArn"] = state ? state.signingJobArn : undefined;
+            resourceInputs["signingProfileVersionArn"] = state ? state.signingProfileVersionArn : undefined;
+            resourceInputs["skipDestroy"] = state ? state.skipDestroy : undefined;
+            resourceInputs["sourceCodeHash"] = state ? state.sourceCodeHash : undefined;
+            resourceInputs["sourceCodeSize"] = state ? state.sourceCodeSize : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as LayerVersionArgs | undefined;
-            if (args?.layerName === undefined && !opts.urn) {
+            if ((!args || args.layerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'layerName'");
             }
-            resourceInputs["code"] = args?.code;
-            resourceInputs["compatibleArchitectures"] = args?.compatibleArchitectures;
-            resourceInputs["compatibleRuntimes"] = args?.compatibleRuntimes;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["layerName"] = args?.layerName;
-            resourceInputs["licenseInfo"] = args?.licenseInfo;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["s3Bucket"] = args?.s3Bucket;
-            resourceInputs["s3Key"] = args?.s3Key;
-            resourceInputs["s3ObjectVersion"] = args?.s3ObjectVersion;
-            resourceInputs["skipDestroy"] = args?.skipDestroy;
-            resourceInputs["sourceCodeHash"] = args?.sourceCodeHash;
+            resourceInputs["code"] = args ? args.code : undefined;
+            resourceInputs["compatibleArchitectures"] = args ? args.compatibleArchitectures : undefined;
+            resourceInputs["compatibleRuntimes"] = args ? args.compatibleRuntimes : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["layerName"] = args ? args.layerName : undefined;
+            resourceInputs["licenseInfo"] = args ? args.licenseInfo : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["s3Bucket"] = args ? args.s3Bucket : undefined;
+            resourceInputs["s3Key"] = args ? args.s3Key : undefined;
+            resourceInputs["s3ObjectVersion"] = args ? args.s3ObjectVersion : undefined;
+            resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
+            resourceInputs["sourceCodeHash"] = args ? args.sourceCodeHash : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["codeSha256"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;

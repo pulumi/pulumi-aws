@@ -61,12 +61,12 @@ export class ApplicationLayerAutomaticResponse extends pulumi.CustomResource {
     /**
      * One of `COUNT` or `BLOCK`
      */
-    declare public readonly action: pulumi.Output<string>;
+    public readonly action!: pulumi.Output<string>;
     /**
      * ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
      */
-    declare public readonly resourceArn: pulumi.Output<string>;
-    declare public readonly timeouts: pulumi.Output<outputs.shield.ApplicationLayerAutomaticResponseTimeouts | undefined>;
+    public readonly resourceArn!: pulumi.Output<string>;
+    public readonly timeouts!: pulumi.Output<outputs.shield.ApplicationLayerAutomaticResponseTimeouts | undefined>;
 
     /**
      * Create a ApplicationLayerAutomaticResponse resource with the given unique name, arguments, and options.
@@ -81,20 +81,20 @@ export class ApplicationLayerAutomaticResponse extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationLayerAutomaticResponseState | undefined;
-            resourceInputs["action"] = state?.action;
-            resourceInputs["resourceArn"] = state?.resourceArn;
-            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["action"] = state ? state.action : undefined;
+            resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as ApplicationLayerAutomaticResponseArgs | undefined;
-            if (args?.action === undefined && !opts.urn) {
+            if ((!args || args.action === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'action'");
             }
-            if (args?.resourceArn === undefined && !opts.urn) {
+            if ((!args || args.resourceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            resourceInputs["action"] = args?.action;
-            resourceInputs["resourceArn"] = args?.resourceArn;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["action"] = args ? args.action : undefined;
+            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ApplicationLayerAutomaticResponse.__pulumiType, name, resourceInputs, opts);

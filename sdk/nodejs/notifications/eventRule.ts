@@ -76,29 +76,29 @@ export class EventRule extends pulumi.CustomResource {
     /**
      * ARN of the Event Rule.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * JSON string defining the event pattern to match. Maximum length is 4096 characters.
      */
-    declare public readonly eventPattern: pulumi.Output<string | undefined>;
+    public readonly eventPattern!: pulumi.Output<string | undefined>;
     /**
      * Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 \-\(\)])+`.
      */
-    declare public readonly eventType: pulumi.Output<string>;
+    public readonly eventType!: pulumi.Output<string>;
     /**
      * ARN of the notification configuration to associate with this event rule. Must match the pattern `arn:aws:notifications::[0-9]{12}:configuration/[a-z0-9]{27}`.
      */
-    declare public readonly notificationConfigurationArn: pulumi.Output<string>;
+    public readonly notificationConfigurationArn!: pulumi.Output<string>;
     /**
      * Set of AWS regions where the event rule will be applied. Each region must be between 2 and 25 characters, and match the pattern `([a-z]{1,2})-([a-z]{1,15}-)+([0-9])`.
      */
-    declare public readonly regions: pulumi.Output<string[]>;
+    public readonly regions!: pulumi.Output<string[]>;
     /**
      * Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9\-])+`.
      *
      * The following arguments are optional:
      */
-    declare public readonly source: pulumi.Output<string>;
+    public readonly source!: pulumi.Output<string>;
 
     /**
      * Create a EventRule resource with the given unique name, arguments, and options.
@@ -113,31 +113,31 @@ export class EventRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventRuleState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["eventPattern"] = state?.eventPattern;
-            resourceInputs["eventType"] = state?.eventType;
-            resourceInputs["notificationConfigurationArn"] = state?.notificationConfigurationArn;
-            resourceInputs["regions"] = state?.regions;
-            resourceInputs["source"] = state?.source;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["eventPattern"] = state ? state.eventPattern : undefined;
+            resourceInputs["eventType"] = state ? state.eventType : undefined;
+            resourceInputs["notificationConfigurationArn"] = state ? state.notificationConfigurationArn : undefined;
+            resourceInputs["regions"] = state ? state.regions : undefined;
+            resourceInputs["source"] = state ? state.source : undefined;
         } else {
             const args = argsOrState as EventRuleArgs | undefined;
-            if (args?.eventType === undefined && !opts.urn) {
+            if ((!args || args.eventType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventType'");
             }
-            if (args?.notificationConfigurationArn === undefined && !opts.urn) {
+            if ((!args || args.notificationConfigurationArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'notificationConfigurationArn'");
             }
-            if (args?.regions === undefined && !opts.urn) {
+            if ((!args || args.regions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'regions'");
             }
-            if (args?.source === undefined && !opts.urn) {
+            if ((!args || args.source === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            resourceInputs["eventPattern"] = args?.eventPattern;
-            resourceInputs["eventType"] = args?.eventType;
-            resourceInputs["notificationConfigurationArn"] = args?.notificationConfigurationArn;
-            resourceInputs["regions"] = args?.regions;
-            resourceInputs["source"] = args?.source;
+            resourceInputs["eventPattern"] = args ? args.eventPattern : undefined;
+            resourceInputs["eventType"] = args ? args.eventType : undefined;
+            resourceInputs["notificationConfigurationArn"] = args ? args.notificationConfigurationArn : undefined;
+            resourceInputs["regions"] = args ? args.regions : undefined;
+            resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

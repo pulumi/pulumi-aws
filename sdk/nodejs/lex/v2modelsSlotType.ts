@@ -112,62 +112,62 @@ export class V2modelsSlotType extends pulumi.CustomResource {
     /**
      * Identifier of the bot associated with this slot type.
      */
-    declare public readonly botId: pulumi.Output<string>;
+    public readonly botId!: pulumi.Output<string>;
     /**
      * Version of the bot associated with this slot type.
      */
-    declare public readonly botVersion: pulumi.Output<string>;
+    public readonly botVersion!: pulumi.Output<string>;
     /**
      * Specifications for a composite slot type.
      * See `compositeSlotTypeSetting` argument reference below.
      */
-    declare public readonly compositeSlotTypeSettings: pulumi.Output<outputs.lex.V2modelsSlotTypeCompositeSlotTypeSetting[] | undefined>;
+    public readonly compositeSlotTypeSettings!: pulumi.Output<outputs.lex.V2modelsSlotTypeCompositeSlotTypeSetting[] | undefined>;
     /**
      * Description of the slot type.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Type of external information used to create the slot type.
      * See `externalSourceSetting` argument reference below.
      */
-    declare public readonly externalSourceSettings: pulumi.Output<outputs.lex.V2modelsSlotTypeExternalSourceSetting[] | undefined>;
+    public readonly externalSourceSettings!: pulumi.Output<outputs.lex.V2modelsSlotTypeExternalSourceSetting[] | undefined>;
     /**
      * Identifier of the language and locale where this slot type is used.
      * All of the bots, slot types, and slots used by the intent must have the same locale.
      */
-    declare public readonly localeId: pulumi.Output<string>;
+    public readonly localeId!: pulumi.Output<string>;
     /**
      * Name of the slot type.
      *
      * The following arguments are optional:
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Built-in slot type used as a parent of this slot type.
      * When you define a parent slot type, the new slot type has the configuration of the parent slot type.
      * Only `AMAZON.AlphaNumeric` is supported.
      */
-    declare public readonly parentSlotTypeSignature: pulumi.Output<string | undefined>;
+    public readonly parentSlotTypeSignature!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Unique identifier for the slot type.
      */
-    declare public /*out*/ readonly slotTypeId: pulumi.Output<string>;
+    public /*out*/ readonly slotTypeId!: pulumi.Output<string>;
     /**
      * List of SlotTypeValue objects that defines the values that the slot type can take.
      * Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
      * See `slotTypeValues` argument reference below.
      */
-    declare public readonly slotTypeValues: pulumi.Output<outputs.lex.V2modelsSlotTypeSlotTypeValue[] | undefined>;
-    declare public readonly timeouts: pulumi.Output<outputs.lex.V2modelsSlotTypeTimeouts | undefined>;
+    public readonly slotTypeValues!: pulumi.Output<outputs.lex.V2modelsSlotTypeSlotTypeValue[] | undefined>;
+    public readonly timeouts!: pulumi.Output<outputs.lex.V2modelsSlotTypeTimeouts | undefined>;
     /**
      * Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
      * See `valueSelectionSetting` argument reference below.
      */
-    declare public readonly valueSelectionSetting: pulumi.Output<outputs.lex.V2modelsSlotTypeValueSelectionSetting | undefined>;
+    public readonly valueSelectionSetting!: pulumi.Output<outputs.lex.V2modelsSlotTypeValueSelectionSetting | undefined>;
 
     /**
      * Create a V2modelsSlotType resource with the given unique name, arguments, and options.
@@ -182,42 +182,42 @@ export class V2modelsSlotType extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as V2modelsSlotTypeState | undefined;
-            resourceInputs["botId"] = state?.botId;
-            resourceInputs["botVersion"] = state?.botVersion;
-            resourceInputs["compositeSlotTypeSettings"] = state?.compositeSlotTypeSettings;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["externalSourceSettings"] = state?.externalSourceSettings;
-            resourceInputs["localeId"] = state?.localeId;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["parentSlotTypeSignature"] = state?.parentSlotTypeSignature;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["slotTypeId"] = state?.slotTypeId;
-            resourceInputs["slotTypeValues"] = state?.slotTypeValues;
-            resourceInputs["timeouts"] = state?.timeouts;
-            resourceInputs["valueSelectionSetting"] = state?.valueSelectionSetting;
+            resourceInputs["botId"] = state ? state.botId : undefined;
+            resourceInputs["botVersion"] = state ? state.botVersion : undefined;
+            resourceInputs["compositeSlotTypeSettings"] = state ? state.compositeSlotTypeSettings : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["externalSourceSettings"] = state ? state.externalSourceSettings : undefined;
+            resourceInputs["localeId"] = state ? state.localeId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parentSlotTypeSignature"] = state ? state.parentSlotTypeSignature : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["slotTypeId"] = state ? state.slotTypeId : undefined;
+            resourceInputs["slotTypeValues"] = state ? state.slotTypeValues : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["valueSelectionSetting"] = state ? state.valueSelectionSetting : undefined;
         } else {
             const args = argsOrState as V2modelsSlotTypeArgs | undefined;
-            if (args?.botId === undefined && !opts.urn) {
+            if ((!args || args.botId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'botId'");
             }
-            if (args?.botVersion === undefined && !opts.urn) {
+            if ((!args || args.botVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'botVersion'");
             }
-            if (args?.localeId === undefined && !opts.urn) {
+            if ((!args || args.localeId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'localeId'");
             }
-            resourceInputs["botId"] = args?.botId;
-            resourceInputs["botVersion"] = args?.botVersion;
-            resourceInputs["compositeSlotTypeSettings"] = args?.compositeSlotTypeSettings;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["externalSourceSettings"] = args?.externalSourceSettings;
-            resourceInputs["localeId"] = args?.localeId;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["parentSlotTypeSignature"] = args?.parentSlotTypeSignature;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["slotTypeValues"] = args?.slotTypeValues;
-            resourceInputs["timeouts"] = args?.timeouts;
-            resourceInputs["valueSelectionSetting"] = args?.valueSelectionSetting;
+            resourceInputs["botId"] = args ? args.botId : undefined;
+            resourceInputs["botVersion"] = args ? args.botVersion : undefined;
+            resourceInputs["compositeSlotTypeSettings"] = args ? args.compositeSlotTypeSettings : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["externalSourceSettings"] = args ? args.externalSourceSettings : undefined;
+            resourceInputs["localeId"] = args ? args.localeId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parentSlotTypeSignature"] = args ? args.parentSlotTypeSignature : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["slotTypeValues"] = args ? args.slotTypeValues : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["valueSelectionSetting"] = args ? args.valueSelectionSetting : undefined;
             resourceInputs["slotTypeId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

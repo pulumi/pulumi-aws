@@ -87,41 +87,41 @@ export class AutomationRule extends pulumi.CustomResource {
     /**
      * A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
      */
-    declare public readonly actions: pulumi.Output<outputs.securityhub.AutomationRuleAction[] | undefined>;
+    public readonly actions!: pulumi.Output<outputs.securityhub.AutomationRuleAction[] | undefined>;
     /**
      * The ARN of the Security Hub automation rule.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
      */
-    declare public readonly criteria: pulumi.Output<outputs.securityhub.AutomationRuleCriteria | undefined>;
+    public readonly criteria!: pulumi.Output<outputs.securityhub.AutomationRuleCriteria | undefined>;
     /**
      * The description of the rule.
      */
-    declare public readonly description: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
      */
-    declare public readonly isTerminal: pulumi.Output<boolean>;
+    public readonly isTerminal!: pulumi.Output<boolean>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The name of the rule.
      */
-    declare public readonly ruleName: pulumi.Output<string>;
+    public readonly ruleName!: pulumi.Output<string>;
     /**
      * An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
      */
-    declare public readonly ruleOrder: pulumi.Output<number>;
+    public readonly ruleOrder!: pulumi.Output<number>;
     /**
      * Whether the rule is active after it is created.
      */
-    declare public readonly ruleStatus: pulumi.Output<string>;
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public readonly ruleStatus!: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a AutomationRule resource with the given unique name, arguments, and options.
@@ -136,37 +136,37 @@ export class AutomationRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AutomationRuleState | undefined;
-            resourceInputs["actions"] = state?.actions;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["criteria"] = state?.criteria;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["isTerminal"] = state?.isTerminal;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["ruleName"] = state?.ruleName;
-            resourceInputs["ruleOrder"] = state?.ruleOrder;
-            resourceInputs["ruleStatus"] = state?.ruleStatus;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["actions"] = state ? state.actions : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["criteria"] = state ? state.criteria : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["isTerminal"] = state ? state.isTerminal : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["ruleName"] = state ? state.ruleName : undefined;
+            resourceInputs["ruleOrder"] = state ? state.ruleOrder : undefined;
+            resourceInputs["ruleStatus"] = state ? state.ruleStatus : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as AutomationRuleArgs | undefined;
-            if (args?.description === undefined && !opts.urn) {
+            if ((!args || args.description === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if (args?.ruleName === undefined && !opts.urn) {
+            if ((!args || args.ruleName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleName'");
             }
-            if (args?.ruleOrder === undefined && !opts.urn) {
+            if ((!args || args.ruleOrder === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleOrder'");
             }
-            resourceInputs["actions"] = args?.actions;
-            resourceInputs["criteria"] = args?.criteria;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["isTerminal"] = args?.isTerminal;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["ruleName"] = args?.ruleName;
-            resourceInputs["ruleOrder"] = args?.ruleOrder;
-            resourceInputs["ruleStatus"] = args?.ruleStatus;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["actions"] = args ? args.actions : undefined;
+            resourceInputs["criteria"] = args ? args.criteria : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["isTerminal"] = args ? args.isTerminal : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
+            resourceInputs["ruleOrder"] = args ? args.ruleOrder : undefined;
+            resourceInputs["ruleStatus"] = args ? args.ruleStatus : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

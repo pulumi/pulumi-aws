@@ -96,17 +96,17 @@ export class FunctionRecursionConfig extends pulumi.CustomResource {
     /**
      * Name of the Lambda function.
      */
-    declare public readonly functionName: pulumi.Output<string>;
+    public readonly functionName!: pulumi.Output<string>;
     /**
      * Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
      *
      * The following arguments are optional:
      */
-    declare public readonly recursiveLoop: pulumi.Output<string>;
+    public readonly recursiveLoop!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a FunctionRecursionConfig resource with the given unique name, arguments, and options.
@@ -121,20 +121,20 @@ export class FunctionRecursionConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FunctionRecursionConfigState | undefined;
-            resourceInputs["functionName"] = state?.functionName;
-            resourceInputs["recursiveLoop"] = state?.recursiveLoop;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["functionName"] = state ? state.functionName : undefined;
+            resourceInputs["recursiveLoop"] = state ? state.recursiveLoop : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as FunctionRecursionConfigArgs | undefined;
-            if (args?.functionName === undefined && !opts.urn) {
+            if ((!args || args.functionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'functionName'");
             }
-            if (args?.recursiveLoop === undefined && !opts.urn) {
+            if ((!args || args.recursiveLoop === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'recursiveLoop'");
             }
-            resourceInputs["functionName"] = args?.functionName;
-            resourceInputs["recursiveLoop"] = args?.recursiveLoop;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["functionName"] = args ? args.functionName : undefined;
+            resourceInputs["recursiveLoop"] = args ? args.recursiveLoop : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FunctionRecursionConfig.__pulumiType, name, resourceInputs, opts);

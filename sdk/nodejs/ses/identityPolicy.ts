@@ -73,19 +73,19 @@ export class IdentityPolicy extends pulumi.CustomResource {
     /**
      * Name or Amazon Resource Name (ARN) of the SES Identity.
      */
-    declare public readonly identity: pulumi.Output<string>;
+    public readonly identity!: pulumi.Output<string>;
     /**
      * Name of the policy.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * JSON string of the policy.
      */
-    declare public readonly policy: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a IdentityPolicy resource with the given unique name, arguments, and options.
@@ -100,22 +100,22 @@ export class IdentityPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IdentityPolicyState | undefined;
-            resourceInputs["identity"] = state?.identity;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["policy"] = state?.policy;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as IdentityPolicyArgs | undefined;
-            if (args?.identity === undefined && !opts.urn) {
+            if ((!args || args.identity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identity'");
             }
-            if (args?.policy === undefined && !opts.urn) {
+            if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            resourceInputs["identity"] = args?.identity;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["policy"] = args?.policy;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IdentityPolicy.__pulumiType, name, resourceInputs, opts);

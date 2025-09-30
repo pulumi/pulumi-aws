@@ -71,24 +71,24 @@ export class NetworkInterfacePermission extends pulumi.CustomResource {
     /**
      * The Amazon Web Services account ID.
      */
-    declare public readonly awsAccountId: pulumi.Output<string>;
+    public readonly awsAccountId!: pulumi.Output<string>;
     /**
      * The ID of the network interface.
      */
-    declare public readonly networkInterfaceId: pulumi.Output<string>;
+    public readonly networkInterfaceId!: pulumi.Output<string>;
     /**
      * ENI permission ID.
      */
-    declare public /*out*/ readonly networkInterfacePermissionId: pulumi.Output<string>;
+    public /*out*/ readonly networkInterfacePermissionId!: pulumi.Output<string>;
     /**
      * The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
      */
-    declare public readonly permission: pulumi.Output<string>;
+    public readonly permission!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
-    declare public readonly timeouts: pulumi.Output<outputs.ec2.NetworkInterfacePermissionTimeouts | undefined>;
+    public readonly region!: pulumi.Output<string>;
+    public readonly timeouts!: pulumi.Output<outputs.ec2.NetworkInterfacePermissionTimeouts | undefined>;
 
     /**
      * Create a NetworkInterfacePermission resource with the given unique name, arguments, and options.
@@ -103,28 +103,28 @@ export class NetworkInterfacePermission extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkInterfacePermissionState | undefined;
-            resourceInputs["awsAccountId"] = state?.awsAccountId;
-            resourceInputs["networkInterfaceId"] = state?.networkInterfaceId;
-            resourceInputs["networkInterfacePermissionId"] = state?.networkInterfacePermissionId;
-            resourceInputs["permission"] = state?.permission;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
+            resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
+            resourceInputs["networkInterfacePermissionId"] = state ? state.networkInterfacePermissionId : undefined;
+            resourceInputs["permission"] = state ? state.permission : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as NetworkInterfacePermissionArgs | undefined;
-            if (args?.awsAccountId === undefined && !opts.urn) {
+            if ((!args || args.awsAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'awsAccountId'");
             }
-            if (args?.networkInterfaceId === undefined && !opts.urn) {
+            if ((!args || args.networkInterfaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaceId'");
             }
-            if (args?.permission === undefined && !opts.urn) {
+            if ((!args || args.permission === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'permission'");
             }
-            resourceInputs["awsAccountId"] = args?.awsAccountId;
-            resourceInputs["networkInterfaceId"] = args?.networkInterfaceId;
-            resourceInputs["permission"] = args?.permission;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
+            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
+            resourceInputs["permission"] = args ? args.permission : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["networkInterfacePermissionId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

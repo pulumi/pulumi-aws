@@ -87,11 +87,11 @@ export class ProtectionHealthCheckAssociation extends pulumi.CustomResource {
     /**
      * The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
      */
-    declare public readonly healthCheckArn: pulumi.Output<string>;
+    public readonly healthCheckArn!: pulumi.Output<string>;
     /**
      * The ID of the protected resource.
      */
-    declare public readonly shieldProtectionId: pulumi.Output<string>;
+    public readonly shieldProtectionId!: pulumi.Output<string>;
 
     /**
      * Create a ProtectionHealthCheckAssociation resource with the given unique name, arguments, and options.
@@ -106,18 +106,18 @@ export class ProtectionHealthCheckAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProtectionHealthCheckAssociationState | undefined;
-            resourceInputs["healthCheckArn"] = state?.healthCheckArn;
-            resourceInputs["shieldProtectionId"] = state?.shieldProtectionId;
+            resourceInputs["healthCheckArn"] = state ? state.healthCheckArn : undefined;
+            resourceInputs["shieldProtectionId"] = state ? state.shieldProtectionId : undefined;
         } else {
             const args = argsOrState as ProtectionHealthCheckAssociationArgs | undefined;
-            if (args?.healthCheckArn === undefined && !opts.urn) {
+            if ((!args || args.healthCheckArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'healthCheckArn'");
             }
-            if (args?.shieldProtectionId === undefined && !opts.urn) {
+            if ((!args || args.shieldProtectionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shieldProtectionId'");
             }
-            resourceInputs["healthCheckArn"] = args?.healthCheckArn;
-            resourceInputs["shieldProtectionId"] = args?.shieldProtectionId;
+            resourceInputs["healthCheckArn"] = args ? args.healthCheckArn : undefined;
+            resourceInputs["shieldProtectionId"] = args ? args.shieldProtectionId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProtectionHealthCheckAssociation.__pulumiType, name, resourceInputs, opts);

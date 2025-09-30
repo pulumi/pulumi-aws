@@ -73,41 +73,41 @@ export class TrustedTokenIssuer extends pulumi.CustomResource {
     /**
      * ARN of the trusted token issuer.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
      */
-    declare public readonly clientToken: pulumi.Output<string | undefined>;
+    public readonly clientToken!: pulumi.Output<string | undefined>;
     /**
      * ARN of the instance of IAM Identity Center.
      */
-    declare public readonly instanceArn: pulumi.Output<string>;
+    public readonly instanceArn!: pulumi.Output<string>;
     /**
      * Name of the trusted token issuer.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
      */
-    declare public readonly trustedTokenIssuerConfiguration: pulumi.Output<outputs.ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfiguration | undefined>;
+    public readonly trustedTokenIssuerConfiguration!: pulumi.Output<outputs.ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfiguration | undefined>;
     /**
      * Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
      *
      * The following arguments are optional:
      */
-    declare public readonly trustedTokenIssuerType: pulumi.Output<string>;
+    public readonly trustedTokenIssuerType!: pulumi.Output<string>;
 
     /**
      * Create a TrustedTokenIssuer resource with the given unique name, arguments, and options.
@@ -122,30 +122,30 @@ export class TrustedTokenIssuer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TrustedTokenIssuerState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["clientToken"] = state?.clientToken;
-            resourceInputs["instanceArn"] = state?.instanceArn;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["trustedTokenIssuerConfiguration"] = state?.trustedTokenIssuerConfiguration;
-            resourceInputs["trustedTokenIssuerType"] = state?.trustedTokenIssuerType;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["clientToken"] = state ? state.clientToken : undefined;
+            resourceInputs["instanceArn"] = state ? state.instanceArn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["trustedTokenIssuerConfiguration"] = state ? state.trustedTokenIssuerConfiguration : undefined;
+            resourceInputs["trustedTokenIssuerType"] = state ? state.trustedTokenIssuerType : undefined;
         } else {
             const args = argsOrState as TrustedTokenIssuerArgs | undefined;
-            if (args?.instanceArn === undefined && !opts.urn) {
+            if ((!args || args.instanceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            if (args?.trustedTokenIssuerType === undefined && !opts.urn) {
+            if ((!args || args.trustedTokenIssuerType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'trustedTokenIssuerType'");
             }
-            resourceInputs["clientToken"] = args?.clientToken;
-            resourceInputs["instanceArn"] = args?.instanceArn;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["trustedTokenIssuerConfiguration"] = args?.trustedTokenIssuerConfiguration;
-            resourceInputs["trustedTokenIssuerType"] = args?.trustedTokenIssuerType;
+            resourceInputs["clientToken"] = args ? args.clientToken : undefined;
+            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["trustedTokenIssuerConfiguration"] = args ? args.trustedTokenIssuerConfiguration : undefined;
+            resourceInputs["trustedTokenIssuerType"] = args ? args.trustedTokenIssuerType : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

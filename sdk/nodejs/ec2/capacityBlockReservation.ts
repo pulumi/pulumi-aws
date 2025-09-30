@@ -67,76 +67,76 @@ export class CapacityBlockReservation extends pulumi.CustomResource {
     /**
      * The ARN of the reservation.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The Availability Zone in which to create the Capacity Block Reservation.
      */
-    declare public /*out*/ readonly availabilityZone: pulumi.Output<string>;
+    public /*out*/ readonly availabilityZone!: pulumi.Output<string>;
     /**
      * The Capacity Block Reservation ID.
      */
-    declare public readonly capacityBlockOfferingId: pulumi.Output<string>;
+    public readonly capacityBlockOfferingId!: pulumi.Output<string>;
     /**
      * The date and time at which the Capacity Block Reservation was created.
      */
-    declare public /*out*/ readonly createdDate: pulumi.Output<string>;
+    public /*out*/ readonly createdDate!: pulumi.Output<string>;
     /**
      * Indicates whether the Capacity Reservation supports EBS-optimized instances.
      */
-    declare public /*out*/ readonly ebsOptimized: pulumi.Output<boolean>;
+    public /*out*/ readonly ebsOptimized!: pulumi.Output<boolean>;
     /**
      * The date and time at which the Capacity Block Reservation expires. When a Capacity Block Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      */
-    declare public /*out*/ readonly endDate: pulumi.Output<string>;
+    public /*out*/ readonly endDate!: pulumi.Output<string>;
     /**
      * Indicates the way in which the Capacity Reservation ends.
      */
-    declare public /*out*/ readonly endDateType: pulumi.Output<string>;
+    public /*out*/ readonly endDateType!: pulumi.Output<string>;
     /**
      * The number of instances for which to reserve capacity.
      */
-    declare public /*out*/ readonly instanceCount: pulumi.Output<number>;
+    public /*out*/ readonly instanceCount!: pulumi.Output<number>;
     /**
      * The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
      */
-    declare public readonly instancePlatform: pulumi.Output<string>;
+    public readonly instancePlatform!: pulumi.Output<string>;
     /**
      * The instance type for which to reserve capacity.
      */
-    declare public /*out*/ readonly instanceType: pulumi.Output<string>;
+    public /*out*/ readonly instanceType!: pulumi.Output<string>;
     /**
      * The ARN of the Outpost on which to create the Capacity Block Reservation.
      */
-    declare public /*out*/ readonly outpostArn: pulumi.Output<string>;
+    public /*out*/ readonly outpostArn!: pulumi.Output<string>;
     /**
      * The ARN of the placement group in which to create the Capacity Block Reservation.
      */
-    declare public /*out*/ readonly placementGroupArn: pulumi.Output<string>;
+    public /*out*/ readonly placementGroupArn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The type of Capacity Reservation.
      */
-    declare public /*out*/ readonly reservationType: pulumi.Output<string>;
+    public /*out*/ readonly reservationType!: pulumi.Output<string>;
     /**
      * The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      */
-    declare public /*out*/ readonly startDate: pulumi.Output<string>;
+    public /*out*/ readonly startDate!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Indicates the tenancy of the Capacity Block Reservation. Specify either `default` or `dedicated`.
      */
-    declare public /*out*/ readonly tenancy: pulumi.Output<string>;
-    declare public readonly timeouts: pulumi.Output<outputs.ec2.CapacityBlockReservationTimeouts | undefined>;
+    public /*out*/ readonly tenancy!: pulumi.Output<string>;
+    public readonly timeouts!: pulumi.Output<outputs.ec2.CapacityBlockReservationTimeouts | undefined>;
 
     /**
      * Create a CapacityBlockReservation resource with the given unique name, arguments, and options.
@@ -151,38 +151,38 @@ export class CapacityBlockReservation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CapacityBlockReservationState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["availabilityZone"] = state?.availabilityZone;
-            resourceInputs["capacityBlockOfferingId"] = state?.capacityBlockOfferingId;
-            resourceInputs["createdDate"] = state?.createdDate;
-            resourceInputs["ebsOptimized"] = state?.ebsOptimized;
-            resourceInputs["endDate"] = state?.endDate;
-            resourceInputs["endDateType"] = state?.endDateType;
-            resourceInputs["instanceCount"] = state?.instanceCount;
-            resourceInputs["instancePlatform"] = state?.instancePlatform;
-            resourceInputs["instanceType"] = state?.instanceType;
-            resourceInputs["outpostArn"] = state?.outpostArn;
-            resourceInputs["placementGroupArn"] = state?.placementGroupArn;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["reservationType"] = state?.reservationType;
-            resourceInputs["startDate"] = state?.startDate;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["tenancy"] = state?.tenancy;
-            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            resourceInputs["capacityBlockOfferingId"] = state ? state.capacityBlockOfferingId : undefined;
+            resourceInputs["createdDate"] = state ? state.createdDate : undefined;
+            resourceInputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;
+            resourceInputs["endDate"] = state ? state.endDate : undefined;
+            resourceInputs["endDateType"] = state ? state.endDateType : undefined;
+            resourceInputs["instanceCount"] = state ? state.instanceCount : undefined;
+            resourceInputs["instancePlatform"] = state ? state.instancePlatform : undefined;
+            resourceInputs["instanceType"] = state ? state.instanceType : undefined;
+            resourceInputs["outpostArn"] = state ? state.outpostArn : undefined;
+            resourceInputs["placementGroupArn"] = state ? state.placementGroupArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["reservationType"] = state ? state.reservationType : undefined;
+            resourceInputs["startDate"] = state ? state.startDate : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["tenancy"] = state ? state.tenancy : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as CapacityBlockReservationArgs | undefined;
-            if (args?.capacityBlockOfferingId === undefined && !opts.urn) {
+            if ((!args || args.capacityBlockOfferingId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'capacityBlockOfferingId'");
             }
-            if (args?.instancePlatform === undefined && !opts.urn) {
+            if ((!args || args.instancePlatform === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instancePlatform'");
             }
-            resourceInputs["capacityBlockOfferingId"] = args?.capacityBlockOfferingId;
-            resourceInputs["instancePlatform"] = args?.instancePlatform;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["capacityBlockOfferingId"] = args ? args.capacityBlockOfferingId : undefined;
+            resourceInputs["instancePlatform"] = args ? args.instancePlatform : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;

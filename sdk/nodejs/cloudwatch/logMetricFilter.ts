@@ -68,28 +68,28 @@ export class LogMetricFilter extends pulumi.CustomResource {
     /**
      * Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
      */
-    declare public readonly applyOnTransformedLogs: pulumi.Output<boolean>;
+    public readonly applyOnTransformedLogs!: pulumi.Output<boolean>;
     /**
      * The name of the log group to associate the metric filter with.
      */
-    declare public readonly logGroupName: pulumi.Output<string>;
+    public readonly logGroupName!: pulumi.Output<string>;
     /**
      * A block defining collection of information needed to define how metric data gets emitted. See below.
      */
-    declare public readonly metricTransformation: pulumi.Output<outputs.cloudwatch.LogMetricFilterMetricTransformation>;
+    public readonly metricTransformation!: pulumi.Output<outputs.cloudwatch.LogMetricFilterMetricTransformation>;
     /**
      * A name for the metric filter.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
      * for extracting metric data out of ingested log events.
      */
-    declare public readonly pattern: pulumi.Output<string>;
+    public readonly pattern!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a LogMetricFilter resource with the given unique name, arguments, and options.
@@ -104,29 +104,29 @@ export class LogMetricFilter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogMetricFilterState | undefined;
-            resourceInputs["applyOnTransformedLogs"] = state?.applyOnTransformedLogs;
-            resourceInputs["logGroupName"] = state?.logGroupName;
-            resourceInputs["metricTransformation"] = state?.metricTransformation;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["pattern"] = state?.pattern;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["applyOnTransformedLogs"] = state ? state.applyOnTransformedLogs : undefined;
+            resourceInputs["logGroupName"] = state ? state.logGroupName : undefined;
+            resourceInputs["metricTransformation"] = state ? state.metricTransformation : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["pattern"] = state ? state.pattern : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as LogMetricFilterArgs | undefined;
-            if (args?.logGroupName === undefined && !opts.urn) {
+            if ((!args || args.logGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logGroupName'");
             }
-            if (args?.metricTransformation === undefined && !opts.urn) {
+            if ((!args || args.metricTransformation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'metricTransformation'");
             }
-            if (args?.pattern === undefined && !opts.urn) {
+            if ((!args || args.pattern === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'pattern'");
             }
-            resourceInputs["applyOnTransformedLogs"] = args?.applyOnTransformedLogs;
-            resourceInputs["logGroupName"] = args?.logGroupName;
-            resourceInputs["metricTransformation"] = args?.metricTransformation;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["pattern"] = args?.pattern;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["applyOnTransformedLogs"] = args ? args.applyOnTransformedLogs : undefined;
+            resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
+            resourceInputs["metricTransformation"] = args ? args.metricTransformation : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["pattern"] = args ? args.pattern : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogMetricFilter.__pulumiType, name, resourceInputs, opts);

@@ -82,67 +82,67 @@ export class Environment extends pulumi.CustomResource {
     /**
      * The ID of the Amazon Web Services account where the environment exists
      */
-    declare public readonly accountIdentifier: pulumi.Output<string>;
+    public readonly accountIdentifier!: pulumi.Output<string>;
     /**
      * The Amazon Web Services region where the environment exists.
      */
-    declare public readonly accountRegion: pulumi.Output<string>;
+    public readonly accountRegion!: pulumi.Output<string>;
     /**
      * The blueprint with which the environment is created.
      */
-    declare public readonly blueprintIdentifier: pulumi.Output<string>;
+    public readonly blueprintIdentifier!: pulumi.Output<string>;
     /**
      * The time the environment was created.
      */
-    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
      * The user who created the environment.
      */
-    declare public /*out*/ readonly createdBy: pulumi.Output<string>;
+    public /*out*/ readonly createdBy!: pulumi.Output<string>;
     /**
      * The description of the environment.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The ID of the domain where the environment exists.
      */
-    declare public readonly domainIdentifier: pulumi.Output<string>;
+    public readonly domainIdentifier!: pulumi.Output<string>;
     /**
      * The business glossary terms that can be used in this environment.
      */
-    declare public readonly glossaryTerms: pulumi.Output<string[] | undefined>;
+    public readonly glossaryTerms!: pulumi.Output<string[] | undefined>;
     /**
      * The details of the last deployment of the environment.
      */
-    declare public /*out*/ readonly lastDeployments: pulumi.Output<outputs.datazone.EnvironmentLastDeployment[]>;
+    public /*out*/ readonly lastDeployments!: pulumi.Output<outputs.datazone.EnvironmentLastDeployment[]>;
     /**
      * The name of the environment.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The ID of the profile with which the environment is created.
      */
-    declare public readonly profileIdentifier: pulumi.Output<string>;
+    public readonly profileIdentifier!: pulumi.Output<string>;
     /**
      * The ID of the project where the environment exists.
      *
      * The following arguments are optional:
      */
-    declare public readonly projectIdentifier: pulumi.Output<string>;
+    public readonly projectIdentifier!: pulumi.Output<string>;
     /**
      * The provider of the environment.
      */
-    declare public /*out*/ readonly providerEnvironment: pulumi.Output<string>;
-    declare public /*out*/ readonly provisionedResources: pulumi.Output<outputs.datazone.EnvironmentProvisionedResource[]>;
+    public /*out*/ readonly providerEnvironment!: pulumi.Output<string>;
+    public /*out*/ readonly provisionedResources!: pulumi.Output<outputs.datazone.EnvironmentProvisionedResource[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
-    declare public readonly timeouts: pulumi.Output<outputs.datazone.EnvironmentTimeouts | undefined>;
+    public readonly region!: pulumi.Output<string>;
+    public readonly timeouts!: pulumi.Output<outputs.datazone.EnvironmentTimeouts | undefined>;
     /**
      * The user parameters that are used in the environment. See User Parameters for more information.
      */
-    declare public readonly userParameters: pulumi.Output<outputs.datazone.EnvironmentUserParameter[] | undefined>;
+    public readonly userParameters!: pulumi.Output<outputs.datazone.EnvironmentUserParameter[] | undefined>;
 
     /**
      * Create a Environment resource with the given unique name, arguments, and options.
@@ -157,46 +157,46 @@ export class Environment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnvironmentState | undefined;
-            resourceInputs["accountIdentifier"] = state?.accountIdentifier;
-            resourceInputs["accountRegion"] = state?.accountRegion;
-            resourceInputs["blueprintIdentifier"] = state?.blueprintIdentifier;
-            resourceInputs["createdAt"] = state?.createdAt;
-            resourceInputs["createdBy"] = state?.createdBy;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["domainIdentifier"] = state?.domainIdentifier;
-            resourceInputs["glossaryTerms"] = state?.glossaryTerms;
-            resourceInputs["lastDeployments"] = state?.lastDeployments;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["profileIdentifier"] = state?.profileIdentifier;
-            resourceInputs["projectIdentifier"] = state?.projectIdentifier;
-            resourceInputs["providerEnvironment"] = state?.providerEnvironment;
-            resourceInputs["provisionedResources"] = state?.provisionedResources;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["timeouts"] = state?.timeouts;
-            resourceInputs["userParameters"] = state?.userParameters;
+            resourceInputs["accountIdentifier"] = state ? state.accountIdentifier : undefined;
+            resourceInputs["accountRegion"] = state ? state.accountRegion : undefined;
+            resourceInputs["blueprintIdentifier"] = state ? state.blueprintIdentifier : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["createdBy"] = state ? state.createdBy : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["domainIdentifier"] = state ? state.domainIdentifier : undefined;
+            resourceInputs["glossaryTerms"] = state ? state.glossaryTerms : undefined;
+            resourceInputs["lastDeployments"] = state ? state.lastDeployments : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["profileIdentifier"] = state ? state.profileIdentifier : undefined;
+            resourceInputs["projectIdentifier"] = state ? state.projectIdentifier : undefined;
+            resourceInputs["providerEnvironment"] = state ? state.providerEnvironment : undefined;
+            resourceInputs["provisionedResources"] = state ? state.provisionedResources : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["userParameters"] = state ? state.userParameters : undefined;
         } else {
             const args = argsOrState as EnvironmentArgs | undefined;
-            if (args?.domainIdentifier === undefined && !opts.urn) {
+            if ((!args || args.domainIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            if (args?.profileIdentifier === undefined && !opts.urn) {
+            if ((!args || args.profileIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'profileIdentifier'");
             }
-            if (args?.projectIdentifier === undefined && !opts.urn) {
+            if ((!args || args.projectIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectIdentifier'");
             }
-            resourceInputs["accountIdentifier"] = args?.accountIdentifier;
-            resourceInputs["accountRegion"] = args?.accountRegion;
-            resourceInputs["blueprintIdentifier"] = args?.blueprintIdentifier;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
-            resourceInputs["glossaryTerms"] = args?.glossaryTerms;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["profileIdentifier"] = args?.profileIdentifier;
-            resourceInputs["projectIdentifier"] = args?.projectIdentifier;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["timeouts"] = args?.timeouts;
-            resourceInputs["userParameters"] = args?.userParameters;
+            resourceInputs["accountIdentifier"] = args ? args.accountIdentifier : undefined;
+            resourceInputs["accountRegion"] = args ? args.accountRegion : undefined;
+            resourceInputs["blueprintIdentifier"] = args ? args.blueprintIdentifier : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
+            resourceInputs["glossaryTerms"] = args ? args.glossaryTerms : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["profileIdentifier"] = args ? args.profileIdentifier : undefined;
+            resourceInputs["projectIdentifier"] = args ? args.projectIdentifier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["userParameters"] = args ? args.userParameters : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["lastDeployments"] = undefined /*out*/;

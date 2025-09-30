@@ -72,63 +72,63 @@ export class Analysis extends pulumi.CustomResource {
     /**
      * Identifier for the analysis.
      */
-    declare public readonly analysisId: pulumi.Output<string>;
+    public readonly analysisId!: pulumi.Output<string>;
     /**
      * ARN of the analysis.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
-    declare public readonly awsAccountId: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public readonly awsAccountId!: pulumi.Output<string>;
     /**
      * The time that the analysis was created.
      */
-    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
-    declare public /*out*/ readonly lastPublishedTime: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    public /*out*/ readonly lastPublishedTime!: pulumi.Output<string>;
     /**
      * The time that the analysis was last updated.
      */
-    declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
     /**
      * Display name for the analysis.
      *
      * The following arguments are optional:
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
      */
-    declare public readonly parameters: pulumi.Output<outputs.quicksight.AnalysisParameters>;
+    public readonly parameters!: pulumi.Output<outputs.quicksight.AnalysisParameters>;
     /**
      * A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
      */
-    declare public readonly permissions: pulumi.Output<outputs.quicksight.AnalysisPermission[] | undefined>;
+    public readonly permissions!: pulumi.Output<outputs.quicksight.AnalysisPermission[] | undefined>;
     /**
      * A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
      */
-    declare public readonly recoveryWindowInDays: pulumi.Output<number | undefined>;
+    public readonly recoveryWindowInDays!: pulumi.Output<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
      */
-    declare public readonly sourceEntity: pulumi.Output<outputs.quicksight.AnalysisSourceEntity | undefined>;
+    public readonly sourceEntity!: pulumi.Output<outputs.quicksight.AnalysisSourceEntity | undefined>;
     /**
      * The analysis creation status.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
      */
-    declare public readonly themeArn: pulumi.Output<string | undefined>;
+    public readonly themeArn!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Analysis resource with the given unique name, arguments, and options.
@@ -143,37 +143,37 @@ export class Analysis extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AnalysisState | undefined;
-            resourceInputs["analysisId"] = state?.analysisId;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["awsAccountId"] = state?.awsAccountId;
-            resourceInputs["createdTime"] = state?.createdTime;
-            resourceInputs["lastPublishedTime"] = state?.lastPublishedTime;
-            resourceInputs["lastUpdatedTime"] = state?.lastUpdatedTime;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["parameters"] = state?.parameters;
-            resourceInputs["permissions"] = state?.permissions;
-            resourceInputs["recoveryWindowInDays"] = state?.recoveryWindowInDays;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["sourceEntity"] = state?.sourceEntity;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["themeArn"] = state?.themeArn;
+            resourceInputs["analysisId"] = state ? state.analysisId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
+            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
+            resourceInputs["lastPublishedTime"] = state ? state.lastPublishedTime : undefined;
+            resourceInputs["lastUpdatedTime"] = state ? state.lastUpdatedTime : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["permissions"] = state ? state.permissions : undefined;
+            resourceInputs["recoveryWindowInDays"] = state ? state.recoveryWindowInDays : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["sourceEntity"] = state ? state.sourceEntity : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["themeArn"] = state ? state.themeArn : undefined;
         } else {
             const args = argsOrState as AnalysisArgs | undefined;
-            if (args?.analysisId === undefined && !opts.urn) {
+            if ((!args || args.analysisId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'analysisId'");
             }
-            resourceInputs["analysisId"] = args?.analysisId;
-            resourceInputs["awsAccountId"] = args?.awsAccountId;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["parameters"] = args?.parameters;
-            resourceInputs["permissions"] = args?.permissions;
-            resourceInputs["recoveryWindowInDays"] = args?.recoveryWindowInDays;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["sourceEntity"] = args?.sourceEntity;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["themeArn"] = args?.themeArn;
+            resourceInputs["analysisId"] = args ? args.analysisId : undefined;
+            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["recoveryWindowInDays"] = args ? args.recoveryWindowInDays : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["sourceEntity"] = args ? args.sourceEntity : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["themeArn"] = args ? args.themeArn : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["lastPublishedTime"] = undefined /*out*/;

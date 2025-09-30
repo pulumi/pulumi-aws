@@ -91,32 +91,32 @@ export class SourceCredential extends pulumi.CustomResource {
     /**
      * The ARN of Source Credential.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
      * repository. Valid values are `BASIC_AUTH`,
      * `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
      */
-    declare public readonly authType: pulumi.Output<string>;
+    public readonly authType!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The source provider used for this project.
      */
-    declare public readonly serverType: pulumi.Output<string>;
+    public readonly serverType!: pulumi.Output<string>;
     /**
      * For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
      * app password. When using an AWS CodeStar connection (`authType = "CODECONNECTIONS")`, this is an AWS CodeStar
      * Connection ARN.
      */
-    declare public readonly token: pulumi.Output<string>;
+    public readonly token!: pulumi.Output<string>;
     /**
      * The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
      * other types of source providers or connections.
      */
-    declare public readonly userName: pulumi.Output<string | undefined>;
+    public readonly userName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a SourceCredential resource with the given unique name, arguments, and options.
@@ -131,28 +131,28 @@ export class SourceCredential extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SourceCredentialState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["authType"] = state?.authType;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["serverType"] = state?.serverType;
-            resourceInputs["token"] = state?.token;
-            resourceInputs["userName"] = state?.userName;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["authType"] = state ? state.authType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["serverType"] = state ? state.serverType : undefined;
+            resourceInputs["token"] = state ? state.token : undefined;
+            resourceInputs["userName"] = state ? state.userName : undefined;
         } else {
             const args = argsOrState as SourceCredentialArgs | undefined;
-            if (args?.authType === undefined && !opts.urn) {
+            if ((!args || args.authType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authType'");
             }
-            if (args?.serverType === undefined && !opts.urn) {
+            if ((!args || args.serverType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverType'");
             }
-            if (args?.token === undefined && !opts.urn) {
+            if ((!args || args.token === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'token'");
             }
-            resourceInputs["authType"] = args?.authType;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["serverType"] = args?.serverType;
+            resourceInputs["authType"] = args ? args.authType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["serverType"] = args ? args.serverType : undefined;
             resourceInputs["token"] = args?.token ? pulumi.secret(args.token) : undefined;
-            resourceInputs["userName"] = args?.userName;
+            resourceInputs["userName"] = args ? args.userName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

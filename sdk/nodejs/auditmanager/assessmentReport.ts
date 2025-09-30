@@ -62,27 +62,27 @@ export class AssessmentReport extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    declare public readonly assessmentId: pulumi.Output<string>;
+    public readonly assessmentId!: pulumi.Output<string>;
     /**
      * Name of the user who created the assessment report.
      */
-    declare public /*out*/ readonly author: pulumi.Output<string>;
+    public /*out*/ readonly author!: pulumi.Output<string>;
     /**
      * Description of the assessment report.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Name of the assessment report.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Current status of the specified assessment report. Valid values are `COMPLETE`, `IN_PROGRESS`, and `FAILED`.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
 
     /**
      * Create a AssessmentReport resource with the given unique name, arguments, and options.
@@ -97,21 +97,21 @@ export class AssessmentReport extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AssessmentReportState | undefined;
-            resourceInputs["assessmentId"] = state?.assessmentId;
-            resourceInputs["author"] = state?.author;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["status"] = state?.status;
+            resourceInputs["assessmentId"] = state ? state.assessmentId : undefined;
+            resourceInputs["author"] = state ? state.author : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as AssessmentReportArgs | undefined;
-            if (args?.assessmentId === undefined && !opts.urn) {
+            if ((!args || args.assessmentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'assessmentId'");
             }
-            resourceInputs["assessmentId"] = args?.assessmentId;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["assessmentId"] = args ? args.assessmentId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["author"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         }

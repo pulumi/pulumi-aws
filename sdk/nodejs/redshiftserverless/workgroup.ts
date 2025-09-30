@@ -61,77 +61,77 @@ export class Workgroup extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
      */
-    declare public readonly baseCapacity: pulumi.Output<number>;
+    public readonly baseCapacity!: pulumi.Output<number>;
     /**
      * An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
      */
-    declare public readonly configParameters: pulumi.Output<outputs.redshiftserverless.WorkgroupConfigParameter[]>;
+    public readonly configParameters!: pulumi.Output<outputs.redshiftserverless.WorkgroupConfigParameter[]>;
     /**
      * The endpoint that is created from the workgroup. See `Endpoint` below.
      */
-    declare public /*out*/ readonly endpoints: pulumi.Output<outputs.redshiftserverless.WorkgroupEndpoint[]>;
+    public /*out*/ readonly endpoints!: pulumi.Output<outputs.redshiftserverless.WorkgroupEndpoint[]>;
     /**
      * The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
      */
-    declare public readonly enhancedVpcRouting: pulumi.Output<boolean | undefined>;
+    public readonly enhancedVpcRouting!: pulumi.Output<boolean | undefined>;
     /**
      * The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
      */
-    declare public readonly maxCapacity: pulumi.Output<number | undefined>;
+    public readonly maxCapacity!: pulumi.Output<number | undefined>;
     /**
      * The name of the namespace.
      */
-    declare public readonly namespaceName: pulumi.Output<string>;
+    public readonly namespaceName!: pulumi.Output<string>;
     /**
      * The port number on which the cluster accepts incoming connections.
      */
-    declare public readonly port: pulumi.Output<number>;
+    public readonly port!: pulumi.Output<number>;
     /**
      * Price-performance scaling for the workgroup. See `Price Performance Target` below.
      */
-    declare public readonly pricePerformanceTarget: pulumi.Output<outputs.redshiftserverless.WorkgroupPricePerformanceTarget>;
+    public readonly pricePerformanceTarget!: pulumi.Output<outputs.redshiftserverless.WorkgroupPricePerformanceTarget>;
     /**
      * A value that specifies whether the workgroup can be accessed from a public network.
      */
-    declare public readonly publiclyAccessible: pulumi.Output<boolean | undefined>;
+    public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * An array of security group IDs to associate with the workgroup.
      */
-    declare public readonly securityGroupIds: pulumi.Output<string[]>;
+    public readonly securityGroupIds!: pulumi.Output<string[]>;
     /**
      * An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
      */
-    declare public readonly subnetIds: pulumi.Output<string[]>;
+    public readonly subnetIds!: pulumi.Output<string[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
      */
-    declare public readonly trackName: pulumi.Output<string>;
+    public readonly trackName!: pulumi.Output<string>;
     /**
      * The Redshift Workgroup ID.
      */
-    declare public /*out*/ readonly workgroupId: pulumi.Output<string>;
+    public /*out*/ readonly workgroupId!: pulumi.Output<string>;
     /**
      * The name of the workgroup.
      *
      * The following arguments are optional:
      */
-    declare public readonly workgroupName: pulumi.Output<string>;
+    public readonly workgroupName!: pulumi.Output<string>;
 
     /**
      * Create a Workgroup resource with the given unique name, arguments, and options.
@@ -146,46 +146,46 @@ export class Workgroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkgroupState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["baseCapacity"] = state?.baseCapacity;
-            resourceInputs["configParameters"] = state?.configParameters;
-            resourceInputs["endpoints"] = state?.endpoints;
-            resourceInputs["enhancedVpcRouting"] = state?.enhancedVpcRouting;
-            resourceInputs["maxCapacity"] = state?.maxCapacity;
-            resourceInputs["namespaceName"] = state?.namespaceName;
-            resourceInputs["port"] = state?.port;
-            resourceInputs["pricePerformanceTarget"] = state?.pricePerformanceTarget;
-            resourceInputs["publiclyAccessible"] = state?.publiclyAccessible;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["securityGroupIds"] = state?.securityGroupIds;
-            resourceInputs["subnetIds"] = state?.subnetIds;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["trackName"] = state?.trackName;
-            resourceInputs["workgroupId"] = state?.workgroupId;
-            resourceInputs["workgroupName"] = state?.workgroupName;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["baseCapacity"] = state ? state.baseCapacity : undefined;
+            resourceInputs["configParameters"] = state ? state.configParameters : undefined;
+            resourceInputs["endpoints"] = state ? state.endpoints : undefined;
+            resourceInputs["enhancedVpcRouting"] = state ? state.enhancedVpcRouting : undefined;
+            resourceInputs["maxCapacity"] = state ? state.maxCapacity : undefined;
+            resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
+            resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["pricePerformanceTarget"] = state ? state.pricePerformanceTarget : undefined;
+            resourceInputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
+            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["trackName"] = state ? state.trackName : undefined;
+            resourceInputs["workgroupId"] = state ? state.workgroupId : undefined;
+            resourceInputs["workgroupName"] = state ? state.workgroupName : undefined;
         } else {
             const args = argsOrState as WorkgroupArgs | undefined;
-            if (args?.namespaceName === undefined && !opts.urn) {
+            if ((!args || args.namespaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if (args?.workgroupName === undefined && !opts.urn) {
+            if ((!args || args.workgroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workgroupName'");
             }
-            resourceInputs["baseCapacity"] = args?.baseCapacity;
-            resourceInputs["configParameters"] = args?.configParameters;
-            resourceInputs["enhancedVpcRouting"] = args?.enhancedVpcRouting;
-            resourceInputs["maxCapacity"] = args?.maxCapacity;
-            resourceInputs["namespaceName"] = args?.namespaceName;
-            resourceInputs["port"] = args?.port;
-            resourceInputs["pricePerformanceTarget"] = args?.pricePerformanceTarget;
-            resourceInputs["publiclyAccessible"] = args?.publiclyAccessible;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
-            resourceInputs["subnetIds"] = args?.subnetIds;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["trackName"] = args?.trackName;
-            resourceInputs["workgroupName"] = args?.workgroupName;
+            resourceInputs["baseCapacity"] = args ? args.baseCapacity : undefined;
+            resourceInputs["configParameters"] = args ? args.configParameters : undefined;
+            resourceInputs["enhancedVpcRouting"] = args ? args.enhancedVpcRouting : undefined;
+            resourceInputs["maxCapacity"] = args ? args.maxCapacity : undefined;
+            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["pricePerformanceTarget"] = args ? args.pricePerformanceTarget : undefined;
+            resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["trackName"] = args ? args.trackName : undefined;
+            resourceInputs["workgroupName"] = args ? args.workgroupName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["endpoints"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

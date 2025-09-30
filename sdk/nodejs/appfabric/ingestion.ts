@@ -66,35 +66,35 @@ export class Ingestion extends pulumi.CustomResource {
      * Name of the application.
      * Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
      */
-    declare public readonly app: pulumi.Output<string>;
+    public readonly app!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the app bundle to use for the request.
      */
-    declare public readonly appBundleArn: pulumi.Output<string>;
+    public readonly appBundleArn!: pulumi.Output<string>;
     /**
      * ARN of the Ingestion.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Ingestion type. Valid values are `auditLog`.
      */
-    declare public readonly ingestionType: pulumi.Output<string>;
+    public readonly ingestionType!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * ID of the application tenant.
      */
-    declare public readonly tenantId: pulumi.Output<string>;
+    public readonly tenantId!: pulumi.Output<string>;
 
     /**
      * Create a Ingestion resource with the given unique name, arguments, and options.
@@ -109,34 +109,34 @@ export class Ingestion extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IngestionState | undefined;
-            resourceInputs["app"] = state?.app;
-            resourceInputs["appBundleArn"] = state?.appBundleArn;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["ingestionType"] = state?.ingestionType;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["tenantId"] = state?.tenantId;
+            resourceInputs["app"] = state ? state.app : undefined;
+            resourceInputs["appBundleArn"] = state ? state.appBundleArn : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["ingestionType"] = state ? state.ingestionType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
         } else {
             const args = argsOrState as IngestionArgs | undefined;
-            if (args?.app === undefined && !opts.urn) {
+            if ((!args || args.app === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'app'");
             }
-            if (args?.appBundleArn === undefined && !opts.urn) {
+            if ((!args || args.appBundleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'appBundleArn'");
             }
-            if (args?.ingestionType === undefined && !opts.urn) {
+            if ((!args || args.ingestionType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ingestionType'");
             }
-            if (args?.tenantId === undefined && !opts.urn) {
+            if ((!args || args.tenantId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
-            resourceInputs["app"] = args?.app;
-            resourceInputs["appBundleArn"] = args?.appBundleArn;
-            resourceInputs["ingestionType"] = args?.ingestionType;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["tenantId"] = args?.tenantId;
+            resourceInputs["app"] = args ? args.app : undefined;
+            resourceInputs["appBundleArn"] = args ? args.appBundleArn : undefined;
+            resourceInputs["ingestionType"] = args ? args.ingestionType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

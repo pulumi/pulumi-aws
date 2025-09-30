@@ -127,23 +127,23 @@ export class MethodSettings extends pulumi.CustomResource {
     /**
      * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
      */
-    declare public readonly methodPath: pulumi.Output<string>;
+    public readonly methodPath!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ID of the REST API
      */
-    declare public readonly restApi: pulumi.Output<string>;
+    public readonly restApi!: pulumi.Output<string>;
     /**
      * Settings block, see below.
      */
-    declare public readonly settings: pulumi.Output<outputs.apigateway.MethodSettingsSettings>;
+    public readonly settings!: pulumi.Output<outputs.apigateway.MethodSettingsSettings>;
     /**
      * Name of the stage
      */
-    declare public readonly stageName: pulumi.Output<string>;
+    public readonly stageName!: pulumi.Output<string>;
 
     /**
      * Create a MethodSettings resource with the given unique name, arguments, and options.
@@ -158,30 +158,30 @@ export class MethodSettings extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MethodSettingsState | undefined;
-            resourceInputs["methodPath"] = state?.methodPath;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["restApi"] = state?.restApi;
-            resourceInputs["settings"] = state?.settings;
-            resourceInputs["stageName"] = state?.stageName;
+            resourceInputs["methodPath"] = state ? state.methodPath : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["restApi"] = state ? state.restApi : undefined;
+            resourceInputs["settings"] = state ? state.settings : undefined;
+            resourceInputs["stageName"] = state ? state.stageName : undefined;
         } else {
             const args = argsOrState as MethodSettingsArgs | undefined;
-            if (args?.methodPath === undefined && !opts.urn) {
+            if ((!args || args.methodPath === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'methodPath'");
             }
-            if (args?.restApi === undefined && !opts.urn) {
+            if ((!args || args.restApi === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApi'");
             }
-            if (args?.settings === undefined && !opts.urn) {
+            if ((!args || args.settings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'settings'");
             }
-            if (args?.stageName === undefined && !opts.urn) {
+            if ((!args || args.stageName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stageName'");
             }
-            resourceInputs["methodPath"] = args?.methodPath;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["restApi"] = args?.restApi;
-            resourceInputs["settings"] = args?.settings;
-            resourceInputs["stageName"] = args?.stageName;
+            resourceInputs["methodPath"] = args ? args.methodPath : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["restApi"] = args ? args.restApi : undefined;
+            resourceInputs["settings"] = args ? args.settings : undefined;
+            resourceInputs["stageName"] = args ? args.stageName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MethodSettings.__pulumiType, name, resourceInputs, opts);

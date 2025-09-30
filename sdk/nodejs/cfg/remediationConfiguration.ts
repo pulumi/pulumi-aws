@@ -98,53 +98,53 @@ export class RemediationConfiguration extends pulumi.CustomResource {
     /**
      * ARN of the Config Remediation Configuration.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Remediation is triggered automatically if `true`.
      */
-    declare public readonly automatic: pulumi.Output<boolean | undefined>;
+    public readonly automatic!: pulumi.Output<boolean | undefined>;
     /**
      * Name of the AWS Config rule.
      */
-    declare public readonly configRuleName: pulumi.Output<string>;
+    public readonly configRuleName!: pulumi.Output<string>;
     /**
      * Configuration block for execution controls. See below.
      */
-    declare public readonly executionControls: pulumi.Output<outputs.cfg.RemediationConfigurationExecutionControls | undefined>;
+    public readonly executionControls!: pulumi.Output<outputs.cfg.RemediationConfigurationExecutionControls | undefined>;
     /**
      * Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
      */
-    declare public readonly maximumAutomaticAttempts: pulumi.Output<number | undefined>;
+    public readonly maximumAutomaticAttempts!: pulumi.Output<number | undefined>;
     /**
      * Can be specified multiple times for each parameter. Each parameter block supports arguments below.
      */
-    declare public readonly parameters: pulumi.Output<outputs.cfg.RemediationConfigurationParameter[] | undefined>;
+    public readonly parameters!: pulumi.Output<outputs.cfg.RemediationConfigurationParameter[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Type of resource.
      */
-    declare public readonly resourceType: pulumi.Output<string | undefined>;
+    public readonly resourceType!: pulumi.Output<string | undefined>;
     /**
      * Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
      */
-    declare public readonly retryAttemptSeconds: pulumi.Output<number | undefined>;
+    public readonly retryAttemptSeconds!: pulumi.Output<number | undefined>;
     /**
      * Target ID is the name of the public document.
      */
-    declare public readonly targetId: pulumi.Output<string>;
+    public readonly targetId!: pulumi.Output<string>;
     /**
      * Type of the target. Target executes remediation. For example, SSM document.
      *
      * The following arguments are optional:
      */
-    declare public readonly targetType: pulumi.Output<string>;
+    public readonly targetType!: pulumi.Output<string>;
     /**
      * Version of the target. For example, version of the SSM document
      */
-    declare public readonly targetVersion: pulumi.Output<string | undefined>;
+    public readonly targetVersion!: pulumi.Output<string | undefined>;
 
     /**
      * Create a RemediationConfiguration resource with the given unique name, arguments, and options.
@@ -159,40 +159,40 @@ export class RemediationConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RemediationConfigurationState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["automatic"] = state?.automatic;
-            resourceInputs["configRuleName"] = state?.configRuleName;
-            resourceInputs["executionControls"] = state?.executionControls;
-            resourceInputs["maximumAutomaticAttempts"] = state?.maximumAutomaticAttempts;
-            resourceInputs["parameters"] = state?.parameters;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceType"] = state?.resourceType;
-            resourceInputs["retryAttemptSeconds"] = state?.retryAttemptSeconds;
-            resourceInputs["targetId"] = state?.targetId;
-            resourceInputs["targetType"] = state?.targetType;
-            resourceInputs["targetVersion"] = state?.targetVersion;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["automatic"] = state ? state.automatic : undefined;
+            resourceInputs["configRuleName"] = state ? state.configRuleName : undefined;
+            resourceInputs["executionControls"] = state ? state.executionControls : undefined;
+            resourceInputs["maximumAutomaticAttempts"] = state ? state.maximumAutomaticAttempts : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceType"] = state ? state.resourceType : undefined;
+            resourceInputs["retryAttemptSeconds"] = state ? state.retryAttemptSeconds : undefined;
+            resourceInputs["targetId"] = state ? state.targetId : undefined;
+            resourceInputs["targetType"] = state ? state.targetType : undefined;
+            resourceInputs["targetVersion"] = state ? state.targetVersion : undefined;
         } else {
             const args = argsOrState as RemediationConfigurationArgs | undefined;
-            if (args?.configRuleName === undefined && !opts.urn) {
+            if ((!args || args.configRuleName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'configRuleName'");
             }
-            if (args?.targetId === undefined && !opts.urn) {
+            if ((!args || args.targetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetId'");
             }
-            if (args?.targetType === undefined && !opts.urn) {
+            if ((!args || args.targetType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetType'");
             }
-            resourceInputs["automatic"] = args?.automatic;
-            resourceInputs["configRuleName"] = args?.configRuleName;
-            resourceInputs["executionControls"] = args?.executionControls;
-            resourceInputs["maximumAutomaticAttempts"] = args?.maximumAutomaticAttempts;
-            resourceInputs["parameters"] = args?.parameters;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resourceType"] = args?.resourceType;
-            resourceInputs["retryAttemptSeconds"] = args?.retryAttemptSeconds;
-            resourceInputs["targetId"] = args?.targetId;
-            resourceInputs["targetType"] = args?.targetType;
-            resourceInputs["targetVersion"] = args?.targetVersion;
+            resourceInputs["automatic"] = args ? args.automatic : undefined;
+            resourceInputs["configRuleName"] = args ? args.configRuleName : undefined;
+            resourceInputs["executionControls"] = args ? args.executionControls : undefined;
+            resourceInputs["maximumAutomaticAttempts"] = args ? args.maximumAutomaticAttempts : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
+            resourceInputs["retryAttemptSeconds"] = args ? args.retryAttemptSeconds : undefined;
+            resourceInputs["targetId"] = args ? args.targetId : undefined;
+            resourceInputs["targetType"] = args ? args.targetType : undefined;
+            resourceInputs["targetVersion"] = args ? args.targetVersion : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

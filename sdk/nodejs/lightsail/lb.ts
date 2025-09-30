@@ -64,57 +64,57 @@ export class Lb extends pulumi.CustomResource {
     /**
      * ARN of the Lightsail load balancer.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Timestamp when the load balancer was created.
      */
-    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
      * DNS name of the load balancer.
      */
-    declare public /*out*/ readonly dnsName: pulumi.Output<string>;
+    public /*out*/ readonly dnsName!: pulumi.Output<string>;
     /**
      * Health check path of the load balancer. Default value `/`.
      */
-    declare public readonly healthCheckPath: pulumi.Output<string | undefined>;
+    public readonly healthCheckPath!: pulumi.Output<string | undefined>;
     /**
      * Instance port the load balancer will connect to.
      */
-    declare public readonly instancePort: pulumi.Output<number>;
+    public readonly instancePort!: pulumi.Output<number>;
     /**
      * IP address type of the load balancer. Valid values: `dualstack`, `ipv4`. Default value `dualstack`.
      */
-    declare public readonly ipAddressType: pulumi.Output<string | undefined>;
+    public readonly ipAddressType!: pulumi.Output<string | undefined>;
     /**
      * Name of the Lightsail load balancer.
      *
      * The following arguments are optional:
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Protocol of the load balancer.
      */
-    declare public /*out*/ readonly protocol: pulumi.Output<string>;
+    public /*out*/ readonly protocol!: pulumi.Output<string>;
     /**
      * Public ports of the load balancer.
      */
-    declare public /*out*/ readonly publicPorts: pulumi.Output<number[]>;
+    public /*out*/ readonly publicPorts!: pulumi.Output<number[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Support code for the load balancer. Include this code in your email to support when you have questions about a load balancer in Lightsail. This code enables our support team to look up your Lightsail information more easily.
      */
-    declare public /*out*/ readonly supportCode: pulumi.Output<string>;
+    public /*out*/ readonly supportCode!: pulumi.Output<string>;
     /**
      * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Lb resource with the given unique name, arguments, and options.
@@ -129,30 +129,30 @@ export class Lb extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LbState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["createdAt"] = state?.createdAt;
-            resourceInputs["dnsName"] = state?.dnsName;
-            resourceInputs["healthCheckPath"] = state?.healthCheckPath;
-            resourceInputs["instancePort"] = state?.instancePort;
-            resourceInputs["ipAddressType"] = state?.ipAddressType;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["protocol"] = state?.protocol;
-            resourceInputs["publicPorts"] = state?.publicPorts;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["supportCode"] = state?.supportCode;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["dnsName"] = state ? state.dnsName : undefined;
+            resourceInputs["healthCheckPath"] = state ? state.healthCheckPath : undefined;
+            resourceInputs["instancePort"] = state ? state.instancePort : undefined;
+            resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["protocol"] = state ? state.protocol : undefined;
+            resourceInputs["publicPorts"] = state ? state.publicPorts : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["supportCode"] = state ? state.supportCode : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as LbArgs | undefined;
-            if (args?.instancePort === undefined && !opts.urn) {
+            if ((!args || args.instancePort === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instancePort'");
             }
-            resourceInputs["healthCheckPath"] = args?.healthCheckPath;
-            resourceInputs["instancePort"] = args?.instancePort;
-            resourceInputs["ipAddressType"] = args?.ipAddressType;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["healthCheckPath"] = args ? args.healthCheckPath : undefined;
+            resourceInputs["instancePort"] = args ? args.instancePort : undefined;
+            resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;

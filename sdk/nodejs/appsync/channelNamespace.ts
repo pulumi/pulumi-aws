@@ -63,45 +63,45 @@ export class ChannelNamespace extends pulumi.CustomResource {
     /**
      * Event API ID.
      */
-    declare public readonly apiId: pulumi.Output<string>;
+    public readonly apiId!: pulumi.Output<string>;
     /**
      * ARN of the channel namespace.
      */
-    declare public /*out*/ readonly channelNamespaceArn: pulumi.Output<string>;
+    public /*out*/ readonly channelNamespaceArn!: pulumi.Output<string>;
     /**
      * Event handler functions that run custom business logic to process published events and subscribe requests.
      */
-    declare public readonly codeHandlers: pulumi.Output<string | undefined>;
+    public readonly codeHandlers!: pulumi.Output<string | undefined>;
     /**
      * Configuration for the `onPublish` and `onSubscribe` handlers. See Handler Configs below.
      */
-    declare public readonly handlerConfigs: pulumi.Output<outputs.appsync.ChannelNamespaceHandlerConfigs | undefined>;
+    public readonly handlerConfigs!: pulumi.Output<outputs.appsync.ChannelNamespaceHandlerConfigs | undefined>;
     /**
      * Name of the channel namespace.
      *
      * The following arguments are optional:
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
      */
-    declare public readonly publishAuthModes: pulumi.Output<outputs.appsync.ChannelNamespacePublishAuthMode[] | undefined>;
+    public readonly publishAuthModes!: pulumi.Output<outputs.appsync.ChannelNamespacePublishAuthMode[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
      */
-    declare public readonly subscribeAuthModes: pulumi.Output<outputs.appsync.ChannelNamespaceSubscribeAuthMode[] | undefined>;
+    public readonly subscribeAuthModes!: pulumi.Output<outputs.appsync.ChannelNamespaceSubscribeAuthMode[] | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ChannelNamespace resource with the given unique name, arguments, and options.
@@ -116,29 +116,29 @@ export class ChannelNamespace extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ChannelNamespaceState | undefined;
-            resourceInputs["apiId"] = state?.apiId;
-            resourceInputs["channelNamespaceArn"] = state?.channelNamespaceArn;
-            resourceInputs["codeHandlers"] = state?.codeHandlers;
-            resourceInputs["handlerConfigs"] = state?.handlerConfigs;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["publishAuthModes"] = state?.publishAuthModes;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["subscribeAuthModes"] = state?.subscribeAuthModes;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["apiId"] = state ? state.apiId : undefined;
+            resourceInputs["channelNamespaceArn"] = state ? state.channelNamespaceArn : undefined;
+            resourceInputs["codeHandlers"] = state ? state.codeHandlers : undefined;
+            resourceInputs["handlerConfigs"] = state ? state.handlerConfigs : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["publishAuthModes"] = state ? state.publishAuthModes : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["subscribeAuthModes"] = state ? state.subscribeAuthModes : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ChannelNamespaceArgs | undefined;
-            if (args?.apiId === undefined && !opts.urn) {
+            if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            resourceInputs["apiId"] = args?.apiId;
-            resourceInputs["codeHandlers"] = args?.codeHandlers;
-            resourceInputs["handlerConfigs"] = args?.handlerConfigs;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["publishAuthModes"] = args?.publishAuthModes;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["subscribeAuthModes"] = args?.subscribeAuthModes;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["codeHandlers"] = args ? args.codeHandlers : undefined;
+            resourceInputs["handlerConfigs"] = args ? args.handlerConfigs : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publishAuthModes"] = args ? args.publishAuthModes : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["subscribeAuthModes"] = args ? args.subscribeAuthModes : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["channelNamespaceArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

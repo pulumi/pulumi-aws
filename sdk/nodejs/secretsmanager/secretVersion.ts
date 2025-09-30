@@ -75,33 +75,33 @@ export class SecretVersion extends pulumi.CustomResource {
     /**
      * The ARN of the secret.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
      */
-    declare public readonly secretBinary: pulumi.Output<string | undefined>;
+    public readonly secretBinary!: pulumi.Output<string | undefined>;
     /**
      * Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
      */
-    declare public readonly secretId: pulumi.Output<string>;
+    public readonly secretId!: pulumi.Output<string>;
     /**
      * Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
      */
-    declare public readonly secretString: pulumi.Output<string | undefined>;
+    public readonly secretString!: pulumi.Output<string | undefined>;
     /**
      * The unique identifier of the version of the secret.
      */
-    declare public /*out*/ readonly versionId: pulumi.Output<string>;
+    public /*out*/ readonly versionId!: pulumi.Output<string>;
     /**
      * Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
      *
      * > **NOTE:** If `versionStages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
      */
-    declare public readonly versionStages: pulumi.Output<string[]>;
+    public readonly versionStages!: pulumi.Output<string[]>;
 
     /**
      * Create a SecretVersion resource with the given unique name, arguments, and options.
@@ -116,23 +116,23 @@ export class SecretVersion extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecretVersionState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["secretBinary"] = state?.secretBinary;
-            resourceInputs["secretId"] = state?.secretId;
-            resourceInputs["secretString"] = state?.secretString;
-            resourceInputs["versionId"] = state?.versionId;
-            resourceInputs["versionStages"] = state?.versionStages;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["secretBinary"] = state ? state.secretBinary : undefined;
+            resourceInputs["secretId"] = state ? state.secretId : undefined;
+            resourceInputs["secretString"] = state ? state.secretString : undefined;
+            resourceInputs["versionId"] = state ? state.versionId : undefined;
+            resourceInputs["versionStages"] = state ? state.versionStages : undefined;
         } else {
             const args = argsOrState as SecretVersionArgs | undefined;
-            if (args?.secretId === undefined && !opts.urn) {
+            if ((!args || args.secretId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'secretId'");
             }
-            resourceInputs["region"] = args?.region;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["secretBinary"] = args?.secretBinary ? pulumi.secret(args.secretBinary) : undefined;
-            resourceInputs["secretId"] = args?.secretId;
+            resourceInputs["secretId"] = args ? args.secretId : undefined;
             resourceInputs["secretString"] = args?.secretString ? pulumi.secret(args.secretString) : undefined;
-            resourceInputs["versionStages"] = args?.versionStages;
+            resourceInputs["versionStages"] = args ? args.versionStages : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["versionId"] = undefined /*out*/;
         }

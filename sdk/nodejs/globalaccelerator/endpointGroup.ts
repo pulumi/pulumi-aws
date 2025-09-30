@@ -64,48 +64,48 @@ export class EndpointGroup extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the endpoint group.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The list of endpoint objects. Fields documented below.
      */
-    declare public readonly endpointConfigurations: pulumi.Output<outputs.globalaccelerator.EndpointGroupEndpointConfiguration[] | undefined>;
+    public readonly endpointConfigurations!: pulumi.Output<outputs.globalaccelerator.EndpointGroupEndpointConfiguration[] | undefined>;
     /**
      * The name of the AWS Region where the endpoint group is located.
      */
-    declare public readonly endpointGroupRegion: pulumi.Output<string>;
+    public readonly endpointGroupRegion!: pulumi.Output<string>;
     /**
      * The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
      */
-    declare public readonly healthCheckIntervalSeconds: pulumi.Output<number | undefined>;
+    public readonly healthCheckIntervalSeconds!: pulumi.Output<number | undefined>;
     /**
      * If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (`/`). the provider will only perform drift detection of its value when present in a configuration.
      */
-    declare public readonly healthCheckPath: pulumi.Output<string>;
+    public readonly healthCheckPath!: pulumi.Output<string>;
     /**
      * The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
      * the provider will only perform drift detection of its value when present in a configuration.
      */
-    declare public readonly healthCheckPort: pulumi.Output<number>;
+    public readonly healthCheckPort!: pulumi.Output<number>;
     /**
      * The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
      */
-    declare public readonly healthCheckProtocol: pulumi.Output<string | undefined>;
+    public readonly healthCheckProtocol!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the listener.
      */
-    declare public readonly listenerArn: pulumi.Output<string>;
+    public readonly listenerArn!: pulumi.Output<string>;
     /**
      * Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
      */
-    declare public readonly portOverrides: pulumi.Output<outputs.globalaccelerator.EndpointGroupPortOverride[] | undefined>;
+    public readonly portOverrides!: pulumi.Output<outputs.globalaccelerator.EndpointGroupPortOverride[] | undefined>;
     /**
      * The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
      */
-    declare public readonly thresholdCount: pulumi.Output<number | undefined>;
+    public readonly thresholdCount!: pulumi.Output<number | undefined>;
     /**
      * The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
      */
-    declare public readonly trafficDialPercentage: pulumi.Output<number | undefined>;
+    public readonly trafficDialPercentage!: pulumi.Output<number | undefined>;
 
     /**
      * Create a EndpointGroup resource with the given unique name, arguments, and options.
@@ -120,32 +120,32 @@ export class EndpointGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointGroupState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["endpointConfigurations"] = state?.endpointConfigurations;
-            resourceInputs["endpointGroupRegion"] = state?.endpointGroupRegion;
-            resourceInputs["healthCheckIntervalSeconds"] = state?.healthCheckIntervalSeconds;
-            resourceInputs["healthCheckPath"] = state?.healthCheckPath;
-            resourceInputs["healthCheckPort"] = state?.healthCheckPort;
-            resourceInputs["healthCheckProtocol"] = state?.healthCheckProtocol;
-            resourceInputs["listenerArn"] = state?.listenerArn;
-            resourceInputs["portOverrides"] = state?.portOverrides;
-            resourceInputs["thresholdCount"] = state?.thresholdCount;
-            resourceInputs["trafficDialPercentage"] = state?.trafficDialPercentage;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["endpointConfigurations"] = state ? state.endpointConfigurations : undefined;
+            resourceInputs["endpointGroupRegion"] = state ? state.endpointGroupRegion : undefined;
+            resourceInputs["healthCheckIntervalSeconds"] = state ? state.healthCheckIntervalSeconds : undefined;
+            resourceInputs["healthCheckPath"] = state ? state.healthCheckPath : undefined;
+            resourceInputs["healthCheckPort"] = state ? state.healthCheckPort : undefined;
+            resourceInputs["healthCheckProtocol"] = state ? state.healthCheckProtocol : undefined;
+            resourceInputs["listenerArn"] = state ? state.listenerArn : undefined;
+            resourceInputs["portOverrides"] = state ? state.portOverrides : undefined;
+            resourceInputs["thresholdCount"] = state ? state.thresholdCount : undefined;
+            resourceInputs["trafficDialPercentage"] = state ? state.trafficDialPercentage : undefined;
         } else {
             const args = argsOrState as EndpointGroupArgs | undefined;
-            if (args?.listenerArn === undefined && !opts.urn) {
+            if ((!args || args.listenerArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'listenerArn'");
             }
-            resourceInputs["endpointConfigurations"] = args?.endpointConfigurations;
-            resourceInputs["endpointGroupRegion"] = args?.endpointGroupRegion;
-            resourceInputs["healthCheckIntervalSeconds"] = args?.healthCheckIntervalSeconds;
-            resourceInputs["healthCheckPath"] = args?.healthCheckPath;
-            resourceInputs["healthCheckPort"] = args?.healthCheckPort;
-            resourceInputs["healthCheckProtocol"] = args?.healthCheckProtocol;
-            resourceInputs["listenerArn"] = args?.listenerArn;
-            resourceInputs["portOverrides"] = args?.portOverrides;
-            resourceInputs["thresholdCount"] = args?.thresholdCount;
-            resourceInputs["trafficDialPercentage"] = args?.trafficDialPercentage;
+            resourceInputs["endpointConfigurations"] = args ? args.endpointConfigurations : undefined;
+            resourceInputs["endpointGroupRegion"] = args ? args.endpointGroupRegion : undefined;
+            resourceInputs["healthCheckIntervalSeconds"] = args ? args.healthCheckIntervalSeconds : undefined;
+            resourceInputs["healthCheckPath"] = args ? args.healthCheckPath : undefined;
+            resourceInputs["healthCheckPort"] = args ? args.healthCheckPort : undefined;
+            resourceInputs["healthCheckProtocol"] = args ? args.healthCheckProtocol : undefined;
+            resourceInputs["listenerArn"] = args ? args.listenerArn : undefined;
+            resourceInputs["portOverrides"] = args ? args.portOverrides : undefined;
+            resourceInputs["thresholdCount"] = args ? args.thresholdCount : undefined;
+            resourceInputs["trafficDialPercentage"] = args ? args.trafficDialPercentage : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

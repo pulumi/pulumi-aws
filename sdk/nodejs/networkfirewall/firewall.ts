@@ -101,83 +101,83 @@ export class Firewall extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) that identifies the firewall.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `true`, you must first disable this protection before adding or removing Availability Zones.
      */
-    declare public readonly availabilityZoneChangeProtection: pulumi.Output<boolean | undefined>;
+    public readonly availabilityZoneChangeProtection!: pulumi.Output<boolean | undefined>;
     /**
      * Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
      */
-    declare public readonly availabilityZoneMappings: pulumi.Output<outputs.networkfirewall.FirewallAvailabilityZoneMapping[]>;
+    public readonly availabilityZoneMappings!: pulumi.Output<outputs.networkfirewall.FirewallAvailabilityZoneMapping[]>;
     /**
      * A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
      */
-    declare public readonly deleteProtection: pulumi.Output<boolean | undefined>;
+    public readonly deleteProtection!: pulumi.Output<boolean | undefined>;
     /**
      * A friendly description of the firewall.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
      */
-    declare public readonly enabledAnalysisTypes: pulumi.Output<string[] | undefined>;
+    public readonly enabledAnalysisTypes!: pulumi.Output<string[] | undefined>;
     /**
      * KMS encryption configuration settings. See Encryption Configuration below for details.
      */
-    declare public readonly encryptionConfiguration: pulumi.Output<outputs.networkfirewall.FirewallEncryptionConfiguration | undefined>;
+    public readonly encryptionConfiguration!: pulumi.Output<outputs.networkfirewall.FirewallEncryptionConfiguration | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the VPC Firewall policy.
      */
-    declare public readonly firewallPolicyArn: pulumi.Output<string>;
+    public readonly firewallPolicyArn!: pulumi.Output<string>;
     /**
      * A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
      */
-    declare public readonly firewallPolicyChangeProtection: pulumi.Output<boolean | undefined>;
+    public readonly firewallPolicyChangeProtection!: pulumi.Output<boolean | undefined>;
     /**
      * Nested list of information about the current status of the firewall.
      */
-    declare public /*out*/ readonly firewallStatuses: pulumi.Output<outputs.networkfirewall.FirewallFirewallStatus[]>;
+    public /*out*/ readonly firewallStatuses!: pulumi.Output<outputs.networkfirewall.FirewallFirewallStatus[]>;
     /**
      * A friendly name of the firewall.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
      */
-    declare public readonly subnetChangeProtection: pulumi.Output<boolean | undefined>;
+    public readonly subnetChangeProtection!: pulumi.Output<boolean | undefined>;
     /**
      * Required when creating a VPC attached firewall. Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
      */
-    declare public readonly subnetMappings: pulumi.Output<outputs.networkfirewall.FirewallSubnetMapping[] | undefined>;
+    public readonly subnetMappings!: pulumi.Output<outputs.networkfirewall.FirewallSubnetMapping[] | undefined>;
     /**
      * Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * . Required when creating a transit gateway-attached firewall. The unique identifier of the transit gateway to attach to this firewall. You can provide either a transit gateway from your account or one that has been shared with you through AWS Resource Access Manager
      */
-    declare public readonly transitGatewayId: pulumi.Output<string | undefined>;
+    public readonly transitGatewayId!: pulumi.Output<string | undefined>;
     /**
      * The AWS account ID that owns the transit gateway.
      */
-    declare public /*out*/ readonly transitGatewayOwnerAccountId: pulumi.Output<string>;
+    public /*out*/ readonly transitGatewayOwnerAccountId!: pulumi.Output<string>;
     /**
      * A string token used when updating a firewall.
      */
-    declare public /*out*/ readonly updateToken: pulumi.Output<string>;
+    public /*out*/ readonly updateToken!: pulumi.Output<string>;
     /**
      * Required when creating a VPC attached firewall. The unique identifier of the VPC where AWS Network Firewall should create the firewall.
      */
-    declare public readonly vpcId: pulumi.Output<string | undefined>;
+    public readonly vpcId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Firewall resource with the given unique name, arguments, and options.
@@ -192,46 +192,46 @@ export class Firewall extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FirewallState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["availabilityZoneChangeProtection"] = state?.availabilityZoneChangeProtection;
-            resourceInputs["availabilityZoneMappings"] = state?.availabilityZoneMappings;
-            resourceInputs["deleteProtection"] = state?.deleteProtection;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["enabledAnalysisTypes"] = state?.enabledAnalysisTypes;
-            resourceInputs["encryptionConfiguration"] = state?.encryptionConfiguration;
-            resourceInputs["firewallPolicyArn"] = state?.firewallPolicyArn;
-            resourceInputs["firewallPolicyChangeProtection"] = state?.firewallPolicyChangeProtection;
-            resourceInputs["firewallStatuses"] = state?.firewallStatuses;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["subnetChangeProtection"] = state?.subnetChangeProtection;
-            resourceInputs["subnetMappings"] = state?.subnetMappings;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["transitGatewayId"] = state?.transitGatewayId;
-            resourceInputs["transitGatewayOwnerAccountId"] = state?.transitGatewayOwnerAccountId;
-            resourceInputs["updateToken"] = state?.updateToken;
-            resourceInputs["vpcId"] = state?.vpcId;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["availabilityZoneChangeProtection"] = state ? state.availabilityZoneChangeProtection : undefined;
+            resourceInputs["availabilityZoneMappings"] = state ? state.availabilityZoneMappings : undefined;
+            resourceInputs["deleteProtection"] = state ? state.deleteProtection : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enabledAnalysisTypes"] = state ? state.enabledAnalysisTypes : undefined;
+            resourceInputs["encryptionConfiguration"] = state ? state.encryptionConfiguration : undefined;
+            resourceInputs["firewallPolicyArn"] = state ? state.firewallPolicyArn : undefined;
+            resourceInputs["firewallPolicyChangeProtection"] = state ? state.firewallPolicyChangeProtection : undefined;
+            resourceInputs["firewallStatuses"] = state ? state.firewallStatuses : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["subnetChangeProtection"] = state ? state.subnetChangeProtection : undefined;
+            resourceInputs["subnetMappings"] = state ? state.subnetMappings : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
+            resourceInputs["transitGatewayOwnerAccountId"] = state ? state.transitGatewayOwnerAccountId : undefined;
+            resourceInputs["updateToken"] = state ? state.updateToken : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as FirewallArgs | undefined;
-            if (args?.firewallPolicyArn === undefined && !opts.urn) {
+            if ((!args || args.firewallPolicyArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'firewallPolicyArn'");
             }
-            resourceInputs["availabilityZoneChangeProtection"] = args?.availabilityZoneChangeProtection;
-            resourceInputs["availabilityZoneMappings"] = args?.availabilityZoneMappings;
-            resourceInputs["deleteProtection"] = args?.deleteProtection;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["enabledAnalysisTypes"] = args?.enabledAnalysisTypes;
-            resourceInputs["encryptionConfiguration"] = args?.encryptionConfiguration;
-            resourceInputs["firewallPolicyArn"] = args?.firewallPolicyArn;
-            resourceInputs["firewallPolicyChangeProtection"] = args?.firewallPolicyChangeProtection;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["subnetChangeProtection"] = args?.subnetChangeProtection;
-            resourceInputs["subnetMappings"] = args?.subnetMappings;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["transitGatewayId"] = args?.transitGatewayId;
-            resourceInputs["vpcId"] = args?.vpcId;
+            resourceInputs["availabilityZoneChangeProtection"] = args ? args.availabilityZoneChangeProtection : undefined;
+            resourceInputs["availabilityZoneMappings"] = args ? args.availabilityZoneMappings : undefined;
+            resourceInputs["deleteProtection"] = args ? args.deleteProtection : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enabledAnalysisTypes"] = args ? args.enabledAnalysisTypes : undefined;
+            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
+            resourceInputs["firewallPolicyArn"] = args ? args.firewallPolicyArn : undefined;
+            resourceInputs["firewallPolicyChangeProtection"] = args ? args.firewallPolicyChangeProtection : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["subnetChangeProtection"] = args ? args.subnetChangeProtection : undefined;
+            resourceInputs["subnetMappings"] = args ? args.subnetMappings : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["firewallStatuses"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

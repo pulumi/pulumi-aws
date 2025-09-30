@@ -57,23 +57,23 @@ export class MemberAssociation extends pulumi.CustomResource {
     /**
      * ID of the account to associate
      */
-    declare public readonly accountId: pulumi.Output<string>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * Account ID of the delegated administrator account
      */
-    declare public /*out*/ readonly delegatedAdminAccountId: pulumi.Output<string>;
+    public /*out*/ readonly delegatedAdminAccountId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Status of the member relationship
      */
-    declare public /*out*/ readonly relationshipStatus: pulumi.Output<string>;
+    public /*out*/ readonly relationshipStatus!: pulumi.Output<string>;
     /**
      * Date and time of the last update of the relationship
      */
-    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
+    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
     /**
      * Create a MemberAssociation resource with the given unique name, arguments, and options.
@@ -88,18 +88,18 @@ export class MemberAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MemberAssociationState | undefined;
-            resourceInputs["accountId"] = state?.accountId;
-            resourceInputs["delegatedAdminAccountId"] = state?.delegatedAdminAccountId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["relationshipStatus"] = state?.relationshipStatus;
-            resourceInputs["updatedAt"] = state?.updatedAt;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["delegatedAdminAccountId"] = state ? state.delegatedAdminAccountId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["relationshipStatus"] = state ? state.relationshipStatus : undefined;
+            resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
         } else {
             const args = argsOrState as MemberAssociationArgs | undefined;
-            if (args?.accountId === undefined && !opts.urn) {
+            if ((!args || args.accountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
             }
-            resourceInputs["accountId"] = args?.accountId;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["delegatedAdminAccountId"] = undefined /*out*/;
             resourceInputs["relationshipStatus"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;

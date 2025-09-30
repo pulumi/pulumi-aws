@@ -67,38 +67,38 @@ export class Constraint extends pulumi.CustomResource {
     /**
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      */
-    declare public readonly acceptLanguage: pulumi.Output<string | undefined>;
+    public readonly acceptLanguage!: pulumi.Output<string | undefined>;
     /**
      * Description of the constraint.
      */
-    declare public readonly description: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * Owner of the constraint.
      */
-    declare public /*out*/ readonly owner: pulumi.Output<string>;
+    public /*out*/ readonly owner!: pulumi.Output<string>;
     /**
      * Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
      */
-    declare public readonly parameters: pulumi.Output<string>;
+    public readonly parameters!: pulumi.Output<string>;
     /**
      * Portfolio identifier.
      */
-    declare public readonly portfolioId: pulumi.Output<string>;
+    public readonly portfolioId!: pulumi.Output<string>;
     /**
      * Product identifier.
      */
-    declare public readonly productId: pulumi.Output<string>;
+    public readonly productId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
      *
      * The following arguments are optional:
      */
-    declare public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a Constraint resource with the given unique name, arguments, and options.
@@ -113,36 +113,36 @@ export class Constraint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConstraintState | undefined;
-            resourceInputs["acceptLanguage"] = state?.acceptLanguage;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["owner"] = state?.owner;
-            resourceInputs["parameters"] = state?.parameters;
-            resourceInputs["portfolioId"] = state?.portfolioId;
-            resourceInputs["productId"] = state?.productId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["type"] = state?.type;
+            resourceInputs["acceptLanguage"] = state ? state.acceptLanguage : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["owner"] = state ? state.owner : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["portfolioId"] = state ? state.portfolioId : undefined;
+            resourceInputs["productId"] = state ? state.productId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ConstraintArgs | undefined;
-            if (args?.parameters === undefined && !opts.urn) {
+            if ((!args || args.parameters === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'parameters'");
             }
-            if (args?.portfolioId === undefined && !opts.urn) {
+            if ((!args || args.portfolioId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'portfolioId'");
             }
-            if (args?.productId === undefined && !opts.urn) {
+            if ((!args || args.productId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'productId'");
             }
-            if (args?.type === undefined && !opts.urn) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["acceptLanguage"] = args?.acceptLanguage;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["parameters"] = args?.parameters;
-            resourceInputs["portfolioId"] = args?.portfolioId;
-            resourceInputs["productId"] = args?.productId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["type"] = args?.type;
+            resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["portfolioId"] = args ? args.portfolioId : undefined;
+            resourceInputs["productId"] = args ? args.productId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["owner"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         }

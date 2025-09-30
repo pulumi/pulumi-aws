@@ -79,27 +79,27 @@ export class Alias extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) identifying your state machine alias.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The date the state machine alias was created.
      */
-    declare public /*out*/ readonly creationDate: pulumi.Output<string>;
+    public /*out*/ readonly creationDate!: pulumi.Output<string>;
     /**
      * Description of the alias.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Name for the alias you are creating.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The StateMachine alias' route configuration settings. Fields documented below
      */
-    declare public readonly routingConfigurations: pulumi.Output<outputs.sfn.AliasRoutingConfiguration[]>;
+    public readonly routingConfigurations!: pulumi.Output<outputs.sfn.AliasRoutingConfiguration[]>;
 
     /**
      * Create a Alias resource with the given unique name, arguments, and options.
@@ -114,21 +114,21 @@ export class Alias extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AliasState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["creationDate"] = state?.creationDate;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["routingConfigurations"] = state?.routingConfigurations;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["creationDate"] = state ? state.creationDate : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["routingConfigurations"] = state ? state.routingConfigurations : undefined;
         } else {
             const args = argsOrState as AliasArgs | undefined;
-            if (args?.routingConfigurations === undefined && !opts.urn) {
+            if ((!args || args.routingConfigurations === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'routingConfigurations'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["routingConfigurations"] = args?.routingConfigurations;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["routingConfigurations"] = args ? args.routingConfigurations : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
         }

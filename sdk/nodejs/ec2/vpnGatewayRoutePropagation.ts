@@ -54,15 +54,15 @@ export class VpnGatewayRoutePropagation extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The id of the `aws.ec2.RouteTable` to propagate routes into.
      */
-    declare public readonly routeTableId: pulumi.Output<string>;
+    public readonly routeTableId!: pulumi.Output<string>;
     /**
      * The id of the `aws.ec2.VpnGateway` to propagate routes from.
      */
-    declare public readonly vpnGatewayId: pulumi.Output<string>;
+    public readonly vpnGatewayId!: pulumi.Output<string>;
 
     /**
      * Create a VpnGatewayRoutePropagation resource with the given unique name, arguments, and options.
@@ -77,20 +77,20 @@ export class VpnGatewayRoutePropagation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpnGatewayRoutePropagationState | undefined;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["routeTableId"] = state?.routeTableId;
-            resourceInputs["vpnGatewayId"] = state?.vpnGatewayId;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["routeTableId"] = state ? state.routeTableId : undefined;
+            resourceInputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
         } else {
             const args = argsOrState as VpnGatewayRoutePropagationArgs | undefined;
-            if (args?.routeTableId === undefined && !opts.urn) {
+            if ((!args || args.routeTableId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'routeTableId'");
             }
-            if (args?.vpnGatewayId === undefined && !opts.urn) {
+            if ((!args || args.vpnGatewayId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpnGatewayId'");
             }
-            resourceInputs["region"] = args?.region;
-            resourceInputs["routeTableId"] = args?.routeTableId;
-            resourceInputs["vpnGatewayId"] = args?.vpnGatewayId;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["routeTableId"] = args ? args.routeTableId : undefined;
+            resourceInputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VpnGatewayRoutePropagation.__pulumiType, name, resourceInputs, opts);

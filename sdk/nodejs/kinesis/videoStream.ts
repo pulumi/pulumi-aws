@@ -65,48 +65,48 @@ export class VideoStream extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A time stamp that indicates when the stream was created.
      */
-    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
     /**
      * The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
      */
-    declare public readonly dataRetentionInHours: pulumi.Output<number | undefined>;
+    public readonly dataRetentionInHours!: pulumi.Output<number | undefined>;
     /**
      * The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
      */
-    declare public readonly deviceName: pulumi.Output<string | undefined>;
+    public readonly deviceName!: pulumi.Output<string | undefined>;
     /**
      * The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
      */
-    declare public readonly kmsKeyId: pulumi.Output<string>;
+    public readonly kmsKeyId!: pulumi.Output<string>;
     /**
      * The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
      */
-    declare public readonly mediaType: pulumi.Output<string | undefined>;
+    public readonly mediaType!: pulumi.Output<string | undefined>;
     /**
      * A name to identify the stream. This is unique to the
      * AWS account and region the Stream is created in.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The version of the stream.
      */
-    declare public /*out*/ readonly version: pulumi.Output<string>;
+    public /*out*/ readonly version!: pulumi.Output<string>;
 
     /**
      * Create a VideoStream resource with the given unique name, arguments, and options.
@@ -121,26 +121,26 @@ export class VideoStream extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VideoStreamState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["creationTime"] = state?.creationTime;
-            resourceInputs["dataRetentionInHours"] = state?.dataRetentionInHours;
-            resourceInputs["deviceName"] = state?.deviceName;
-            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
-            resourceInputs["mediaType"] = state?.mediaType;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["version"] = state?.version;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["creationTime"] = state ? state.creationTime : undefined;
+            resourceInputs["dataRetentionInHours"] = state ? state.dataRetentionInHours : undefined;
+            resourceInputs["deviceName"] = state ? state.deviceName : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["mediaType"] = state ? state.mediaType : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as VideoStreamArgs | undefined;
-            resourceInputs["dataRetentionInHours"] = args?.dataRetentionInHours;
-            resourceInputs["deviceName"] = args?.deviceName;
-            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
-            resourceInputs["mediaType"] = args?.mediaType;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["dataRetentionInHours"] = args ? args.dataRetentionInHours : undefined;
+            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["mediaType"] = args ? args.mediaType : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

@@ -68,55 +68,55 @@ export class Account extends pulumi.CustomResource {
     /**
      * The ARN for this account.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
      */
-    declare public readonly closeOnDeletion: pulumi.Output<boolean | undefined>;
+    public readonly closeOnDeletion!: pulumi.Output<boolean | undefined>;
     /**
      * Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloudId` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
      */
-    declare public readonly createGovcloud: pulumi.Output<boolean | undefined>;
+    public readonly createGovcloud!: pulumi.Output<boolean | undefined>;
     /**
      * Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
      */
-    declare public readonly email: pulumi.Output<string>;
+    public readonly email!: pulumi.Output<string>;
     /**
      * ID for a GovCloud account created with the account.
      */
-    declare public /*out*/ readonly govcloudId: pulumi.Output<string>;
+    public /*out*/ readonly govcloudId!: pulumi.Output<string>;
     /**
      * If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
      */
-    declare public readonly iamUserAccessToBilling: pulumi.Output<string | undefined>;
-    declare public /*out*/ readonly joinedMethod: pulumi.Output<string>;
-    declare public /*out*/ readonly joinedTimestamp: pulumi.Output<string>;
+    public readonly iamUserAccessToBilling!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly joinedMethod!: pulumi.Output<string>;
+    public /*out*/ readonly joinedTimestamp!: pulumi.Output<string>;
     /**
      * Friendly name for the member account.
      *
      * The following arguments are optional:
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
      */
-    declare public readonly parentId: pulumi.Output<string>;
+    public readonly parentId!: pulumi.Output<string>;
     /**
      * The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.
      */
-    declare public readonly roleName: pulumi.Output<string | undefined>;
+    public readonly roleName!: pulumi.Output<string | undefined>;
     /**
      * The status of the account in the organization.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -131,33 +131,33 @@ export class Account extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["closeOnDeletion"] = state?.closeOnDeletion;
-            resourceInputs["createGovcloud"] = state?.createGovcloud;
-            resourceInputs["email"] = state?.email;
-            resourceInputs["govcloudId"] = state?.govcloudId;
-            resourceInputs["iamUserAccessToBilling"] = state?.iamUserAccessToBilling;
-            resourceInputs["joinedMethod"] = state?.joinedMethod;
-            resourceInputs["joinedTimestamp"] = state?.joinedTimestamp;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["parentId"] = state?.parentId;
-            resourceInputs["roleName"] = state?.roleName;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["closeOnDeletion"] = state ? state.closeOnDeletion : undefined;
+            resourceInputs["createGovcloud"] = state ? state.createGovcloud : undefined;
+            resourceInputs["email"] = state ? state.email : undefined;
+            resourceInputs["govcloudId"] = state ? state.govcloudId : undefined;
+            resourceInputs["iamUserAccessToBilling"] = state ? state.iamUserAccessToBilling : undefined;
+            resourceInputs["joinedMethod"] = state ? state.joinedMethod : undefined;
+            resourceInputs["joinedTimestamp"] = state ? state.joinedTimestamp : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parentId"] = state ? state.parentId : undefined;
+            resourceInputs["roleName"] = state ? state.roleName : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
-            if (args?.email === undefined && !opts.urn) {
+            if ((!args || args.email === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            resourceInputs["closeOnDeletion"] = args?.closeOnDeletion;
-            resourceInputs["createGovcloud"] = args?.createGovcloud;
-            resourceInputs["email"] = args?.email;
-            resourceInputs["iamUserAccessToBilling"] = args?.iamUserAccessToBilling;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["parentId"] = args?.parentId;
-            resourceInputs["roleName"] = args?.roleName;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["closeOnDeletion"] = args ? args.closeOnDeletion : undefined;
+            resourceInputs["createGovcloud"] = args ? args.createGovcloud : undefined;
+            resourceInputs["email"] = args ? args.email : undefined;
+            resourceInputs["iamUserAccessToBilling"] = args ? args.iamUserAccessToBilling : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parentId"] = args ? args.parentId : undefined;
+            resourceInputs["roleName"] = args ? args.roleName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["govcloudId"] = undefined /*out*/;
             resourceInputs["joinedMethod"] = undefined /*out*/;

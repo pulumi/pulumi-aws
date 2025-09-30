@@ -68,39 +68,39 @@ export class LogDelivery extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the delivery.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The ARN of the delivery destination to use for this delivery.
      */
-    declare public readonly deliveryDestinationArn: pulumi.Output<string>;
+    public readonly deliveryDestinationArn!: pulumi.Output<string>;
     /**
      * The name of the delivery source to use for this delivery.
      */
-    declare public readonly deliverySourceName: pulumi.Output<string>;
+    public readonly deliverySourceName!: pulumi.Output<string>;
     /**
      * The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
      */
-    declare public readonly fieldDelimiter: pulumi.Output<string>;
+    public readonly fieldDelimiter!: pulumi.Output<string>;
     /**
      * The list of record fields to be delivered to the destination, in order.
      */
-    declare public readonly recordFields: pulumi.Output<string[]>;
+    public readonly recordFields!: pulumi.Output<string[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
      */
-    declare public readonly s3DeliveryConfigurations: pulumi.Output<outputs.cloudwatch.LogDeliveryS3DeliveryConfiguration[]>;
+    public readonly s3DeliveryConfigurations!: pulumi.Output<outputs.cloudwatch.LogDeliveryS3DeliveryConfiguration[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a LogDelivery resource with the given unique name, arguments, and options.
@@ -115,30 +115,30 @@ export class LogDelivery extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogDeliveryState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["deliveryDestinationArn"] = state?.deliveryDestinationArn;
-            resourceInputs["deliverySourceName"] = state?.deliverySourceName;
-            resourceInputs["fieldDelimiter"] = state?.fieldDelimiter;
-            resourceInputs["recordFields"] = state?.recordFields;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["s3DeliveryConfigurations"] = state?.s3DeliveryConfigurations;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["deliveryDestinationArn"] = state ? state.deliveryDestinationArn : undefined;
+            resourceInputs["deliverySourceName"] = state ? state.deliverySourceName : undefined;
+            resourceInputs["fieldDelimiter"] = state ? state.fieldDelimiter : undefined;
+            resourceInputs["recordFields"] = state ? state.recordFields : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["s3DeliveryConfigurations"] = state ? state.s3DeliveryConfigurations : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as LogDeliveryArgs | undefined;
-            if (args?.deliveryDestinationArn === undefined && !opts.urn) {
+            if ((!args || args.deliveryDestinationArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deliveryDestinationArn'");
             }
-            if (args?.deliverySourceName === undefined && !opts.urn) {
+            if ((!args || args.deliverySourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deliverySourceName'");
             }
-            resourceInputs["deliveryDestinationArn"] = args?.deliveryDestinationArn;
-            resourceInputs["deliverySourceName"] = args?.deliverySourceName;
-            resourceInputs["fieldDelimiter"] = args?.fieldDelimiter;
-            resourceInputs["recordFields"] = args?.recordFields;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["s3DeliveryConfigurations"] = args?.s3DeliveryConfigurations;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["deliveryDestinationArn"] = args ? args.deliveryDestinationArn : undefined;
+            resourceInputs["deliverySourceName"] = args ? args.deliverySourceName : undefined;
+            resourceInputs["fieldDelimiter"] = args ? args.fieldDelimiter : undefined;
+            resourceInputs["recordFields"] = args ? args.recordFields : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["s3DeliveryConfigurations"] = args ? args.s3DeliveryConfigurations : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

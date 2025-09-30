@@ -159,23 +159,23 @@ export class ConfigurationPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConfigurationPolicy.__pulumiType;
     }
 
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Defines how Security Hub is configured. See below.
      */
-    declare public readonly configurationPolicy: pulumi.Output<outputs.securityhub.ConfigurationPolicyConfigurationPolicy>;
+    public readonly configurationPolicy!: pulumi.Output<outputs.securityhub.ConfigurationPolicyConfigurationPolicy>;
     /**
      * The description of the configuration policy.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The name of the configuration policy.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ConfigurationPolicy resource with the given unique name, arguments, and options.
@@ -190,20 +190,20 @@ export class ConfigurationPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConfigurationPolicyState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["configurationPolicy"] = state?.configurationPolicy;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["configurationPolicy"] = state ? state.configurationPolicy : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ConfigurationPolicyArgs | undefined;
-            if (args?.configurationPolicy === undefined && !opts.urn) {
+            if ((!args || args.configurationPolicy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'configurationPolicy'");
             }
-            resourceInputs["configurationPolicy"] = args?.configurationPolicy;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["configurationPolicy"] = args ? args.configurationPolicy : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

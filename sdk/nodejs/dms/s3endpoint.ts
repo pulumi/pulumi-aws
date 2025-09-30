@@ -131,221 +131,221 @@ export class S3Endpoint extends pulumi.CustomResource {
     /**
      * Whether to add column name information to the .csv output file. Default is `false`.
      */
-    declare public readonly addColumnName: pulumi.Output<boolean | undefined>;
+    public readonly addColumnName!: pulumi.Output<boolean | undefined>;
     /**
      * Whether to add padding. Default is `false`. (Ignored for source endpoints.)
      */
-    declare public readonly addTrailingPaddingCharacter: pulumi.Output<boolean | undefined>;
+    public readonly addTrailingPaddingCharacter!: pulumi.Output<boolean | undefined>;
     /**
      * S3 object prefix.
      */
-    declare public readonly bucketFolder: pulumi.Output<string | undefined>;
+    public readonly bucketFolder!: pulumi.Output<string | undefined>;
     /**
      * S3 bucket name.
      */
-    declare public readonly bucketName: pulumi.Output<string>;
+    public readonly bucketName!: pulumi.Output<string>;
     /**
      * Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
      */
-    declare public readonly cannedAclForObjects: pulumi.Output<string | undefined>;
+    public readonly cannedAclForObjects!: pulumi.Output<string | undefined>;
     /**
      * Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
      */
-    declare public readonly cdcInsertsAndUpdates: pulumi.Output<boolean | undefined>;
+    public readonly cdcInsertsAndUpdates!: pulumi.Output<boolean | undefined>;
     /**
      * Whether to write insert operations to .csv or .parquet output files. Default is `false`.
      */
-    declare public readonly cdcInsertsOnly: pulumi.Output<boolean | undefined>;
+    public readonly cdcInsertsOnly!: pulumi.Output<boolean | undefined>;
     /**
      * Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
      */
-    declare public readonly cdcMaxBatchInterval: pulumi.Output<number | undefined>;
+    public readonly cdcMaxBatchInterval!: pulumi.Output<number | undefined>;
     /**
      * Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
      */
-    declare public readonly cdcMinFileSize: pulumi.Output<number | undefined>;
+    public readonly cdcMinFileSize!: pulumi.Output<number | undefined>;
     /**
      * Folder path of CDC files. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
      */
-    declare public readonly cdcPath: pulumi.Output<string | undefined>;
+    public readonly cdcPath!: pulumi.Output<string | undefined>;
     /**
      * ARN for the certificate.
      */
-    declare public readonly certificateArn: pulumi.Output<string>;
+    public readonly certificateArn!: pulumi.Output<string>;
     /**
      * Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
      */
-    declare public readonly compressionType: pulumi.Output<string | undefined>;
+    public readonly compressionType!: pulumi.Output<string | undefined>;
     /**
      * Delimiter used to separate columns in the source files. Default is `,`.
      */
-    declare public readonly csvDelimiter: pulumi.Output<string | undefined>;
+    public readonly csvDelimiter!: pulumi.Output<string | undefined>;
     /**
      * Only applies if output files for a CDC load are written in .csv format. If `useCsvNoSupValue` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `useCsvNoSupValue`. (Ignored for source endpoints.)
      */
-    declare public readonly csvNoSupValue: pulumi.Output<string | undefined>;
+    public readonly csvNoSupValue!: pulumi.Output<string | undefined>;
     /**
      * String to as null when writing to the target. (AWS default is `NULL`.)
      */
-    declare public readonly csvNullValue: pulumi.Output<string | undefined>;
+    public readonly csvNullValue!: pulumi.Output<string | undefined>;
     /**
      * Delimiter used to separate rows in the source files. Default is newline (_i.e._, `\n`).
      */
-    declare public readonly csvRowDelimiter: pulumi.Output<string | undefined>;
+    public readonly csvRowDelimiter!: pulumi.Output<string | undefined>;
     /**
      * Output format for the files that AWS DMS uses to create S3 objects. Valid values are `csv` and `parquet`.  (Ignored for source endpoints -- only `csv` is valid.)
      */
-    declare public readonly dataFormat: pulumi.Output<string | undefined>;
+    public readonly dataFormat!: pulumi.Output<string | undefined>;
     /**
      * Size of one data page in bytes. (AWS default is 1 MiB, _i.e._, `1048576`.)
      */
-    declare public readonly dataPageSize: pulumi.Output<number | undefined>;
+    public readonly dataPageSize!: pulumi.Output<number | undefined>;
     /**
      * Date separating delimiter to use during folder partitioning. Valid values are `SLASH`, `UNDERSCORE`, `DASH`, and `NONE`. (AWS default is `SLASH`.) (Ignored for source endpoints.)
      */
-    declare public readonly datePartitionDelimiter: pulumi.Output<string | undefined>;
+    public readonly datePartitionDelimiter!: pulumi.Output<string | undefined>;
     /**
      * Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
      */
-    declare public readonly datePartitionEnabled: pulumi.Output<boolean | undefined>;
+    public readonly datePartitionEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Date format to use during folder partitioning. Use this parameter when `datePartitionEnabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
      */
-    declare public readonly datePartitionSequence: pulumi.Output<string | undefined>;
+    public readonly datePartitionSequence!: pulumi.Output<string | undefined>;
     /**
      * Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `datePartitionEnabled` is `true`. (Ignored for source endpoints.)
      */
-    declare public readonly datePartitionTimezone: pulumi.Output<string | undefined>;
+    public readonly datePartitionTimezone!: pulumi.Output<string | undefined>;
     /**
      * Undocumented argument for use as directed by AWS Support.
      */
-    declare public readonly detachTargetOnLobLookupFailureParquet: pulumi.Output<boolean | undefined>;
+    public readonly detachTargetOnLobLookupFailureParquet!: pulumi.Output<boolean | undefined>;
     /**
      * Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
      */
-    declare public readonly dictPageSizeLimit: pulumi.Output<number | undefined>;
+    public readonly dictPageSizeLimit!: pulumi.Output<number | undefined>;
     /**
      * Whether to enable statistics for Parquet pages and row groups. Default is `true`.
      */
-    declare public readonly enableStatistics: pulumi.Output<boolean | undefined>;
+    public readonly enableStatistics!: pulumi.Output<boolean | undefined>;
     /**
      * Type of encoding to use. Value values are `rleDictionary`, `plain`, and `plainDictionary`. (AWS default is `rleDictionary`.)
      */
-    declare public readonly encodingType: pulumi.Output<string | undefined>;
+    public readonly encodingType!: pulumi.Output<string | undefined>;
     /**
      * Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
      */
-    declare public readonly encryptionMode: pulumi.Output<string | undefined>;
+    public readonly encryptionMode!: pulumi.Output<string | undefined>;
     /**
      * ARN for the endpoint.
      */
-    declare public /*out*/ readonly endpointArn: pulumi.Output<string>;
+    public /*out*/ readonly endpointArn!: pulumi.Output<string>;
     /**
      * Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
      */
-    declare public readonly endpointId: pulumi.Output<string>;
+    public readonly endpointId!: pulumi.Output<string>;
     /**
      * Type of endpoint. Valid values are `source`, `target`.
      */
-    declare public readonly endpointType: pulumi.Output<string>;
+    public readonly endpointType!: pulumi.Output<string>;
     /**
      * Expanded name for the engine name.
      */
-    declare public /*out*/ readonly engineDisplayName: pulumi.Output<string>;
+    public /*out*/ readonly engineDisplayName!: pulumi.Output<string>;
     /**
      * Bucket owner to prevent sniping. Value is an AWS account ID.
      */
-    declare public readonly expectedBucketOwner: pulumi.Output<string | undefined>;
+    public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
     /**
      * Can be used for cross-account validation. Use it in another account with `aws.dms.S3Endpoint` to create the endpoint cross-account.
      */
-    declare public /*out*/ readonly externalId: pulumi.Output<string>;
+    public /*out*/ readonly externalId!: pulumi.Output<string>;
     /**
      * JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
      */
-    declare public readonly externalTableDefinition: pulumi.Output<string | undefined>;
+    public readonly externalTableDefinition!: pulumi.Output<string | undefined>;
     /**
      * Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
      */
-    declare public readonly glueCatalogGeneration: pulumi.Output<boolean | undefined>;
+    public readonly glueCatalogGeneration!: pulumi.Output<boolean | undefined>;
     /**
      * When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
      */
-    declare public readonly ignoreHeaderRows: pulumi.Output<number | undefined>;
+    public readonly ignoreHeaderRows!: pulumi.Output<number | undefined>;
     /**
      * Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
      */
-    declare public readonly includeOpForFullLoad: pulumi.Output<boolean | undefined>;
+    public readonly includeOpForFullLoad!: pulumi.Output<boolean | undefined>;
     /**
      * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      */
-    declare public readonly kmsKeyArn: pulumi.Output<string>;
+    public readonly kmsKeyArn!: pulumi.Output<string>;
     /**
      * Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
      */
-    declare public readonly maxFileSize: pulumi.Output<number | undefined>;
+    public readonly maxFileSize!: pulumi.Output<number | undefined>;
     /**
      * Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
      */
-    declare public readonly parquetTimestampInMillisecond: pulumi.Output<boolean | undefined>;
+    public readonly parquetTimestampInMillisecond!: pulumi.Output<boolean | undefined>;
     /**
      * Version of the .parquet file format. Valid values are `parquet-1-0` and `parquet-2-0`. (AWS default is `parquet-1-0`.) (Ignored for source endpoints.)
      */
-    declare public readonly parquetVersion: pulumi.Output<string | undefined>;
+    public readonly parquetVersion!: pulumi.Output<string | undefined>;
     /**
      * Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdcPath`. Default is `false`. (Ignored for source endpoints.)
      */
-    declare public readonly preserveTransactions: pulumi.Output<boolean | undefined>;
+    public readonly preserveTransactions!: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
      */
-    declare public readonly rfc4180: pulumi.Output<boolean | undefined>;
+    public readonly rfc4180!: pulumi.Output<boolean | undefined>;
     /**
      * Number of rows in a row group. (AWS default is `10000`.)
      */
-    declare public readonly rowGroupLength: pulumi.Output<number | undefined>;
+    public readonly rowGroupLength!: pulumi.Output<number | undefined>;
     /**
      * When `encryptionMode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryptionMode` is valid.)
      */
-    declare public readonly serverSideEncryptionKmsKeyId: pulumi.Output<string | undefined>;
+    public readonly serverSideEncryptionKmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * ARN of the IAM role with permissions to the S3 Bucket.
      *
      * The following arguments are optional:
      */
-    declare public readonly serviceAccessRoleArn: pulumi.Output<string>;
+    public readonly serviceAccessRoleArn!: pulumi.Output<string>;
     /**
      * SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
      */
-    declare public readonly sslMode: pulumi.Output<string>;
+    public readonly sslMode!: pulumi.Output<string>;
     /**
      * Status of the endpoint.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Column to add with timestamp information to the endpoint data for an Amazon S3 target.
      */
-    declare public readonly timestampColumnName: pulumi.Output<string | undefined>;
+    public readonly timestampColumnName!: pulumi.Output<string | undefined>;
     /**
      * Whether to use `csvNoSupValue` for columns not included in the supplemental log. (Ignored for source endpoints.)
      */
-    declare public readonly useCsvNoSupValue: pulumi.Output<boolean | undefined>;
+    public readonly useCsvNoSupValue!: pulumi.Output<boolean | undefined>;
     /**
      * When set to `true`, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to `true`, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
      */
-    declare public readonly useTaskStartTimeForFullLoadTimestamp: pulumi.Output<boolean | undefined>;
+    public readonly useTaskStartTimeForFullLoadTimestamp!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a S3Endpoint resource with the given unique name, arguments, and options.
@@ -360,123 +360,123 @@ export class S3Endpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as S3EndpointState | undefined;
-            resourceInputs["addColumnName"] = state?.addColumnName;
-            resourceInputs["addTrailingPaddingCharacter"] = state?.addTrailingPaddingCharacter;
-            resourceInputs["bucketFolder"] = state?.bucketFolder;
-            resourceInputs["bucketName"] = state?.bucketName;
-            resourceInputs["cannedAclForObjects"] = state?.cannedAclForObjects;
-            resourceInputs["cdcInsertsAndUpdates"] = state?.cdcInsertsAndUpdates;
-            resourceInputs["cdcInsertsOnly"] = state?.cdcInsertsOnly;
-            resourceInputs["cdcMaxBatchInterval"] = state?.cdcMaxBatchInterval;
-            resourceInputs["cdcMinFileSize"] = state?.cdcMinFileSize;
-            resourceInputs["cdcPath"] = state?.cdcPath;
-            resourceInputs["certificateArn"] = state?.certificateArn;
-            resourceInputs["compressionType"] = state?.compressionType;
-            resourceInputs["csvDelimiter"] = state?.csvDelimiter;
-            resourceInputs["csvNoSupValue"] = state?.csvNoSupValue;
-            resourceInputs["csvNullValue"] = state?.csvNullValue;
-            resourceInputs["csvRowDelimiter"] = state?.csvRowDelimiter;
-            resourceInputs["dataFormat"] = state?.dataFormat;
-            resourceInputs["dataPageSize"] = state?.dataPageSize;
-            resourceInputs["datePartitionDelimiter"] = state?.datePartitionDelimiter;
-            resourceInputs["datePartitionEnabled"] = state?.datePartitionEnabled;
-            resourceInputs["datePartitionSequence"] = state?.datePartitionSequence;
-            resourceInputs["datePartitionTimezone"] = state?.datePartitionTimezone;
-            resourceInputs["detachTargetOnLobLookupFailureParquet"] = state?.detachTargetOnLobLookupFailureParquet;
-            resourceInputs["dictPageSizeLimit"] = state?.dictPageSizeLimit;
-            resourceInputs["enableStatistics"] = state?.enableStatistics;
-            resourceInputs["encodingType"] = state?.encodingType;
-            resourceInputs["encryptionMode"] = state?.encryptionMode;
-            resourceInputs["endpointArn"] = state?.endpointArn;
-            resourceInputs["endpointId"] = state?.endpointId;
-            resourceInputs["endpointType"] = state?.endpointType;
-            resourceInputs["engineDisplayName"] = state?.engineDisplayName;
-            resourceInputs["expectedBucketOwner"] = state?.expectedBucketOwner;
-            resourceInputs["externalId"] = state?.externalId;
-            resourceInputs["externalTableDefinition"] = state?.externalTableDefinition;
-            resourceInputs["glueCatalogGeneration"] = state?.glueCatalogGeneration;
-            resourceInputs["ignoreHeaderRows"] = state?.ignoreHeaderRows;
-            resourceInputs["includeOpForFullLoad"] = state?.includeOpForFullLoad;
-            resourceInputs["kmsKeyArn"] = state?.kmsKeyArn;
-            resourceInputs["maxFileSize"] = state?.maxFileSize;
-            resourceInputs["parquetTimestampInMillisecond"] = state?.parquetTimestampInMillisecond;
-            resourceInputs["parquetVersion"] = state?.parquetVersion;
-            resourceInputs["preserveTransactions"] = state?.preserveTransactions;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["rfc4180"] = state?.rfc4180;
-            resourceInputs["rowGroupLength"] = state?.rowGroupLength;
-            resourceInputs["serverSideEncryptionKmsKeyId"] = state?.serverSideEncryptionKmsKeyId;
-            resourceInputs["serviceAccessRoleArn"] = state?.serviceAccessRoleArn;
-            resourceInputs["sslMode"] = state?.sslMode;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timestampColumnName"] = state?.timestampColumnName;
-            resourceInputs["useCsvNoSupValue"] = state?.useCsvNoSupValue;
-            resourceInputs["useTaskStartTimeForFullLoadTimestamp"] = state?.useTaskStartTimeForFullLoadTimestamp;
+            resourceInputs["addColumnName"] = state ? state.addColumnName : undefined;
+            resourceInputs["addTrailingPaddingCharacter"] = state ? state.addTrailingPaddingCharacter : undefined;
+            resourceInputs["bucketFolder"] = state ? state.bucketFolder : undefined;
+            resourceInputs["bucketName"] = state ? state.bucketName : undefined;
+            resourceInputs["cannedAclForObjects"] = state ? state.cannedAclForObjects : undefined;
+            resourceInputs["cdcInsertsAndUpdates"] = state ? state.cdcInsertsAndUpdates : undefined;
+            resourceInputs["cdcInsertsOnly"] = state ? state.cdcInsertsOnly : undefined;
+            resourceInputs["cdcMaxBatchInterval"] = state ? state.cdcMaxBatchInterval : undefined;
+            resourceInputs["cdcMinFileSize"] = state ? state.cdcMinFileSize : undefined;
+            resourceInputs["cdcPath"] = state ? state.cdcPath : undefined;
+            resourceInputs["certificateArn"] = state ? state.certificateArn : undefined;
+            resourceInputs["compressionType"] = state ? state.compressionType : undefined;
+            resourceInputs["csvDelimiter"] = state ? state.csvDelimiter : undefined;
+            resourceInputs["csvNoSupValue"] = state ? state.csvNoSupValue : undefined;
+            resourceInputs["csvNullValue"] = state ? state.csvNullValue : undefined;
+            resourceInputs["csvRowDelimiter"] = state ? state.csvRowDelimiter : undefined;
+            resourceInputs["dataFormat"] = state ? state.dataFormat : undefined;
+            resourceInputs["dataPageSize"] = state ? state.dataPageSize : undefined;
+            resourceInputs["datePartitionDelimiter"] = state ? state.datePartitionDelimiter : undefined;
+            resourceInputs["datePartitionEnabled"] = state ? state.datePartitionEnabled : undefined;
+            resourceInputs["datePartitionSequence"] = state ? state.datePartitionSequence : undefined;
+            resourceInputs["datePartitionTimezone"] = state ? state.datePartitionTimezone : undefined;
+            resourceInputs["detachTargetOnLobLookupFailureParquet"] = state ? state.detachTargetOnLobLookupFailureParquet : undefined;
+            resourceInputs["dictPageSizeLimit"] = state ? state.dictPageSizeLimit : undefined;
+            resourceInputs["enableStatistics"] = state ? state.enableStatistics : undefined;
+            resourceInputs["encodingType"] = state ? state.encodingType : undefined;
+            resourceInputs["encryptionMode"] = state ? state.encryptionMode : undefined;
+            resourceInputs["endpointArn"] = state ? state.endpointArn : undefined;
+            resourceInputs["endpointId"] = state ? state.endpointId : undefined;
+            resourceInputs["endpointType"] = state ? state.endpointType : undefined;
+            resourceInputs["engineDisplayName"] = state ? state.engineDisplayName : undefined;
+            resourceInputs["expectedBucketOwner"] = state ? state.expectedBucketOwner : undefined;
+            resourceInputs["externalId"] = state ? state.externalId : undefined;
+            resourceInputs["externalTableDefinition"] = state ? state.externalTableDefinition : undefined;
+            resourceInputs["glueCatalogGeneration"] = state ? state.glueCatalogGeneration : undefined;
+            resourceInputs["ignoreHeaderRows"] = state ? state.ignoreHeaderRows : undefined;
+            resourceInputs["includeOpForFullLoad"] = state ? state.includeOpForFullLoad : undefined;
+            resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
+            resourceInputs["maxFileSize"] = state ? state.maxFileSize : undefined;
+            resourceInputs["parquetTimestampInMillisecond"] = state ? state.parquetTimestampInMillisecond : undefined;
+            resourceInputs["parquetVersion"] = state ? state.parquetVersion : undefined;
+            resourceInputs["preserveTransactions"] = state ? state.preserveTransactions : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["rfc4180"] = state ? state.rfc4180 : undefined;
+            resourceInputs["rowGroupLength"] = state ? state.rowGroupLength : undefined;
+            resourceInputs["serverSideEncryptionKmsKeyId"] = state ? state.serverSideEncryptionKmsKeyId : undefined;
+            resourceInputs["serviceAccessRoleArn"] = state ? state.serviceAccessRoleArn : undefined;
+            resourceInputs["sslMode"] = state ? state.sslMode : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timestampColumnName"] = state ? state.timestampColumnName : undefined;
+            resourceInputs["useCsvNoSupValue"] = state ? state.useCsvNoSupValue : undefined;
+            resourceInputs["useTaskStartTimeForFullLoadTimestamp"] = state ? state.useTaskStartTimeForFullLoadTimestamp : undefined;
         } else {
             const args = argsOrState as S3EndpointArgs | undefined;
-            if (args?.bucketName === undefined && !opts.urn) {
+            if ((!args || args.bucketName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucketName'");
             }
-            if (args?.endpointId === undefined && !opts.urn) {
+            if ((!args || args.endpointId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endpointId'");
             }
-            if (args?.endpointType === undefined && !opts.urn) {
+            if ((!args || args.endpointType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endpointType'");
             }
-            if (args?.serviceAccessRoleArn === undefined && !opts.urn) {
+            if ((!args || args.serviceAccessRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceAccessRoleArn'");
             }
-            resourceInputs["addColumnName"] = args?.addColumnName;
-            resourceInputs["addTrailingPaddingCharacter"] = args?.addTrailingPaddingCharacter;
-            resourceInputs["bucketFolder"] = args?.bucketFolder;
-            resourceInputs["bucketName"] = args?.bucketName;
-            resourceInputs["cannedAclForObjects"] = args?.cannedAclForObjects;
-            resourceInputs["cdcInsertsAndUpdates"] = args?.cdcInsertsAndUpdates;
-            resourceInputs["cdcInsertsOnly"] = args?.cdcInsertsOnly;
-            resourceInputs["cdcMaxBatchInterval"] = args?.cdcMaxBatchInterval;
-            resourceInputs["cdcMinFileSize"] = args?.cdcMinFileSize;
-            resourceInputs["cdcPath"] = args?.cdcPath;
-            resourceInputs["certificateArn"] = args?.certificateArn;
-            resourceInputs["compressionType"] = args?.compressionType;
-            resourceInputs["csvDelimiter"] = args?.csvDelimiter;
-            resourceInputs["csvNoSupValue"] = args?.csvNoSupValue;
-            resourceInputs["csvNullValue"] = args?.csvNullValue;
-            resourceInputs["csvRowDelimiter"] = args?.csvRowDelimiter;
-            resourceInputs["dataFormat"] = args?.dataFormat;
-            resourceInputs["dataPageSize"] = args?.dataPageSize;
-            resourceInputs["datePartitionDelimiter"] = args?.datePartitionDelimiter;
-            resourceInputs["datePartitionEnabled"] = args?.datePartitionEnabled;
-            resourceInputs["datePartitionSequence"] = args?.datePartitionSequence;
-            resourceInputs["datePartitionTimezone"] = args?.datePartitionTimezone;
-            resourceInputs["detachTargetOnLobLookupFailureParquet"] = args?.detachTargetOnLobLookupFailureParquet;
-            resourceInputs["dictPageSizeLimit"] = args?.dictPageSizeLimit;
-            resourceInputs["enableStatistics"] = args?.enableStatistics;
-            resourceInputs["encodingType"] = args?.encodingType;
-            resourceInputs["encryptionMode"] = args?.encryptionMode;
-            resourceInputs["endpointId"] = args?.endpointId;
-            resourceInputs["endpointType"] = args?.endpointType;
-            resourceInputs["expectedBucketOwner"] = args?.expectedBucketOwner;
-            resourceInputs["externalTableDefinition"] = args?.externalTableDefinition;
-            resourceInputs["glueCatalogGeneration"] = args?.glueCatalogGeneration;
-            resourceInputs["ignoreHeaderRows"] = args?.ignoreHeaderRows;
-            resourceInputs["includeOpForFullLoad"] = args?.includeOpForFullLoad;
-            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
-            resourceInputs["maxFileSize"] = args?.maxFileSize;
-            resourceInputs["parquetTimestampInMillisecond"] = args?.parquetTimestampInMillisecond;
-            resourceInputs["parquetVersion"] = args?.parquetVersion;
-            resourceInputs["preserveTransactions"] = args?.preserveTransactions;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["rfc4180"] = args?.rfc4180;
-            resourceInputs["rowGroupLength"] = args?.rowGroupLength;
-            resourceInputs["serverSideEncryptionKmsKeyId"] = args?.serverSideEncryptionKmsKeyId;
-            resourceInputs["serviceAccessRoleArn"] = args?.serviceAccessRoleArn;
-            resourceInputs["sslMode"] = args?.sslMode;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timestampColumnName"] = args?.timestampColumnName;
-            resourceInputs["useCsvNoSupValue"] = args?.useCsvNoSupValue;
-            resourceInputs["useTaskStartTimeForFullLoadTimestamp"] = args?.useTaskStartTimeForFullLoadTimestamp;
+            resourceInputs["addColumnName"] = args ? args.addColumnName : undefined;
+            resourceInputs["addTrailingPaddingCharacter"] = args ? args.addTrailingPaddingCharacter : undefined;
+            resourceInputs["bucketFolder"] = args ? args.bucketFolder : undefined;
+            resourceInputs["bucketName"] = args ? args.bucketName : undefined;
+            resourceInputs["cannedAclForObjects"] = args ? args.cannedAclForObjects : undefined;
+            resourceInputs["cdcInsertsAndUpdates"] = args ? args.cdcInsertsAndUpdates : undefined;
+            resourceInputs["cdcInsertsOnly"] = args ? args.cdcInsertsOnly : undefined;
+            resourceInputs["cdcMaxBatchInterval"] = args ? args.cdcMaxBatchInterval : undefined;
+            resourceInputs["cdcMinFileSize"] = args ? args.cdcMinFileSize : undefined;
+            resourceInputs["cdcPath"] = args ? args.cdcPath : undefined;
+            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
+            resourceInputs["compressionType"] = args ? args.compressionType : undefined;
+            resourceInputs["csvDelimiter"] = args ? args.csvDelimiter : undefined;
+            resourceInputs["csvNoSupValue"] = args ? args.csvNoSupValue : undefined;
+            resourceInputs["csvNullValue"] = args ? args.csvNullValue : undefined;
+            resourceInputs["csvRowDelimiter"] = args ? args.csvRowDelimiter : undefined;
+            resourceInputs["dataFormat"] = args ? args.dataFormat : undefined;
+            resourceInputs["dataPageSize"] = args ? args.dataPageSize : undefined;
+            resourceInputs["datePartitionDelimiter"] = args ? args.datePartitionDelimiter : undefined;
+            resourceInputs["datePartitionEnabled"] = args ? args.datePartitionEnabled : undefined;
+            resourceInputs["datePartitionSequence"] = args ? args.datePartitionSequence : undefined;
+            resourceInputs["datePartitionTimezone"] = args ? args.datePartitionTimezone : undefined;
+            resourceInputs["detachTargetOnLobLookupFailureParquet"] = args ? args.detachTargetOnLobLookupFailureParquet : undefined;
+            resourceInputs["dictPageSizeLimit"] = args ? args.dictPageSizeLimit : undefined;
+            resourceInputs["enableStatistics"] = args ? args.enableStatistics : undefined;
+            resourceInputs["encodingType"] = args ? args.encodingType : undefined;
+            resourceInputs["encryptionMode"] = args ? args.encryptionMode : undefined;
+            resourceInputs["endpointId"] = args ? args.endpointId : undefined;
+            resourceInputs["endpointType"] = args ? args.endpointType : undefined;
+            resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
+            resourceInputs["externalTableDefinition"] = args ? args.externalTableDefinition : undefined;
+            resourceInputs["glueCatalogGeneration"] = args ? args.glueCatalogGeneration : undefined;
+            resourceInputs["ignoreHeaderRows"] = args ? args.ignoreHeaderRows : undefined;
+            resourceInputs["includeOpForFullLoad"] = args ? args.includeOpForFullLoad : undefined;
+            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
+            resourceInputs["maxFileSize"] = args ? args.maxFileSize : undefined;
+            resourceInputs["parquetTimestampInMillisecond"] = args ? args.parquetTimestampInMillisecond : undefined;
+            resourceInputs["parquetVersion"] = args ? args.parquetVersion : undefined;
+            resourceInputs["preserveTransactions"] = args ? args.preserveTransactions : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["rfc4180"] = args ? args.rfc4180 : undefined;
+            resourceInputs["rowGroupLength"] = args ? args.rowGroupLength : undefined;
+            resourceInputs["serverSideEncryptionKmsKeyId"] = args ? args.serverSideEncryptionKmsKeyId : undefined;
+            resourceInputs["serviceAccessRoleArn"] = args ? args.serviceAccessRoleArn : undefined;
+            resourceInputs["sslMode"] = args ? args.sslMode : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timestampColumnName"] = args ? args.timestampColumnName : undefined;
+            resourceInputs["useCsvNoSupValue"] = args ? args.useCsvNoSupValue : undefined;
+            resourceInputs["useTaskStartTimeForFullLoadTimestamp"] = args ? args.useTaskStartTimeForFullLoadTimestamp : undefined;
             resourceInputs["endpointArn"] = undefined /*out*/;
             resourceInputs["engineDisplayName"] = undefined /*out*/;
             resourceInputs["externalId"] = undefined /*out*/;

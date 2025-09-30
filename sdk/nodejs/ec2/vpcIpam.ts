@@ -71,64 +71,64 @@ export class VpcIpam extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of IPAM
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
      */
-    declare public readonly cascade: pulumi.Output<boolean | undefined>;
+    public readonly cascade!: pulumi.Output<boolean | undefined>;
     /**
      * The IPAM's default resource discovery association ID.
      */
-    declare public /*out*/ readonly defaultResourceDiscoveryAssociationId: pulumi.Output<string>;
+    public /*out*/ readonly defaultResourceDiscoveryAssociationId!: pulumi.Output<string>;
     /**
      * The IPAM's default resource discovery ID.
      */
-    declare public /*out*/ readonly defaultResourceDiscoveryId: pulumi.Output<string>;
+    public /*out*/ readonly defaultResourceDiscoveryId!: pulumi.Output<string>;
     /**
      * A description for the IPAM.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
      */
-    declare public readonly enablePrivateGua: pulumi.Output<boolean | undefined>;
+    public readonly enablePrivateGua!: pulumi.Output<boolean | undefined>;
     /**
      * AWS account that is charged for active IP addresses managed in IPAM. Valid values are `ipam-owner` (default) and `resource-owner`.
      */
-    declare public readonly meteredAccount: pulumi.Output<string>;
+    public readonly meteredAccount!: pulumi.Output<string>;
     /**
      * Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
      */
-    declare public readonly operatingRegions: pulumi.Output<outputs.ec2.VpcIpamOperatingRegion[]>;
+    public readonly operatingRegions!: pulumi.Output<outputs.ec2.VpcIpamOperatingRegion[]>;
     /**
      * The ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
      */
-    declare public /*out*/ readonly privateDefaultScopeId: pulumi.Output<string>;
+    public /*out*/ readonly privateDefaultScopeId!: pulumi.Output<string>;
     /**
      * The ID of the IPAM's public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private
      * IP space. The public scope is intended for all internet-routable IP space.
      */
-    declare public /*out*/ readonly publicDefaultScopeId: pulumi.Output<string>;
+    public /*out*/ readonly publicDefaultScopeId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The number of scopes in the IPAM.
      */
-    declare public /*out*/ readonly scopeCount: pulumi.Output<number>;
+    public /*out*/ readonly scopeCount!: pulumi.Output<number>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
      */
-    declare public readonly tier: pulumi.Output<string | undefined>;
+    public readonly tier!: pulumi.Output<string | undefined>;
 
     /**
      * Create a VpcIpam resource with the given unique name, arguments, and options.
@@ -143,34 +143,34 @@ export class VpcIpam extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcIpamState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["cascade"] = state?.cascade;
-            resourceInputs["defaultResourceDiscoveryAssociationId"] = state?.defaultResourceDiscoveryAssociationId;
-            resourceInputs["defaultResourceDiscoveryId"] = state?.defaultResourceDiscoveryId;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["enablePrivateGua"] = state?.enablePrivateGua;
-            resourceInputs["meteredAccount"] = state?.meteredAccount;
-            resourceInputs["operatingRegions"] = state?.operatingRegions;
-            resourceInputs["privateDefaultScopeId"] = state?.privateDefaultScopeId;
-            resourceInputs["publicDefaultScopeId"] = state?.publicDefaultScopeId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["scopeCount"] = state?.scopeCount;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["tier"] = state?.tier;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["cascade"] = state ? state.cascade : undefined;
+            resourceInputs["defaultResourceDiscoveryAssociationId"] = state ? state.defaultResourceDiscoveryAssociationId : undefined;
+            resourceInputs["defaultResourceDiscoveryId"] = state ? state.defaultResourceDiscoveryId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enablePrivateGua"] = state ? state.enablePrivateGua : undefined;
+            resourceInputs["meteredAccount"] = state ? state.meteredAccount : undefined;
+            resourceInputs["operatingRegions"] = state ? state.operatingRegions : undefined;
+            resourceInputs["privateDefaultScopeId"] = state ? state.privateDefaultScopeId : undefined;
+            resourceInputs["publicDefaultScopeId"] = state ? state.publicDefaultScopeId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["scopeCount"] = state ? state.scopeCount : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["tier"] = state ? state.tier : undefined;
         } else {
             const args = argsOrState as VpcIpamArgs | undefined;
-            if (args?.operatingRegions === undefined && !opts.urn) {
+            if ((!args || args.operatingRegions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'operatingRegions'");
             }
-            resourceInputs["cascade"] = args?.cascade;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["enablePrivateGua"] = args?.enablePrivateGua;
-            resourceInputs["meteredAccount"] = args?.meteredAccount;
-            resourceInputs["operatingRegions"] = args?.operatingRegions;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["tier"] = args?.tier;
+            resourceInputs["cascade"] = args ? args.cascade : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enablePrivateGua"] = args ? args.enablePrivateGua : undefined;
+            resourceInputs["meteredAccount"] = args ? args.meteredAccount : undefined;
+            resourceInputs["operatingRegions"] = args ? args.operatingRegions : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tier"] = args ? args.tier : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["defaultResourceDiscoveryAssociationId"] = undefined /*out*/;
             resourceInputs["defaultResourceDiscoveryId"] = undefined /*out*/;

@@ -144,45 +144,45 @@ export class DefaultNetworkAcl extends pulumi.CustomResource {
     /**
      * ARN of the Default Network ACL
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Network ACL ID to manage. This attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
      *
      * The following arguments are optional:
      */
-    declare public readonly defaultNetworkAclId: pulumi.Output<string>;
+    public readonly defaultNetworkAclId!: pulumi.Output<string>;
     /**
      * Configuration block for an egress rule. Detailed below.
      */
-    declare public readonly egress: pulumi.Output<outputs.ec2.DefaultNetworkAclEgress[] | undefined>;
+    public readonly egress!: pulumi.Output<outputs.ec2.DefaultNetworkAclEgress[] | undefined>;
     /**
      * Configuration block for an ingress rule. Detailed below.
      */
-    declare public readonly ingress: pulumi.Output<outputs.ec2.DefaultNetworkAclIngress[] | undefined>;
+    public readonly ingress!: pulumi.Output<outputs.ec2.DefaultNetworkAclIngress[] | undefined>;
     /**
      * ID of the AWS account that owns the Default Network ACL
      */
-    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
      */
-    declare public readonly subnetIds: pulumi.Output<string[] | undefined>;
+    public readonly subnetIds!: pulumi.Output<string[] | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * ID of the associated VPC
      */
-    declare public /*out*/ readonly vpcId: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a DefaultNetworkAcl resource with the given unique name, arguments, and options.
@@ -197,27 +197,27 @@ export class DefaultNetworkAcl extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DefaultNetworkAclState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["defaultNetworkAclId"] = state?.defaultNetworkAclId;
-            resourceInputs["egress"] = state?.egress;
-            resourceInputs["ingress"] = state?.ingress;
-            resourceInputs["ownerId"] = state?.ownerId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["subnetIds"] = state?.subnetIds;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["vpcId"] = state?.vpcId;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["defaultNetworkAclId"] = state ? state.defaultNetworkAclId : undefined;
+            resourceInputs["egress"] = state ? state.egress : undefined;
+            resourceInputs["ingress"] = state ? state.ingress : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as DefaultNetworkAclArgs | undefined;
-            if (args?.defaultNetworkAclId === undefined && !opts.urn) {
+            if ((!args || args.defaultNetworkAclId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'defaultNetworkAclId'");
             }
-            resourceInputs["defaultNetworkAclId"] = args?.defaultNetworkAclId;
-            resourceInputs["egress"] = args?.egress;
-            resourceInputs["ingress"] = args?.ingress;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["subnetIds"] = args?.subnetIds;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["defaultNetworkAclId"] = args ? args.defaultNetworkAclId : undefined;
+            resourceInputs["egress"] = args ? args.egress : undefined;
+            resourceInputs["ingress"] = args ? args.ingress : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

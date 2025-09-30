@@ -1,0 +1,3 @@
+[[tools.pulumi]]
+version = "3.187.0"
+backend = "aqua:pulumi/pulumi"

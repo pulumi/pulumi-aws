@@ -622,80 +622,80 @@ export class Index extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Index.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
      */
-    declare public readonly capacityUnits: pulumi.Output<outputs.kendra.IndexCapacityUnits>;
+    public readonly capacityUnits!: pulumi.Output<outputs.kendra.IndexCapacityUnits>;
     /**
      * The Unix datetime that the index was created.
      */
-    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
      * The description of the Index.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
      */
-    declare public readonly documentMetadataConfigurationUpdates: pulumi.Output<outputs.kendra.IndexDocumentMetadataConfigurationUpdate[]>;
+    public readonly documentMetadataConfigurationUpdates!: pulumi.Output<outputs.kendra.IndexDocumentMetadataConfigurationUpdate[]>;
     /**
      * The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
      */
-    declare public readonly edition: pulumi.Output<string | undefined>;
+    public readonly edition!: pulumi.Output<string | undefined>;
     /**
      * When the Status field value is `FAILED`, this contains a message that explains why.
      */
-    declare public /*out*/ readonly errorMessage: pulumi.Output<string>;
+    public /*out*/ readonly errorMessage!: pulumi.Output<string>;
     /**
      * A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
      */
-    declare public /*out*/ readonly indexStatistics: pulumi.Output<outputs.kendra.IndexIndexStatistic[]>;
+    public /*out*/ readonly indexStatistics!: pulumi.Output<outputs.kendra.IndexIndexStatistic[]>;
     /**
      * Specifies the name of the Index.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
      */
-    declare public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
      */
-    declare public readonly serverSideEncryptionConfiguration: pulumi.Output<outputs.kendra.IndexServerSideEncryptionConfiguration | undefined>;
+    public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.kendra.IndexServerSideEncryptionConfiguration | undefined>;
     /**
      * The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Tags to apply to the Index. If configured with a provider
      * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Unix datetime that the index was last updated.
      */
-    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
+    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
     /**
      * The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
      */
-    declare public readonly userContextPolicy: pulumi.Output<string | undefined>;
+    public readonly userContextPolicy!: pulumi.Output<string | undefined>;
     /**
      * A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
      */
-    declare public readonly userGroupResolutionConfiguration: pulumi.Output<outputs.kendra.IndexUserGroupResolutionConfiguration | undefined>;
+    public readonly userGroupResolutionConfiguration!: pulumi.Output<outputs.kendra.IndexUserGroupResolutionConfiguration | undefined>;
     /**
      * A block that specifies the user token configuration. Detailed below.
      */
-    declare public readonly userTokenConfigurations: pulumi.Output<outputs.kendra.IndexUserTokenConfigurations | undefined>;
+    public readonly userTokenConfigurations!: pulumi.Output<outputs.kendra.IndexUserTokenConfigurations | undefined>;
 
     /**
      * Create a Index resource with the given unique name, arguments, and options.
@@ -710,42 +710,42 @@ export class Index extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IndexState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["capacityUnits"] = state?.capacityUnits;
-            resourceInputs["createdAt"] = state?.createdAt;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["documentMetadataConfigurationUpdates"] = state?.documentMetadataConfigurationUpdates;
-            resourceInputs["edition"] = state?.edition;
-            resourceInputs["errorMessage"] = state?.errorMessage;
-            resourceInputs["indexStatistics"] = state?.indexStatistics;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["roleArn"] = state?.roleArn;
-            resourceInputs["serverSideEncryptionConfiguration"] = state?.serverSideEncryptionConfiguration;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["updatedAt"] = state?.updatedAt;
-            resourceInputs["userContextPolicy"] = state?.userContextPolicy;
-            resourceInputs["userGroupResolutionConfiguration"] = state?.userGroupResolutionConfiguration;
-            resourceInputs["userTokenConfigurations"] = state?.userTokenConfigurations;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["capacityUnits"] = state ? state.capacityUnits : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["documentMetadataConfigurationUpdates"] = state ? state.documentMetadataConfigurationUpdates : undefined;
+            resourceInputs["edition"] = state ? state.edition : undefined;
+            resourceInputs["errorMessage"] = state ? state.errorMessage : undefined;
+            resourceInputs["indexStatistics"] = state ? state.indexStatistics : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["serverSideEncryptionConfiguration"] = state ? state.serverSideEncryptionConfiguration : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
+            resourceInputs["userContextPolicy"] = state ? state.userContextPolicy : undefined;
+            resourceInputs["userGroupResolutionConfiguration"] = state ? state.userGroupResolutionConfiguration : undefined;
+            resourceInputs["userTokenConfigurations"] = state ? state.userTokenConfigurations : undefined;
         } else {
             const args = argsOrState as IndexArgs | undefined;
-            if (args?.roleArn === undefined && !opts.urn) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["capacityUnits"] = args?.capacityUnits;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["documentMetadataConfigurationUpdates"] = args?.documentMetadataConfigurationUpdates;
-            resourceInputs["edition"] = args?.edition;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["roleArn"] = args?.roleArn;
-            resourceInputs["serverSideEncryptionConfiguration"] = args?.serverSideEncryptionConfiguration;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["userContextPolicy"] = args?.userContextPolicy;
-            resourceInputs["userGroupResolutionConfiguration"] = args?.userGroupResolutionConfiguration;
-            resourceInputs["userTokenConfigurations"] = args?.userTokenConfigurations;
+            resourceInputs["capacityUnits"] = args ? args.capacityUnits : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["documentMetadataConfigurationUpdates"] = args ? args.documentMetadataConfigurationUpdates : undefined;
+            resourceInputs["edition"] = args ? args.edition : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["serverSideEncryptionConfiguration"] = args ? args.serverSideEncryptionConfiguration : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userContextPolicy"] = args ? args.userContextPolicy : undefined;
+            resourceInputs["userGroupResolutionConfiguration"] = args ? args.userGroupResolutionConfiguration : undefined;
+            resourceInputs["userTokenConfigurations"] = args ? args.userTokenConfigurations : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["errorMessage"] = undefined /*out*/;

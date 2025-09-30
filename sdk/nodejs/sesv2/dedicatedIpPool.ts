@@ -69,26 +69,26 @@ export class DedicatedIpPool extends pulumi.CustomResource {
     /**
      * ARN of the Dedicated IP Pool.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Name of the dedicated IP pool.
      *
      * The following arguments are optional:
      */
-    declare public readonly poolName: pulumi.Output<string>;
+    public readonly poolName!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
      */
-    declare public readonly scalingMode: pulumi.Output<string>;
+    public readonly scalingMode!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a DedicatedIpPool resource with the given unique name, arguments, and options.
@@ -103,21 +103,21 @@ export class DedicatedIpPool extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DedicatedIpPoolState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["poolName"] = state?.poolName;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["scalingMode"] = state?.scalingMode;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["poolName"] = state ? state.poolName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["scalingMode"] = state ? state.scalingMode : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as DedicatedIpPoolArgs | undefined;
-            if (args?.poolName === undefined && !opts.urn) {
+            if ((!args || args.poolName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'poolName'");
             }
-            resourceInputs["poolName"] = args?.poolName;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["scalingMode"] = args?.scalingMode;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["poolName"] = args ? args.poolName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["scalingMode"] = args ? args.scalingMode : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

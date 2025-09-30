@@ -67,129 +67,129 @@ export class AmiCopy extends pulumi.CustomResource {
     /**
      * Machine architecture for created instances. Defaults to `x8664`.
      */
-    declare public /*out*/ readonly architecture: pulumi.Output<string>;
+    public /*out*/ readonly architecture!: pulumi.Output<string>;
     /**
      * ARN of the AMI.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
      */
-    declare public /*out*/ readonly bootMode: pulumi.Output<string>;
+    public /*out*/ readonly bootMode!: pulumi.Output<string>;
     /**
      * Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      */
-    declare public readonly deprecationTime: pulumi.Output<string | undefined>;
+    public readonly deprecationTime!: pulumi.Output<string | undefined>;
     /**
      * Longer, human-readable description for the AMI.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * ARN of the Outpost to which to copy the AMI.
      * Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
      */
-    declare public readonly destinationOutpostArn: pulumi.Output<string | undefined>;
+    public readonly destinationOutpostArn!: pulumi.Output<string | undefined>;
     /**
      * Nested block describing an EBS block device that should be
      * attached to created instances. The structure of this block is described below.
      */
-    declare public readonly ebsBlockDevices: pulumi.Output<outputs.ec2.AmiCopyEbsBlockDevice[]>;
+    public readonly ebsBlockDevices!: pulumi.Output<outputs.ec2.AmiCopyEbsBlockDevice[]>;
     /**
      * Whether enhanced networking with ENA is enabled. Defaults to `false`.
      */
-    declare public /*out*/ readonly enaSupport: pulumi.Output<boolean>;
+    public /*out*/ readonly enaSupport!: pulumi.Output<boolean>;
     /**
      * Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
      */
-    declare public readonly encrypted: pulumi.Output<boolean | undefined>;
+    public readonly encrypted!: pulumi.Output<boolean | undefined>;
     /**
      * Nested block describing an ephemeral block device that
      * should be attached to created instances. The structure of this block is described below.
      */
-    declare public readonly ephemeralBlockDevices: pulumi.Output<outputs.ec2.AmiCopyEphemeralBlockDevice[]>;
-    declare public /*out*/ readonly hypervisor: pulumi.Output<string>;
+    public readonly ephemeralBlockDevices!: pulumi.Output<outputs.ec2.AmiCopyEphemeralBlockDevice[]>;
+    public /*out*/ readonly hypervisor!: pulumi.Output<string>;
     /**
      * Path to an S3 object containing an image manifest, e.g., created
      * by the `ec2-upload-bundle` command in the EC2 command line tools.
      */
-    declare public /*out*/ readonly imageLocation: pulumi.Output<string>;
-    declare public /*out*/ readonly imageOwnerAlias: pulumi.Output<string>;
-    declare public /*out*/ readonly imageType: pulumi.Output<string>;
+    public /*out*/ readonly imageLocation!: pulumi.Output<string>;
+    public /*out*/ readonly imageOwnerAlias!: pulumi.Output<string>;
+    public /*out*/ readonly imageType!: pulumi.Output<string>;
     /**
      * If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
      */
-    declare public /*out*/ readonly imdsSupport: pulumi.Output<string>;
+    public /*out*/ readonly imdsSupport!: pulumi.Output<string>;
     /**
      * ID of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
      */
-    declare public /*out*/ readonly kernelId: pulumi.Output<string>;
+    public /*out*/ readonly kernelId!: pulumi.Output<string>;
     /**
      * Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
      */
-    declare public readonly kmsKeyId: pulumi.Output<string>;
+    public readonly kmsKeyId!: pulumi.Output<string>;
     /**
      * Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
      */
-    declare public /*out*/ readonly lastLaunchedTime: pulumi.Output<string>;
-    declare public /*out*/ readonly manageEbsSnapshots: pulumi.Output<boolean>;
+    public /*out*/ readonly lastLaunchedTime!: pulumi.Output<string>;
+    public /*out*/ readonly manageEbsSnapshots!: pulumi.Output<boolean>;
     /**
      * Region-unique name for the AMI.
      */
-    declare public readonly name: pulumi.Output<string>;
-    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
-    declare public /*out*/ readonly platform: pulumi.Output<string>;
-    declare public /*out*/ readonly platformDetails: pulumi.Output<string>;
-    declare public /*out*/ readonly public: pulumi.Output<boolean>;
+    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly platform!: pulumi.Output<string>;
+    public /*out*/ readonly platformDetails!: pulumi.Output<string>;
+    public /*out*/ readonly public!: pulumi.Output<boolean>;
     /**
      * ID of an initrd image (ARI) that will be used when booting the
      * created instances.
      */
-    declare public /*out*/ readonly ramdiskId: pulumi.Output<string>;
+    public /*out*/ readonly ramdiskId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      */
-    declare public /*out*/ readonly rootDeviceName: pulumi.Output<string>;
-    declare public /*out*/ readonly rootSnapshotId: pulumi.Output<string>;
+    public /*out*/ readonly rootDeviceName!: pulumi.Output<string>;
+    public /*out*/ readonly rootSnapshotId!: pulumi.Output<string>;
     /**
      * Id of the AMI to copy. This id must be valid in the region
      * given by `sourceAmiRegion`.
      */
-    declare public readonly sourceAmiId: pulumi.Output<string>;
+    public readonly sourceAmiId!: pulumi.Output<string>;
     /**
      * Region from which the AMI will be copied. This may be the
      * same as the AWS provider region in order to create a copy within the same region.
      */
-    declare public readonly sourceAmiRegion: pulumi.Output<string>;
+    public readonly sourceAmiRegion!: pulumi.Output<string>;
     /**
      * When set to "simple" (the default), enables enhanced networking
      * for created instances. No other value is supported at this time.
      */
-    declare public /*out*/ readonly sriovNetSupport: pulumi.Output<string>;
+    public /*out*/ readonly sriovNetSupport!: pulumi.Output<string>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
      */
-    declare public /*out*/ readonly tpmSupport: pulumi.Output<string>;
+    public /*out*/ readonly tpmSupport!: pulumi.Output<string>;
     /**
      * Base64 representation of the non-volatile UEFI variable store.
      */
-    declare public /*out*/ readonly uefiData: pulumi.Output<string>;
-    declare public /*out*/ readonly usageOperation: pulumi.Output<string>;
+    public /*out*/ readonly uefiData!: pulumi.Output<string>;
+    public /*out*/ readonly usageOperation!: pulumi.Output<string>;
     /**
      * Keyword to choose what virtualization mode created instances
      * will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
      * changes the set of further arguments that are required, as described below.
      */
-    declare public /*out*/ readonly virtualizationType: pulumi.Output<string>;
+    public /*out*/ readonly virtualizationType!: pulumi.Output<string>;
 
     /**
      * Create a AmiCopy resource with the given unique name, arguments, and options.
@@ -204,63 +204,63 @@ export class AmiCopy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AmiCopyState | undefined;
-            resourceInputs["architecture"] = state?.architecture;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["bootMode"] = state?.bootMode;
-            resourceInputs["deprecationTime"] = state?.deprecationTime;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["destinationOutpostArn"] = state?.destinationOutpostArn;
-            resourceInputs["ebsBlockDevices"] = state?.ebsBlockDevices;
-            resourceInputs["enaSupport"] = state?.enaSupport;
-            resourceInputs["encrypted"] = state?.encrypted;
-            resourceInputs["ephemeralBlockDevices"] = state?.ephemeralBlockDevices;
-            resourceInputs["hypervisor"] = state?.hypervisor;
-            resourceInputs["imageLocation"] = state?.imageLocation;
-            resourceInputs["imageOwnerAlias"] = state?.imageOwnerAlias;
-            resourceInputs["imageType"] = state?.imageType;
-            resourceInputs["imdsSupport"] = state?.imdsSupport;
-            resourceInputs["kernelId"] = state?.kernelId;
-            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
-            resourceInputs["lastLaunchedTime"] = state?.lastLaunchedTime;
-            resourceInputs["manageEbsSnapshots"] = state?.manageEbsSnapshots;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["ownerId"] = state?.ownerId;
-            resourceInputs["platform"] = state?.platform;
-            resourceInputs["platformDetails"] = state?.platformDetails;
-            resourceInputs["public"] = state?.public;
-            resourceInputs["ramdiskId"] = state?.ramdiskId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["rootDeviceName"] = state?.rootDeviceName;
-            resourceInputs["rootSnapshotId"] = state?.rootSnapshotId;
-            resourceInputs["sourceAmiId"] = state?.sourceAmiId;
-            resourceInputs["sourceAmiRegion"] = state?.sourceAmiRegion;
-            resourceInputs["sriovNetSupport"] = state?.sriovNetSupport;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["tpmSupport"] = state?.tpmSupport;
-            resourceInputs["uefiData"] = state?.uefiData;
-            resourceInputs["usageOperation"] = state?.usageOperation;
-            resourceInputs["virtualizationType"] = state?.virtualizationType;
+            resourceInputs["architecture"] = state ? state.architecture : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["bootMode"] = state ? state.bootMode : undefined;
+            resourceInputs["deprecationTime"] = state ? state.deprecationTime : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["destinationOutpostArn"] = state ? state.destinationOutpostArn : undefined;
+            resourceInputs["ebsBlockDevices"] = state ? state.ebsBlockDevices : undefined;
+            resourceInputs["enaSupport"] = state ? state.enaSupport : undefined;
+            resourceInputs["encrypted"] = state ? state.encrypted : undefined;
+            resourceInputs["ephemeralBlockDevices"] = state ? state.ephemeralBlockDevices : undefined;
+            resourceInputs["hypervisor"] = state ? state.hypervisor : undefined;
+            resourceInputs["imageLocation"] = state ? state.imageLocation : undefined;
+            resourceInputs["imageOwnerAlias"] = state ? state.imageOwnerAlias : undefined;
+            resourceInputs["imageType"] = state ? state.imageType : undefined;
+            resourceInputs["imdsSupport"] = state ? state.imdsSupport : undefined;
+            resourceInputs["kernelId"] = state ? state.kernelId : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["lastLaunchedTime"] = state ? state.lastLaunchedTime : undefined;
+            resourceInputs["manageEbsSnapshots"] = state ? state.manageEbsSnapshots : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["platform"] = state ? state.platform : undefined;
+            resourceInputs["platformDetails"] = state ? state.platformDetails : undefined;
+            resourceInputs["public"] = state ? state.public : undefined;
+            resourceInputs["ramdiskId"] = state ? state.ramdiskId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["rootDeviceName"] = state ? state.rootDeviceName : undefined;
+            resourceInputs["rootSnapshotId"] = state ? state.rootSnapshotId : undefined;
+            resourceInputs["sourceAmiId"] = state ? state.sourceAmiId : undefined;
+            resourceInputs["sourceAmiRegion"] = state ? state.sourceAmiRegion : undefined;
+            resourceInputs["sriovNetSupport"] = state ? state.sriovNetSupport : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["tpmSupport"] = state ? state.tpmSupport : undefined;
+            resourceInputs["uefiData"] = state ? state.uefiData : undefined;
+            resourceInputs["usageOperation"] = state ? state.usageOperation : undefined;
+            resourceInputs["virtualizationType"] = state ? state.virtualizationType : undefined;
         } else {
             const args = argsOrState as AmiCopyArgs | undefined;
-            if (args?.sourceAmiId === undefined && !opts.urn) {
+            if ((!args || args.sourceAmiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceAmiId'");
             }
-            if (args?.sourceAmiRegion === undefined && !opts.urn) {
+            if ((!args || args.sourceAmiRegion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceAmiRegion'");
             }
-            resourceInputs["deprecationTime"] = args?.deprecationTime;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["destinationOutpostArn"] = args?.destinationOutpostArn;
-            resourceInputs["ebsBlockDevices"] = args?.ebsBlockDevices;
-            resourceInputs["encrypted"] = args?.encrypted;
-            resourceInputs["ephemeralBlockDevices"] = args?.ephemeralBlockDevices;
-            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["sourceAmiId"] = args?.sourceAmiId;
-            resourceInputs["sourceAmiRegion"] = args?.sourceAmiRegion;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["deprecationTime"] = args ? args.deprecationTime : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["destinationOutpostArn"] = args ? args.destinationOutpostArn : undefined;
+            resourceInputs["ebsBlockDevices"] = args ? args.ebsBlockDevices : undefined;
+            resourceInputs["encrypted"] = args ? args.encrypted : undefined;
+            resourceInputs["ephemeralBlockDevices"] = args ? args.ephemeralBlockDevices : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["sourceAmiId"] = args ? args.sourceAmiId : undefined;
+            resourceInputs["sourceAmiRegion"] = args ? args.sourceAmiRegion : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["architecture"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["bootMode"] = undefined /*out*/;

@@ -81,65 +81,65 @@ export class WorkspaceSamlConfiguration extends pulumi.CustomResource {
     /**
      * The admin role values.
      */
-    declare public readonly adminRoleValues: pulumi.Output<string[] | undefined>;
+    public readonly adminRoleValues!: pulumi.Output<string[] | undefined>;
     /**
      * The allowed organizations.
      */
-    declare public readonly allowedOrganizations: pulumi.Output<string[] | undefined>;
+    public readonly allowedOrganizations!: pulumi.Output<string[] | undefined>;
     /**
      * The editor role values.
      */
-    declare public readonly editorRoleValues: pulumi.Output<string[]>;
+    public readonly editorRoleValues!: pulumi.Output<string[]>;
     /**
      * The email assertion.
      */
-    declare public readonly emailAssertion: pulumi.Output<string>;
+    public readonly emailAssertion!: pulumi.Output<string>;
     /**
      * The groups assertion.
      */
-    declare public readonly groupsAssertion: pulumi.Output<string | undefined>;
+    public readonly groupsAssertion!: pulumi.Output<string | undefined>;
     /**
      * The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
      */
-    declare public readonly idpMetadataUrl: pulumi.Output<string | undefined>;
+    public readonly idpMetadataUrl!: pulumi.Output<string | undefined>;
     /**
      * The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
      */
-    declare public readonly idpMetadataXml: pulumi.Output<string | undefined>;
+    public readonly idpMetadataXml!: pulumi.Output<string | undefined>;
     /**
      * The login assertion.
      */
-    declare public readonly loginAssertion: pulumi.Output<string>;
+    public readonly loginAssertion!: pulumi.Output<string>;
     /**
      * The login validity duration.
      */
-    declare public readonly loginValidityDuration: pulumi.Output<number>;
+    public readonly loginValidityDuration!: pulumi.Output<number>;
     /**
      * The name assertion.
      */
-    declare public readonly nameAssertion: pulumi.Output<string>;
+    public readonly nameAssertion!: pulumi.Output<string>;
     /**
      * The org assertion.
      */
-    declare public readonly orgAssertion: pulumi.Output<string | undefined>;
+    public readonly orgAssertion!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The role assertion.
      */
-    declare public readonly roleAssertion: pulumi.Output<string | undefined>;
+    public readonly roleAssertion!: pulumi.Output<string | undefined>;
     /**
      * The status of the SAML configuration.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * The workspace id.
      *
      * The following arguments are optional:
      */
-    declare public readonly workspaceId: pulumi.Output<string>;
+    public readonly workspaceId!: pulumi.Output<string>;
 
     /**
      * Create a WorkspaceSamlConfiguration resource with the given unique name, arguments, and options.
@@ -154,43 +154,43 @@ export class WorkspaceSamlConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceSamlConfigurationState | undefined;
-            resourceInputs["adminRoleValues"] = state?.adminRoleValues;
-            resourceInputs["allowedOrganizations"] = state?.allowedOrganizations;
-            resourceInputs["editorRoleValues"] = state?.editorRoleValues;
-            resourceInputs["emailAssertion"] = state?.emailAssertion;
-            resourceInputs["groupsAssertion"] = state?.groupsAssertion;
-            resourceInputs["idpMetadataUrl"] = state?.idpMetadataUrl;
-            resourceInputs["idpMetadataXml"] = state?.idpMetadataXml;
-            resourceInputs["loginAssertion"] = state?.loginAssertion;
-            resourceInputs["loginValidityDuration"] = state?.loginValidityDuration;
-            resourceInputs["nameAssertion"] = state?.nameAssertion;
-            resourceInputs["orgAssertion"] = state?.orgAssertion;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["roleAssertion"] = state?.roleAssertion;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["workspaceId"] = state?.workspaceId;
+            resourceInputs["adminRoleValues"] = state ? state.adminRoleValues : undefined;
+            resourceInputs["allowedOrganizations"] = state ? state.allowedOrganizations : undefined;
+            resourceInputs["editorRoleValues"] = state ? state.editorRoleValues : undefined;
+            resourceInputs["emailAssertion"] = state ? state.emailAssertion : undefined;
+            resourceInputs["groupsAssertion"] = state ? state.groupsAssertion : undefined;
+            resourceInputs["idpMetadataUrl"] = state ? state.idpMetadataUrl : undefined;
+            resourceInputs["idpMetadataXml"] = state ? state.idpMetadataXml : undefined;
+            resourceInputs["loginAssertion"] = state ? state.loginAssertion : undefined;
+            resourceInputs["loginValidityDuration"] = state ? state.loginValidityDuration : undefined;
+            resourceInputs["nameAssertion"] = state ? state.nameAssertion : undefined;
+            resourceInputs["orgAssertion"] = state ? state.orgAssertion : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["roleAssertion"] = state ? state.roleAssertion : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
         } else {
             const args = argsOrState as WorkspaceSamlConfigurationArgs | undefined;
-            if (args?.editorRoleValues === undefined && !opts.urn) {
+            if ((!args || args.editorRoleValues === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'editorRoleValues'");
             }
-            if (args?.workspaceId === undefined && !opts.urn) {
+            if ((!args || args.workspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["adminRoleValues"] = args?.adminRoleValues;
-            resourceInputs["allowedOrganizations"] = args?.allowedOrganizations;
-            resourceInputs["editorRoleValues"] = args?.editorRoleValues;
-            resourceInputs["emailAssertion"] = args?.emailAssertion;
-            resourceInputs["groupsAssertion"] = args?.groupsAssertion;
-            resourceInputs["idpMetadataUrl"] = args?.idpMetadataUrl;
-            resourceInputs["idpMetadataXml"] = args?.idpMetadataXml;
-            resourceInputs["loginAssertion"] = args?.loginAssertion;
-            resourceInputs["loginValidityDuration"] = args?.loginValidityDuration;
-            resourceInputs["nameAssertion"] = args?.nameAssertion;
-            resourceInputs["orgAssertion"] = args?.orgAssertion;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["roleAssertion"] = args?.roleAssertion;
-            resourceInputs["workspaceId"] = args?.workspaceId;
+            resourceInputs["adminRoleValues"] = args ? args.adminRoleValues : undefined;
+            resourceInputs["allowedOrganizations"] = args ? args.allowedOrganizations : undefined;
+            resourceInputs["editorRoleValues"] = args ? args.editorRoleValues : undefined;
+            resourceInputs["emailAssertion"] = args ? args.emailAssertion : undefined;
+            resourceInputs["groupsAssertion"] = args ? args.groupsAssertion : undefined;
+            resourceInputs["idpMetadataUrl"] = args ? args.idpMetadataUrl : undefined;
+            resourceInputs["idpMetadataXml"] = args ? args.idpMetadataXml : undefined;
+            resourceInputs["loginAssertion"] = args ? args.loginAssertion : undefined;
+            resourceInputs["loginValidityDuration"] = args ? args.loginValidityDuration : undefined;
+            resourceInputs["nameAssertion"] = args ? args.nameAssertion : undefined;
+            resourceInputs["orgAssertion"] = args ? args.orgAssertion : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["roleAssertion"] = args ? args.roleAssertion : undefined;
+            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

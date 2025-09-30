@@ -60,15 +60,15 @@ export class TrafficSourceAttachment extends pulumi.CustomResource {
     /**
      * The name of the Auto Scaling group.
      */
-    declare public readonly autoscalingGroupName: pulumi.Output<string>;
+    public readonly autoscalingGroupName!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The unique identifiers of a traffic sources.
      */
-    declare public readonly trafficSource: pulumi.Output<outputs.autoscaling.TrafficSourceAttachmentTrafficSource | undefined>;
+    public readonly trafficSource!: pulumi.Output<outputs.autoscaling.TrafficSourceAttachmentTrafficSource | undefined>;
 
     /**
      * Create a TrafficSourceAttachment resource with the given unique name, arguments, and options.
@@ -83,17 +83,17 @@ export class TrafficSourceAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TrafficSourceAttachmentState | undefined;
-            resourceInputs["autoscalingGroupName"] = state?.autoscalingGroupName;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["trafficSource"] = state?.trafficSource;
+            resourceInputs["autoscalingGroupName"] = state ? state.autoscalingGroupName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["trafficSource"] = state ? state.trafficSource : undefined;
         } else {
             const args = argsOrState as TrafficSourceAttachmentArgs | undefined;
-            if (args?.autoscalingGroupName === undefined && !opts.urn) {
+            if ((!args || args.autoscalingGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'autoscalingGroupName'");
             }
-            resourceInputs["autoscalingGroupName"] = args?.autoscalingGroupName;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["trafficSource"] = args?.trafficSource;
+            resourceInputs["autoscalingGroupName"] = args ? args.autoscalingGroupName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["trafficSource"] = args ? args.trafficSource : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TrafficSourceAttachment.__pulumiType, name, resourceInputs, opts);

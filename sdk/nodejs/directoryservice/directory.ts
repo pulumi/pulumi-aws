@@ -154,75 +154,75 @@ export class Directory extends pulumi.CustomResource {
     /**
      * The access URL for the directory, such as `http://alias.awsapps.com`.
      */
-    declare public /*out*/ readonly accessUrl: pulumi.Output<string>;
+    public /*out*/ readonly accessUrl!: pulumi.Output<string>;
     /**
      * The alias for the directory (must be unique amongst all aliases in AWS). Required for `enableSso`.
      */
-    declare public readonly alias: pulumi.Output<string>;
+    public readonly alias!: pulumi.Output<string>;
     /**
      * Connector related information about the directory. Fields documented below.
      */
-    declare public readonly connectSettings: pulumi.Output<outputs.directoryservice.DirectoryConnectSettings | undefined>;
+    public readonly connectSettings!: pulumi.Output<outputs.directoryservice.DirectoryConnectSettings | undefined>;
     /**
      * A textual description for the directory.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
      */
-    declare public readonly desiredNumberOfDomainControllers: pulumi.Output<number>;
+    public readonly desiredNumberOfDomainControllers!: pulumi.Output<number>;
     /**
      * A list of IP addresses of the DNS servers for the directory or connector.
      */
-    declare public /*out*/ readonly dnsIpAddresses: pulumi.Output<string[]>;
+    public /*out*/ readonly dnsIpAddresses!: pulumi.Output<string[]>;
     /**
      * The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
      */
-    declare public readonly edition: pulumi.Output<string>;
+    public readonly edition!: pulumi.Output<string>;
     /**
      * Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
      */
-    declare public readonly enableSso: pulumi.Output<boolean | undefined>;
+    public readonly enableSso!: pulumi.Output<boolean | undefined>;
     /**
      * The fully qualified name for the directory, such as `corp.example.com`
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The password for the directory administrator or connector user.
      */
-    declare public readonly password: pulumi.Output<string>;
+    public readonly password!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ID of the security group created by the directory.
      */
-    declare public /*out*/ readonly securityGroupId: pulumi.Output<string>;
+    public /*out*/ readonly securityGroupId!: pulumi.Output<string>;
     /**
      * The short name of the directory, such as `CORP`.
      */
-    declare public readonly shortName: pulumi.Output<string>;
+    public readonly shortName!: pulumi.Output<string>;
     /**
      * (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
      */
-    declare public readonly size: pulumi.Output<string>;
+    public readonly size!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
      */
-    declare public readonly type: pulumi.Output<string | undefined>;
+    public readonly type!: pulumi.Output<string | undefined>;
     /**
      * VPC related information about the directory. Fields documented below.
      */
-    declare public readonly vpcSettings: pulumi.Output<outputs.directoryservice.DirectoryVpcSettings | undefined>;
+    public readonly vpcSettings!: pulumi.Output<outputs.directoryservice.DirectoryVpcSettings | undefined>;
 
     /**
      * Create a Directory resource with the given unique name, arguments, and options.
@@ -237,46 +237,46 @@ export class Directory extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DirectoryState | undefined;
-            resourceInputs["accessUrl"] = state?.accessUrl;
-            resourceInputs["alias"] = state?.alias;
-            resourceInputs["connectSettings"] = state?.connectSettings;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["desiredNumberOfDomainControllers"] = state?.desiredNumberOfDomainControllers;
-            resourceInputs["dnsIpAddresses"] = state?.dnsIpAddresses;
-            resourceInputs["edition"] = state?.edition;
-            resourceInputs["enableSso"] = state?.enableSso;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["password"] = state?.password;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["securityGroupId"] = state?.securityGroupId;
-            resourceInputs["shortName"] = state?.shortName;
-            resourceInputs["size"] = state?.size;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["type"] = state?.type;
-            resourceInputs["vpcSettings"] = state?.vpcSettings;
+            resourceInputs["accessUrl"] = state ? state.accessUrl : undefined;
+            resourceInputs["alias"] = state ? state.alias : undefined;
+            resourceInputs["connectSettings"] = state ? state.connectSettings : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["desiredNumberOfDomainControllers"] = state ? state.desiredNumberOfDomainControllers : undefined;
+            resourceInputs["dnsIpAddresses"] = state ? state.dnsIpAddresses : undefined;
+            resourceInputs["edition"] = state ? state.edition : undefined;
+            resourceInputs["enableSso"] = state ? state.enableSso : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["securityGroupId"] = state ? state.securityGroupId : undefined;
+            resourceInputs["shortName"] = state ? state.shortName : undefined;
+            resourceInputs["size"] = state ? state.size : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["vpcSettings"] = state ? state.vpcSettings : undefined;
         } else {
             const args = argsOrState as DirectoryArgs | undefined;
-            if (args?.name === undefined && !opts.urn) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if (args?.password === undefined && !opts.urn) {
+            if ((!args || args.password === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'password'");
             }
-            resourceInputs["alias"] = args?.alias;
-            resourceInputs["connectSettings"] = args?.connectSettings;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["desiredNumberOfDomainControllers"] = args?.desiredNumberOfDomainControllers;
-            resourceInputs["edition"] = args?.edition;
-            resourceInputs["enableSso"] = args?.enableSso;
-            resourceInputs["name"] = args?.name;
+            resourceInputs["alias"] = args ? args.alias : undefined;
+            resourceInputs["connectSettings"] = args ? args.connectSettings : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["desiredNumberOfDomainControllers"] = args ? args.desiredNumberOfDomainControllers : undefined;
+            resourceInputs["edition"] = args ? args.edition : undefined;
+            resourceInputs["enableSso"] = args ? args.enableSso : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["shortName"] = args?.shortName;
-            resourceInputs["size"] = args?.size;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["type"] = args?.type;
-            resourceInputs["vpcSettings"] = args?.vpcSettings;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["shortName"] = args ? args.shortName : undefined;
+            resourceInputs["size"] = args ? args.size : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["vpcSettings"] = args ? args.vpcSettings : undefined;
             resourceInputs["accessUrl"] = undefined /*out*/;
             resourceInputs["dnsIpAddresses"] = undefined /*out*/;
             resourceInputs["securityGroupId"] = undefined /*out*/;

@@ -75,38 +75,38 @@ export class ContactList extends pulumi.CustomResource {
         return obj['__pulumiType'] === ContactList.__pulumiType;
     }
 
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Name of the contact list.
      *
      * The following arguments are optional:
      */
-    declare public readonly contactListName: pulumi.Output<string>;
+    public readonly contactListName!: pulumi.Output<string>;
     /**
      * Timestamp noting when the contact list was created in ISO 8601 format.
      */
-    declare public /*out*/ readonly createdTimestamp: pulumi.Output<string>;
+    public /*out*/ readonly createdTimestamp!: pulumi.Output<string>;
     /**
      * Description of what the contact list is about.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Timestamp noting the last time the contact list was updated in ISO 8601 format.
      */
-    declare public /*out*/ readonly lastUpdatedTimestamp: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedTimestamp!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags for the contact list. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block(s) with topic for the contact list. Detailed below.
      */
-    declare public readonly topics: pulumi.Output<outputs.sesv2.ContactListTopic[] | undefined>;
+    public readonly topics!: pulumi.Output<outputs.sesv2.ContactListTopic[] | undefined>;
 
     /**
      * Create a ContactList resource with the given unique name, arguments, and options.
@@ -121,25 +121,25 @@ export class ContactList extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ContactListState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["contactListName"] = state?.contactListName;
-            resourceInputs["createdTimestamp"] = state?.createdTimestamp;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["lastUpdatedTimestamp"] = state?.lastUpdatedTimestamp;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["topics"] = state?.topics;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["contactListName"] = state ? state.contactListName : undefined;
+            resourceInputs["createdTimestamp"] = state ? state.createdTimestamp : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["lastUpdatedTimestamp"] = state ? state.lastUpdatedTimestamp : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["topics"] = state ? state.topics : undefined;
         } else {
             const args = argsOrState as ContactListArgs | undefined;
-            if (args?.contactListName === undefined && !opts.urn) {
+            if ((!args || args.contactListName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'contactListName'");
             }
-            resourceInputs["contactListName"] = args?.contactListName;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["topics"] = args?.topics;
+            resourceInputs["contactListName"] = args ? args.contactListName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["topics"] = args ? args.topics : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["lastUpdatedTimestamp"] = undefined /*out*/;

@@ -108,37 +108,37 @@ export class ConnectorProfile extends pulumi.CustomResource {
     /**
      * ARN of the connector profile.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
      */
-    declare public readonly connectionMode: pulumi.Output<string>;
+    public readonly connectionMode!: pulumi.Output<string>;
     /**
      * The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
      */
-    declare public readonly connectorLabel: pulumi.Output<string | undefined>;
+    public readonly connectorLabel!: pulumi.Output<string | undefined>;
     /**
      * Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
      */
-    declare public readonly connectorProfileConfig: pulumi.Output<outputs.appflow.ConnectorProfileConnectorProfileConfig>;
+    public readonly connectorProfileConfig!: pulumi.Output<outputs.appflow.ConnectorProfileConnectorProfileConfig>;
     /**
      * The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
      */
-    declare public readonly connectorType: pulumi.Output<string>;
+    public readonly connectorType!: pulumi.Output<string>;
     /**
      * ARN of the connector profile credentials.
      */
-    declare public /*out*/ readonly credentialsArn: pulumi.Output<string>;
+    public /*out*/ readonly credentialsArn!: pulumi.Output<string>;
     /**
      * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      */
-    declare public readonly kmsArn: pulumi.Output<string>;
-    declare public readonly name: pulumi.Output<string>;
+    public readonly kmsArn!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ConnectorProfile resource with the given unique name, arguments, and options.
@@ -153,33 +153,33 @@ export class ConnectorProfile extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConnectorProfileState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["connectionMode"] = state?.connectionMode;
-            resourceInputs["connectorLabel"] = state?.connectorLabel;
-            resourceInputs["connectorProfileConfig"] = state?.connectorProfileConfig;
-            resourceInputs["connectorType"] = state?.connectorType;
-            resourceInputs["credentialsArn"] = state?.credentialsArn;
-            resourceInputs["kmsArn"] = state?.kmsArn;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["connectionMode"] = state ? state.connectionMode : undefined;
+            resourceInputs["connectorLabel"] = state ? state.connectorLabel : undefined;
+            resourceInputs["connectorProfileConfig"] = state ? state.connectorProfileConfig : undefined;
+            resourceInputs["connectorType"] = state ? state.connectorType : undefined;
+            resourceInputs["credentialsArn"] = state ? state.credentialsArn : undefined;
+            resourceInputs["kmsArn"] = state ? state.kmsArn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ConnectorProfileArgs | undefined;
-            if (args?.connectionMode === undefined && !opts.urn) {
+            if ((!args || args.connectionMode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectionMode'");
             }
-            if (args?.connectorProfileConfig === undefined && !opts.urn) {
+            if ((!args || args.connectorProfileConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectorProfileConfig'");
             }
-            if (args?.connectorType === undefined && !opts.urn) {
+            if ((!args || args.connectorType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectorType'");
             }
-            resourceInputs["connectionMode"] = args?.connectionMode;
-            resourceInputs["connectorLabel"] = args?.connectorLabel;
-            resourceInputs["connectorProfileConfig"] = args?.connectorProfileConfig;
-            resourceInputs["connectorType"] = args?.connectorType;
-            resourceInputs["kmsArn"] = args?.kmsArn;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["connectionMode"] = args ? args.connectionMode : undefined;
+            resourceInputs["connectorLabel"] = args ? args.connectorLabel : undefined;
+            resourceInputs["connectorProfileConfig"] = args ? args.connectorProfileConfig : undefined;
+            resourceInputs["connectorType"] = args ? args.connectorType : undefined;
+            resourceInputs["kmsArn"] = args ? args.kmsArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["credentialsArn"] = undefined /*out*/;
         }

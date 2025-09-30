@@ -71,27 +71,27 @@ export class Model extends pulumi.CustomResource {
     /**
      * API identifier.
      */
-    declare public readonly apiId: pulumi.Output<string>;
+    public readonly apiId!: pulumi.Output<string>;
     /**
      * The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
      */
-    declare public readonly contentType: pulumi.Output<string>;
+    public readonly contentType!: pulumi.Output<string>;
     /**
      * Description of the model. Must be between 1 and 128 characters in length.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
      */
-    declare public readonly schema: pulumi.Output<string>;
+    public readonly schema!: pulumi.Output<string>;
 
     /**
      * Create a Model resource with the given unique name, arguments, and options.
@@ -106,29 +106,29 @@ export class Model extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ModelState | undefined;
-            resourceInputs["apiId"] = state?.apiId;
-            resourceInputs["contentType"] = state?.contentType;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["schema"] = state?.schema;
+            resourceInputs["apiId"] = state ? state.apiId : undefined;
+            resourceInputs["contentType"] = state ? state.contentType : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["schema"] = state ? state.schema : undefined;
         } else {
             const args = argsOrState as ModelArgs | undefined;
-            if (args?.apiId === undefined && !opts.urn) {
+            if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if (args?.contentType === undefined && !opts.urn) {
+            if ((!args || args.contentType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'contentType'");
             }
-            if (args?.schema === undefined && !opts.urn) {
+            if ((!args || args.schema === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            resourceInputs["apiId"] = args?.apiId;
-            resourceInputs["contentType"] = args?.contentType;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["schema"] = args?.schema;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["contentType"] = args ? args.contentType : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["schema"] = args ? args.schema : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Model.__pulumiType, name, resourceInputs, opts);

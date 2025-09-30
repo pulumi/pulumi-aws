@@ -61,27 +61,27 @@ export class ContributorInsightRule extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ARN of the Contributor Insight Rule.
      */
-    declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
+    public /*out*/ readonly resourceArn!: pulumi.Output<string>;
     /**
      * Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
      */
-    declare public readonly ruleDefinition: pulumi.Output<string>;
+    public readonly ruleDefinition!: pulumi.Output<string>;
     /**
      * Unique name of the rule.
      *
      * The following arguments are optional:
      */
-    declare public readonly ruleName: pulumi.Output<string>;
+    public readonly ruleName!: pulumi.Output<string>;
     /**
      * State of the rule. Valid values are `ENABLED` and `DISABLED`.
      */
-    declare public readonly ruleState: pulumi.Output<string | undefined>;
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public readonly ruleState!: pulumi.Output<string | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ContributorInsightRule resource with the given unique name, arguments, and options.
@@ -96,26 +96,26 @@ export class ContributorInsightRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ContributorInsightRuleState | undefined;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceArn"] = state?.resourceArn;
-            resourceInputs["ruleDefinition"] = state?.ruleDefinition;
-            resourceInputs["ruleName"] = state?.ruleName;
-            resourceInputs["ruleState"] = state?.ruleState;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
+            resourceInputs["ruleDefinition"] = state ? state.ruleDefinition : undefined;
+            resourceInputs["ruleName"] = state ? state.ruleName : undefined;
+            resourceInputs["ruleState"] = state ? state.ruleState : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ContributorInsightRuleArgs | undefined;
-            if (args?.ruleDefinition === undefined && !opts.urn) {
+            if ((!args || args.ruleDefinition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleDefinition'");
             }
-            if (args?.ruleName === undefined && !opts.urn) {
+            if ((!args || args.ruleName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleName'");
             }
-            resourceInputs["region"] = args?.region;
-            resourceInputs["ruleDefinition"] = args?.ruleDefinition;
-            resourceInputs["ruleName"] = args?.ruleName;
-            resourceInputs["ruleState"] = args?.ruleState;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["ruleDefinition"] = args ? args.ruleDefinition : undefined;
+            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
+            resourceInputs["ruleState"] = args ? args.ruleState : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

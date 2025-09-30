@@ -66,31 +66,31 @@ export class NotebookInstanceLifecycleConfiguration extends pulumi.CustomResourc
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
      */
-    declare public readonly onCreate: pulumi.Output<string | undefined>;
+    public readonly onCreate!: pulumi.Output<string | undefined>;
     /**
      * A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
      */
-    declare public readonly onStart: pulumi.Output<string | undefined>;
+    public readonly onStart!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a NotebookInstanceLifecycleConfiguration resource with the given unique name, arguments, and options.
@@ -105,20 +105,20 @@ export class NotebookInstanceLifecycleConfiguration extends pulumi.CustomResourc
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NotebookInstanceLifecycleConfigurationState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["onCreate"] = state?.onCreate;
-            resourceInputs["onStart"] = state?.onStart;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["onCreate"] = state ? state.onCreate : undefined;
+            resourceInputs["onStart"] = state ? state.onStart : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as NotebookInstanceLifecycleConfigurationArgs | undefined;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["onCreate"] = args?.onCreate;
-            resourceInputs["onStart"] = args?.onStart;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["onCreate"] = args ? args.onCreate : undefined;
+            resourceInputs["onStart"] = args ? args.onStart : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

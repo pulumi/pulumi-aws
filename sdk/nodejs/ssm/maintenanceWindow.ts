@@ -60,59 +60,59 @@ export class MaintenanceWindow extends pulumi.CustomResource {
     /**
      * Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
      */
-    declare public readonly allowUnassociatedTargets: pulumi.Output<boolean | undefined>;
+    public readonly allowUnassociatedTargets!: pulumi.Output<boolean | undefined>;
     /**
      * The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
      */
-    declare public readonly cutoff: pulumi.Output<number>;
+    public readonly cutoff!: pulumi.Output<number>;
     /**
      * A description for the maintenance window.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The duration of the Maintenance Window in hours.
      */
-    declare public readonly duration: pulumi.Output<number>;
+    public readonly duration!: pulumi.Output<number>;
     /**
      * Whether the maintenance window is enabled. Default: `true`.
      */
-    declare public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
      */
-    declare public readonly endDate: pulumi.Output<string | undefined>;
+    public readonly endDate!: pulumi.Output<string | undefined>;
     /**
      * The name of the maintenance window.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
      */
-    declare public readonly schedule: pulumi.Output<string>;
+    public readonly schedule!: pulumi.Output<string>;
     /**
      * The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
      */
-    declare public readonly scheduleOffset: pulumi.Output<number | undefined>;
+    public readonly scheduleOffset!: pulumi.Output<number | undefined>;
     /**
      * Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
      */
-    declare public readonly scheduleTimezone: pulumi.Output<string | undefined>;
+    public readonly scheduleTimezone!: pulumi.Output<string | undefined>;
     /**
      * Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
      */
-    declare public readonly startDate: pulumi.Output<string | undefined>;
+    public readonly startDate!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a MaintenanceWindow resource with the given unique name, arguments, and options.
@@ -127,44 +127,44 @@ export class MaintenanceWindow extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MaintenanceWindowState | undefined;
-            resourceInputs["allowUnassociatedTargets"] = state?.allowUnassociatedTargets;
-            resourceInputs["cutoff"] = state?.cutoff;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["duration"] = state?.duration;
-            resourceInputs["enabled"] = state?.enabled;
-            resourceInputs["endDate"] = state?.endDate;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["schedule"] = state?.schedule;
-            resourceInputs["scheduleOffset"] = state?.scheduleOffset;
-            resourceInputs["scheduleTimezone"] = state?.scheduleTimezone;
-            resourceInputs["startDate"] = state?.startDate;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["allowUnassociatedTargets"] = state ? state.allowUnassociatedTargets : undefined;
+            resourceInputs["cutoff"] = state ? state.cutoff : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["duration"] = state ? state.duration : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["endDate"] = state ? state.endDate : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["schedule"] = state ? state.schedule : undefined;
+            resourceInputs["scheduleOffset"] = state ? state.scheduleOffset : undefined;
+            resourceInputs["scheduleTimezone"] = state ? state.scheduleTimezone : undefined;
+            resourceInputs["startDate"] = state ? state.startDate : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as MaintenanceWindowArgs | undefined;
-            if (args?.cutoff === undefined && !opts.urn) {
+            if ((!args || args.cutoff === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cutoff'");
             }
-            if (args?.duration === undefined && !opts.urn) {
+            if ((!args || args.duration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'duration'");
             }
-            if (args?.schedule === undefined && !opts.urn) {
+            if ((!args || args.schedule === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schedule'");
             }
-            resourceInputs["allowUnassociatedTargets"] = args?.allowUnassociatedTargets;
-            resourceInputs["cutoff"] = args?.cutoff;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["duration"] = args?.duration;
-            resourceInputs["enabled"] = args?.enabled;
-            resourceInputs["endDate"] = args?.endDate;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["schedule"] = args?.schedule;
-            resourceInputs["scheduleOffset"] = args?.scheduleOffset;
-            resourceInputs["scheduleTimezone"] = args?.scheduleTimezone;
-            resourceInputs["startDate"] = args?.startDate;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["allowUnassociatedTargets"] = args ? args.allowUnassociatedTargets : undefined;
+            resourceInputs["cutoff"] = args ? args.cutoff : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["duration"] = args ? args.duration : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["endDate"] = args ? args.endDate : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["schedule"] = args ? args.schedule : undefined;
+            resourceInputs["scheduleOffset"] = args ? args.scheduleOffset : undefined;
+            resourceInputs["scheduleTimezone"] = args ? args.scheduleTimezone : undefined;
+            resourceInputs["startDate"] = args ? args.startDate : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

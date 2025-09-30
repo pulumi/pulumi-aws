@@ -101,19 +101,19 @@ export class GlobalTable extends pulumi.CustomResource {
     /**
      * The ARN of the DynamoDB Global Table
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name of the global table. Must match underlying DynamoDB Table names in all regions.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Underlying DynamoDB Table. At least 1 replica must be defined. See below.
      */
-    declare public readonly replicas: pulumi.Output<outputs.dynamodb.GlobalTableReplica[]>;
+    public readonly replicas!: pulumi.Output<outputs.dynamodb.GlobalTableReplica[]>;
 
     /**
      * Create a GlobalTable resource with the given unique name, arguments, and options.
@@ -128,18 +128,18 @@ export class GlobalTable extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GlobalTableState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["replicas"] = state?.replicas;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["replicas"] = state ? state.replicas : undefined;
         } else {
             const args = argsOrState as GlobalTableArgs | undefined;
-            if (args?.replicas === undefined && !opts.urn) {
+            if ((!args || args.replicas === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'replicas'");
             }
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["replicas"] = args?.replicas;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["replicas"] = args ? args.replicas : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

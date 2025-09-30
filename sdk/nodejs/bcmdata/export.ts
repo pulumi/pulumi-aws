@@ -93,14 +93,14 @@ export class Export extends pulumi.CustomResource {
      * Amazon Resource Name (ARN) for this export.
      * * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
      */
-    declare public readonly export: pulumi.Output<outputs.bcmdata.ExportExport | undefined>;
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public readonly timeouts: pulumi.Output<outputs.bcmdata.ExportTimeouts | undefined>;
+    public readonly export!: pulumi.Output<outputs.bcmdata.ExportExport | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly timeouts!: pulumi.Output<outputs.bcmdata.ExportTimeouts | undefined>;
 
     /**
      * Create a Export resource with the given unique name, arguments, and options.
@@ -115,16 +115,16 @@ export class Export extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExportState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["export"] = state?.export;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["export"] = state ? state.export : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as ExportArgs | undefined;
-            resourceInputs["export"] = args?.export;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["export"] = args ? args.export : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

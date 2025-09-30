@@ -83,19 +83,19 @@ export class EmailIdentityPolicy extends pulumi.CustomResource {
     /**
      * The email identity.
      */
-    declare public readonly emailIdentity: pulumi.Output<string>;
+    public readonly emailIdentity!: pulumi.Output<string>;
     /**
      * The text of the policy in JSON format.
      */
-    declare public readonly policy: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string>;
     /**
      * The name of the policy.
      */
-    declare public readonly policyName: pulumi.Output<string>;
+    public readonly policyName!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a EmailIdentityPolicy resource with the given unique name, arguments, and options.
@@ -110,25 +110,25 @@ export class EmailIdentityPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EmailIdentityPolicyState | undefined;
-            resourceInputs["emailIdentity"] = state?.emailIdentity;
-            resourceInputs["policy"] = state?.policy;
-            resourceInputs["policyName"] = state?.policyName;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["emailIdentity"] = state ? state.emailIdentity : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["policyName"] = state ? state.policyName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as EmailIdentityPolicyArgs | undefined;
-            if (args?.emailIdentity === undefined && !opts.urn) {
+            if ((!args || args.emailIdentity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'emailIdentity'");
             }
-            if (args?.policy === undefined && !opts.urn) {
+            if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            if (args?.policyName === undefined && !opts.urn) {
+            if ((!args || args.policyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyName'");
             }
-            resourceInputs["emailIdentity"] = args?.emailIdentity;
-            resourceInputs["policy"] = args?.policy;
-            resourceInputs["policyName"] = args?.policyName;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["emailIdentity"] = args ? args.emailIdentity : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["policyName"] = args ? args.policyName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EmailIdentityPolicy.__pulumiType, name, resourceInputs, opts);

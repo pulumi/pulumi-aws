@@ -87,31 +87,31 @@ export class AnomalyMonitor extends pulumi.CustomResource {
     /**
      * ARN of the anomaly monitor.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The dimensions to evaluate. Valid values: `SERVICE`.
      */
-    declare public readonly monitorDimension: pulumi.Output<string | undefined>;
+    public readonly monitorDimension!: pulumi.Output<string | undefined>;
     /**
      * A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
      */
-    declare public readonly monitorSpecification: pulumi.Output<string | undefined>;
+    public readonly monitorSpecification!: pulumi.Output<string | undefined>;
     /**
      * The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
      */
-    declare public readonly monitorType: pulumi.Output<string>;
+    public readonly monitorType!: pulumi.Output<string>;
     /**
      * The name of the monitor.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a AnomalyMonitor resource with the given unique name, arguments, and options.
@@ -126,23 +126,23 @@ export class AnomalyMonitor extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AnomalyMonitorState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["monitorDimension"] = state?.monitorDimension;
-            resourceInputs["monitorSpecification"] = state?.monitorSpecification;
-            resourceInputs["monitorType"] = state?.monitorType;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["monitorDimension"] = state ? state.monitorDimension : undefined;
+            resourceInputs["monitorSpecification"] = state ? state.monitorSpecification : undefined;
+            resourceInputs["monitorType"] = state ? state.monitorType : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as AnomalyMonitorArgs | undefined;
-            if (args?.monitorType === undefined && !opts.urn) {
+            if ((!args || args.monitorType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'monitorType'");
             }
-            resourceInputs["monitorDimension"] = args?.monitorDimension;
-            resourceInputs["monitorSpecification"] = args?.monitorSpecification;
-            resourceInputs["monitorType"] = args?.monitorType;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["monitorDimension"] = args ? args.monitorDimension : undefined;
+            resourceInputs["monitorSpecification"] = args ? args.monitorSpecification : undefined;
+            resourceInputs["monitorType"] = args ? args.monitorType : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

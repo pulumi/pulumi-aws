@@ -106,59 +106,59 @@ export class DataSource extends pulumi.CustomResource {
     /**
      * API ID for the GraphQL API for the data source.
      */
-    declare public readonly apiId: pulumi.Output<string>;
+    public readonly apiId!: pulumi.Output<string>;
     /**
      * ARN
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Description of the data source.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * DynamoDB settings. See `dynamodbConfig` Block for details.
      */
-    declare public readonly dynamodbConfig: pulumi.Output<outputs.appsync.DataSourceDynamodbConfig | undefined>;
+    public readonly dynamodbConfig!: pulumi.Output<outputs.appsync.DataSourceDynamodbConfig | undefined>;
     /**
      * Amazon Elasticsearch settings. See `elasticsearchConfig` Block for details.
      */
-    declare public readonly elasticsearchConfig: pulumi.Output<outputs.appsync.DataSourceElasticsearchConfig | undefined>;
+    public readonly elasticsearchConfig!: pulumi.Output<outputs.appsync.DataSourceElasticsearchConfig | undefined>;
     /**
      * AWS EventBridge settings. See `eventBridgeConfig` Block for details.
      */
-    declare public readonly eventBridgeConfig: pulumi.Output<outputs.appsync.DataSourceEventBridgeConfig | undefined>;
+    public readonly eventBridgeConfig!: pulumi.Output<outputs.appsync.DataSourceEventBridgeConfig | undefined>;
     /**
      * HTTP settings. See `httpConfig` Block for details.
      */
-    declare public readonly httpConfig: pulumi.Output<outputs.appsync.DataSourceHttpConfig | undefined>;
+    public readonly httpConfig!: pulumi.Output<outputs.appsync.DataSourceHttpConfig | undefined>;
     /**
      * AWS Lambda settings. See `lambdaConfig` Block for details.
      */
-    declare public readonly lambdaConfig: pulumi.Output<outputs.appsync.DataSourceLambdaConfig | undefined>;
+    public readonly lambdaConfig!: pulumi.Output<outputs.appsync.DataSourceLambdaConfig | undefined>;
     /**
      * User-supplied name for the data source.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Amazon OpenSearch Service settings. See `opensearchserviceConfig` Block for details.
      */
-    declare public readonly opensearchserviceConfig: pulumi.Output<outputs.appsync.DataSourceOpensearchserviceConfig | undefined>;
+    public readonly opensearchserviceConfig!: pulumi.Output<outputs.appsync.DataSourceOpensearchserviceConfig | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * AWS RDS settings. See `relationalDatabaseConfig` Block for details.
      */
-    declare public readonly relationalDatabaseConfig: pulumi.Output<outputs.appsync.DataSourceRelationalDatabaseConfig | undefined>;
+    public readonly relationalDatabaseConfig!: pulumi.Output<outputs.appsync.DataSourceRelationalDatabaseConfig | undefined>;
     /**
      * IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
      */
-    declare public readonly serviceRoleArn: pulumi.Output<string | undefined>;
+    public readonly serviceRoleArn!: pulumi.Output<string | undefined>;
     /**
      * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
      */
-    declare public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a DataSource resource with the given unique name, arguments, and options.
@@ -173,41 +173,41 @@ export class DataSource extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataSourceState | undefined;
-            resourceInputs["apiId"] = state?.apiId;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["dynamodbConfig"] = state?.dynamodbConfig;
-            resourceInputs["elasticsearchConfig"] = state?.elasticsearchConfig;
-            resourceInputs["eventBridgeConfig"] = state?.eventBridgeConfig;
-            resourceInputs["httpConfig"] = state?.httpConfig;
-            resourceInputs["lambdaConfig"] = state?.lambdaConfig;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["opensearchserviceConfig"] = state?.opensearchserviceConfig;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["relationalDatabaseConfig"] = state?.relationalDatabaseConfig;
-            resourceInputs["serviceRoleArn"] = state?.serviceRoleArn;
-            resourceInputs["type"] = state?.type;
+            resourceInputs["apiId"] = state ? state.apiId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["dynamodbConfig"] = state ? state.dynamodbConfig : undefined;
+            resourceInputs["elasticsearchConfig"] = state ? state.elasticsearchConfig : undefined;
+            resourceInputs["eventBridgeConfig"] = state ? state.eventBridgeConfig : undefined;
+            resourceInputs["httpConfig"] = state ? state.httpConfig : undefined;
+            resourceInputs["lambdaConfig"] = state ? state.lambdaConfig : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["opensearchserviceConfig"] = state ? state.opensearchserviceConfig : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["relationalDatabaseConfig"] = state ? state.relationalDatabaseConfig : undefined;
+            resourceInputs["serviceRoleArn"] = state ? state.serviceRoleArn : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as DataSourceArgs | undefined;
-            if (args?.apiId === undefined && !opts.urn) {
+            if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if (args?.type === undefined && !opts.urn) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["apiId"] = args?.apiId;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["dynamodbConfig"] = args?.dynamodbConfig;
-            resourceInputs["elasticsearchConfig"] = args?.elasticsearchConfig;
-            resourceInputs["eventBridgeConfig"] = args?.eventBridgeConfig;
-            resourceInputs["httpConfig"] = args?.httpConfig;
-            resourceInputs["lambdaConfig"] = args?.lambdaConfig;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["opensearchserviceConfig"] = args?.opensearchserviceConfig;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["relationalDatabaseConfig"] = args?.relationalDatabaseConfig;
-            resourceInputs["serviceRoleArn"] = args?.serviceRoleArn;
-            resourceInputs["type"] = args?.type;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["dynamodbConfig"] = args ? args.dynamodbConfig : undefined;
+            resourceInputs["elasticsearchConfig"] = args ? args.elasticsearchConfig : undefined;
+            resourceInputs["eventBridgeConfig"] = args ? args.eventBridgeConfig : undefined;
+            resourceInputs["httpConfig"] = args ? args.httpConfig : undefined;
+            resourceInputs["lambdaConfig"] = args ? args.lambdaConfig : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["opensearchserviceConfig"] = args ? args.opensearchserviceConfig : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["relationalDatabaseConfig"] = args ? args.relationalDatabaseConfig : undefined;
+            resourceInputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

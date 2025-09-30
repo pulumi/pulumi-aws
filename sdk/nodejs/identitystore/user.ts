@@ -76,75 +76,75 @@ export class User extends pulumi.CustomResource {
     /**
      * Details about the user's address. At most 1 address is allowed. Detailed below.
      */
-    declare public readonly addresses: pulumi.Output<outputs.identitystore.UserAddresses | undefined>;
+    public readonly addresses!: pulumi.Output<outputs.identitystore.UserAddresses | undefined>;
     /**
      * The name that is typically displayed when the user is referenced.
      */
-    declare public readonly displayName: pulumi.Output<string>;
+    public readonly displayName!: pulumi.Output<string>;
     /**
      * Details about the user's email. At most 1 email is allowed. Detailed below.
      */
-    declare public readonly emails: pulumi.Output<outputs.identitystore.UserEmails | undefined>;
+    public readonly emails!: pulumi.Output<outputs.identitystore.UserEmails | undefined>;
     /**
      * A list of identifiers issued to this resource by an external identity provider.
      */
-    declare public /*out*/ readonly externalIds: pulumi.Output<outputs.identitystore.UserExternalId[]>;
+    public /*out*/ readonly externalIds!: pulumi.Output<outputs.identitystore.UserExternalId[]>;
     /**
      * The globally unique identifier for the identity store that this user is in.
      */
-    declare public readonly identityStoreId: pulumi.Output<string>;
+    public readonly identityStoreId!: pulumi.Output<string>;
     /**
      * The user's geographical region or location.
      */
-    declare public readonly locale: pulumi.Output<string | undefined>;
+    public readonly locale!: pulumi.Output<string | undefined>;
     /**
      * Details about the user's full name. Detailed below.
      */
-    declare public readonly name: pulumi.Output<outputs.identitystore.UserName>;
+    public readonly name!: pulumi.Output<outputs.identitystore.UserName>;
     /**
      * An alternate name for the user.
      */
-    declare public readonly nickname: pulumi.Output<string | undefined>;
+    public readonly nickname!: pulumi.Output<string | undefined>;
     /**
      * Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
      */
-    declare public readonly phoneNumbers: pulumi.Output<outputs.identitystore.UserPhoneNumbers | undefined>;
+    public readonly phoneNumbers!: pulumi.Output<outputs.identitystore.UserPhoneNumbers | undefined>;
     /**
      * The preferred language of the user.
      */
-    declare public readonly preferredLanguage: pulumi.Output<string | undefined>;
+    public readonly preferredLanguage!: pulumi.Output<string | undefined>;
     /**
      * An URL that may be associated with the user.
      */
-    declare public readonly profileUrl: pulumi.Output<string | undefined>;
+    public readonly profileUrl!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The user's time zone.
      */
-    declare public readonly timezone: pulumi.Output<string | undefined>;
+    public readonly timezone!: pulumi.Output<string | undefined>;
     /**
      * The user's title.
      */
-    declare public readonly title: pulumi.Output<string | undefined>;
+    public readonly title!: pulumi.Output<string | undefined>;
     /**
      * The identifier for this user in the identity store.
      */
-    declare public /*out*/ readonly userId: pulumi.Output<string>;
+    public /*out*/ readonly userId!: pulumi.Output<string>;
     /**
      * A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
      *
      * The following arguments are optional:
      */
-    declare public readonly userName: pulumi.Output<string>;
+    public readonly userName!: pulumi.Output<string>;
     /**
      * The user type.
      *
      * > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
      */
-    declare public readonly userType: pulumi.Output<string | undefined>;
+    public readonly userType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -159,49 +159,49 @@ export class User extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
-            resourceInputs["addresses"] = state?.addresses;
-            resourceInputs["displayName"] = state?.displayName;
-            resourceInputs["emails"] = state?.emails;
-            resourceInputs["externalIds"] = state?.externalIds;
-            resourceInputs["identityStoreId"] = state?.identityStoreId;
-            resourceInputs["locale"] = state?.locale;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["nickname"] = state?.nickname;
-            resourceInputs["phoneNumbers"] = state?.phoneNumbers;
-            resourceInputs["preferredLanguage"] = state?.preferredLanguage;
-            resourceInputs["profileUrl"] = state?.profileUrl;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["timezone"] = state?.timezone;
-            resourceInputs["title"] = state?.title;
-            resourceInputs["userId"] = state?.userId;
-            resourceInputs["userName"] = state?.userName;
-            resourceInputs["userType"] = state?.userType;
+            resourceInputs["addresses"] = state ? state.addresses : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["emails"] = state ? state.emails : undefined;
+            resourceInputs["externalIds"] = state ? state.externalIds : undefined;
+            resourceInputs["identityStoreId"] = state ? state.identityStoreId : undefined;
+            resourceInputs["locale"] = state ? state.locale : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["nickname"] = state ? state.nickname : undefined;
+            resourceInputs["phoneNumbers"] = state ? state.phoneNumbers : undefined;
+            resourceInputs["preferredLanguage"] = state ? state.preferredLanguage : undefined;
+            resourceInputs["profileUrl"] = state ? state.profileUrl : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["timezone"] = state ? state.timezone : undefined;
+            resourceInputs["title"] = state ? state.title : undefined;
+            resourceInputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["userName"] = state ? state.userName : undefined;
+            resourceInputs["userType"] = state ? state.userType : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
-            if (args?.displayName === undefined && !opts.urn) {
+            if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if (args?.identityStoreId === undefined && !opts.urn) {
+            if ((!args || args.identityStoreId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identityStoreId'");
             }
-            if (args?.userName === undefined && !opts.urn) {
+            if ((!args || args.userName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
-            resourceInputs["addresses"] = args?.addresses;
-            resourceInputs["displayName"] = args?.displayName;
-            resourceInputs["emails"] = args?.emails;
-            resourceInputs["identityStoreId"] = args?.identityStoreId;
-            resourceInputs["locale"] = args?.locale;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["nickname"] = args?.nickname;
-            resourceInputs["phoneNumbers"] = args?.phoneNumbers;
-            resourceInputs["preferredLanguage"] = args?.preferredLanguage;
-            resourceInputs["profileUrl"] = args?.profileUrl;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["timezone"] = args?.timezone;
-            resourceInputs["title"] = args?.title;
-            resourceInputs["userName"] = args?.userName;
-            resourceInputs["userType"] = args?.userType;
+            resourceInputs["addresses"] = args ? args.addresses : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["emails"] = args ? args.emails : undefined;
+            resourceInputs["identityStoreId"] = args ? args.identityStoreId : undefined;
+            resourceInputs["locale"] = args ? args.locale : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["nickname"] = args ? args.nickname : undefined;
+            resourceInputs["phoneNumbers"] = args ? args.phoneNumbers : undefined;
+            resourceInputs["preferredLanguage"] = args ? args.preferredLanguage : undefined;
+            resourceInputs["profileUrl"] = args ? args.profileUrl : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["timezone"] = args ? args.timezone : undefined;
+            resourceInputs["title"] = args ? args.title : undefined;
+            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["userType"] = args ? args.userType : undefined;
             resourceInputs["externalIds"] = undefined /*out*/;
             resourceInputs["userId"] = undefined /*out*/;
         }

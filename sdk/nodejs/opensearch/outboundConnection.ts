@@ -75,35 +75,35 @@ export class OutboundConnection extends pulumi.CustomResource {
     /**
      * Accepts the connection.
      */
-    declare public readonly acceptConnection: pulumi.Output<boolean | undefined>;
+    public readonly acceptConnection!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the connection alias that will be used by the customer for this connection.
      */
-    declare public readonly connectionAlias: pulumi.Output<string>;
+    public readonly connectionAlias!: pulumi.Output<string>;
     /**
      * Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
      */
-    declare public readonly connectionMode: pulumi.Output<string>;
+    public readonly connectionMode!: pulumi.Output<string>;
     /**
      * Configuration block for the outbound connection.
      */
-    declare public readonly connectionProperties: pulumi.Output<outputs.opensearch.OutboundConnectionConnectionProperties>;
+    public readonly connectionProperties!: pulumi.Output<outputs.opensearch.OutboundConnectionConnectionProperties>;
     /**
      * Status of the connection request.
      */
-    declare public /*out*/ readonly connectionStatus: pulumi.Output<string>;
+    public /*out*/ readonly connectionStatus!: pulumi.Output<string>;
     /**
      * Configuration block for the local Opensearch domain.
      */
-    declare public readonly localDomainInfo: pulumi.Output<outputs.opensearch.OutboundConnectionLocalDomainInfo>;
+    public readonly localDomainInfo!: pulumi.Output<outputs.opensearch.OutboundConnectionLocalDomainInfo>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Configuration block for the remote Opensearch domain.
      */
-    declare public readonly remoteDomainInfo: pulumi.Output<outputs.opensearch.OutboundConnectionRemoteDomainInfo>;
+    public readonly remoteDomainInfo!: pulumi.Output<outputs.opensearch.OutboundConnectionRemoteDomainInfo>;
 
     /**
      * Create a OutboundConnection resource with the given unique name, arguments, and options.
@@ -118,32 +118,32 @@ export class OutboundConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OutboundConnectionState | undefined;
-            resourceInputs["acceptConnection"] = state?.acceptConnection;
-            resourceInputs["connectionAlias"] = state?.connectionAlias;
-            resourceInputs["connectionMode"] = state?.connectionMode;
-            resourceInputs["connectionProperties"] = state?.connectionProperties;
-            resourceInputs["connectionStatus"] = state?.connectionStatus;
-            resourceInputs["localDomainInfo"] = state?.localDomainInfo;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["remoteDomainInfo"] = state?.remoteDomainInfo;
+            resourceInputs["acceptConnection"] = state ? state.acceptConnection : undefined;
+            resourceInputs["connectionAlias"] = state ? state.connectionAlias : undefined;
+            resourceInputs["connectionMode"] = state ? state.connectionMode : undefined;
+            resourceInputs["connectionProperties"] = state ? state.connectionProperties : undefined;
+            resourceInputs["connectionStatus"] = state ? state.connectionStatus : undefined;
+            resourceInputs["localDomainInfo"] = state ? state.localDomainInfo : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["remoteDomainInfo"] = state ? state.remoteDomainInfo : undefined;
         } else {
             const args = argsOrState as OutboundConnectionArgs | undefined;
-            if (args?.connectionAlias === undefined && !opts.urn) {
+            if ((!args || args.connectionAlias === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectionAlias'");
             }
-            if (args?.localDomainInfo === undefined && !opts.urn) {
+            if ((!args || args.localDomainInfo === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'localDomainInfo'");
             }
-            if (args?.remoteDomainInfo === undefined && !opts.urn) {
+            if ((!args || args.remoteDomainInfo === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'remoteDomainInfo'");
             }
-            resourceInputs["acceptConnection"] = args?.acceptConnection;
-            resourceInputs["connectionAlias"] = args?.connectionAlias;
-            resourceInputs["connectionMode"] = args?.connectionMode;
-            resourceInputs["connectionProperties"] = args?.connectionProperties;
-            resourceInputs["localDomainInfo"] = args?.localDomainInfo;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["remoteDomainInfo"] = args?.remoteDomainInfo;
+            resourceInputs["acceptConnection"] = args ? args.acceptConnection : undefined;
+            resourceInputs["connectionAlias"] = args ? args.connectionAlias : undefined;
+            resourceInputs["connectionMode"] = args ? args.connectionMode : undefined;
+            resourceInputs["connectionProperties"] = args ? args.connectionProperties : undefined;
+            resourceInputs["localDomainInfo"] = args ? args.localDomainInfo : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["remoteDomainInfo"] = args ? args.remoteDomainInfo : undefined;
             resourceInputs["connectionStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

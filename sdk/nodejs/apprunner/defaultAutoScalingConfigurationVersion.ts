@@ -64,11 +64,11 @@ export class DefaultAutoScalingConfigurationVersion extends pulumi.CustomResourc
     /**
      * The ARN of the App Runner auto scaling configuration that you want to set as the default.
      */
-    declare public readonly autoScalingConfigurationArn: pulumi.Output<string>;
+    public readonly autoScalingConfigurationArn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a DefaultAutoScalingConfigurationVersion resource with the given unique name, arguments, and options.
@@ -83,15 +83,15 @@ export class DefaultAutoScalingConfigurationVersion extends pulumi.CustomResourc
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DefaultAutoScalingConfigurationVersionState | undefined;
-            resourceInputs["autoScalingConfigurationArn"] = state?.autoScalingConfigurationArn;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["autoScalingConfigurationArn"] = state ? state.autoScalingConfigurationArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as DefaultAutoScalingConfigurationVersionArgs | undefined;
-            if (args?.autoScalingConfigurationArn === undefined && !opts.urn) {
+            if ((!args || args.autoScalingConfigurationArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'autoScalingConfigurationArn'");
             }
-            resourceInputs["autoScalingConfigurationArn"] = args?.autoScalingConfigurationArn;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["autoScalingConfigurationArn"] = args ? args.autoScalingConfigurationArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DefaultAutoScalingConfigurationVersion.__pulumiType, name, resourceInputs, opts);

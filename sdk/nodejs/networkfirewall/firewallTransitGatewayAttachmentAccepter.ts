@@ -67,12 +67,12 @@ export class FirewallTransitGatewayAttachmentAccepter extends pulumi.CustomResou
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
-    declare public readonly timeouts: pulumi.Output<outputs.networkfirewall.FirewallTransitGatewayAttachmentAccepterTimeouts | undefined>;
+    public readonly region!: pulumi.Output<string>;
+    public readonly timeouts!: pulumi.Output<outputs.networkfirewall.FirewallTransitGatewayAttachmentAccepterTimeouts | undefined>;
     /**
      * The unique identifier of the transit gateway attachment to accept. This ID is returned in the response when creating a transit gateway-attached firewall.
      */
-    declare public readonly transitGatewayAttachmentId: pulumi.Output<string>;
+    public readonly transitGatewayAttachmentId!: pulumi.Output<string>;
 
     /**
      * Create a FirewallTransitGatewayAttachmentAccepter resource with the given unique name, arguments, and options.
@@ -87,17 +87,17 @@ export class FirewallTransitGatewayAttachmentAccepter extends pulumi.CustomResou
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FirewallTransitGatewayAttachmentAccepterState | undefined;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["timeouts"] = state?.timeouts;
-            resourceInputs["transitGatewayAttachmentId"] = state?.transitGatewayAttachmentId;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;
         } else {
             const args = argsOrState as FirewallTransitGatewayAttachmentAccepterArgs | undefined;
-            if (args?.transitGatewayAttachmentId === undefined && !opts.urn) {
+            if ((!args || args.transitGatewayAttachmentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayAttachmentId'");
             }
-            resourceInputs["region"] = args?.region;
-            resourceInputs["timeouts"] = args?.timeouts;
-            resourceInputs["transitGatewayAttachmentId"] = args?.transitGatewayAttachmentId;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FirewallTransitGatewayAttachmentAccepter.__pulumiType, name, resourceInputs, opts);

@@ -62,39 +62,39 @@ export class Upload extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name of this upload.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The upload's category.
      */
-    declare public /*out*/ readonly category: pulumi.Output<string>;
+    public /*out*/ readonly category!: pulumi.Output<string>;
     /**
      * The upload's content type (for example, application/octet-stream).
      */
-    declare public readonly contentType: pulumi.Output<string | undefined>;
+    public readonly contentType!: pulumi.Output<string | undefined>;
     /**
      * The upload's metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
      */
-    declare public /*out*/ readonly metadata: pulumi.Output<string>;
+    public /*out*/ readonly metadata!: pulumi.Output<string>;
     /**
      * The upload's file name. The name should not contain any forward slashes (/). If you are uploading an iOS app, the file name must end with the .ipa extension. If you are uploading an Android app, the file name must end with the .apk extension. For all others, the file name must end with the .zip file extension.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The ARN of the project for the upload.
      */
-    declare public readonly projectArn: pulumi.Output<string>;
+    public readonly projectArn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The upload's upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
      */
-    declare public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
     /**
      * The presigned Amazon S3 URL that was used to store a file using a PUT request.
      */
-    declare public /*out*/ readonly url: pulumi.Output<string>;
+    public /*out*/ readonly url!: pulumi.Output<string>;
 
     /**
      * Create a Upload resource with the given unique name, arguments, and options.
@@ -109,28 +109,28 @@ export class Upload extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UploadState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["category"] = state?.category;
-            resourceInputs["contentType"] = state?.contentType;
-            resourceInputs["metadata"] = state?.metadata;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["projectArn"] = state?.projectArn;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["type"] = state?.type;
-            resourceInputs["url"] = state?.url;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["category"] = state ? state.category : undefined;
+            resourceInputs["contentType"] = state ? state.contentType : undefined;
+            resourceInputs["metadata"] = state ? state.metadata : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["projectArn"] = state ? state.projectArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as UploadArgs | undefined;
-            if (args?.projectArn === undefined && !opts.urn) {
+            if ((!args || args.projectArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectArn'");
             }
-            if (args?.type === undefined && !opts.urn) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["contentType"] = args?.contentType;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["projectArn"] = args?.projectArn;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["type"] = args?.type;
+            resourceInputs["contentType"] = args ? args.contentType : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["projectArn"] = args ? args.projectArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["category"] = undefined /*out*/;
             resourceInputs["metadata"] = undefined /*out*/;

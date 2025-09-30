@@ -87,15 +87,15 @@ export class DomainSamlOptions extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    declare public readonly domainName: pulumi.Output<string>;
+    public readonly domainName!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The SAML authentication options for an AWS Elasticsearch Domain.
      */
-    declare public readonly samlOptions: pulumi.Output<outputs.elasticsearch.DomainSamlOptionsSamlOptions | undefined>;
+    public readonly samlOptions!: pulumi.Output<outputs.elasticsearch.DomainSamlOptionsSamlOptions | undefined>;
 
     /**
      * Create a DomainSamlOptions resource with the given unique name, arguments, and options.
@@ -110,17 +110,17 @@ export class DomainSamlOptions extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainSamlOptionsState | undefined;
-            resourceInputs["domainName"] = state?.domainName;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["samlOptions"] = state?.samlOptions;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["samlOptions"] = state ? state.samlOptions : undefined;
         } else {
             const args = argsOrState as DomainSamlOptionsArgs | undefined;
-            if (args?.domainName === undefined && !opts.urn) {
+            if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            resourceInputs["domainName"] = args?.domainName;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["samlOptions"] = args?.samlOptions;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["samlOptions"] = args ? args.samlOptions : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DomainSamlOptions.__pulumiType, name, resourceInputs, opts);

@@ -109,63 +109,63 @@ export class Project extends pulumi.CustomResource {
     /**
      * The number of ongoing experiments currently in the project.
      */
-    declare public /*out*/ readonly activeExperimentCount: pulumi.Output<number>;
+    public /*out*/ readonly activeExperimentCount!: pulumi.Output<number>;
     /**
      * The number of ongoing launches currently in the project.
      */
-    declare public /*out*/ readonly activeLaunchCount: pulumi.Output<number>;
+    public /*out*/ readonly activeLaunchCount!: pulumi.Output<number>;
     /**
      * The ARN of the project.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The date and time that the project is created.
      */
-    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
      * A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
      */
-    declare public readonly dataDelivery: pulumi.Output<outputs.evidently.ProjectDataDelivery | undefined>;
+    public readonly dataDelivery!: pulumi.Output<outputs.evidently.ProjectDataDelivery | undefined>;
     /**
      * Specifies the description of the project.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The number of experiments currently in the project. This includes all experiments that have been created and not deleted, whether they are ongoing or not.
      */
-    declare public /*out*/ readonly experimentCount: pulumi.Output<number>;
+    public /*out*/ readonly experimentCount!: pulumi.Output<number>;
     /**
      * The number of features currently in the project.
      */
-    declare public /*out*/ readonly featureCount: pulumi.Output<number>;
+    public /*out*/ readonly featureCount!: pulumi.Output<number>;
     /**
      * The date and time that the project was most recently updated.
      */
-    declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
     /**
      * The number of launches currently in the project. This includes all launches that have been created and not deleted, whether they are ongoing or not.
      */
-    declare public /*out*/ readonly launchCount: pulumi.Output<number>;
+    public /*out*/ readonly launchCount!: pulumi.Output<number>;
     /**
      * A name for the project.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The current state of the project. Valid values are `AVAILABLE` and `UPDATING`.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Tags to apply to the project. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Project resource with the given unique name, arguments, and options.
@@ -180,28 +180,28 @@ export class Project extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProjectState | undefined;
-            resourceInputs["activeExperimentCount"] = state?.activeExperimentCount;
-            resourceInputs["activeLaunchCount"] = state?.activeLaunchCount;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["createdTime"] = state?.createdTime;
-            resourceInputs["dataDelivery"] = state?.dataDelivery;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["experimentCount"] = state?.experimentCount;
-            resourceInputs["featureCount"] = state?.featureCount;
-            resourceInputs["lastUpdatedTime"] = state?.lastUpdatedTime;
-            resourceInputs["launchCount"] = state?.launchCount;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["activeExperimentCount"] = state ? state.activeExperimentCount : undefined;
+            resourceInputs["activeLaunchCount"] = state ? state.activeLaunchCount : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
+            resourceInputs["dataDelivery"] = state ? state.dataDelivery : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["experimentCount"] = state ? state.experimentCount : undefined;
+            resourceInputs["featureCount"] = state ? state.featureCount : undefined;
+            resourceInputs["lastUpdatedTime"] = state ? state.lastUpdatedTime : undefined;
+            resourceInputs["launchCount"] = state ? state.launchCount : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ProjectArgs | undefined;
-            resourceInputs["dataDelivery"] = args?.dataDelivery;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["dataDelivery"] = args ? args.dataDelivery : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["activeExperimentCount"] = undefined /*out*/;
             resourceInputs["activeLaunchCount"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;

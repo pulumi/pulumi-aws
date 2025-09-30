@@ -94,21 +94,21 @@ export class MailFrom extends pulumi.CustomResource {
     /**
      * The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
      */
-    declare public readonly behaviorOnMxFailure: pulumi.Output<string | undefined>;
+    public readonly behaviorOnMxFailure!: pulumi.Output<string | undefined>;
     /**
      * Verified domain name or email identity to generate DKIM tokens for.
      */
-    declare public readonly domain: pulumi.Output<string>;
+    public readonly domain!: pulumi.Output<string>;
     /**
      * Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
      *
      * The following arguments are optional:
      */
-    declare public readonly mailFromDomain: pulumi.Output<string>;
+    public readonly mailFromDomain!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a MailFrom resource with the given unique name, arguments, and options.
@@ -123,22 +123,22 @@ export class MailFrom extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MailFromState | undefined;
-            resourceInputs["behaviorOnMxFailure"] = state?.behaviorOnMxFailure;
-            resourceInputs["domain"] = state?.domain;
-            resourceInputs["mailFromDomain"] = state?.mailFromDomain;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["behaviorOnMxFailure"] = state ? state.behaviorOnMxFailure : undefined;
+            resourceInputs["domain"] = state ? state.domain : undefined;
+            resourceInputs["mailFromDomain"] = state ? state.mailFromDomain : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as MailFromArgs | undefined;
-            if (args?.domain === undefined && !opts.urn) {
+            if ((!args || args.domain === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domain'");
             }
-            if (args?.mailFromDomain === undefined && !opts.urn) {
+            if ((!args || args.mailFromDomain === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'mailFromDomain'");
             }
-            resourceInputs["behaviorOnMxFailure"] = args?.behaviorOnMxFailure;
-            resourceInputs["domain"] = args?.domain;
-            resourceInputs["mailFromDomain"] = args?.mailFromDomain;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["behaviorOnMxFailure"] = args ? args.behaviorOnMxFailure : undefined;
+            resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["mailFromDomain"] = args ? args.mailFromDomain : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MailFrom.__pulumiType, name, resourceInputs, opts);

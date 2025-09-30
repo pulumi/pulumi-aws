@@ -165,70 +165,70 @@ export class AnalyticsApplication extends pulumi.CustomResource {
     /**
      * The ARN of the Kinesis Analytics Appliation.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The CloudWatch log stream options to monitor application errors.
      * See CloudWatch Logging Options below for more details.
      */
-    declare public readonly cloudwatchLoggingOptions: pulumi.Output<outputs.kinesis.AnalyticsApplicationCloudwatchLoggingOptions | undefined>;
+    public readonly cloudwatchLoggingOptions!: pulumi.Output<outputs.kinesis.AnalyticsApplicationCloudwatchLoggingOptions | undefined>;
     /**
      * SQL Code to transform input data, and generate output.
      */
-    declare public readonly code: pulumi.Output<string | undefined>;
+    public readonly code!: pulumi.Output<string | undefined>;
     /**
      * The Timestamp when the application version was created.
      */
-    declare public /*out*/ readonly createTimestamp: pulumi.Output<string>;
+    public /*out*/ readonly createTimestamp!: pulumi.Output<string>;
     /**
      * Description of the application.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Input configuration of the application. See Inputs below for more details.
      */
-    declare public readonly inputs: pulumi.Output<outputs.kinesis.AnalyticsApplicationInputs | undefined>;
+    public readonly inputs!: pulumi.Output<outputs.kinesis.AnalyticsApplicationInputs | undefined>;
     /**
      * The Timestamp when the application was last updated.
      */
-    declare public /*out*/ readonly lastUpdateTimestamp: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdateTimestamp!: pulumi.Output<string>;
     /**
      * Name of the Kinesis Analytics Application.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Output destination configuration of the application. See Outputs below for more details.
      */
-    declare public readonly outputs: pulumi.Output<outputs.kinesis.AnalyticsApplicationOutput[] | undefined>;
+    public readonly outputs!: pulumi.Output<outputs.kinesis.AnalyticsApplicationOutput[] | undefined>;
     /**
      * An S3 Reference Data Source for the application.
      * See Reference Data Sources below for more details.
      */
-    declare public readonly referenceDataSources: pulumi.Output<outputs.kinesis.AnalyticsApplicationReferenceDataSources | undefined>;
+    public readonly referenceDataSources!: pulumi.Output<outputs.kinesis.AnalyticsApplicationReferenceDataSources | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
      * To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
      */
-    declare public readonly startApplication: pulumi.Output<boolean | undefined>;
+    public readonly startApplication!: pulumi.Output<boolean | undefined>;
     /**
      * The Status of the application.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Version of the application.
      */
-    declare public /*out*/ readonly version: pulumi.Output<number>;
+    public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
      * Create a AnalyticsApplication resource with the given unique name, arguments, and options.
@@ -243,34 +243,34 @@ export class AnalyticsApplication extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AnalyticsApplicationState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["cloudwatchLoggingOptions"] = state?.cloudwatchLoggingOptions;
-            resourceInputs["code"] = state?.code;
-            resourceInputs["createTimestamp"] = state?.createTimestamp;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["inputs"] = state?.inputs;
-            resourceInputs["lastUpdateTimestamp"] = state?.lastUpdateTimestamp;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["outputs"] = state?.outputs;
-            resourceInputs["referenceDataSources"] = state?.referenceDataSources;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["startApplication"] = state?.startApplication;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["version"] = state?.version;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["cloudwatchLoggingOptions"] = state ? state.cloudwatchLoggingOptions : undefined;
+            resourceInputs["code"] = state ? state.code : undefined;
+            resourceInputs["createTimestamp"] = state ? state.createTimestamp : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["inputs"] = state ? state.inputs : undefined;
+            resourceInputs["lastUpdateTimestamp"] = state ? state.lastUpdateTimestamp : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["outputs"] = state ? state.outputs : undefined;
+            resourceInputs["referenceDataSources"] = state ? state.referenceDataSources : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["startApplication"] = state ? state.startApplication : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as AnalyticsApplicationArgs | undefined;
-            resourceInputs["cloudwatchLoggingOptions"] = args?.cloudwatchLoggingOptions;
-            resourceInputs["code"] = args?.code;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["inputs"] = args?.inputs;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["outputs"] = args?.outputs;
-            resourceInputs["referenceDataSources"] = args?.referenceDataSources;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["startApplication"] = args?.startApplication;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["cloudwatchLoggingOptions"] = args ? args.cloudwatchLoggingOptions : undefined;
+            resourceInputs["code"] = args ? args.code : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["inputs"] = args ? args.inputs : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["outputs"] = args ? args.outputs : undefined;
+            resourceInputs["referenceDataSources"] = args ? args.referenceDataSources : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["startApplication"] = args ? args.startApplication : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createTimestamp"] = undefined /*out*/;
             resourceInputs["lastUpdateTimestamp"] = undefined /*out*/;

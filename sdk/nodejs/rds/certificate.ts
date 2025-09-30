@@ -53,11 +53,11 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * Certificate identifier. For example, `rds-ca-rsa4096-g1`. Refer to [AWS RDS (Relational Database) Certificate Identifier](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html#UsingWithRDS.SSL.CertificateIdentifier) for more information.
      */
-    declare public readonly certificateIdentifier: pulumi.Output<string>;
+    public readonly certificateIdentifier!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -72,15 +72,15 @@ export class Certificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateState | undefined;
-            resourceInputs["certificateIdentifier"] = state?.certificateIdentifier;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["certificateIdentifier"] = state ? state.certificateIdentifier : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
-            if (args?.certificateIdentifier === undefined && !opts.urn) {
+            if ((!args || args.certificateIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'certificateIdentifier'");
             }
-            resourceInputs["certificateIdentifier"] = args?.certificateIdentifier;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["certificateIdentifier"] = args ? args.certificateIdentifier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Certificate.__pulumiType, name, resourceInputs, opts);

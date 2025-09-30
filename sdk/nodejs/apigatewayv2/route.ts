@@ -93,58 +93,58 @@ export class Route extends pulumi.CustomResource {
     /**
      * API identifier.
      */
-    declare public readonly apiId: pulumi.Output<string>;
+    public readonly apiId!: pulumi.Output<string>;
     /**
      * Boolean whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
      */
-    declare public readonly apiKeyRequired: pulumi.Output<boolean | undefined>;
+    public readonly apiKeyRequired!: pulumi.Output<boolean | undefined>;
     /**
      * Authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
      */
-    declare public readonly authorizationScopes: pulumi.Output<string[] | undefined>;
+    public readonly authorizationScopes!: pulumi.Output<string[] | undefined>;
     /**
      * Authorization type for the route.
      * For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
      * For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
      * Defaults to `NONE`.
      */
-    declare public readonly authorizationType: pulumi.Output<string | undefined>;
+    public readonly authorizationType!: pulumi.Output<string | undefined>;
     /**
      * Identifier of the `aws.apigatewayv2.Authorizer` resource to be associated with this route.
      */
-    declare public readonly authorizerId: pulumi.Output<string | undefined>;
+    public readonly authorizerId!: pulumi.Output<string | undefined>;
     /**
      * The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
      */
-    declare public readonly modelSelectionExpression: pulumi.Output<string | undefined>;
+    public readonly modelSelectionExpression!: pulumi.Output<string | undefined>;
     /**
      * Operation name for the route. Must be between 1 and 64 characters in length.
      */
-    declare public readonly operationName: pulumi.Output<string | undefined>;
+    public readonly operationName!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Request models for the route. Supported only for WebSocket APIs.
      */
-    declare public readonly requestModels: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly requestModels!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Request parameters for the route. Supported only for WebSocket APIs.
      */
-    declare public readonly requestParameters: pulumi.Output<outputs.apigatewayv2.RouteRequestParameter[] | undefined>;
+    public readonly requestParameters!: pulumi.Output<outputs.apigatewayv2.RouteRequestParameter[] | undefined>;
     /**
      * Route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
      */
-    declare public readonly routeKey: pulumi.Output<string>;
+    public readonly routeKey!: pulumi.Output<string>;
     /**
      * The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
      */
-    declare public readonly routeResponseSelectionExpression: pulumi.Output<string | undefined>;
+    public readonly routeResponseSelectionExpression!: pulumi.Output<string | undefined>;
     /**
      * Target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `aws.apigatewayv2.Integration` resource.
      */
-    declare public readonly target: pulumi.Output<string | undefined>;
+    public readonly target!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Route resource with the given unique name, arguments, and options.
@@ -159,40 +159,40 @@ export class Route extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteState | undefined;
-            resourceInputs["apiId"] = state?.apiId;
-            resourceInputs["apiKeyRequired"] = state?.apiKeyRequired;
-            resourceInputs["authorizationScopes"] = state?.authorizationScopes;
-            resourceInputs["authorizationType"] = state?.authorizationType;
-            resourceInputs["authorizerId"] = state?.authorizerId;
-            resourceInputs["modelSelectionExpression"] = state?.modelSelectionExpression;
-            resourceInputs["operationName"] = state?.operationName;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["requestModels"] = state?.requestModels;
-            resourceInputs["requestParameters"] = state?.requestParameters;
-            resourceInputs["routeKey"] = state?.routeKey;
-            resourceInputs["routeResponseSelectionExpression"] = state?.routeResponseSelectionExpression;
-            resourceInputs["target"] = state?.target;
+            resourceInputs["apiId"] = state ? state.apiId : undefined;
+            resourceInputs["apiKeyRequired"] = state ? state.apiKeyRequired : undefined;
+            resourceInputs["authorizationScopes"] = state ? state.authorizationScopes : undefined;
+            resourceInputs["authorizationType"] = state ? state.authorizationType : undefined;
+            resourceInputs["authorizerId"] = state ? state.authorizerId : undefined;
+            resourceInputs["modelSelectionExpression"] = state ? state.modelSelectionExpression : undefined;
+            resourceInputs["operationName"] = state ? state.operationName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["requestModels"] = state ? state.requestModels : undefined;
+            resourceInputs["requestParameters"] = state ? state.requestParameters : undefined;
+            resourceInputs["routeKey"] = state ? state.routeKey : undefined;
+            resourceInputs["routeResponseSelectionExpression"] = state ? state.routeResponseSelectionExpression : undefined;
+            resourceInputs["target"] = state ? state.target : undefined;
         } else {
             const args = argsOrState as RouteArgs | undefined;
-            if (args?.apiId === undefined && !opts.urn) {
+            if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if (args?.routeKey === undefined && !opts.urn) {
+            if ((!args || args.routeKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'routeKey'");
             }
-            resourceInputs["apiId"] = args?.apiId;
-            resourceInputs["apiKeyRequired"] = args?.apiKeyRequired;
-            resourceInputs["authorizationScopes"] = args?.authorizationScopes;
-            resourceInputs["authorizationType"] = args?.authorizationType;
-            resourceInputs["authorizerId"] = args?.authorizerId;
-            resourceInputs["modelSelectionExpression"] = args?.modelSelectionExpression;
-            resourceInputs["operationName"] = args?.operationName;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["requestModels"] = args?.requestModels;
-            resourceInputs["requestParameters"] = args?.requestParameters;
-            resourceInputs["routeKey"] = args?.routeKey;
-            resourceInputs["routeResponseSelectionExpression"] = args?.routeResponseSelectionExpression;
-            resourceInputs["target"] = args?.target;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["apiKeyRequired"] = args ? args.apiKeyRequired : undefined;
+            resourceInputs["authorizationScopes"] = args ? args.authorizationScopes : undefined;
+            resourceInputs["authorizationType"] = args ? args.authorizationType : undefined;
+            resourceInputs["authorizerId"] = args ? args.authorizerId : undefined;
+            resourceInputs["modelSelectionExpression"] = args ? args.modelSelectionExpression : undefined;
+            resourceInputs["operationName"] = args ? args.operationName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["requestModels"] = args ? args.requestModels : undefined;
+            resourceInputs["requestParameters"] = args ? args.requestParameters : undefined;
+            resourceInputs["routeKey"] = args ? args.routeKey : undefined;
+            resourceInputs["routeResponseSelectionExpression"] = args ? args.routeResponseSelectionExpression : undefined;
+            resourceInputs["target"] = args ? args.target : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Route.__pulumiType, name, resourceInputs, opts);

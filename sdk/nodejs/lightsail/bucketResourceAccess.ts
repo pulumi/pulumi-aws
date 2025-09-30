@@ -68,15 +68,15 @@ export class BucketResourceAccess extends pulumi.CustomResource {
     /**
      * Name of the bucket to grant access to.
      */
-    declare public readonly bucketName: pulumi.Output<string>;
+    public readonly bucketName!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Name of the resource to grant bucket access.
      */
-    declare public readonly resourceName: pulumi.Output<string>;
+    public readonly resourceName!: pulumi.Output<string>;
 
     /**
      * Create a BucketResourceAccess resource with the given unique name, arguments, and options.
@@ -91,20 +91,20 @@ export class BucketResourceAccess extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketResourceAccessState | undefined;
-            resourceInputs["bucketName"] = state?.bucketName;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceName"] = state?.resourceName;
+            resourceInputs["bucketName"] = state ? state.bucketName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceName"] = state ? state.resourceName : undefined;
         } else {
             const args = argsOrState as BucketResourceAccessArgs | undefined;
-            if (args?.bucketName === undefined && !opts.urn) {
+            if ((!args || args.bucketName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucketName'");
             }
-            if (args?.resourceName === undefined && !opts.urn) {
+            if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            resourceInputs["bucketName"] = args?.bucketName;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["bucketName"] = args ? args.bucketName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BucketResourceAccess.__pulumiType, name, resourceInputs, opts);

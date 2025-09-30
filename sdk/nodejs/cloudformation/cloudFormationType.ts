@@ -49,75 +49,75 @@ export class CloudFormationType extends pulumi.CustomResource {
     /**
      * (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `typeArn`.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Identifier of the CloudFormation Type default version.
      */
-    declare public /*out*/ readonly defaultVersionId: pulumi.Output<string>;
+    public /*out*/ readonly defaultVersionId!: pulumi.Output<string>;
     /**
      * Deprecation status of the version.
      */
-    declare public /*out*/ readonly deprecatedStatus: pulumi.Output<string>;
+    public /*out*/ readonly deprecatedStatus!: pulumi.Output<string>;
     /**
      * Description of the version.
      */
-    declare public /*out*/ readonly description: pulumi.Output<string>;
+    public /*out*/ readonly description!: pulumi.Output<string>;
     /**
      * URL of the documentation for the CloudFormation Type.
      */
-    declare public /*out*/ readonly documentationUrl: pulumi.Output<string>;
+    public /*out*/ readonly documentationUrl!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
      */
-    declare public readonly executionRoleArn: pulumi.Output<string | undefined>;
+    public readonly executionRoleArn!: pulumi.Output<string | undefined>;
     /**
      * Whether the CloudFormation Type version is the default version.
      */
-    declare public /*out*/ readonly isDefaultVersion: pulumi.Output<boolean>;
+    public /*out*/ readonly isDefaultVersion!: pulumi.Output<boolean>;
     /**
      * Configuration block containing logging configuration.
      */
-    declare public readonly loggingConfig: pulumi.Output<outputs.cloudformation.CloudFormationTypeLoggingConfig | undefined>;
+    public readonly loggingConfig!: pulumi.Output<outputs.cloudformation.CloudFormationTypeLoggingConfig | undefined>;
     /**
      * Provisioning behavior of the CloudFormation Type.
      */
-    declare public /*out*/ readonly provisioningType: pulumi.Output<string>;
+    public /*out*/ readonly provisioningType!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * JSON document of the CloudFormation Type schema.
      */
-    declare public /*out*/ readonly schema: pulumi.Output<string>;
+    public /*out*/ readonly schema!: pulumi.Output<string>;
     /**
      * URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
      */
-    declare public readonly schemaHandlerPackage: pulumi.Output<string>;
+    public readonly schemaHandlerPackage!: pulumi.Output<string>;
     /**
      * URL of the source code for the CloudFormation Type.
      */
-    declare public /*out*/ readonly sourceUrl: pulumi.Output<string>;
+    public /*out*/ readonly sourceUrl!: pulumi.Output<string>;
     /**
      * CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
      */
-    declare public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
     /**
      * (Optional) Amazon Resource Name (ARN) of the CloudFormation Type. See also `arn`.
      */
-    declare public /*out*/ readonly typeArn: pulumi.Output<string>;
+    public /*out*/ readonly typeArn!: pulumi.Output<string>;
     /**
      * CloudFormation Type name. For example, `ExampleCompany::ExampleService::ExampleResource`.
      */
-    declare public readonly typeName: pulumi.Output<string>;
+    public readonly typeName!: pulumi.Output<string>;
     /**
      * (Optional) Identifier of the CloudFormation Type version.
      */
-    declare public /*out*/ readonly versionId: pulumi.Output<string>;
+    public /*out*/ readonly versionId!: pulumi.Output<string>;
     /**
      * Scope of the CloudFormation Type.
      */
-    declare public /*out*/ readonly visibility: pulumi.Output<string>;
+    public /*out*/ readonly visibility!: pulumi.Output<string>;
 
     /**
      * Create a CloudFormationType resource with the given unique name, arguments, and options.
@@ -132,38 +132,38 @@ export class CloudFormationType extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CloudFormationTypeState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["defaultVersionId"] = state?.defaultVersionId;
-            resourceInputs["deprecatedStatus"] = state?.deprecatedStatus;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["documentationUrl"] = state?.documentationUrl;
-            resourceInputs["executionRoleArn"] = state?.executionRoleArn;
-            resourceInputs["isDefaultVersion"] = state?.isDefaultVersion;
-            resourceInputs["loggingConfig"] = state?.loggingConfig;
-            resourceInputs["provisioningType"] = state?.provisioningType;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["schema"] = state?.schema;
-            resourceInputs["schemaHandlerPackage"] = state?.schemaHandlerPackage;
-            resourceInputs["sourceUrl"] = state?.sourceUrl;
-            resourceInputs["type"] = state?.type;
-            resourceInputs["typeArn"] = state?.typeArn;
-            resourceInputs["typeName"] = state?.typeName;
-            resourceInputs["versionId"] = state?.versionId;
-            resourceInputs["visibility"] = state?.visibility;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["defaultVersionId"] = state ? state.defaultVersionId : undefined;
+            resourceInputs["deprecatedStatus"] = state ? state.deprecatedStatus : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["documentationUrl"] = state ? state.documentationUrl : undefined;
+            resourceInputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
+            resourceInputs["isDefaultVersion"] = state ? state.isDefaultVersion : undefined;
+            resourceInputs["loggingConfig"] = state ? state.loggingConfig : undefined;
+            resourceInputs["provisioningType"] = state ? state.provisioningType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["schema"] = state ? state.schema : undefined;
+            resourceInputs["schemaHandlerPackage"] = state ? state.schemaHandlerPackage : undefined;
+            resourceInputs["sourceUrl"] = state ? state.sourceUrl : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["typeArn"] = state ? state.typeArn : undefined;
+            resourceInputs["typeName"] = state ? state.typeName : undefined;
+            resourceInputs["versionId"] = state ? state.versionId : undefined;
+            resourceInputs["visibility"] = state ? state.visibility : undefined;
         } else {
             const args = argsOrState as CloudFormationTypeArgs | undefined;
-            if (args?.schemaHandlerPackage === undefined && !opts.urn) {
+            if ((!args || args.schemaHandlerPackage === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schemaHandlerPackage'");
             }
-            if (args?.typeName === undefined && !opts.urn) {
+            if ((!args || args.typeName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'typeName'");
             }
-            resourceInputs["executionRoleArn"] = args?.executionRoleArn;
-            resourceInputs["loggingConfig"] = args?.loggingConfig;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["schemaHandlerPackage"] = args?.schemaHandlerPackage;
-            resourceInputs["type"] = args?.type;
-            resourceInputs["typeName"] = args?.typeName;
+            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
+            resourceInputs["loggingConfig"] = args ? args.loggingConfig : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["schemaHandlerPackage"] = args ? args.schemaHandlerPackage : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["typeName"] = args ? args.typeName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["defaultVersionId"] = undefined /*out*/;
             resourceInputs["deprecatedStatus"] = undefined /*out*/;

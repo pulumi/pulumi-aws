@@ -66,36 +66,36 @@ export class NfsLocation extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Configuration block containing mount options used by DataSync to access the NFS Server.
      */
-    declare public readonly mountOptions: pulumi.Output<outputs.datasync.NfsLocationMountOptions | undefined>;
+    public readonly mountOptions!: pulumi.Output<outputs.datasync.NfsLocationMountOptions | undefined>;
     /**
      * Configuration block containing information for connecting to the NFS File System.
      */
-    declare public readonly onPremConfig: pulumi.Output<outputs.datasync.NfsLocationOnPremConfig>;
+    public readonly onPremConfig!: pulumi.Output<outputs.datasync.NfsLocationOnPremConfig>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
      */
-    declare public readonly serverHostname: pulumi.Output<string>;
+    public readonly serverHostname!: pulumi.Output<string>;
     /**
      * Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
      */
-    declare public readonly subdirectory: pulumi.Output<string>;
+    public readonly subdirectory!: pulumi.Output<string>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public /*out*/ readonly uri: pulumi.Output<string>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly uri!: pulumi.Output<string>;
 
     /**
      * Create a NfsLocation resource with the given unique name, arguments, and options.
@@ -110,32 +110,32 @@ export class NfsLocation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NfsLocationState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["mountOptions"] = state?.mountOptions;
-            resourceInputs["onPremConfig"] = state?.onPremConfig;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["serverHostname"] = state?.serverHostname;
-            resourceInputs["subdirectory"] = state?.subdirectory;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["uri"] = state?.uri;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["mountOptions"] = state ? state.mountOptions : undefined;
+            resourceInputs["onPremConfig"] = state ? state.onPremConfig : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["serverHostname"] = state ? state.serverHostname : undefined;
+            resourceInputs["subdirectory"] = state ? state.subdirectory : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["uri"] = state ? state.uri : undefined;
         } else {
             const args = argsOrState as NfsLocationArgs | undefined;
-            if (args?.onPremConfig === undefined && !opts.urn) {
+            if ((!args || args.onPremConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'onPremConfig'");
             }
-            if (args?.serverHostname === undefined && !opts.urn) {
+            if ((!args || args.serverHostname === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverHostname'");
             }
-            if (args?.subdirectory === undefined && !opts.urn) {
+            if ((!args || args.subdirectory === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subdirectory'");
             }
-            resourceInputs["mountOptions"] = args?.mountOptions;
-            resourceInputs["onPremConfig"] = args?.onPremConfig;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["serverHostname"] = args?.serverHostname;
-            resourceInputs["subdirectory"] = args?.subdirectory;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["mountOptions"] = args ? args.mountOptions : undefined;
+            resourceInputs["onPremConfig"] = args ? args.onPremConfig : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["serverHostname"] = args ? args.serverHostname : undefined;
+            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["uri"] = undefined /*out*/;

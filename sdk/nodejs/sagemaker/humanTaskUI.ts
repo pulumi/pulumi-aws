@@ -66,27 +66,27 @@ export class HumanTaskUI extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name of the Human Task UI.
      */
-    declare public readonly humanTaskUiName: pulumi.Output<string>;
+    public readonly humanTaskUiName!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Liquid template for the worker user interface. See UI Template below.
      */
-    declare public readonly uiTemplate: pulumi.Output<outputs.sagemaker.HumanTaskUIUiTemplate>;
+    public readonly uiTemplate!: pulumi.Output<outputs.sagemaker.HumanTaskUIUiTemplate>;
 
     /**
      * Create a HumanTaskUI resource with the given unique name, arguments, and options.
@@ -101,24 +101,24 @@ export class HumanTaskUI extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HumanTaskUIState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["humanTaskUiName"] = state?.humanTaskUiName;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["uiTemplate"] = state?.uiTemplate;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["humanTaskUiName"] = state ? state.humanTaskUiName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["uiTemplate"] = state ? state.uiTemplate : undefined;
         } else {
             const args = argsOrState as HumanTaskUIArgs | undefined;
-            if (args?.humanTaskUiName === undefined && !opts.urn) {
+            if ((!args || args.humanTaskUiName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'humanTaskUiName'");
             }
-            if (args?.uiTemplate === undefined && !opts.urn) {
+            if ((!args || args.uiTemplate === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'uiTemplate'");
             }
-            resourceInputs["humanTaskUiName"] = args?.humanTaskUiName;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["uiTemplate"] = args?.uiTemplate;
+            resourceInputs["humanTaskUiName"] = args ? args.humanTaskUiName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["uiTemplate"] = args ? args.uiTemplate : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

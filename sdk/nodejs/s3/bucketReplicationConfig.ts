@@ -47,15 +47,15 @@ export class BucketReplicationConfig extends pulumi.CustomResource {
     /**
      * Name of the source S3 bucket you want Amazon S3 to monitor.
      */
-    declare public readonly bucket: pulumi.Output<string>;
+    public readonly bucket!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ARN of the IAM role for Amazon S3 to assume when replicating the objects.
      */
-    declare public readonly role: pulumi.Output<string>;
+    public readonly role!: pulumi.Output<string>;
     /**
      * List of configuration blocks describing the rules managing the replication. See below.
      * > **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rule` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
@@ -65,12 +65,12 @@ export class BucketReplicationConfig extends pulumi.CustomResource {
      * > **NOTE:** The `existingObjectReplication` parameter is not supported by Amazon S3 at this time and should not be included in your `rule` configurations. Specifying this parameter will result in `MalformedXML` errors.
      * To replicate existing objects, please refer to the [Replicating existing objects with S3 Batch Replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-batch-replication-batch.html) documentation in the Amazon S3 User Guide.
      */
-    declare public readonly rules: pulumi.Output<outputs.s3.BucketReplicationConfigRule[]>;
+    public readonly rules!: pulumi.Output<outputs.s3.BucketReplicationConfigRule[]>;
     /**
      * Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
      * For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
      */
-    declare public readonly token: pulumi.Output<string | undefined>;
+    public readonly token!: pulumi.Output<string | undefined>;
 
     /**
      * Create a BucketReplicationConfig resource with the given unique name, arguments, and options.
@@ -85,26 +85,26 @@ export class BucketReplicationConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketReplicationConfigState | undefined;
-            resourceInputs["bucket"] = state?.bucket;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["role"] = state?.role;
-            resourceInputs["rules"] = state?.rules;
-            resourceInputs["token"] = state?.token;
+            resourceInputs["bucket"] = state ? state.bucket : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["role"] = state ? state.role : undefined;
+            resourceInputs["rules"] = state ? state.rules : undefined;
+            resourceInputs["token"] = state ? state.token : undefined;
         } else {
             const args = argsOrState as BucketReplicationConfigArgs | undefined;
-            if (args?.bucket === undefined && !opts.urn) {
+            if ((!args || args.bucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            if (args?.role === undefined && !opts.urn) {
+            if ((!args || args.role === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
-            if (args?.rules === undefined && !opts.urn) {
+            if ((!args || args.rules === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
-            resourceInputs["bucket"] = args?.bucket;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["role"] = args?.role;
-            resourceInputs["rules"] = args?.rules;
+            resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["role"] = args ? args.role : undefined;
+            resourceInputs["rules"] = args ? args.rules : undefined;
             resourceInputs["token"] = args?.token ? pulumi.secret(args.token) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -74,31 +74,31 @@ export class MultiRegionAccessPoint extends pulumi.CustomResource {
     /**
      * The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      */
-    declare public readonly accountId: pulumi.Output<string>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * The alias for the Multi-Region Access Point.
      */
-    declare public /*out*/ readonly alias: pulumi.Output<string>;
+    public /*out*/ readonly alias!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the Multi-Region Access Point.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
      */
-    declare public readonly details: pulumi.Output<outputs.s3control.MultiRegionAccessPointDetails>;
+    public readonly details!: pulumi.Output<outputs.s3control.MultiRegionAccessPointDetails>;
     /**
      * The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
      */
-    declare public /*out*/ readonly domainName: pulumi.Output<string>;
+    public /*out*/ readonly domainName!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The current status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
 
     /**
      * Create a MultiRegionAccessPoint resource with the given unique name, arguments, and options.
@@ -113,21 +113,21 @@ export class MultiRegionAccessPoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MultiRegionAccessPointState | undefined;
-            resourceInputs["accountId"] = state?.accountId;
-            resourceInputs["alias"] = state?.alias;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["details"] = state?.details;
-            resourceInputs["domainName"] = state?.domainName;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["status"] = state?.status;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["alias"] = state ? state.alias : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["details"] = state ? state.details : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as MultiRegionAccessPointArgs | undefined;
-            if (args?.details === undefined && !opts.urn) {
+            if ((!args || args.details === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'details'");
             }
-            resourceInputs["accountId"] = args?.accountId;
-            resourceInputs["details"] = args?.details;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["details"] = args ? args.details : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["alias"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;

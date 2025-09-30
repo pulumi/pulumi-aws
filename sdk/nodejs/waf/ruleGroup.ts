@@ -72,27 +72,27 @@ export class RuleGroup extends pulumi.CustomResource {
     /**
      * A list of activated rules, see below
      */
-    declare public readonly activatedRules: pulumi.Output<outputs.waf.RuleGroupActivatedRule[] | undefined>;
+    public readonly activatedRules!: pulumi.Output<outputs.waf.RuleGroupActivatedRule[] | undefined>;
     /**
      * The ARN of the WAF rule group.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A friendly name for the metrics from the rule group
      */
-    declare public readonly metricName: pulumi.Output<string>;
+    public readonly metricName!: pulumi.Output<string>;
     /**
      * Name of the rule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a RuleGroup resource with the given unique name, arguments, and options.
@@ -107,21 +107,21 @@ export class RuleGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RuleGroupState | undefined;
-            resourceInputs["activatedRules"] = state?.activatedRules;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["metricName"] = state?.metricName;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["activatedRules"] = state ? state.activatedRules : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["metricName"] = state ? state.metricName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as RuleGroupArgs | undefined;
-            if (args?.metricName === undefined && !opts.urn) {
+            if ((!args || args.metricName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'metricName'");
             }
-            resourceInputs["activatedRules"] = args?.activatedRules;
-            resourceInputs["metricName"] = args?.metricName;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["activatedRules"] = args ? args.activatedRules : undefined;
+            resourceInputs["metricName"] = args ? args.metricName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

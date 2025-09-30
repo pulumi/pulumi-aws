@@ -233,73 +233,73 @@ export class TopicSubscription extends pulumi.CustomResource {
     /**
      * ARN of the subscription.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
      */
-    declare public readonly confirmationTimeoutInMinutes: pulumi.Output<number | undefined>;
+    public readonly confirmationTimeoutInMinutes!: pulumi.Output<number | undefined>;
     /**
      * Whether the subscription confirmation request was authenticated.
      */
-    declare public /*out*/ readonly confirmationWasAuthenticated: pulumi.Output<boolean>;
+    public /*out*/ readonly confirmationWasAuthenticated!: pulumi.Output<boolean>;
     /**
      * JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
      */
-    declare public readonly deliveryPolicy: pulumi.Output<string | undefined>;
+    public readonly deliveryPolicy!: pulumi.Output<string | undefined>;
     /**
      * Endpoint to send data to. The contents vary with the protocol. See details below.
      */
-    declare public readonly endpoint: pulumi.Output<string>;
+    public readonly endpoint!: pulumi.Output<string>;
     /**
      * Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `false`.
      */
-    declare public readonly endpointAutoConfirms: pulumi.Output<boolean | undefined>;
+    public readonly endpointAutoConfirms!: pulumi.Output<boolean | undefined>;
     /**
      * JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
      */
-    declare public readonly filterPolicy: pulumi.Output<string | undefined>;
+    public readonly filterPolicy!: pulumi.Output<string | undefined>;
     /**
      * Whether the `filterPolicy` applies to `MessageAttributes` (default) or `MessageBody`.
      */
-    declare public readonly filterPolicyScope: pulumi.Output<string>;
+    public readonly filterPolicyScope!: pulumi.Output<string>;
     /**
      * AWS account ID of the subscription's owner.
      */
-    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
      * Whether the subscription has not been confirmed.
      */
-    declare public /*out*/ readonly pendingConfirmation: pulumi.Output<boolean>;
+    public /*out*/ readonly pendingConfirmation!: pulumi.Output<boolean>;
     /**
      * Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
      */
-    declare public readonly protocol: pulumi.Output<string>;
+    public readonly protocol!: pulumi.Output<string>;
     /**
      * Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
      */
-    declare public readonly rawMessageDelivery: pulumi.Output<boolean | undefined>;
+    public readonly rawMessageDelivery!: pulumi.Output<boolean | undefined>;
     /**
      * JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
      */
-    declare public readonly redrivePolicy: pulumi.Output<string | undefined>;
+    public readonly redrivePolicy!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
      */
-    declare public readonly replayPolicy: pulumi.Output<string | undefined>;
+    public readonly replayPolicy!: pulumi.Output<string | undefined>;
     /**
      * ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
      */
-    declare public readonly subscriptionRoleArn: pulumi.Output<string | undefined>;
+    public readonly subscriptionRoleArn!: pulumi.Output<string | undefined>;
     /**
      * ARN of the SNS topic to subscribe to.
      *
      * The following arguments are optional:
      */
-    declare public readonly topic: pulumi.Output<string>;
+    public readonly topic!: pulumi.Output<string>;
 
     /**
      * Create a TopicSubscription resource with the given unique name, arguments, and options.
@@ -314,47 +314,47 @@ export class TopicSubscription extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TopicSubscriptionState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["confirmationTimeoutInMinutes"] = state?.confirmationTimeoutInMinutes;
-            resourceInputs["confirmationWasAuthenticated"] = state?.confirmationWasAuthenticated;
-            resourceInputs["deliveryPolicy"] = state?.deliveryPolicy;
-            resourceInputs["endpoint"] = state?.endpoint;
-            resourceInputs["endpointAutoConfirms"] = state?.endpointAutoConfirms;
-            resourceInputs["filterPolicy"] = state?.filterPolicy;
-            resourceInputs["filterPolicyScope"] = state?.filterPolicyScope;
-            resourceInputs["ownerId"] = state?.ownerId;
-            resourceInputs["pendingConfirmation"] = state?.pendingConfirmation;
-            resourceInputs["protocol"] = state?.protocol;
-            resourceInputs["rawMessageDelivery"] = state?.rawMessageDelivery;
-            resourceInputs["redrivePolicy"] = state?.redrivePolicy;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["replayPolicy"] = state?.replayPolicy;
-            resourceInputs["subscriptionRoleArn"] = state?.subscriptionRoleArn;
-            resourceInputs["topic"] = state?.topic;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["confirmationTimeoutInMinutes"] = state ? state.confirmationTimeoutInMinutes : undefined;
+            resourceInputs["confirmationWasAuthenticated"] = state ? state.confirmationWasAuthenticated : undefined;
+            resourceInputs["deliveryPolicy"] = state ? state.deliveryPolicy : undefined;
+            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
+            resourceInputs["endpointAutoConfirms"] = state ? state.endpointAutoConfirms : undefined;
+            resourceInputs["filterPolicy"] = state ? state.filterPolicy : undefined;
+            resourceInputs["filterPolicyScope"] = state ? state.filterPolicyScope : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["pendingConfirmation"] = state ? state.pendingConfirmation : undefined;
+            resourceInputs["protocol"] = state ? state.protocol : undefined;
+            resourceInputs["rawMessageDelivery"] = state ? state.rawMessageDelivery : undefined;
+            resourceInputs["redrivePolicy"] = state ? state.redrivePolicy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["replayPolicy"] = state ? state.replayPolicy : undefined;
+            resourceInputs["subscriptionRoleArn"] = state ? state.subscriptionRoleArn : undefined;
+            resourceInputs["topic"] = state ? state.topic : undefined;
         } else {
             const args = argsOrState as TopicSubscriptionArgs | undefined;
-            if (args?.endpoint === undefined && !opts.urn) {
+            if ((!args || args.endpoint === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endpoint'");
             }
-            if (args?.protocol === undefined && !opts.urn) {
+            if ((!args || args.protocol === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if (args?.topic === undefined && !opts.urn) {
+            if ((!args || args.topic === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'topic'");
             }
-            resourceInputs["confirmationTimeoutInMinutes"] = args?.confirmationTimeoutInMinutes;
-            resourceInputs["deliveryPolicy"] = args?.deliveryPolicy;
-            resourceInputs["endpoint"] = args?.endpoint;
-            resourceInputs["endpointAutoConfirms"] = args?.endpointAutoConfirms;
-            resourceInputs["filterPolicy"] = args?.filterPolicy;
-            resourceInputs["filterPolicyScope"] = args?.filterPolicyScope;
-            resourceInputs["protocol"] = args?.protocol;
-            resourceInputs["rawMessageDelivery"] = args?.rawMessageDelivery;
-            resourceInputs["redrivePolicy"] = args?.redrivePolicy;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["replayPolicy"] = args?.replayPolicy;
-            resourceInputs["subscriptionRoleArn"] = args?.subscriptionRoleArn;
-            resourceInputs["topic"] = args?.topic;
+            resourceInputs["confirmationTimeoutInMinutes"] = args ? args.confirmationTimeoutInMinutes : undefined;
+            resourceInputs["deliveryPolicy"] = args ? args.deliveryPolicy : undefined;
+            resourceInputs["endpoint"] = args ? args.endpoint : undefined;
+            resourceInputs["endpointAutoConfirms"] = args ? args.endpointAutoConfirms : undefined;
+            resourceInputs["filterPolicy"] = args ? args.filterPolicy : undefined;
+            resourceInputs["filterPolicyScope"] = args ? args.filterPolicyScope : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["rawMessageDelivery"] = args ? args.rawMessageDelivery : undefined;
+            resourceInputs["redrivePolicy"] = args ? args.redrivePolicy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["replayPolicy"] = args ? args.replayPolicy : undefined;
+            resourceInputs["subscriptionRoleArn"] = args ? args.subscriptionRoleArn : undefined;
+            resourceInputs["topic"] = args ? args.topic : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["confirmationWasAuthenticated"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;

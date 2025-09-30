@@ -154,103 +154,103 @@ export class Branch extends pulumi.CustomResource {
     /**
      * Unique ID for an Amplify app.
      */
-    declare public readonly appId: pulumi.Output<string>;
+    public readonly appId!: pulumi.Output<string>;
     /**
      * ARN for the branch.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A list of custom resources that are linked to this branch.
      */
-    declare public /*out*/ readonly associatedResources: pulumi.Output<string[]>;
+    public /*out*/ readonly associatedResources!: pulumi.Output<string[]>;
     /**
      * ARN for a backend environment that is part of an Amplify app.
      */
-    declare public readonly backendEnvironmentArn: pulumi.Output<string | undefined>;
+    public readonly backendEnvironmentArn!: pulumi.Output<string | undefined>;
     /**
      * Basic authorization credentials for the branch.
      */
-    declare public readonly basicAuthCredentials: pulumi.Output<string | undefined>;
+    public readonly basicAuthCredentials!: pulumi.Output<string | undefined>;
     /**
      * Name for the branch.
      */
-    declare public readonly branchName: pulumi.Output<string>;
+    public readonly branchName!: pulumi.Output<string>;
     /**
      * Custom domains for the branch.
      */
-    declare public /*out*/ readonly customDomains: pulumi.Output<string[]>;
+    public /*out*/ readonly customDomains!: pulumi.Output<string[]>;
     /**
      * Description for the branch.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Destination branch if the branch is a pull request branch.
      */
-    declare public /*out*/ readonly destinationBranch: pulumi.Output<string>;
+    public /*out*/ readonly destinationBranch!: pulumi.Output<string>;
     /**
      * Display name for a branch. This is used as the default domain prefix.
      */
-    declare public readonly displayName: pulumi.Output<string>;
+    public readonly displayName!: pulumi.Output<string>;
     /**
      * Enables auto building for the branch.
      */
-    declare public readonly enableAutoBuild: pulumi.Output<boolean | undefined>;
+    public readonly enableAutoBuild!: pulumi.Output<boolean | undefined>;
     /**
      * Enables basic authorization for the branch.
      */
-    declare public readonly enableBasicAuth: pulumi.Output<boolean | undefined>;
+    public readonly enableBasicAuth!: pulumi.Output<boolean | undefined>;
     /**
      * Enables notifications for the branch.
      */
-    declare public readonly enableNotification: pulumi.Output<boolean | undefined>;
+    public readonly enableNotification!: pulumi.Output<boolean | undefined>;
     /**
      * Enables performance mode for the branch.
      */
-    declare public readonly enablePerformanceMode: pulumi.Output<boolean | undefined>;
+    public readonly enablePerformanceMode!: pulumi.Output<boolean | undefined>;
     /**
      * Enables pull request previews for this branch.
      */
-    declare public readonly enablePullRequestPreview: pulumi.Output<boolean | undefined>;
+    public readonly enablePullRequestPreview!: pulumi.Output<boolean | undefined>;
     /**
      * Enables skew protection for the branch.
      */
-    declare public readonly enableSkewProtection: pulumi.Output<boolean | undefined>;
+    public readonly enableSkewProtection!: pulumi.Output<boolean | undefined>;
     /**
      * Environment variables for the branch.
      */
-    declare public readonly environmentVariables: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly environmentVariables!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Framework for the branch.
      */
-    declare public readonly framework: pulumi.Output<string | undefined>;
+    public readonly framework!: pulumi.Output<string | undefined>;
     /**
      * Amplify environment name for the pull request.
      */
-    declare public readonly pullRequestEnvironmentName: pulumi.Output<string | undefined>;
+    public readonly pullRequestEnvironmentName!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Source branch if the branch is a pull request branch.
      */
-    declare public /*out*/ readonly sourceBranch: pulumi.Output<string>;
+    public /*out*/ readonly sourceBranch!: pulumi.Output<string>;
     /**
      * Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
      */
-    declare public readonly stage: pulumi.Output<string | undefined>;
+    public readonly stage!: pulumi.Output<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Content Time To Live (TTL) for the website in seconds.
      */
-    declare public readonly ttl: pulumi.Output<string | undefined>;
+    public readonly ttl!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Branch resource with the given unique name, arguments, and options.
@@ -265,58 +265,58 @@ export class Branch extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BranchState | undefined;
-            resourceInputs["appId"] = state?.appId;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["associatedResources"] = state?.associatedResources;
-            resourceInputs["backendEnvironmentArn"] = state?.backendEnvironmentArn;
-            resourceInputs["basicAuthCredentials"] = state?.basicAuthCredentials;
-            resourceInputs["branchName"] = state?.branchName;
-            resourceInputs["customDomains"] = state?.customDomains;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["destinationBranch"] = state?.destinationBranch;
-            resourceInputs["displayName"] = state?.displayName;
-            resourceInputs["enableAutoBuild"] = state?.enableAutoBuild;
-            resourceInputs["enableBasicAuth"] = state?.enableBasicAuth;
-            resourceInputs["enableNotification"] = state?.enableNotification;
-            resourceInputs["enablePerformanceMode"] = state?.enablePerformanceMode;
-            resourceInputs["enablePullRequestPreview"] = state?.enablePullRequestPreview;
-            resourceInputs["enableSkewProtection"] = state?.enableSkewProtection;
-            resourceInputs["environmentVariables"] = state?.environmentVariables;
-            resourceInputs["framework"] = state?.framework;
-            resourceInputs["pullRequestEnvironmentName"] = state?.pullRequestEnvironmentName;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["sourceBranch"] = state?.sourceBranch;
-            resourceInputs["stage"] = state?.stage;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["ttl"] = state?.ttl;
+            resourceInputs["appId"] = state ? state.appId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["associatedResources"] = state ? state.associatedResources : undefined;
+            resourceInputs["backendEnvironmentArn"] = state ? state.backendEnvironmentArn : undefined;
+            resourceInputs["basicAuthCredentials"] = state ? state.basicAuthCredentials : undefined;
+            resourceInputs["branchName"] = state ? state.branchName : undefined;
+            resourceInputs["customDomains"] = state ? state.customDomains : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["destinationBranch"] = state ? state.destinationBranch : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["enableAutoBuild"] = state ? state.enableAutoBuild : undefined;
+            resourceInputs["enableBasicAuth"] = state ? state.enableBasicAuth : undefined;
+            resourceInputs["enableNotification"] = state ? state.enableNotification : undefined;
+            resourceInputs["enablePerformanceMode"] = state ? state.enablePerformanceMode : undefined;
+            resourceInputs["enablePullRequestPreview"] = state ? state.enablePullRequestPreview : undefined;
+            resourceInputs["enableSkewProtection"] = state ? state.enableSkewProtection : undefined;
+            resourceInputs["environmentVariables"] = state ? state.environmentVariables : undefined;
+            resourceInputs["framework"] = state ? state.framework : undefined;
+            resourceInputs["pullRequestEnvironmentName"] = state ? state.pullRequestEnvironmentName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["sourceBranch"] = state ? state.sourceBranch : undefined;
+            resourceInputs["stage"] = state ? state.stage : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["ttl"] = state ? state.ttl : undefined;
         } else {
             const args = argsOrState as BranchArgs | undefined;
-            if (args?.appId === undefined && !opts.urn) {
+            if ((!args || args.appId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'appId'");
             }
-            if (args?.branchName === undefined && !opts.urn) {
+            if ((!args || args.branchName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'branchName'");
             }
-            resourceInputs["appId"] = args?.appId;
-            resourceInputs["backendEnvironmentArn"] = args?.backendEnvironmentArn;
+            resourceInputs["appId"] = args ? args.appId : undefined;
+            resourceInputs["backendEnvironmentArn"] = args ? args.backendEnvironmentArn : undefined;
             resourceInputs["basicAuthCredentials"] = args?.basicAuthCredentials ? pulumi.secret(args.basicAuthCredentials) : undefined;
-            resourceInputs["branchName"] = args?.branchName;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["displayName"] = args?.displayName;
-            resourceInputs["enableAutoBuild"] = args?.enableAutoBuild;
-            resourceInputs["enableBasicAuth"] = args?.enableBasicAuth;
-            resourceInputs["enableNotification"] = args?.enableNotification;
-            resourceInputs["enablePerformanceMode"] = args?.enablePerformanceMode;
-            resourceInputs["enablePullRequestPreview"] = args?.enablePullRequestPreview;
-            resourceInputs["enableSkewProtection"] = args?.enableSkewProtection;
-            resourceInputs["environmentVariables"] = args?.environmentVariables;
-            resourceInputs["framework"] = args?.framework;
-            resourceInputs["pullRequestEnvironmentName"] = args?.pullRequestEnvironmentName;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["stage"] = args?.stage;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["ttl"] = args?.ttl;
+            resourceInputs["branchName"] = args ? args.branchName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["enableAutoBuild"] = args ? args.enableAutoBuild : undefined;
+            resourceInputs["enableBasicAuth"] = args ? args.enableBasicAuth : undefined;
+            resourceInputs["enableNotification"] = args ? args.enableNotification : undefined;
+            resourceInputs["enablePerformanceMode"] = args ? args.enablePerformanceMode : undefined;
+            resourceInputs["enablePullRequestPreview"] = args ? args.enablePullRequestPreview : undefined;
+            resourceInputs["enableSkewProtection"] = args ? args.enableSkewProtection : undefined;
+            resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
+            resourceInputs["framework"] = args ? args.framework : undefined;
+            resourceInputs["pullRequestEnvironmentName"] = args ? args.pullRequestEnvironmentName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["stage"] = args ? args.stage : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["ttl"] = args ? args.ttl : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associatedResources"] = undefined /*out*/;
             resourceInputs["customDomains"] = undefined /*out*/;

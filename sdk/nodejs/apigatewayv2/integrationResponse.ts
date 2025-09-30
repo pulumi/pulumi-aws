@@ -62,31 +62,31 @@ export class IntegrationResponse extends pulumi.CustomResource {
     /**
      * API identifier.
      */
-    declare public readonly apiId: pulumi.Output<string>;
+    public readonly apiId!: pulumi.Output<string>;
     /**
      * How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
      */
-    declare public readonly contentHandlingStrategy: pulumi.Output<string | undefined>;
+    public readonly contentHandlingStrategy!: pulumi.Output<string | undefined>;
     /**
      * Identifier of the `aws.apigatewayv2.Integration`.
      */
-    declare public readonly integrationId: pulumi.Output<string>;
+    public readonly integrationId!: pulumi.Output<string>;
     /**
      * Integration response key.
      */
-    declare public readonly integrationResponseKey: pulumi.Output<string>;
+    public readonly integrationResponseKey!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
      */
-    declare public readonly responseTemplates: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly responseTemplates!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
      */
-    declare public readonly templateSelectionExpression: pulumi.Output<string | undefined>;
+    public readonly templateSelectionExpression!: pulumi.Output<string | undefined>;
 
     /**
      * Create a IntegrationResponse resource with the given unique name, arguments, and options.
@@ -101,31 +101,31 @@ export class IntegrationResponse extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationResponseState | undefined;
-            resourceInputs["apiId"] = state?.apiId;
-            resourceInputs["contentHandlingStrategy"] = state?.contentHandlingStrategy;
-            resourceInputs["integrationId"] = state?.integrationId;
-            resourceInputs["integrationResponseKey"] = state?.integrationResponseKey;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["responseTemplates"] = state?.responseTemplates;
-            resourceInputs["templateSelectionExpression"] = state?.templateSelectionExpression;
+            resourceInputs["apiId"] = state ? state.apiId : undefined;
+            resourceInputs["contentHandlingStrategy"] = state ? state.contentHandlingStrategy : undefined;
+            resourceInputs["integrationId"] = state ? state.integrationId : undefined;
+            resourceInputs["integrationResponseKey"] = state ? state.integrationResponseKey : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["responseTemplates"] = state ? state.responseTemplates : undefined;
+            resourceInputs["templateSelectionExpression"] = state ? state.templateSelectionExpression : undefined;
         } else {
             const args = argsOrState as IntegrationResponseArgs | undefined;
-            if (args?.apiId === undefined && !opts.urn) {
+            if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if (args?.integrationId === undefined && !opts.urn) {
+            if ((!args || args.integrationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'integrationId'");
             }
-            if (args?.integrationResponseKey === undefined && !opts.urn) {
+            if ((!args || args.integrationResponseKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'integrationResponseKey'");
             }
-            resourceInputs["apiId"] = args?.apiId;
-            resourceInputs["contentHandlingStrategy"] = args?.contentHandlingStrategy;
-            resourceInputs["integrationId"] = args?.integrationId;
-            resourceInputs["integrationResponseKey"] = args?.integrationResponseKey;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["responseTemplates"] = args?.responseTemplates;
-            resourceInputs["templateSelectionExpression"] = args?.templateSelectionExpression;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["contentHandlingStrategy"] = args ? args.contentHandlingStrategy : undefined;
+            resourceInputs["integrationId"] = args ? args.integrationId : undefined;
+            resourceInputs["integrationResponseKey"] = args ? args.integrationResponseKey : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["responseTemplates"] = args ? args.responseTemplates : undefined;
+            resourceInputs["templateSelectionExpression"] = args ? args.templateSelectionExpression : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IntegrationResponse.__pulumiType, name, resourceInputs, opts);

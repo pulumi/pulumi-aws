@@ -65,26 +65,26 @@ export class Deployment extends pulumi.CustomResource {
     /**
      * Application to deploy.
      */
-    declare public readonly applicationId: pulumi.Output<string>;
+    public readonly applicationId!: pulumi.Output<string>;
     /**
      * Version to application to deploy
      */
-    declare public readonly applicationVersion: pulumi.Output<number>;
-    declare public /*out*/ readonly deploymentId: pulumi.Output<string>;
+    public readonly applicationVersion!: pulumi.Output<number>;
+    public /*out*/ readonly deploymentId!: pulumi.Output<string>;
     /**
      * Environment to deploy application to.
      */
-    declare public readonly environmentId: pulumi.Output<string>;
-    declare public readonly forceStop: pulumi.Output<boolean | undefined>;
+    public readonly environmentId!: pulumi.Output<string>;
+    public readonly forceStop!: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Start the application once deployed.
      */
-    declare public readonly start: pulumi.Output<boolean>;
-    declare public readonly timeouts: pulumi.Output<outputs.m2.DeploymentTimeouts | undefined>;
+    public readonly start!: pulumi.Output<boolean>;
+    public readonly timeouts!: pulumi.Output<outputs.m2.DeploymentTimeouts | undefined>;
 
     /**
      * Create a Deployment resource with the given unique name, arguments, and options.
@@ -99,35 +99,35 @@ export class Deployment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DeploymentState | undefined;
-            resourceInputs["applicationId"] = state?.applicationId;
-            resourceInputs["applicationVersion"] = state?.applicationVersion;
-            resourceInputs["deploymentId"] = state?.deploymentId;
-            resourceInputs["environmentId"] = state?.environmentId;
-            resourceInputs["forceStop"] = state?.forceStop;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["start"] = state?.start;
-            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["applicationId"] = state ? state.applicationId : undefined;
+            resourceInputs["applicationVersion"] = state ? state.applicationVersion : undefined;
+            resourceInputs["deploymentId"] = state ? state.deploymentId : undefined;
+            resourceInputs["environmentId"] = state ? state.environmentId : undefined;
+            resourceInputs["forceStop"] = state ? state.forceStop : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["start"] = state ? state.start : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as DeploymentArgs | undefined;
-            if (args?.applicationId === undefined && !opts.urn) {
+            if ((!args || args.applicationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if (args?.applicationVersion === undefined && !opts.urn) {
+            if ((!args || args.applicationVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationVersion'");
             }
-            if (args?.environmentId === undefined && !opts.urn) {
+            if ((!args || args.environmentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'environmentId'");
             }
-            if (args?.start === undefined && !opts.urn) {
+            if ((!args || args.start === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'start'");
             }
-            resourceInputs["applicationId"] = args?.applicationId;
-            resourceInputs["applicationVersion"] = args?.applicationVersion;
-            resourceInputs["environmentId"] = args?.environmentId;
-            resourceInputs["forceStop"] = args?.forceStop;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["start"] = args?.start;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["applicationVersion"] = args ? args.applicationVersion : undefined;
+            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
+            resourceInputs["forceStop"] = args ? args.forceStop : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["start"] = args ? args.start : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["deploymentId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

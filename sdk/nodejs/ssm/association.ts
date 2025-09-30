@@ -273,81 +273,81 @@ export class Association extends pulumi.CustomResource {
     /**
      * By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
      */
-    declare public readonly applyOnlyAtCronInterval: pulumi.Output<boolean | undefined>;
+    public readonly applyOnlyAtCronInterval!: pulumi.Output<boolean | undefined>;
     /**
      * The ARN of the SSM association
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The ID of the SSM association.
      */
-    declare public /*out*/ readonly associationId: pulumi.Output<string>;
+    public /*out*/ readonly associationId!: pulumi.Output<string>;
     /**
      * The descriptive name for the association.
      */
-    declare public readonly associationName: pulumi.Output<string | undefined>;
+    public readonly associationName!: pulumi.Output<string | undefined>;
     /**
      * Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
      */
-    declare public readonly automationTargetParameterName: pulumi.Output<string | undefined>;
+    public readonly automationTargetParameterName!: pulumi.Output<string | undefined>;
     /**
      * The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
      */
-    declare public readonly complianceSeverity: pulumi.Output<string | undefined>;
+    public readonly complianceSeverity!: pulumi.Output<string | undefined>;
     /**
      * The document version you want to associate with the target(s). Can be a specific version or the default version.
      */
-    declare public readonly documentVersion: pulumi.Output<string>;
+    public readonly documentVersion!: pulumi.Output<string>;
     /**
      * The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
      */
-    declare public readonly maxConcurrency: pulumi.Output<string | undefined>;
+    public readonly maxConcurrency!: pulumi.Output<string | undefined>;
     /**
      * The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
      */
-    declare public readonly maxErrors: pulumi.Output<string | undefined>;
+    public readonly maxErrors!: pulumi.Output<string | undefined>;
     /**
      * The name of the SSM document to apply.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * An output location block. Output Location is documented below.
      */
-    declare public readonly outputLocation: pulumi.Output<outputs.ssm.AssociationOutputLocation | undefined>;
+    public readonly outputLocation!: pulumi.Output<outputs.ssm.AssociationOutputLocation | undefined>;
     /**
      * A block of arbitrary string parameters to pass to the SSM document.
      */
-    declare public readonly parameters: pulumi.Output<{[key: string]: string}>;
+    public readonly parameters!: pulumi.Output<{[key: string]: string}>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
      */
-    declare public readonly scheduleExpression: pulumi.Output<string | undefined>;
+    public readonly scheduleExpression!: pulumi.Output<string | undefined>;
     /**
      * The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
      */
-    declare public readonly syncCompliance: pulumi.Output<string | undefined>;
+    public readonly syncCompliance!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      */
-    declare public readonly targets: pulumi.Output<outputs.ssm.AssociationTarget[]>;
+    public readonly targets!: pulumi.Output<outputs.ssm.AssociationTarget[]>;
     /**
      * The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
      *
      * Output Location (`outputLocation`) is an S3 bucket where you want to store the results of this association:
      */
-    declare public readonly waitForSuccessTimeoutSeconds: pulumi.Output<number | undefined>;
+    public readonly waitForSuccessTimeoutSeconds!: pulumi.Output<number | undefined>;
 
     /**
      * Create a Association resource with the given unique name, arguments, and options.
@@ -362,43 +362,43 @@ export class Association extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AssociationState | undefined;
-            resourceInputs["applyOnlyAtCronInterval"] = state?.applyOnlyAtCronInterval;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["associationId"] = state?.associationId;
-            resourceInputs["associationName"] = state?.associationName;
-            resourceInputs["automationTargetParameterName"] = state?.automationTargetParameterName;
-            resourceInputs["complianceSeverity"] = state?.complianceSeverity;
-            resourceInputs["documentVersion"] = state?.documentVersion;
-            resourceInputs["maxConcurrency"] = state?.maxConcurrency;
-            resourceInputs["maxErrors"] = state?.maxErrors;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["outputLocation"] = state?.outputLocation;
-            resourceInputs["parameters"] = state?.parameters;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["scheduleExpression"] = state?.scheduleExpression;
-            resourceInputs["syncCompliance"] = state?.syncCompliance;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["targets"] = state?.targets;
-            resourceInputs["waitForSuccessTimeoutSeconds"] = state?.waitForSuccessTimeoutSeconds;
+            resourceInputs["applyOnlyAtCronInterval"] = state ? state.applyOnlyAtCronInterval : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["associationId"] = state ? state.associationId : undefined;
+            resourceInputs["associationName"] = state ? state.associationName : undefined;
+            resourceInputs["automationTargetParameterName"] = state ? state.automationTargetParameterName : undefined;
+            resourceInputs["complianceSeverity"] = state ? state.complianceSeverity : undefined;
+            resourceInputs["documentVersion"] = state ? state.documentVersion : undefined;
+            resourceInputs["maxConcurrency"] = state ? state.maxConcurrency : undefined;
+            resourceInputs["maxErrors"] = state ? state.maxErrors : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["outputLocation"] = state ? state.outputLocation : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["scheduleExpression"] = state ? state.scheduleExpression : undefined;
+            resourceInputs["syncCompliance"] = state ? state.syncCompliance : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["targets"] = state ? state.targets : undefined;
+            resourceInputs["waitForSuccessTimeoutSeconds"] = state ? state.waitForSuccessTimeoutSeconds : undefined;
         } else {
             const args = argsOrState as AssociationArgs | undefined;
-            resourceInputs["applyOnlyAtCronInterval"] = args?.applyOnlyAtCronInterval;
-            resourceInputs["associationName"] = args?.associationName;
-            resourceInputs["automationTargetParameterName"] = args?.automationTargetParameterName;
-            resourceInputs["complianceSeverity"] = args?.complianceSeverity;
-            resourceInputs["documentVersion"] = args?.documentVersion;
-            resourceInputs["maxConcurrency"] = args?.maxConcurrency;
-            resourceInputs["maxErrors"] = args?.maxErrors;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["outputLocation"] = args?.outputLocation;
-            resourceInputs["parameters"] = args?.parameters;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["scheduleExpression"] = args?.scheduleExpression;
-            resourceInputs["syncCompliance"] = args?.syncCompliance;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["targets"] = args?.targets;
-            resourceInputs["waitForSuccessTimeoutSeconds"] = args?.waitForSuccessTimeoutSeconds;
+            resourceInputs["applyOnlyAtCronInterval"] = args ? args.applyOnlyAtCronInterval : undefined;
+            resourceInputs["associationName"] = args ? args.associationName : undefined;
+            resourceInputs["automationTargetParameterName"] = args ? args.automationTargetParameterName : undefined;
+            resourceInputs["complianceSeverity"] = args ? args.complianceSeverity : undefined;
+            resourceInputs["documentVersion"] = args ? args.documentVersion : undefined;
+            resourceInputs["maxConcurrency"] = args ? args.maxConcurrency : undefined;
+            resourceInputs["maxErrors"] = args ? args.maxErrors : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["outputLocation"] = args ? args.outputLocation : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
+            resourceInputs["syncCompliance"] = args ? args.syncCompliance : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targets"] = args ? args.targets : undefined;
+            resourceInputs["waitForSuccessTimeoutSeconds"] = args ? args.waitForSuccessTimeoutSeconds : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associationId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

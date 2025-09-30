@@ -60,31 +60,31 @@ export class Thing extends pulumi.CustomResource {
     /**
      * The ARN of the thing.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Map of attributes of the thing.
      */
-    declare public readonly attributes: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly attributes!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The default client ID.
      */
-    declare public /*out*/ readonly defaultClientId: pulumi.Output<string>;
+    public /*out*/ readonly defaultClientId!: pulumi.Output<string>;
     /**
      * The name of the thing.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The thing type name.
      */
-    declare public readonly thingTypeName: pulumi.Output<string | undefined>;
+    public readonly thingTypeName!: pulumi.Output<string | undefined>;
     /**
      * The current version of the thing record in the registry.
      */
-    declare public /*out*/ readonly version: pulumi.Output<number>;
+    public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
      * Create a Thing resource with the given unique name, arguments, and options.
@@ -99,19 +99,19 @@ export class Thing extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ThingState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["attributes"] = state?.attributes;
-            resourceInputs["defaultClientId"] = state?.defaultClientId;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["thingTypeName"] = state?.thingTypeName;
-            resourceInputs["version"] = state?.version;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["attributes"] = state ? state.attributes : undefined;
+            resourceInputs["defaultClientId"] = state ? state.defaultClientId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["thingTypeName"] = state ? state.thingTypeName : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ThingArgs | undefined;
-            resourceInputs["attributes"] = args?.attributes;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["thingTypeName"] = args?.thingTypeName;
+            resourceInputs["attributes"] = args ? args.attributes : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["thingTypeName"] = args ? args.thingTypeName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["defaultClientId"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;

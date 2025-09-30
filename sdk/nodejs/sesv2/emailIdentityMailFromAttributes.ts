@@ -62,19 +62,19 @@ export class EmailIdentityMailFromAttributes extends pulumi.CustomResource {
     /**
      * The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
      */
-    declare public readonly behaviorOnMxFailure: pulumi.Output<string | undefined>;
+    public readonly behaviorOnMxFailure!: pulumi.Output<string | undefined>;
     /**
      * The verified email identity.
      */
-    declare public readonly emailIdentity: pulumi.Output<string>;
+    public readonly emailIdentity!: pulumi.Output<string>;
     /**
      * The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
      */
-    declare public readonly mailFromDomain: pulumi.Output<string | undefined>;
+    public readonly mailFromDomain!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a EmailIdentityMailFromAttributes resource with the given unique name, arguments, and options.
@@ -89,19 +89,19 @@ export class EmailIdentityMailFromAttributes extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EmailIdentityMailFromAttributesState | undefined;
-            resourceInputs["behaviorOnMxFailure"] = state?.behaviorOnMxFailure;
-            resourceInputs["emailIdentity"] = state?.emailIdentity;
-            resourceInputs["mailFromDomain"] = state?.mailFromDomain;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["behaviorOnMxFailure"] = state ? state.behaviorOnMxFailure : undefined;
+            resourceInputs["emailIdentity"] = state ? state.emailIdentity : undefined;
+            resourceInputs["mailFromDomain"] = state ? state.mailFromDomain : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as EmailIdentityMailFromAttributesArgs | undefined;
-            if (args?.emailIdentity === undefined && !opts.urn) {
+            if ((!args || args.emailIdentity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'emailIdentity'");
             }
-            resourceInputs["behaviorOnMxFailure"] = args?.behaviorOnMxFailure;
-            resourceInputs["emailIdentity"] = args?.emailIdentity;
-            resourceInputs["mailFromDomain"] = args?.mailFromDomain;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["behaviorOnMxFailure"] = args ? args.behaviorOnMxFailure : undefined;
+            resourceInputs["emailIdentity"] = args ? args.emailIdentity : undefined;
+            resourceInputs["mailFromDomain"] = args ? args.mailFromDomain : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EmailIdentityMailFromAttributes.__pulumiType, name, resourceInputs, opts);

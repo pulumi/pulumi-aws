@@ -68,35 +68,35 @@ export class EventIntegration extends pulumi.CustomResource {
     /**
      * ARN of the Event Integration.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Description of the Event Integration.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Block that defines the configuration information for the event filter. The Event Filter block is documented below.
      */
-    declare public readonly eventFilter: pulumi.Output<outputs.appconfig.EventIntegrationEventFilter>;
+    public readonly eventFilter!: pulumi.Output<outputs.appconfig.EventIntegrationEventFilter>;
     /**
      * EventBridge bus.
      */
-    declare public readonly eventbridgeBus: pulumi.Output<string>;
+    public readonly eventbridgeBus!: pulumi.Output<string>;
     /**
      * Name of the Event Integration.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Tags to apply to the Event Integration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a EventIntegration resource with the given unique name, arguments, and options.
@@ -111,28 +111,28 @@ export class EventIntegration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventIntegrationState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["eventFilter"] = state?.eventFilter;
-            resourceInputs["eventbridgeBus"] = state?.eventbridgeBus;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["eventFilter"] = state ? state.eventFilter : undefined;
+            resourceInputs["eventbridgeBus"] = state ? state.eventbridgeBus : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as EventIntegrationArgs | undefined;
-            if (args?.eventFilter === undefined && !opts.urn) {
+            if ((!args || args.eventFilter === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventFilter'");
             }
-            if (args?.eventbridgeBus === undefined && !opts.urn) {
+            if ((!args || args.eventbridgeBus === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventbridgeBus'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["eventFilter"] = args?.eventFilter;
-            resourceInputs["eventbridgeBus"] = args?.eventbridgeBus;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["eventFilter"] = args ? args.eventFilter : undefined;
+            resourceInputs["eventbridgeBus"] = args ? args.eventbridgeBus : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

@@ -61,15 +61,15 @@ export class EmailIdentityFeedbackAttributes extends pulumi.CustomResource {
     /**
      * Sets the feedback forwarding configuration for the identity.
      */
-    declare public readonly emailForwardingEnabled: pulumi.Output<boolean | undefined>;
+    public readonly emailForwardingEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The email identity.
      */
-    declare public readonly emailIdentity: pulumi.Output<string>;
+    public readonly emailIdentity!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a EmailIdentityFeedbackAttributes resource with the given unique name, arguments, and options.
@@ -84,17 +84,17 @@ export class EmailIdentityFeedbackAttributes extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EmailIdentityFeedbackAttributesState | undefined;
-            resourceInputs["emailForwardingEnabled"] = state?.emailForwardingEnabled;
-            resourceInputs["emailIdentity"] = state?.emailIdentity;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["emailForwardingEnabled"] = state ? state.emailForwardingEnabled : undefined;
+            resourceInputs["emailIdentity"] = state ? state.emailIdentity : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as EmailIdentityFeedbackAttributesArgs | undefined;
-            if (args?.emailIdentity === undefined && !opts.urn) {
+            if ((!args || args.emailIdentity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'emailIdentity'");
             }
-            resourceInputs["emailForwardingEnabled"] = args?.emailForwardingEnabled;
-            resourceInputs["emailIdentity"] = args?.emailIdentity;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["emailForwardingEnabled"] = args ? args.emailForwardingEnabled : undefined;
+            resourceInputs["emailIdentity"] = args ? args.emailIdentity : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EmailIdentityFeedbackAttributes.__pulumiType, name, resourceInputs, opts);

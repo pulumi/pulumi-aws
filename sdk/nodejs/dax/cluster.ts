@@ -63,107 +63,107 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The ARN of the DAX cluster
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * List of Availability Zones in which the
      * nodes will be created
      */
-    declare public readonly availabilityZones: pulumi.Output<string[] | undefined>;
+    public readonly availabilityZones!: pulumi.Output<string[] | undefined>;
     /**
      * The DNS name of the DAX cluster without the port appended
      */
-    declare public /*out*/ readonly clusterAddress: pulumi.Output<string>;
+    public /*out*/ readonly clusterAddress!: pulumi.Output<string>;
     /**
      * The type of encryption the
      * cluster's endpoint should support. Valid values are: `NONE` and `TLS`.
      * Default value is `NONE`.
      */
-    declare public readonly clusterEndpointEncryptionType: pulumi.Output<string | undefined>;
+    public readonly clusterEndpointEncryptionType!: pulumi.Output<string | undefined>;
     /**
      * Group identifier. DAX converts this name to
      * lowercase
      */
-    declare public readonly clusterName: pulumi.Output<string>;
+    public readonly clusterName!: pulumi.Output<string>;
     /**
      * The configuration endpoint for this DAX cluster,
      * consisting of a DNS name and a port number
      */
-    declare public /*out*/ readonly configurationEndpoint: pulumi.Output<string>;
+    public /*out*/ readonly configurationEndpoint!: pulumi.Output<string>;
     /**
      * Description for the cluster
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * A valid Amazon Resource Name (ARN) that identifies
      * an IAM role. At runtime, DAX will assume this role and use the role's
      * permissions to access DynamoDB on your behalf
      */
-    declare public readonly iamRoleArn: pulumi.Output<string>;
+    public readonly iamRoleArn!: pulumi.Output<string>;
     /**
      * Specifies the weekly time range for when
      * maintenance on the cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi`
      * (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example:
      * `sun:05:00-sun:09:00`
      */
-    declare public readonly maintenanceWindow: pulumi.Output<string>;
+    public readonly maintenanceWindow!: pulumi.Output<string>;
     /**
      * The compute and memory capacity of the nodes. See
      * [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
      */
-    declare public readonly nodeType: pulumi.Output<string>;
+    public readonly nodeType!: pulumi.Output<string>;
     /**
      * List of node objects including `id`, `address`, `port` and
      * `availabilityZone`. Referenceable e.g., as
      * `${aws_dax_cluster.test.nodes.0.address}`
      */
-    declare public /*out*/ readonly nodes: pulumi.Output<outputs.dax.ClusterNode[]>;
+    public /*out*/ readonly nodes!: pulumi.Output<outputs.dax.ClusterNode[]>;
     /**
      * An Amazon Resource Name (ARN) of an
      * SNS topic to send DAX notifications to. Example:
      * `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
      */
-    declare public readonly notificationTopicArn: pulumi.Output<string | undefined>;
+    public readonly notificationTopicArn!: pulumi.Output<string | undefined>;
     /**
      * Name of the parameter group to associate
      * with this DAX cluster
      */
-    declare public readonly parameterGroupName: pulumi.Output<string>;
+    public readonly parameterGroupName!: pulumi.Output<string>;
     /**
      * The port used by the configuration endpoint
      */
-    declare public /*out*/ readonly port: pulumi.Output<number>;
+    public /*out*/ readonly port!: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The number of nodes in the DAX cluster. A
      * replication factor of 1 will create a single-node cluster, without any read
      * replicas
      */
-    declare public readonly replicationFactor: pulumi.Output<number>;
+    public readonly replicationFactor!: pulumi.Output<number>;
     /**
      * One or more VPC security groups associated
      * with the cluster
      */
-    declare public readonly securityGroupIds: pulumi.Output<string[]>;
+    public readonly securityGroupIds!: pulumi.Output<string[]>;
     /**
      * Encrypt at rest options
      */
-    declare public readonly serverSideEncryption: pulumi.Output<outputs.dax.ClusterServerSideEncryption | undefined>;
+    public readonly serverSideEncryption!: pulumi.Output<outputs.dax.ClusterServerSideEncryption | undefined>;
     /**
      * Name of the subnet group to be used for the
      * cluster
      */
-    declare public readonly subnetGroupName: pulumi.Output<string>;
+    public readonly subnetGroupName!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -178,56 +178,56 @@ export class Cluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["availabilityZones"] = state?.availabilityZones;
-            resourceInputs["clusterAddress"] = state?.clusterAddress;
-            resourceInputs["clusterEndpointEncryptionType"] = state?.clusterEndpointEncryptionType;
-            resourceInputs["clusterName"] = state?.clusterName;
-            resourceInputs["configurationEndpoint"] = state?.configurationEndpoint;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["iamRoleArn"] = state?.iamRoleArn;
-            resourceInputs["maintenanceWindow"] = state?.maintenanceWindow;
-            resourceInputs["nodeType"] = state?.nodeType;
-            resourceInputs["nodes"] = state?.nodes;
-            resourceInputs["notificationTopicArn"] = state?.notificationTopicArn;
-            resourceInputs["parameterGroupName"] = state?.parameterGroupName;
-            resourceInputs["port"] = state?.port;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["replicationFactor"] = state?.replicationFactor;
-            resourceInputs["securityGroupIds"] = state?.securityGroupIds;
-            resourceInputs["serverSideEncryption"] = state?.serverSideEncryption;
-            resourceInputs["subnetGroupName"] = state?.subnetGroupName;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["availabilityZones"] = state ? state.availabilityZones : undefined;
+            resourceInputs["clusterAddress"] = state ? state.clusterAddress : undefined;
+            resourceInputs["clusterEndpointEncryptionType"] = state ? state.clusterEndpointEncryptionType : undefined;
+            resourceInputs["clusterName"] = state ? state.clusterName : undefined;
+            resourceInputs["configurationEndpoint"] = state ? state.configurationEndpoint : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
+            resourceInputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
+            resourceInputs["nodeType"] = state ? state.nodeType : undefined;
+            resourceInputs["nodes"] = state ? state.nodes : undefined;
+            resourceInputs["notificationTopicArn"] = state ? state.notificationTopicArn : undefined;
+            resourceInputs["parameterGroupName"] = state ? state.parameterGroupName : undefined;
+            resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["replicationFactor"] = state ? state.replicationFactor : undefined;
+            resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
+            resourceInputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
+            resourceInputs["subnetGroupName"] = state ? state.subnetGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
-            if (args?.clusterName === undefined && !opts.urn) {
+            if ((!args || args.clusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if (args?.iamRoleArn === undefined && !opts.urn) {
+            if ((!args || args.iamRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'iamRoleArn'");
             }
-            if (args?.nodeType === undefined && !opts.urn) {
+            if ((!args || args.nodeType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'nodeType'");
             }
-            if (args?.replicationFactor === undefined && !opts.urn) {
+            if ((!args || args.replicationFactor === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'replicationFactor'");
             }
-            resourceInputs["availabilityZones"] = args?.availabilityZones;
-            resourceInputs["clusterEndpointEncryptionType"] = args?.clusterEndpointEncryptionType;
-            resourceInputs["clusterName"] = args?.clusterName;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["iamRoleArn"] = args?.iamRoleArn;
-            resourceInputs["maintenanceWindow"] = args?.maintenanceWindow;
-            resourceInputs["nodeType"] = args?.nodeType;
-            resourceInputs["notificationTopicArn"] = args?.notificationTopicArn;
-            resourceInputs["parameterGroupName"] = args?.parameterGroupName;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["replicationFactor"] = args?.replicationFactor;
-            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
-            resourceInputs["serverSideEncryption"] = args?.serverSideEncryption;
-            resourceInputs["subnetGroupName"] = args?.subnetGroupName;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
+            resourceInputs["clusterEndpointEncryptionType"] = args ? args.clusterEndpointEncryptionType : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
+            resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
+            resourceInputs["nodeType"] = args ? args.nodeType : undefined;
+            resourceInputs["notificationTopicArn"] = args ? args.notificationTopicArn : undefined;
+            resourceInputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["replicationFactor"] = args ? args.replicationFactor : undefined;
+            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
+            resourceInputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
+            resourceInputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["clusterAddress"] = undefined /*out*/;
             resourceInputs["configurationEndpoint"] = undefined /*out*/;

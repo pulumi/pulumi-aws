@@ -67,19 +67,19 @@ export class Resource extends pulumi.CustomResource {
     /**
      * Name or ARN of the resource group to add resources to.
      */
-    declare public readonly groupArn: pulumi.Output<string>;
+    public readonly groupArn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ARN of the resource to be added to the group.
      */
-    declare public readonly resourceArn: pulumi.Output<string>;
+    public readonly resourceArn!: pulumi.Output<string>;
     /**
      * The resource type of a resource, such as `AWS::EC2::Instance`.
      */
-    declare public /*out*/ readonly resourceType: pulumi.Output<string>;
+    public /*out*/ readonly resourceType!: pulumi.Output<string>;
 
     /**
      * Create a Resource resource with the given unique name, arguments, and options.
@@ -94,21 +94,21 @@ export class Resource extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceState | undefined;
-            resourceInputs["groupArn"] = state?.groupArn;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceArn"] = state?.resourceArn;
-            resourceInputs["resourceType"] = state?.resourceType;
+            resourceInputs["groupArn"] = state ? state.groupArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
+            resourceInputs["resourceType"] = state ? state.resourceType : undefined;
         } else {
             const args = argsOrState as ResourceArgs | undefined;
-            if (args?.groupArn === undefined && !opts.urn) {
+            if ((!args || args.groupArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groupArn'");
             }
-            if (args?.resourceArn === undefined && !opts.urn) {
+            if ((!args || args.resourceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            resourceInputs["groupArn"] = args?.groupArn;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resourceArn"] = args?.resourceArn;
+            resourceInputs["groupArn"] = args ? args.groupArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
             resourceInputs["resourceType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

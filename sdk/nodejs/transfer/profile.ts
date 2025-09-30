@@ -48,32 +48,32 @@ export class Profile extends pulumi.CustomResource {
     /**
      * The ARN of the profile.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
      */
-    declare public readonly as2Id: pulumi.Output<string>;
+    public readonly as2Id!: pulumi.Output<string>;
     /**
      * The list of certificate Ids from the imported certificate operation.
      */
-    declare public readonly certificateIds: pulumi.Output<string[] | undefined>;
+    public readonly certificateIds!: pulumi.Output<string[] | undefined>;
     /**
      * The unique identifier for the AS2 profile.
      */
-    declare public /*out*/ readonly profileId: pulumi.Output<string>;
+    public /*out*/ readonly profileId!: pulumi.Output<string>;
     /**
      * The profile type should be LOCAL or PARTNER.
      */
-    declare public readonly profileType: pulumi.Output<string>;
+    public readonly profileType!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Profile resource with the given unique name, arguments, and options.
@@ -88,27 +88,27 @@ export class Profile extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProfileState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["as2Id"] = state?.as2Id;
-            resourceInputs["certificateIds"] = state?.certificateIds;
-            resourceInputs["profileId"] = state?.profileId;
-            resourceInputs["profileType"] = state?.profileType;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["as2Id"] = state ? state.as2Id : undefined;
+            resourceInputs["certificateIds"] = state ? state.certificateIds : undefined;
+            resourceInputs["profileId"] = state ? state.profileId : undefined;
+            resourceInputs["profileType"] = state ? state.profileType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ProfileArgs | undefined;
-            if (args?.as2Id === undefined && !opts.urn) {
+            if ((!args || args.as2Id === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'as2Id'");
             }
-            if (args?.profileType === undefined && !opts.urn) {
+            if ((!args || args.profileType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'profileType'");
             }
-            resourceInputs["as2Id"] = args?.as2Id;
-            resourceInputs["certificateIds"] = args?.certificateIds;
-            resourceInputs["profileType"] = args?.profileType;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["as2Id"] = args ? args.as2Id : undefined;
+            resourceInputs["certificateIds"] = args ? args.certificateIds : undefined;
+            resourceInputs["profileType"] = args ? args.profileType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["profileId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

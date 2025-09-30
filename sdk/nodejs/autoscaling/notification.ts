@@ -69,20 +69,20 @@ export class Notification extends pulumi.CustomResource {
     /**
      * List of AutoScaling Group Names
      */
-    declare public readonly groupNames: pulumi.Output<string[]>;
+    public readonly groupNames!: pulumi.Output<string[]>;
     /**
      * List of Notification Types that trigger
      * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
      */
-    declare public readonly notifications: pulumi.Output<enums.autoscaling.NotificationType[]>;
+    public readonly notifications!: pulumi.Output<enums.autoscaling.NotificationType[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Topic ARN for notifications to be sent through
      */
-    declare public readonly topicArn: pulumi.Output<string>;
+    public readonly topicArn!: pulumi.Output<string>;
 
     /**
      * Create a Notification resource with the given unique name, arguments, and options.
@@ -97,25 +97,25 @@ export class Notification extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NotificationState | undefined;
-            resourceInputs["groupNames"] = state?.groupNames;
-            resourceInputs["notifications"] = state?.notifications;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["topicArn"] = state?.topicArn;
+            resourceInputs["groupNames"] = state ? state.groupNames : undefined;
+            resourceInputs["notifications"] = state ? state.notifications : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["topicArn"] = state ? state.topicArn : undefined;
         } else {
             const args = argsOrState as NotificationArgs | undefined;
-            if (args?.groupNames === undefined && !opts.urn) {
+            if ((!args || args.groupNames === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groupNames'");
             }
-            if (args?.notifications === undefined && !opts.urn) {
+            if ((!args || args.notifications === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'notifications'");
             }
-            if (args?.topicArn === undefined && !opts.urn) {
+            if ((!args || args.topicArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'topicArn'");
             }
-            resourceInputs["groupNames"] = args?.groupNames;
-            resourceInputs["notifications"] = args?.notifications;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["topicArn"] = args?.topicArn;
+            resourceInputs["groupNames"] = args ? args.groupNames : undefined;
+            resourceInputs["notifications"] = args ? args.notifications : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["topicArn"] = args ? args.topicArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Notification.__pulumiType, name, resourceInputs, opts);

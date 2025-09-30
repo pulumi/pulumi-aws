@@ -68,43 +68,43 @@ export class EventSubscription extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the DMS Event Subscription.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Whether the event subscription should be enabled.
      */
-    declare public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
      */
-    declare public readonly eventCategories: pulumi.Output<string[]>;
+    public readonly eventCategories!: pulumi.Output<string[]>;
     /**
      * Name of event subscription.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * SNS topic arn to send events on.
      */
-    declare public readonly snsTopicArn: pulumi.Output<string>;
+    public readonly snsTopicArn!: pulumi.Output<string>;
     /**
      * Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
      */
-    declare public readonly sourceIds: pulumi.Output<string[] | undefined>;
+    public readonly sourceIds!: pulumi.Output<string[] | undefined>;
     /**
      * Type of source for events. Valid values: `replication-instance` or `replication-task`
      */
-    declare public readonly sourceType: pulumi.Output<string>;
+    public readonly sourceType!: pulumi.Output<string>;
     /**
      * Map of resource tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a EventSubscription resource with the given unique name, arguments, and options.
@@ -119,35 +119,35 @@ export class EventSubscription extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventSubscriptionState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["enabled"] = state?.enabled;
-            resourceInputs["eventCategories"] = state?.eventCategories;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["snsTopicArn"] = state?.snsTopicArn;
-            resourceInputs["sourceIds"] = state?.sourceIds;
-            resourceInputs["sourceType"] = state?.sourceType;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["eventCategories"] = state ? state.eventCategories : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["snsTopicArn"] = state ? state.snsTopicArn : undefined;
+            resourceInputs["sourceIds"] = state ? state.sourceIds : undefined;
+            resourceInputs["sourceType"] = state ? state.sourceType : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as EventSubscriptionArgs | undefined;
-            if (args?.eventCategories === undefined && !opts.urn) {
+            if ((!args || args.eventCategories === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventCategories'");
             }
-            if (args?.snsTopicArn === undefined && !opts.urn) {
+            if ((!args || args.snsTopicArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'snsTopicArn'");
             }
-            if (args?.sourceType === undefined && !opts.urn) {
+            if ((!args || args.sourceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceType'");
             }
-            resourceInputs["enabled"] = args?.enabled;
-            resourceInputs["eventCategories"] = args?.eventCategories;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["snsTopicArn"] = args?.snsTopicArn;
-            resourceInputs["sourceIds"] = args?.sourceIds;
-            resourceInputs["sourceType"] = args?.sourceType;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["eventCategories"] = args ? args.eventCategories : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
+            resourceInputs["sourceIds"] = args ? args.sourceIds : undefined;
+            resourceInputs["sourceType"] = args ? args.sourceType : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

@@ -60,8 +60,8 @@ export class NotificationHub extends pulumi.CustomResource {
     /**
      * Notification Hub region.
      */
-    declare public readonly notificationHubRegion: pulumi.Output<string>;
-    declare public readonly timeouts: pulumi.Output<outputs.notifications.NotificationHubTimeouts | undefined>;
+    public readonly notificationHubRegion!: pulumi.Output<string>;
+    public readonly timeouts!: pulumi.Output<outputs.notifications.NotificationHubTimeouts | undefined>;
 
     /**
      * Create a NotificationHub resource with the given unique name, arguments, and options.
@@ -76,15 +76,15 @@ export class NotificationHub extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NotificationHubState | undefined;
-            resourceInputs["notificationHubRegion"] = state?.notificationHubRegion;
-            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["notificationHubRegion"] = state ? state.notificationHubRegion : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as NotificationHubArgs | undefined;
-            if (args?.notificationHubRegion === undefined && !opts.urn) {
+            if ((!args || args.notificationHubRegion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'notificationHubRegion'");
             }
-            resourceInputs["notificationHubRegion"] = args?.notificationHubRegion;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["notificationHubRegion"] = args ? args.notificationHubRegion : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NotificationHub.__pulumiType, name, resourceInputs, opts);

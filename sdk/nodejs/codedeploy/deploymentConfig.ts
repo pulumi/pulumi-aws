@@ -123,35 +123,35 @@ export class DeploymentConfig extends pulumi.CustomResource {
     /**
      * The ARN of the deployment config.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
      */
-    declare public readonly computePlatform: pulumi.Output<string | undefined>;
+    public readonly computePlatform!: pulumi.Output<string | undefined>;
     /**
      * The AWS Assigned deployment config id
      */
-    declare public /*out*/ readonly deploymentConfigId: pulumi.Output<string>;
+    public /*out*/ readonly deploymentConfigId!: pulumi.Output<string>;
     /**
      * The name of the deployment config.
      */
-    declare public readonly deploymentConfigName: pulumi.Output<string>;
+    public readonly deploymentConfigName!: pulumi.Output<string>;
     /**
      * A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
      */
-    declare public readonly minimumHealthyHosts: pulumi.Output<outputs.codedeploy.DeploymentConfigMinimumHealthyHosts | undefined>;
+    public readonly minimumHealthyHosts!: pulumi.Output<outputs.codedeploy.DeploymentConfigMinimumHealthyHosts | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A trafficRoutingConfig block. Traffic Routing Config is documented below.
      */
-    declare public readonly trafficRoutingConfig: pulumi.Output<outputs.codedeploy.DeploymentConfigTrafficRoutingConfig | undefined>;
+    public readonly trafficRoutingConfig!: pulumi.Output<outputs.codedeploy.DeploymentConfigTrafficRoutingConfig | undefined>;
     /**
      * A zonalConfig block. Zonal Config is documented below.
      */
-    declare public readonly zonalConfig: pulumi.Output<outputs.codedeploy.DeploymentConfigZonalConfig | undefined>;
+    public readonly zonalConfig!: pulumi.Output<outputs.codedeploy.DeploymentConfigZonalConfig | undefined>;
 
     /**
      * Create a DeploymentConfig resource with the given unique name, arguments, and options.
@@ -166,22 +166,22 @@ export class DeploymentConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DeploymentConfigState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["computePlatform"] = state?.computePlatform;
-            resourceInputs["deploymentConfigId"] = state?.deploymentConfigId;
-            resourceInputs["deploymentConfigName"] = state?.deploymentConfigName;
-            resourceInputs["minimumHealthyHosts"] = state?.minimumHealthyHosts;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["trafficRoutingConfig"] = state?.trafficRoutingConfig;
-            resourceInputs["zonalConfig"] = state?.zonalConfig;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["computePlatform"] = state ? state.computePlatform : undefined;
+            resourceInputs["deploymentConfigId"] = state ? state.deploymentConfigId : undefined;
+            resourceInputs["deploymentConfigName"] = state ? state.deploymentConfigName : undefined;
+            resourceInputs["minimumHealthyHosts"] = state ? state.minimumHealthyHosts : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["trafficRoutingConfig"] = state ? state.trafficRoutingConfig : undefined;
+            resourceInputs["zonalConfig"] = state ? state.zonalConfig : undefined;
         } else {
             const args = argsOrState as DeploymentConfigArgs | undefined;
-            resourceInputs["computePlatform"] = args?.computePlatform;
-            resourceInputs["deploymentConfigName"] = args?.deploymentConfigName;
-            resourceInputs["minimumHealthyHosts"] = args?.minimumHealthyHosts;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["trafficRoutingConfig"] = args?.trafficRoutingConfig;
-            resourceInputs["zonalConfig"] = args?.zonalConfig;
+            resourceInputs["computePlatform"] = args ? args.computePlatform : undefined;
+            resourceInputs["deploymentConfigName"] = args ? args.deploymentConfigName : undefined;
+            resourceInputs["minimumHealthyHosts"] = args ? args.minimumHealthyHosts : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["trafficRoutingConfig"] = args ? args.trafficRoutingConfig : undefined;
+            resourceInputs["zonalConfig"] = args ? args.zonalConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["deploymentConfigId"] = undefined /*out*/;
         }

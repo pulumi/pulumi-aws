@@ -63,53 +63,53 @@ export class Device extends pulumi.CustomResource {
     /**
      * ARN of the device.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * AWS location of the device. Documented below.
      */
-    declare public readonly awsLocation: pulumi.Output<outputs.networkmanager.DeviceAwsLocation | undefined>;
+    public readonly awsLocation!: pulumi.Output<outputs.networkmanager.DeviceAwsLocation | undefined>;
     /**
      * Description of the device.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * ID of the global network.
      *
      * The following arguments are optional:
      */
-    declare public readonly globalNetworkId: pulumi.Output<string>;
+    public readonly globalNetworkId!: pulumi.Output<string>;
     /**
      * Location of the device. Documented below.
      */
-    declare public readonly location: pulumi.Output<outputs.networkmanager.DeviceLocation | undefined>;
+    public readonly location!: pulumi.Output<outputs.networkmanager.DeviceLocation | undefined>;
     /**
      * Model of device.
      */
-    declare public readonly model: pulumi.Output<string | undefined>;
+    public readonly model!: pulumi.Output<string | undefined>;
     /**
      * Serial number of the device.
      */
-    declare public readonly serialNumber: pulumi.Output<string | undefined>;
+    public readonly serialNumber!: pulumi.Output<string | undefined>;
     /**
      * ID of the site.
      */
-    declare public readonly siteId: pulumi.Output<string | undefined>;
+    public readonly siteId!: pulumi.Output<string | undefined>;
     /**
      * Key-value tags for the device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Type of device.
      */
-    declare public readonly type: pulumi.Output<string | undefined>;
+    public readonly type!: pulumi.Output<string | undefined>;
     /**
      * Vendor of the device.
      */
-    declare public readonly vendor: pulumi.Output<string | undefined>;
+    public readonly vendor!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Device resource with the given unique name, arguments, and options.
@@ -124,33 +124,33 @@ export class Device extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DeviceState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["awsLocation"] = state?.awsLocation;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["globalNetworkId"] = state?.globalNetworkId;
-            resourceInputs["location"] = state?.location;
-            resourceInputs["model"] = state?.model;
-            resourceInputs["serialNumber"] = state?.serialNumber;
-            resourceInputs["siteId"] = state?.siteId;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["type"] = state?.type;
-            resourceInputs["vendor"] = state?.vendor;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["awsLocation"] = state ? state.awsLocation : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["globalNetworkId"] = state ? state.globalNetworkId : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["model"] = state ? state.model : undefined;
+            resourceInputs["serialNumber"] = state ? state.serialNumber : undefined;
+            resourceInputs["siteId"] = state ? state.siteId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["vendor"] = state ? state.vendor : undefined;
         } else {
             const args = argsOrState as DeviceArgs | undefined;
-            if (args?.globalNetworkId === undefined && !opts.urn) {
+            if ((!args || args.globalNetworkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'globalNetworkId'");
             }
-            resourceInputs["awsLocation"] = args?.awsLocation;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["globalNetworkId"] = args?.globalNetworkId;
-            resourceInputs["location"] = args?.location;
-            resourceInputs["model"] = args?.model;
-            resourceInputs["serialNumber"] = args?.serialNumber;
-            resourceInputs["siteId"] = args?.siteId;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["type"] = args?.type;
-            resourceInputs["vendor"] = args?.vendor;
+            resourceInputs["awsLocation"] = args ? args.awsLocation : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["model"] = args ? args.model : undefined;
+            resourceInputs["serialNumber"] = args ? args.serialNumber : undefined;
+            resourceInputs["siteId"] = args ? args.siteId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["vendor"] = args ? args.vendor : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

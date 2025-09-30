@@ -271,132 +271,132 @@ export class Project extends pulumi.CustomResource {
     /**
      * ARN of the CodeBuild project.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Configuration block. Detailed below.
      */
-    declare public readonly artifacts: pulumi.Output<outputs.codebuild.ProjectArtifacts>;
+    public readonly artifacts!: pulumi.Output<outputs.codebuild.ProjectArtifacts>;
     /**
      * Generates a publicly-accessible URL for the projects build badge. Available as
      * `badgeUrl` attribute when enabled.
      */
-    declare public readonly badgeEnabled: pulumi.Output<boolean | undefined>;
+    public readonly badgeEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * URL of the build badge when `badgeEnabled` is enabled.
      */
-    declare public /*out*/ readonly badgeUrl: pulumi.Output<string>;
+    public /*out*/ readonly badgeUrl!: pulumi.Output<string>;
     /**
      * Defines the batch build options for the project.
      */
-    declare public readonly buildBatchConfig: pulumi.Output<outputs.codebuild.ProjectBuildBatchConfig | undefined>;
+    public readonly buildBatchConfig!: pulumi.Output<outputs.codebuild.ProjectBuildBatchConfig | undefined>;
     /**
      * Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out
      * any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is
      * not available on the `Lambda` compute type.
      */
-    declare public readonly buildTimeout: pulumi.Output<number | undefined>;
+    public readonly buildTimeout!: pulumi.Output<number | undefined>;
     /**
      * Configuration block. Detailed below.
      */
-    declare public readonly cache: pulumi.Output<outputs.codebuild.ProjectCache | undefined>;
+    public readonly cache!: pulumi.Output<outputs.codebuild.ProjectCache | undefined>;
     /**
      * Specify a maximum number of concurrent builds for the project. The value
      * specified must be greater than 0 and less than the account concurrent running builds limit.
      */
-    declare public readonly concurrentBuildLimit: pulumi.Output<number | undefined>;
+    public readonly concurrentBuildLimit!: pulumi.Output<number | undefined>;
     /**
      * Short description of the project.
      */
-    declare public readonly description: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
      * the build project's build output artifacts.
      */
-    declare public readonly encryptionKey: pulumi.Output<string>;
+    public readonly encryptionKey!: pulumi.Output<string>;
     /**
      * Configuration block. Detailed below.
      */
-    declare public readonly environment: pulumi.Output<outputs.codebuild.ProjectEnvironment>;
+    public readonly environment!: pulumi.Output<outputs.codebuild.ProjectEnvironment>;
     /**
      * A set of file system locations to mount inside the build. File system locations
      * are documented below.
      */
-    declare public readonly fileSystemLocations: pulumi.Output<outputs.codebuild.ProjectFileSystemLocation[] | undefined>;
+    public readonly fileSystemLocations!: pulumi.Output<outputs.codebuild.ProjectFileSystemLocation[] | undefined>;
     /**
      * Configuration block. Detailed below.
      */
-    declare public readonly logsConfig: pulumi.Output<outputs.codebuild.ProjectLogsConfig | undefined>;
+    public readonly logsConfig!: pulumi.Output<outputs.codebuild.ProjectLogsConfig | undefined>;
     /**
      * Project's name.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ`
      * and `PRIVATE`. Default value is `PRIVATE`.
      */
-    declare public readonly projectVisibility: pulumi.Output<string | undefined>;
+    public readonly projectVisibility!: pulumi.Output<string | undefined>;
     /**
      * The project identifier used with the public build APIs.
      */
-    declare public /*out*/ readonly publicProjectAlias: pulumi.Output<string>;
+    public /*out*/ readonly publicProjectAlias!: pulumi.Output<string>;
     /**
      * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
      * times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
      */
-    declare public readonly queuedTimeout: pulumi.Output<number | undefined>;
+    public readonly queuedTimeout!: pulumi.Output<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
      * Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
      * `projectVisibility` is `PUBLIC_READ`.
      */
-    declare public readonly resourceAccessRole: pulumi.Output<string | undefined>;
+    public readonly resourceAccessRole!: pulumi.Output<string | undefined>;
     /**
      * Configuration block. Detailed below.
      */
-    declare public readonly secondaryArtifacts: pulumi.Output<outputs.codebuild.ProjectSecondaryArtifact[] | undefined>;
+    public readonly secondaryArtifacts!: pulumi.Output<outputs.codebuild.ProjectSecondaryArtifact[] | undefined>;
     /**
      * Configuration block. Detailed below.
      */
-    declare public readonly secondarySourceVersions: pulumi.Output<outputs.codebuild.ProjectSecondarySourceVersion[] | undefined>;
+    public readonly secondarySourceVersions!: pulumi.Output<outputs.codebuild.ProjectSecondarySourceVersion[] | undefined>;
     /**
      * Configuration block. Detailed below.
      */
-    declare public readonly secondarySources: pulumi.Output<outputs.codebuild.ProjectSecondarySource[] | undefined>;
+    public readonly secondarySources!: pulumi.Output<outputs.codebuild.ProjectSecondarySource[] | undefined>;
     /**
      * Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
      * enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      */
-    declare public readonly serviceRole: pulumi.Output<string>;
+    public readonly serviceRole!: pulumi.Output<string>;
     /**
      * Configuration block. Detailed below.
      *
      * The following arguments are optional:
      */
-    declare public readonly source: pulumi.Output<outputs.codebuild.ProjectSource>;
+    public readonly source!: pulumi.Output<outputs.codebuild.ProjectSource>;
     /**
      * Version of the build input to be built for this project. If not specified, the latest
      * version is used.
      */
-    declare public readonly sourceVersion: pulumi.Output<string | undefined>;
+    public readonly sourceVersion!: pulumi.Output<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider 
      * `defaultTags` configuration block
      * present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider 
      * `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block. Detailed below.
      */
-    declare public readonly vpcConfig: pulumi.Output<outputs.codebuild.ProjectVpcConfig | undefined>;
+    public readonly vpcConfig!: pulumi.Output<outputs.codebuild.ProjectVpcConfig | undefined>;
 
     /**
      * Create a Project resource with the given unique name, arguments, and options.
@@ -411,72 +411,72 @@ export class Project extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProjectState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["artifacts"] = state?.artifacts;
-            resourceInputs["badgeEnabled"] = state?.badgeEnabled;
-            resourceInputs["badgeUrl"] = state?.badgeUrl;
-            resourceInputs["buildBatchConfig"] = state?.buildBatchConfig;
-            resourceInputs["buildTimeout"] = state?.buildTimeout;
-            resourceInputs["cache"] = state?.cache;
-            resourceInputs["concurrentBuildLimit"] = state?.concurrentBuildLimit;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["encryptionKey"] = state?.encryptionKey;
-            resourceInputs["environment"] = state?.environment;
-            resourceInputs["fileSystemLocations"] = state?.fileSystemLocations;
-            resourceInputs["logsConfig"] = state?.logsConfig;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["projectVisibility"] = state?.projectVisibility;
-            resourceInputs["publicProjectAlias"] = state?.publicProjectAlias;
-            resourceInputs["queuedTimeout"] = state?.queuedTimeout;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceAccessRole"] = state?.resourceAccessRole;
-            resourceInputs["secondaryArtifacts"] = state?.secondaryArtifacts;
-            resourceInputs["secondarySourceVersions"] = state?.secondarySourceVersions;
-            resourceInputs["secondarySources"] = state?.secondarySources;
-            resourceInputs["serviceRole"] = state?.serviceRole;
-            resourceInputs["source"] = state?.source;
-            resourceInputs["sourceVersion"] = state?.sourceVersion;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["vpcConfig"] = state?.vpcConfig;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["artifacts"] = state ? state.artifacts : undefined;
+            resourceInputs["badgeEnabled"] = state ? state.badgeEnabled : undefined;
+            resourceInputs["badgeUrl"] = state ? state.badgeUrl : undefined;
+            resourceInputs["buildBatchConfig"] = state ? state.buildBatchConfig : undefined;
+            resourceInputs["buildTimeout"] = state ? state.buildTimeout : undefined;
+            resourceInputs["cache"] = state ? state.cache : undefined;
+            resourceInputs["concurrentBuildLimit"] = state ? state.concurrentBuildLimit : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["encryptionKey"] = state ? state.encryptionKey : undefined;
+            resourceInputs["environment"] = state ? state.environment : undefined;
+            resourceInputs["fileSystemLocations"] = state ? state.fileSystemLocations : undefined;
+            resourceInputs["logsConfig"] = state ? state.logsConfig : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["projectVisibility"] = state ? state.projectVisibility : undefined;
+            resourceInputs["publicProjectAlias"] = state ? state.publicProjectAlias : undefined;
+            resourceInputs["queuedTimeout"] = state ? state.queuedTimeout : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceAccessRole"] = state ? state.resourceAccessRole : undefined;
+            resourceInputs["secondaryArtifacts"] = state ? state.secondaryArtifacts : undefined;
+            resourceInputs["secondarySourceVersions"] = state ? state.secondarySourceVersions : undefined;
+            resourceInputs["secondarySources"] = state ? state.secondarySources : undefined;
+            resourceInputs["serviceRole"] = state ? state.serviceRole : undefined;
+            resourceInputs["source"] = state ? state.source : undefined;
+            resourceInputs["sourceVersion"] = state ? state.sourceVersion : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcConfig"] = state ? state.vpcConfig : undefined;
         } else {
             const args = argsOrState as ProjectArgs | undefined;
-            if (args?.artifacts === undefined && !opts.urn) {
+            if ((!args || args.artifacts === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'artifacts'");
             }
-            if (args?.environment === undefined && !opts.urn) {
+            if ((!args || args.environment === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
-            if (args?.serviceRole === undefined && !opts.urn) {
+            if ((!args || args.serviceRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceRole'");
             }
-            if (args?.source === undefined && !opts.urn) {
+            if ((!args || args.source === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            resourceInputs["artifacts"] = args?.artifacts;
-            resourceInputs["badgeEnabled"] = args?.badgeEnabled;
-            resourceInputs["buildBatchConfig"] = args?.buildBatchConfig;
-            resourceInputs["buildTimeout"] = args?.buildTimeout;
-            resourceInputs["cache"] = args?.cache;
-            resourceInputs["concurrentBuildLimit"] = args?.concurrentBuildLimit;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["encryptionKey"] = args?.encryptionKey;
-            resourceInputs["environment"] = args?.environment;
-            resourceInputs["fileSystemLocations"] = args?.fileSystemLocations;
-            resourceInputs["logsConfig"] = args?.logsConfig;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["projectVisibility"] = args?.projectVisibility;
-            resourceInputs["queuedTimeout"] = args?.queuedTimeout;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resourceAccessRole"] = args?.resourceAccessRole;
-            resourceInputs["secondaryArtifacts"] = args?.secondaryArtifacts;
-            resourceInputs["secondarySourceVersions"] = args?.secondarySourceVersions;
-            resourceInputs["secondarySources"] = args?.secondarySources;
-            resourceInputs["serviceRole"] = args?.serviceRole;
-            resourceInputs["source"] = args?.source;
-            resourceInputs["sourceVersion"] = args?.sourceVersion;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["vpcConfig"] = args?.vpcConfig;
+            resourceInputs["artifacts"] = args ? args.artifacts : undefined;
+            resourceInputs["badgeEnabled"] = args ? args.badgeEnabled : undefined;
+            resourceInputs["buildBatchConfig"] = args ? args.buildBatchConfig : undefined;
+            resourceInputs["buildTimeout"] = args ? args.buildTimeout : undefined;
+            resourceInputs["cache"] = args ? args.cache : undefined;
+            resourceInputs["concurrentBuildLimit"] = args ? args.concurrentBuildLimit : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["encryptionKey"] = args ? args.encryptionKey : undefined;
+            resourceInputs["environment"] = args ? args.environment : undefined;
+            resourceInputs["fileSystemLocations"] = args ? args.fileSystemLocations : undefined;
+            resourceInputs["logsConfig"] = args ? args.logsConfig : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["projectVisibility"] = args ? args.projectVisibility : undefined;
+            resourceInputs["queuedTimeout"] = args ? args.queuedTimeout : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourceAccessRole"] = args ? args.resourceAccessRole : undefined;
+            resourceInputs["secondaryArtifacts"] = args ? args.secondaryArtifacts : undefined;
+            resourceInputs["secondarySourceVersions"] = args ? args.secondarySourceVersions : undefined;
+            resourceInputs["secondarySources"] = args ? args.secondarySources : undefined;
+            resourceInputs["serviceRole"] = args ? args.serviceRole : undefined;
+            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["sourceVersion"] = args ? args.sourceVersion : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["badgeUrl"] = undefined /*out*/;
             resourceInputs["publicProjectAlias"] = undefined /*out*/;

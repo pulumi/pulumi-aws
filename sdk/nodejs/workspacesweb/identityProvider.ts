@@ -86,38 +86,38 @@ export class IdentityProvider extends pulumi.CustomResource {
     /**
      * ARN of the identity provider.
      */
-    declare public /*out*/ readonly identityProviderArn: pulumi.Output<string>;
+    public /*out*/ readonly identityProviderArn!: pulumi.Output<string>;
     /**
      * Identity provider details. The following list describes the provider detail keys for each identity provider type:
      * * For Google and Login with Amazon:
      */
-    declare public readonly identityProviderDetails: pulumi.Output<{[key: string]: string}>;
+    public readonly identityProviderDetails!: pulumi.Output<{[key: string]: string}>;
     /**
      * Identity provider name.
      */
-    declare public readonly identityProviderName: pulumi.Output<string>;
+    public readonly identityProviderName!: pulumi.Output<string>;
     /**
      * Identity provider type. Valid values: `SAML`, `Facebook`, `Google`, `LoginWithAmazon`, `SignInWithApple`, `OIDC`.
      */
-    declare public readonly identityProviderType: pulumi.Output<string>;
+    public readonly identityProviderType!: pulumi.Output<string>;
     /**
      * ARN of the web portal. Forces replacement if changed.
      *
      * The following arguments are optional:
      */
-    declare public readonly portalArn: pulumi.Output<string>;
+    public readonly portalArn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a IdentityProvider resource with the given unique name, arguments, and options.
@@ -132,34 +132,34 @@ export class IdentityProvider extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IdentityProviderState | undefined;
-            resourceInputs["identityProviderArn"] = state?.identityProviderArn;
-            resourceInputs["identityProviderDetails"] = state?.identityProviderDetails;
-            resourceInputs["identityProviderName"] = state?.identityProviderName;
-            resourceInputs["identityProviderType"] = state?.identityProviderType;
-            resourceInputs["portalArn"] = state?.portalArn;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["identityProviderArn"] = state ? state.identityProviderArn : undefined;
+            resourceInputs["identityProviderDetails"] = state ? state.identityProviderDetails : undefined;
+            resourceInputs["identityProviderName"] = state ? state.identityProviderName : undefined;
+            resourceInputs["identityProviderType"] = state ? state.identityProviderType : undefined;
+            resourceInputs["portalArn"] = state ? state.portalArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as IdentityProviderArgs | undefined;
-            if (args?.identityProviderDetails === undefined && !opts.urn) {
+            if ((!args || args.identityProviderDetails === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identityProviderDetails'");
             }
-            if (args?.identityProviderName === undefined && !opts.urn) {
+            if ((!args || args.identityProviderName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identityProviderName'");
             }
-            if (args?.identityProviderType === undefined && !opts.urn) {
+            if ((!args || args.identityProviderType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identityProviderType'");
             }
-            if (args?.portalArn === undefined && !opts.urn) {
+            if ((!args || args.portalArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'portalArn'");
             }
-            resourceInputs["identityProviderDetails"] = args?.identityProviderDetails;
-            resourceInputs["identityProviderName"] = args?.identityProviderName;
-            resourceInputs["identityProviderType"] = args?.identityProviderType;
-            resourceInputs["portalArn"] = args?.portalArn;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["identityProviderDetails"] = args ? args.identityProviderDetails : undefined;
+            resourceInputs["identityProviderName"] = args ? args.identityProviderName : undefined;
+            resourceInputs["identityProviderType"] = args ? args.identityProviderType : undefined;
+            resourceInputs["portalArn"] = args ? args.portalArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["identityProviderArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

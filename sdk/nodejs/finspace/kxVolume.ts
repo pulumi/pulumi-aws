@@ -70,47 +70,47 @@ export class KxVolume extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) identifier of the KX volume.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
-    declare public /*out*/ readonly attachedClusters: pulumi.Output<outputs.finspace.KxVolumeAttachedCluster[]>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly attachedClusters!: pulumi.Output<outputs.finspace.KxVolumeAttachedCluster[]>;
     /**
      * The identifier of the AWS Availability Zone IDs.
      *
      * The following arguments are optional:
      */
-    declare public readonly availabilityZones: pulumi.Output<string[]>;
+    public readonly availabilityZones!: pulumi.Output<string[]>;
     /**
      * The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.
      * * `SINGLE` - Assigns one availability zone per volume.
      */
-    declare public readonly azMode: pulumi.Output<string>;
+    public readonly azMode!: pulumi.Output<string>;
     /**
      * The timestamp at which the volume was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
      */
-    declare public /*out*/ readonly createdTimestamp: pulumi.Output<string>;
+    public /*out*/ readonly createdTimestamp!: pulumi.Output<string>;
     /**
      * Description of the volume.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * A unique identifier for the kdb environment, whose clusters can attach to the volume.
      */
-    declare public readonly environmentId: pulumi.Output<string>;
+    public readonly environmentId!: pulumi.Output<string>;
     /**
      * Last timestamp at which the volume was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      */
-    declare public /*out*/ readonly lastModifiedTimestamp: pulumi.Output<string>;
+    public /*out*/ readonly lastModifiedTimestamp!: pulumi.Output<string>;
     /**
      * Unique name for the volumr that you want to create.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
      */
-    declare public readonly nas1Configurations: pulumi.Output<outputs.finspace.KxVolumeNas1Configuration[] | undefined>;
+    public readonly nas1Configurations!: pulumi.Output<outputs.finspace.KxVolumeNas1Configuration[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The status of volume creation.
      * * `CREATING` - The volume creation is in progress.
@@ -123,20 +123,20 @@ export class KxVolume extends pulumi.CustomResource {
      * * `DELETE_FAILED` - The system failed to delete the volume.
      * * `DELETED` - The volume is successfully deleted.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * The error message when a failed state occurs.
      */
-    declare public /*out*/ readonly statusReason: pulumi.Output<string>;
+    public /*out*/ readonly statusReason!: pulumi.Output<string>;
     /**
      * A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
      */
-    declare public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a KxVolume resource with the given unique name, arguments, and options.
@@ -151,45 +151,45 @@ export class KxVolume extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KxVolumeState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["attachedClusters"] = state?.attachedClusters;
-            resourceInputs["availabilityZones"] = state?.availabilityZones;
-            resourceInputs["azMode"] = state?.azMode;
-            resourceInputs["createdTimestamp"] = state?.createdTimestamp;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["environmentId"] = state?.environmentId;
-            resourceInputs["lastModifiedTimestamp"] = state?.lastModifiedTimestamp;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["nas1Configurations"] = state?.nas1Configurations;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["statusReason"] = state?.statusReason;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["type"] = state?.type;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["attachedClusters"] = state ? state.attachedClusters : undefined;
+            resourceInputs["availabilityZones"] = state ? state.availabilityZones : undefined;
+            resourceInputs["azMode"] = state ? state.azMode : undefined;
+            resourceInputs["createdTimestamp"] = state ? state.createdTimestamp : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["environmentId"] = state ? state.environmentId : undefined;
+            resourceInputs["lastModifiedTimestamp"] = state ? state.lastModifiedTimestamp : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["nas1Configurations"] = state ? state.nas1Configurations : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["statusReason"] = state ? state.statusReason : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as KxVolumeArgs | undefined;
-            if (args?.availabilityZones === undefined && !opts.urn) {
+            if ((!args || args.availabilityZones === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'availabilityZones'");
             }
-            if (args?.azMode === undefined && !opts.urn) {
+            if ((!args || args.azMode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'azMode'");
             }
-            if (args?.environmentId === undefined && !opts.urn) {
+            if ((!args || args.environmentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'environmentId'");
             }
-            if (args?.type === undefined && !opts.urn) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["availabilityZones"] = args?.availabilityZones;
-            resourceInputs["azMode"] = args?.azMode;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["environmentId"] = args?.environmentId;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["nas1Configurations"] = args?.nas1Configurations;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["type"] = args?.type;
+            resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
+            resourceInputs["azMode"] = args ? args.azMode : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["nas1Configurations"] = args ? args.nas1Configurations : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["attachedClusters"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;

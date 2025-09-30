@@ -145,47 +145,47 @@ export class Target extends pulumi.CustomResource {
     /**
      * The ARN of the scalable target.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Max capacity of the scalable target.
      */
-    declare public readonly maxCapacity: pulumi.Output<number>;
+    public readonly maxCapacity!: pulumi.Output<number>;
     /**
      * Min capacity of the scalable target.
      */
-    declare public readonly minCapacity: pulumi.Output<number>;
+    public readonly minCapacity!: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      */
-    declare public readonly resourceId: pulumi.Output<string>;
+    public readonly resourceId!: pulumi.Output<string>;
     /**
      * ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
      */
-    declare public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      */
-    declare public readonly scalableDimension: pulumi.Output<string>;
+    public readonly scalableDimension!: pulumi.Output<string>;
     /**
      * AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      */
-    declare public readonly serviceNamespace: pulumi.Output<string>;
+    public readonly serviceNamespace!: pulumi.Output<string>;
     /**
      * Specifies whether the scaling activities for a scalable target are in a suspended state.
      */
-    declare public readonly suspendedState: pulumi.Output<outputs.appautoscaling.TargetSuspendedState>;
+    public readonly suspendedState!: pulumi.Output<outputs.appautoscaling.TargetSuspendedState>;
     /**
      * Map of tags to assign to the scalable target. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Target resource with the given unique name, arguments, and options.
@@ -200,43 +200,43 @@ export class Target extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TargetState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["maxCapacity"] = state?.maxCapacity;
-            resourceInputs["minCapacity"] = state?.minCapacity;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceId"] = state?.resourceId;
-            resourceInputs["roleArn"] = state?.roleArn;
-            resourceInputs["scalableDimension"] = state?.scalableDimension;
-            resourceInputs["serviceNamespace"] = state?.serviceNamespace;
-            resourceInputs["suspendedState"] = state?.suspendedState;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["maxCapacity"] = state ? state.maxCapacity : undefined;
+            resourceInputs["minCapacity"] = state ? state.minCapacity : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["scalableDimension"] = state ? state.scalableDimension : undefined;
+            resourceInputs["serviceNamespace"] = state ? state.serviceNamespace : undefined;
+            resourceInputs["suspendedState"] = state ? state.suspendedState : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as TargetArgs | undefined;
-            if (args?.maxCapacity === undefined && !opts.urn) {
+            if ((!args || args.maxCapacity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'maxCapacity'");
             }
-            if (args?.minCapacity === undefined && !opts.urn) {
+            if ((!args || args.minCapacity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'minCapacity'");
             }
-            if (args?.resourceId === undefined && !opts.urn) {
+            if ((!args || args.resourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if (args?.scalableDimension === undefined && !opts.urn) {
+            if ((!args || args.scalableDimension === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scalableDimension'");
             }
-            if (args?.serviceNamespace === undefined && !opts.urn) {
+            if ((!args || args.serviceNamespace === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceNamespace'");
             }
-            resourceInputs["maxCapacity"] = args?.maxCapacity;
-            resourceInputs["minCapacity"] = args?.minCapacity;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resourceId"] = args?.resourceId;
-            resourceInputs["roleArn"] = args?.roleArn;
-            resourceInputs["scalableDimension"] = args?.scalableDimension;
-            resourceInputs["serviceNamespace"] = args?.serviceNamespace;
-            resourceInputs["suspendedState"] = args?.suspendedState;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["maxCapacity"] = args ? args.maxCapacity : undefined;
+            resourceInputs["minCapacity"] = args ? args.minCapacity : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["scalableDimension"] = args ? args.scalableDimension : undefined;
+            resourceInputs["serviceNamespace"] = args ? args.serviceNamespace : undefined;
+            resourceInputs["suspendedState"] = args ? args.suspendedState : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

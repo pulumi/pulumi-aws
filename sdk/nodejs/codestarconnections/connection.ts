@@ -91,35 +91,35 @@ export class Connection extends pulumi.CustomResource {
     /**
      * The codestar connection ARN.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The codestar connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
      */
-    declare public /*out*/ readonly connectionStatus: pulumi.Output<string>;
+    public /*out*/ readonly connectionStatus!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
      */
-    declare public readonly hostArn: pulumi.Output<string | undefined>;
+    public readonly hostArn!: pulumi.Output<string | undefined>;
     /**
      * The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, `GitHubEnterpriseServer`, `GitLab` or `GitLabSelfManaged`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
      */
-    declare public readonly providerType: pulumi.Output<string>;
+    public readonly providerType!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Connection resource with the given unique name, arguments, and options.
@@ -134,21 +134,21 @@ export class Connection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConnectionState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["connectionStatus"] = state?.connectionStatus;
-            resourceInputs["hostArn"] = state?.hostArn;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["providerType"] = state?.providerType;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["connectionStatus"] = state ? state.connectionStatus : undefined;
+            resourceInputs["hostArn"] = state ? state.hostArn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["providerType"] = state ? state.providerType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ConnectionArgs | undefined;
-            resourceInputs["hostArn"] = args?.hostArn;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["providerType"] = args?.providerType;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["hostArn"] = args ? args.hostArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["providerType"] = args ? args.providerType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["connectionStatus"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

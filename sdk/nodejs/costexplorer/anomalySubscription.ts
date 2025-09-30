@@ -210,39 +210,39 @@ export class AnomalySubscription extends pulumi.CustomResource {
     /**
      * The unique identifier for the AWS account in which the anomaly subscription ought to be created.
      */
-    declare public readonly accountId: pulumi.Output<string>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * ARN of the anomaly subscription.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
      */
-    declare public readonly frequency: pulumi.Output<string>;
+    public readonly frequency!: pulumi.Output<string>;
     /**
      * A list of cost anomaly monitors.
      */
-    declare public readonly monitorArnLists: pulumi.Output<string[]>;
+    public readonly monitorArnLists!: pulumi.Output<string[]>;
     /**
      * The name for the subscription.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A subscriber configuration. Multiple subscribers can be defined.
      */
-    declare public readonly subscribers: pulumi.Output<outputs.costexplorer.AnomalySubscriptionSubscriber[]>;
+    public readonly subscribers!: pulumi.Output<outputs.costexplorer.AnomalySubscriptionSubscriber[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
      */
-    declare public readonly thresholdExpression: pulumi.Output<outputs.costexplorer.AnomalySubscriptionThresholdExpression>;
+    public readonly thresholdExpression!: pulumi.Output<outputs.costexplorer.AnomalySubscriptionThresholdExpression>;
 
     /**
      * Create a AnomalySubscription resource with the given unique name, arguments, and options.
@@ -257,33 +257,33 @@ export class AnomalySubscription extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AnomalySubscriptionState | undefined;
-            resourceInputs["accountId"] = state?.accountId;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["frequency"] = state?.frequency;
-            resourceInputs["monitorArnLists"] = state?.monitorArnLists;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["subscribers"] = state?.subscribers;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["thresholdExpression"] = state?.thresholdExpression;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["frequency"] = state ? state.frequency : undefined;
+            resourceInputs["monitorArnLists"] = state ? state.monitorArnLists : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["subscribers"] = state ? state.subscribers : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["thresholdExpression"] = state ? state.thresholdExpression : undefined;
         } else {
             const args = argsOrState as AnomalySubscriptionArgs | undefined;
-            if (args?.frequency === undefined && !opts.urn) {
+            if ((!args || args.frequency === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'frequency'");
             }
-            if (args?.monitorArnLists === undefined && !opts.urn) {
+            if ((!args || args.monitorArnLists === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'monitorArnLists'");
             }
-            if (args?.subscribers === undefined && !opts.urn) {
+            if ((!args || args.subscribers === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subscribers'");
             }
-            resourceInputs["accountId"] = args?.accountId;
-            resourceInputs["frequency"] = args?.frequency;
-            resourceInputs["monitorArnLists"] = args?.monitorArnLists;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["subscribers"] = args?.subscribers;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["thresholdExpression"] = args?.thresholdExpression;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["frequency"] = args ? args.frequency : undefined;
+            resourceInputs["monitorArnLists"] = args ? args.monitorArnLists : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["subscribers"] = args ? args.subscribers : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["thresholdExpression"] = args ? args.thresholdExpression : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

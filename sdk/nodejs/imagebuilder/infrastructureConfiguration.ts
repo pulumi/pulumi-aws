@@ -80,81 +80,81 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the configuration.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Date when the configuration was created.
      */
-    declare public /*out*/ readonly dateCreated: pulumi.Output<string>;
+    public /*out*/ readonly dateCreated!: pulumi.Output<string>;
     /**
      * Date when the configuration was updated.
      */
-    declare public /*out*/ readonly dateUpdated: pulumi.Output<string>;
+    public /*out*/ readonly dateUpdated!: pulumi.Output<string>;
     /**
      * Description for the configuration.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
      */
-    declare public readonly instanceMetadataOptions: pulumi.Output<outputs.imagebuilder.InfrastructureConfigurationInstanceMetadataOptions | undefined>;
+    public readonly instanceMetadataOptions!: pulumi.Output<outputs.imagebuilder.InfrastructureConfigurationInstanceMetadataOptions | undefined>;
     /**
      * Name of IAM Instance Profile.
      */
-    declare public readonly instanceProfileName: pulumi.Output<string>;
+    public readonly instanceProfileName!: pulumi.Output<string>;
     /**
      * Set of EC2 Instance Types.
      */
-    declare public readonly instanceTypes: pulumi.Output<string[] | undefined>;
+    public readonly instanceTypes!: pulumi.Output<string[] | undefined>;
     /**
      * Name of EC2 Key Pair.
      */
-    declare public readonly keyPair: pulumi.Output<string | undefined>;
+    public readonly keyPair!: pulumi.Output<string | undefined>;
     /**
      * Configuration block with logging settings. Detailed below.
      */
-    declare public readonly logging: pulumi.Output<outputs.imagebuilder.InfrastructureConfigurationLogging | undefined>;
+    public readonly logging!: pulumi.Output<outputs.imagebuilder.InfrastructureConfigurationLogging | undefined>;
     /**
      * Name for the configuration.
      *
      * The following arguments are optional:
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
      */
-    declare public readonly placement: pulumi.Output<outputs.imagebuilder.InfrastructureConfigurationPlacement | undefined>;
+    public readonly placement!: pulumi.Output<outputs.imagebuilder.InfrastructureConfigurationPlacement | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags to assign to infrastructure created by the configuration.
      */
-    declare public readonly resourceTags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly resourceTags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Set of EC2 Security Group identifiers.
      */
-    declare public readonly securityGroupIds: pulumi.Output<string[] | undefined>;
+    public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     /**
      * Amazon Resource Name (ARN) of SNS Topic.
      */
-    declare public readonly snsTopicArn: pulumi.Output<string | undefined>;
+    public readonly snsTopicArn!: pulumi.Output<string | undefined>;
     /**
      * EC2 Subnet identifier. Also requires `securityGroupIds` argument.
      */
-    declare public readonly subnetId: pulumi.Output<string | undefined>;
+    public readonly subnetId!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags to assign to the configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
      */
-    declare public readonly terminateInstanceOnFailure: pulumi.Output<boolean | undefined>;
+    public readonly terminateInstanceOnFailure!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a InfrastructureConfiguration resource with the given unique name, arguments, and options.
@@ -169,45 +169,45 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InfrastructureConfigurationState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["dateCreated"] = state?.dateCreated;
-            resourceInputs["dateUpdated"] = state?.dateUpdated;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["instanceMetadataOptions"] = state?.instanceMetadataOptions;
-            resourceInputs["instanceProfileName"] = state?.instanceProfileName;
-            resourceInputs["instanceTypes"] = state?.instanceTypes;
-            resourceInputs["keyPair"] = state?.keyPair;
-            resourceInputs["logging"] = state?.logging;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["placement"] = state?.placement;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceTags"] = state?.resourceTags;
-            resourceInputs["securityGroupIds"] = state?.securityGroupIds;
-            resourceInputs["snsTopicArn"] = state?.snsTopicArn;
-            resourceInputs["subnetId"] = state?.subnetId;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["terminateInstanceOnFailure"] = state?.terminateInstanceOnFailure;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["dateCreated"] = state ? state.dateCreated : undefined;
+            resourceInputs["dateUpdated"] = state ? state.dateUpdated : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["instanceMetadataOptions"] = state ? state.instanceMetadataOptions : undefined;
+            resourceInputs["instanceProfileName"] = state ? state.instanceProfileName : undefined;
+            resourceInputs["instanceTypes"] = state ? state.instanceTypes : undefined;
+            resourceInputs["keyPair"] = state ? state.keyPair : undefined;
+            resourceInputs["logging"] = state ? state.logging : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["placement"] = state ? state.placement : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceTags"] = state ? state.resourceTags : undefined;
+            resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
+            resourceInputs["snsTopicArn"] = state ? state.snsTopicArn : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["terminateInstanceOnFailure"] = state ? state.terminateInstanceOnFailure : undefined;
         } else {
             const args = argsOrState as InfrastructureConfigurationArgs | undefined;
-            if (args?.instanceProfileName === undefined && !opts.urn) {
+            if ((!args || args.instanceProfileName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceProfileName'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["instanceMetadataOptions"] = args?.instanceMetadataOptions;
-            resourceInputs["instanceProfileName"] = args?.instanceProfileName;
-            resourceInputs["instanceTypes"] = args?.instanceTypes;
-            resourceInputs["keyPair"] = args?.keyPair;
-            resourceInputs["logging"] = args?.logging;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["placement"] = args?.placement;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resourceTags"] = args?.resourceTags;
-            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
-            resourceInputs["snsTopicArn"] = args?.snsTopicArn;
-            resourceInputs["subnetId"] = args?.subnetId;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["terminateInstanceOnFailure"] = args?.terminateInstanceOnFailure;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["instanceMetadataOptions"] = args ? args.instanceMetadataOptions : undefined;
+            resourceInputs["instanceProfileName"] = args ? args.instanceProfileName : undefined;
+            resourceInputs["instanceTypes"] = args ? args.instanceTypes : undefined;
+            resourceInputs["keyPair"] = args ? args.keyPair : undefined;
+            resourceInputs["logging"] = args ? args.logging : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["placement"] = args ? args.placement : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
+            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
+            resourceInputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["terminateInstanceOnFailure"] = args ? args.terminateInstanceOnFailure : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dateCreated"] = undefined /*out*/;
             resourceInputs["dateUpdated"] = undefined /*out*/;

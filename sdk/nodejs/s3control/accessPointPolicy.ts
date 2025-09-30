@@ -81,19 +81,19 @@ export class AccessPointPolicy extends pulumi.CustomResource {
     /**
      * The ARN of the access point that you want to associate with the specified policy.
      */
-    declare public readonly accessPointArn: pulumi.Output<string>;
+    public readonly accessPointArn!: pulumi.Output<string>;
     /**
      * Indicates whether this access point currently has a policy that allows public access.
      */
-    declare public /*out*/ readonly hasPublicAccessPolicy: pulumi.Output<boolean>;
+    public /*out*/ readonly hasPublicAccessPolicy!: pulumi.Output<boolean>;
     /**
      * The policy that you want to apply to the specified access point.
      */
-    declare public readonly policy: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a AccessPointPolicy resource with the given unique name, arguments, and options.
@@ -108,21 +108,21 @@ export class AccessPointPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccessPointPolicyState | undefined;
-            resourceInputs["accessPointArn"] = state?.accessPointArn;
-            resourceInputs["hasPublicAccessPolicy"] = state?.hasPublicAccessPolicy;
-            resourceInputs["policy"] = state?.policy;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["accessPointArn"] = state ? state.accessPointArn : undefined;
+            resourceInputs["hasPublicAccessPolicy"] = state ? state.hasPublicAccessPolicy : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as AccessPointPolicyArgs | undefined;
-            if (args?.accessPointArn === undefined && !opts.urn) {
+            if ((!args || args.accessPointArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accessPointArn'");
             }
-            if (args?.policy === undefined && !opts.urn) {
+            if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            resourceInputs["accessPointArn"] = args?.accessPointArn;
-            resourceInputs["policy"] = args?.policy;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["accessPointArn"] = args ? args.accessPointArn : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["hasPublicAccessPolicy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

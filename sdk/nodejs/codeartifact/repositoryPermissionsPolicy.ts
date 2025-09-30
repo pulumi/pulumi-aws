@@ -79,31 +79,31 @@ export class RepositoryPermissionsPolicy extends pulumi.CustomResource {
     /**
      * The name of the domain on which to set the resource policy.
      */
-    declare public readonly domain: pulumi.Output<string>;
+    public readonly domain!: pulumi.Output<string>;
     /**
      * The account number of the AWS account that owns the domain.
      */
-    declare public readonly domainOwner: pulumi.Output<string>;
+    public readonly domainOwner!: pulumi.Output<string>;
     /**
      * A JSON policy string to be set as the access control resource policy on the provided domain.
      */
-    declare public readonly policyDocument: pulumi.Output<string>;
+    public readonly policyDocument!: pulumi.Output<string>;
     /**
      * The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
      */
-    declare public readonly policyRevision: pulumi.Output<string>;
+    public readonly policyRevision!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The name of the repository to set the resource policy on.
      */
-    declare public readonly repository: pulumi.Output<string>;
+    public readonly repository!: pulumi.Output<string>;
     /**
      * The ARN of the resource associated with the resource policy.
      */
-    declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
+    public /*out*/ readonly resourceArn!: pulumi.Output<string>;
 
     /**
      * Create a RepositoryPermissionsPolicy resource with the given unique name, arguments, and options.
@@ -118,30 +118,30 @@ export class RepositoryPermissionsPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryPermissionsPolicyState | undefined;
-            resourceInputs["domain"] = state?.domain;
-            resourceInputs["domainOwner"] = state?.domainOwner;
-            resourceInputs["policyDocument"] = state?.policyDocument;
-            resourceInputs["policyRevision"] = state?.policyRevision;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["repository"] = state?.repository;
-            resourceInputs["resourceArn"] = state?.resourceArn;
+            resourceInputs["domain"] = state ? state.domain : undefined;
+            resourceInputs["domainOwner"] = state ? state.domainOwner : undefined;
+            resourceInputs["policyDocument"] = state ? state.policyDocument : undefined;
+            resourceInputs["policyRevision"] = state ? state.policyRevision : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["repository"] = state ? state.repository : undefined;
+            resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
         } else {
             const args = argsOrState as RepositoryPermissionsPolicyArgs | undefined;
-            if (args?.domain === undefined && !opts.urn) {
+            if ((!args || args.domain === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domain'");
             }
-            if (args?.policyDocument === undefined && !opts.urn) {
+            if ((!args || args.policyDocument === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyDocument'");
             }
-            if (args?.repository === undefined && !opts.urn) {
+            if ((!args || args.repository === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            resourceInputs["domain"] = args?.domain;
-            resourceInputs["domainOwner"] = args?.domainOwner;
-            resourceInputs["policyDocument"] = args?.policyDocument;
-            resourceInputs["policyRevision"] = args?.policyRevision;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["repository"] = args?.repository;
+            resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["domainOwner"] = args ? args.domainOwner : undefined;
+            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
+            resourceInputs["policyRevision"] = args ? args.policyRevision : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["repository"] = args ? args.repository : undefined;
             resourceInputs["resourceArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -113,58 +113,58 @@ export class RouteServerPeer extends pulumi.CustomResource {
     /**
      * The ARN of the route server peer.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
      */
-    declare public readonly bgpOptions: pulumi.Output<outputs.vpc.RouteServerPeerBgpOptions | undefined>;
+    public readonly bgpOptions!: pulumi.Output<outputs.vpc.RouteServerPeerBgpOptions | undefined>;
     /**
      * The IP address of the Elastic network interface for the route server endpoint.
      */
-    declare public /*out*/ readonly endpointEniAddress: pulumi.Output<string>;
+    public /*out*/ readonly endpointEniAddress!: pulumi.Output<string>;
     /**
      * The ID of the Elastic network interface for the route server endpoint.
      */
-    declare public /*out*/ readonly endpointEniId: pulumi.Output<string>;
+    public /*out*/ readonly endpointEniId!: pulumi.Output<string>;
     /**
      * The IPv4 address of the peer device.
      */
-    declare public readonly peerAddress: pulumi.Output<string>;
+    public readonly peerAddress!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ID of the route server endpoint for which to create a peer.
      *
      * The following arguments are optional:
      */
-    declare public readonly routeServerEndpointId: pulumi.Output<string>;
+    public readonly routeServerEndpointId!: pulumi.Output<string>;
     /**
      * The ID of the route server associated with this peer.
      */
-    declare public /*out*/ readonly routeServerId: pulumi.Output<string>;
+    public /*out*/ readonly routeServerId!: pulumi.Output<string>;
     /**
      * The unique identifier of the route server peer.
      */
-    declare public /*out*/ readonly routeServerPeerId: pulumi.Output<string>;
+    public /*out*/ readonly routeServerPeerId!: pulumi.Output<string>;
     /**
      * The ID of the subnet containing the route server peer.
      */
-    declare public /*out*/ readonly subnetId: pulumi.Output<string>;
+    public /*out*/ readonly subnetId!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public readonly timeouts: pulumi.Output<outputs.vpc.RouteServerPeerTimeouts | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly timeouts!: pulumi.Output<outputs.vpc.RouteServerPeerTimeouts | undefined>;
     /**
      * The ID of the VPC containing the route server peer.
      */
-    declare public /*out*/ readonly vpcId: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a RouteServerPeer resource with the given unique name, arguments, and options.
@@ -179,34 +179,34 @@ export class RouteServerPeer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteServerPeerState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["bgpOptions"] = state?.bgpOptions;
-            resourceInputs["endpointEniAddress"] = state?.endpointEniAddress;
-            resourceInputs["endpointEniId"] = state?.endpointEniId;
-            resourceInputs["peerAddress"] = state?.peerAddress;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["routeServerEndpointId"] = state?.routeServerEndpointId;
-            resourceInputs["routeServerId"] = state?.routeServerId;
-            resourceInputs["routeServerPeerId"] = state?.routeServerPeerId;
-            resourceInputs["subnetId"] = state?.subnetId;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timeouts"] = state?.timeouts;
-            resourceInputs["vpcId"] = state?.vpcId;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["bgpOptions"] = state ? state.bgpOptions : undefined;
+            resourceInputs["endpointEniAddress"] = state ? state.endpointEniAddress : undefined;
+            resourceInputs["endpointEniId"] = state ? state.endpointEniId : undefined;
+            resourceInputs["peerAddress"] = state ? state.peerAddress : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["routeServerEndpointId"] = state ? state.routeServerEndpointId : undefined;
+            resourceInputs["routeServerId"] = state ? state.routeServerId : undefined;
+            resourceInputs["routeServerPeerId"] = state ? state.routeServerPeerId : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as RouteServerPeerArgs | undefined;
-            if (args?.peerAddress === undefined && !opts.urn) {
+            if ((!args || args.peerAddress === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'peerAddress'");
             }
-            if (args?.routeServerEndpointId === undefined && !opts.urn) {
+            if ((!args || args.routeServerEndpointId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'routeServerEndpointId'");
             }
-            resourceInputs["bgpOptions"] = args?.bgpOptions;
-            resourceInputs["peerAddress"] = args?.peerAddress;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["routeServerEndpointId"] = args?.routeServerEndpointId;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["bgpOptions"] = args ? args.bgpOptions : undefined;
+            resourceInputs["peerAddress"] = args ? args.peerAddress : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["routeServerEndpointId"] = args ? args.routeServerEndpointId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["endpointEniAddress"] = undefined /*out*/;
             resourceInputs["endpointEniId"] = undefined /*out*/;

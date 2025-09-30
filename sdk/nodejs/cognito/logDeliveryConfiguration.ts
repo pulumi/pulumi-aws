@@ -170,17 +170,17 @@ export class LogDeliveryConfiguration extends pulumi.CustomResource {
     /**
      * Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
      */
-    declare public readonly logConfigurations: pulumi.Output<outputs.cognito.LogDeliveryConfigurationLogConfiguration[] | undefined>;
+    public readonly logConfigurations!: pulumi.Output<outputs.cognito.LogDeliveryConfigurationLogConfiguration[] | undefined>;
     /**
      * The AWS region.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ID of the user pool for which to configure log delivery.
      *
      * The following arguments are optional:
      */
-    declare public readonly userPoolId: pulumi.Output<string>;
+    public readonly userPoolId!: pulumi.Output<string>;
 
     /**
      * Create a LogDeliveryConfiguration resource with the given unique name, arguments, and options.
@@ -195,17 +195,17 @@ export class LogDeliveryConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogDeliveryConfigurationState | undefined;
-            resourceInputs["logConfigurations"] = state?.logConfigurations;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["userPoolId"] = state?.userPoolId;
+            resourceInputs["logConfigurations"] = state ? state.logConfigurations : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["userPoolId"] = state ? state.userPoolId : undefined;
         } else {
             const args = argsOrState as LogDeliveryConfigurationArgs | undefined;
-            if (args?.userPoolId === undefined && !opts.urn) {
+            if ((!args || args.userPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            resourceInputs["logConfigurations"] = args?.logConfigurations;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["userPoolId"] = args?.userPoolId;
+            resourceInputs["logConfigurations"] = args ? args.logConfigurations : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogDeliveryConfiguration.__pulumiType, name, resourceInputs, opts);

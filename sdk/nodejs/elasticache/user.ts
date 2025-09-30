@@ -99,46 +99,46 @@ export class User extends pulumi.CustomResource {
     /**
      * Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
      */
-    declare public readonly accessString: pulumi.Output<string>;
+    public readonly accessString!: pulumi.Output<string>;
     /**
      * The ARN of the created ElastiCache User.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Denotes the user's authentication properties. Detailed below.
      */
-    declare public readonly authenticationMode: pulumi.Output<outputs.elasticache.UserAuthenticationMode>;
+    public readonly authenticationMode!: pulumi.Output<outputs.elasticache.UserAuthenticationMode>;
     /**
      * The current supported values are `redis`, `valkey` (case insensitive).
      */
-    declare public readonly engine: pulumi.Output<string>;
+    public readonly engine!: pulumi.Output<string>;
     /**
      * Indicates a password is not required for this user.
      */
-    declare public readonly noPasswordRequired: pulumi.Output<boolean | undefined>;
+    public readonly noPasswordRequired!: pulumi.Output<boolean | undefined>;
     /**
      * Passwords used for this user. You can create up to two passwords for each user.
      */
-    declare public readonly passwords: pulumi.Output<string[] | undefined>;
+    public readonly passwords!: pulumi.Output<string[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A list of tags to be added to this resource. A tag is a key-value pair.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the user.
      */
-    declare public readonly userId: pulumi.Output<string>;
+    public readonly userId!: pulumi.Output<string>;
     /**
      * The username of the user.
      *
      * The following arguments are optional:
      */
-    declare public readonly userName: pulumi.Output<string>;
+    public readonly userName!: pulumi.Output<string>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -153,40 +153,40 @@ export class User extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
-            resourceInputs["accessString"] = state?.accessString;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["authenticationMode"] = state?.authenticationMode;
-            resourceInputs["engine"] = state?.engine;
-            resourceInputs["noPasswordRequired"] = state?.noPasswordRequired;
-            resourceInputs["passwords"] = state?.passwords;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["userId"] = state?.userId;
-            resourceInputs["userName"] = state?.userName;
+            resourceInputs["accessString"] = state ? state.accessString : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["authenticationMode"] = state ? state.authenticationMode : undefined;
+            resourceInputs["engine"] = state ? state.engine : undefined;
+            resourceInputs["noPasswordRequired"] = state ? state.noPasswordRequired : undefined;
+            resourceInputs["passwords"] = state ? state.passwords : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["userName"] = state ? state.userName : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
-            if (args?.accessString === undefined && !opts.urn) {
+            if ((!args || args.accessString === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accessString'");
             }
-            if (args?.engine === undefined && !opts.urn) {
+            if ((!args || args.engine === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engine'");
             }
-            if (args?.userId === undefined && !opts.urn) {
+            if ((!args || args.userId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
-            if (args?.userName === undefined && !opts.urn) {
+            if ((!args || args.userName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
-            resourceInputs["accessString"] = args?.accessString;
-            resourceInputs["authenticationMode"] = args?.authenticationMode;
-            resourceInputs["engine"] = args?.engine;
-            resourceInputs["noPasswordRequired"] = args?.noPasswordRequired;
+            resourceInputs["accessString"] = args ? args.accessString : undefined;
+            resourceInputs["authenticationMode"] = args ? args.authenticationMode : undefined;
+            resourceInputs["engine"] = args ? args.engine : undefined;
+            resourceInputs["noPasswordRequired"] = args ? args.noPasswordRequired : undefined;
             resourceInputs["passwords"] = args?.passwords ? pulumi.secret(args.passwords) : undefined;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["userId"] = args?.userId;
-            resourceInputs["userName"] = args?.userName;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["userName"] = args ? args.userName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

@@ -61,29 +61,29 @@ export class FrameworkShare extends pulumi.CustomResource {
     /**
      * Comment from the sender about the share request.
      */
-    declare public readonly comment: pulumi.Output<string | undefined>;
+    public readonly comment!: pulumi.Output<string | undefined>;
     /**
      * Amazon Web Services account of the recipient.
      */
-    declare public readonly destinationAccount: pulumi.Output<string>;
+    public readonly destinationAccount!: pulumi.Output<string>;
     /**
      * Amazon Web Services region of the recipient.
      */
-    declare public readonly destinationRegion: pulumi.Output<string>;
+    public readonly destinationRegion!: pulumi.Output<string>;
     /**
      * Unique identifier for the shared custom framework.
      *
      * The following arguments are optional:
      */
-    declare public readonly frameworkId: pulumi.Output<string>;
+    public readonly frameworkId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Status of the share request.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
 
     /**
      * Create a FrameworkShare resource with the given unique name, arguments, and options.
@@ -98,28 +98,28 @@ export class FrameworkShare extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FrameworkShareState | undefined;
-            resourceInputs["comment"] = state?.comment;
-            resourceInputs["destinationAccount"] = state?.destinationAccount;
-            resourceInputs["destinationRegion"] = state?.destinationRegion;
-            resourceInputs["frameworkId"] = state?.frameworkId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["status"] = state?.status;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["destinationAccount"] = state ? state.destinationAccount : undefined;
+            resourceInputs["destinationRegion"] = state ? state.destinationRegion : undefined;
+            resourceInputs["frameworkId"] = state ? state.frameworkId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as FrameworkShareArgs | undefined;
-            if (args?.destinationAccount === undefined && !opts.urn) {
+            if ((!args || args.destinationAccount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destinationAccount'");
             }
-            if (args?.destinationRegion === undefined && !opts.urn) {
+            if ((!args || args.destinationRegion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destinationRegion'");
             }
-            if (args?.frameworkId === undefined && !opts.urn) {
+            if ((!args || args.frameworkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'frameworkId'");
             }
-            resourceInputs["comment"] = args?.comment;
-            resourceInputs["destinationAccount"] = args?.destinationAccount;
-            resourceInputs["destinationRegion"] = args?.destinationRegion;
-            resourceInputs["frameworkId"] = args?.frameworkId;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["destinationAccount"] = args ? args.destinationAccount : undefined;
+            resourceInputs["destinationRegion"] = args ? args.destinationRegion : undefined;
+            resourceInputs["frameworkId"] = args ? args.frameworkId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

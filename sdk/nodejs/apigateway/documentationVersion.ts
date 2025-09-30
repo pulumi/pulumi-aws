@@ -69,19 +69,19 @@ export class DocumentationVersion extends pulumi.CustomResource {
     /**
      * Description of the API documentation version.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ID of the associated Rest API
      */
-    declare public readonly restApiId: pulumi.Output<string>;
+    public readonly restApiId!: pulumi.Output<string>;
     /**
      * Version identifier of the API documentation snapshot.
      */
-    declare public readonly version: pulumi.Output<string>;
+    public readonly version!: pulumi.Output<string>;
 
     /**
      * Create a DocumentationVersion resource with the given unique name, arguments, and options.
@@ -96,22 +96,22 @@ export class DocumentationVersion extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DocumentationVersionState | undefined;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["restApiId"] = state?.restApiId;
-            resourceInputs["version"] = state?.version;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["restApiId"] = state ? state.restApiId : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as DocumentationVersionArgs | undefined;
-            if (args?.restApiId === undefined && !opts.urn) {
+            if ((!args || args.restApiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            if (args?.version === undefined && !opts.urn) {
+            if ((!args || args.version === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["restApiId"] = args?.restApiId;
-            resourceInputs["version"] = args?.version;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DocumentationVersion.__pulumiType, name, resourceInputs, opts);

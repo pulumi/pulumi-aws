@@ -66,43 +66,43 @@ export class AccountPasswordPolicy extends pulumi.CustomResource {
     /**
      * Whether to allow users to change their own password
      */
-    declare public readonly allowUsersToChangePassword: pulumi.Output<boolean | undefined>;
+    public readonly allowUsersToChangePassword!: pulumi.Output<boolean | undefined>;
     /**
      * Indicates whether passwords in the account expire. Returns `true` if `maxPasswordAge` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
      */
-    declare public /*out*/ readonly expirePasswords: pulumi.Output<boolean>;
+    public /*out*/ readonly expirePasswords!: pulumi.Output<boolean>;
     /**
      * Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
      */
-    declare public readonly hardExpiry: pulumi.Output<boolean>;
+    public readonly hardExpiry!: pulumi.Output<boolean>;
     /**
      * The number of days that an user password is valid.
      */
-    declare public readonly maxPasswordAge: pulumi.Output<number>;
+    public readonly maxPasswordAge!: pulumi.Output<number>;
     /**
      * Minimum length to require for user passwords.
      */
-    declare public readonly minimumPasswordLength: pulumi.Output<number | undefined>;
+    public readonly minimumPasswordLength!: pulumi.Output<number | undefined>;
     /**
      * The number of previous passwords that users are prevented from reusing.
      */
-    declare public readonly passwordReusePrevention: pulumi.Output<number>;
+    public readonly passwordReusePrevention!: pulumi.Output<number>;
     /**
      * Whether to require lowercase characters for user passwords.
      */
-    declare public readonly requireLowercaseCharacters: pulumi.Output<boolean>;
+    public readonly requireLowercaseCharacters!: pulumi.Output<boolean>;
     /**
      * Whether to require numbers for user passwords.
      */
-    declare public readonly requireNumbers: pulumi.Output<boolean>;
+    public readonly requireNumbers!: pulumi.Output<boolean>;
     /**
      * Whether to require symbols for user passwords.
      */
-    declare public readonly requireSymbols: pulumi.Output<boolean>;
+    public readonly requireSymbols!: pulumi.Output<boolean>;
     /**
      * Whether to require uppercase characters for user passwords.
      */
-    declare public readonly requireUppercaseCharacters: pulumi.Output<boolean>;
+    public readonly requireUppercaseCharacters!: pulumi.Output<boolean>;
 
     /**
      * Create a AccountPasswordPolicy resource with the given unique name, arguments, and options.
@@ -117,27 +117,27 @@ export class AccountPasswordPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountPasswordPolicyState | undefined;
-            resourceInputs["allowUsersToChangePassword"] = state?.allowUsersToChangePassword;
-            resourceInputs["expirePasswords"] = state?.expirePasswords;
-            resourceInputs["hardExpiry"] = state?.hardExpiry;
-            resourceInputs["maxPasswordAge"] = state?.maxPasswordAge;
-            resourceInputs["minimumPasswordLength"] = state?.minimumPasswordLength;
-            resourceInputs["passwordReusePrevention"] = state?.passwordReusePrevention;
-            resourceInputs["requireLowercaseCharacters"] = state?.requireLowercaseCharacters;
-            resourceInputs["requireNumbers"] = state?.requireNumbers;
-            resourceInputs["requireSymbols"] = state?.requireSymbols;
-            resourceInputs["requireUppercaseCharacters"] = state?.requireUppercaseCharacters;
+            resourceInputs["allowUsersToChangePassword"] = state ? state.allowUsersToChangePassword : undefined;
+            resourceInputs["expirePasswords"] = state ? state.expirePasswords : undefined;
+            resourceInputs["hardExpiry"] = state ? state.hardExpiry : undefined;
+            resourceInputs["maxPasswordAge"] = state ? state.maxPasswordAge : undefined;
+            resourceInputs["minimumPasswordLength"] = state ? state.minimumPasswordLength : undefined;
+            resourceInputs["passwordReusePrevention"] = state ? state.passwordReusePrevention : undefined;
+            resourceInputs["requireLowercaseCharacters"] = state ? state.requireLowercaseCharacters : undefined;
+            resourceInputs["requireNumbers"] = state ? state.requireNumbers : undefined;
+            resourceInputs["requireSymbols"] = state ? state.requireSymbols : undefined;
+            resourceInputs["requireUppercaseCharacters"] = state ? state.requireUppercaseCharacters : undefined;
         } else {
             const args = argsOrState as AccountPasswordPolicyArgs | undefined;
-            resourceInputs["allowUsersToChangePassword"] = args?.allowUsersToChangePassword;
-            resourceInputs["hardExpiry"] = args?.hardExpiry;
-            resourceInputs["maxPasswordAge"] = args?.maxPasswordAge;
-            resourceInputs["minimumPasswordLength"] = args?.minimumPasswordLength;
-            resourceInputs["passwordReusePrevention"] = args?.passwordReusePrevention;
-            resourceInputs["requireLowercaseCharacters"] = args?.requireLowercaseCharacters;
-            resourceInputs["requireNumbers"] = args?.requireNumbers;
-            resourceInputs["requireSymbols"] = args?.requireSymbols;
-            resourceInputs["requireUppercaseCharacters"] = args?.requireUppercaseCharacters;
+            resourceInputs["allowUsersToChangePassword"] = args ? args.allowUsersToChangePassword : undefined;
+            resourceInputs["hardExpiry"] = args ? args.hardExpiry : undefined;
+            resourceInputs["maxPasswordAge"] = args ? args.maxPasswordAge : undefined;
+            resourceInputs["minimumPasswordLength"] = args ? args.minimumPasswordLength : undefined;
+            resourceInputs["passwordReusePrevention"] = args ? args.passwordReusePrevention : undefined;
+            resourceInputs["requireLowercaseCharacters"] = args ? args.requireLowercaseCharacters : undefined;
+            resourceInputs["requireNumbers"] = args ? args.requireNumbers : undefined;
+            resourceInputs["requireSymbols"] = args ? args.requireSymbols : undefined;
+            resourceInputs["requireUppercaseCharacters"] = args ? args.requireUppercaseCharacters : undefined;
             resourceInputs["expirePasswords"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

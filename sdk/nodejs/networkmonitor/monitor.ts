@@ -60,29 +60,29 @@ export class Monitor extends pulumi.CustomResource {
     /**
      * The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid values are either 30 or 60.
      */
-    declare public readonly aggregationPeriod: pulumi.Output<number>;
+    public readonly aggregationPeriod!: pulumi.Output<number>;
     /**
      * The ARN of the monitor.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name of the monitor.
      *
      * The following arguments are optional:
      */
-    declare public readonly monitorName: pulumi.Output<string>;
+    public readonly monitorName!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Monitor resource with the given unique name, arguments, and options.
@@ -97,21 +97,21 @@ export class Monitor extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MonitorState | undefined;
-            resourceInputs["aggregationPeriod"] = state?.aggregationPeriod;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["monitorName"] = state?.monitorName;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["aggregationPeriod"] = state ? state.aggregationPeriod : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["monitorName"] = state ? state.monitorName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as MonitorArgs | undefined;
-            if (args?.monitorName === undefined && !opts.urn) {
+            if ((!args || args.monitorName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'monitorName'");
             }
-            resourceInputs["aggregationPeriod"] = args?.aggregationPeriod;
-            resourceInputs["monitorName"] = args?.monitorName;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["aggregationPeriod"] = args ? args.aggregationPeriod : undefined;
+            resourceInputs["monitorName"] = args ? args.monitorName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

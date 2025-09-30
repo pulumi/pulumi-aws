@@ -438,185 +438,185 @@ export class Function extends pulumi.CustomResource {
     /**
      * Instruction set architecture for your Lambda function. Valid values are `["x8664"]` and `["arm64"]`. Default is `["x8664"]`. Removing this attribute, function's architecture stays the same.
      */
-    declare public readonly architectures: pulumi.Output<string[]>;
+    public readonly architectures!: pulumi.Output<string[]>;
     /**
      * ARN identifying your Lambda Function.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Path to the function's deployment package within the local filesystem. Conflicts with `imageUri` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
      */
-    declare public readonly code: pulumi.Output<pulumi.asset.Archive | undefined>;
+    public readonly code!: pulumi.Output<pulumi.asset.Archive | undefined>;
     /**
      * Base64-encoded representation of raw SHA-256 sum of the zip file.
      */
-    declare public /*out*/ readonly codeSha256: pulumi.Output<string>;
+    public /*out*/ readonly codeSha256!: pulumi.Output<string>;
     /**
      * ARN of a code-signing configuration to enable code signing for this function.
      */
-    declare public readonly codeSigningConfigArn: pulumi.Output<string | undefined>;
+    public readonly codeSigningConfigArn!: pulumi.Output<string | undefined>;
     /**
      * Configuration block for dead letter queue. See below.
      */
-    declare public readonly deadLetterConfig: pulumi.Output<outputs.lambda.FunctionDeadLetterConfig | undefined>;
+    public readonly deadLetterConfig!: pulumi.Output<outputs.lambda.FunctionDeadLetterConfig | undefined>;
     /**
      * Description of what your Lambda Function does.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Configuration block for environment variables. See below.
      */
-    declare public readonly environment: pulumi.Output<outputs.lambda.FunctionEnvironment | undefined>;
+    public readonly environment!: pulumi.Output<outputs.lambda.FunctionEnvironment | undefined>;
     /**
      * Amount of ephemeral storage (`/tmp`) to allocate for the Lambda Function. See below.
      */
-    declare public readonly ephemeralStorage: pulumi.Output<outputs.lambda.FunctionEphemeralStorage>;
+    public readonly ephemeralStorage!: pulumi.Output<outputs.lambda.FunctionEphemeralStorage>;
     /**
      * Configuration block for EFS file system. See below.
      */
-    declare public readonly fileSystemConfig: pulumi.Output<outputs.lambda.FunctionFileSystemConfig | undefined>;
+    public readonly fileSystemConfig!: pulumi.Output<outputs.lambda.FunctionFileSystemConfig | undefined>;
     /**
      * Function entry point in your code. Required if `packageType` is `Zip`.
      */
-    declare public readonly handler: pulumi.Output<string | undefined>;
+    public readonly handler!: pulumi.Output<string | undefined>;
     /**
      * Container image configuration values. See below.
      */
-    declare public readonly imageConfig: pulumi.Output<outputs.lambda.FunctionImageConfig | undefined>;
+    public readonly imageConfig!: pulumi.Output<outputs.lambda.FunctionImageConfig | undefined>;
     /**
      * ECR image URI containing the function's deployment package. Conflicts with `filename` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
      */
-    declare public readonly imageUri: pulumi.Output<string | undefined>;
+    public readonly imageUri!: pulumi.Output<string | undefined>;
     /**
      * ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`.
      */
-    declare public /*out*/ readonly invokeArn: pulumi.Output<string>;
+    public /*out*/ readonly invokeArn!: pulumi.Output<string>;
     /**
      * ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
      */
-    declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
+    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     /**
      * Date this resource was last modified.
      */
-    declare public /*out*/ readonly lastModified: pulumi.Output<string>;
+    public /*out*/ readonly lastModified!: pulumi.Output<string>;
     /**
      * List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function.
      */
-    declare public readonly layers: pulumi.Output<string[] | undefined>;
+    public readonly layers!: pulumi.Output<string[] | undefined>;
     /**
      * Configuration block for advanced logging settings. See below.
      */
-    declare public readonly loggingConfig: pulumi.Output<outputs.lambda.FunctionLoggingConfig>;
+    public readonly loggingConfig!: pulumi.Output<outputs.lambda.FunctionLoggingConfig>;
     /**
      * Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 10,240 MB (10 GB), in 1 MB increments. Defaults to 128.
      */
-    declare public readonly memorySize: pulumi.Output<number | undefined>;
+    public readonly memorySize!: pulumi.Output<number | undefined>;
     /**
      * Unique name for your Lambda Function.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
      */
-    declare public readonly packageType: pulumi.Output<string | undefined>;
+    public readonly packageType!: pulumi.Output<string | undefined>;
     /**
      * Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
      */
-    declare public readonly publish: pulumi.Output<boolean | undefined>;
+    public readonly publish!: pulumi.Output<boolean | undefined>;
     /**
      * ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
      */
-    declare public /*out*/ readonly qualifiedArn: pulumi.Output<string>;
+    public /*out*/ readonly qualifiedArn!: pulumi.Output<string>;
     /**
      * Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`.
      */
-    declare public /*out*/ readonly qualifiedInvokeArn: pulumi.Output<string>;
+    public /*out*/ readonly qualifiedInvokeArn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Whether to replace the security groups on the function's VPC configuration prior to destruction. Default is `false`.
      */
-    declare public readonly replaceSecurityGroupsOnDestroy: pulumi.Output<boolean | undefined>;
+    public readonly replaceSecurityGroupsOnDestroy!: pulumi.Output<boolean | undefined>;
     /**
      * List of security group IDs to assign to the function's VPC configuration prior to destruction. Required if `replaceSecurityGroupsOnDestroy` is `true`.
      */
-    declare public readonly replacementSecurityGroupIds: pulumi.Output<string[] | undefined>;
+    public readonly replacementSecurityGroupIds!: pulumi.Output<string[] | undefined>;
     /**
      * Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`.
      */
-    declare public readonly reservedConcurrentExecutions: pulumi.Output<number | undefined>;
+    public readonly reservedConcurrentExecutions!: pulumi.Output<number | undefined>;
     /**
      * ARN of the function's execution role. The role provides the function's identity and access to AWS services and resources.
      *
      * The following arguments are optional:
      */
-    declare public readonly role: pulumi.Output<string>;
+    public readonly role!: pulumi.Output<string>;
     /**
      * Identifier of the function's runtime. Required if `packageType` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
      */
-    declare public readonly runtime: pulumi.Output<string | undefined>;
+    public readonly runtime!: pulumi.Output<string | undefined>;
     /**
      * S3 bucket location containing the function's deployment package. Conflicts with `filename` and `imageUri`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
      */
-    declare public readonly s3Bucket: pulumi.Output<string | undefined>;
+    public readonly s3Bucket!: pulumi.Output<string | undefined>;
     /**
      * S3 key of an object containing the function's deployment package. Required if `s3Bucket` is set.
      */
-    declare public readonly s3Key: pulumi.Output<string | undefined>;
+    public readonly s3Key!: pulumi.Output<string | undefined>;
     /**
      * Object version containing the function's deployment package. Conflicts with `filename` and `imageUri`.
      */
-    declare public readonly s3ObjectVersion: pulumi.Output<string | undefined>;
+    public readonly s3ObjectVersion!: pulumi.Output<string | undefined>;
     /**
      * ARN of the signing job.
      */
-    declare public /*out*/ readonly signingJobArn: pulumi.Output<string>;
+    public /*out*/ readonly signingJobArn!: pulumi.Output<string>;
     /**
      * ARN of the signing profile version.
      */
-    declare public /*out*/ readonly signingProfileVersionArn: pulumi.Output<string>;
+    public /*out*/ readonly signingProfileVersionArn!: pulumi.Output<string>;
     /**
      * Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`.
      */
-    declare public readonly skipDestroy: pulumi.Output<boolean | undefined>;
+    public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
     /**
      * Configuration block for snap start settings. See below.
      */
-    declare public readonly snapStart: pulumi.Output<outputs.lambda.FunctionSnapStart | undefined>;
+    public readonly snapStart!: pulumi.Output<outputs.lambda.FunctionSnapStart | undefined>;
     /**
      * Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
      */
-    declare public readonly sourceCodeHash: pulumi.Output<string>;
+    public readonly sourceCodeHash!: pulumi.Output<string>;
     /**
      * Size in bytes of the function .zip file.
      */
-    declare public /*out*/ readonly sourceCodeSize: pulumi.Output<number>;
+    public /*out*/ readonly sourceCodeSize!: pulumi.Output<number>;
     /**
      * Key-value map of tags for the Lambda function. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
      */
-    declare public readonly timeout: pulumi.Output<number | undefined>;
+    public readonly timeout!: pulumi.Output<number | undefined>;
     /**
      * Configuration block for X-Ray tracing. See below.
      */
-    declare public readonly tracingConfig: pulumi.Output<outputs.lambda.FunctionTracingConfig>;
+    public readonly tracingConfig!: pulumi.Output<outputs.lambda.FunctionTracingConfig>;
     /**
      * Latest published version of your Lambda Function.
      */
-    declare public /*out*/ readonly version: pulumi.Output<string>;
+    public /*out*/ readonly version!: pulumi.Output<string>;
     /**
      * Configuration block for VPC. See below.
      */
-    declare public readonly vpcConfig: pulumi.Output<outputs.lambda.FunctionVpcConfig | undefined>;
+    public readonly vpcConfig!: pulumi.Output<outputs.lambda.FunctionVpcConfig | undefined>;
 
     /**
      * Create a Function resource with the given unique name, arguments, and options.
@@ -631,90 +631,90 @@ export class Function extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FunctionState | undefined;
-            resourceInputs["architectures"] = state?.architectures;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["code"] = state?.code;
-            resourceInputs["codeSha256"] = state?.codeSha256;
-            resourceInputs["codeSigningConfigArn"] = state?.codeSigningConfigArn;
-            resourceInputs["deadLetterConfig"] = state?.deadLetterConfig;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["environment"] = state?.environment;
-            resourceInputs["ephemeralStorage"] = state?.ephemeralStorage;
-            resourceInputs["fileSystemConfig"] = state?.fileSystemConfig;
-            resourceInputs["handler"] = state?.handler;
-            resourceInputs["imageConfig"] = state?.imageConfig;
-            resourceInputs["imageUri"] = state?.imageUri;
-            resourceInputs["invokeArn"] = state?.invokeArn;
-            resourceInputs["kmsKeyArn"] = state?.kmsKeyArn;
-            resourceInputs["lastModified"] = state?.lastModified;
-            resourceInputs["layers"] = state?.layers;
-            resourceInputs["loggingConfig"] = state?.loggingConfig;
-            resourceInputs["memorySize"] = state?.memorySize;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["packageType"] = state?.packageType;
-            resourceInputs["publish"] = state?.publish;
-            resourceInputs["qualifiedArn"] = state?.qualifiedArn;
-            resourceInputs["qualifiedInvokeArn"] = state?.qualifiedInvokeArn;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["replaceSecurityGroupsOnDestroy"] = state?.replaceSecurityGroupsOnDestroy;
-            resourceInputs["replacementSecurityGroupIds"] = state?.replacementSecurityGroupIds;
-            resourceInputs["reservedConcurrentExecutions"] = state?.reservedConcurrentExecutions;
-            resourceInputs["role"] = state?.role;
-            resourceInputs["runtime"] = state?.runtime;
-            resourceInputs["s3Bucket"] = state?.s3Bucket;
-            resourceInputs["s3Key"] = state?.s3Key;
-            resourceInputs["s3ObjectVersion"] = state?.s3ObjectVersion;
-            resourceInputs["signingJobArn"] = state?.signingJobArn;
-            resourceInputs["signingProfileVersionArn"] = state?.signingProfileVersionArn;
-            resourceInputs["skipDestroy"] = state?.skipDestroy;
-            resourceInputs["snapStart"] = state?.snapStart;
-            resourceInputs["sourceCodeHash"] = state?.sourceCodeHash;
-            resourceInputs["sourceCodeSize"] = state?.sourceCodeSize;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timeout"] = state?.timeout;
-            resourceInputs["tracingConfig"] = state?.tracingConfig;
-            resourceInputs["version"] = state?.version;
-            resourceInputs["vpcConfig"] = state?.vpcConfig;
+            resourceInputs["architectures"] = state ? state.architectures : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["code"] = state ? state.code : undefined;
+            resourceInputs["codeSha256"] = state ? state.codeSha256 : undefined;
+            resourceInputs["codeSigningConfigArn"] = state ? state.codeSigningConfigArn : undefined;
+            resourceInputs["deadLetterConfig"] = state ? state.deadLetterConfig : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["environment"] = state ? state.environment : undefined;
+            resourceInputs["ephemeralStorage"] = state ? state.ephemeralStorage : undefined;
+            resourceInputs["fileSystemConfig"] = state ? state.fileSystemConfig : undefined;
+            resourceInputs["handler"] = state ? state.handler : undefined;
+            resourceInputs["imageConfig"] = state ? state.imageConfig : undefined;
+            resourceInputs["imageUri"] = state ? state.imageUri : undefined;
+            resourceInputs["invokeArn"] = state ? state.invokeArn : undefined;
+            resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
+            resourceInputs["lastModified"] = state ? state.lastModified : undefined;
+            resourceInputs["layers"] = state ? state.layers : undefined;
+            resourceInputs["loggingConfig"] = state ? state.loggingConfig : undefined;
+            resourceInputs["memorySize"] = state ? state.memorySize : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["packageType"] = state ? state.packageType : undefined;
+            resourceInputs["publish"] = state ? state.publish : undefined;
+            resourceInputs["qualifiedArn"] = state ? state.qualifiedArn : undefined;
+            resourceInputs["qualifiedInvokeArn"] = state ? state.qualifiedInvokeArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["replaceSecurityGroupsOnDestroy"] = state ? state.replaceSecurityGroupsOnDestroy : undefined;
+            resourceInputs["replacementSecurityGroupIds"] = state ? state.replacementSecurityGroupIds : undefined;
+            resourceInputs["reservedConcurrentExecutions"] = state ? state.reservedConcurrentExecutions : undefined;
+            resourceInputs["role"] = state ? state.role : undefined;
+            resourceInputs["runtime"] = state ? state.runtime : undefined;
+            resourceInputs["s3Bucket"] = state ? state.s3Bucket : undefined;
+            resourceInputs["s3Key"] = state ? state.s3Key : undefined;
+            resourceInputs["s3ObjectVersion"] = state ? state.s3ObjectVersion : undefined;
+            resourceInputs["signingJobArn"] = state ? state.signingJobArn : undefined;
+            resourceInputs["signingProfileVersionArn"] = state ? state.signingProfileVersionArn : undefined;
+            resourceInputs["skipDestroy"] = state ? state.skipDestroy : undefined;
+            resourceInputs["snapStart"] = state ? state.snapStart : undefined;
+            resourceInputs["sourceCodeHash"] = state ? state.sourceCodeHash : undefined;
+            resourceInputs["sourceCodeSize"] = state ? state.sourceCodeSize : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeout"] = state ? state.timeout : undefined;
+            resourceInputs["tracingConfig"] = state ? state.tracingConfig : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["vpcConfig"] = state ? state.vpcConfig : undefined;
         } else {
             const args = argsOrState as FunctionArgs | undefined;
-            if (args?.role === undefined && !opts.urn) {
+            if ((!args || args.role === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
-            resourceInputs["architectures"] = args?.architectures;
-            resourceInputs["code"] = args?.code;
-            resourceInputs["codeSigningConfigArn"] = args?.codeSigningConfigArn;
-            resourceInputs["deadLetterConfig"] = args?.deadLetterConfig;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["environment"] = args?.environment;
-            resourceInputs["ephemeralStorage"] = args?.ephemeralStorage;
-            resourceInputs["fileSystemConfig"] = args?.fileSystemConfig;
-            resourceInputs["handler"] = args?.handler;
-            resourceInputs["imageConfig"] = args?.imageConfig;
-            resourceInputs["imageUri"] = args?.imageUri;
-            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
-            resourceInputs["layers"] = args?.layers;
-            resourceInputs["loggingConfig"] = args?.loggingConfig;
-            resourceInputs["memorySize"] = args?.memorySize;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["packageType"] = args?.packageType;
-            resourceInputs["publish"] = args?.publish;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["replaceSecurityGroupsOnDestroy"] = args?.replaceSecurityGroupsOnDestroy;
-            resourceInputs["replacementSecurityGroupIds"] = args?.replacementSecurityGroupIds;
-            resourceInputs["reservedConcurrentExecutions"] = args?.reservedConcurrentExecutions;
-            resourceInputs["role"] = args?.role;
-            resourceInputs["runtime"] = args?.runtime;
-            resourceInputs["s3Bucket"] = args?.s3Bucket;
-            resourceInputs["s3Key"] = args?.s3Key;
-            resourceInputs["s3ObjectVersion"] = args?.s3ObjectVersion;
-            resourceInputs["skipDestroy"] = args?.skipDestroy;
-            resourceInputs["snapStart"] = args?.snapStart;
-            resourceInputs["sourceCodeHash"] = args?.sourceCodeHash;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timeout"] = args?.timeout;
-            resourceInputs["tracingConfig"] = args?.tracingConfig;
-            resourceInputs["vpcConfig"] = args?.vpcConfig;
+            resourceInputs["architectures"] = args ? args.architectures : undefined;
+            resourceInputs["code"] = args ? args.code : undefined;
+            resourceInputs["codeSigningConfigArn"] = args ? args.codeSigningConfigArn : undefined;
+            resourceInputs["deadLetterConfig"] = args ? args.deadLetterConfig : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["environment"] = args ? args.environment : undefined;
+            resourceInputs["ephemeralStorage"] = args ? args.ephemeralStorage : undefined;
+            resourceInputs["fileSystemConfig"] = args ? args.fileSystemConfig : undefined;
+            resourceInputs["handler"] = args ? args.handler : undefined;
+            resourceInputs["imageConfig"] = args ? args.imageConfig : undefined;
+            resourceInputs["imageUri"] = args ? args.imageUri : undefined;
+            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
+            resourceInputs["layers"] = args ? args.layers : undefined;
+            resourceInputs["loggingConfig"] = args ? args.loggingConfig : undefined;
+            resourceInputs["memorySize"] = args ? args.memorySize : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["packageType"] = args ? args.packageType : undefined;
+            resourceInputs["publish"] = args ? args.publish : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["replaceSecurityGroupsOnDestroy"] = args ? args.replaceSecurityGroupsOnDestroy : undefined;
+            resourceInputs["replacementSecurityGroupIds"] = args ? args.replacementSecurityGroupIds : undefined;
+            resourceInputs["reservedConcurrentExecutions"] = args ? args.reservedConcurrentExecutions : undefined;
+            resourceInputs["role"] = args ? args.role : undefined;
+            resourceInputs["runtime"] = args ? args.runtime : undefined;
+            resourceInputs["s3Bucket"] = args ? args.s3Bucket : undefined;
+            resourceInputs["s3Key"] = args ? args.s3Key : undefined;
+            resourceInputs["s3ObjectVersion"] = args ? args.s3ObjectVersion : undefined;
+            resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
+            resourceInputs["snapStart"] = args ? args.snapStart : undefined;
+            resourceInputs["sourceCodeHash"] = args ? args.sourceCodeHash : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeout"] = args ? args.timeout : undefined;
+            resourceInputs["tracingConfig"] = args ? args.tracingConfig : undefined;
+            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["codeSha256"] = undefined /*out*/;
             resourceInputs["invokeArn"] = undefined /*out*/;

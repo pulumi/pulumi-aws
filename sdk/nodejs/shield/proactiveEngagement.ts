@@ -101,11 +101,11 @@ export class ProactiveEngagement extends pulumi.CustomResource {
     /**
      * One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergencyContacts`.
      */
-    declare public readonly emergencyContacts: pulumi.Output<outputs.shield.ProactiveEngagementEmergencyContact[] | undefined>;
+    public readonly emergencyContacts!: pulumi.Output<outputs.shield.ProactiveEngagementEmergencyContact[] | undefined>;
     /**
      * Boolean value indicating if Proactive Engagement should be enabled or not.
      */
-    declare public readonly enabled: pulumi.Output<boolean>;
+    public readonly enabled!: pulumi.Output<boolean>;
 
     /**
      * Create a ProactiveEngagement resource with the given unique name, arguments, and options.
@@ -120,15 +120,15 @@ export class ProactiveEngagement extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProactiveEngagementState | undefined;
-            resourceInputs["emergencyContacts"] = state?.emergencyContacts;
-            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["emergencyContacts"] = state ? state.emergencyContacts : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
         } else {
             const args = argsOrState as ProactiveEngagementArgs | undefined;
-            if (args?.enabled === undefined && !opts.urn) {
+            if ((!args || args.enabled === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            resourceInputs["emergencyContacts"] = args?.emergencyContacts;
-            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["emergencyContacts"] = args ? args.emergencyContacts : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProactiveEngagement.__pulumiType, name, resourceInputs, opts);

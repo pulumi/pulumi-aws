@@ -63,49 +63,49 @@ export class TransitGatewayPeering extends pulumi.CustomResource {
     /**
      * Peering ARN.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * ARN of the core network.
      */
-    declare public /*out*/ readonly coreNetworkArn: pulumi.Output<string>;
+    public /*out*/ readonly coreNetworkArn!: pulumi.Output<string>;
     /**
      * ID of a core network.
      */
-    declare public readonly coreNetworkId: pulumi.Output<string>;
+    public readonly coreNetworkId!: pulumi.Output<string>;
     /**
      * Edge location for the peer.
      */
-    declare public /*out*/ readonly edgeLocation: pulumi.Output<string>;
+    public /*out*/ readonly edgeLocation!: pulumi.Output<string>;
     /**
      * ID of the account owner.
      */
-    declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
+    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
     /**
      * Type of peering. This will be `TRANSIT_GATEWAY`.
      */
-    declare public /*out*/ readonly peeringType: pulumi.Output<string>;
+    public /*out*/ readonly peeringType!: pulumi.Output<string>;
     /**
      * Resource ARN of the peer.
      */
-    declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
+    public /*out*/ readonly resourceArn!: pulumi.Output<string>;
     /**
      * Key-value tags for the peering. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * ARN of the transit gateway for the peering request.
      *
      * The following arguments are optional:
      */
-    declare public readonly transitGatewayArn: pulumi.Output<string>;
+    public readonly transitGatewayArn!: pulumi.Output<string>;
     /**
      * ID of the transit gateway peering attachment.
      */
-    declare public /*out*/ readonly transitGatewayPeeringAttachmentId: pulumi.Output<string>;
+    public /*out*/ readonly transitGatewayPeeringAttachmentId!: pulumi.Output<string>;
 
     /**
      * Create a TransitGatewayPeering resource with the given unique name, arguments, and options.
@@ -120,28 +120,28 @@ export class TransitGatewayPeering extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TransitGatewayPeeringState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["coreNetworkArn"] = state?.coreNetworkArn;
-            resourceInputs["coreNetworkId"] = state?.coreNetworkId;
-            resourceInputs["edgeLocation"] = state?.edgeLocation;
-            resourceInputs["ownerAccountId"] = state?.ownerAccountId;
-            resourceInputs["peeringType"] = state?.peeringType;
-            resourceInputs["resourceArn"] = state?.resourceArn;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["transitGatewayArn"] = state?.transitGatewayArn;
-            resourceInputs["transitGatewayPeeringAttachmentId"] = state?.transitGatewayPeeringAttachmentId;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["coreNetworkArn"] = state ? state.coreNetworkArn : undefined;
+            resourceInputs["coreNetworkId"] = state ? state.coreNetworkId : undefined;
+            resourceInputs["edgeLocation"] = state ? state.edgeLocation : undefined;
+            resourceInputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
+            resourceInputs["peeringType"] = state ? state.peeringType : undefined;
+            resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["transitGatewayArn"] = state ? state.transitGatewayArn : undefined;
+            resourceInputs["transitGatewayPeeringAttachmentId"] = state ? state.transitGatewayPeeringAttachmentId : undefined;
         } else {
             const args = argsOrState as TransitGatewayPeeringArgs | undefined;
-            if (args?.coreNetworkId === undefined && !opts.urn) {
+            if ((!args || args.coreNetworkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'coreNetworkId'");
             }
-            if (args?.transitGatewayArn === undefined && !opts.urn) {
+            if ((!args || args.transitGatewayArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayArn'");
             }
-            resourceInputs["coreNetworkId"] = args?.coreNetworkId;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["transitGatewayArn"] = args?.transitGatewayArn;
+            resourceInputs["coreNetworkId"] = args ? args.coreNetworkId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["transitGatewayArn"] = args ? args.transitGatewayArn : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["coreNetworkArn"] = undefined /*out*/;
             resourceInputs["edgeLocation"] = undefined /*out*/;

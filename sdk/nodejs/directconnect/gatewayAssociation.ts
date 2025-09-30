@@ -117,46 +117,46 @@ export class GatewayAssociation extends pulumi.CustomResource {
      *
      * > **NOTE:** If the `associatedGatewayId` is in another region, an alias in a new provider block for that region should be specified.
      */
-    declare public readonly allowedPrefixes: pulumi.Output<string[]>;
+    public readonly allowedPrefixes!: pulumi.Output<string[]>;
     /**
      * The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
      * Used for single account Direct Connect gateway associations.
      */
-    declare public readonly associatedGatewayId: pulumi.Output<string>;
+    public readonly associatedGatewayId!: pulumi.Output<string>;
     /**
      * The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
      * Used for cross-account Direct Connect gateway associations.
      */
-    declare public readonly associatedGatewayOwnerAccountId: pulumi.Output<string>;
+    public readonly associatedGatewayOwnerAccountId!: pulumi.Output<string>;
     /**
      * The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
      */
-    declare public /*out*/ readonly associatedGatewayType: pulumi.Output<string>;
+    public /*out*/ readonly associatedGatewayType!: pulumi.Output<string>;
     /**
      * The ID of the Direct Connect gateway association.
      */
-    declare public /*out*/ readonly dxGatewayAssociationId: pulumi.Output<string>;
+    public /*out*/ readonly dxGatewayAssociationId!: pulumi.Output<string>;
     /**
      * The ID of the Direct Connect gateway.
      */
-    declare public readonly dxGatewayId: pulumi.Output<string>;
+    public readonly dxGatewayId!: pulumi.Output<string>;
     /**
      * The ID of the AWS account that owns the Direct Connect gateway.
      */
-    declare public /*out*/ readonly dxGatewayOwnerAccountId: pulumi.Output<string>;
+    public /*out*/ readonly dxGatewayOwnerAccountId!: pulumi.Output<string>;
     /**
      * The ID of the Direct Connect gateway association proposal.
      * Used for cross-account Direct Connect gateway associations.
      */
-    declare public readonly proposalId: pulumi.Output<string | undefined>;
+    public readonly proposalId!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ID of the Transit Gateway Attachment when the type is `transitGateway`.
      */
-    declare public /*out*/ readonly transitGatewayAttachmentId: pulumi.Output<string>;
+    public /*out*/ readonly transitGatewayAttachmentId!: pulumi.Output<string>;
 
     /**
      * Create a GatewayAssociation resource with the given unique name, arguments, and options.
@@ -171,27 +171,27 @@ export class GatewayAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GatewayAssociationState | undefined;
-            resourceInputs["allowedPrefixes"] = state?.allowedPrefixes;
-            resourceInputs["associatedGatewayId"] = state?.associatedGatewayId;
-            resourceInputs["associatedGatewayOwnerAccountId"] = state?.associatedGatewayOwnerAccountId;
-            resourceInputs["associatedGatewayType"] = state?.associatedGatewayType;
-            resourceInputs["dxGatewayAssociationId"] = state?.dxGatewayAssociationId;
-            resourceInputs["dxGatewayId"] = state?.dxGatewayId;
-            resourceInputs["dxGatewayOwnerAccountId"] = state?.dxGatewayOwnerAccountId;
-            resourceInputs["proposalId"] = state?.proposalId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["transitGatewayAttachmentId"] = state?.transitGatewayAttachmentId;
+            resourceInputs["allowedPrefixes"] = state ? state.allowedPrefixes : undefined;
+            resourceInputs["associatedGatewayId"] = state ? state.associatedGatewayId : undefined;
+            resourceInputs["associatedGatewayOwnerAccountId"] = state ? state.associatedGatewayOwnerAccountId : undefined;
+            resourceInputs["associatedGatewayType"] = state ? state.associatedGatewayType : undefined;
+            resourceInputs["dxGatewayAssociationId"] = state ? state.dxGatewayAssociationId : undefined;
+            resourceInputs["dxGatewayId"] = state ? state.dxGatewayId : undefined;
+            resourceInputs["dxGatewayOwnerAccountId"] = state ? state.dxGatewayOwnerAccountId : undefined;
+            resourceInputs["proposalId"] = state ? state.proposalId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;
         } else {
             const args = argsOrState as GatewayAssociationArgs | undefined;
-            if (args?.dxGatewayId === undefined && !opts.urn) {
+            if ((!args || args.dxGatewayId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dxGatewayId'");
             }
-            resourceInputs["allowedPrefixes"] = args?.allowedPrefixes;
-            resourceInputs["associatedGatewayId"] = args?.associatedGatewayId;
-            resourceInputs["associatedGatewayOwnerAccountId"] = args?.associatedGatewayOwnerAccountId;
-            resourceInputs["dxGatewayId"] = args?.dxGatewayId;
-            resourceInputs["proposalId"] = args?.proposalId;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["allowedPrefixes"] = args ? args.allowedPrefixes : undefined;
+            resourceInputs["associatedGatewayId"] = args ? args.associatedGatewayId : undefined;
+            resourceInputs["associatedGatewayOwnerAccountId"] = args ? args.associatedGatewayOwnerAccountId : undefined;
+            resourceInputs["dxGatewayId"] = args ? args.dxGatewayId : undefined;
+            resourceInputs["proposalId"] = args ? args.proposalId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["associatedGatewayType"] = undefined /*out*/;
             resourceInputs["dxGatewayAssociationId"] = undefined /*out*/;
             resourceInputs["dxGatewayOwnerAccountId"] = undefined /*out*/;

@@ -64,65 +64,65 @@ export class VpcAttachment extends pulumi.CustomResource {
     /**
      * ARN of the attachment.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Policy rule number associated with the attachment.
      */
-    declare public /*out*/ readonly attachmentPolicyRuleNumber: pulumi.Output<number>;
+    public /*out*/ readonly attachmentPolicyRuleNumber!: pulumi.Output<number>;
     /**
      * Type of attachment.
      */
-    declare public /*out*/ readonly attachmentType: pulumi.Output<string>;
+    public /*out*/ readonly attachmentType!: pulumi.Output<string>;
     /**
      * ARN of a core network.
      */
-    declare public /*out*/ readonly coreNetworkArn: pulumi.Output<string>;
+    public /*out*/ readonly coreNetworkArn!: pulumi.Output<string>;
     /**
      * ID of a core network for the VPC attachment.
      */
-    declare public readonly coreNetworkId: pulumi.Output<string>;
+    public readonly coreNetworkId!: pulumi.Output<string>;
     /**
      * Region where the edge is located.
      */
-    declare public /*out*/ readonly edgeLocation: pulumi.Output<string>;
+    public /*out*/ readonly edgeLocation!: pulumi.Output<string>;
     /**
      * Options for the VPC attachment. See below.
      */
-    declare public readonly options: pulumi.Output<outputs.networkmanager.VpcAttachmentOptions | undefined>;
+    public readonly options!: pulumi.Output<outputs.networkmanager.VpcAttachmentOptions | undefined>;
     /**
      * ID of the attachment account owner.
      */
-    declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
+    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
     /**
      * Attachment resource ARN.
      */
-    declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
+    public /*out*/ readonly resourceArn!: pulumi.Output<string>;
     /**
      * Name of the segment attachment.
      */
-    declare public /*out*/ readonly segmentName: pulumi.Output<string>;
+    public /*out*/ readonly segmentName!: pulumi.Output<string>;
     /**
      * State of the attachment.
      */
-    declare public /*out*/ readonly state: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * Subnet ARNs of the VPC attachment.
      */
-    declare public readonly subnetArns: pulumi.Output<string[]>;
+    public readonly subnetArns!: pulumi.Output<string[]>;
     /**
      * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * ARN of the VPC.
      *
      * The following arguments are optional:
      */
-    declare public readonly vpcArn: pulumi.Output<string>;
+    public readonly vpcArn!: pulumi.Output<string>;
 
     /**
      * Create a VpcAttachment resource with the given unique name, arguments, and options.
@@ -137,37 +137,37 @@ export class VpcAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcAttachmentState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["attachmentPolicyRuleNumber"] = state?.attachmentPolicyRuleNumber;
-            resourceInputs["attachmentType"] = state?.attachmentType;
-            resourceInputs["coreNetworkArn"] = state?.coreNetworkArn;
-            resourceInputs["coreNetworkId"] = state?.coreNetworkId;
-            resourceInputs["edgeLocation"] = state?.edgeLocation;
-            resourceInputs["options"] = state?.options;
-            resourceInputs["ownerAccountId"] = state?.ownerAccountId;
-            resourceInputs["resourceArn"] = state?.resourceArn;
-            resourceInputs["segmentName"] = state?.segmentName;
-            resourceInputs["state"] = state?.state;
-            resourceInputs["subnetArns"] = state?.subnetArns;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["vpcArn"] = state?.vpcArn;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["attachmentPolicyRuleNumber"] = state ? state.attachmentPolicyRuleNumber : undefined;
+            resourceInputs["attachmentType"] = state ? state.attachmentType : undefined;
+            resourceInputs["coreNetworkArn"] = state ? state.coreNetworkArn : undefined;
+            resourceInputs["coreNetworkId"] = state ? state.coreNetworkId : undefined;
+            resourceInputs["edgeLocation"] = state ? state.edgeLocation : undefined;
+            resourceInputs["options"] = state ? state.options : undefined;
+            resourceInputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
+            resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
+            resourceInputs["segmentName"] = state ? state.segmentName : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["subnetArns"] = state ? state.subnetArns : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcArn"] = state ? state.vpcArn : undefined;
         } else {
             const args = argsOrState as VpcAttachmentArgs | undefined;
-            if (args?.coreNetworkId === undefined && !opts.urn) {
+            if ((!args || args.coreNetworkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'coreNetworkId'");
             }
-            if (args?.subnetArns === undefined && !opts.urn) {
+            if ((!args || args.subnetArns === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetArns'");
             }
-            if (args?.vpcArn === undefined && !opts.urn) {
+            if ((!args || args.vpcArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcArn'");
             }
-            resourceInputs["coreNetworkId"] = args?.coreNetworkId;
-            resourceInputs["options"] = args?.options;
-            resourceInputs["subnetArns"] = args?.subnetArns;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["vpcArn"] = args?.vpcArn;
+            resourceInputs["coreNetworkId"] = args ? args.coreNetworkId : undefined;
+            resourceInputs["options"] = args ? args.options : undefined;
+            resourceInputs["subnetArns"] = args ? args.subnetArns : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcArn"] = args ? args.vpcArn : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["attachmentPolicyRuleNumber"] = undefined /*out*/;
             resourceInputs["attachmentType"] = undefined /*out*/;

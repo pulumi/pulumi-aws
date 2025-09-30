@@ -63,31 +63,31 @@ export class CustomDomainAssociation extends pulumi.CustomResource {
     /**
      * A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
      */
-    declare public /*out*/ readonly certificateValidationRecords: pulumi.Output<outputs.apprunner.CustomDomainAssociationCertificateValidationRecord[]>;
+    public /*out*/ readonly certificateValidationRecords!: pulumi.Output<outputs.apprunner.CustomDomainAssociationCertificateValidationRecord[]>;
     /**
      * App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
      */
-    declare public /*out*/ readonly dnsTarget: pulumi.Output<string>;
+    public /*out*/ readonly dnsTarget!: pulumi.Output<string>;
     /**
      * Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
      */
-    declare public readonly domainName: pulumi.Output<string>;
+    public readonly domainName!: pulumi.Output<string>;
     /**
      * Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
      */
-    declare public readonly enableWwwSubdomain: pulumi.Output<boolean | undefined>;
+    public readonly enableWwwSubdomain!: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ARN of the App Runner service.
      */
-    declare public readonly serviceArn: pulumi.Output<string>;
+    public readonly serviceArn!: pulumi.Output<string>;
     /**
      * Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
 
     /**
      * Create a CustomDomainAssociation resource with the given unique name, arguments, and options.
@@ -102,25 +102,25 @@ export class CustomDomainAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomDomainAssociationState | undefined;
-            resourceInputs["certificateValidationRecords"] = state?.certificateValidationRecords;
-            resourceInputs["dnsTarget"] = state?.dnsTarget;
-            resourceInputs["domainName"] = state?.domainName;
-            resourceInputs["enableWwwSubdomain"] = state?.enableWwwSubdomain;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["serviceArn"] = state?.serviceArn;
-            resourceInputs["status"] = state?.status;
+            resourceInputs["certificateValidationRecords"] = state ? state.certificateValidationRecords : undefined;
+            resourceInputs["dnsTarget"] = state ? state.dnsTarget : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["enableWwwSubdomain"] = state ? state.enableWwwSubdomain : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["serviceArn"] = state ? state.serviceArn : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as CustomDomainAssociationArgs | undefined;
-            if (args?.domainName === undefined && !opts.urn) {
+            if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if (args?.serviceArn === undefined && !opts.urn) {
+            if ((!args || args.serviceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceArn'");
             }
-            resourceInputs["domainName"] = args?.domainName;
-            resourceInputs["enableWwwSubdomain"] = args?.enableWwwSubdomain;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["serviceArn"] = args?.serviceArn;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["enableWwwSubdomain"] = args ? args.enableWwwSubdomain : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["serviceArn"] = args ? args.serviceArn : undefined;
             resourceInputs["certificateValidationRecords"] = undefined /*out*/;
             resourceInputs["dnsTarget"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

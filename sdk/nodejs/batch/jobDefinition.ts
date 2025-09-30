@@ -309,81 +309,81 @@ export class JobDefinition extends pulumi.CustomResource {
     /**
      * ARN of the job definition, includes revision (`:#`).
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * ARN without the revision number.
      */
-    declare public /*out*/ readonly arnPrefix: pulumi.Output<string>;
+    public /*out*/ readonly arnPrefix!: pulumi.Output<string>;
     /**
      * Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
      */
-    declare public readonly containerProperties: pulumi.Output<string | undefined>;
+    public readonly containerProperties!: pulumi.Output<string | undefined>;
     /**
      * When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
      */
-    declare public readonly deregisterOnNewRevision: pulumi.Output<boolean | undefined>;
+    public readonly deregisterOnNewRevision!: pulumi.Output<boolean | undefined>;
     /**
      * Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
      */
-    declare public readonly ecsProperties: pulumi.Output<string | undefined>;
+    public readonly ecsProperties!: pulumi.Output<string | undefined>;
     /**
      * Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
      */
-    declare public readonly eksProperties: pulumi.Output<outputs.batch.JobDefinitionEksProperties | undefined>;
+    public readonly eksProperties!: pulumi.Output<outputs.batch.JobDefinitionEksProperties | undefined>;
     /**
      * Name of the job definition.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
      */
-    declare public readonly nodeProperties: pulumi.Output<string | undefined>;
+    public readonly nodeProperties!: pulumi.Output<string | undefined>;
     /**
      * Parameter substitution placeholders to set in the job definition.
      */
-    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
      */
-    declare public readonly platformCapabilities: pulumi.Output<string[] | undefined>;
+    public readonly platformCapabilities!: pulumi.Output<string[] | undefined>;
     /**
      * Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
      */
-    declare public readonly propagateTags: pulumi.Output<boolean | undefined>;
+    public readonly propagateTags!: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retryStrategy` is `1`.  Defined below.
      */
-    declare public readonly retryStrategy: pulumi.Output<outputs.batch.JobDefinitionRetryStrategy | undefined>;
+    public readonly retryStrategy!: pulumi.Output<outputs.batch.JobDefinitionRetryStrategy | undefined>;
     /**
      * Revision of the job definition.
      */
-    declare public /*out*/ readonly revision: pulumi.Output<number>;
+    public /*out*/ readonly revision!: pulumi.Output<number>;
     /**
      * Scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
      */
-    declare public readonly schedulingPriority: pulumi.Output<number | undefined>;
+    public readonly schedulingPriority!: pulumi.Output<number | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
      */
-    declare public readonly timeout: pulumi.Output<outputs.batch.JobDefinitionTimeout | undefined>;
+    public readonly timeout!: pulumi.Output<outputs.batch.JobDefinitionTimeout | undefined>;
     /**
      * Type of job definition. Must be `container` or `multinode`.
      *
      * The following arguments are optional:
      */
-    declare public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a JobDefinition resource with the given unique name, arguments, and options.
@@ -398,45 +398,45 @@ export class JobDefinition extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as JobDefinitionState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["arnPrefix"] = state?.arnPrefix;
-            resourceInputs["containerProperties"] = state?.containerProperties;
-            resourceInputs["deregisterOnNewRevision"] = state?.deregisterOnNewRevision;
-            resourceInputs["ecsProperties"] = state?.ecsProperties;
-            resourceInputs["eksProperties"] = state?.eksProperties;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["nodeProperties"] = state?.nodeProperties;
-            resourceInputs["parameters"] = state?.parameters;
-            resourceInputs["platformCapabilities"] = state?.platformCapabilities;
-            resourceInputs["propagateTags"] = state?.propagateTags;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["retryStrategy"] = state?.retryStrategy;
-            resourceInputs["revision"] = state?.revision;
-            resourceInputs["schedulingPriority"] = state?.schedulingPriority;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timeout"] = state?.timeout;
-            resourceInputs["type"] = state?.type;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["arnPrefix"] = state ? state.arnPrefix : undefined;
+            resourceInputs["containerProperties"] = state ? state.containerProperties : undefined;
+            resourceInputs["deregisterOnNewRevision"] = state ? state.deregisterOnNewRevision : undefined;
+            resourceInputs["ecsProperties"] = state ? state.ecsProperties : undefined;
+            resourceInputs["eksProperties"] = state ? state.eksProperties : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["nodeProperties"] = state ? state.nodeProperties : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["platformCapabilities"] = state ? state.platformCapabilities : undefined;
+            resourceInputs["propagateTags"] = state ? state.propagateTags : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["retryStrategy"] = state ? state.retryStrategy : undefined;
+            resourceInputs["revision"] = state ? state.revision : undefined;
+            resourceInputs["schedulingPriority"] = state ? state.schedulingPriority : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeout"] = state ? state.timeout : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as JobDefinitionArgs | undefined;
-            if (args?.type === undefined && !opts.urn) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["containerProperties"] = args?.containerProperties;
-            resourceInputs["deregisterOnNewRevision"] = args?.deregisterOnNewRevision;
-            resourceInputs["ecsProperties"] = args?.ecsProperties;
-            resourceInputs["eksProperties"] = args?.eksProperties;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["nodeProperties"] = args?.nodeProperties;
-            resourceInputs["parameters"] = args?.parameters;
-            resourceInputs["platformCapabilities"] = args?.platformCapabilities;
-            resourceInputs["propagateTags"] = args?.propagateTags;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["retryStrategy"] = args?.retryStrategy;
-            resourceInputs["schedulingPriority"] = args?.schedulingPriority;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timeout"] = args?.timeout;
-            resourceInputs["type"] = args?.type;
+            resourceInputs["containerProperties"] = args ? args.containerProperties : undefined;
+            resourceInputs["deregisterOnNewRevision"] = args ? args.deregisterOnNewRevision : undefined;
+            resourceInputs["ecsProperties"] = args ? args.ecsProperties : undefined;
+            resourceInputs["eksProperties"] = args ? args.eksProperties : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["nodeProperties"] = args ? args.nodeProperties : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["platformCapabilities"] = args ? args.platformCapabilities : undefined;
+            resourceInputs["propagateTags"] = args ? args.propagateTags : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["retryStrategy"] = args ? args.retryStrategy : undefined;
+            resourceInputs["schedulingPriority"] = args ? args.schedulingPriority : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeout"] = args ? args.timeout : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["arnPrefix"] = undefined /*out*/;
             resourceInputs["revision"] = undefined /*out*/;

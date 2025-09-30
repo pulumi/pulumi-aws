@@ -64,23 +64,23 @@ export class EnvironmentMembership extends pulumi.CustomResource {
     /**
      * The ID of the environment that contains the environment member you want to add.
      */
-    declare public readonly environmentId: pulumi.Output<string>;
+    public readonly environmentId!: pulumi.Output<string>;
     /**
      * The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
      */
-    declare public readonly permissions: pulumi.Output<string>;
+    public readonly permissions!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the environment member you want to add.
      */
-    declare public readonly userArn: pulumi.Output<string>;
+    public readonly userArn!: pulumi.Output<string>;
     /**
      * The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
      */
-    declare public /*out*/ readonly userId: pulumi.Output<string>;
+    public /*out*/ readonly userId!: pulumi.Output<string>;
 
     /**
      * Create a EnvironmentMembership resource with the given unique name, arguments, and options.
@@ -95,26 +95,26 @@ export class EnvironmentMembership extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnvironmentMembershipState | undefined;
-            resourceInputs["environmentId"] = state?.environmentId;
-            resourceInputs["permissions"] = state?.permissions;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["userArn"] = state?.userArn;
-            resourceInputs["userId"] = state?.userId;
+            resourceInputs["environmentId"] = state ? state.environmentId : undefined;
+            resourceInputs["permissions"] = state ? state.permissions : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["userArn"] = state ? state.userArn : undefined;
+            resourceInputs["userId"] = state ? state.userId : undefined;
         } else {
             const args = argsOrState as EnvironmentMembershipArgs | undefined;
-            if (args?.environmentId === undefined && !opts.urn) {
+            if ((!args || args.environmentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'environmentId'");
             }
-            if (args?.permissions === undefined && !opts.urn) {
+            if ((!args || args.permissions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'permissions'");
             }
-            if (args?.userArn === undefined && !opts.urn) {
+            if ((!args || args.userArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userArn'");
             }
-            resourceInputs["environmentId"] = args?.environmentId;
-            resourceInputs["permissions"] = args?.permissions;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["userArn"] = args?.userArn;
+            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
+            resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["userArn"] = args ? args.userArn : undefined;
             resourceInputs["userId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

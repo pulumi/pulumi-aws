@@ -69,11 +69,11 @@ export class EventConfigurations extends pulumi.CustomResource {
     /**
      * Map. The new event configuration values. You can use only these strings as keys: `THING_GROUP_HIERARCHY`, `THING_GROUP_MEMBERSHIP`, `THING_TYPE`, `THING_TYPE_ASSOCIATION`, `THING_GROUP`, `THING`, `POLICY`, `CA_CERTIFICATE`, `JOB_EXECUTION`, `CERTIFICATE`, `JOB`. Use boolean for values of mapping.
      */
-    declare public readonly eventConfigurations: pulumi.Output<{[key: string]: boolean}>;
+    public readonly eventConfigurations!: pulumi.Output<{[key: string]: boolean}>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a EventConfigurations resource with the given unique name, arguments, and options.
@@ -88,15 +88,15 @@ export class EventConfigurations extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventConfigurationsState | undefined;
-            resourceInputs["eventConfigurations"] = state?.eventConfigurations;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["eventConfigurations"] = state ? state.eventConfigurations : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as EventConfigurationsArgs | undefined;
-            if (args?.eventConfigurations === undefined && !opts.urn) {
+            if ((!args || args.eventConfigurations === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventConfigurations'");
             }
-            resourceInputs["eventConfigurations"] = args?.eventConfigurations;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["eventConfigurations"] = args ? args.eventConfigurations : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EventConfigurations.__pulumiType, name, resourceInputs, opts);

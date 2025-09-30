@@ -76,80 +76,80 @@ export class CustomModel extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the base model.
      */
-    declare public readonly baseModelIdentifier: pulumi.Output<string>;
+    public readonly baseModelIdentifier!: pulumi.Output<string>;
     /**
      * The ARN of the output model.
      */
-    declare public /*out*/ readonly customModelArn: pulumi.Output<string>;
+    public /*out*/ readonly customModelArn!: pulumi.Output<string>;
     /**
      * The custom model is encrypted at rest using this key. Specify the key ARN.
      */
-    declare public readonly customModelKmsKeyId: pulumi.Output<string | undefined>;
+    public readonly customModelKmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * Name for the custom model.
      */
-    declare public readonly customModelName: pulumi.Output<string>;
+    public readonly customModelName!: pulumi.Output<string>;
     /**
      * The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
      */
-    declare public readonly customizationType: pulumi.Output<string>;
+    public readonly customizationType!: pulumi.Output<string>;
     /**
      * [Parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html) related to tuning the model.
      */
-    declare public readonly hyperparameters: pulumi.Output<{[key: string]: string}>;
+    public readonly hyperparameters!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ARN of the customization job.
      */
-    declare public /*out*/ readonly jobArn: pulumi.Output<string>;
+    public /*out*/ readonly jobArn!: pulumi.Output<string>;
     /**
      * A name for the customization job.
      */
-    declare public readonly jobName: pulumi.Output<string>;
+    public readonly jobName!: pulumi.Output<string>;
     /**
      * The status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
      */
-    declare public /*out*/ readonly jobStatus: pulumi.Output<string>;
+    public /*out*/ readonly jobStatus!: pulumi.Output<string>;
     /**
      * S3 location for the output data.
      */
-    declare public readonly outputDataConfig: pulumi.Output<outputs.bedrock.CustomModelOutputDataConfig | undefined>;
+    public readonly outputDataConfig!: pulumi.Output<outputs.bedrock.CustomModelOutputDataConfig | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
      */
-    declare public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public readonly timeouts: pulumi.Output<outputs.bedrock.CustomModelTimeouts | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly timeouts!: pulumi.Output<outputs.bedrock.CustomModelTimeouts | undefined>;
     /**
      * Information about the training dataset.
      */
-    declare public readonly trainingDataConfig: pulumi.Output<outputs.bedrock.CustomModelTrainingDataConfig | undefined>;
+    public readonly trainingDataConfig!: pulumi.Output<outputs.bedrock.CustomModelTrainingDataConfig | undefined>;
     /**
      * Metrics associated with the customization job.
      */
-    declare public /*out*/ readonly trainingMetrics: pulumi.Output<outputs.bedrock.CustomModelTrainingMetric[]>;
+    public /*out*/ readonly trainingMetrics!: pulumi.Output<outputs.bedrock.CustomModelTrainingMetric[]>;
     /**
      * Information about the validation dataset.
      */
-    declare public readonly validationDataConfig: pulumi.Output<outputs.bedrock.CustomModelValidationDataConfig | undefined>;
+    public readonly validationDataConfig!: pulumi.Output<outputs.bedrock.CustomModelValidationDataConfig | undefined>;
     /**
      * The loss metric for each validator that you provided.
      */
-    declare public /*out*/ readonly validationMetrics: pulumi.Output<outputs.bedrock.CustomModelValidationMetric[]>;
+    public /*out*/ readonly validationMetrics!: pulumi.Output<outputs.bedrock.CustomModelValidationMetric[]>;
     /**
      * Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
      */
-    declare public readonly vpcConfig: pulumi.Output<outputs.bedrock.CustomModelVpcConfig | undefined>;
+    public readonly vpcConfig!: pulumi.Output<outputs.bedrock.CustomModelVpcConfig | undefined>;
 
     /**
      * Create a CustomModel resource with the given unique name, arguments, and options.
@@ -164,57 +164,57 @@ export class CustomModel extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomModelState | undefined;
-            resourceInputs["baseModelIdentifier"] = state?.baseModelIdentifier;
-            resourceInputs["customModelArn"] = state?.customModelArn;
-            resourceInputs["customModelKmsKeyId"] = state?.customModelKmsKeyId;
-            resourceInputs["customModelName"] = state?.customModelName;
-            resourceInputs["customizationType"] = state?.customizationType;
-            resourceInputs["hyperparameters"] = state?.hyperparameters;
-            resourceInputs["jobArn"] = state?.jobArn;
-            resourceInputs["jobName"] = state?.jobName;
-            resourceInputs["jobStatus"] = state?.jobStatus;
-            resourceInputs["outputDataConfig"] = state?.outputDataConfig;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["roleArn"] = state?.roleArn;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timeouts"] = state?.timeouts;
-            resourceInputs["trainingDataConfig"] = state?.trainingDataConfig;
-            resourceInputs["trainingMetrics"] = state?.trainingMetrics;
-            resourceInputs["validationDataConfig"] = state?.validationDataConfig;
-            resourceInputs["validationMetrics"] = state?.validationMetrics;
-            resourceInputs["vpcConfig"] = state?.vpcConfig;
+            resourceInputs["baseModelIdentifier"] = state ? state.baseModelIdentifier : undefined;
+            resourceInputs["customModelArn"] = state ? state.customModelArn : undefined;
+            resourceInputs["customModelKmsKeyId"] = state ? state.customModelKmsKeyId : undefined;
+            resourceInputs["customModelName"] = state ? state.customModelName : undefined;
+            resourceInputs["customizationType"] = state ? state.customizationType : undefined;
+            resourceInputs["hyperparameters"] = state ? state.hyperparameters : undefined;
+            resourceInputs["jobArn"] = state ? state.jobArn : undefined;
+            resourceInputs["jobName"] = state ? state.jobName : undefined;
+            resourceInputs["jobStatus"] = state ? state.jobStatus : undefined;
+            resourceInputs["outputDataConfig"] = state ? state.outputDataConfig : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["trainingDataConfig"] = state ? state.trainingDataConfig : undefined;
+            resourceInputs["trainingMetrics"] = state ? state.trainingMetrics : undefined;
+            resourceInputs["validationDataConfig"] = state ? state.validationDataConfig : undefined;
+            resourceInputs["validationMetrics"] = state ? state.validationMetrics : undefined;
+            resourceInputs["vpcConfig"] = state ? state.vpcConfig : undefined;
         } else {
             const args = argsOrState as CustomModelArgs | undefined;
-            if (args?.baseModelIdentifier === undefined && !opts.urn) {
+            if ((!args || args.baseModelIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'baseModelIdentifier'");
             }
-            if (args?.customModelName === undefined && !opts.urn) {
+            if ((!args || args.customModelName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'customModelName'");
             }
-            if (args?.hyperparameters === undefined && !opts.urn) {
+            if ((!args || args.hyperparameters === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hyperparameters'");
             }
-            if (args?.jobName === undefined && !opts.urn) {
+            if ((!args || args.jobName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'jobName'");
             }
-            if (args?.roleArn === undefined && !opts.urn) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["baseModelIdentifier"] = args?.baseModelIdentifier;
-            resourceInputs["customModelKmsKeyId"] = args?.customModelKmsKeyId;
-            resourceInputs["customModelName"] = args?.customModelName;
-            resourceInputs["customizationType"] = args?.customizationType;
-            resourceInputs["hyperparameters"] = args?.hyperparameters;
-            resourceInputs["jobName"] = args?.jobName;
-            resourceInputs["outputDataConfig"] = args?.outputDataConfig;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["roleArn"] = args?.roleArn;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timeouts"] = args?.timeouts;
-            resourceInputs["trainingDataConfig"] = args?.trainingDataConfig;
-            resourceInputs["validationDataConfig"] = args?.validationDataConfig;
-            resourceInputs["vpcConfig"] = args?.vpcConfig;
+            resourceInputs["baseModelIdentifier"] = args ? args.baseModelIdentifier : undefined;
+            resourceInputs["customModelKmsKeyId"] = args ? args.customModelKmsKeyId : undefined;
+            resourceInputs["customModelName"] = args ? args.customModelName : undefined;
+            resourceInputs["customizationType"] = args ? args.customizationType : undefined;
+            resourceInputs["hyperparameters"] = args ? args.hyperparameters : undefined;
+            resourceInputs["jobName"] = args ? args.jobName : undefined;
+            resourceInputs["outputDataConfig"] = args ? args.outputDataConfig : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["trainingDataConfig"] = args ? args.trainingDataConfig : undefined;
+            resourceInputs["validationDataConfig"] = args ? args.validationDataConfig : undefined;
+            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             resourceInputs["customModelArn"] = undefined /*out*/;
             resourceInputs["jobArn"] = undefined /*out*/;
             resourceInputs["jobStatus"] = undefined /*out*/;

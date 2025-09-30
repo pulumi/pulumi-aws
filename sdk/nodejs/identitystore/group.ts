@@ -64,29 +64,29 @@ export class Group extends pulumi.CustomResource {
     /**
      * A string containing the description of the group.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * A string containing the name of the group. This value is commonly displayed when the group is referenced.
      */
-    declare public readonly displayName: pulumi.Output<string>;
+    public readonly displayName!: pulumi.Output<string>;
     /**
      * A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
      */
-    declare public /*out*/ readonly externalIds: pulumi.Output<outputs.identitystore.GroupExternalId[]>;
+    public /*out*/ readonly externalIds!: pulumi.Output<outputs.identitystore.GroupExternalId[]>;
     /**
      * The identifier of the newly created group in the identity store.
      */
-    declare public /*out*/ readonly groupId: pulumi.Output<string>;
+    public /*out*/ readonly groupId!: pulumi.Output<string>;
     /**
      * The globally unique identifier for the identity store.
      *
      * The following arguments are optional:
      */
-    declare public readonly identityStoreId: pulumi.Output<string>;
+    public readonly identityStoreId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -101,24 +101,24 @@ export class Group extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupState | undefined;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["displayName"] = state?.displayName;
-            resourceInputs["externalIds"] = state?.externalIds;
-            resourceInputs["groupId"] = state?.groupId;
-            resourceInputs["identityStoreId"] = state?.identityStoreId;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["externalIds"] = state ? state.externalIds : undefined;
+            resourceInputs["groupId"] = state ? state.groupId : undefined;
+            resourceInputs["identityStoreId"] = state ? state.identityStoreId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as GroupArgs | undefined;
-            if (args?.displayName === undefined && !opts.urn) {
+            if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if (args?.identityStoreId === undefined && !opts.urn) {
+            if ((!args || args.identityStoreId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identityStoreId'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["displayName"] = args?.displayName;
-            resourceInputs["identityStoreId"] = args?.identityStoreId;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["identityStoreId"] = args ? args.identityStoreId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["externalIds"] = undefined /*out*/;
             resourceInputs["groupId"] = undefined /*out*/;
         }

@@ -65,129 +65,129 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
     /**
      * Amazon Resource Name of the file system.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
      */
-    declare public readonly automaticBackupRetentionDays: pulumi.Output<number | undefined>;
+    public readonly automaticBackupRetentionDays!: pulumi.Output<number | undefined>;
     /**
      * The ID of the source backup to create the filesystem from.
      */
-    declare public readonly backupId: pulumi.Output<string | undefined>;
+    public readonly backupId!: pulumi.Output<string | undefined>;
     /**
      * A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.
      */
-    declare public readonly copyTagsToBackups: pulumi.Output<boolean | undefined>;
+    public readonly copyTagsToBackups!: pulumi.Output<boolean | undefined>;
     /**
      * A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
      */
-    declare public readonly copyTagsToVolumes: pulumi.Output<boolean | undefined>;
+    public readonly copyTagsToVolumes!: pulumi.Output<boolean | undefined>;
     /**
      * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
      */
-    declare public readonly dailyAutomaticBackupStartTime: pulumi.Output<string>;
+    public readonly dailyAutomaticBackupStartTime!: pulumi.Output<string>;
     /**
      * List of delete options, which at present supports only one value that specifies whether to delete all child volumes and snapshots when the file system is deleted. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`.
      */
-    declare public readonly deleteOptions: pulumi.Output<string[] | undefined>;
+    public readonly deleteOptions!: pulumi.Output<string[] | undefined>;
     /**
      * Filesystem deployment type. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemOpenZFSConfiguration.html#FSx-Type-CreateFileSystemOpenZFSConfiguration-DeploymentType) for a list of valid values.
      */
-    declare public readonly deploymentType: pulumi.Output<string>;
+    public readonly deploymentType!: pulumi.Output<string>;
     /**
      * The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `diskIopsConfiguration` Block for details.
      */
-    declare public readonly diskIopsConfiguration: pulumi.Output<outputs.fsx.OpenZfsFileSystemDiskIopsConfiguration>;
+    public readonly diskIopsConfiguration!: pulumi.Output<outputs.fsx.OpenZfsFileSystemDiskIopsConfiguration>;
     /**
      * DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
      */
-    declare public /*out*/ readonly dnsName: pulumi.Output<string>;
+    public /*out*/ readonly dnsName!: pulumi.Output<string>;
     /**
      * IP address of the endpoint that is used to access data or to manage the file system.
      */
-    declare public /*out*/ readonly endpointIpAddress: pulumi.Output<string>;
+    public /*out*/ readonly endpointIpAddress!: pulumi.Output<string>;
     /**
      * (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
      */
-    declare public readonly endpointIpAddressRange: pulumi.Output<string>;
+    public readonly endpointIpAddressRange!: pulumi.Output<string>;
     /**
      * A map of tags to apply to the file system's final backup.
      */
-    declare public readonly finalBackupTags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly finalBackupTags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
      */
-    declare public readonly kmsKeyId: pulumi.Output<string>;
+    public readonly kmsKeyId!: pulumi.Output<string>;
     /**
      * Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
      */
-    declare public /*out*/ readonly networkInterfaceIds: pulumi.Output<string[]>;
+    public /*out*/ readonly networkInterfaceIds!: pulumi.Output<string[]>;
     /**
      * AWS account identifier that created the file system.
      */
-    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
      * (Multi-AZ only) Required when `deploymentType` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
      */
-    declare public readonly preferredSubnetId: pulumi.Output<string | undefined>;
+    public readonly preferredSubnetId!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
      */
-    declare public readonly rootVolumeConfiguration: pulumi.Output<outputs.fsx.OpenZfsFileSystemRootVolumeConfiguration>;
+    public readonly rootVolumeConfiguration!: pulumi.Output<outputs.fsx.OpenZfsFileSystemRootVolumeConfiguration>;
     /**
      * Identifier of the root volume, e.g., `fsvol-12345678`
      */
-    declare public /*out*/ readonly rootVolumeId: pulumi.Output<string>;
+    public /*out*/ readonly rootVolumeId!: pulumi.Output<string>;
     /**
      * (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
      */
-    declare public readonly routeTableIds: pulumi.Output<string[]>;
+    public readonly routeTableIds!: pulumi.Output<string[]>;
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */
-    declare public readonly securityGroupIds: pulumi.Output<string[] | undefined>;
+    public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     /**
      * When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
      */
-    declare public readonly skipFinalBackup: pulumi.Output<boolean | undefined>;
+    public readonly skipFinalBackup!: pulumi.Output<boolean | undefined>;
     /**
      * The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
      */
-    declare public readonly storageCapacity: pulumi.Output<number | undefined>;
+    public readonly storageCapacity!: pulumi.Output<number | undefined>;
     /**
      * The filesystem storage type. Only `SSD` is supported.
      */
-    declare public readonly storageType: pulumi.Output<string | undefined>;
+    public readonly storageType!: pulumi.Output<string | undefined>;
     /**
      * A list of IDs for the subnets that the file system will be accessible from.
      */
-    declare public readonly subnetIds: pulumi.Output<string[]>;
+    public readonly subnetIds!: pulumi.Output<string[]>;
     /**
      * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Throughput (MB/s) of the file system. Valid values depend on `deploymentType`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
      *
      * The following arguments are optional:
      */
-    declare public readonly throughputCapacity: pulumi.Output<number>;
+    public readonly throughputCapacity!: pulumi.Output<number>;
     /**
      * Identifier of the Virtual Private Cloud for the file system.
      */
-    declare public /*out*/ readonly vpcId: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string>;
     /**
      * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      */
-    declare public readonly weeklyMaintenanceStartTime: pulumi.Output<string>;
+    public readonly weeklyMaintenanceStartTime!: pulumi.Output<string>;
 
     /**
      * Create a OpenZfsFileSystem resource with the given unique name, arguments, and options.
@@ -202,71 +202,71 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OpenZfsFileSystemState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["automaticBackupRetentionDays"] = state?.automaticBackupRetentionDays;
-            resourceInputs["backupId"] = state?.backupId;
-            resourceInputs["copyTagsToBackups"] = state?.copyTagsToBackups;
-            resourceInputs["copyTagsToVolumes"] = state?.copyTagsToVolumes;
-            resourceInputs["dailyAutomaticBackupStartTime"] = state?.dailyAutomaticBackupStartTime;
-            resourceInputs["deleteOptions"] = state?.deleteOptions;
-            resourceInputs["deploymentType"] = state?.deploymentType;
-            resourceInputs["diskIopsConfiguration"] = state?.diskIopsConfiguration;
-            resourceInputs["dnsName"] = state?.dnsName;
-            resourceInputs["endpointIpAddress"] = state?.endpointIpAddress;
-            resourceInputs["endpointIpAddressRange"] = state?.endpointIpAddressRange;
-            resourceInputs["finalBackupTags"] = state?.finalBackupTags;
-            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
-            resourceInputs["networkInterfaceIds"] = state?.networkInterfaceIds;
-            resourceInputs["ownerId"] = state?.ownerId;
-            resourceInputs["preferredSubnetId"] = state?.preferredSubnetId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["rootVolumeConfiguration"] = state?.rootVolumeConfiguration;
-            resourceInputs["rootVolumeId"] = state?.rootVolumeId;
-            resourceInputs["routeTableIds"] = state?.routeTableIds;
-            resourceInputs["securityGroupIds"] = state?.securityGroupIds;
-            resourceInputs["skipFinalBackup"] = state?.skipFinalBackup;
-            resourceInputs["storageCapacity"] = state?.storageCapacity;
-            resourceInputs["storageType"] = state?.storageType;
-            resourceInputs["subnetIds"] = state?.subnetIds;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["throughputCapacity"] = state?.throughputCapacity;
-            resourceInputs["vpcId"] = state?.vpcId;
-            resourceInputs["weeklyMaintenanceStartTime"] = state?.weeklyMaintenanceStartTime;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["automaticBackupRetentionDays"] = state ? state.automaticBackupRetentionDays : undefined;
+            resourceInputs["backupId"] = state ? state.backupId : undefined;
+            resourceInputs["copyTagsToBackups"] = state ? state.copyTagsToBackups : undefined;
+            resourceInputs["copyTagsToVolumes"] = state ? state.copyTagsToVolumes : undefined;
+            resourceInputs["dailyAutomaticBackupStartTime"] = state ? state.dailyAutomaticBackupStartTime : undefined;
+            resourceInputs["deleteOptions"] = state ? state.deleteOptions : undefined;
+            resourceInputs["deploymentType"] = state ? state.deploymentType : undefined;
+            resourceInputs["diskIopsConfiguration"] = state ? state.diskIopsConfiguration : undefined;
+            resourceInputs["dnsName"] = state ? state.dnsName : undefined;
+            resourceInputs["endpointIpAddress"] = state ? state.endpointIpAddress : undefined;
+            resourceInputs["endpointIpAddressRange"] = state ? state.endpointIpAddressRange : undefined;
+            resourceInputs["finalBackupTags"] = state ? state.finalBackupTags : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["preferredSubnetId"] = state ? state.preferredSubnetId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["rootVolumeConfiguration"] = state ? state.rootVolumeConfiguration : undefined;
+            resourceInputs["rootVolumeId"] = state ? state.rootVolumeId : undefined;
+            resourceInputs["routeTableIds"] = state ? state.routeTableIds : undefined;
+            resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
+            resourceInputs["skipFinalBackup"] = state ? state.skipFinalBackup : undefined;
+            resourceInputs["storageCapacity"] = state ? state.storageCapacity : undefined;
+            resourceInputs["storageType"] = state ? state.storageType : undefined;
+            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["throughputCapacity"] = state ? state.throughputCapacity : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["weeklyMaintenanceStartTime"] = state ? state.weeklyMaintenanceStartTime : undefined;
         } else {
             const args = argsOrState as OpenZfsFileSystemArgs | undefined;
-            if (args?.deploymentType === undefined && !opts.urn) {
+            if ((!args || args.deploymentType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deploymentType'");
             }
-            if (args?.subnetIds === undefined && !opts.urn) {
+            if ((!args || args.subnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            if (args?.throughputCapacity === undefined && !opts.urn) {
+            if ((!args || args.throughputCapacity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'throughputCapacity'");
             }
-            resourceInputs["automaticBackupRetentionDays"] = args?.automaticBackupRetentionDays;
-            resourceInputs["backupId"] = args?.backupId;
-            resourceInputs["copyTagsToBackups"] = args?.copyTagsToBackups;
-            resourceInputs["copyTagsToVolumes"] = args?.copyTagsToVolumes;
-            resourceInputs["dailyAutomaticBackupStartTime"] = args?.dailyAutomaticBackupStartTime;
-            resourceInputs["deleteOptions"] = args?.deleteOptions;
-            resourceInputs["deploymentType"] = args?.deploymentType;
-            resourceInputs["diskIopsConfiguration"] = args?.diskIopsConfiguration;
-            resourceInputs["endpointIpAddressRange"] = args?.endpointIpAddressRange;
-            resourceInputs["finalBackupTags"] = args?.finalBackupTags;
-            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
-            resourceInputs["preferredSubnetId"] = args?.preferredSubnetId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["rootVolumeConfiguration"] = args?.rootVolumeConfiguration;
-            resourceInputs["routeTableIds"] = args?.routeTableIds;
-            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
-            resourceInputs["skipFinalBackup"] = args?.skipFinalBackup;
-            resourceInputs["storageCapacity"] = args?.storageCapacity;
-            resourceInputs["storageType"] = args?.storageType;
-            resourceInputs["subnetIds"] = args?.subnetIds;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["throughputCapacity"] = args?.throughputCapacity;
-            resourceInputs["weeklyMaintenanceStartTime"] = args?.weeklyMaintenanceStartTime;
+            resourceInputs["automaticBackupRetentionDays"] = args ? args.automaticBackupRetentionDays : undefined;
+            resourceInputs["backupId"] = args ? args.backupId : undefined;
+            resourceInputs["copyTagsToBackups"] = args ? args.copyTagsToBackups : undefined;
+            resourceInputs["copyTagsToVolumes"] = args ? args.copyTagsToVolumes : undefined;
+            resourceInputs["dailyAutomaticBackupStartTime"] = args ? args.dailyAutomaticBackupStartTime : undefined;
+            resourceInputs["deleteOptions"] = args ? args.deleteOptions : undefined;
+            resourceInputs["deploymentType"] = args ? args.deploymentType : undefined;
+            resourceInputs["diskIopsConfiguration"] = args ? args.diskIopsConfiguration : undefined;
+            resourceInputs["endpointIpAddressRange"] = args ? args.endpointIpAddressRange : undefined;
+            resourceInputs["finalBackupTags"] = args ? args.finalBackupTags : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["preferredSubnetId"] = args ? args.preferredSubnetId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["rootVolumeConfiguration"] = args ? args.rootVolumeConfiguration : undefined;
+            resourceInputs["routeTableIds"] = args ? args.routeTableIds : undefined;
+            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
+            resourceInputs["skipFinalBackup"] = args ? args.skipFinalBackup : undefined;
+            resourceInputs["storageCapacity"] = args ? args.storageCapacity : undefined;
+            resourceInputs["storageType"] = args ? args.storageType : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["throughputCapacity"] = args ? args.throughputCapacity : undefined;
+            resourceInputs["weeklyMaintenanceStartTime"] = args ? args.weeklyMaintenanceStartTime : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
             resourceInputs["endpointIpAddress"] = undefined /*out*/;

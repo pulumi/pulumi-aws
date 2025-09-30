@@ -79,35 +79,35 @@ export class Workflow extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of Glue Workflow
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
      */
-    declare public readonly defaultRunProperties: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly defaultRunProperties!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Description of the workflow.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
      */
-    declare public readonly maxConcurrentRuns: pulumi.Output<number | undefined>;
+    public readonly maxConcurrentRuns!: pulumi.Output<number | undefined>;
     /**
      * The name you assign to this workflow.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Workflow resource with the given unique name, arguments, and options.
@@ -122,22 +122,22 @@ export class Workflow extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkflowState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["defaultRunProperties"] = state?.defaultRunProperties;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["maxConcurrentRuns"] = state?.maxConcurrentRuns;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["defaultRunProperties"] = state ? state.defaultRunProperties : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["maxConcurrentRuns"] = state ? state.maxConcurrentRuns : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as WorkflowArgs | undefined;
-            resourceInputs["defaultRunProperties"] = args?.defaultRunProperties;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["maxConcurrentRuns"] = args?.maxConcurrentRuns;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["defaultRunProperties"] = args ? args.defaultRunProperties : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["maxConcurrentRuns"] = args ? args.maxConcurrentRuns : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

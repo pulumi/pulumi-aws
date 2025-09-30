@@ -188,69 +188,69 @@ export class MetricStream extends pulumi.CustomResource {
     /**
      * ARN of the metric stream.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was created.
      */
-    declare public /*out*/ readonly creationDate: pulumi.Output<string>;
+    public /*out*/ readonly creationDate!: pulumi.Output<string>;
     /**
      * List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `includeFilter`.
      */
-    declare public readonly excludeFilters: pulumi.Output<outputs.cloudwatch.MetricStreamExcludeFilter[] | undefined>;
+    public readonly excludeFilters!: pulumi.Output<outputs.cloudwatch.MetricStreamExcludeFilter[] | undefined>;
     /**
      * ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
      */
-    declare public readonly firehoseArn: pulumi.Output<string>;
+    public readonly firehoseArn!: pulumi.Output<string>;
     /**
      * List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `excludeFilter`.
      */
-    declare public readonly includeFilters: pulumi.Output<outputs.cloudwatch.MetricStreamIncludeFilter[] | undefined>;
+    public readonly includeFilters!: pulumi.Output<outputs.cloudwatch.MetricStreamIncludeFilter[] | undefined>;
     /**
      * If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
      */
-    declare public readonly includeLinkedAccountsMetrics: pulumi.Output<boolean | undefined>;
+    public readonly includeLinkedAccountsMetrics!: pulumi.Output<boolean | undefined>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was last updated.
      */
-    declare public /*out*/ readonly lastUpdateDate: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdateDate!: pulumi.Output<string>;
     /**
      * Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
      */
-    declare public readonly namePrefix: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string>;
     /**
      * Output format for the stream. Possible values are `json`, `opentelemetry0.7`, and `opentelemetry1.0`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
      *
      * The following arguments are optional:
      */
-    declare public readonly outputFormat: pulumi.Output<string>;
+    public readonly outputFormat!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
      */
-    declare public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * State of the metric stream. Possible values are `running` and `stopped`.
      */
-    declare public /*out*/ readonly state: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `outputFormat`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7` or `opentelemetry1.0`, you can stream percentile statistics (p99 etc.). See details below.
      */
-    declare public readonly statisticsConfigurations: pulumi.Output<outputs.cloudwatch.MetricStreamStatisticsConfiguration[] | undefined>;
+    public readonly statisticsConfigurations!: pulumi.Output<outputs.cloudwatch.MetricStreamStatisticsConfiguration[] | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a MetricStream resource with the given unique name, arguments, and options.
@@ -265,44 +265,44 @@ export class MetricStream extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MetricStreamState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["creationDate"] = state?.creationDate;
-            resourceInputs["excludeFilters"] = state?.excludeFilters;
-            resourceInputs["firehoseArn"] = state?.firehoseArn;
-            resourceInputs["includeFilters"] = state?.includeFilters;
-            resourceInputs["includeLinkedAccountsMetrics"] = state?.includeLinkedAccountsMetrics;
-            resourceInputs["lastUpdateDate"] = state?.lastUpdateDate;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["namePrefix"] = state?.namePrefix;
-            resourceInputs["outputFormat"] = state?.outputFormat;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["roleArn"] = state?.roleArn;
-            resourceInputs["state"] = state?.state;
-            resourceInputs["statisticsConfigurations"] = state?.statisticsConfigurations;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["creationDate"] = state ? state.creationDate : undefined;
+            resourceInputs["excludeFilters"] = state ? state.excludeFilters : undefined;
+            resourceInputs["firehoseArn"] = state ? state.firehoseArn : undefined;
+            resourceInputs["includeFilters"] = state ? state.includeFilters : undefined;
+            resourceInputs["includeLinkedAccountsMetrics"] = state ? state.includeLinkedAccountsMetrics : undefined;
+            resourceInputs["lastUpdateDate"] = state ? state.lastUpdateDate : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["outputFormat"] = state ? state.outputFormat : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["statisticsConfigurations"] = state ? state.statisticsConfigurations : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as MetricStreamArgs | undefined;
-            if (args?.firehoseArn === undefined && !opts.urn) {
+            if ((!args || args.firehoseArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'firehoseArn'");
             }
-            if (args?.outputFormat === undefined && !opts.urn) {
+            if ((!args || args.outputFormat === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'outputFormat'");
             }
-            if (args?.roleArn === undefined && !opts.urn) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["excludeFilters"] = args?.excludeFilters;
-            resourceInputs["firehoseArn"] = args?.firehoseArn;
-            resourceInputs["includeFilters"] = args?.includeFilters;
-            resourceInputs["includeLinkedAccountsMetrics"] = args?.includeLinkedAccountsMetrics;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["namePrefix"] = args?.namePrefix;
-            resourceInputs["outputFormat"] = args?.outputFormat;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["roleArn"] = args?.roleArn;
-            resourceInputs["statisticsConfigurations"] = args?.statisticsConfigurations;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["excludeFilters"] = args ? args.excludeFilters : undefined;
+            resourceInputs["firehoseArn"] = args ? args.firehoseArn : undefined;
+            resourceInputs["includeFilters"] = args ? args.includeFilters : undefined;
+            resourceInputs["includeLinkedAccountsMetrics"] = args ? args.includeLinkedAccountsMetrics : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["outputFormat"] = args ? args.outputFormat : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["statisticsConfigurations"] = args ? args.statisticsConfigurations : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["lastUpdateDate"] = undefined /*out*/;

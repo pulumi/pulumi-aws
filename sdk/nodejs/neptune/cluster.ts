@@ -77,152 +77,152 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engineVersion` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
      */
-    declare public readonly allowMajorVersionUpgrade: pulumi.Output<boolean>;
+    public readonly allowMajorVersionUpgrade!: pulumi.Output<boolean>;
     /**
      * Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
      */
-    declare public readonly applyImmediately: pulumi.Output<boolean>;
+    public readonly applyImmediately!: pulumi.Output<boolean>;
     /**
      * Neptune Cluster ARN
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * List of EC2 Availability Zones that instances in the Neptune cluster can be created in.
      */
-    declare public readonly availabilityZones: pulumi.Output<string[]>;
+    public readonly availabilityZones!: pulumi.Output<string[]>;
     /**
      * Days to retain backups for. Default `1`
      */
-    declare public readonly backupRetentionPeriod: pulumi.Output<number | undefined>;
-    declare public readonly clusterIdentifier: pulumi.Output<string>;
+    public readonly backupRetentionPeriod!: pulumi.Output<number | undefined>;
+    public readonly clusterIdentifier!: pulumi.Output<string>;
     /**
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
      */
-    declare public readonly clusterIdentifierPrefix: pulumi.Output<string>;
+    public readonly clusterIdentifierPrefix!: pulumi.Output<string>;
     /**
      * List of Neptune Instances that are a part of this cluster
      */
-    declare public /*out*/ readonly clusterMembers: pulumi.Output<string[]>;
+    public /*out*/ readonly clusterMembers!: pulumi.Output<string[]>;
     /**
      * Neptune Cluster Resource ID
      */
-    declare public /*out*/ readonly clusterResourceId: pulumi.Output<string>;
+    public /*out*/ readonly clusterResourceId!: pulumi.Output<string>;
     /**
      * If set to true, tags are copied to any snapshot of the DB cluster that is created.
      */
-    declare public readonly copyTagsToSnapshot: pulumi.Output<boolean | undefined>;
+    public readonly copyTagsToSnapshot!: pulumi.Output<boolean | undefined>;
     /**
      * Value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
      */
-    declare public readonly deletionProtection: pulumi.Output<boolean | undefined>;
+    public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
     /**
      * List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
      */
-    declare public readonly enableCloudwatchLogsExports: pulumi.Output<string[] | undefined>;
+    public readonly enableCloudwatchLogsExports!: pulumi.Output<string[] | undefined>;
     /**
      * DNS address of the Neptune instance
      */
-    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
      * Name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
      */
-    declare public readonly engine: pulumi.Output<string | undefined>;
+    public readonly engine!: pulumi.Output<string | undefined>;
     /**
      * Database engine version.
      */
-    declare public readonly engineVersion: pulumi.Output<string>;
+    public readonly engineVersion!: pulumi.Output<string>;
     /**
      * Name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
      */
-    declare public readonly finalSnapshotIdentifier: pulumi.Output<string | undefined>;
+    public readonly finalSnapshotIdentifier!: pulumi.Output<string | undefined>;
     /**
      * Global cluster identifier specified on `aws.neptune.GlobalCluster`.
      */
-    declare public readonly globalClusterIdentifier: pulumi.Output<string | undefined>;
+    public readonly globalClusterIdentifier!: pulumi.Output<string | undefined>;
     /**
      * Route53 Hosted Zone ID of the endpoint
      */
-    declare public /*out*/ readonly hostedZoneId: pulumi.Output<string>;
+    public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
     /**
      * Whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
      */
-    declare public readonly iamDatabaseAuthenticationEnabled: pulumi.Output<boolean | undefined>;
+    public readonly iamDatabaseAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * List of ARNs for the IAM roles to associate to the Neptune Cluster.
      */
-    declare public readonly iamRoles: pulumi.Output<string[] | undefined>;
+    public readonly iamRoles!: pulumi.Output<string[] | undefined>;
     /**
      * ARN for the KMS encryption key. When specifying `kmsKeyArn`, `storageEncrypted` needs to be set to true.
      */
-    declare public readonly kmsKeyArn: pulumi.Output<string>;
+    public readonly kmsKeyArn!: pulumi.Output<string>;
     /**
      * Cluster parameter group to associate with the cluster.
      */
-    declare public readonly neptuneClusterParameterGroupName: pulumi.Output<string>;
+    public readonly neptuneClusterParameterGroupName!: pulumi.Output<string>;
     /**
      * Name of DB parameter group to apply to all instances in the cluster. When upgrading, AWS does not return this value, so do not reference it in other arguments—either leave it unset, configure each instance directly, or ensure it matches the `engineVersion`.
      */
-    declare public readonly neptuneInstanceParameterGroupName: pulumi.Output<string | undefined>;
+    public readonly neptuneInstanceParameterGroupName!: pulumi.Output<string | undefined>;
     /**
      * Neptune subnet group to associate with this Neptune instance.
      */
-    declare public readonly neptuneSubnetGroupName: pulumi.Output<string>;
+    public readonly neptuneSubnetGroupName!: pulumi.Output<string>;
     /**
      * Port on which the Neptune accepts connections. Default is `8182`.
      */
-    declare public readonly port: pulumi.Output<number | undefined>;
+    public readonly port!: pulumi.Output<number | undefined>;
     /**
      * Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
      */
-    declare public readonly preferredBackupWindow: pulumi.Output<string>;
+    public readonly preferredBackupWindow!: pulumi.Output<string>;
     /**
      * Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
      */
-    declare public readonly preferredMaintenanceWindow: pulumi.Output<string>;
+    public readonly preferredMaintenanceWindow!: pulumi.Output<string>;
     /**
      * Read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
      */
-    declare public /*out*/ readonly readerEndpoint: pulumi.Output<string>;
+    public /*out*/ readonly readerEndpoint!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
      */
-    declare public readonly replicationSourceIdentifier: pulumi.Output<string | undefined>;
+    public readonly replicationSourceIdentifier!: pulumi.Output<string | undefined>;
     /**
      * If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
      */
-    declare public readonly serverlessV2ScalingConfiguration: pulumi.Output<outputs.neptune.ClusterServerlessV2ScalingConfiguration | undefined>;
+    public readonly serverlessV2ScalingConfiguration!: pulumi.Output<outputs.neptune.ClusterServerlessV2ScalingConfiguration | undefined>;
     /**
      * Whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      */
-    declare public readonly skipFinalSnapshot: pulumi.Output<boolean | undefined>;
+    public readonly skipFinalSnapshot!: pulumi.Output<boolean | undefined>;
     /**
      * Whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
      */
-    declare public readonly snapshotIdentifier: pulumi.Output<string | undefined>;
+    public readonly snapshotIdentifier!: pulumi.Output<string | undefined>;
     /**
      * Whether the Neptune cluster is encrypted. The default is `false` if not specified.
      */
-    declare public readonly storageEncrypted: pulumi.Output<boolean | undefined>;
+    public readonly storageEncrypted!: pulumi.Output<boolean | undefined>;
     /**
      * Storage type associated with the cluster `standard/iopt1`. Default: `standard`.
      */
-    declare public readonly storageType: pulumi.Output<string>;
+    public readonly storageType!: pulumi.Output<string>;
     /**
      * Map of tags to assign to the Neptune cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * List of VPC security groups to associate with the Cluster
      */
-    declare public readonly vpcSecurityGroupIds: pulumi.Output<string[]>;
+    public readonly vpcSecurityGroupIds!: pulumi.Output<string[]>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -237,77 +237,77 @@ export class Cluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
-            resourceInputs["allowMajorVersionUpgrade"] = state?.allowMajorVersionUpgrade;
-            resourceInputs["applyImmediately"] = state?.applyImmediately;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["availabilityZones"] = state?.availabilityZones;
-            resourceInputs["backupRetentionPeriod"] = state?.backupRetentionPeriod;
-            resourceInputs["clusterIdentifier"] = state?.clusterIdentifier;
-            resourceInputs["clusterIdentifierPrefix"] = state?.clusterIdentifierPrefix;
-            resourceInputs["clusterMembers"] = state?.clusterMembers;
-            resourceInputs["clusterResourceId"] = state?.clusterResourceId;
-            resourceInputs["copyTagsToSnapshot"] = state?.copyTagsToSnapshot;
-            resourceInputs["deletionProtection"] = state?.deletionProtection;
-            resourceInputs["enableCloudwatchLogsExports"] = state?.enableCloudwatchLogsExports;
-            resourceInputs["endpoint"] = state?.endpoint;
-            resourceInputs["engine"] = state?.engine;
-            resourceInputs["engineVersion"] = state?.engineVersion;
-            resourceInputs["finalSnapshotIdentifier"] = state?.finalSnapshotIdentifier;
-            resourceInputs["globalClusterIdentifier"] = state?.globalClusterIdentifier;
-            resourceInputs["hostedZoneId"] = state?.hostedZoneId;
-            resourceInputs["iamDatabaseAuthenticationEnabled"] = state?.iamDatabaseAuthenticationEnabled;
-            resourceInputs["iamRoles"] = state?.iamRoles;
-            resourceInputs["kmsKeyArn"] = state?.kmsKeyArn;
-            resourceInputs["neptuneClusterParameterGroupName"] = state?.neptuneClusterParameterGroupName;
-            resourceInputs["neptuneInstanceParameterGroupName"] = state?.neptuneInstanceParameterGroupName;
-            resourceInputs["neptuneSubnetGroupName"] = state?.neptuneSubnetGroupName;
-            resourceInputs["port"] = state?.port;
-            resourceInputs["preferredBackupWindow"] = state?.preferredBackupWindow;
-            resourceInputs["preferredMaintenanceWindow"] = state?.preferredMaintenanceWindow;
-            resourceInputs["readerEndpoint"] = state?.readerEndpoint;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["replicationSourceIdentifier"] = state?.replicationSourceIdentifier;
-            resourceInputs["serverlessV2ScalingConfiguration"] = state?.serverlessV2ScalingConfiguration;
-            resourceInputs["skipFinalSnapshot"] = state?.skipFinalSnapshot;
-            resourceInputs["snapshotIdentifier"] = state?.snapshotIdentifier;
-            resourceInputs["storageEncrypted"] = state?.storageEncrypted;
-            resourceInputs["storageType"] = state?.storageType;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["vpcSecurityGroupIds"] = state?.vpcSecurityGroupIds;
+            resourceInputs["allowMajorVersionUpgrade"] = state ? state.allowMajorVersionUpgrade : undefined;
+            resourceInputs["applyImmediately"] = state ? state.applyImmediately : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["availabilityZones"] = state ? state.availabilityZones : undefined;
+            resourceInputs["backupRetentionPeriod"] = state ? state.backupRetentionPeriod : undefined;
+            resourceInputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
+            resourceInputs["clusterIdentifierPrefix"] = state ? state.clusterIdentifierPrefix : undefined;
+            resourceInputs["clusterMembers"] = state ? state.clusterMembers : undefined;
+            resourceInputs["clusterResourceId"] = state ? state.clusterResourceId : undefined;
+            resourceInputs["copyTagsToSnapshot"] = state ? state.copyTagsToSnapshot : undefined;
+            resourceInputs["deletionProtection"] = state ? state.deletionProtection : undefined;
+            resourceInputs["enableCloudwatchLogsExports"] = state ? state.enableCloudwatchLogsExports : undefined;
+            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
+            resourceInputs["engine"] = state ? state.engine : undefined;
+            resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
+            resourceInputs["finalSnapshotIdentifier"] = state ? state.finalSnapshotIdentifier : undefined;
+            resourceInputs["globalClusterIdentifier"] = state ? state.globalClusterIdentifier : undefined;
+            resourceInputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
+            resourceInputs["iamDatabaseAuthenticationEnabled"] = state ? state.iamDatabaseAuthenticationEnabled : undefined;
+            resourceInputs["iamRoles"] = state ? state.iamRoles : undefined;
+            resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
+            resourceInputs["neptuneClusterParameterGroupName"] = state ? state.neptuneClusterParameterGroupName : undefined;
+            resourceInputs["neptuneInstanceParameterGroupName"] = state ? state.neptuneInstanceParameterGroupName : undefined;
+            resourceInputs["neptuneSubnetGroupName"] = state ? state.neptuneSubnetGroupName : undefined;
+            resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["preferredBackupWindow"] = state ? state.preferredBackupWindow : undefined;
+            resourceInputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
+            resourceInputs["readerEndpoint"] = state ? state.readerEndpoint : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["replicationSourceIdentifier"] = state ? state.replicationSourceIdentifier : undefined;
+            resourceInputs["serverlessV2ScalingConfiguration"] = state ? state.serverlessV2ScalingConfiguration : undefined;
+            resourceInputs["skipFinalSnapshot"] = state ? state.skipFinalSnapshot : undefined;
+            resourceInputs["snapshotIdentifier"] = state ? state.snapshotIdentifier : undefined;
+            resourceInputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
+            resourceInputs["storageType"] = state ? state.storageType : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
-            resourceInputs["allowMajorVersionUpgrade"] = args?.allowMajorVersionUpgrade;
-            resourceInputs["applyImmediately"] = args?.applyImmediately;
-            resourceInputs["availabilityZones"] = args?.availabilityZones;
-            resourceInputs["backupRetentionPeriod"] = args?.backupRetentionPeriod;
-            resourceInputs["clusterIdentifier"] = args?.clusterIdentifier;
-            resourceInputs["clusterIdentifierPrefix"] = args?.clusterIdentifierPrefix;
-            resourceInputs["copyTagsToSnapshot"] = args?.copyTagsToSnapshot;
-            resourceInputs["deletionProtection"] = args?.deletionProtection;
-            resourceInputs["enableCloudwatchLogsExports"] = args?.enableCloudwatchLogsExports;
-            resourceInputs["engine"] = args?.engine;
-            resourceInputs["engineVersion"] = args?.engineVersion;
-            resourceInputs["finalSnapshotIdentifier"] = args?.finalSnapshotIdentifier;
-            resourceInputs["globalClusterIdentifier"] = args?.globalClusterIdentifier;
-            resourceInputs["iamDatabaseAuthenticationEnabled"] = args?.iamDatabaseAuthenticationEnabled;
-            resourceInputs["iamRoles"] = args?.iamRoles;
-            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
-            resourceInputs["neptuneClusterParameterGroupName"] = args?.neptuneClusterParameterGroupName;
-            resourceInputs["neptuneInstanceParameterGroupName"] = args?.neptuneInstanceParameterGroupName;
-            resourceInputs["neptuneSubnetGroupName"] = args?.neptuneSubnetGroupName;
-            resourceInputs["port"] = args?.port;
-            resourceInputs["preferredBackupWindow"] = args?.preferredBackupWindow;
-            resourceInputs["preferredMaintenanceWindow"] = args?.preferredMaintenanceWindow;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["replicationSourceIdentifier"] = args?.replicationSourceIdentifier;
-            resourceInputs["serverlessV2ScalingConfiguration"] = args?.serverlessV2ScalingConfiguration;
-            resourceInputs["skipFinalSnapshot"] = args?.skipFinalSnapshot;
-            resourceInputs["snapshotIdentifier"] = args?.snapshotIdentifier;
-            resourceInputs["storageEncrypted"] = args?.storageEncrypted;
-            resourceInputs["storageType"] = args?.storageType;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["vpcSecurityGroupIds"] = args?.vpcSecurityGroupIds;
+            resourceInputs["allowMajorVersionUpgrade"] = args ? args.allowMajorVersionUpgrade : undefined;
+            resourceInputs["applyImmediately"] = args ? args.applyImmediately : undefined;
+            resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
+            resourceInputs["backupRetentionPeriod"] = args ? args.backupRetentionPeriod : undefined;
+            resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
+            resourceInputs["clusterIdentifierPrefix"] = args ? args.clusterIdentifierPrefix : undefined;
+            resourceInputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
+            resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
+            resourceInputs["enableCloudwatchLogsExports"] = args ? args.enableCloudwatchLogsExports : undefined;
+            resourceInputs["engine"] = args ? args.engine : undefined;
+            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
+            resourceInputs["finalSnapshotIdentifier"] = args ? args.finalSnapshotIdentifier : undefined;
+            resourceInputs["globalClusterIdentifier"] = args ? args.globalClusterIdentifier : undefined;
+            resourceInputs["iamDatabaseAuthenticationEnabled"] = args ? args.iamDatabaseAuthenticationEnabled : undefined;
+            resourceInputs["iamRoles"] = args ? args.iamRoles : undefined;
+            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
+            resourceInputs["neptuneClusterParameterGroupName"] = args ? args.neptuneClusterParameterGroupName : undefined;
+            resourceInputs["neptuneInstanceParameterGroupName"] = args ? args.neptuneInstanceParameterGroupName : undefined;
+            resourceInputs["neptuneSubnetGroupName"] = args ? args.neptuneSubnetGroupName : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
+            resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["replicationSourceIdentifier"] = args ? args.replicationSourceIdentifier : undefined;
+            resourceInputs["serverlessV2ScalingConfiguration"] = args ? args.serverlessV2ScalingConfiguration : undefined;
+            resourceInputs["skipFinalSnapshot"] = args ? args.skipFinalSnapshot : undefined;
+            resourceInputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
+            resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
+            resourceInputs["storageType"] = args ? args.storageType : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["clusterMembers"] = undefined /*out*/;
             resourceInputs["clusterResourceId"] = undefined /*out*/;

@@ -74,40 +74,40 @@ export class RegexPatternSet extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) that identifies the cluster.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A friendly description of the regular expression pattern set.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
-    declare public /*out*/ readonly lockToken: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly lockToken!: pulumi.Output<string>;
     /**
      * A friendly name of the regular expression pattern set. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    declare public readonly namePrefix: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details.
      */
-    declare public readonly regularExpressions: pulumi.Output<outputs.wafv2.RegexPatternSetRegularExpression[] | undefined>;
+    public readonly regularExpressions!: pulumi.Output<outputs.wafv2.RegexPatternSetRegularExpression[] | undefined>;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      */
-    declare public readonly scope: pulumi.Output<string>;
+    public readonly scope!: pulumi.Output<string>;
     /**
      * An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a RegexPatternSet resource with the given unique name, arguments, and options.
@@ -122,28 +122,28 @@ export class RegexPatternSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RegexPatternSetState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["lockToken"] = state?.lockToken;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["namePrefix"] = state?.namePrefix;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["regularExpressions"] = state?.regularExpressions;
-            resourceInputs["scope"] = state?.scope;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["lockToken"] = state ? state.lockToken : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["regularExpressions"] = state ? state.regularExpressions : undefined;
+            resourceInputs["scope"] = state ? state.scope : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as RegexPatternSetArgs | undefined;
-            if (args?.scope === undefined && !opts.urn) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["namePrefix"] = args?.namePrefix;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["regularExpressions"] = args?.regularExpressions;
-            resourceInputs["scope"] = args?.scope;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["regularExpressions"] = args ? args.regularExpressions : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["lockToken"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

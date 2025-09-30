@@ -96,31 +96,31 @@ export class Workflow extends pulumi.CustomResource {
     /**
      * The Workflow ARN.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A textual description for the workflow.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
      */
-    declare public readonly onExceptionSteps: pulumi.Output<outputs.transfer.WorkflowOnExceptionStep[] | undefined>;
+    public readonly onExceptionSteps!: pulumi.Output<outputs.transfer.WorkflowOnExceptionStep[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
      */
-    declare public readonly steps: pulumi.Output<outputs.transfer.WorkflowStep[]>;
+    public readonly steps!: pulumi.Output<outputs.transfer.WorkflowStep[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Workflow resource with the given unique name, arguments, and options.
@@ -135,23 +135,23 @@ export class Workflow extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkflowState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["onExceptionSteps"] = state?.onExceptionSteps;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["steps"] = state?.steps;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["onExceptionSteps"] = state ? state.onExceptionSteps : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["steps"] = state ? state.steps : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as WorkflowArgs | undefined;
-            if (args?.steps === undefined && !opts.urn) {
+            if ((!args || args.steps === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'steps'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["onExceptionSteps"] = args?.onExceptionSteps;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["steps"] = args?.steps;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["onExceptionSteps"] = args ? args.onExceptionSteps : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["steps"] = args ? args.steps : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

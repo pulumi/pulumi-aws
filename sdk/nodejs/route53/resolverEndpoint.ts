@@ -82,51 +82,51 @@ export class ResolverEndpoint extends pulumi.CustomResource {
     /**
      * ARN of the Route 53 Resolver endpoint.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Direction of DNS queries to or from the Route 53 Resolver endpoint.
      * Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
      */
-    declare public readonly direction: pulumi.Output<string>;
+    public readonly direction!: pulumi.Output<string>;
     /**
      * ID of the VPC that you want to create the resolver endpoint in.
      */
-    declare public /*out*/ readonly hostVpcId: pulumi.Output<string>;
+    public /*out*/ readonly hostVpcId!: pulumi.Output<string>;
     /**
      * Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
      * to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
      */
-    declare public readonly ipAddresses: pulumi.Output<outputs.route53.ResolverEndpointIpAddress[]>;
+    public readonly ipAddresses!: pulumi.Output<outputs.route53.ResolverEndpointIpAddress[]>;
     /**
      * Friendly name of the Route 53 Resolver endpoint.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Protocols you want to use for the Route 53 Resolver endpoint.
      * Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
      */
-    declare public readonly protocols: pulumi.Output<string[]>;
+    public readonly protocols!: pulumi.Output<string[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Endpoint IP type. This endpoint type is applied to all IP addresses.
      * Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
      */
-    declare public readonly resolverEndpointType: pulumi.Output<string>;
+    public readonly resolverEndpointType!: pulumi.Output<string>;
     /**
      * ID of one or more security groups that you want to use to control access to this VPC.
      */
-    declare public readonly securityGroupIds: pulumi.Output<string[]>;
+    public readonly securityGroupIds!: pulumi.Output<string[]>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ResolverEndpoint resource with the given unique name, arguments, and options.
@@ -141,36 +141,36 @@ export class ResolverEndpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResolverEndpointState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["direction"] = state?.direction;
-            resourceInputs["hostVpcId"] = state?.hostVpcId;
-            resourceInputs["ipAddresses"] = state?.ipAddresses;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["protocols"] = state?.protocols;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resolverEndpointType"] = state?.resolverEndpointType;
-            resourceInputs["securityGroupIds"] = state?.securityGroupIds;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["direction"] = state ? state.direction : undefined;
+            resourceInputs["hostVpcId"] = state ? state.hostVpcId : undefined;
+            resourceInputs["ipAddresses"] = state ? state.ipAddresses : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["protocols"] = state ? state.protocols : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resolverEndpointType"] = state ? state.resolverEndpointType : undefined;
+            resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ResolverEndpointArgs | undefined;
-            if (args?.direction === undefined && !opts.urn) {
+            if ((!args || args.direction === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'direction'");
             }
-            if (args?.ipAddresses === undefined && !opts.urn) {
+            if ((!args || args.ipAddresses === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ipAddresses'");
             }
-            if (args?.securityGroupIds === undefined && !opts.urn) {
+            if ((!args || args.securityGroupIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'securityGroupIds'");
             }
-            resourceInputs["direction"] = args?.direction;
-            resourceInputs["ipAddresses"] = args?.ipAddresses;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["protocols"] = args?.protocols;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resolverEndpointType"] = args?.resolverEndpointType;
-            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["direction"] = args ? args.direction : undefined;
+            resourceInputs["ipAddresses"] = args ? args.ipAddresses : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["protocols"] = args ? args.protocols : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resolverEndpointType"] = args ? args.resolverEndpointType : undefined;
+            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["hostVpcId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

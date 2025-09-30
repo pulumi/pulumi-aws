@@ -102,31 +102,31 @@ export class DeliveryChannel extends pulumi.CustomResource {
     /**
      * The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The name of the S3 bucket used to store the configuration history.
      */
-    declare public readonly s3BucketName: pulumi.Output<string>;
+    public readonly s3BucketName!: pulumi.Output<string>;
     /**
      * The prefix for the specified S3 bucket.
      */
-    declare public readonly s3KeyPrefix: pulumi.Output<string | undefined>;
+    public readonly s3KeyPrefix!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
      */
-    declare public readonly s3KmsKeyArn: pulumi.Output<string | undefined>;
+    public readonly s3KmsKeyArn!: pulumi.Output<string | undefined>;
     /**
      * Options for how AWS Config delivers configuration snapshots. See below
      */
-    declare public readonly snapshotDeliveryProperties: pulumi.Output<outputs.cfg.DeliveryChannelSnapshotDeliveryProperties | undefined>;
+    public readonly snapshotDeliveryProperties!: pulumi.Output<outputs.cfg.DeliveryChannelSnapshotDeliveryProperties | undefined>;
     /**
      * The ARN of the SNS topic that AWS Config delivers notifications to.
      */
-    declare public readonly snsTopicArn: pulumi.Output<string | undefined>;
+    public readonly snsTopicArn!: pulumi.Output<string | undefined>;
 
     /**
      * Create a DeliveryChannel resource with the given unique name, arguments, and options.
@@ -141,25 +141,25 @@ export class DeliveryChannel extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DeliveryChannelState | undefined;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["s3BucketName"] = state?.s3BucketName;
-            resourceInputs["s3KeyPrefix"] = state?.s3KeyPrefix;
-            resourceInputs["s3KmsKeyArn"] = state?.s3KmsKeyArn;
-            resourceInputs["snapshotDeliveryProperties"] = state?.snapshotDeliveryProperties;
-            resourceInputs["snsTopicArn"] = state?.snsTopicArn;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["s3BucketName"] = state ? state.s3BucketName : undefined;
+            resourceInputs["s3KeyPrefix"] = state ? state.s3KeyPrefix : undefined;
+            resourceInputs["s3KmsKeyArn"] = state ? state.s3KmsKeyArn : undefined;
+            resourceInputs["snapshotDeliveryProperties"] = state ? state.snapshotDeliveryProperties : undefined;
+            resourceInputs["snsTopicArn"] = state ? state.snsTopicArn : undefined;
         } else {
             const args = argsOrState as DeliveryChannelArgs | undefined;
-            if (args?.s3BucketName === undefined && !opts.urn) {
+            if ((!args || args.s3BucketName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 's3BucketName'");
             }
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["s3BucketName"] = args?.s3BucketName;
-            resourceInputs["s3KeyPrefix"] = args?.s3KeyPrefix;
-            resourceInputs["s3KmsKeyArn"] = args?.s3KmsKeyArn;
-            resourceInputs["snapshotDeliveryProperties"] = args?.snapshotDeliveryProperties;
-            resourceInputs["snsTopicArn"] = args?.snsTopicArn;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["s3BucketName"] = args ? args.s3BucketName : undefined;
+            resourceInputs["s3KeyPrefix"] = args ? args.s3KeyPrefix : undefined;
+            resourceInputs["s3KmsKeyArn"] = args ? args.s3KmsKeyArn : undefined;
+            resourceInputs["snapshotDeliveryProperties"] = args ? args.snapshotDeliveryProperties : undefined;
+            resourceInputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DeliveryChannel.__pulumiType, name, resourceInputs, opts);

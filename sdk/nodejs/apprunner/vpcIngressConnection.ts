@@ -68,39 +68,39 @@ export class VpcIngressConnection extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the VPC Ingress Connection.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The domain name associated with the VPC Ingress Connection resource.
      */
-    declare public /*out*/ readonly domainName: pulumi.Output<string>;
+    public /*out*/ readonly domainName!: pulumi.Output<string>;
     /**
      * Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
      */
-    declare public readonly ingressVpcConfiguration: pulumi.Output<outputs.apprunner.VpcIngressConnectionIngressVpcConfiguration>;
+    public readonly ingressVpcConfiguration!: pulumi.Output<outputs.apprunner.VpcIngressConnectionIngressVpcConfiguration>;
     /**
      * A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
      */
-    declare public readonly serviceArn: pulumi.Output<string>;
+    public readonly serviceArn!: pulumi.Output<string>;
     /**
      * The current status of the VPC Ingress Connection.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a VpcIngressConnection resource with the given unique name, arguments, and options.
@@ -115,28 +115,28 @@ export class VpcIngressConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcIngressConnectionState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["domainName"] = state?.domainName;
-            resourceInputs["ingressVpcConfiguration"] = state?.ingressVpcConfiguration;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["serviceArn"] = state?.serviceArn;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["ingressVpcConfiguration"] = state ? state.ingressVpcConfiguration : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["serviceArn"] = state ? state.serviceArn : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as VpcIngressConnectionArgs | undefined;
-            if (args?.ingressVpcConfiguration === undefined && !opts.urn) {
+            if ((!args || args.ingressVpcConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ingressVpcConfiguration'");
             }
-            if (args?.serviceArn === undefined && !opts.urn) {
+            if ((!args || args.serviceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceArn'");
             }
-            resourceInputs["ingressVpcConfiguration"] = args?.ingressVpcConfiguration;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["serviceArn"] = args?.serviceArn;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["ingressVpcConfiguration"] = args ? args.ingressVpcConfiguration : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["serviceArn"] = args ? args.serviceArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

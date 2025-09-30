@@ -79,50 +79,50 @@ export class Assessment extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the assessment.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Assessment report storage destination configuration. See `assessmentReportsDestination` below.
      */
-    declare public readonly assessmentReportsDestination: pulumi.Output<outputs.auditmanager.AssessmentAssessmentReportsDestination | undefined>;
+    public readonly assessmentReportsDestination!: pulumi.Output<outputs.auditmanager.AssessmentAssessmentReportsDestination | undefined>;
     /**
      * Description of the assessment.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Unique identifier of the framework the assessment will be created from.
      */
-    declare public readonly frameworkId: pulumi.Output<string>;
+    public readonly frameworkId!: pulumi.Output<string>;
     /**
      * Name of the assessment.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * List of roles for the assessment. See `roles` below.
      */
-    declare public readonly roles: pulumi.Output<outputs.auditmanager.AssessmentRole[] | undefined>;
+    public readonly roles!: pulumi.Output<outputs.auditmanager.AssessmentRole[] | undefined>;
     /**
      * Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.
      */
-    declare public /*out*/ readonly rolesAlls: pulumi.Output<outputs.auditmanager.AssessmentRolesAll[]>;
+    public /*out*/ readonly rolesAlls!: pulumi.Output<outputs.auditmanager.AssessmentRolesAll[]>;
     /**
      * Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
      *
      * The following arguments are optional:
      */
-    declare public readonly scope: pulumi.Output<outputs.auditmanager.AssessmentScope | undefined>;
+    public readonly scope!: pulumi.Output<outputs.auditmanager.AssessmentScope | undefined>;
     /**
      * Status of the assessment. Valid values are `ACTIVE` and `INACTIVE`.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the assessment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Assessment resource with the given unique name, arguments, and options.
@@ -137,31 +137,31 @@ export class Assessment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AssessmentState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["assessmentReportsDestination"] = state?.assessmentReportsDestination;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["frameworkId"] = state?.frameworkId;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["roles"] = state?.roles;
-            resourceInputs["rolesAlls"] = state?.rolesAlls;
-            resourceInputs["scope"] = state?.scope;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["assessmentReportsDestination"] = state ? state.assessmentReportsDestination : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["frameworkId"] = state ? state.frameworkId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["roles"] = state ? state.roles : undefined;
+            resourceInputs["rolesAlls"] = state ? state.rolesAlls : undefined;
+            resourceInputs["scope"] = state ? state.scope : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as AssessmentArgs | undefined;
-            if (args?.frameworkId === undefined && !opts.urn) {
+            if ((!args || args.frameworkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'frameworkId'");
             }
-            resourceInputs["assessmentReportsDestination"] = args?.assessmentReportsDestination;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["frameworkId"] = args?.frameworkId;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["roles"] = args?.roles;
-            resourceInputs["scope"] = args?.scope;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["assessmentReportsDestination"] = args ? args.assessmentReportsDestination : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["frameworkId"] = args ? args.frameworkId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["roles"] = args ? args.roles : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["rolesAlls"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

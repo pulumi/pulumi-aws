@@ -60,19 +60,19 @@ export class Group extends pulumi.CustomResource {
     /**
      * The ARN assigned by AWS for this group.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Path in which to create the group.
      */
-    declare public readonly path: pulumi.Output<string | undefined>;
+    public readonly path!: pulumi.Output<string | undefined>;
     /**
      * The [unique ID][1] assigned by AWS.
      */
-    declare public /*out*/ readonly uniqueId: pulumi.Output<string>;
+    public /*out*/ readonly uniqueId!: pulumi.Output<string>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -87,14 +87,14 @@ export class Group extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["path"] = state?.path;
-            resourceInputs["uniqueId"] = state?.uniqueId;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["path"] = state ? state.path : undefined;
+            resourceInputs["uniqueId"] = state ? state.uniqueId : undefined;
         } else {
             const args = argsOrState as GroupArgs | undefined;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["path"] = args?.path;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["path"] = args ? args.path : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["uniqueId"] = undefined /*out*/;
         }

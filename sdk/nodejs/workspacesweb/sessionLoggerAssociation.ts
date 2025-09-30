@@ -48,17 +48,17 @@ export class SessionLoggerAssociation extends pulumi.CustomResource {
     /**
      * ARN of the web portal.
      */
-    declare public readonly portalArn: pulumi.Output<string>;
+    public readonly portalArn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ARN of the session logger.
      *
      * The following arguments are optional:
      */
-    declare public readonly sessionLoggerArn: pulumi.Output<string>;
+    public readonly sessionLoggerArn!: pulumi.Output<string>;
 
     /**
      * Create a SessionLoggerAssociation resource with the given unique name, arguments, and options.
@@ -73,20 +73,20 @@ export class SessionLoggerAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SessionLoggerAssociationState | undefined;
-            resourceInputs["portalArn"] = state?.portalArn;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["sessionLoggerArn"] = state?.sessionLoggerArn;
+            resourceInputs["portalArn"] = state ? state.portalArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["sessionLoggerArn"] = state ? state.sessionLoggerArn : undefined;
         } else {
             const args = argsOrState as SessionLoggerAssociationArgs | undefined;
-            if (args?.portalArn === undefined && !opts.urn) {
+            if ((!args || args.portalArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'portalArn'");
             }
-            if (args?.sessionLoggerArn === undefined && !opts.urn) {
+            if ((!args || args.sessionLoggerArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sessionLoggerArn'");
             }
-            resourceInputs["portalArn"] = args?.portalArn;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["sessionLoggerArn"] = args?.sessionLoggerArn;
+            resourceInputs["portalArn"] = args ? args.portalArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["sessionLoggerArn"] = args ? args.sessionLoggerArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SessionLoggerAssociation.__pulumiType, name, resourceInputs, opts);

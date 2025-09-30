@@ -62,19 +62,19 @@ export class ClusterRoleAssociation extends pulumi.CustomResource {
     /**
      * DB Cluster Identifier to associate with the IAM Role.
      */
-    declare public readonly dbClusterIdentifier: pulumi.Output<string>;
+    public readonly dbClusterIdentifier!: pulumi.Output<string>;
     /**
      * Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
      */
-    declare public readonly featureName: pulumi.Output<string>;
+    public readonly featureName!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
      */
-    declare public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
 
     /**
      * Create a ClusterRoleAssociation resource with the given unique name, arguments, and options.
@@ -89,25 +89,25 @@ export class ClusterRoleAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterRoleAssociationState | undefined;
-            resourceInputs["dbClusterIdentifier"] = state?.dbClusterIdentifier;
-            resourceInputs["featureName"] = state?.featureName;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["roleArn"] = state?.roleArn;
+            resourceInputs["dbClusterIdentifier"] = state ? state.dbClusterIdentifier : undefined;
+            resourceInputs["featureName"] = state ? state.featureName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
         } else {
             const args = argsOrState as ClusterRoleAssociationArgs | undefined;
-            if (args?.dbClusterIdentifier === undefined && !opts.urn) {
+            if ((!args || args.dbClusterIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dbClusterIdentifier'");
             }
-            if (args?.featureName === undefined && !opts.urn) {
+            if ((!args || args.featureName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'featureName'");
             }
-            if (args?.roleArn === undefined && !opts.urn) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["dbClusterIdentifier"] = args?.dbClusterIdentifier;
-            resourceInputs["featureName"] = args?.featureName;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
+            resourceInputs["featureName"] = args ? args.featureName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ClusterRoleAssociation.__pulumiType, name, resourceInputs, opts);

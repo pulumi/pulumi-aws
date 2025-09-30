@@ -116,15 +116,15 @@ export class FindingAggregator extends pulumi.CustomResource {
     /**
      * Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED`, `SPECIFIED_REGIONS` or `NO_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
      */
-    declare public readonly linkingMode: pulumi.Output<string>;
+    public readonly linkingMode!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * List of regions to include or exclude (required if `linkingMode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
      */
-    declare public readonly specifiedRegions: pulumi.Output<string[] | undefined>;
+    public readonly specifiedRegions!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a FindingAggregator resource with the given unique name, arguments, and options.
@@ -139,17 +139,17 @@ export class FindingAggregator extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FindingAggregatorState | undefined;
-            resourceInputs["linkingMode"] = state?.linkingMode;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["specifiedRegions"] = state?.specifiedRegions;
+            resourceInputs["linkingMode"] = state ? state.linkingMode : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["specifiedRegions"] = state ? state.specifiedRegions : undefined;
         } else {
             const args = argsOrState as FindingAggregatorArgs | undefined;
-            if (args?.linkingMode === undefined && !opts.urn) {
+            if ((!args || args.linkingMode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'linkingMode'");
             }
-            resourceInputs["linkingMode"] = args?.linkingMode;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["specifiedRegions"] = args?.specifiedRegions;
+            resourceInputs["linkingMode"] = args ? args.linkingMode : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["specifiedRegions"] = args ? args.specifiedRegions : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FindingAggregator.__pulumiType, name, resourceInputs, opts);

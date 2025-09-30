@@ -58,39 +58,39 @@ export class DelegatedAdministrator extends pulumi.CustomResource {
     /**
      * The account ID number of the member account in the organization to register as a delegated administrator.
      */
-    declare public readonly accountId: pulumi.Output<string>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the delegated administrator's account.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The date when the account was made a delegated administrator.
      */
-    declare public /*out*/ readonly delegationEnabledDate: pulumi.Output<string>;
+    public /*out*/ readonly delegationEnabledDate!: pulumi.Output<string>;
     /**
      * The email address that is associated with the delegated administrator's AWS account.
      */
-    declare public /*out*/ readonly email: pulumi.Output<string>;
+    public /*out*/ readonly email!: pulumi.Output<string>;
     /**
      * The method by which the delegated administrator's account joined the organization.
      */
-    declare public /*out*/ readonly joinedMethod: pulumi.Output<string>;
+    public /*out*/ readonly joinedMethod!: pulumi.Output<string>;
     /**
      * The date when the delegated administrator's account became a part of the organization.
      */
-    declare public /*out*/ readonly joinedTimestamp: pulumi.Output<string>;
+    public /*out*/ readonly joinedTimestamp!: pulumi.Output<string>;
     /**
      * The friendly name of the delegated administrator's account.
      */
-    declare public /*out*/ readonly name: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The service principal of the AWS service for which you want to make the member account a delegated administrator.
      */
-    declare public readonly servicePrincipal: pulumi.Output<string>;
+    public readonly servicePrincipal!: pulumi.Output<string>;
     /**
      * The status of the delegated administrator's account in the organization.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
 
     /**
      * Create a DelegatedAdministrator resource with the given unique name, arguments, and options.
@@ -105,25 +105,25 @@ export class DelegatedAdministrator extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DelegatedAdministratorState | undefined;
-            resourceInputs["accountId"] = state?.accountId;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["delegationEnabledDate"] = state?.delegationEnabledDate;
-            resourceInputs["email"] = state?.email;
-            resourceInputs["joinedMethod"] = state?.joinedMethod;
-            resourceInputs["joinedTimestamp"] = state?.joinedTimestamp;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["servicePrincipal"] = state?.servicePrincipal;
-            resourceInputs["status"] = state?.status;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["delegationEnabledDate"] = state ? state.delegationEnabledDate : undefined;
+            resourceInputs["email"] = state ? state.email : undefined;
+            resourceInputs["joinedMethod"] = state ? state.joinedMethod : undefined;
+            resourceInputs["joinedTimestamp"] = state ? state.joinedTimestamp : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["servicePrincipal"] = state ? state.servicePrincipal : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as DelegatedAdministratorArgs | undefined;
-            if (args?.accountId === undefined && !opts.urn) {
+            if ((!args || args.accountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
             }
-            if (args?.servicePrincipal === undefined && !opts.urn) {
+            if ((!args || args.servicePrincipal === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'servicePrincipal'");
             }
-            resourceInputs["accountId"] = args?.accountId;
-            resourceInputs["servicePrincipal"] = args?.servicePrincipal;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["servicePrincipal"] = args ? args.servicePrincipal : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["delegationEnabledDate"] = undefined /*out*/;
             resourceInputs["email"] = undefined /*out*/;

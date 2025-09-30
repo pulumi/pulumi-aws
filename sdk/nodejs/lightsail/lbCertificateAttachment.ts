@@ -73,17 +73,17 @@ export class LbCertificateAttachment extends pulumi.CustomResource {
     /**
      * Name of your SSL/TLS certificate.
      */
-    declare public readonly certificateName: pulumi.Output<string>;
+    public readonly certificateName!: pulumi.Output<string>;
     /**
      * Name of the load balancer to which you want to associate the SSL/TLS certificate.
      *
      * The following arguments are optional:
      */
-    declare public readonly lbName: pulumi.Output<string>;
+    public readonly lbName!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a LbCertificateAttachment resource with the given unique name, arguments, and options.
@@ -98,20 +98,20 @@ export class LbCertificateAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LbCertificateAttachmentState | undefined;
-            resourceInputs["certificateName"] = state?.certificateName;
-            resourceInputs["lbName"] = state?.lbName;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["certificateName"] = state ? state.certificateName : undefined;
+            resourceInputs["lbName"] = state ? state.lbName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as LbCertificateAttachmentArgs | undefined;
-            if (args?.certificateName === undefined && !opts.urn) {
+            if ((!args || args.certificateName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'certificateName'");
             }
-            if (args?.lbName === undefined && !opts.urn) {
+            if ((!args || args.lbName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'lbName'");
             }
-            resourceInputs["certificateName"] = args?.certificateName;
-            resourceInputs["lbName"] = args?.lbName;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["certificateName"] = args ? args.certificateName : undefined;
+            resourceInputs["lbName"] = args ? args.lbName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LbCertificateAttachment.__pulumiType, name, resourceInputs, opts);

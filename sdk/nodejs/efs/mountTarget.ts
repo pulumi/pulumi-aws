@@ -64,53 +64,53 @@ export class MountTarget extends pulumi.CustomResource {
     /**
      * The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
      */
-    declare public /*out*/ readonly availabilityZoneId: pulumi.Output<string>;
+    public /*out*/ readonly availabilityZoneId!: pulumi.Output<string>;
     /**
      * The name of the Availability Zone (AZ) that the mount target resides in.
      */
-    declare public /*out*/ readonly availabilityZoneName: pulumi.Output<string>;
+    public /*out*/ readonly availabilityZoneName!: pulumi.Output<string>;
     /**
      * The DNS name for the EFS file system.
      */
-    declare public /*out*/ readonly dnsName: pulumi.Output<string>;
+    public /*out*/ readonly dnsName!: pulumi.Output<string>;
     /**
      * Amazon Resource Name of the file system.
      */
-    declare public /*out*/ readonly fileSystemArn: pulumi.Output<string>;
+    public /*out*/ readonly fileSystemArn!: pulumi.Output<string>;
     /**
      * The ID of the file system for which the mount target is intended.
      */
-    declare public readonly fileSystemId: pulumi.Output<string>;
+    public readonly fileSystemId!: pulumi.Output<string>;
     /**
      * The address (within the address range of the specified subnet) at
      * which the file system may be mounted via the mount target.
      */
-    declare public readonly ipAddress: pulumi.Output<string>;
+    public readonly ipAddress!: pulumi.Output<string>;
     /**
      * The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
      */
-    declare public /*out*/ readonly mountTargetDnsName: pulumi.Output<string>;
+    public /*out*/ readonly mountTargetDnsName!: pulumi.Output<string>;
     /**
      * The ID of the network interface that Amazon EFS created when it created the mount target.
      */
-    declare public /*out*/ readonly networkInterfaceId: pulumi.Output<string>;
+    public /*out*/ readonly networkInterfaceId!: pulumi.Output<string>;
     /**
      * AWS account ID that owns the resource.
      */
-    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A list of up to 5 VPC security group IDs (that must
      * be for the same VPC as subnet specified) in effect for the mount target.
      */
-    declare public readonly securityGroups: pulumi.Output<string[]>;
+    public readonly securityGroups!: pulumi.Output<string[]>;
     /**
      * The ID of the subnet to add the mount target in.
      */
-    declare public readonly subnetId: pulumi.Output<string>;
+    public readonly subnetId!: pulumi.Output<string>;
 
     /**
      * Create a MountTarget resource with the given unique name, arguments, and options.
@@ -125,31 +125,31 @@ export class MountTarget extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MountTargetState | undefined;
-            resourceInputs["availabilityZoneId"] = state?.availabilityZoneId;
-            resourceInputs["availabilityZoneName"] = state?.availabilityZoneName;
-            resourceInputs["dnsName"] = state?.dnsName;
-            resourceInputs["fileSystemArn"] = state?.fileSystemArn;
-            resourceInputs["fileSystemId"] = state?.fileSystemId;
-            resourceInputs["ipAddress"] = state?.ipAddress;
-            resourceInputs["mountTargetDnsName"] = state?.mountTargetDnsName;
-            resourceInputs["networkInterfaceId"] = state?.networkInterfaceId;
-            resourceInputs["ownerId"] = state?.ownerId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["securityGroups"] = state?.securityGroups;
-            resourceInputs["subnetId"] = state?.subnetId;
+            resourceInputs["availabilityZoneId"] = state ? state.availabilityZoneId : undefined;
+            resourceInputs["availabilityZoneName"] = state ? state.availabilityZoneName : undefined;
+            resourceInputs["dnsName"] = state ? state.dnsName : undefined;
+            resourceInputs["fileSystemArn"] = state ? state.fileSystemArn : undefined;
+            resourceInputs["fileSystemId"] = state ? state.fileSystemId : undefined;
+            resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
+            resourceInputs["mountTargetDnsName"] = state ? state.mountTargetDnsName : undefined;
+            resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["securityGroups"] = state ? state.securityGroups : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
             const args = argsOrState as MountTargetArgs | undefined;
-            if (args?.fileSystemId === undefined && !opts.urn) {
+            if ((!args || args.fileSystemId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fileSystemId'");
             }
-            if (args?.subnetId === undefined && !opts.urn) {
+            if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["fileSystemId"] = args?.fileSystemId;
-            resourceInputs["ipAddress"] = args?.ipAddress;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["securityGroups"] = args?.securityGroups;
-            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["fileSystemId"] = args ? args.fileSystemId : undefined;
+            resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["availabilityZoneId"] = undefined /*out*/;
             resourceInputs["availabilityZoneName"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;

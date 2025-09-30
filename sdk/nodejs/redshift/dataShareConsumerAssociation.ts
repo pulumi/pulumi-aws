@@ -72,37 +72,37 @@ export class DataShareConsumerAssociation extends pulumi.CustomResource {
     /**
      * Whether to allow write operations for a datashare.
      */
-    declare public readonly allowWrites: pulumi.Output<boolean | undefined>;
+    public readonly allowWrites!: pulumi.Output<boolean | undefined>;
     /**
      * Whether the datashare is associated with the entire account. Conflicts with `consumerArn` and `consumerRegion`.
      */
-    declare public readonly associateEntireAccount: pulumi.Output<boolean | undefined>;
+    public readonly associateEntireAccount!: pulumi.Output<boolean | undefined>;
     /**
      * Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
      */
-    declare public readonly consumerArn: pulumi.Output<string | undefined>;
+    public readonly consumerArn!: pulumi.Output<string | undefined>;
     /**
      * From a datashare consumer account, associates a datashare with all existing and future namespaces in the specified AWS Region. Conflicts with `associateEntireAccount` and `consumerArn`.
      */
-    declare public readonly consumerRegion: pulumi.Output<string | undefined>;
+    public readonly consumerRegion!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
      *
      * The following arguments are optional:
      */
-    declare public readonly dataShareArn: pulumi.Output<string>;
+    public readonly dataShareArn!: pulumi.Output<string>;
     /**
      * Identifier of a datashare to show its managing entity.
      */
-    declare public /*out*/ readonly managedBy: pulumi.Output<string>;
+    public /*out*/ readonly managedBy!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the producer.
      */
-    declare public /*out*/ readonly producerArn: pulumi.Output<string>;
+    public /*out*/ readonly producerArn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a DataShareConsumerAssociation resource with the given unique name, arguments, and options.
@@ -117,25 +117,25 @@ export class DataShareConsumerAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataShareConsumerAssociationState | undefined;
-            resourceInputs["allowWrites"] = state?.allowWrites;
-            resourceInputs["associateEntireAccount"] = state?.associateEntireAccount;
-            resourceInputs["consumerArn"] = state?.consumerArn;
-            resourceInputs["consumerRegion"] = state?.consumerRegion;
-            resourceInputs["dataShareArn"] = state?.dataShareArn;
-            resourceInputs["managedBy"] = state?.managedBy;
-            resourceInputs["producerArn"] = state?.producerArn;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["allowWrites"] = state ? state.allowWrites : undefined;
+            resourceInputs["associateEntireAccount"] = state ? state.associateEntireAccount : undefined;
+            resourceInputs["consumerArn"] = state ? state.consumerArn : undefined;
+            resourceInputs["consumerRegion"] = state ? state.consumerRegion : undefined;
+            resourceInputs["dataShareArn"] = state ? state.dataShareArn : undefined;
+            resourceInputs["managedBy"] = state ? state.managedBy : undefined;
+            resourceInputs["producerArn"] = state ? state.producerArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as DataShareConsumerAssociationArgs | undefined;
-            if (args?.dataShareArn === undefined && !opts.urn) {
+            if ((!args || args.dataShareArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataShareArn'");
             }
-            resourceInputs["allowWrites"] = args?.allowWrites;
-            resourceInputs["associateEntireAccount"] = args?.associateEntireAccount;
-            resourceInputs["consumerArn"] = args?.consumerArn;
-            resourceInputs["consumerRegion"] = args?.consumerRegion;
-            resourceInputs["dataShareArn"] = args?.dataShareArn;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["allowWrites"] = args ? args.allowWrites : undefined;
+            resourceInputs["associateEntireAccount"] = args ? args.associateEntireAccount : undefined;
+            resourceInputs["consumerArn"] = args ? args.consumerArn : undefined;
+            resourceInputs["consumerRegion"] = args ? args.consumerRegion : undefined;
+            resourceInputs["dataShareArn"] = args ? args.dataShareArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["managedBy"] = undefined /*out*/;
             resourceInputs["producerArn"] = undefined /*out*/;
         }

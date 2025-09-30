@@ -156,72 +156,72 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * ARN of the certificate
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
-    declare public readonly certificateAuthorityArn: pulumi.Output<string | undefined>;
-    declare public readonly certificateBody: pulumi.Output<string | undefined>;
-    declare public readonly certificateChain: pulumi.Output<string | undefined>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public readonly certificateAuthorityArn!: pulumi.Output<string | undefined>;
+    public readonly certificateBody!: pulumi.Output<string | undefined>;
+    public readonly certificateChain!: pulumi.Output<string | undefined>;
     /**
      * Fully qualified domain name (FQDN) in the certificate.
      */
-    declare public readonly domainName: pulumi.Output<string>;
+    public readonly domainName!: pulumi.Output<string>;
     /**
      * Set of domain validation objects which can be used to complete certificate validation.
      * Can have more than one element, e.g., if SANs are defined.
      * Only set if `DNS`-validation was used.
      */
-    declare public /*out*/ readonly domainValidationOptions: pulumi.Output<outputs.acm.CertificateDomainValidationOption[]>;
-    declare public readonly earlyRenewalDuration: pulumi.Output<string | undefined>;
-    declare public readonly keyAlgorithm: pulumi.Output<string>;
+    public /*out*/ readonly domainValidationOptions!: pulumi.Output<outputs.acm.CertificateDomainValidationOption[]>;
+    public readonly earlyRenewalDuration!: pulumi.Output<string | undefined>;
+    public readonly keyAlgorithm!: pulumi.Output<string>;
     /**
      * Expiration date and time of the certificate.
      */
-    declare public /*out*/ readonly notAfter: pulumi.Output<string>;
+    public /*out*/ readonly notAfter!: pulumi.Output<string>;
     /**
      * Start of the validity period of the certificate.
      */
-    declare public /*out*/ readonly notBefore: pulumi.Output<string>;
-    declare public readonly options: pulumi.Output<outputs.acm.CertificateOptions>;
+    public /*out*/ readonly notBefore!: pulumi.Output<string>;
+    public readonly options!: pulumi.Output<outputs.acm.CertificateOptions>;
     /**
      * `true` if a Private certificate eligible for managed renewal is within the `earlyRenewalDuration` period.
      */
-    declare public /*out*/ readonly pendingRenewal: pulumi.Output<boolean>;
-    declare public readonly privateKey: pulumi.Output<string | undefined>;
+    public /*out*/ readonly pendingRenewal!: pulumi.Output<boolean>;
+    public readonly privateKey!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * * Creating an Amazon issued certificate
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Whether the certificate is eligible for managed renewal.
      */
-    declare public /*out*/ readonly renewalEligibility: pulumi.Output<string>;
+    public /*out*/ readonly renewalEligibility!: pulumi.Output<string>;
     /**
      * Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
      */
-    declare public /*out*/ readonly renewalSummaries: pulumi.Output<outputs.acm.CertificateRenewalSummary[]>;
+    public /*out*/ readonly renewalSummaries!: pulumi.Output<outputs.acm.CertificateRenewalSummary[]>;
     /**
      * Status of the certificate.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
-    declare public readonly subjectAlternativeNames: pulumi.Output<string[]>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
+    public readonly subjectAlternativeNames!: pulumi.Output<string[]>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Source of the certificate.
      */
-    declare public /*out*/ readonly type: pulumi.Output<string>;
+    public /*out*/ readonly type!: pulumi.Output<string>;
     /**
      * List of addresses that received a validation email. Only set if `EMAIL` validation was used.
      */
-    declare public /*out*/ readonly validationEmails: pulumi.Output<string[]>;
-    declare public readonly validationMethod: pulumi.Output<string>;
-    declare public readonly validationOptions: pulumi.Output<outputs.acm.CertificateValidationOption[] | undefined>;
+    public /*out*/ readonly validationEmails!: pulumi.Output<string[]>;
+    public readonly validationMethod!: pulumi.Output<string>;
+    public readonly validationOptions!: pulumi.Output<outputs.acm.CertificateValidationOption[] | undefined>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -236,45 +236,45 @@ export class Certificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["certificateAuthorityArn"] = state?.certificateAuthorityArn;
-            resourceInputs["certificateBody"] = state?.certificateBody;
-            resourceInputs["certificateChain"] = state?.certificateChain;
-            resourceInputs["domainName"] = state?.domainName;
-            resourceInputs["domainValidationOptions"] = state?.domainValidationOptions;
-            resourceInputs["earlyRenewalDuration"] = state?.earlyRenewalDuration;
-            resourceInputs["keyAlgorithm"] = state?.keyAlgorithm;
-            resourceInputs["notAfter"] = state?.notAfter;
-            resourceInputs["notBefore"] = state?.notBefore;
-            resourceInputs["options"] = state?.options;
-            resourceInputs["pendingRenewal"] = state?.pendingRenewal;
-            resourceInputs["privateKey"] = state?.privateKey;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["renewalEligibility"] = state?.renewalEligibility;
-            resourceInputs["renewalSummaries"] = state?.renewalSummaries;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["subjectAlternativeNames"] = state?.subjectAlternativeNames;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["type"] = state?.type;
-            resourceInputs["validationEmails"] = state?.validationEmails;
-            resourceInputs["validationMethod"] = state?.validationMethod;
-            resourceInputs["validationOptions"] = state?.validationOptions;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["certificateAuthorityArn"] = state ? state.certificateAuthorityArn : undefined;
+            resourceInputs["certificateBody"] = state ? state.certificateBody : undefined;
+            resourceInputs["certificateChain"] = state ? state.certificateChain : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["domainValidationOptions"] = state ? state.domainValidationOptions : undefined;
+            resourceInputs["earlyRenewalDuration"] = state ? state.earlyRenewalDuration : undefined;
+            resourceInputs["keyAlgorithm"] = state ? state.keyAlgorithm : undefined;
+            resourceInputs["notAfter"] = state ? state.notAfter : undefined;
+            resourceInputs["notBefore"] = state ? state.notBefore : undefined;
+            resourceInputs["options"] = state ? state.options : undefined;
+            resourceInputs["pendingRenewal"] = state ? state.pendingRenewal : undefined;
+            resourceInputs["privateKey"] = state ? state.privateKey : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["renewalEligibility"] = state ? state.renewalEligibility : undefined;
+            resourceInputs["renewalSummaries"] = state ? state.renewalSummaries : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["subjectAlternativeNames"] = state ? state.subjectAlternativeNames : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["validationEmails"] = state ? state.validationEmails : undefined;
+            resourceInputs["validationMethod"] = state ? state.validationMethod : undefined;
+            resourceInputs["validationOptions"] = state ? state.validationOptions : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
-            resourceInputs["certificateAuthorityArn"] = args?.certificateAuthorityArn;
-            resourceInputs["certificateBody"] = args?.certificateBody;
-            resourceInputs["certificateChain"] = args?.certificateChain;
-            resourceInputs["domainName"] = args?.domainName;
-            resourceInputs["earlyRenewalDuration"] = args?.earlyRenewalDuration;
-            resourceInputs["keyAlgorithm"] = args?.keyAlgorithm;
-            resourceInputs["options"] = args?.options;
+            resourceInputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
+            resourceInputs["certificateBody"] = args ? args.certificateBody : undefined;
+            resourceInputs["certificateChain"] = args ? args.certificateChain : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["earlyRenewalDuration"] = args ? args.earlyRenewalDuration : undefined;
+            resourceInputs["keyAlgorithm"] = args ? args.keyAlgorithm : undefined;
+            resourceInputs["options"] = args ? args.options : undefined;
             resourceInputs["privateKey"] = args?.privateKey ? pulumi.secret(args.privateKey) : undefined;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["subjectAlternativeNames"] = args?.subjectAlternativeNames;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["validationMethod"] = args?.validationMethod;
-            resourceInputs["validationOptions"] = args?.validationOptions;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["subjectAlternativeNames"] = args ? args.subjectAlternativeNames : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["validationMethod"] = args ? args.validationMethod : undefined;
+            resourceInputs["validationOptions"] = args ? args.validationOptions : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["domainValidationOptions"] = undefined /*out*/;
             resourceInputs["notAfter"] = undefined /*out*/;

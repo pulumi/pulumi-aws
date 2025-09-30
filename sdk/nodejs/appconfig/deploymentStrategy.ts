@@ -66,47 +66,47 @@ export class DeploymentStrategy extends pulumi.CustomResource {
     /**
      * ARN of the AppConfig Deployment Strategy.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.
      */
-    declare public readonly deploymentDurationInMinutes: pulumi.Output<number>;
+    public readonly deploymentDurationInMinutes!: pulumi.Output<number>;
     /**
      * Description of the deployment strategy. Can be at most 1024 characters.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
      */
-    declare public readonly finalBakeTimeInMinutes: pulumi.Output<number | undefined>;
+    public readonly finalBakeTimeInMinutes!: pulumi.Output<number | undefined>;
     /**
      * Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
      */
-    declare public readonly growthFactor: pulumi.Output<number>;
+    public readonly growthFactor!: pulumi.Output<number>;
     /**
      * Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
      */
-    declare public readonly growthType: pulumi.Output<string | undefined>;
+    public readonly growthType!: pulumi.Output<string | undefined>;
     /**
      * Name for the deployment strategy. Must be between 1 and 64 characters in length.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
      */
-    declare public readonly replicateTo: pulumi.Output<string>;
+    public readonly replicateTo!: pulumi.Output<string>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a DeploymentStrategy resource with the given unique name, arguments, and options.
@@ -121,37 +121,37 @@ export class DeploymentStrategy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DeploymentStrategyState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["deploymentDurationInMinutes"] = state?.deploymentDurationInMinutes;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["finalBakeTimeInMinutes"] = state?.finalBakeTimeInMinutes;
-            resourceInputs["growthFactor"] = state?.growthFactor;
-            resourceInputs["growthType"] = state?.growthType;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["replicateTo"] = state?.replicateTo;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["deploymentDurationInMinutes"] = state ? state.deploymentDurationInMinutes : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["finalBakeTimeInMinutes"] = state ? state.finalBakeTimeInMinutes : undefined;
+            resourceInputs["growthFactor"] = state ? state.growthFactor : undefined;
+            resourceInputs["growthType"] = state ? state.growthType : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["replicateTo"] = state ? state.replicateTo : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as DeploymentStrategyArgs | undefined;
-            if (args?.deploymentDurationInMinutes === undefined && !opts.urn) {
+            if ((!args || args.deploymentDurationInMinutes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deploymentDurationInMinutes'");
             }
-            if (args?.growthFactor === undefined && !opts.urn) {
+            if ((!args || args.growthFactor === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'growthFactor'");
             }
-            if (args?.replicateTo === undefined && !opts.urn) {
+            if ((!args || args.replicateTo === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'replicateTo'");
             }
-            resourceInputs["deploymentDurationInMinutes"] = args?.deploymentDurationInMinutes;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["finalBakeTimeInMinutes"] = args?.finalBakeTimeInMinutes;
-            resourceInputs["growthFactor"] = args?.growthFactor;
-            resourceInputs["growthType"] = args?.growthType;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["replicateTo"] = args?.replicateTo;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["deploymentDurationInMinutes"] = args ? args.deploymentDurationInMinutes : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["finalBakeTimeInMinutes"] = args ? args.finalBakeTimeInMinutes : undefined;
+            resourceInputs["growthFactor"] = args ? args.growthFactor : undefined;
+            resourceInputs["growthType"] = args ? args.growthType : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["replicateTo"] = args ? args.replicateTo : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

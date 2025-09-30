@@ -65,15 +65,15 @@ export class ListenerCertificate extends pulumi.CustomResource {
     /**
      * The ARN of the certificate to attach to the listener.
      */
-    declare public readonly certificateArn: pulumi.Output<string>;
+    public readonly certificateArn!: pulumi.Output<string>;
     /**
      * The ARN of the listener to which to attach the certificate.
      */
-    declare public readonly listenerArn: pulumi.Output<string>;
+    public readonly listenerArn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ListenerCertificate resource with the given unique name, arguments, and options.
@@ -88,20 +88,20 @@ export class ListenerCertificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ListenerCertificateState | undefined;
-            resourceInputs["certificateArn"] = state?.certificateArn;
-            resourceInputs["listenerArn"] = state?.listenerArn;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["certificateArn"] = state ? state.certificateArn : undefined;
+            resourceInputs["listenerArn"] = state ? state.listenerArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ListenerCertificateArgs | undefined;
-            if (args?.certificateArn === undefined && !opts.urn) {
+            if ((!args || args.certificateArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'certificateArn'");
             }
-            if (args?.listenerArn === undefined && !opts.urn) {
+            if ((!args || args.listenerArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'listenerArn'");
             }
-            resourceInputs["certificateArn"] = args?.certificateArn;
-            resourceInputs["listenerArn"] = args?.listenerArn;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
+            resourceInputs["listenerArn"] = args ? args.listenerArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancingv2/listenerCertificate:ListenerCertificate" }] };

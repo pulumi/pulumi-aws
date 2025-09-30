@@ -50,20 +50,20 @@ export class Deployment extends pulumi.CustomResource {
     /**
      * The unique ID of the operation associated with deployment.
      */
-    declare public /*out*/ readonly operationId: pulumi.Output<string>;
+    public /*out*/ readonly operationId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
      */
-    declare public readonly serviceArn: pulumi.Output<string>;
+    public readonly serviceArn!: pulumi.Output<string>;
     /**
      * The current status of the App Runner service deployment.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
-    declare public readonly timeouts: pulumi.Output<outputs.apprunner.DeploymentTimeouts | undefined>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
+    public readonly timeouts!: pulumi.Output<outputs.apprunner.DeploymentTimeouts | undefined>;
 
     /**
      * Create a Deployment resource with the given unique name, arguments, and options.
@@ -78,19 +78,19 @@ export class Deployment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DeploymentState | undefined;
-            resourceInputs["operationId"] = state?.operationId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["serviceArn"] = state?.serviceArn;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["operationId"] = state ? state.operationId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["serviceArn"] = state ? state.serviceArn : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as DeploymentArgs | undefined;
-            if (args?.serviceArn === undefined && !opts.urn) {
+            if ((!args || args.serviceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceArn'");
             }
-            resourceInputs["region"] = args?.region;
-            resourceInputs["serviceArn"] = args?.serviceArn;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["serviceArn"] = args ? args.serviceArn : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["operationId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         }

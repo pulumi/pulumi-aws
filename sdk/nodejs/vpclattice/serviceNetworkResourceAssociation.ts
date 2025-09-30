@@ -66,34 +66,34 @@ export class ServiceNetworkResourceAssociation extends pulumi.CustomResource {
     /**
      * ARN of the Service Network Resource Association.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * DNS entry of the association in the service network.
      */
-    declare public /*out*/ readonly dnsEntries: pulumi.Output<outputs.vpclattice.ServiceNetworkResourceAssociationDnsEntry[]>;
+    public /*out*/ readonly dnsEntries!: pulumi.Output<outputs.vpclattice.ServiceNetworkResourceAssociationDnsEntry[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Identifier of Resource Configuration to associate to the Service Network.
      */
-    declare public readonly resourceConfigurationIdentifier: pulumi.Output<string>;
+    public readonly resourceConfigurationIdentifier!: pulumi.Output<string>;
     /**
      * Identifier of the Service Network to associate the Resource to.
      *
      * The following arguments are optional:
      */
-    declare public readonly serviceNetworkIdentifier: pulumi.Output<string>;
+    public readonly serviceNetworkIdentifier!: pulumi.Output<string>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public readonly timeouts: pulumi.Output<outputs.vpclattice.ServiceNetworkResourceAssociationTimeouts | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly timeouts!: pulumi.Output<outputs.vpclattice.ServiceNetworkResourceAssociationTimeouts | undefined>;
 
     /**
      * Create a ServiceNetworkResourceAssociation resource with the given unique name, arguments, and options.
@@ -108,27 +108,27 @@ export class ServiceNetworkResourceAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceNetworkResourceAssociationState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["dnsEntries"] = state?.dnsEntries;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceConfigurationIdentifier"] = state?.resourceConfigurationIdentifier;
-            resourceInputs["serviceNetworkIdentifier"] = state?.serviceNetworkIdentifier;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["dnsEntries"] = state ? state.dnsEntries : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceConfigurationIdentifier"] = state ? state.resourceConfigurationIdentifier : undefined;
+            resourceInputs["serviceNetworkIdentifier"] = state ? state.serviceNetworkIdentifier : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as ServiceNetworkResourceAssociationArgs | undefined;
-            if (args?.resourceConfigurationIdentifier === undefined && !opts.urn) {
+            if ((!args || args.resourceConfigurationIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceConfigurationIdentifier'");
             }
-            if (args?.serviceNetworkIdentifier === undefined && !opts.urn) {
+            if ((!args || args.serviceNetworkIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceNetworkIdentifier'");
             }
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resourceConfigurationIdentifier"] = args?.resourceConfigurationIdentifier;
-            resourceInputs["serviceNetworkIdentifier"] = args?.serviceNetworkIdentifier;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourceConfigurationIdentifier"] = args ? args.resourceConfigurationIdentifier : undefined;
+            resourceInputs["serviceNetworkIdentifier"] = args ? args.serviceNetworkIdentifier : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dnsEntries"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

@@ -62,15 +62,15 @@ export class AuthenticationProfile extends pulumi.CustomResource {
     /**
      * The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
      */
-    declare public readonly authenticationProfileContent: pulumi.Output<string>;
+    public readonly authenticationProfileContent!: pulumi.Output<string>;
     /**
      * The name of the authentication profile.
      */
-    declare public readonly authenticationProfileName: pulumi.Output<string>;
+    public readonly authenticationProfileName!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a AuthenticationProfile resource with the given unique name, arguments, and options.
@@ -85,20 +85,20 @@ export class AuthenticationProfile extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AuthenticationProfileState | undefined;
-            resourceInputs["authenticationProfileContent"] = state?.authenticationProfileContent;
-            resourceInputs["authenticationProfileName"] = state?.authenticationProfileName;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["authenticationProfileContent"] = state ? state.authenticationProfileContent : undefined;
+            resourceInputs["authenticationProfileName"] = state ? state.authenticationProfileName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as AuthenticationProfileArgs | undefined;
-            if (args?.authenticationProfileContent === undefined && !opts.urn) {
+            if ((!args || args.authenticationProfileContent === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authenticationProfileContent'");
             }
-            if (args?.authenticationProfileName === undefined && !opts.urn) {
+            if ((!args || args.authenticationProfileName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authenticationProfileName'");
             }
-            resourceInputs["authenticationProfileContent"] = args?.authenticationProfileContent;
-            resourceInputs["authenticationProfileName"] = args?.authenticationProfileName;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["authenticationProfileContent"] = args ? args.authenticationProfileContent : undefined;
+            resourceInputs["authenticationProfileName"] = args ? args.authenticationProfileName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AuthenticationProfile.__pulumiType, name, resourceInputs, opts);

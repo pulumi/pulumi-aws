@@ -136,46 +136,46 @@ export class Api extends pulumi.CustomResource {
     /**
      * ARN of the Event API.
      */
-    declare public /*out*/ readonly apiArn: pulumi.Output<string>;
+    public /*out*/ readonly apiArn!: pulumi.Output<string>;
     /**
      * ID of the Event API.
      */
-    declare public /*out*/ readonly apiId: pulumi.Output<string>;
+    public /*out*/ readonly apiId!: pulumi.Output<string>;
     /**
      * DNS configuration for the Event API.
      */
-    declare public /*out*/ readonly dns: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly dns!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration for the Event API. See Event Config below.
      */
-    declare public readonly eventConfig: pulumi.Output<outputs.appsync.ApiEventConfig | undefined>;
+    public readonly eventConfig!: pulumi.Output<outputs.appsync.ApiEventConfig | undefined>;
     /**
      * Name of the Event API.
      *
      * The following arguments are optional:
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Contact information for the owner of the Event API.
      */
-    declare public readonly ownerContact: pulumi.Output<string | undefined>;
+    public readonly ownerContact!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * ARN of the associated WAF web ACL.
      */
-    declare public /*out*/ readonly wafWebAclArn: pulumi.Output<string>;
-    declare public /*out*/ readonly xrayEnabled: pulumi.Output<boolean>;
+    public /*out*/ readonly wafWebAclArn!: pulumi.Output<string>;
+    public /*out*/ readonly xrayEnabled!: pulumi.Output<boolean>;
 
     /**
      * Create a Api resource with the given unique name, arguments, and options.
@@ -190,24 +190,24 @@ export class Api extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiState | undefined;
-            resourceInputs["apiArn"] = state?.apiArn;
-            resourceInputs["apiId"] = state?.apiId;
-            resourceInputs["dns"] = state?.dns;
-            resourceInputs["eventConfig"] = state?.eventConfig;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["ownerContact"] = state?.ownerContact;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["wafWebAclArn"] = state?.wafWebAclArn;
-            resourceInputs["xrayEnabled"] = state?.xrayEnabled;
+            resourceInputs["apiArn"] = state ? state.apiArn : undefined;
+            resourceInputs["apiId"] = state ? state.apiId : undefined;
+            resourceInputs["dns"] = state ? state.dns : undefined;
+            resourceInputs["eventConfig"] = state ? state.eventConfig : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ownerContact"] = state ? state.ownerContact : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["wafWebAclArn"] = state ? state.wafWebAclArn : undefined;
+            resourceInputs["xrayEnabled"] = state ? state.xrayEnabled : undefined;
         } else {
             const args = argsOrState as ApiArgs | undefined;
-            resourceInputs["eventConfig"] = args?.eventConfig;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["ownerContact"] = args?.ownerContact;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["eventConfig"] = args ? args.eventConfig : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ownerContact"] = args ? args.ownerContact : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["apiArn"] = undefined /*out*/;
             resourceInputs["apiId"] = undefined /*out*/;
             resourceInputs["dns"] = undefined /*out*/;

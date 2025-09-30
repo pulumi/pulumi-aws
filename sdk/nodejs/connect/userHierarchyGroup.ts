@@ -92,44 +92,44 @@ export class UserHierarchyGroup extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the hierarchy group.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The identifier for the hierarchy group.
      */
-    declare public /*out*/ readonly hierarchyGroupId: pulumi.Output<string>;
+    public /*out*/ readonly hierarchyGroupId!: pulumi.Output<string>;
     /**
      * A block that contains information about the levels in the hierarchy group. The `hierarchyPath` block is documented below.
      */
-    declare public /*out*/ readonly hierarchyPaths: pulumi.Output<outputs.connect.UserHierarchyGroupHierarchyPath[]>;
+    public /*out*/ readonly hierarchyPaths!: pulumi.Output<outputs.connect.UserHierarchyGroupHierarchyPath[]>;
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      */
-    declare public readonly instanceId: pulumi.Output<string>;
+    public readonly instanceId!: pulumi.Output<string>;
     /**
      * The identifier of the level in the hierarchy group.
      */
-    declare public /*out*/ readonly levelId: pulumi.Output<string>;
+    public /*out*/ readonly levelId!: pulumi.Output<string>;
     /**
      * The name of the user hierarchy group. Must not be more than 100 characters.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
      */
-    declare public readonly parentGroupId: pulumi.Output<string | undefined>;
+    public readonly parentGroupId!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Tags to apply to the hierarchy group. If configured with a provider
      * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a UserHierarchyGroup resource with the given unique name, arguments, and options.
@@ -144,26 +144,26 @@ export class UserHierarchyGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserHierarchyGroupState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["hierarchyGroupId"] = state?.hierarchyGroupId;
-            resourceInputs["hierarchyPaths"] = state?.hierarchyPaths;
-            resourceInputs["instanceId"] = state?.instanceId;
-            resourceInputs["levelId"] = state?.levelId;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["parentGroupId"] = state?.parentGroupId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["hierarchyGroupId"] = state ? state.hierarchyGroupId : undefined;
+            resourceInputs["hierarchyPaths"] = state ? state.hierarchyPaths : undefined;
+            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
+            resourceInputs["levelId"] = state ? state.levelId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parentGroupId"] = state ? state.parentGroupId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as UserHierarchyGroupArgs | undefined;
-            if (args?.instanceId === undefined && !opts.urn) {
+            if ((!args || args.instanceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            resourceInputs["instanceId"] = args?.instanceId;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["parentGroupId"] = args?.parentGroupId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parentGroupId"] = args ? args.parentGroupId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["hierarchyGroupId"] = undefined /*out*/;
             resourceInputs["hierarchyPaths"] = undefined /*out*/;

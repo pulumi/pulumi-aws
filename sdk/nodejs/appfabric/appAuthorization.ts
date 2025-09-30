@@ -65,45 +65,45 @@ export class AppAuthorization extends pulumi.CustomResource {
     /**
      * The name of the application for valid values see https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html.
      */
-    declare public readonly app: pulumi.Output<string>;
+    public readonly app!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the app bundle to use for the request.
      */
-    declare public readonly appBundleArn: pulumi.Output<string>;
+    public readonly appBundleArn!: pulumi.Output<string>;
     /**
      * ARN of the App Authorization. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The authorization type for the app authorization valid values are oauth2 and apiKey.
      */
-    declare public readonly authType: pulumi.Output<string>;
+    public readonly authType!: pulumi.Output<string>;
     /**
      * The application URL for the OAuth flow.
      */
-    declare public /*out*/ readonly authUrl: pulumi.Output<string>;
-    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    public /*out*/ readonly authUrl!: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
      * Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
      * Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
      */
-    declare public readonly credential: pulumi.Output<outputs.appfabric.AppAuthorizationCredential | undefined>;
+    public readonly credential!: pulumi.Output<outputs.appfabric.AppAuthorizationCredential | undefined>;
     /**
      * The user persona of the app authorization.
      */
-    declare public /*out*/ readonly persona: pulumi.Output<string>;
+    public /*out*/ readonly persona!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public readonly region!: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Contains information about an application tenant, such as the application display name and identifier.
      */
-    declare public readonly tenants: pulumi.Output<outputs.appfabric.AppAuthorizationTenant[] | undefined>;
-    declare public readonly timeouts: pulumi.Output<outputs.appfabric.AppAuthorizationTimeouts | undefined>;
-    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
+    public readonly tenants!: pulumi.Output<outputs.appfabric.AppAuthorizationTenant[] | undefined>;
+    public readonly timeouts!: pulumi.Output<outputs.appfabric.AppAuthorizationTimeouts | undefined>;
+    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
     /**
      * Create a AppAuthorization resource with the given unique name, arguments, and options.
@@ -118,39 +118,39 @@ export class AppAuthorization extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppAuthorizationState | undefined;
-            resourceInputs["app"] = state?.app;
-            resourceInputs["appBundleArn"] = state?.appBundleArn;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["authType"] = state?.authType;
-            resourceInputs["authUrl"] = state?.authUrl;
-            resourceInputs["createdAt"] = state?.createdAt;
-            resourceInputs["credential"] = state?.credential;
-            resourceInputs["persona"] = state?.persona;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["tenants"] = state?.tenants;
-            resourceInputs["timeouts"] = state?.timeouts;
-            resourceInputs["updatedAt"] = state?.updatedAt;
+            resourceInputs["app"] = state ? state.app : undefined;
+            resourceInputs["appBundleArn"] = state ? state.appBundleArn : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["authType"] = state ? state.authType : undefined;
+            resourceInputs["authUrl"] = state ? state.authUrl : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["credential"] = state ? state.credential : undefined;
+            resourceInputs["persona"] = state ? state.persona : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["tenants"] = state ? state.tenants : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
         } else {
             const args = argsOrState as AppAuthorizationArgs | undefined;
-            if (args?.app === undefined && !opts.urn) {
+            if ((!args || args.app === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'app'");
             }
-            if (args?.appBundleArn === undefined && !opts.urn) {
+            if ((!args || args.appBundleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'appBundleArn'");
             }
-            if (args?.authType === undefined && !opts.urn) {
+            if ((!args || args.authType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authType'");
             }
-            resourceInputs["app"] = args?.app;
-            resourceInputs["appBundleArn"] = args?.appBundleArn;
-            resourceInputs["authType"] = args?.authType;
-            resourceInputs["credential"] = args?.credential;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["tenants"] = args?.tenants;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["app"] = args ? args.app : undefined;
+            resourceInputs["appBundleArn"] = args ? args.appBundleArn : undefined;
+            resourceInputs["authType"] = args ? args.authType : undefined;
+            resourceInputs["credential"] = args ? args.credential : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tenants"] = args ? args.tenants : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["authUrl"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

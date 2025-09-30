@@ -61,45 +61,45 @@ export class AppMonitor extends pulumi.CustomResource {
     /**
      * configuration data for the app monitor. See appMonitorConfiguration below.
      */
-    declare public readonly appMonitorConfiguration: pulumi.Output<outputs.rum.AppMonitorAppMonitorConfiguration>;
+    public readonly appMonitorConfiguration!: pulumi.Output<outputs.rum.AppMonitorAppMonitorConfiguration>;
     /**
      * The unique ID of the app monitor. Useful for JS templates.
      */
-    declare public /*out*/ readonly appMonitorId: pulumi.Output<string>;
+    public /*out*/ readonly appMonitorId!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) specifying the app monitor.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See customEvents below.
      */
-    declare public readonly customEvents: pulumi.Output<outputs.rum.AppMonitorCustomEvents>;
+    public readonly customEvents!: pulumi.Output<outputs.rum.AppMonitorCustomEvents>;
     /**
      * Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
      */
-    declare public readonly cwLogEnabled: pulumi.Output<boolean | undefined>;
+    public readonly cwLogEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the log group where the copies are stored.
      */
-    declare public /*out*/ readonly cwLogGroup: pulumi.Output<string>;
-    declare public readonly domain: pulumi.Output<string | undefined>;
-    declare public readonly domainLists: pulumi.Output<string[] | undefined>;
+    public /*out*/ readonly cwLogGroup!: pulumi.Output<string>;
+    public readonly domain!: pulumi.Output<string | undefined>;
+    public readonly domainLists!: pulumi.Output<string[] | undefined>;
     /**
      * The name of the log stream.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a AppMonitor resource with the given unique name, arguments, and options.
@@ -114,28 +114,28 @@ export class AppMonitor extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppMonitorState | undefined;
-            resourceInputs["appMonitorConfiguration"] = state?.appMonitorConfiguration;
-            resourceInputs["appMonitorId"] = state?.appMonitorId;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["customEvents"] = state?.customEvents;
-            resourceInputs["cwLogEnabled"] = state?.cwLogEnabled;
-            resourceInputs["cwLogGroup"] = state?.cwLogGroup;
-            resourceInputs["domain"] = state?.domain;
-            resourceInputs["domainLists"] = state?.domainLists;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["appMonitorConfiguration"] = state ? state.appMonitorConfiguration : undefined;
+            resourceInputs["appMonitorId"] = state ? state.appMonitorId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["customEvents"] = state ? state.customEvents : undefined;
+            resourceInputs["cwLogEnabled"] = state ? state.cwLogEnabled : undefined;
+            resourceInputs["cwLogGroup"] = state ? state.cwLogGroup : undefined;
+            resourceInputs["domain"] = state ? state.domain : undefined;
+            resourceInputs["domainLists"] = state ? state.domainLists : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as AppMonitorArgs | undefined;
-            resourceInputs["appMonitorConfiguration"] = args?.appMonitorConfiguration;
-            resourceInputs["customEvents"] = args?.customEvents;
-            resourceInputs["cwLogEnabled"] = args?.cwLogEnabled;
-            resourceInputs["domain"] = args?.domain;
-            resourceInputs["domainLists"] = args?.domainLists;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["appMonitorConfiguration"] = args ? args.appMonitorConfiguration : undefined;
+            resourceInputs["customEvents"] = args ? args.customEvents : undefined;
+            resourceInputs["cwLogEnabled"] = args ? args.cwLogEnabled : undefined;
+            resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["domainLists"] = args ? args.domainLists : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["appMonitorId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["cwLogGroup"] = undefined /*out*/;

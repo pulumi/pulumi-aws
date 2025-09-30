@@ -115,50 +115,50 @@ export class ResolverRule extends pulumi.CustomResource {
     /**
      * ARN (Amazon Resource Name) for the resolver rule.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * DNS queries for this domain name are forwarded to the IP addresses that are specified using `targetIp`.
      */
-    declare public readonly domainName: pulumi.Output<string>;
+    public readonly domainName!: pulumi.Output<string>;
     /**
      * Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
      */
-    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
      * This argument should only be specified for `FORWARD` type rules.
      */
-    declare public readonly resolverEndpointId: pulumi.Output<string | undefined>;
+    public readonly resolverEndpointId!: pulumi.Output<string | undefined>;
     /**
      * Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
      */
-    declare public readonly ruleType: pulumi.Output<string>;
+    public readonly ruleType!: pulumi.Output<string>;
     /**
      * Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
      * Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
      */
-    declare public /*out*/ readonly shareStatus: pulumi.Output<string>;
+    public /*out*/ readonly shareStatus!: pulumi.Output<string>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
      * This argument should only be specified for `FORWARD` type rules.
      */
-    declare public readonly targetIps: pulumi.Output<outputs.route53.ResolverRuleTargetIp[] | undefined>;
+    public readonly targetIps!: pulumi.Output<outputs.route53.ResolverRuleTargetIp[] | undefined>;
 
     /**
      * Create a ResolverRule resource with the given unique name, arguments, and options.
@@ -173,32 +173,32 @@ export class ResolverRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResolverRuleState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["domainName"] = state?.domainName;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["ownerId"] = state?.ownerId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resolverEndpointId"] = state?.resolverEndpointId;
-            resourceInputs["ruleType"] = state?.ruleType;
-            resourceInputs["shareStatus"] = state?.shareStatus;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["targetIps"] = state?.targetIps;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resolverEndpointId"] = state ? state.resolverEndpointId : undefined;
+            resourceInputs["ruleType"] = state ? state.ruleType : undefined;
+            resourceInputs["shareStatus"] = state ? state.shareStatus : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["targetIps"] = state ? state.targetIps : undefined;
         } else {
             const args = argsOrState as ResolverRuleArgs | undefined;
-            if (args?.domainName === undefined && !opts.urn) {
+            if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if (args?.ruleType === undefined && !opts.urn) {
+            if ((!args || args.ruleType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleType'");
             }
-            resourceInputs["domainName"] = args?.domainName;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resolverEndpointId"] = args?.resolverEndpointId;
-            resourceInputs["ruleType"] = args?.ruleType;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["targetIps"] = args?.targetIps;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resolverEndpointId"] = args ? args.resolverEndpointId : undefined;
+            resourceInputs["ruleType"] = args ? args.ruleType : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetIps"] = args ? args.targetIps : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["shareStatus"] = undefined /*out*/;

@@ -58,19 +58,19 @@ export class ApiKey extends pulumi.CustomResource {
     /**
      * The generated API key. This value is sensitive.
      */
-    declare public /*out*/ readonly apiKey: pulumi.Output<string>;
+    public /*out*/ readonly apiKey!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. Changing this forces a new resource to be created. **NOTE:** WAFv2 API Keys deployed for `CLOUDFRONT` must be created within the `us-east-1` region.
      */
-    declare public readonly scope: pulumi.Output<string>;
+    public readonly scope!: pulumi.Output<string>;
     /**
      * The domains that you want to be able to use the API key with, for example `example.com`. You can specify up to 5 domains. Changing this forces a new resource to be created.
      */
-    declare public readonly tokenDomains: pulumi.Output<string[]>;
+    public readonly tokenDomains!: pulumi.Output<string[]>;
 
     /**
      * Create a ApiKey resource with the given unique name, arguments, and options.
@@ -85,21 +85,21 @@ export class ApiKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiKeyState | undefined;
-            resourceInputs["apiKey"] = state?.apiKey;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["scope"] = state?.scope;
-            resourceInputs["tokenDomains"] = state?.tokenDomains;
+            resourceInputs["apiKey"] = state ? state.apiKey : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["scope"] = state ? state.scope : undefined;
+            resourceInputs["tokenDomains"] = state ? state.tokenDomains : undefined;
         } else {
             const args = argsOrState as ApiKeyArgs | undefined;
-            if (args?.scope === undefined && !opts.urn) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            if (args?.tokenDomains === undefined && !opts.urn) {
+            if ((!args || args.tokenDomains === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tokenDomains'");
             }
-            resourceInputs["region"] = args?.region;
-            resourceInputs["scope"] = args?.scope;
-            resourceInputs["tokenDomains"] = args?.tokenDomains;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["tokenDomains"] = args ? args.tokenDomains : undefined;
             resourceInputs["apiKey"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

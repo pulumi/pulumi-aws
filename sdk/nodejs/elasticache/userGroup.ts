@@ -66,33 +66,33 @@ export class UserGroup extends pulumi.CustomResource {
     /**
      * The ARN that identifies the user group.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The current supported value are `redis`, `valkey` (case insensitive).
      */
-    declare public readonly engine: pulumi.Output<string>;
+    public readonly engine!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the user group.
      *
      * The following arguments are optional:
      */
-    declare public readonly userGroupId: pulumi.Output<string>;
+    public readonly userGroupId!: pulumi.Output<string>;
     /**
      * The list of user IDs that belong to the user group.
      */
-    declare public readonly userIds: pulumi.Output<string[] | undefined>;
+    public readonly userIds!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a UserGroup resource with the given unique name, arguments, and options.
@@ -107,26 +107,26 @@ export class UserGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserGroupState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["engine"] = state?.engine;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["userGroupId"] = state?.userGroupId;
-            resourceInputs["userIds"] = state?.userIds;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["engine"] = state ? state.engine : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["userGroupId"] = state ? state.userGroupId : undefined;
+            resourceInputs["userIds"] = state ? state.userIds : undefined;
         } else {
             const args = argsOrState as UserGroupArgs | undefined;
-            if (args?.engine === undefined && !opts.urn) {
+            if ((!args || args.engine === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engine'");
             }
-            if (args?.userGroupId === undefined && !opts.urn) {
+            if ((!args || args.userGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userGroupId'");
             }
-            resourceInputs["engine"] = args?.engine;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["userGroupId"] = args?.userGroupId;
-            resourceInputs["userIds"] = args?.userIds;
+            resourceInputs["engine"] = args ? args.engine : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userGroupId"] = args ? args.userGroupId : undefined;
+            resourceInputs["userIds"] = args ? args.userIds : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

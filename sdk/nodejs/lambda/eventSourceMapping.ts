@@ -259,149 +259,149 @@ export class EventSourceMapping extends pulumi.CustomResource {
     /**
      * Additional configuration block for Amazon Managed Kafka sources. Incompatible with `selfManagedEventSource` and `selfManagedKafkaEventSourceConfig`. See below.
      */
-    declare public readonly amazonManagedKafkaEventSourceConfig: pulumi.Output<outputs.lambda.EventSourceMappingAmazonManagedKafkaEventSourceConfig>;
+    public readonly amazonManagedKafkaEventSourceConfig!: pulumi.Output<outputs.lambda.EventSourceMappingAmazonManagedKafkaEventSourceConfig>;
     /**
      * Event source mapping ARN.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
      */
-    declare public readonly batchSize: pulumi.Output<number | undefined>;
+    public readonly batchSize!: pulumi.Output<number | undefined>;
     /**
      * Whether to split the batch in two and retry if the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
      */
-    declare public readonly bisectBatchOnFunctionError: pulumi.Output<boolean | undefined>;
+    public readonly bisectBatchOnFunctionError!: pulumi.Output<boolean | undefined>;
     /**
      * Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). See below.
      */
-    declare public readonly destinationConfig: pulumi.Output<outputs.lambda.EventSourceMappingDestinationConfig | undefined>;
+    public readonly destinationConfig!: pulumi.Output<outputs.lambda.EventSourceMappingDestinationConfig | undefined>;
     /**
      * Configuration settings for a DocumentDB event source. See below.
      */
-    declare public readonly documentDbEventSourceConfig: pulumi.Output<outputs.lambda.EventSourceMappingDocumentDbEventSourceConfig | undefined>;
+    public readonly documentDbEventSourceConfig!: pulumi.Output<outputs.lambda.EventSourceMappingDocumentDbEventSourceConfig | undefined>;
     /**
      * Whether the mapping is enabled. Defaults to `true`.
      */
-    declare public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * Event source ARN - required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream. Incompatible with Self Managed Kafka source.
      */
-    declare public readonly eventSourceArn: pulumi.Output<string | undefined>;
+    public readonly eventSourceArn!: pulumi.Output<string | undefined>;
     /**
      * Criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. See below.
      */
-    declare public readonly filterCriteria: pulumi.Output<outputs.lambda.EventSourceMappingFilterCriteria | undefined>;
+    public readonly filterCriteria!: pulumi.Output<outputs.lambda.EventSourceMappingFilterCriteria | undefined>;
     /**
      * ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `functionName` above.)
      */
-    declare public /*out*/ readonly functionArn: pulumi.Output<string>;
+    public /*out*/ readonly functionArn!: pulumi.Output<string>;
     /**
      * Name or ARN of the Lambda function that will be subscribing to events.
      *
      * The following arguments are optional:
      */
-    declare public readonly functionName: pulumi.Output<string>;
+    public readonly functionName!: pulumi.Output<string>;
     /**
      * List of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
      */
-    declare public readonly functionResponseTypes: pulumi.Output<string[] | undefined>;
+    public readonly functionResponseTypes!: pulumi.Output<string[] | undefined>;
     /**
      * ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
      */
-    declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
+    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     /**
      * Date this resource was last modified.
      */
-    declare public /*out*/ readonly lastModified: pulumi.Output<string>;
+    public /*out*/ readonly lastModified!: pulumi.Output<string>;
     /**
      * Result of the last AWS Lambda invocation of your Lambda function.
      */
-    declare public /*out*/ readonly lastProcessingResult: pulumi.Output<string>;
+    public /*out*/ readonly lastProcessingResult!: pulumi.Output<string>;
     /**
      * Maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
      */
-    declare public readonly maximumBatchingWindowInSeconds: pulumi.Output<number | undefined>;
+    public readonly maximumBatchingWindowInSeconds!: pulumi.Output<number | undefined>;
     /**
      * Maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
      */
-    declare public readonly maximumRecordAgeInSeconds: pulumi.Output<number>;
+    public readonly maximumRecordAgeInSeconds!: pulumi.Output<number>;
     /**
      * Maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
      */
-    declare public readonly maximumRetryAttempts: pulumi.Output<number>;
+    public readonly maximumRetryAttempts!: pulumi.Output<number>;
     /**
      * CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. See below.
      */
-    declare public readonly metricsConfig: pulumi.Output<outputs.lambda.EventSourceMappingMetricsConfig | undefined>;
+    public readonly metricsConfig!: pulumi.Output<outputs.lambda.EventSourceMappingMetricsConfig | undefined>;
     /**
      * Number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
      */
-    declare public readonly parallelizationFactor: pulumi.Output<number>;
+    public readonly parallelizationFactor!: pulumi.Output<number>;
     /**
      * Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. See below.
      */
-    declare public readonly provisionedPollerConfig: pulumi.Output<outputs.lambda.EventSourceMappingProvisionedPollerConfig | undefined>;
+    public readonly provisionedPollerConfig!: pulumi.Output<outputs.lambda.EventSourceMappingProvisionedPollerConfig | undefined>;
     /**
      * Name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
      */
-    declare public readonly queues: pulumi.Output<string | undefined>;
+    public readonly queues!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Scaling configuration of the event source. Only available for SQS queues. See below.
      */
-    declare public readonly scalingConfig: pulumi.Output<outputs.lambda.EventSourceMappingScalingConfig | undefined>;
+    public readonly scalingConfig!: pulumi.Output<outputs.lambda.EventSourceMappingScalingConfig | undefined>;
     /**
      * For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. See below.
      */
-    declare public readonly selfManagedEventSource: pulumi.Output<outputs.lambda.EventSourceMappingSelfManagedEventSource | undefined>;
+    public readonly selfManagedEventSource!: pulumi.Output<outputs.lambda.EventSourceMappingSelfManagedEventSource | undefined>;
     /**
      * Additional configuration block for Self Managed Kafka sources. Incompatible with `eventSourceArn` and `amazonManagedKafkaEventSourceConfig`. See below.
      */
-    declare public readonly selfManagedKafkaEventSourceConfig: pulumi.Output<outputs.lambda.EventSourceMappingSelfManagedKafkaEventSourceConfig>;
+    public readonly selfManagedKafkaEventSourceConfig!: pulumi.Output<outputs.lambda.EventSourceMappingSelfManagedKafkaEventSourceConfig>;
     /**
      * For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `selfManagedEventSource`. See below.
      */
-    declare public readonly sourceAccessConfigurations: pulumi.Output<outputs.lambda.EventSourceMappingSourceAccessConfiguration[] | undefined>;
+    public readonly sourceAccessConfigurations!: pulumi.Output<outputs.lambda.EventSourceMappingSourceAccessConfiguration[] | undefined>;
     /**
      * Position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB, MSK or Self Managed Apache Kafka. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
      */
-    declare public readonly startingPosition: pulumi.Output<string | undefined>;
+    public readonly startingPosition!: pulumi.Output<string | undefined>;
     /**
      * Timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `startingPosition` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
      */
-    declare public readonly startingPositionTimestamp: pulumi.Output<string | undefined>;
+    public readonly startingPositionTimestamp!: pulumi.Output<string | undefined>;
     /**
      * State of the event source mapping.
      */
-    declare public /*out*/ readonly state: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * Reason the event source mapping is in its current state.
      */
-    declare public /*out*/ readonly stateTransitionReason: pulumi.Output<string>;
+    public /*out*/ readonly stateTransitionReason!: pulumi.Output<string>;
     /**
      * Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
      */
-    declare public readonly topics: pulumi.Output<string[] | undefined>;
+    public readonly topics!: pulumi.Output<string[] | undefined>;
     /**
      * Duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
      */
-    declare public readonly tumblingWindowInSeconds: pulumi.Output<number | undefined>;
+    public readonly tumblingWindowInSeconds!: pulumi.Output<number | undefined>;
     /**
      * UUID of the created event source mapping.
      */
-    declare public /*out*/ readonly uuid: pulumi.Output<string>;
+    public /*out*/ readonly uuid!: pulumi.Output<string>;
 
     /**
      * Create a EventSourceMapping resource with the given unique name, arguments, and options.
@@ -416,75 +416,75 @@ export class EventSourceMapping extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventSourceMappingState | undefined;
-            resourceInputs["amazonManagedKafkaEventSourceConfig"] = state?.amazonManagedKafkaEventSourceConfig;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["batchSize"] = state?.batchSize;
-            resourceInputs["bisectBatchOnFunctionError"] = state?.bisectBatchOnFunctionError;
-            resourceInputs["destinationConfig"] = state?.destinationConfig;
-            resourceInputs["documentDbEventSourceConfig"] = state?.documentDbEventSourceConfig;
-            resourceInputs["enabled"] = state?.enabled;
-            resourceInputs["eventSourceArn"] = state?.eventSourceArn;
-            resourceInputs["filterCriteria"] = state?.filterCriteria;
-            resourceInputs["functionArn"] = state?.functionArn;
-            resourceInputs["functionName"] = state?.functionName;
-            resourceInputs["functionResponseTypes"] = state?.functionResponseTypes;
-            resourceInputs["kmsKeyArn"] = state?.kmsKeyArn;
-            resourceInputs["lastModified"] = state?.lastModified;
-            resourceInputs["lastProcessingResult"] = state?.lastProcessingResult;
-            resourceInputs["maximumBatchingWindowInSeconds"] = state?.maximumBatchingWindowInSeconds;
-            resourceInputs["maximumRecordAgeInSeconds"] = state?.maximumRecordAgeInSeconds;
-            resourceInputs["maximumRetryAttempts"] = state?.maximumRetryAttempts;
-            resourceInputs["metricsConfig"] = state?.metricsConfig;
-            resourceInputs["parallelizationFactor"] = state?.parallelizationFactor;
-            resourceInputs["provisionedPollerConfig"] = state?.provisionedPollerConfig;
-            resourceInputs["queues"] = state?.queues;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["scalingConfig"] = state?.scalingConfig;
-            resourceInputs["selfManagedEventSource"] = state?.selfManagedEventSource;
-            resourceInputs["selfManagedKafkaEventSourceConfig"] = state?.selfManagedKafkaEventSourceConfig;
-            resourceInputs["sourceAccessConfigurations"] = state?.sourceAccessConfigurations;
-            resourceInputs["startingPosition"] = state?.startingPosition;
-            resourceInputs["startingPositionTimestamp"] = state?.startingPositionTimestamp;
-            resourceInputs["state"] = state?.state;
-            resourceInputs["stateTransitionReason"] = state?.stateTransitionReason;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["topics"] = state?.topics;
-            resourceInputs["tumblingWindowInSeconds"] = state?.tumblingWindowInSeconds;
-            resourceInputs["uuid"] = state?.uuid;
+            resourceInputs["amazonManagedKafkaEventSourceConfig"] = state ? state.amazonManagedKafkaEventSourceConfig : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["batchSize"] = state ? state.batchSize : undefined;
+            resourceInputs["bisectBatchOnFunctionError"] = state ? state.bisectBatchOnFunctionError : undefined;
+            resourceInputs["destinationConfig"] = state ? state.destinationConfig : undefined;
+            resourceInputs["documentDbEventSourceConfig"] = state ? state.documentDbEventSourceConfig : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["eventSourceArn"] = state ? state.eventSourceArn : undefined;
+            resourceInputs["filterCriteria"] = state ? state.filterCriteria : undefined;
+            resourceInputs["functionArn"] = state ? state.functionArn : undefined;
+            resourceInputs["functionName"] = state ? state.functionName : undefined;
+            resourceInputs["functionResponseTypes"] = state ? state.functionResponseTypes : undefined;
+            resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
+            resourceInputs["lastModified"] = state ? state.lastModified : undefined;
+            resourceInputs["lastProcessingResult"] = state ? state.lastProcessingResult : undefined;
+            resourceInputs["maximumBatchingWindowInSeconds"] = state ? state.maximumBatchingWindowInSeconds : undefined;
+            resourceInputs["maximumRecordAgeInSeconds"] = state ? state.maximumRecordAgeInSeconds : undefined;
+            resourceInputs["maximumRetryAttempts"] = state ? state.maximumRetryAttempts : undefined;
+            resourceInputs["metricsConfig"] = state ? state.metricsConfig : undefined;
+            resourceInputs["parallelizationFactor"] = state ? state.parallelizationFactor : undefined;
+            resourceInputs["provisionedPollerConfig"] = state ? state.provisionedPollerConfig : undefined;
+            resourceInputs["queues"] = state ? state.queues : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["scalingConfig"] = state ? state.scalingConfig : undefined;
+            resourceInputs["selfManagedEventSource"] = state ? state.selfManagedEventSource : undefined;
+            resourceInputs["selfManagedKafkaEventSourceConfig"] = state ? state.selfManagedKafkaEventSourceConfig : undefined;
+            resourceInputs["sourceAccessConfigurations"] = state ? state.sourceAccessConfigurations : undefined;
+            resourceInputs["startingPosition"] = state ? state.startingPosition : undefined;
+            resourceInputs["startingPositionTimestamp"] = state ? state.startingPositionTimestamp : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["stateTransitionReason"] = state ? state.stateTransitionReason : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["topics"] = state ? state.topics : undefined;
+            resourceInputs["tumblingWindowInSeconds"] = state ? state.tumblingWindowInSeconds : undefined;
+            resourceInputs["uuid"] = state ? state.uuid : undefined;
         } else {
             const args = argsOrState as EventSourceMappingArgs | undefined;
-            if (args?.functionName === undefined && !opts.urn) {
+            if ((!args || args.functionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'functionName'");
             }
-            resourceInputs["amazonManagedKafkaEventSourceConfig"] = args?.amazonManagedKafkaEventSourceConfig;
-            resourceInputs["batchSize"] = args?.batchSize;
-            resourceInputs["bisectBatchOnFunctionError"] = args?.bisectBatchOnFunctionError;
-            resourceInputs["destinationConfig"] = args?.destinationConfig;
-            resourceInputs["documentDbEventSourceConfig"] = args?.documentDbEventSourceConfig;
-            resourceInputs["enabled"] = args?.enabled;
-            resourceInputs["eventSourceArn"] = args?.eventSourceArn;
-            resourceInputs["filterCriteria"] = args?.filterCriteria;
-            resourceInputs["functionName"] = args?.functionName;
-            resourceInputs["functionResponseTypes"] = args?.functionResponseTypes;
-            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
-            resourceInputs["maximumBatchingWindowInSeconds"] = args?.maximumBatchingWindowInSeconds;
-            resourceInputs["maximumRecordAgeInSeconds"] = args?.maximumRecordAgeInSeconds;
-            resourceInputs["maximumRetryAttempts"] = args?.maximumRetryAttempts;
-            resourceInputs["metricsConfig"] = args?.metricsConfig;
-            resourceInputs["parallelizationFactor"] = args?.parallelizationFactor;
-            resourceInputs["provisionedPollerConfig"] = args?.provisionedPollerConfig;
-            resourceInputs["queues"] = args?.queues;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["scalingConfig"] = args?.scalingConfig;
-            resourceInputs["selfManagedEventSource"] = args?.selfManagedEventSource;
-            resourceInputs["selfManagedKafkaEventSourceConfig"] = args?.selfManagedKafkaEventSourceConfig;
-            resourceInputs["sourceAccessConfigurations"] = args?.sourceAccessConfigurations;
-            resourceInputs["startingPosition"] = args?.startingPosition;
-            resourceInputs["startingPositionTimestamp"] = args?.startingPositionTimestamp;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["topics"] = args?.topics;
-            resourceInputs["tumblingWindowInSeconds"] = args?.tumblingWindowInSeconds;
+            resourceInputs["amazonManagedKafkaEventSourceConfig"] = args ? args.amazonManagedKafkaEventSourceConfig : undefined;
+            resourceInputs["batchSize"] = args ? args.batchSize : undefined;
+            resourceInputs["bisectBatchOnFunctionError"] = args ? args.bisectBatchOnFunctionError : undefined;
+            resourceInputs["destinationConfig"] = args ? args.destinationConfig : undefined;
+            resourceInputs["documentDbEventSourceConfig"] = args ? args.documentDbEventSourceConfig : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["eventSourceArn"] = args ? args.eventSourceArn : undefined;
+            resourceInputs["filterCriteria"] = args ? args.filterCriteria : undefined;
+            resourceInputs["functionName"] = args ? args.functionName : undefined;
+            resourceInputs["functionResponseTypes"] = args ? args.functionResponseTypes : undefined;
+            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
+            resourceInputs["maximumBatchingWindowInSeconds"] = args ? args.maximumBatchingWindowInSeconds : undefined;
+            resourceInputs["maximumRecordAgeInSeconds"] = args ? args.maximumRecordAgeInSeconds : undefined;
+            resourceInputs["maximumRetryAttempts"] = args ? args.maximumRetryAttempts : undefined;
+            resourceInputs["metricsConfig"] = args ? args.metricsConfig : undefined;
+            resourceInputs["parallelizationFactor"] = args ? args.parallelizationFactor : undefined;
+            resourceInputs["provisionedPollerConfig"] = args ? args.provisionedPollerConfig : undefined;
+            resourceInputs["queues"] = args ? args.queues : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["scalingConfig"] = args ? args.scalingConfig : undefined;
+            resourceInputs["selfManagedEventSource"] = args ? args.selfManagedEventSource : undefined;
+            resourceInputs["selfManagedKafkaEventSourceConfig"] = args ? args.selfManagedKafkaEventSourceConfig : undefined;
+            resourceInputs["sourceAccessConfigurations"] = args ? args.sourceAccessConfigurations : undefined;
+            resourceInputs["startingPosition"] = args ? args.startingPosition : undefined;
+            resourceInputs["startingPositionTimestamp"] = args ? args.startingPositionTimestamp : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["topics"] = args ? args.topics : undefined;
+            resourceInputs["tumblingWindowInSeconds"] = args ? args.tumblingWindowInSeconds : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["functionArn"] = undefined /*out*/;
             resourceInputs["lastModified"] = undefined /*out*/;

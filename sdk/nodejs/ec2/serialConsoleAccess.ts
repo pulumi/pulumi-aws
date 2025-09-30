@@ -57,7 +57,7 @@ export class SerialConsoleAccess extends pulumi.CustomResource {
     /**
      * Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
      */
-    declare public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a SerialConsoleAccess resource with the given unique name, arguments, and options.
@@ -72,10 +72,10 @@ export class SerialConsoleAccess extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SerialConsoleAccessState | undefined;
-            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
         } else {
             const args = argsOrState as SerialConsoleAccessArgs | undefined;
-            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SerialConsoleAccess.__pulumiType, name, resourceInputs, opts);

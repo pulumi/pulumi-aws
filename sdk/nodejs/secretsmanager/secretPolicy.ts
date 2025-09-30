@@ -73,21 +73,21 @@ export class SecretPolicy extends pulumi.CustomResource {
     /**
      * Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
      */
-    declare public readonly blockPublicPolicy: pulumi.Output<boolean | undefined>;
+    public readonly blockPublicPolicy!: pulumi.Output<boolean | undefined>;
     /**
      * Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `aws.secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
      */
-    declare public readonly policy: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Secret ARN.
      *
      * The following arguments are optional:
      */
-    declare public readonly secretArn: pulumi.Output<string>;
+    public readonly secretArn!: pulumi.Output<string>;
 
     /**
      * Create a SecretPolicy resource with the given unique name, arguments, and options.
@@ -102,22 +102,22 @@ export class SecretPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecretPolicyState | undefined;
-            resourceInputs["blockPublicPolicy"] = state?.blockPublicPolicy;
-            resourceInputs["policy"] = state?.policy;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["secretArn"] = state?.secretArn;
+            resourceInputs["blockPublicPolicy"] = state ? state.blockPublicPolicy : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["secretArn"] = state ? state.secretArn : undefined;
         } else {
             const args = argsOrState as SecretPolicyArgs | undefined;
-            if (args?.policy === undefined && !opts.urn) {
+            if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            if (args?.secretArn === undefined && !opts.urn) {
+            if ((!args || args.secretArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'secretArn'");
             }
-            resourceInputs["blockPublicPolicy"] = args?.blockPublicPolicy;
-            resourceInputs["policy"] = args?.policy;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["secretArn"] = args?.secretArn;
+            resourceInputs["blockPublicPolicy"] = args ? args.blockPublicPolicy : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["secretArn"] = args ? args.secretArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SecretPolicy.__pulumiType, name, resourceInputs, opts);

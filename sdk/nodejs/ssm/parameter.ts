@@ -95,65 +95,65 @@ export class Parameter extends pulumi.CustomResource {
     /**
      * Regular expression used to validate the parameter value.
      */
-    declare public readonly allowedPattern: pulumi.Output<string | undefined>;
+    public readonly allowedPattern!: pulumi.Output<string | undefined>;
     /**
      * ARN of the parameter.
      */
-    declare public readonly arn: pulumi.Output<string>;
+    public readonly arn!: pulumi.Output<string>;
     /**
      * Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
      */
-    declare public readonly dataType: pulumi.Output<string>;
+    public readonly dataType!: pulumi.Output<string>;
     /**
      * Description of the parameter.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
      */
-    declare public readonly insecureValue: pulumi.Output<string>;
+    public readonly insecureValue!: pulumi.Output<string>;
     /**
      * KMS key ID or ARN for encrypting a SecureString.
      */
-    declare public readonly keyId: pulumi.Output<string>;
+    public readonly keyId!: pulumi.Output<string>;
     /**
      * Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
      */
-    declare public readonly overwrite: pulumi.Output<boolean | undefined>;
+    public readonly overwrite!: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
      */
-    declare public readonly tier: pulumi.Output<string>;
+    public readonly tier!: pulumi.Output<string>;
     /**
      * Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
      *
      * The following arguments are optional:
      */
-    declare public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
     /**
      * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
      */
-    declare public readonly value: pulumi.Output<string>;
+    public readonly value!: pulumi.Output<string>;
     /**
      * Version of the parameter.
      */
-    declare public /*out*/ readonly version: pulumi.Output<number>;
+    public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
      * Create a Parameter resource with the given unique name, arguments, and options.
@@ -168,38 +168,38 @@ export class Parameter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ParameterState | undefined;
-            resourceInputs["allowedPattern"] = state?.allowedPattern;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["dataType"] = state?.dataType;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["insecureValue"] = state?.insecureValue;
-            resourceInputs["keyId"] = state?.keyId;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["overwrite"] = state?.overwrite;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["tier"] = state?.tier;
-            resourceInputs["type"] = state?.type;
-            resourceInputs["value"] = state?.value;
-            resourceInputs["version"] = state?.version;
+            resourceInputs["allowedPattern"] = state ? state.allowedPattern : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["dataType"] = state ? state.dataType : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["insecureValue"] = state ? state.insecureValue : undefined;
+            resourceInputs["keyId"] = state ? state.keyId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["overwrite"] = state ? state.overwrite : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["tier"] = state ? state.tier : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["value"] = state ? state.value : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ParameterArgs | undefined;
-            if (args?.type === undefined && !opts.urn) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["allowedPattern"] = args?.allowedPattern;
-            resourceInputs["arn"] = args?.arn;
-            resourceInputs["dataType"] = args?.dataType;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["insecureValue"] = args?.insecureValue;
-            resourceInputs["keyId"] = args?.keyId;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["overwrite"] = args?.overwrite;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["tier"] = args?.tier;
-            resourceInputs["type"] = args?.type;
+            resourceInputs["allowedPattern"] = args ? args.allowedPattern : undefined;
+            resourceInputs["arn"] = args ? args.arn : undefined;
+            resourceInputs["dataType"] = args ? args.dataType : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["insecureValue"] = args ? args.insecureValue : undefined;
+            resourceInputs["keyId"] = args ? args.keyId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["overwrite"] = args ? args.overwrite : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tier"] = args ? args.tier : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["value"] = args?.value ? pulumi.secret(args.value) : undefined;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;

@@ -60,27 +60,27 @@ export class StudioSessionMapping extends pulumi.CustomResource {
     /**
      * The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity Store.
      */
-    declare public readonly identityId: pulumi.Output<string>;
+    public readonly identityId!: pulumi.Output<string>;
     /**
      * The name of the user or group from the Amazon Web Services SSO Identity Store.
      */
-    declare public readonly identityName: pulumi.Output<string>;
+    public readonly identityName!: pulumi.Output<string>;
     /**
      * Specifies whether the identity to map to the Amazon EMR Studio is a `USER` or a `GROUP`.
      */
-    declare public readonly identityType: pulumi.Output<string>;
+    public readonly identityType!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
      */
-    declare public readonly sessionPolicyArn: pulumi.Output<string>;
+    public readonly sessionPolicyArn!: pulumi.Output<string>;
     /**
      * The ID of the Amazon EMR Studio to which the user or group will be mapped.
      */
-    declare public readonly studioId: pulumi.Output<string>;
+    public readonly studioId!: pulumi.Output<string>;
 
     /**
      * Create a StudioSessionMapping resource with the given unique name, arguments, and options.
@@ -95,29 +95,29 @@ export class StudioSessionMapping extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StudioSessionMappingState | undefined;
-            resourceInputs["identityId"] = state?.identityId;
-            resourceInputs["identityName"] = state?.identityName;
-            resourceInputs["identityType"] = state?.identityType;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["sessionPolicyArn"] = state?.sessionPolicyArn;
-            resourceInputs["studioId"] = state?.studioId;
+            resourceInputs["identityId"] = state ? state.identityId : undefined;
+            resourceInputs["identityName"] = state ? state.identityName : undefined;
+            resourceInputs["identityType"] = state ? state.identityType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["sessionPolicyArn"] = state ? state.sessionPolicyArn : undefined;
+            resourceInputs["studioId"] = state ? state.studioId : undefined;
         } else {
             const args = argsOrState as StudioSessionMappingArgs | undefined;
-            if (args?.identityType === undefined && !opts.urn) {
+            if ((!args || args.identityType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identityType'");
             }
-            if (args?.sessionPolicyArn === undefined && !opts.urn) {
+            if ((!args || args.sessionPolicyArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sessionPolicyArn'");
             }
-            if (args?.studioId === undefined && !opts.urn) {
+            if ((!args || args.studioId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'studioId'");
             }
-            resourceInputs["identityId"] = args?.identityId;
-            resourceInputs["identityName"] = args?.identityName;
-            resourceInputs["identityType"] = args?.identityType;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["sessionPolicyArn"] = args?.sessionPolicyArn;
-            resourceInputs["studioId"] = args?.studioId;
+            resourceInputs["identityId"] = args ? args.identityId : undefined;
+            resourceInputs["identityName"] = args ? args.identityName : undefined;
+            resourceInputs["identityType"] = args ? args.identityType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["sessionPolicyArn"] = args ? args.sessionPolicyArn : undefined;
+            resourceInputs["studioId"] = args ? args.studioId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(StudioSessionMapping.__pulumiType, name, resourceInputs, opts);

@@ -65,30 +65,30 @@ export class AgentAgentKnowledgeBaseAssociation extends pulumi.CustomResource {
     /**
      * Unique identifier of the agent with which you want to associate the knowledge base.
      */
-    declare public readonly agentId: pulumi.Output<string>;
+    public readonly agentId!: pulumi.Output<string>;
     /**
      * Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
      */
-    declare public readonly agentVersion: pulumi.Output<string>;
+    public readonly agentVersion!: pulumi.Output<string>;
     /**
      * Description of what the agent should use the knowledge base for.
      */
-    declare public readonly description: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * Unique identifier of the knowledge base to associate with the agent.
      */
-    declare public readonly knowledgeBaseId: pulumi.Output<string>;
+    public readonly knowledgeBaseId!: pulumi.Output<string>;
     /**
      * Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
      *
      * The following arguments are optional:
      */
-    declare public readonly knowledgeBaseState: pulumi.Output<string>;
+    public readonly knowledgeBaseState!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
-    declare public readonly timeouts: pulumi.Output<outputs.bedrock.AgentAgentKnowledgeBaseAssociationTimeouts | undefined>;
+    public readonly region!: pulumi.Output<string>;
+    public readonly timeouts!: pulumi.Output<outputs.bedrock.AgentAgentKnowledgeBaseAssociationTimeouts | undefined>;
 
     /**
      * Create a AgentAgentKnowledgeBaseAssociation resource with the given unique name, arguments, and options.
@@ -103,34 +103,34 @@ export class AgentAgentKnowledgeBaseAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AgentAgentKnowledgeBaseAssociationState | undefined;
-            resourceInputs["agentId"] = state?.agentId;
-            resourceInputs["agentVersion"] = state?.agentVersion;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["knowledgeBaseId"] = state?.knowledgeBaseId;
-            resourceInputs["knowledgeBaseState"] = state?.knowledgeBaseState;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["agentId"] = state ? state.agentId : undefined;
+            resourceInputs["agentVersion"] = state ? state.agentVersion : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["knowledgeBaseId"] = state ? state.knowledgeBaseId : undefined;
+            resourceInputs["knowledgeBaseState"] = state ? state.knowledgeBaseState : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as AgentAgentKnowledgeBaseAssociationArgs | undefined;
-            if (args?.agentId === undefined && !opts.urn) {
+            if ((!args || args.agentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'agentId'");
             }
-            if (args?.description === undefined && !opts.urn) {
+            if ((!args || args.description === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if (args?.knowledgeBaseId === undefined && !opts.urn) {
+            if ((!args || args.knowledgeBaseId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'knowledgeBaseId'");
             }
-            if (args?.knowledgeBaseState === undefined && !opts.urn) {
+            if ((!args || args.knowledgeBaseState === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'knowledgeBaseState'");
             }
-            resourceInputs["agentId"] = args?.agentId;
-            resourceInputs["agentVersion"] = args?.agentVersion;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["knowledgeBaseId"] = args?.knowledgeBaseId;
-            resourceInputs["knowledgeBaseState"] = args?.knowledgeBaseState;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["agentId"] = args ? args.agentId : undefined;
+            resourceInputs["agentVersion"] = args ? args.agentVersion : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["knowledgeBaseId"] = args ? args.knowledgeBaseId : undefined;
+            resourceInputs["knowledgeBaseState"] = args ? args.knowledgeBaseState : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AgentAgentKnowledgeBaseAssociation.__pulumiType, name, resourceInputs, opts);

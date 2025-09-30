@@ -74,15 +74,15 @@ export class XssMatchSet extends pulumi.CustomResource {
     /**
      * The name of the set
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The parts of web requests that you want to inspect for cross-site scripting attacks.
      */
-    declare public readonly xssMatchTuples: pulumi.Output<outputs.wafregional.XssMatchSetXssMatchTuple[] | undefined>;
+    public readonly xssMatchTuples!: pulumi.Output<outputs.wafregional.XssMatchSetXssMatchTuple[] | undefined>;
 
     /**
      * Create a XssMatchSet resource with the given unique name, arguments, and options.
@@ -97,14 +97,14 @@ export class XssMatchSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as XssMatchSetState | undefined;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["xssMatchTuples"] = state?.xssMatchTuples;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["xssMatchTuples"] = state ? state.xssMatchTuples : undefined;
         } else {
             const args = argsOrState as XssMatchSetArgs | undefined;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["xssMatchTuples"] = args?.xssMatchTuples;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["xssMatchTuples"] = args ? args.xssMatchTuples : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(XssMatchSet.__pulumiType, name, resourceInputs, opts);

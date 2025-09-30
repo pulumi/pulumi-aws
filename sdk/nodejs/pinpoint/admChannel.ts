@@ -62,23 +62,23 @@ export class AdmChannel extends pulumi.CustomResource {
     /**
      * The application ID.
      */
-    declare public readonly applicationId: pulumi.Output<string>;
+    public readonly applicationId!: pulumi.Output<string>;
     /**
      * Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
      */
-    declare public readonly clientId: pulumi.Output<string>;
+    public readonly clientId!: pulumi.Output<string>;
     /**
      * Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
      */
-    declare public readonly clientSecret: pulumi.Output<string>;
+    public readonly clientSecret!: pulumi.Output<string>;
     /**
      * Specifies whether to enable the channel. Defaults to `true`.
      */
-    declare public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a AdmChannel resource with the given unique name, arguments, and options.
@@ -93,27 +93,27 @@ export class AdmChannel extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AdmChannelState | undefined;
-            resourceInputs["applicationId"] = state?.applicationId;
-            resourceInputs["clientId"] = state?.clientId;
-            resourceInputs["clientSecret"] = state?.clientSecret;
-            resourceInputs["enabled"] = state?.enabled;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["applicationId"] = state ? state.applicationId : undefined;
+            resourceInputs["clientId"] = state ? state.clientId : undefined;
+            resourceInputs["clientSecret"] = state ? state.clientSecret : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as AdmChannelArgs | undefined;
-            if (args?.applicationId === undefined && !opts.urn) {
+            if ((!args || args.applicationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if (args?.clientId === undefined && !opts.urn) {
+            if ((!args || args.clientId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if (args?.clientSecret === undefined && !opts.urn) {
+            if ((!args || args.clientSecret === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clientSecret'");
             }
-            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
             resourceInputs["clientId"] = args?.clientId ? pulumi.secret(args.clientId) : undefined;
             resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
-            resourceInputs["enabled"] = args?.enabled;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["clientId", "clientSecret"] };

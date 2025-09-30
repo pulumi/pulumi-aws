@@ -58,15 +58,15 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The target.
      */
-    declare public readonly target: pulumi.Output<outputs.vpclattice.TargetGroupAttachmentTarget>;
+    public readonly target!: pulumi.Output<outputs.vpclattice.TargetGroupAttachmentTarget>;
     /**
      * The ID or Amazon Resource Name (ARN) of the target group.
      */
-    declare public readonly targetGroupIdentifier: pulumi.Output<string>;
+    public readonly targetGroupIdentifier!: pulumi.Output<string>;
 
     /**
      * Create a TargetGroupAttachment resource with the given unique name, arguments, and options.
@@ -81,20 +81,20 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TargetGroupAttachmentState | undefined;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["target"] = state?.target;
-            resourceInputs["targetGroupIdentifier"] = state?.targetGroupIdentifier;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["target"] = state ? state.target : undefined;
+            resourceInputs["targetGroupIdentifier"] = state ? state.targetGroupIdentifier : undefined;
         } else {
             const args = argsOrState as TargetGroupAttachmentArgs | undefined;
-            if (args?.target === undefined && !opts.urn) {
+            if ((!args || args.target === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'target'");
             }
-            if (args?.targetGroupIdentifier === undefined && !opts.urn) {
+            if ((!args || args.targetGroupIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetGroupIdentifier'");
             }
-            resourceInputs["region"] = args?.region;
-            resourceInputs["target"] = args?.target;
-            resourceInputs["targetGroupIdentifier"] = args?.targetGroupIdentifier;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["target"] = args ? args.target : undefined;
+            resourceInputs["targetGroupIdentifier"] = args ? args.targetGroupIdentifier : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TargetGroupAttachment.__pulumiType, name, resourceInputs, opts);

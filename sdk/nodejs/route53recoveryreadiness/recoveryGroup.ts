@@ -55,25 +55,25 @@ export class RecoveryGroup extends pulumi.CustomResource {
     /**
      * ARN of the recovery group
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * List of cell arns to add as nested fault domains within this recovery group
      */
-    declare public readonly cells: pulumi.Output<string[] | undefined>;
+    public readonly cells!: pulumi.Output<string[] | undefined>;
     /**
      * A unique name describing the recovery group.
      *
      * The following arguments are optional:
      */
-    declare public readonly recoveryGroupName: pulumi.Output<string>;
+    public readonly recoveryGroupName!: pulumi.Output<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a RecoveryGroup resource with the given unique name, arguments, and options.
@@ -88,19 +88,19 @@ export class RecoveryGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RecoveryGroupState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["cells"] = state?.cells;
-            resourceInputs["recoveryGroupName"] = state?.recoveryGroupName;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["cells"] = state ? state.cells : undefined;
+            resourceInputs["recoveryGroupName"] = state ? state.recoveryGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as RecoveryGroupArgs | undefined;
-            if (args?.recoveryGroupName === undefined && !opts.urn) {
+            if ((!args || args.recoveryGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'recoveryGroupName'");
             }
-            resourceInputs["cells"] = args?.cells;
-            resourceInputs["recoveryGroupName"] = args?.recoveryGroupName;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["cells"] = args ? args.cells : undefined;
+            resourceInputs["recoveryGroupName"] = args ? args.recoveryGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

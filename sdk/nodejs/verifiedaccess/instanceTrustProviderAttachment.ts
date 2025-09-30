@@ -67,15 +67,15 @@ export class InstanceTrustProviderAttachment extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ID of the Verified Access instance to attach the Trust Provider to.
      */
-    declare public readonly verifiedaccessInstanceId: pulumi.Output<string>;
+    public readonly verifiedaccessInstanceId!: pulumi.Output<string>;
     /**
      * The ID of the Verified Access trust provider.
      */
-    declare public readonly verifiedaccessTrustProviderId: pulumi.Output<string>;
+    public readonly verifiedaccessTrustProviderId!: pulumi.Output<string>;
 
     /**
      * Create a InstanceTrustProviderAttachment resource with the given unique name, arguments, and options.
@@ -90,20 +90,20 @@ export class InstanceTrustProviderAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InstanceTrustProviderAttachmentState | undefined;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["verifiedaccessInstanceId"] = state?.verifiedaccessInstanceId;
-            resourceInputs["verifiedaccessTrustProviderId"] = state?.verifiedaccessTrustProviderId;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["verifiedaccessInstanceId"] = state ? state.verifiedaccessInstanceId : undefined;
+            resourceInputs["verifiedaccessTrustProviderId"] = state ? state.verifiedaccessTrustProviderId : undefined;
         } else {
             const args = argsOrState as InstanceTrustProviderAttachmentArgs | undefined;
-            if (args?.verifiedaccessInstanceId === undefined && !opts.urn) {
+            if ((!args || args.verifiedaccessInstanceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'verifiedaccessInstanceId'");
             }
-            if (args?.verifiedaccessTrustProviderId === undefined && !opts.urn) {
+            if ((!args || args.verifiedaccessTrustProviderId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'verifiedaccessTrustProviderId'");
             }
-            resourceInputs["region"] = args?.region;
-            resourceInputs["verifiedaccessInstanceId"] = args?.verifiedaccessInstanceId;
-            resourceInputs["verifiedaccessTrustProviderId"] = args?.verifiedaccessTrustProviderId;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["verifiedaccessInstanceId"] = args ? args.verifiedaccessInstanceId : undefined;
+            resourceInputs["verifiedaccessTrustProviderId"] = args ? args.verifiedaccessTrustProviderId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(InstanceTrustProviderAttachment.__pulumiType, name, resourceInputs, opts);

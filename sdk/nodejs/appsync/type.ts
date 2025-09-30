@@ -69,31 +69,31 @@ export class Type extends pulumi.CustomResource {
     /**
      * GraphQL API ID.
      */
-    declare public readonly apiId: pulumi.Output<string>;
+    public readonly apiId!: pulumi.Output<string>;
     /**
      * The ARN of the type.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The type definition.
      */
-    declare public readonly definition: pulumi.Output<string>;
+    public readonly definition!: pulumi.Output<string>;
     /**
      * The type description.
      */
-    declare public /*out*/ readonly description: pulumi.Output<string>;
+    public /*out*/ readonly description!: pulumi.Output<string>;
     /**
      * The type format: `SDL` or `JSON`.
      */
-    declare public readonly format: pulumi.Output<string>;
+    public readonly format!: pulumi.Output<string>;
     /**
      * The type name.
      */
-    declare public /*out*/ readonly name: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a Type resource with the given unique name, arguments, and options.
@@ -108,28 +108,28 @@ export class Type extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TypeState | undefined;
-            resourceInputs["apiId"] = state?.apiId;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["definition"] = state?.definition;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["format"] = state?.format;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["apiId"] = state ? state.apiId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["definition"] = state ? state.definition : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["format"] = state ? state.format : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as TypeArgs | undefined;
-            if (args?.apiId === undefined && !opts.urn) {
+            if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if (args?.definition === undefined && !opts.urn) {
+            if ((!args || args.definition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'definition'");
             }
-            if (args?.format === undefined && !opts.urn) {
+            if ((!args || args.format === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'format'");
             }
-            resourceInputs["apiId"] = args?.apiId;
-            resourceInputs["definition"] = args?.definition;
-            resourceInputs["format"] = args?.format;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["definition"] = args ? args.definition : undefined;
+            resourceInputs["format"] = args ? args.format : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

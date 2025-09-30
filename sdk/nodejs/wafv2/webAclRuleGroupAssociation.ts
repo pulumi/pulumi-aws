@@ -389,34 +389,34 @@ export class WebAclRuleGroupAssociation extends pulumi.CustomResource {
     /**
      * Managed Rule Group configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `ruleGroupReference`. See below.
      */
-    declare public readonly managedRuleGroup: pulumi.Output<outputs.wafv2.WebAclRuleGroupAssociationManagedRuleGroup | undefined>;
+    public readonly managedRuleGroup!: pulumi.Output<outputs.wafv2.WebAclRuleGroupAssociationManagedRuleGroup | undefined>;
     /**
      * Override action for the rule group. Valid values are `none` and `count`. Defaults to `none`. When set to `count`, the actions defined in the rule group rules are overridden to count matches instead of blocking or allowing requests.
      */
-    declare public readonly overrideAction: pulumi.Output<string>;
+    public readonly overrideAction!: pulumi.Output<string>;
     /**
      * Priority of the rule within the Web ACL. Rules are evaluated in order of priority, with lower numbers evaluated first.
      */
-    declare public readonly priority: pulumi.Output<number>;
+    public readonly priority!: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Custom Rule Group reference configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `managedRuleGroup`. See below.
      */
-    declare public readonly ruleGroupReference: pulumi.Output<outputs.wafv2.WebAclRuleGroupAssociationRuleGroupReference | undefined>;
+    public readonly ruleGroupReference!: pulumi.Output<outputs.wafv2.WebAclRuleGroupAssociationRuleGroupReference | undefined>;
     /**
      * Name of the rule to create in the Web ACL that references the rule group. Must be between 1 and 128 characters.
      */
-    declare public readonly ruleName: pulumi.Output<string>;
-    declare public readonly timeouts: pulumi.Output<outputs.wafv2.WebAclRuleGroupAssociationTimeouts | undefined>;
+    public readonly ruleName!: pulumi.Output<string>;
+    public readonly timeouts!: pulumi.Output<outputs.wafv2.WebAclRuleGroupAssociationTimeouts | undefined>;
     /**
      * ARN of the Web ACL to associate the Rule Group with.
      *
      * The following arguments are optional:
      */
-    declare public readonly webAclArn: pulumi.Output<string>;
+    public readonly webAclArn!: pulumi.Output<string>;
 
     /**
      * Create a WebAclRuleGroupAssociation resource with the given unique name, arguments, and options.
@@ -431,33 +431,33 @@ export class WebAclRuleGroupAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebAclRuleGroupAssociationState | undefined;
-            resourceInputs["managedRuleGroup"] = state?.managedRuleGroup;
-            resourceInputs["overrideAction"] = state?.overrideAction;
-            resourceInputs["priority"] = state?.priority;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["ruleGroupReference"] = state?.ruleGroupReference;
-            resourceInputs["ruleName"] = state?.ruleName;
-            resourceInputs["timeouts"] = state?.timeouts;
-            resourceInputs["webAclArn"] = state?.webAclArn;
+            resourceInputs["managedRuleGroup"] = state ? state.managedRuleGroup : undefined;
+            resourceInputs["overrideAction"] = state ? state.overrideAction : undefined;
+            resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["ruleGroupReference"] = state ? state.ruleGroupReference : undefined;
+            resourceInputs["ruleName"] = state ? state.ruleName : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["webAclArn"] = state ? state.webAclArn : undefined;
         } else {
             const args = argsOrState as WebAclRuleGroupAssociationArgs | undefined;
-            if (args?.priority === undefined && !opts.urn) {
+            if ((!args || args.priority === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            if (args?.ruleName === undefined && !opts.urn) {
+            if ((!args || args.ruleName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleName'");
             }
-            if (args?.webAclArn === undefined && !opts.urn) {
+            if ((!args || args.webAclArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'webAclArn'");
             }
-            resourceInputs["managedRuleGroup"] = args?.managedRuleGroup;
-            resourceInputs["overrideAction"] = args?.overrideAction;
-            resourceInputs["priority"] = args?.priority;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["ruleGroupReference"] = args?.ruleGroupReference;
-            resourceInputs["ruleName"] = args?.ruleName;
-            resourceInputs["timeouts"] = args?.timeouts;
-            resourceInputs["webAclArn"] = args?.webAclArn;
+            resourceInputs["managedRuleGroup"] = args ? args.managedRuleGroup : undefined;
+            resourceInputs["overrideAction"] = args ? args.overrideAction : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["ruleGroupReference"] = args ? args.ruleGroupReference : undefined;
+            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["webAclArn"] = args ? args.webAclArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(WebAclRuleGroupAssociation.__pulumiType, name, resourceInputs, opts);

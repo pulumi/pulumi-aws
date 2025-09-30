@@ -151,22 +151,22 @@ export class GameServerGroup extends pulumi.CustomResource {
     /**
      * The ARN of the GameLift Game Server Group.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The ARN of the created EC2 Auto Scaling group.
      */
-    declare public /*out*/ readonly autoScalingGroupArn: pulumi.Output<string>;
-    declare public readonly autoScalingPolicy: pulumi.Output<outputs.gamelift.GameServerGroupAutoScalingPolicy | undefined>;
+    public /*out*/ readonly autoScalingGroupArn!: pulumi.Output<string>;
+    public readonly autoScalingPolicy!: pulumi.Output<outputs.gamelift.GameServerGroupAutoScalingPolicy | undefined>;
     /**
      * Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
      * Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
      */
-    declare public readonly balancingStrategy: pulumi.Output<string>;
+    public readonly balancingStrategy!: pulumi.Output<string>;
     /**
      * Name of the game server group.
      * This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
      */
-    declare public readonly gameServerGroupName: pulumi.Output<string>;
+    public readonly gameServerGroupName!: pulumi.Output<string>;
     /**
      * Indicates whether instances in the game server group are protected from early termination.
      * Unprotected instances that have active game servers running might be terminated during a scale-down event,
@@ -175,37 +175,37 @@ export class GameServerGroup extends pulumi.CustomResource {
      * of a forced game server group deletion.
      * Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
      */
-    declare public readonly gameServerProtectionPolicy: pulumi.Output<string>;
-    declare public readonly instanceDefinitions: pulumi.Output<outputs.gamelift.GameServerGroupInstanceDefinition[]>;
-    declare public readonly launchTemplate: pulumi.Output<outputs.gamelift.GameServerGroupLaunchTemplate>;
+    public readonly gameServerProtectionPolicy!: pulumi.Output<string>;
+    public readonly instanceDefinitions!: pulumi.Output<outputs.gamelift.GameServerGroupInstanceDefinition[]>;
+    public readonly launchTemplate!: pulumi.Output<outputs.gamelift.GameServerGroupLaunchTemplate>;
     /**
      * The maximum number of instances allowed in the EC2 Auto Scaling group.
      * During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
      */
-    declare public readonly maxSize: pulumi.Output<number>;
+    public readonly maxSize!: pulumi.Output<number>;
     /**
      * The minimum number of instances allowed in the EC2 Auto Scaling group.
      * During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
      */
-    declare public readonly minSize: pulumi.Output<number>;
+    public readonly minSize!: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
      */
-    declare public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * A list of VPC subnets to use with instances in the game server group.
      * By default, all GameLift FleetIQ-supported Availability Zones are used.
      */
-    declare public readonly vpcSubnets: pulumi.Output<string[] | undefined>;
+    public readonly vpcSubnets!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a GameServerGroup resource with the given unique name, arguments, and options.
@@ -220,53 +220,53 @@ export class GameServerGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GameServerGroupState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["autoScalingGroupArn"] = state?.autoScalingGroupArn;
-            resourceInputs["autoScalingPolicy"] = state?.autoScalingPolicy;
-            resourceInputs["balancingStrategy"] = state?.balancingStrategy;
-            resourceInputs["gameServerGroupName"] = state?.gameServerGroupName;
-            resourceInputs["gameServerProtectionPolicy"] = state?.gameServerProtectionPolicy;
-            resourceInputs["instanceDefinitions"] = state?.instanceDefinitions;
-            resourceInputs["launchTemplate"] = state?.launchTemplate;
-            resourceInputs["maxSize"] = state?.maxSize;
-            resourceInputs["minSize"] = state?.minSize;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["roleArn"] = state?.roleArn;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["vpcSubnets"] = state?.vpcSubnets;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["autoScalingGroupArn"] = state ? state.autoScalingGroupArn : undefined;
+            resourceInputs["autoScalingPolicy"] = state ? state.autoScalingPolicy : undefined;
+            resourceInputs["balancingStrategy"] = state ? state.balancingStrategy : undefined;
+            resourceInputs["gameServerGroupName"] = state ? state.gameServerGroupName : undefined;
+            resourceInputs["gameServerProtectionPolicy"] = state ? state.gameServerProtectionPolicy : undefined;
+            resourceInputs["instanceDefinitions"] = state ? state.instanceDefinitions : undefined;
+            resourceInputs["launchTemplate"] = state ? state.launchTemplate : undefined;
+            resourceInputs["maxSize"] = state ? state.maxSize : undefined;
+            resourceInputs["minSize"] = state ? state.minSize : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcSubnets"] = state ? state.vpcSubnets : undefined;
         } else {
             const args = argsOrState as GameServerGroupArgs | undefined;
-            if (args?.gameServerGroupName === undefined && !opts.urn) {
+            if ((!args || args.gameServerGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'gameServerGroupName'");
             }
-            if (args?.instanceDefinitions === undefined && !opts.urn) {
+            if ((!args || args.instanceDefinitions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceDefinitions'");
             }
-            if (args?.launchTemplate === undefined && !opts.urn) {
+            if ((!args || args.launchTemplate === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'launchTemplate'");
             }
-            if (args?.maxSize === undefined && !opts.urn) {
+            if ((!args || args.maxSize === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'maxSize'");
             }
-            if (args?.minSize === undefined && !opts.urn) {
+            if ((!args || args.minSize === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'minSize'");
             }
-            if (args?.roleArn === undefined && !opts.urn) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["autoScalingPolicy"] = args?.autoScalingPolicy;
-            resourceInputs["balancingStrategy"] = args?.balancingStrategy;
-            resourceInputs["gameServerGroupName"] = args?.gameServerGroupName;
-            resourceInputs["gameServerProtectionPolicy"] = args?.gameServerProtectionPolicy;
-            resourceInputs["instanceDefinitions"] = args?.instanceDefinitions;
-            resourceInputs["launchTemplate"] = args?.launchTemplate;
-            resourceInputs["maxSize"] = args?.maxSize;
-            resourceInputs["minSize"] = args?.minSize;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["roleArn"] = args?.roleArn;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["vpcSubnets"] = args?.vpcSubnets;
+            resourceInputs["autoScalingPolicy"] = args ? args.autoScalingPolicy : undefined;
+            resourceInputs["balancingStrategy"] = args ? args.balancingStrategy : undefined;
+            resourceInputs["gameServerGroupName"] = args ? args.gameServerGroupName : undefined;
+            resourceInputs["gameServerProtectionPolicy"] = args ? args.gameServerProtectionPolicy : undefined;
+            resourceInputs["instanceDefinitions"] = args ? args.instanceDefinitions : undefined;
+            resourceInputs["launchTemplate"] = args ? args.launchTemplate : undefined;
+            resourceInputs["maxSize"] = args ? args.maxSize : undefined;
+            resourceInputs["minSize"] = args ? args.minSize : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcSubnets"] = args ? args.vpcSubnets : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["autoScalingGroupArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

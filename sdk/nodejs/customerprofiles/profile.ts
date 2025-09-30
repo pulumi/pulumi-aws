@@ -60,97 +60,97 @@ export class Profile extends pulumi.CustomResource {
     /**
      * A unique account number that you have given to the customer.
      */
-    declare public readonly accountNumber: pulumi.Output<string | undefined>;
+    public readonly accountNumber!: pulumi.Output<string | undefined>;
     /**
      * Any additional information relevant to the customer’s profile.
      */
-    declare public readonly additionalInformation: pulumi.Output<string | undefined>;
+    public readonly additionalInformation!: pulumi.Output<string | undefined>;
     /**
      * A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
      */
-    declare public readonly address: pulumi.Output<outputs.customerprofiles.ProfileAddress | undefined>;
+    public readonly address!: pulumi.Output<outputs.customerprofiles.ProfileAddress | undefined>;
     /**
      * A key value pair of attributes of a customer profile.
      */
-    declare public readonly attributes: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly attributes!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A block that specifies the customer’s billing address. Documented below.
      */
-    declare public readonly billingAddress: pulumi.Output<outputs.customerprofiles.ProfileBillingAddress | undefined>;
+    public readonly billingAddress!: pulumi.Output<outputs.customerprofiles.ProfileBillingAddress | undefined>;
     /**
      * The customer’s birth date.
      */
-    declare public readonly birthDate: pulumi.Output<string | undefined>;
+    public readonly birthDate!: pulumi.Output<string | undefined>;
     /**
      * The customer’s business email address.
      */
-    declare public readonly businessEmailAddress: pulumi.Output<string | undefined>;
+    public readonly businessEmailAddress!: pulumi.Output<string | undefined>;
     /**
      * The name of the customer’s business.
      */
-    declare public readonly businessName: pulumi.Output<string | undefined>;
+    public readonly businessName!: pulumi.Output<string | undefined>;
     /**
      * The customer’s business phone number.
      */
-    declare public readonly businessPhoneNumber: pulumi.Output<string | undefined>;
+    public readonly businessPhoneNumber!: pulumi.Output<string | undefined>;
     /**
      * The name of your Customer Profile domain. It must be unique for your AWS account.
      *
      * The following arguments are optional:
      */
-    declare public readonly domainName: pulumi.Output<string>;
+    public readonly domainName!: pulumi.Output<string>;
     /**
      * The customer’s email address, which has not been specified as a personal or business address.
      */
-    declare public readonly emailAddress: pulumi.Output<string | undefined>;
+    public readonly emailAddress!: pulumi.Output<string | undefined>;
     /**
      * The customer’s first name.
      */
-    declare public readonly firstName: pulumi.Output<string | undefined>;
+    public readonly firstName!: pulumi.Output<string | undefined>;
     /**
      * The gender with which the customer identifies.
      */
-    declare public readonly genderString: pulumi.Output<string | undefined>;
+    public readonly genderString!: pulumi.Output<string | undefined>;
     /**
      * The customer’s home phone number.
      */
-    declare public readonly homePhoneNumber: pulumi.Output<string | undefined>;
+    public readonly homePhoneNumber!: pulumi.Output<string | undefined>;
     /**
      * The customer’s last name.
      */
-    declare public readonly lastName: pulumi.Output<string | undefined>;
+    public readonly lastName!: pulumi.Output<string | undefined>;
     /**
      * A block that specifies the customer’s mailing address. Documented below.
      */
-    declare public readonly mailingAddress: pulumi.Output<outputs.customerprofiles.ProfileMailingAddress | undefined>;
+    public readonly mailingAddress!: pulumi.Output<outputs.customerprofiles.ProfileMailingAddress | undefined>;
     /**
      * The customer’s middle name.
      */
-    declare public readonly middleName: pulumi.Output<string | undefined>;
+    public readonly middleName!: pulumi.Output<string | undefined>;
     /**
      * The customer’s mobile phone number.
      */
-    declare public readonly mobilePhoneNumber: pulumi.Output<string | undefined>;
+    public readonly mobilePhoneNumber!: pulumi.Output<string | undefined>;
     /**
      * The type of profile used to describe the customer.
      */
-    declare public readonly partyTypeString: pulumi.Output<string | undefined>;
+    public readonly partyTypeString!: pulumi.Output<string | undefined>;
     /**
      * The customer’s personal email address.
      */
-    declare public readonly personalEmailAddress: pulumi.Output<string | undefined>;
+    public readonly personalEmailAddress!: pulumi.Output<string | undefined>;
     /**
      * The customer’s phone number, which has not been specified as a mobile, home, or business number.
      */
-    declare public readonly phoneNumber: pulumi.Output<string | undefined>;
+    public readonly phoneNumber!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A block that specifies the customer’s shipping address. Documented below.
      */
-    declare public readonly shippingAddress: pulumi.Output<outputs.customerprofiles.ProfileShippingAddress | undefined>;
+    public readonly shippingAddress!: pulumi.Output<outputs.customerprofiles.ProfileShippingAddress | undefined>;
 
     /**
      * Create a Profile resource with the given unique name, arguments, and options.
@@ -165,57 +165,57 @@ export class Profile extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProfileState | undefined;
-            resourceInputs["accountNumber"] = state?.accountNumber;
-            resourceInputs["additionalInformation"] = state?.additionalInformation;
-            resourceInputs["address"] = state?.address;
-            resourceInputs["attributes"] = state?.attributes;
-            resourceInputs["billingAddress"] = state?.billingAddress;
-            resourceInputs["birthDate"] = state?.birthDate;
-            resourceInputs["businessEmailAddress"] = state?.businessEmailAddress;
-            resourceInputs["businessName"] = state?.businessName;
-            resourceInputs["businessPhoneNumber"] = state?.businessPhoneNumber;
-            resourceInputs["domainName"] = state?.domainName;
-            resourceInputs["emailAddress"] = state?.emailAddress;
-            resourceInputs["firstName"] = state?.firstName;
-            resourceInputs["genderString"] = state?.genderString;
-            resourceInputs["homePhoneNumber"] = state?.homePhoneNumber;
-            resourceInputs["lastName"] = state?.lastName;
-            resourceInputs["mailingAddress"] = state?.mailingAddress;
-            resourceInputs["middleName"] = state?.middleName;
-            resourceInputs["mobilePhoneNumber"] = state?.mobilePhoneNumber;
-            resourceInputs["partyTypeString"] = state?.partyTypeString;
-            resourceInputs["personalEmailAddress"] = state?.personalEmailAddress;
-            resourceInputs["phoneNumber"] = state?.phoneNumber;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["shippingAddress"] = state?.shippingAddress;
+            resourceInputs["accountNumber"] = state ? state.accountNumber : undefined;
+            resourceInputs["additionalInformation"] = state ? state.additionalInformation : undefined;
+            resourceInputs["address"] = state ? state.address : undefined;
+            resourceInputs["attributes"] = state ? state.attributes : undefined;
+            resourceInputs["billingAddress"] = state ? state.billingAddress : undefined;
+            resourceInputs["birthDate"] = state ? state.birthDate : undefined;
+            resourceInputs["businessEmailAddress"] = state ? state.businessEmailAddress : undefined;
+            resourceInputs["businessName"] = state ? state.businessName : undefined;
+            resourceInputs["businessPhoneNumber"] = state ? state.businessPhoneNumber : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["emailAddress"] = state ? state.emailAddress : undefined;
+            resourceInputs["firstName"] = state ? state.firstName : undefined;
+            resourceInputs["genderString"] = state ? state.genderString : undefined;
+            resourceInputs["homePhoneNumber"] = state ? state.homePhoneNumber : undefined;
+            resourceInputs["lastName"] = state ? state.lastName : undefined;
+            resourceInputs["mailingAddress"] = state ? state.mailingAddress : undefined;
+            resourceInputs["middleName"] = state ? state.middleName : undefined;
+            resourceInputs["mobilePhoneNumber"] = state ? state.mobilePhoneNumber : undefined;
+            resourceInputs["partyTypeString"] = state ? state.partyTypeString : undefined;
+            resourceInputs["personalEmailAddress"] = state ? state.personalEmailAddress : undefined;
+            resourceInputs["phoneNumber"] = state ? state.phoneNumber : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["shippingAddress"] = state ? state.shippingAddress : undefined;
         } else {
             const args = argsOrState as ProfileArgs | undefined;
-            if (args?.domainName === undefined && !opts.urn) {
+            if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            resourceInputs["accountNumber"] = args?.accountNumber;
-            resourceInputs["additionalInformation"] = args?.additionalInformation;
-            resourceInputs["address"] = args?.address;
-            resourceInputs["attributes"] = args?.attributes;
-            resourceInputs["billingAddress"] = args?.billingAddress;
-            resourceInputs["birthDate"] = args?.birthDate;
-            resourceInputs["businessEmailAddress"] = args?.businessEmailAddress;
-            resourceInputs["businessName"] = args?.businessName;
-            resourceInputs["businessPhoneNumber"] = args?.businessPhoneNumber;
-            resourceInputs["domainName"] = args?.domainName;
-            resourceInputs["emailAddress"] = args?.emailAddress;
-            resourceInputs["firstName"] = args?.firstName;
-            resourceInputs["genderString"] = args?.genderString;
-            resourceInputs["homePhoneNumber"] = args?.homePhoneNumber;
-            resourceInputs["lastName"] = args?.lastName;
-            resourceInputs["mailingAddress"] = args?.mailingAddress;
-            resourceInputs["middleName"] = args?.middleName;
-            resourceInputs["mobilePhoneNumber"] = args?.mobilePhoneNumber;
-            resourceInputs["partyTypeString"] = args?.partyTypeString;
-            resourceInputs["personalEmailAddress"] = args?.personalEmailAddress;
-            resourceInputs["phoneNumber"] = args?.phoneNumber;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["shippingAddress"] = args?.shippingAddress;
+            resourceInputs["accountNumber"] = args ? args.accountNumber : undefined;
+            resourceInputs["additionalInformation"] = args ? args.additionalInformation : undefined;
+            resourceInputs["address"] = args ? args.address : undefined;
+            resourceInputs["attributes"] = args ? args.attributes : undefined;
+            resourceInputs["billingAddress"] = args ? args.billingAddress : undefined;
+            resourceInputs["birthDate"] = args ? args.birthDate : undefined;
+            resourceInputs["businessEmailAddress"] = args ? args.businessEmailAddress : undefined;
+            resourceInputs["businessName"] = args ? args.businessName : undefined;
+            resourceInputs["businessPhoneNumber"] = args ? args.businessPhoneNumber : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["emailAddress"] = args ? args.emailAddress : undefined;
+            resourceInputs["firstName"] = args ? args.firstName : undefined;
+            resourceInputs["genderString"] = args ? args.genderString : undefined;
+            resourceInputs["homePhoneNumber"] = args ? args.homePhoneNumber : undefined;
+            resourceInputs["lastName"] = args ? args.lastName : undefined;
+            resourceInputs["mailingAddress"] = args ? args.mailingAddress : undefined;
+            resourceInputs["middleName"] = args ? args.middleName : undefined;
+            resourceInputs["mobilePhoneNumber"] = args ? args.mobilePhoneNumber : undefined;
+            resourceInputs["partyTypeString"] = args ? args.partyTypeString : undefined;
+            resourceInputs["personalEmailAddress"] = args ? args.personalEmailAddress : undefined;
+            resourceInputs["phoneNumber"] = args ? args.phoneNumber : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["shippingAddress"] = args ? args.shippingAddress : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Profile.__pulumiType, name, resourceInputs, opts);

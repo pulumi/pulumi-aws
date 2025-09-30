@@ -135,23 +135,23 @@ export class BucketVersioningV2 extends pulumi.CustomResource {
     /**
      * Name of the S3 bucket.
      */
-    declare public readonly bucket: pulumi.Output<string>;
+    public readonly bucket!: pulumi.Output<string>;
     /**
      * Account ID of the expected bucket owner.
      */
-    declare public readonly expectedBucketOwner: pulumi.Output<string | undefined>;
+    public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
     /**
      * Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
      */
-    declare public readonly mfa: pulumi.Output<string | undefined>;
+    public readonly mfa!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Configuration block for the versioning parameters. See below.
      */
-    declare public readonly versioningConfiguration: pulumi.Output<outputs.s3.BucketVersioningV2VersioningConfiguration>;
+    public readonly versioningConfiguration!: pulumi.Output<outputs.s3.BucketVersioningV2VersioningConfiguration>;
 
     /**
      * Create a BucketVersioningV2 resource with the given unique name, arguments, and options.
@@ -169,24 +169,24 @@ export class BucketVersioningV2 extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketVersioningV2State | undefined;
-            resourceInputs["bucket"] = state?.bucket;
-            resourceInputs["expectedBucketOwner"] = state?.expectedBucketOwner;
-            resourceInputs["mfa"] = state?.mfa;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["versioningConfiguration"] = state?.versioningConfiguration;
+            resourceInputs["bucket"] = state ? state.bucket : undefined;
+            resourceInputs["expectedBucketOwner"] = state ? state.expectedBucketOwner : undefined;
+            resourceInputs["mfa"] = state ? state.mfa : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["versioningConfiguration"] = state ? state.versioningConfiguration : undefined;
         } else {
             const args = argsOrState as BucketVersioningV2Args | undefined;
-            if (args?.bucket === undefined && !opts.urn) {
+            if ((!args || args.bucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            if (args?.versioningConfiguration === undefined && !opts.urn) {
+            if ((!args || args.versioningConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'versioningConfiguration'");
             }
-            resourceInputs["bucket"] = args?.bucket;
-            resourceInputs["expectedBucketOwner"] = args?.expectedBucketOwner;
-            resourceInputs["mfa"] = args?.mfa;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["versioningConfiguration"] = args?.versioningConfiguration;
+            resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
+            resourceInputs["mfa"] = args ? args.mfa : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["versioningConfiguration"] = args ? args.versioningConfiguration : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:s3/bucketVersioningV2:BucketVersioningV2" }] };

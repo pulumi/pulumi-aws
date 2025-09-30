@@ -70,15 +70,15 @@ export class IpSet extends pulumi.CustomResource {
     /**
      * The ARN of the WAF IPSet.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
      */
-    declare public readonly ipSetDescriptors: pulumi.Output<outputs.waf.IpSetIpSetDescriptor[] | undefined>;
+    public readonly ipSetDescriptors!: pulumi.Output<outputs.waf.IpSetIpSetDescriptor[] | undefined>;
     /**
      * The name or description of the IPSet.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
 
     /**
      * Create a IpSet resource with the given unique name, arguments, and options.
@@ -93,13 +93,13 @@ export class IpSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IpSetState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["ipSetDescriptors"] = state?.ipSetDescriptors;
-            resourceInputs["name"] = state?.name;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["ipSetDescriptors"] = state ? state.ipSetDescriptors : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as IpSetArgs | undefined;
-            resourceInputs["ipSetDescriptors"] = args?.ipSetDescriptors;
-            resourceInputs["name"] = args?.name;
+            resourceInputs["ipSetDescriptors"] = args ? args.ipSetDescriptors : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

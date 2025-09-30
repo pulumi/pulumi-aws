@@ -58,31 +58,31 @@ export class ThingType extends pulumi.CustomResource {
     /**
      * The ARN of the created AWS IoT Thing Type.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Whether the thing type is deprecated. If true, no new things could be associated with this type.
      */
-    declare public readonly deprecated: pulumi.Output<boolean | undefined>;
+    public readonly deprecated!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the thing type.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * , Configuration block that can contain the following properties of the thing type:
      */
-    declare public readonly properties: pulumi.Output<outputs.iot.ThingTypeProperties | undefined>;
+    public readonly properties!: pulumi.Output<outputs.iot.ThingTypeProperties | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ThingType resource with the given unique name, arguments, and options.
@@ -97,20 +97,20 @@ export class ThingType extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ThingTypeState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["deprecated"] = state?.deprecated;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["properties"] = state?.properties;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["deprecated"] = state ? state.deprecated : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["properties"] = state ? state.properties : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ThingTypeArgs | undefined;
-            resourceInputs["deprecated"] = args?.deprecated;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["properties"] = args?.properties;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["deprecated"] = args ? args.deprecated : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

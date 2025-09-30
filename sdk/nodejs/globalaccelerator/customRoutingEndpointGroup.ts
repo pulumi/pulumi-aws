@@ -68,23 +68,23 @@ export class CustomRoutingEndpointGroup extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the custom routing endpoint group.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
      */
-    declare public readonly destinationConfigurations: pulumi.Output<outputs.globalaccelerator.CustomRoutingEndpointGroupDestinationConfiguration[]>;
+    public readonly destinationConfigurations!: pulumi.Output<outputs.globalaccelerator.CustomRoutingEndpointGroupDestinationConfiguration[]>;
     /**
      * The list of endpoint objects. Fields documented below.
      */
-    declare public readonly endpointConfigurations: pulumi.Output<outputs.globalaccelerator.CustomRoutingEndpointGroupEndpointConfiguration[] | undefined>;
+    public readonly endpointConfigurations!: pulumi.Output<outputs.globalaccelerator.CustomRoutingEndpointGroupEndpointConfiguration[] | undefined>;
     /**
      * The name of the AWS Region where the custom routing endpoint group is located.
      */
-    declare public readonly endpointGroupRegion: pulumi.Output<string>;
+    public readonly endpointGroupRegion!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the custom routing listener.
      */
-    declare public readonly listenerArn: pulumi.Output<string>;
+    public readonly listenerArn!: pulumi.Output<string>;
 
     /**
      * Create a CustomRoutingEndpointGroup resource with the given unique name, arguments, and options.
@@ -99,23 +99,23 @@ export class CustomRoutingEndpointGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomRoutingEndpointGroupState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["destinationConfigurations"] = state?.destinationConfigurations;
-            resourceInputs["endpointConfigurations"] = state?.endpointConfigurations;
-            resourceInputs["endpointGroupRegion"] = state?.endpointGroupRegion;
-            resourceInputs["listenerArn"] = state?.listenerArn;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["destinationConfigurations"] = state ? state.destinationConfigurations : undefined;
+            resourceInputs["endpointConfigurations"] = state ? state.endpointConfigurations : undefined;
+            resourceInputs["endpointGroupRegion"] = state ? state.endpointGroupRegion : undefined;
+            resourceInputs["listenerArn"] = state ? state.listenerArn : undefined;
         } else {
             const args = argsOrState as CustomRoutingEndpointGroupArgs | undefined;
-            if (args?.destinationConfigurations === undefined && !opts.urn) {
+            if ((!args || args.destinationConfigurations === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destinationConfigurations'");
             }
-            if (args?.listenerArn === undefined && !opts.urn) {
+            if ((!args || args.listenerArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'listenerArn'");
             }
-            resourceInputs["destinationConfigurations"] = args?.destinationConfigurations;
-            resourceInputs["endpointConfigurations"] = args?.endpointConfigurations;
-            resourceInputs["endpointGroupRegion"] = args?.endpointGroupRegion;
-            resourceInputs["listenerArn"] = args?.listenerArn;
+            resourceInputs["destinationConfigurations"] = args ? args.destinationConfigurations : undefined;
+            resourceInputs["endpointConfigurations"] = args ? args.endpointConfigurations : undefined;
+            resourceInputs["endpointGroupRegion"] = args ? args.endpointGroupRegion : undefined;
+            resourceInputs["listenerArn"] = args ? args.listenerArn : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

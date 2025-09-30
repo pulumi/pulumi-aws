@@ -58,51 +58,51 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The list of cluster certificates.
      */
-    declare public /*out*/ readonly clusterCertificates: pulumi.Output<outputs.cloudhsmv2.ClusterClusterCertificate[]>;
+    public /*out*/ readonly clusterCertificates!: pulumi.Output<outputs.cloudhsmv2.ClusterClusterCertificate[]>;
     /**
      * The id of the CloudHSM cluster.
      */
-    declare public /*out*/ readonly clusterId: pulumi.Output<string>;
+    public /*out*/ readonly clusterId!: pulumi.Output<string>;
     /**
      * The state of the CloudHSM cluster.
      */
-    declare public /*out*/ readonly clusterState: pulumi.Output<string>;
+    public /*out*/ readonly clusterState!: pulumi.Output<string>;
     /**
      * The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
      */
-    declare public readonly hsmType: pulumi.Output<string>;
+    public readonly hsmType!: pulumi.Output<string>;
     /**
      * The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsmType` is `hsm2m.medium`.
      */
-    declare public readonly mode: pulumi.Output<string>;
+    public readonly mode!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ID of the security group associated with the CloudHSM cluster.
      */
-    declare public /*out*/ readonly securityGroupId: pulumi.Output<string>;
+    public /*out*/ readonly securityGroupId!: pulumi.Output<string>;
     /**
      * ID of Cloud HSM v2 cluster backup to be restored.
      */
-    declare public readonly sourceBackupIdentifier: pulumi.Output<string | undefined>;
+    public readonly sourceBackupIdentifier!: pulumi.Output<string | undefined>;
     /**
      * The IDs of subnets in which cluster will operate.
      */
-    declare public readonly subnetIds: pulumi.Output<string[]>;
+    public readonly subnetIds!: pulumi.Output<string[]>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The id of the VPC that the CloudHSM cluster resides in.
      */
-    declare public /*out*/ readonly vpcId: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -117,32 +117,32 @@ export class Cluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
-            resourceInputs["clusterCertificates"] = state?.clusterCertificates;
-            resourceInputs["clusterId"] = state?.clusterId;
-            resourceInputs["clusterState"] = state?.clusterState;
-            resourceInputs["hsmType"] = state?.hsmType;
-            resourceInputs["mode"] = state?.mode;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["securityGroupId"] = state?.securityGroupId;
-            resourceInputs["sourceBackupIdentifier"] = state?.sourceBackupIdentifier;
-            resourceInputs["subnetIds"] = state?.subnetIds;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["vpcId"] = state?.vpcId;
+            resourceInputs["clusterCertificates"] = state ? state.clusterCertificates : undefined;
+            resourceInputs["clusterId"] = state ? state.clusterId : undefined;
+            resourceInputs["clusterState"] = state ? state.clusterState : undefined;
+            resourceInputs["hsmType"] = state ? state.hsmType : undefined;
+            resourceInputs["mode"] = state ? state.mode : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["securityGroupId"] = state ? state.securityGroupId : undefined;
+            resourceInputs["sourceBackupIdentifier"] = state ? state.sourceBackupIdentifier : undefined;
+            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
-            if (args?.hsmType === undefined && !opts.urn) {
+            if ((!args || args.hsmType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hsmType'");
             }
-            if (args?.subnetIds === undefined && !opts.urn) {
+            if ((!args || args.subnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            resourceInputs["hsmType"] = args?.hsmType;
-            resourceInputs["mode"] = args?.mode;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["sourceBackupIdentifier"] = args?.sourceBackupIdentifier;
-            resourceInputs["subnetIds"] = args?.subnetIds;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["hsmType"] = args ? args.hsmType : undefined;
+            resourceInputs["mode"] = args ? args.mode : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["sourceBackupIdentifier"] = args ? args.sourceBackupIdentifier : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["clusterCertificates"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;
             resourceInputs["clusterState"] = undefined /*out*/;

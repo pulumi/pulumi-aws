@@ -312,27 +312,27 @@ export class BucketNotification extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    declare public readonly bucket: pulumi.Output<string>;
+    public readonly bucket!: pulumi.Output<string>;
     /**
      * Whether to enable Amazon EventBridge notifications. Defaults to `false`.
      */
-    declare public readonly eventbridge: pulumi.Output<boolean | undefined>;
+    public readonly eventbridge!: pulumi.Output<boolean | undefined>;
     /**
      * Used to configure notifications to a Lambda Function. See below.
      */
-    declare public readonly lambdaFunctions: pulumi.Output<outputs.s3.BucketNotificationLambdaFunction[] | undefined>;
+    public readonly lambdaFunctions!: pulumi.Output<outputs.s3.BucketNotificationLambdaFunction[] | undefined>;
     /**
      * Notification configuration to SQS Queue. See below.
      */
-    declare public readonly queues: pulumi.Output<outputs.s3.BucketNotificationQueue[] | undefined>;
+    public readonly queues!: pulumi.Output<outputs.s3.BucketNotificationQueue[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Notification configuration to SNS Topic. See below.
      */
-    declare public readonly topics: pulumi.Output<outputs.s3.BucketNotificationTopic[] | undefined>;
+    public readonly topics!: pulumi.Output<outputs.s3.BucketNotificationTopic[] | undefined>;
 
     /**
      * Create a BucketNotification resource with the given unique name, arguments, and options.
@@ -347,23 +347,23 @@ export class BucketNotification extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketNotificationState | undefined;
-            resourceInputs["bucket"] = state?.bucket;
-            resourceInputs["eventbridge"] = state?.eventbridge;
-            resourceInputs["lambdaFunctions"] = state?.lambdaFunctions;
-            resourceInputs["queues"] = state?.queues;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["topics"] = state?.topics;
+            resourceInputs["bucket"] = state ? state.bucket : undefined;
+            resourceInputs["eventbridge"] = state ? state.eventbridge : undefined;
+            resourceInputs["lambdaFunctions"] = state ? state.lambdaFunctions : undefined;
+            resourceInputs["queues"] = state ? state.queues : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["topics"] = state ? state.topics : undefined;
         } else {
             const args = argsOrState as BucketNotificationArgs | undefined;
-            if (args?.bucket === undefined && !opts.urn) {
+            if ((!args || args.bucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            resourceInputs["bucket"] = args?.bucket;
-            resourceInputs["eventbridge"] = args?.eventbridge;
-            resourceInputs["lambdaFunctions"] = args?.lambdaFunctions;
-            resourceInputs["queues"] = args?.queues;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["topics"] = args?.topics;
+            resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["eventbridge"] = args ? args.eventbridge : undefined;
+            resourceInputs["lambdaFunctions"] = args ? args.lambdaFunctions : undefined;
+            resourceInputs["queues"] = args ? args.queues : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["topics"] = args ? args.topics : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BucketNotification.__pulumiType, name, resourceInputs, opts);

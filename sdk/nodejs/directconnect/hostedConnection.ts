@@ -53,69 +53,69 @@ export class HostedConnection extends pulumi.CustomResource {
     /**
      * The Direct Connect endpoint on which the physical connection terminates.
      */
-    declare public /*out*/ readonly awsDevice: pulumi.Output<string>;
+    public /*out*/ readonly awsDevice!: pulumi.Output<string>;
     /**
      * The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
      */
-    declare public readonly bandwidth: pulumi.Output<string>;
+    public readonly bandwidth!: pulumi.Output<string>;
     /**
      * The ID of the interconnect or LAG.
      */
-    declare public readonly connectionId: pulumi.Output<string>;
+    public readonly connectionId!: pulumi.Output<string>;
     /**
      * The AWS Region where the connection is located.
      */
-    declare public /*out*/ readonly connectionRegion: pulumi.Output<string>;
+    public /*out*/ readonly connectionRegion!: pulumi.Output<string>;
     /**
      * Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
      */
-    declare public /*out*/ readonly hasLogicalRedundancy: pulumi.Output<string>;
+    public /*out*/ readonly hasLogicalRedundancy!: pulumi.Output<string>;
     /**
      * Boolean value representing if jumbo frames have been enabled for this connection.
      */
-    declare public /*out*/ readonly jumboFrameCapable: pulumi.Output<boolean>;
+    public /*out*/ readonly jumboFrameCapable!: pulumi.Output<boolean>;
     /**
      * The ID of the LAG.
      */
-    declare public /*out*/ readonly lagId: pulumi.Output<string>;
+    public /*out*/ readonly lagId!: pulumi.Output<string>;
     /**
      * The time of the most recent call to [DescribeLoa](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLoa.html) for this connection.
      */
-    declare public /*out*/ readonly loaIssueTime: pulumi.Output<string>;
+    public /*out*/ readonly loaIssueTime!: pulumi.Output<string>;
     /**
      * The location of the connection.
      */
-    declare public /*out*/ readonly location: pulumi.Output<string>;
+    public /*out*/ readonly location!: pulumi.Output<string>;
     /**
      * The name of the connection.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The ID of the AWS account of the customer for the connection.
      */
-    declare public readonly ownerAccountId: pulumi.Output<string>;
+    public readonly ownerAccountId!: pulumi.Output<string>;
     /**
      * The name of the AWS Direct Connect service provider associated with the connection.
      */
-    declare public /*out*/ readonly partnerName: pulumi.Output<string>;
+    public /*out*/ readonly partnerName!: pulumi.Output<string>;
     /**
      * The name of the service provider associated with the connection.
      */
-    declare public /*out*/ readonly providerName: pulumi.Output<string>;
+    public /*out*/ readonly providerName!: pulumi.Output<string>;
     /**
      * (**Deprecated**) The AWS Region where the connection is located. Use `connectionRegion` instead.
      *
      * @deprecated region is deprecated. Use connectionRegion instead.
      */
-    declare public /*out*/ readonly region: pulumi.Output<string>;
+    public /*out*/ readonly region!: pulumi.Output<string>;
     /**
      * The state of the connection. Possible values include: ordering, requested, pending, available, down, deleting, deleted, rejected, unknown. See [AllocateHostedConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateHostedConnection.html) for a description of each connection state.
      */
-    declare public /*out*/ readonly state: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * The dedicated VLAN provisioned to the hosted connection.
      */
-    declare public readonly vlan: pulumi.Output<number>;
+    public readonly vlan!: pulumi.Output<number>;
 
     /**
      * Create a HostedConnection resource with the given unique name, arguments, and options.
@@ -130,41 +130,41 @@ export class HostedConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HostedConnectionState | undefined;
-            resourceInputs["awsDevice"] = state?.awsDevice;
-            resourceInputs["bandwidth"] = state?.bandwidth;
-            resourceInputs["connectionId"] = state?.connectionId;
-            resourceInputs["connectionRegion"] = state?.connectionRegion;
-            resourceInputs["hasLogicalRedundancy"] = state?.hasLogicalRedundancy;
-            resourceInputs["jumboFrameCapable"] = state?.jumboFrameCapable;
-            resourceInputs["lagId"] = state?.lagId;
-            resourceInputs["loaIssueTime"] = state?.loaIssueTime;
-            resourceInputs["location"] = state?.location;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["ownerAccountId"] = state?.ownerAccountId;
-            resourceInputs["partnerName"] = state?.partnerName;
-            resourceInputs["providerName"] = state?.providerName;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["state"] = state?.state;
-            resourceInputs["vlan"] = state?.vlan;
+            resourceInputs["awsDevice"] = state ? state.awsDevice : undefined;
+            resourceInputs["bandwidth"] = state ? state.bandwidth : undefined;
+            resourceInputs["connectionId"] = state ? state.connectionId : undefined;
+            resourceInputs["connectionRegion"] = state ? state.connectionRegion : undefined;
+            resourceInputs["hasLogicalRedundancy"] = state ? state.hasLogicalRedundancy : undefined;
+            resourceInputs["jumboFrameCapable"] = state ? state.jumboFrameCapable : undefined;
+            resourceInputs["lagId"] = state ? state.lagId : undefined;
+            resourceInputs["loaIssueTime"] = state ? state.loaIssueTime : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
+            resourceInputs["partnerName"] = state ? state.partnerName : undefined;
+            resourceInputs["providerName"] = state ? state.providerName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["vlan"] = state ? state.vlan : undefined;
         } else {
             const args = argsOrState as HostedConnectionArgs | undefined;
-            if (args?.bandwidth === undefined && !opts.urn) {
+            if ((!args || args.bandwidth === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bandwidth'");
             }
-            if (args?.connectionId === undefined && !opts.urn) {
+            if ((!args || args.connectionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectionId'");
             }
-            if (args?.ownerAccountId === undefined && !opts.urn) {
+            if ((!args || args.ownerAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ownerAccountId'");
             }
-            if (args?.vlan === undefined && !opts.urn) {
+            if ((!args || args.vlan === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vlan'");
             }
-            resourceInputs["bandwidth"] = args?.bandwidth;
-            resourceInputs["connectionId"] = args?.connectionId;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["ownerAccountId"] = args?.ownerAccountId;
-            resourceInputs["vlan"] = args?.vlan;
+            resourceInputs["bandwidth"] = args ? args.bandwidth : undefined;
+            resourceInputs["connectionId"] = args ? args.connectionId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ownerAccountId"] = args ? args.ownerAccountId : undefined;
+            resourceInputs["vlan"] = args ? args.vlan : undefined;
             resourceInputs["awsDevice"] = undefined /*out*/;
             resourceInputs["connectionRegion"] = undefined /*out*/;
             resourceInputs["hasLogicalRedundancy"] = undefined /*out*/;

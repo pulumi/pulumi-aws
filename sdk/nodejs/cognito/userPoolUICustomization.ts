@@ -97,39 +97,39 @@ export class UserPoolUICustomization extends pulumi.CustomResource {
     /**
      * The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `imageFile` settings will be used for every client that has no UI customization set previously.
      */
-    declare public readonly clientId: pulumi.Output<string | undefined>;
+    public readonly clientId!: pulumi.Output<string | undefined>;
     /**
      * The creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
      */
-    declare public /*out*/ readonly creationDate: pulumi.Output<string>;
+    public /*out*/ readonly creationDate!: pulumi.Output<string>;
     /**
      * The CSS values in the UI customization, provided as a String. At least one of `css` or `imageFile` is required.
      */
-    declare public readonly css: pulumi.Output<string | undefined>;
+    public readonly css!: pulumi.Output<string | undefined>;
     /**
      * The CSS version number.
      */
-    declare public /*out*/ readonly cssVersion: pulumi.Output<string>;
+    public /*out*/ readonly cssVersion!: pulumi.Output<string>;
     /**
      * The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `imageFile` is required.
      */
-    declare public readonly imageFile: pulumi.Output<string | undefined>;
+    public readonly imageFile!: pulumi.Output<string | undefined>;
     /**
      * The logo image URL for the UI customization.
      */
-    declare public /*out*/ readonly imageUrl: pulumi.Output<string>;
+    public /*out*/ readonly imageUrl!: pulumi.Output<string>;
     /**
      * The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
      */
-    declare public /*out*/ readonly lastModifiedDate: pulumi.Output<string>;
+    public /*out*/ readonly lastModifiedDate!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The user pool ID for the user pool.
      */
-    declare public readonly userPoolId: pulumi.Output<string>;
+    public readonly userPoolId!: pulumi.Output<string>;
 
     /**
      * Create a UserPoolUICustomization resource with the given unique name, arguments, and options.
@@ -144,25 +144,25 @@ export class UserPoolUICustomization extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserPoolUICustomizationState | undefined;
-            resourceInputs["clientId"] = state?.clientId;
-            resourceInputs["creationDate"] = state?.creationDate;
-            resourceInputs["css"] = state?.css;
-            resourceInputs["cssVersion"] = state?.cssVersion;
-            resourceInputs["imageFile"] = state?.imageFile;
-            resourceInputs["imageUrl"] = state?.imageUrl;
-            resourceInputs["lastModifiedDate"] = state?.lastModifiedDate;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["userPoolId"] = state?.userPoolId;
+            resourceInputs["clientId"] = state ? state.clientId : undefined;
+            resourceInputs["creationDate"] = state ? state.creationDate : undefined;
+            resourceInputs["css"] = state ? state.css : undefined;
+            resourceInputs["cssVersion"] = state ? state.cssVersion : undefined;
+            resourceInputs["imageFile"] = state ? state.imageFile : undefined;
+            resourceInputs["imageUrl"] = state ? state.imageUrl : undefined;
+            resourceInputs["lastModifiedDate"] = state ? state.lastModifiedDate : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["userPoolId"] = state ? state.userPoolId : undefined;
         } else {
             const args = argsOrState as UserPoolUICustomizationArgs | undefined;
-            if (args?.userPoolId === undefined && !opts.urn) {
+            if ((!args || args.userPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            resourceInputs["clientId"] = args?.clientId;
-            resourceInputs["css"] = args?.css;
-            resourceInputs["imageFile"] = args?.imageFile;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["userPoolId"] = args?.userPoolId;
+            resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["css"] = args ? args.css : undefined;
+            resourceInputs["imageFile"] = args ? args.imageFile : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["cssVersion"] = undefined /*out*/;
             resourceInputs["imageUrl"] = undefined /*out*/;

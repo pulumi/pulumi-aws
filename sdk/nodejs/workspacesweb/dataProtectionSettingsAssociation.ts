@@ -54,17 +54,17 @@ export class DataProtectionSettingsAssociation extends pulumi.CustomResource {
     /**
      * ARN of the data protection settings to associate with the portal. Forces replacement if changed.
      */
-    declare public readonly dataProtectionSettingsArn: pulumi.Output<string>;
+    public readonly dataProtectionSettingsArn!: pulumi.Output<string>;
     /**
      * ARN of the portal to associate with the data protection settings. Forces replacement if changed.
      *
      * The following arguments are optional:
      */
-    declare public readonly portalArn: pulumi.Output<string>;
+    public readonly portalArn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a DataProtectionSettingsAssociation resource with the given unique name, arguments, and options.
@@ -79,20 +79,20 @@ export class DataProtectionSettingsAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataProtectionSettingsAssociationState | undefined;
-            resourceInputs["dataProtectionSettingsArn"] = state?.dataProtectionSettingsArn;
-            resourceInputs["portalArn"] = state?.portalArn;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["dataProtectionSettingsArn"] = state ? state.dataProtectionSettingsArn : undefined;
+            resourceInputs["portalArn"] = state ? state.portalArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as DataProtectionSettingsAssociationArgs | undefined;
-            if (args?.dataProtectionSettingsArn === undefined && !opts.urn) {
+            if ((!args || args.dataProtectionSettingsArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataProtectionSettingsArn'");
             }
-            if (args?.portalArn === undefined && !opts.urn) {
+            if ((!args || args.portalArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'portalArn'");
             }
-            resourceInputs["dataProtectionSettingsArn"] = args?.dataProtectionSettingsArn;
-            resourceInputs["portalArn"] = args?.portalArn;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["dataProtectionSettingsArn"] = args ? args.dataProtectionSettingsArn : undefined;
+            resourceInputs["portalArn"] = args ? args.portalArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DataProtectionSettingsAssociation.__pulumiType, name, resourceInputs, opts);

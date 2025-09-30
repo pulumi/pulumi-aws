@@ -118,61 +118,61 @@ export class KeySigningKey extends pulumi.CustomResource {
     /**
      * A string used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
      */
-    declare public /*out*/ readonly digestAlgorithmMnemonic: pulumi.Output<string>;
+    public /*out*/ readonly digestAlgorithmMnemonic!: pulumi.Output<string>;
     /**
      * An integer used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
      */
-    declare public /*out*/ readonly digestAlgorithmType: pulumi.Output<number>;
+    public /*out*/ readonly digestAlgorithmType!: pulumi.Output<number>;
     /**
      * A cryptographic digest of a DNSKEY resource record (RR). DNSKEY records are used to publish the public key that resolvers can use to verify DNSSEC signatures that are used to secure certain kinds of information provided by the DNS system.
      */
-    declare public /*out*/ readonly digestValue: pulumi.Output<string>;
+    public /*out*/ readonly digestValue!: pulumi.Output<string>;
     /**
      * A string that represents a DNSKEY record.
      */
-    declare public /*out*/ readonly dnskeyRecord: pulumi.Output<string>;
+    public /*out*/ readonly dnskeyRecord!: pulumi.Output<string>;
     /**
      * A string that represents a delegation signer (DS) record.
      */
-    declare public /*out*/ readonly dsRecord: pulumi.Output<string>;
+    public /*out*/ readonly dsRecord!: pulumi.Output<string>;
     /**
      * An integer that specifies how the key is used. For key-signing key (KSK), this value is always 257.
      */
-    declare public /*out*/ readonly flag: pulumi.Output<number>;
+    public /*out*/ readonly flag!: pulumi.Output<number>;
     /**
      * Identifier of the Route 53 Hosted Zone.
      */
-    declare public readonly hostedZoneId: pulumi.Output<string>;
+    public readonly hostedZoneId!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
      */
-    declare public readonly keyManagementServiceArn: pulumi.Output<string>;
+    public readonly keyManagementServiceArn!: pulumi.Output<string>;
     /**
      * An integer used to identify the DNSSEC record for the domain name. The process used to calculate the value is described in [RFC-4034 Appendix B](https://tools.ietf.org/rfc/rfc4034.txt).
      */
-    declare public /*out*/ readonly keyTag: pulumi.Output<number>;
+    public /*out*/ readonly keyTag!: pulumi.Output<number>;
     /**
      * Name of the key-signing key (KSK). Must be unique for each key-signing key in the same hosted zone.
      *
      * The following arguments are optional:
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The public key, represented as a Base64 encoding, as required by [RFC-4034 Page 5](https://tools.ietf.org/rfc/rfc4034.txt).
      */
-    declare public /*out*/ readonly publicKey: pulumi.Output<string>;
+    public /*out*/ readonly publicKey!: pulumi.Output<string>;
     /**
      * A string used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
      */
-    declare public /*out*/ readonly signingAlgorithmMnemonic: pulumi.Output<string>;
+    public /*out*/ readonly signingAlgorithmMnemonic!: pulumi.Output<string>;
     /**
      * An integer used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
      */
-    declare public /*out*/ readonly signingAlgorithmType: pulumi.Output<number>;
+    public /*out*/ readonly signingAlgorithmType!: pulumi.Output<number>;
     /**
      * Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
      */
-    declare public readonly status: pulumi.Output<string | undefined>;
+    public readonly status!: pulumi.Output<string | undefined>;
 
     /**
      * Create a KeySigningKey resource with the given unique name, arguments, and options.
@@ -187,32 +187,32 @@ export class KeySigningKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KeySigningKeyState | undefined;
-            resourceInputs["digestAlgorithmMnemonic"] = state?.digestAlgorithmMnemonic;
-            resourceInputs["digestAlgorithmType"] = state?.digestAlgorithmType;
-            resourceInputs["digestValue"] = state?.digestValue;
-            resourceInputs["dnskeyRecord"] = state?.dnskeyRecord;
-            resourceInputs["dsRecord"] = state?.dsRecord;
-            resourceInputs["flag"] = state?.flag;
-            resourceInputs["hostedZoneId"] = state?.hostedZoneId;
-            resourceInputs["keyManagementServiceArn"] = state?.keyManagementServiceArn;
-            resourceInputs["keyTag"] = state?.keyTag;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["publicKey"] = state?.publicKey;
-            resourceInputs["signingAlgorithmMnemonic"] = state?.signingAlgorithmMnemonic;
-            resourceInputs["signingAlgorithmType"] = state?.signingAlgorithmType;
-            resourceInputs["status"] = state?.status;
+            resourceInputs["digestAlgorithmMnemonic"] = state ? state.digestAlgorithmMnemonic : undefined;
+            resourceInputs["digestAlgorithmType"] = state ? state.digestAlgorithmType : undefined;
+            resourceInputs["digestValue"] = state ? state.digestValue : undefined;
+            resourceInputs["dnskeyRecord"] = state ? state.dnskeyRecord : undefined;
+            resourceInputs["dsRecord"] = state ? state.dsRecord : undefined;
+            resourceInputs["flag"] = state ? state.flag : undefined;
+            resourceInputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
+            resourceInputs["keyManagementServiceArn"] = state ? state.keyManagementServiceArn : undefined;
+            resourceInputs["keyTag"] = state ? state.keyTag : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["publicKey"] = state ? state.publicKey : undefined;
+            resourceInputs["signingAlgorithmMnemonic"] = state ? state.signingAlgorithmMnemonic : undefined;
+            resourceInputs["signingAlgorithmType"] = state ? state.signingAlgorithmType : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as KeySigningKeyArgs | undefined;
-            if (args?.hostedZoneId === undefined && !opts.urn) {
+            if ((!args || args.hostedZoneId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hostedZoneId'");
             }
-            if (args?.keyManagementServiceArn === undefined && !opts.urn) {
+            if ((!args || args.keyManagementServiceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyManagementServiceArn'");
             }
-            resourceInputs["hostedZoneId"] = args?.hostedZoneId;
-            resourceInputs["keyManagementServiceArn"] = args?.keyManagementServiceArn;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["status"] = args?.status;
+            resourceInputs["hostedZoneId"] = args ? args.hostedZoneId : undefined;
+            resourceInputs["keyManagementServiceArn"] = args ? args.keyManagementServiceArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["digestAlgorithmMnemonic"] = undefined /*out*/;
             resourceInputs["digestAlgorithmType"] = undefined /*out*/;
             resourceInputs["digestValue"] = undefined /*out*/;

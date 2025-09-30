@@ -99,45 +99,45 @@ export class EmailIdentity extends pulumi.CustomResource {
     /**
      * ARN of the Email Identity.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
      */
-    declare public readonly configurationSetName: pulumi.Output<string | undefined>;
+    public readonly configurationSetName!: pulumi.Output<string | undefined>;
     /**
      * The configuration of the DKIM authentication settings for an email domain identity.
      */
-    declare public readonly dkimSigningAttributes: pulumi.Output<outputs.sesv2.EmailIdentityDkimSigningAttributes>;
+    public readonly dkimSigningAttributes!: pulumi.Output<outputs.sesv2.EmailIdentityDkimSigningAttributes>;
     /**
      * The email address or domain to verify.
      *
      * The following arguments are optional:
      */
-    declare public readonly emailIdentity: pulumi.Output<string>;
+    public readonly emailIdentity!: pulumi.Output<string>;
     /**
      * The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
      */
-    declare public /*out*/ readonly identityType: pulumi.Output<string>;
+    public /*out*/ readonly identityType!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
      */
-    declare public /*out*/ readonly verificationStatus: pulumi.Output<string>;
+    public /*out*/ readonly verificationStatus!: pulumi.Output<string>;
     /**
      * Specifies whether or not the identity is verified.
      */
-    declare public /*out*/ readonly verifiedForSendingStatus: pulumi.Output<boolean>;
+    public /*out*/ readonly verifiedForSendingStatus!: pulumi.Output<boolean>;
 
     /**
      * Create a EmailIdentity resource with the given unique name, arguments, and options.
@@ -152,26 +152,26 @@ export class EmailIdentity extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EmailIdentityState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["configurationSetName"] = state?.configurationSetName;
-            resourceInputs["dkimSigningAttributes"] = state?.dkimSigningAttributes;
-            resourceInputs["emailIdentity"] = state?.emailIdentity;
-            resourceInputs["identityType"] = state?.identityType;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["verificationStatus"] = state?.verificationStatus;
-            resourceInputs["verifiedForSendingStatus"] = state?.verifiedForSendingStatus;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["configurationSetName"] = state ? state.configurationSetName : undefined;
+            resourceInputs["dkimSigningAttributes"] = state ? state.dkimSigningAttributes : undefined;
+            resourceInputs["emailIdentity"] = state ? state.emailIdentity : undefined;
+            resourceInputs["identityType"] = state ? state.identityType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["verificationStatus"] = state ? state.verificationStatus : undefined;
+            resourceInputs["verifiedForSendingStatus"] = state ? state.verifiedForSendingStatus : undefined;
         } else {
             const args = argsOrState as EmailIdentityArgs | undefined;
-            if (args?.emailIdentity === undefined && !opts.urn) {
+            if ((!args || args.emailIdentity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'emailIdentity'");
             }
-            resourceInputs["configurationSetName"] = args?.configurationSetName;
-            resourceInputs["dkimSigningAttributes"] = args?.dkimSigningAttributes;
-            resourceInputs["emailIdentity"] = args?.emailIdentity;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["configurationSetName"] = args ? args.configurationSetName : undefined;
+            resourceInputs["dkimSigningAttributes"] = args ? args.dkimSigningAttributes : undefined;
+            resourceInputs["emailIdentity"] = args ? args.emailIdentity : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["identityType"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

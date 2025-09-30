@@ -47,11 +47,11 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
     /**
      * Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations.
      */
-    declare public readonly autoEnable: pulumi.Output<boolean>;
+    public readonly autoEnable!: pulumi.Output<boolean>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a OrganizationConfiguration resource with the given unique name, arguments, and options.
@@ -66,15 +66,15 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrganizationConfigurationState | undefined;
-            resourceInputs["autoEnable"] = state?.autoEnable;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["autoEnable"] = state ? state.autoEnable : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as OrganizationConfigurationArgs | undefined;
-            if (args?.autoEnable === undefined && !opts.urn) {
+            if ((!args || args.autoEnable === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'autoEnable'");
             }
-            resourceInputs["autoEnable"] = args?.autoEnable;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["autoEnable"] = args ? args.autoEnable : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(OrganizationConfiguration.__pulumiType, name, resourceInputs, opts);
