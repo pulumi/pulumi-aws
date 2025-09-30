@@ -86,32 +86,34 @@ import javax.annotation.Nullable;
  *                     .count(WebAclRuleOverrideActionCountArgs.builder()
  *                         .build())
  *                     .build())
- *                 .statement(Map.of("managedRuleGroupStatement", Map.ofEntries(
- *                     Map.entry("name", "AWSManagedRulesCommonRuleSet"),
- *                     Map.entry("vendorName", "AWS"),
- *                     Map.entry("ruleActionOverrides",                     
- *                         WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs.builder()
- *                             .actionToUse(WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArgs.builder()
- *                                 .count(WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountArgs.builder()
+ *                 .statement(WebAclRuleStatementArgs.builder()
+ *                     .managedRuleGroupStatement(Map.ofEntries(
+ *                         Map.entry("name", "AWSManagedRulesCommonRuleSet"),
+ *                         Map.entry("vendorName", "AWS"),
+ *                         Map.entry("ruleActionOverrides",
+ *                             WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs.builder()
+ *                                 .actionToUse(WebAclRuleStatementManagedRuleGroupStatementRuleActionToUseArgs.builder()
+ *                                     .count(WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountArgs.builder()
+ *                                         .build())
  *                                     .build())
- *                                 .build())
- *                             .name("SizeRestrictions_QUERYSTRING")
- *                             .build(),
- *                         WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs.builder()
- *                             .actionToUse(WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArgs.builder()
- *                                 .count(WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountArgs.builder()
+ *                                 .name("SizeRestrictions_QUERYSTRING")
+ *                                 .build(),
+ *                             WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs.builder()
+ *                                 .actionToUse(WebAclRuleStatementManagedRuleGroupStatementRuleActionToUseArgs.builder()
+ *                                     .count(WebAclRuleStatementManagedRuleGroupStatementRuleActionToUseCountArgs.builder()
+ *                                         .build())
  *                                     .build())
+ *                                 .name("NoUserAgent_HEADER")
+ *                                 .build()),
+ *                         Map.entry("scopeDownStatement", WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs.builder()
+ *                             .geoMatchStatement(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementArgs.builder()
+ *                                 .countryCodes(
+ *                                     "US",
+ *                                     "NL")
  *                                 .build())
- *                             .name("NoUserAgent_HEADER")
- *                             .build()),
- *                     Map.entry("scopeDownStatement", WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs.builder()
- *                         .geoMatchStatement(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementArgs.builder()
- *                             .countryCodes(                            
- *                                 "US",
- *                                 "NL")
  *                             .build())
- *                         .build())
- *                 )))
+ *                     ))
+ *                 )
  *                 .visibilityConfig(WebAclRuleVisibilityConfigArgs.builder()
  *                     .cloudwatchMetricsEnabled(false)
  *                     .metricName("friendly-rule-metric-name")
