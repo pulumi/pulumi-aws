@@ -42,3 +42,7 @@ url = "https://github.com/pulumi/pulumi/releases/download/v3.190.0/pulumi-v3.190
 [[tools.python]]
 version = "3.11.8"
 backend = "core:python"
+
+[[tools.yarn]]
+version = "1.22.22"
+backend = "vfox:yarn"
