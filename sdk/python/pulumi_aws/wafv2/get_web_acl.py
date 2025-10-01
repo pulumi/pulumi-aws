@@ -117,30 +117,6 @@ def get_web_acl(name: Optional[_builtins.str] = None,
     """
     Retrieves the summary of a WAFv2 Web ACL.
 
-    ## Example Usage
-
-    ### Lookup by name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.wafv2.get_web_acl(name="some-web-acl",
-        scope="REGIONAL")
-    ```
-
-    ### Lookup by associated resource
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    alb_example = aws.wafv2.get_web_acl(resource_arn="arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/my-alb/xxxxx",
-        scope="REGIONAL")
-    cloudfront_example = aws.wafv2.get_web_acl(resource_arn="arn:aws:cloudfront::123456789012:distribution/XXX",
-        scope="CLOUDFRONT")
-    ```
-
 
     :param _builtins.str name: Name of the WAFv2 Web ACL. Exactly one of `name` or `resource_arn` must be specified.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -170,30 +146,6 @@ def get_web_acl_output(name: Optional[pulumi.Input[Optional[_builtins.str]]] = N
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAclResult]:
     """
     Retrieves the summary of a WAFv2 Web ACL.
-
-    ## Example Usage
-
-    ### Lookup by name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.wafv2.get_web_acl(name="some-web-acl",
-        scope="REGIONAL")
-    ```
-
-    ### Lookup by associated resource
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    alb_example = aws.wafv2.get_web_acl(resource_arn="arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/my-alb/xxxxx",
-        scope="REGIONAL")
-    cloudfront_example = aws.wafv2.get_web_acl(resource_arn="arn:aws:cloudfront::123456789012:distribution/XXX",
-        scope="CLOUDFRONT")
-    ```
 
 
     :param _builtins.str name: Name of the WAFv2 Web ACL. Exactly one of `name` or `resource_arn` must be specified.

@@ -32,6 +32,7 @@ func editRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 		fixUpEcsServiceName,
 		fixUpBucketReplicationConfig,
 		fixUpWebAclExample,
+		fixUpWebAclRuleGroupAssociationExample,
 		// This fixes up strings such as:
 		//
 		//	name        = "terraform-kinesis-firehose-os",
@@ -190,6 +191,15 @@ var fixUpWebAclExample = tfbridge.DocsEdit{
 	Edit: func(path string, content []byte) ([]byte, error) {
 		return tfgen.SkipSectionByHeaderContent(content, func(headerText string) bool {
 			return strings.Contains(headerText, "Example Usage")
+		})
+	},
+}
+
+var fixUpWebAclRuleGroupAssociationExample = tfbridge.DocsEdit{
+	Path: "wafv2_web_acl_rule_group_association.html.markdown",
+	Edit: func(path string, content []byte) ([]byte, error) {
+		return tfgen.SkipSectionByHeaderContent(content, func(headerText string) bool {
+			return strings.Contains(headerText, "Custom Rule Group - With Rule Action Overrides") || strings.Contains(headerText, "Custom Rule Group - CloudFront Web ACL")
 		})
 	},
 }
