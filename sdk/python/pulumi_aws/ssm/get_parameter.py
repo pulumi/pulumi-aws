@@ -148,6 +148,8 @@ def get_parameter(name: Optional[_builtins.str] = None,
 
     ## Example Usage
 
+    ### Default
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -155,10 +157,19 @@ def get_parameter(name: Optional[_builtins.str] = None,
     foo = aws.ssm.get_parameter(name="foo")
     ```
 
+    ### With version
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    foo = aws.ssm.get_parameter(name="foo:3")
+    ```
+
     > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
 
 
-    :param _builtins.str name: Name of the parameter.
+    :param _builtins.str name: Name of the parameter. To query by parameter version use `name:version` (e.g., `foo:3`).
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.bool with_decryption: Whether to return decrypted `SecureString` value. Defaults to `true`.
     """
@@ -188,6 +199,8 @@ def get_parameter_output(name: Optional[pulumi.Input[_builtins.str]] = None,
 
     ## Example Usage
 
+    ### Default
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -195,10 +208,19 @@ def get_parameter_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     foo = aws.ssm.get_parameter(name="foo")
     ```
 
+    ### With version
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    foo = aws.ssm.get_parameter(name="foo:3")
+    ```
+
     > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
 
 
-    :param _builtins.str name: Name of the parameter.
+    :param _builtins.str name: Name of the parameter. To query by parameter version use `name:version` (e.g., `foo:3`).
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.bool with_decryption: Whether to return decrypted `SecureString` value. Defaults to `true`.
     """

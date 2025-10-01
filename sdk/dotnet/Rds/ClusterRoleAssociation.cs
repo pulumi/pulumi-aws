@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Rds
         /// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
         /// </summary>
         [Output("featureName")]
-        public Output<string> FeatureName { get; private set; } = null!;
+        public Output<string?> FeatureName { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -125,8 +125,8 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
         /// </summary>
-        [Input("featureName", required: true)]
-        public Input<string> FeatureName { get; set; } = null!;
+        [Input("featureName")]
+        public Input<string>? FeatureName { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

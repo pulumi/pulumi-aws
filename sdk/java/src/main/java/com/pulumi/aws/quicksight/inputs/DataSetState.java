@@ -174,9 +174,17 @@ public final class DataSetState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set.  See `output_columns` Block below.
+     * 
+     */
     @Import(name="outputColumns")
     private @Nullable Output<List<DataSetOutputColumnArgs>> outputColumns;
 
+    /**
+     * @return The final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set.  See `output_columns` Block below.
+     * 
+     */
     public Optional<Output<List<DataSetOutputColumnArgs>>> outputColumns() {
         return Optional.ofNullable(this.outputColumns);
     }
@@ -585,15 +593,33 @@ public final class DataSetState extends com.pulumi.resources.ResourceArgs {
             return name(Output.of(name));
         }
 
+        /**
+         * @param outputColumns The final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set.  See `output_columns` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder outputColumns(@Nullable Output<List<DataSetOutputColumnArgs>> outputColumns) {
             $.outputColumns = outputColumns;
             return this;
         }
 
+        /**
+         * @param outputColumns The final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set.  See `output_columns` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder outputColumns(List<DataSetOutputColumnArgs> outputColumns) {
             return outputColumns(Output.of(outputColumns));
         }
 
+        /**
+         * @param outputColumns The final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set.  See `output_columns` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder outputColumns(DataSetOutputColumnArgs... outputColumns) {
             return outputColumns(List.of(outputColumns));
         }

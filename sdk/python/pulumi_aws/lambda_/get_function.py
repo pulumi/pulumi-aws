@@ -27,7 +27,7 @@ class GetFunctionResult:
     """
     A collection of values returned by getFunction.
     """
-    def __init__(__self__, architectures=None, arn=None, code_sha256=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, ephemeral_storages=None, file_system_configs=None, function_name=None, handler=None, id=None, image_uri=None, invoke_arn=None, kms_key_arn=None, last_modified=None, layers=None, logging_configs=None, memory_size=None, qualified_arn=None, qualified_invoke_arn=None, qualifier=None, region=None, reserved_concurrent_executions=None, role=None, runtime=None, signing_job_arn=None, signing_profile_version_arn=None, source_code_hash=None, source_code_size=None, tags=None, timeout=None, tracing_config=None, version=None, vpc_config=None):
+    def __init__(__self__, architectures=None, arn=None, code_sha256=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, ephemeral_storages=None, file_system_configs=None, function_name=None, handler=None, id=None, image_uri=None, invoke_arn=None, kms_key_arn=None, last_modified=None, layers=None, logging_configs=None, memory_size=None, qualified_arn=None, qualified_invoke_arn=None, qualifier=None, region=None, reserved_concurrent_executions=None, role=None, runtime=None, signing_job_arn=None, signing_profile_version_arn=None, source_code_hash=None, source_code_size=None, source_kms_key_arn=None, tags=None, timeout=None, tracing_config=None, version=None, vpc_config=None):
         if architectures and not isinstance(architectures, list):
             raise TypeError("Expected argument 'architectures' to be a list")
         pulumi.set(__self__, "architectures", architectures)
@@ -118,6 +118,9 @@ class GetFunctionResult:
         if source_code_size and not isinstance(source_code_size, int):
             raise TypeError("Expected argument 'source_code_size' to be a int")
         pulumi.set(__self__, "source_code_size", source_code_size)
+        if source_kms_key_arn and not isinstance(source_kms_key_arn, str):
+            raise TypeError("Expected argument 'source_kms_key_arn' to be a str")
+        pulumi.set(__self__, "source_kms_key_arn", source_kms_key_arn)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -367,6 +370,14 @@ class GetFunctionResult:
         return pulumi.get(self, "source_code_size")
 
     @_builtins.property
+    @pulumi.getter(name="sourceKmsKeyArn")
+    def source_kms_key_arn(self) -> _builtins.str:
+        """
+        ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package.
+        """
+        return pulumi.get(self, "source_kms_key_arn")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
         """
@@ -443,6 +454,7 @@ class AwaitableGetFunctionResult(GetFunctionResult):
             signing_profile_version_arn=self.signing_profile_version_arn,
             source_code_hash=self.source_code_hash,
             source_code_size=self.source_code_size,
+            source_kms_key_arn=self.source_kms_key_arn,
             tags=self.tags,
             timeout=self.timeout,
             tracing_config=self.tracing_config,
@@ -583,6 +595,7 @@ def get_function(function_name: Optional[_builtins.str] = None,
         signing_profile_version_arn=pulumi.get(__ret__, 'signing_profile_version_arn'),
         source_code_hash=pulumi.get(__ret__, 'source_code_hash'),
         source_code_size=pulumi.get(__ret__, 'source_code_size'),
+        source_kms_key_arn=pulumi.get(__ret__, 'source_kms_key_arn'),
         tags=pulumi.get(__ret__, 'tags'),
         timeout=pulumi.get(__ret__, 'timeout'),
         tracing_config=pulumi.get(__ret__, 'tracing_config'),
@@ -720,6 +733,7 @@ def get_function_output(function_name: Optional[pulumi.Input[_builtins.str]] = N
         signing_profile_version_arn=pulumi.get(__response__, 'signing_profile_version_arn'),
         source_code_hash=pulumi.get(__response__, 'source_code_hash'),
         source_code_size=pulumi.get(__response__, 'source_code_size'),
+        source_kms_key_arn=pulumi.get(__response__, 'source_kms_key_arn'),
         tags=pulumi.get(__response__, 'tags'),
         timeout=pulumi.get(__response__, 'timeout'),
         tracing_config=pulumi.get(__response__, 'tracing_config'),

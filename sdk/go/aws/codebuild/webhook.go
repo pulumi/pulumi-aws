@@ -117,7 +117,7 @@ type Webhook struct {
 	BranchFilter pulumi.StringPtrOutput `pulumi:"branchFilter"`
 	// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
 	BuildType pulumi.StringPtrOutput `pulumi:"buildType"`
-	// Information about the webhook's trigger. Filter group blocks are documented below.
+	// Information about the webhook's trigger. See filterGroup for details.
 	FilterGroups WebhookFilterGroupArrayOutput `pulumi:"filterGroups"`
 	// If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payloadUrl` and `secret` values for the webhook. The `payloadUrl` and `secret` values in the output can be used to manually create a webhook within GitHub.
 	ManualCreation pulumi.BoolPtrOutput `pulumi:"manualCreation"`
@@ -125,9 +125,11 @@ type Webhook struct {
 	PayloadUrl pulumi.StringOutput `pulumi:"payloadUrl"`
 	// The name of the build project.
 	ProjectName pulumi.StringOutput `pulumi:"projectName"`
+	// Defines comment-based approval requirements for triggering builds on pull requests. See pullRequestBuildPolicy for details.
+	PullRequestBuildPolicy WebhookPullRequestBuildPolicyOutput `pulumi:"pullRequestBuildPolicy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+	// Scope configuration for global or organization webhooks. See scopeConfiguration for details.
 	ScopeConfiguration WebhookScopeConfigurationPtrOutput `pulumi:"scopeConfiguration"`
 	// The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
 	Secret pulumi.StringOutput `pulumi:"secret"`
@@ -176,7 +178,7 @@ type webhookState struct {
 	BranchFilter *string `pulumi:"branchFilter"`
 	// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
 	BuildType *string `pulumi:"buildType"`
-	// Information about the webhook's trigger. Filter group blocks are documented below.
+	// Information about the webhook's trigger. See filterGroup for details.
 	FilterGroups []WebhookFilterGroup `pulumi:"filterGroups"`
 	// If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payloadUrl` and `secret` values for the webhook. The `payloadUrl` and `secret` values in the output can be used to manually create a webhook within GitHub.
 	ManualCreation *bool `pulumi:"manualCreation"`
@@ -184,9 +186,11 @@ type webhookState struct {
 	PayloadUrl *string `pulumi:"payloadUrl"`
 	// The name of the build project.
 	ProjectName *string `pulumi:"projectName"`
+	// Defines comment-based approval requirements for triggering builds on pull requests. See pullRequestBuildPolicy for details.
+	PullRequestBuildPolicy *WebhookPullRequestBuildPolicy `pulumi:"pullRequestBuildPolicy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+	// Scope configuration for global or organization webhooks. See scopeConfiguration for details.
 	ScopeConfiguration *WebhookScopeConfiguration `pulumi:"scopeConfiguration"`
 	// The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
 	Secret *string `pulumi:"secret"`
@@ -199,7 +203,7 @@ type WebhookState struct {
 	BranchFilter pulumi.StringPtrInput
 	// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
 	BuildType pulumi.StringPtrInput
-	// Information about the webhook's trigger. Filter group blocks are documented below.
+	// Information about the webhook's trigger. See filterGroup for details.
 	FilterGroups WebhookFilterGroupArrayInput
 	// If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payloadUrl` and `secret` values for the webhook. The `payloadUrl` and `secret` values in the output can be used to manually create a webhook within GitHub.
 	ManualCreation pulumi.BoolPtrInput
@@ -207,9 +211,11 @@ type WebhookState struct {
 	PayloadUrl pulumi.StringPtrInput
 	// The name of the build project.
 	ProjectName pulumi.StringPtrInput
+	// Defines comment-based approval requirements for triggering builds on pull requests. See pullRequestBuildPolicy for details.
+	PullRequestBuildPolicy WebhookPullRequestBuildPolicyPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+	// Scope configuration for global or organization webhooks. See scopeConfiguration for details.
 	ScopeConfiguration WebhookScopeConfigurationPtrInput
 	// The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
 	Secret pulumi.StringPtrInput
@@ -226,15 +232,17 @@ type webhookArgs struct {
 	BranchFilter *string `pulumi:"branchFilter"`
 	// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
 	BuildType *string `pulumi:"buildType"`
-	// Information about the webhook's trigger. Filter group blocks are documented below.
+	// Information about the webhook's trigger. See filterGroup for details.
 	FilterGroups []WebhookFilterGroup `pulumi:"filterGroups"`
 	// If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payloadUrl` and `secret` values for the webhook. The `payloadUrl` and `secret` values in the output can be used to manually create a webhook within GitHub.
 	ManualCreation *bool `pulumi:"manualCreation"`
 	// The name of the build project.
 	ProjectName string `pulumi:"projectName"`
+	// Defines comment-based approval requirements for triggering builds on pull requests. See pullRequestBuildPolicy for details.
+	PullRequestBuildPolicy *WebhookPullRequestBuildPolicy `pulumi:"pullRequestBuildPolicy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+	// Scope configuration for global or organization webhooks. See scopeConfiguration for details.
 	ScopeConfiguration *WebhookScopeConfiguration `pulumi:"scopeConfiguration"`
 }
 
@@ -244,15 +252,17 @@ type WebhookArgs struct {
 	BranchFilter pulumi.StringPtrInput
 	// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
 	BuildType pulumi.StringPtrInput
-	// Information about the webhook's trigger. Filter group blocks are documented below.
+	// Information about the webhook's trigger. See filterGroup for details.
 	FilterGroups WebhookFilterGroupArrayInput
 	// If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payloadUrl` and `secret` values for the webhook. The `payloadUrl` and `secret` values in the output can be used to manually create a webhook within GitHub.
 	ManualCreation pulumi.BoolPtrInput
 	// The name of the build project.
 	ProjectName pulumi.StringInput
+	// Defines comment-based approval requirements for triggering builds on pull requests. See pullRequestBuildPolicy for details.
+	PullRequestBuildPolicy WebhookPullRequestBuildPolicyPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+	// Scope configuration for global or organization webhooks. See scopeConfiguration for details.
 	ScopeConfiguration WebhookScopeConfigurationPtrInput
 }
 
@@ -353,7 +363,7 @@ func (o WebhookOutput) BuildType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringPtrOutput { return v.BuildType }).(pulumi.StringPtrOutput)
 }
 
-// Information about the webhook's trigger. Filter group blocks are documented below.
+// Information about the webhook's trigger. See filterGroup for details.
 func (o WebhookOutput) FilterGroups() WebhookFilterGroupArrayOutput {
 	return o.ApplyT(func(v *Webhook) WebhookFilterGroupArrayOutput { return v.FilterGroups }).(WebhookFilterGroupArrayOutput)
 }
@@ -373,12 +383,17 @@ func (o WebhookOutput) ProjectName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.ProjectName }).(pulumi.StringOutput)
 }
 
+// Defines comment-based approval requirements for triggering builds on pull requests. See pullRequestBuildPolicy for details.
+func (o WebhookOutput) PullRequestBuildPolicy() WebhookPullRequestBuildPolicyOutput {
+	return o.ApplyT(func(v *Webhook) WebhookPullRequestBuildPolicyOutput { return v.PullRequestBuildPolicy }).(WebhookPullRequestBuildPolicyOutput)
+}
+
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o WebhookOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+// Scope configuration for global or organization webhooks. See scopeConfiguration for details.
 func (o WebhookOutput) ScopeConfiguration() WebhookScopeConfigurationPtrOutput {
 	return o.ApplyT(func(v *Webhook) WebhookScopeConfigurationPtrOutput { return v.ScopeConfiguration }).(WebhookScopeConfigurationPtrOutput)
 }

@@ -87,11 +87,18 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * - `arn` (String) Amazon Resource Name (ARN) of the Image Builder workflow.
+ * 
  * Using `pulumi import`, import EC2 Image Builder Workflow using the `arn`. For example:
  * 
- * ```sh
- * $ pulumi import aws:imagebuilder/workflow:Workflow example arn:aws:imagebuilder:us-east-1:aws:workflow/test/example/1.0.1/1
- * ```
+ * console
+ * 
+ * % pulumi import aws_imagebuilder_workflow.example arn:aws:imagebuilder:us-east-1:aws:workflow/test/example/1.0.1/1
+ * 
  * Certain resource arguments, such as `uri`, cannot be read via the API and imported into Terraform. Terraform will display a difference for these arguments the first run after import if declared in the Terraform configuration for an imported resource.
  * 
  */

@@ -22,6 +22,11 @@ public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigura
      * 
      */
     private @Nullable Integer orphanFileRetentionPeriodInDays;
+    /**
+     * @return interval in hours between orphan file deletion job runs. Defaults to `24`.
+     * 
+     */
+    private @Nullable Integer runRateInHours;
 
     private CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration() {}
     /**
@@ -38,6 +43,13 @@ public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigura
     public Optional<Integer> orphanFileRetentionPeriodInDays() {
         return Optional.ofNullable(this.orphanFileRetentionPeriodInDays);
     }
+    /**
+     * @return interval in hours between orphan file deletion job runs. Defaults to `24`.
+     * 
+     */
+    public Optional<Integer> runRateInHours() {
+        return Optional.ofNullable(this.runRateInHours);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -50,11 +62,13 @@ public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigura
     public static final class Builder {
         private @Nullable String location;
         private @Nullable Integer orphanFileRetentionPeriodInDays;
+        private @Nullable Integer runRateInHours;
         public Builder() {}
         public Builder(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.location = defaults.location;
     	      this.orphanFileRetentionPeriodInDays = defaults.orphanFileRetentionPeriodInDays;
+    	      this.runRateInHours = defaults.runRateInHours;
         }
 
         @CustomType.Setter
@@ -69,10 +83,17 @@ public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigura
             this.orphanFileRetentionPeriodInDays = orphanFileRetentionPeriodInDays;
             return this;
         }
+        @CustomType.Setter
+        public Builder runRateInHours(@Nullable Integer runRateInHours) {
+
+            this.runRateInHours = runRateInHours;
+            return this;
+        }
         public CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration build() {
             final var _resultValue = new CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration();
             _resultValue.location = location;
             _resultValue.orphanFileRetentionPeriodInDays = orphanFileRetentionPeriodInDays;
+            _resultValue.runRateInHours = runRateInHours;
             return _resultValue;
         }
     }

@@ -388,6 +388,24 @@ class VpcAttachment(pulumi.CustomResource):
             vpc_arn=example_aws_vpc["arn"])
         ```
 
+        ### Usage with Options
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkmanager.VpcAttachment("example",
+            subnet_arns=[example_aws_subnet["arn"]],
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            vpc_arn=example_aws_vpc["arn"],
+            options={
+                "appliance_mode_support": False,
+                "dns_support": True,
+                "ipv6_support": False,
+                "security_group_referencing_support": True,
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_vpc_attachment` using the attachment ID. For example:
@@ -427,6 +445,24 @@ class VpcAttachment(pulumi.CustomResource):
             subnet_arns=[example_aws_subnet["arn"]],
             core_network_id=example_awscc_networkmanager_core_network["id"],
             vpc_arn=example_aws_vpc["arn"])
+        ```
+
+        ### Usage with Options
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkmanager.VpcAttachment("example",
+            subnet_arns=[example_aws_subnet["arn"]],
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            vpc_arn=example_aws_vpc["arn"],
+            options={
+                "appliance_mode_support": False,
+                "dns_support": True,
+                "ipv6_support": False,
+                "security_group_referencing_support": True,
+            })
         ```
 
         ## Import
@@ -608,7 +644,7 @@ class VpcAttachment(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def options(self) -> pulumi.Output[Optional['outputs.VpcAttachmentOptions']]:
+    def options(self) -> pulumi.Output['outputs.VpcAttachmentOptions']:
         """
         Options for the VPC attachment. See below.
         """

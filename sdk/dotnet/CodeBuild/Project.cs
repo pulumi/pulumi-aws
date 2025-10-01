@@ -339,11 +339,17 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild project.
+    /// 
     /// Using `pulumi import`, import CodeBuild Project using the `name`. For example:
     /// 
-    /// ```sh
-    /// $ pulumi import aws:codebuild/project:Project name project-name
-    /// ```
+    /// console
+    /// 
+    /// % pulumi import aws_codebuild_project.name project-name
     /// </summary>
     [AwsResourceType("aws:codebuild/project:Project")]
     public partial class Project : global::Pulumi.CustomResource

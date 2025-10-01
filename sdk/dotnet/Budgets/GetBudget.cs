@@ -182,6 +182,10 @@ namespace Pulumi.Aws.Budgets
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBudgetAutoAdjustDataResult> AutoAdjustDatas;
         /// <summary>
+        /// ARN of the billing view.
+        /// </summary>
+        public readonly string BillingViewArn;
+        /// <summary>
         /// Boolean indicating whether this budget has been exceeded.
         /// </summary>
         public readonly bool BudgetExceeded;
@@ -244,6 +248,8 @@ namespace Pulumi.Aws.Budgets
 
             ImmutableArray<Outputs.GetBudgetAutoAdjustDataResult> autoAdjustDatas,
 
+            string billingViewArn,
+
             bool budgetExceeded,
 
             ImmutableArray<Outputs.GetBudgetBudgetLimitResult> budgetLimits,
@@ -277,6 +283,7 @@ namespace Pulumi.Aws.Budgets
             AccountId = accountId;
             Arn = arn;
             AutoAdjustDatas = autoAdjustDatas;
+            BillingViewArn = billingViewArn;
             BudgetExceeded = budgetExceeded;
             BudgetLimits = budgetLimits;
             BudgetType = budgetType;

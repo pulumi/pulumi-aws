@@ -133,6 +133,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:scheduler/schedule:Schedule")
 public class Schedule extends com.pulumi.resources.CustomResource {
     /**
+     * Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
+     * 
+     */
+    @Export(name="actionAfterCompletion", refs={String.class}, tree="[0]")
+    private Output<String> actionAfterCompletion;
+
+    /**
+     * @return Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
+     * 
+     */
+    public Output<String> actionAfterCompletion() {
+        return this.actionAfterCompletion;
+    }
+    /**
      * ARN of the schedule.
      * 
      */

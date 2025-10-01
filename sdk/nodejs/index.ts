@@ -105,6 +105,7 @@ import * as bcmdata from "./bcmdata";
 import * as bedrock from "./bedrock";
 import * as bedrockfoundation from "./bedrockfoundation";
 import * as bedrockmodel from "./bedrockmodel";
+import * as billing from "./billing";
 import * as budgets from "./budgets";
 import * as cfg from "./cfg";
 import * as chatbot from "./chatbot";
@@ -224,6 +225,7 @@ import * as networkmanager from "./networkmanager";
 import * as networkmonitor from "./networkmonitor";
 import * as notifications from "./notifications";
 import * as oam from "./oam";
+import * as odb from "./odb";
 import * as opensearch from "./opensearch";
 import * as opensearchingest from "./opensearchingest";
 import * as organizations from "./organizations";
@@ -329,6 +331,7 @@ export {
     bedrock,
     bedrockfoundation,
     bedrockmodel,
+    billing,
     budgets,
     cfg,
     chatbot,
@@ -448,6 +451,7 @@ export {
     networkmonitor,
     notifications,
     oam,
+    odb,
     opensearch,
     opensearchingest,
     organizations,

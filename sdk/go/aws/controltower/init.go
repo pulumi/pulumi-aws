@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:controltower/baseline:Baseline":
+		r = &Baseline{}
 	case "aws:controltower/controlTowerControl:ControlTowerControl":
 		r = &ControlTowerControl{}
 	case "aws:controltower/landingZone:LandingZone":
@@ -38,6 +40,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"controltower/baseline",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"controltower/controlTowerControl",

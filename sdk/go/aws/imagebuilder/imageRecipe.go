@@ -71,11 +71,17 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// - `arn` (String) Amazon Resource Name (ARN) of the Image Builder image recipe.
+//
 // Using `pulumi import`, import `aws_imagebuilder_image_recipe` resources using the Amazon Resource Name (ARN). For example:
 //
-// ```sh
-// $ pulumi import aws:imagebuilder/imageRecipe:ImageRecipe example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
-// ```
+// console
+//
+// % pulumi import aws_imagebuilder_image_recipe.example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
 type ImageRecipe struct {
 	pulumi.CustomResourceState
 
@@ -93,7 +99,7 @@ type ImageRecipe struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Owner of the image recipe.
 	Owner pulumi.StringOutput `pulumi:"owner"`
-	// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
+	// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
 	ParentImage pulumi.StringOutput `pulumi:"parentImage"`
 	// Platform of the image recipe.
 	Platform pulumi.StringOutput `pulumi:"platform"`
@@ -168,7 +174,7 @@ type imageRecipeState struct {
 	Name *string `pulumi:"name"`
 	// Owner of the image recipe.
 	Owner *string `pulumi:"owner"`
-	// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
+	// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
 	ParentImage *string `pulumi:"parentImage"`
 	// Platform of the image recipe.
 	Platform *string `pulumi:"platform"`
@@ -205,7 +211,7 @@ type ImageRecipeState struct {
 	Name pulumi.StringPtrInput
 	// Owner of the image recipe.
 	Owner pulumi.StringPtrInput
-	// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
+	// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
 	ParentImage pulumi.StringPtrInput
 	// Platform of the image recipe.
 	Platform pulumi.StringPtrInput
@@ -240,7 +246,7 @@ type imageRecipeArgs struct {
 	Description *string `pulumi:"description"`
 	// Name of the image recipe.
 	Name *string `pulumi:"name"`
-	// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
+	// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
 	ParentImage string `pulumi:"parentImage"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -268,7 +274,7 @@ type ImageRecipeArgs struct {
 	Description pulumi.StringPtrInput
 	// Name of the image recipe.
 	Name pulumi.StringPtrInput
-	// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
+	// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
 	ParentImage pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -408,7 +414,7 @@ func (o ImageRecipeOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageRecipe) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
 }
 
-// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
+// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
 func (o ImageRecipeOutput) ParentImage() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageRecipe) pulumi.StringOutput { return v.ParentImage }).(pulumi.StringOutput)
 }

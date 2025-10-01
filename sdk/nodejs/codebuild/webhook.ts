@@ -108,7 +108,7 @@ export class Webhook extends pulumi.CustomResource {
      */
     declare public readonly buildType: pulumi.Output<string | undefined>;
     /**
-     * Information about the webhook's trigger. Filter group blocks are documented below.
+     * Information about the webhook's trigger. See filterGroup for details.
      */
     declare public readonly filterGroups: pulumi.Output<outputs.codebuild.WebhookFilterGroup[] | undefined>;
     /**
@@ -124,11 +124,15 @@ export class Webhook extends pulumi.CustomResource {
      */
     declare public readonly projectName: pulumi.Output<string>;
     /**
+     * Defines comment-based approval requirements for triggering builds on pull requests. See pullRequestBuildPolicy for details.
+     */
+    declare public readonly pullRequestBuildPolicy: pulumi.Output<outputs.codebuild.WebhookPullRequestBuildPolicy>;
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+     * Scope configuration for global or organization webhooks. See scopeConfiguration for details.
      */
     declare public readonly scopeConfiguration: pulumi.Output<outputs.codebuild.WebhookScopeConfiguration | undefined>;
     /**
@@ -159,6 +163,7 @@ export class Webhook extends pulumi.CustomResource {
             resourceInputs["manualCreation"] = state?.manualCreation;
             resourceInputs["payloadUrl"] = state?.payloadUrl;
             resourceInputs["projectName"] = state?.projectName;
+            resourceInputs["pullRequestBuildPolicy"] = state?.pullRequestBuildPolicy;
             resourceInputs["region"] = state?.region;
             resourceInputs["scopeConfiguration"] = state?.scopeConfiguration;
             resourceInputs["secret"] = state?.secret;
@@ -173,6 +178,7 @@ export class Webhook extends pulumi.CustomResource {
             resourceInputs["filterGroups"] = args?.filterGroups;
             resourceInputs["manualCreation"] = args?.manualCreation;
             resourceInputs["projectName"] = args?.projectName;
+            resourceInputs["pullRequestBuildPolicy"] = args?.pullRequestBuildPolicy;
             resourceInputs["region"] = args?.region;
             resourceInputs["scopeConfiguration"] = args?.scopeConfiguration;
             resourceInputs["payloadUrl"] = undefined /*out*/;
@@ -199,7 +205,7 @@ export interface WebhookState {
      */
     buildType?: pulumi.Input<string>;
     /**
-     * Information about the webhook's trigger. Filter group blocks are documented below.
+     * Information about the webhook's trigger. See filterGroup for details.
      */
     filterGroups?: pulumi.Input<pulumi.Input<inputs.codebuild.WebhookFilterGroup>[]>;
     /**
@@ -215,11 +221,15 @@ export interface WebhookState {
      */
     projectName?: pulumi.Input<string>;
     /**
+     * Defines comment-based approval requirements for triggering builds on pull requests. See pullRequestBuildPolicy for details.
+     */
+    pullRequestBuildPolicy?: pulumi.Input<inputs.codebuild.WebhookPullRequestBuildPolicy>;
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
-     * Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+     * Scope configuration for global or organization webhooks. See scopeConfiguration for details.
      */
     scopeConfiguration?: pulumi.Input<inputs.codebuild.WebhookScopeConfiguration>;
     /**
@@ -245,7 +255,7 @@ export interface WebhookArgs {
      */
     buildType?: pulumi.Input<string>;
     /**
-     * Information about the webhook's trigger. Filter group blocks are documented below.
+     * Information about the webhook's trigger. See filterGroup for details.
      */
     filterGroups?: pulumi.Input<pulumi.Input<inputs.codebuild.WebhookFilterGroup>[]>;
     /**
@@ -257,11 +267,15 @@ export interface WebhookArgs {
      */
     projectName: pulumi.Input<string>;
     /**
+     * Defines comment-based approval requirements for triggering builds on pull requests. See pullRequestBuildPolicy for details.
+     */
+    pullRequestBuildPolicy?: pulumi.Input<inputs.codebuild.WebhookPullRequestBuildPolicy>;
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
-     * Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+     * Scope configuration for global or organization webhooks. See scopeConfiguration for details.
      */
     scopeConfiguration?: pulumi.Input<inputs.codebuild.WebhookScopeConfiguration>;
 }

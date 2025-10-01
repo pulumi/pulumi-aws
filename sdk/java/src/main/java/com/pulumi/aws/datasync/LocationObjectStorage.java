@@ -59,11 +59,17 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * - `arn` (String) Amazon Resource Name (ARN) of the DataSync object storage location.
+ * 
  * Using `pulumi import`, import `aws_datasync_location_object_storage` using the Amazon Resource Name (ARN). For example:
  * 
- * ```sh
- * $ pulumi import aws:datasync/locationObjectStorage:LocationObjectStorage example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
- * ```
+ * console
+ * 
+ * % pulumi import aws_datasync_location_object_storage.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
  * 
  */
 @ResourceType(type="aws:datasync/locationObjectStorage:LocationObjectStorage")
@@ -83,14 +89,14 @@ public class LocationObjectStorage extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.accessKey);
     }
     /**
-     * A list of DataSync Agent ARNs with which this location will be associated.
+     * A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
      * 
      */
     @Export(name="agentArns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> agentArns;
 
     /**
-     * @return A list of DataSync Agent ARNs with which this location will be associated.
+     * @return A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
      * 
      */
     public Output<Optional<List<String>>> agentArns() {

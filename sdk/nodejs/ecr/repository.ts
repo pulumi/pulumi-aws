@@ -57,9 +57,9 @@ import * as utilities from "../utilities";
  *
  * #### Optional
  *
- * - `account_id` (String) AWS Account where this resource is managed.
+ * * `account_id` (String) AWS Account where this resource is managed.
  *
- * - `region` (String) Region where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
  *
  * Using `pulumi import`, import ECR Repositories using the `name`. For example:
  *

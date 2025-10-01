@@ -432,6 +432,8 @@ class Subscriber(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -445,6 +447,36 @@ class Subscriber(pulumi.CustomResource):
                     "source_version": "1.0",
                 },
             }],
+            subscriber_identity={
+                "external_id": "example",
+                "principal": "1234567890",
+            },
+            opts = pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))
+        ```
+
+        ### Multiple Log Sources
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.securitylake.Subscriber("example",
+            subscriber_name="example-name",
+            access_type="S3",
+            sources=[
+                {
+                    "aws_log_source_resource": {
+                        "source_name": "SH_FINDINGS",
+                        "source_version": "2.0",
+                    },
+                },
+                {
+                    "aws_log_source_resource": {
+                        "source_name": "ROUTE53",
+                        "source_version": "2.0",
+                    },
+                },
+            ],
             subscriber_identity={
                 "external_id": "example",
                 "principal": "1234567890",
@@ -483,6 +515,8 @@ class Subscriber(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -496,6 +530,36 @@ class Subscriber(pulumi.CustomResource):
                     "source_version": "1.0",
                 },
             }],
+            subscriber_identity={
+                "external_id": "example",
+                "principal": "1234567890",
+            },
+            opts = pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))
+        ```
+
+        ### Multiple Log Sources
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.securitylake.Subscriber("example",
+            subscriber_name="example-name",
+            access_type="S3",
+            sources=[
+                {
+                    "aws_log_source_resource": {
+                        "source_name": "SH_FINDINGS",
+                        "source_version": "2.0",
+                    },
+                },
+                {
+                    "aws_log_source_resource": {
+                        "source_name": "ROUTE53",
+                        "source_version": "2.0",
+                    },
+                },
+            ],
             subscriber_identity={
                 "external_id": "example",
                 "principal": "1234567890",

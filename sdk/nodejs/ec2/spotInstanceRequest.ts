@@ -185,9 +185,13 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
     declare public /*out*/ readonly outpostArn: pulumi.Output<string>;
     declare public /*out*/ readonly passwordData: pulumi.Output<string>;
     /**
-     * Placement Group to start the instance in.
+     * Placement Group to start the instance in. Conflicts with `placementGroupId`.
      */
     declare public readonly placementGroup: pulumi.Output<string>;
+    /**
+     * Placement Group ID to start the instance in. Conflicts with `placementGroup`.
+     */
+    declare public readonly placementGroupId: pulumi.Output<string>;
     /**
      * Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
      */
@@ -370,6 +374,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             resourceInputs["outpostArn"] = state?.outpostArn;
             resourceInputs["passwordData"] = state?.passwordData;
             resourceInputs["placementGroup"] = state?.placementGroup;
+            resourceInputs["placementGroupId"] = state?.placementGroupId;
             resourceInputs["placementPartitionNumber"] = state?.placementPartitionNumber;
             resourceInputs["primaryNetworkInterfaceId"] = state?.primaryNetworkInterfaceId;
             resourceInputs["primaryNetworkInterfaces"] = state?.primaryNetworkInterfaces;
@@ -434,6 +439,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             resourceInputs["monitoring"] = args?.monitoring;
             resourceInputs["networkInterfaces"] = args?.networkInterfaces;
             resourceInputs["placementGroup"] = args?.placementGroup;
+            resourceInputs["placementGroupId"] = args?.placementGroupId;
             resourceInputs["placementPartitionNumber"] = args?.placementPartitionNumber;
             resourceInputs["privateDnsNameOptions"] = args?.privateDnsNameOptions;
             resourceInputs["privateIp"] = args?.privateIp;
@@ -610,9 +616,13 @@ export interface SpotInstanceRequestState {
     outpostArn?: pulumi.Input<string>;
     passwordData?: pulumi.Input<string>;
     /**
-     * Placement Group to start the instance in.
+     * Placement Group to start the instance in. Conflicts with `placementGroupId`.
      */
     placementGroup?: pulumi.Input<string>;
+    /**
+     * Placement Group ID to start the instance in. Conflicts with `placementGroup`.
+     */
+    placementGroupId?: pulumi.Input<string>;
     /**
      * Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
      */
@@ -879,9 +889,13 @@ export interface SpotInstanceRequestArgs {
      */
     networkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestNetworkInterface>[]>;
     /**
-     * Placement Group to start the instance in.
+     * Placement Group to start the instance in. Conflicts with `placementGroupId`.
      */
     placementGroup?: pulumi.Input<string>;
+    /**
+     * Placement Group ID to start the instance in. Conflicts with `placementGroup`.
+     */
+    placementGroupId?: pulumi.Input<string>;
     /**
      * Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
      */

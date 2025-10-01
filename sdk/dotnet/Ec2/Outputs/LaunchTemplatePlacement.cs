@@ -22,7 +22,11 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? AvailabilityZone;
         /// <summary>
-        /// The name of the placement group for the instance.
+        /// The ID of the placement group for the instance. Conflicts with `group_name`.
+        /// </summary>
+        public readonly string? GroupId;
+        /// <summary>
+        /// The name of the placement group for the instance. Conflicts with `group_id`.
         /// </summary>
         public readonly string? GroupName;
         /// <summary>
@@ -52,6 +56,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             string? availabilityZone,
 
+            string? groupId,
+
             string? groupName,
 
             string? hostId,
@@ -66,6 +72,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         {
             Affinity = affinity;
             AvailabilityZone = availabilityZone;
+            GroupId = groupId;
             GroupName = groupName;
             HostId = hostId;
             HostResourceGroupArn = hostResourceGroupArn;

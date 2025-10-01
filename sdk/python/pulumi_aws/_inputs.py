@@ -1592,6 +1592,10 @@ if not MYPY:
         """
         Use this to override the default service endpoint URL
         """
+        workmail: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Use this to override the default service endpoint URL
+        """
         workspaces: NotRequired[pulumi.Input[_builtins.str]]
         """
         Use this to override the default service endpoint URL
@@ -1908,6 +1912,7 @@ class ProviderEndpointArgs:
                  wafregional: Optional[pulumi.Input[_builtins.str]] = None,
                  wafv2: Optional[pulumi.Input[_builtins.str]] = None,
                  wellarchitected: Optional[pulumi.Input[_builtins.str]] = None,
+                 workmail: Optional[pulumi.Input[_builtins.str]] = None,
                  workspaces: Optional[pulumi.Input[_builtins.str]] = None,
                  workspacesweb: Optional[pulumi.Input[_builtins.str]] = None,
                  xray: Optional[pulumi.Input[_builtins.str]] = None):
@@ -2210,6 +2215,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[_builtins.str] wafregional: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] wafv2: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] wellarchitected: Use this to override the default service endpoint URL
+        :param pulumi.Input[_builtins.str] workmail: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] workspaces: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] workspacesweb: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] xray: Use this to override the default service endpoint URL
@@ -2810,6 +2816,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "wafv2", wafv2)
         if wellarchitected is not None:
             pulumi.set(__self__, "wellarchitected", wellarchitected)
+        if workmail is not None:
+            pulumi.set(__self__, "workmail", workmail)
         if workspaces is not None:
             pulumi.set(__self__, "workspaces", workspaces)
         if workspacesweb is not None:
@@ -6392,6 +6400,18 @@ class ProviderEndpointArgs:
     @wellarchitected.setter
     def wellarchitected(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "wellarchitected", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def workmail(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "workmail")
+
+    @workmail.setter
+    def workmail(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "workmail", value)
 
     @_builtins.property
     @pulumi.getter

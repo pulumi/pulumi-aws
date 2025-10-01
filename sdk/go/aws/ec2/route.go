@@ -95,21 +95,21 @@ import (
 //
 // #### Required
 //
-// - `route_table_id` - (String) ID of the route table.
+// * `route_table_id` - (String) ID of the route table.
 //
 // #### Optional
 //
 // ~> Exactly one of of `destination_cidr_block`, `destination_ipv6_cidr_block`, or `destination_prefix_list_id` is required.
 //
-// - `account_id` (String) AWS Account where this resource is managed.
+// * `account_id` (String) AWS Account where this resource is managed.
 //
-// - `destination_cidr_block` - (String) Destination IPv4 CIDR block.
+// * `destination_cidr_block` - (String) Destination IPv4 CIDR block.
 //
-// - `destination_ipv6_cidr_block` - (String) Destination IPv6 CIDR block.
+// * `destination_ipv6_cidr_block` - (String) Destination IPv6 CIDR block.
 //
-// - `destination_prefix_list_id` - (String) Destination IPv6 CIDR block.
+// * `destination_prefix_list_id` - (String) Destination IPv6 CIDR block.
 //
-// - `region` (String) Region where this resource is managed.
+// * `region` (String) Region where this resource is managed.
 //
 // Import a route in route table `rtb-656C65616E6F72` with an IPv6 destination CIDR of `2620:0:2d0:200::8/125`:
 //

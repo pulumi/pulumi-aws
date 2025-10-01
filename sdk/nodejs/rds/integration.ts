@@ -85,11 +85,17 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * - `arn` (String) Amazon Resource Name (ARN) of the RDS integration.
+ *
  * Using `pulumi import`, import RDS (Relational Database) Integration using the `arn`. For example:
  *
- * ```sh
- * $ pulumi import aws:rds/integration:Integration example arn:aws:rds:us-west-2:123456789012:integration:abcdefgh-0000-1111-2222-123456789012
- * ```
+ * console
+ *
+ * % pulumi import aws_rds_integration.example arn:aws:rds:us-west-2:123456789012:integration:abcdefgh-0000-1111-2222-123456789012
  */
 export class Integration extends pulumi.CustomResource {
     /**

@@ -69,6 +69,75 @@ namespace Pulumi.Aws.WafV2
     /// });
     /// ```
     /// 
+    /// ### Using rules_json
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.WafV2.RuleGroup("example", new()
+    ///     {
+    ///         Name = "example-rule-group",
+    ///         Scope = "REGIONAL",
+    ///         Capacity = 100,
+    ///         RulesJson = JsonSerializer.Serialize(new[]
+    ///         {
+    ///             new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["Name"] = "rule-1",
+    ///                 ["Priority"] = 1,
+    ///                 ["Action"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Count"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                     },
+    ///                 },
+    ///                 ["Statement"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["ByteMatchStatement"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["SearchString"] = "badbot",
+    ///                         ["FieldToMatch"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["UriPath"] = new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                             },
+    ///                         },
+    ///                         ["TextTransformations"] = new[]
+    ///                         {
+    ///                             new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 ["Priority"] = 1,
+    ///                                 ["Type"] = "NONE",
+    ///                             },
+    ///                         },
+    ///                         ["PositionalConstraint"] = "CONTAINS",
+    ///                     },
+    ///                 },
+    ///                 ["VisibilityConfig"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["CloudwatchMetricsEnabled"] = false,
+    ///                     ["MetricName"] = "friendly-rule-metric-name",
+    ///                     ["SampledRequestsEnabled"] = false,
+    ///                 },
+    ///             },
+    ///         }),
+    ///         VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupVisibilityConfigArgs
+    ///         {
+    ///             CloudwatchMetricsEnabled = false,
+    ///             MetricName = "friendly-metric-name",
+    ///             SampledRequestsEnabled = false,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WAFv2 Rule Group using `ID/name/scope`. For example:
@@ -131,6 +200,9 @@ namespace Pulumi.Aws.WafV2
         [Output("rules")]
         public Output<ImmutableArray<Outputs.RuleGroupRule>> Rules { get; private set; } = null!;
 
+        /// <summary>
+        /// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rules_json` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
+        /// </summary>
         [Output("rulesJson")]
         public Output<string?> RulesJson { get; private set; } = null!;
 
@@ -258,6 +330,9 @@ namespace Pulumi.Aws.WafV2
             set => _rules = value;
         }
 
+        /// <summary>
+        /// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rules_json` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
+        /// </summary>
         [Input("rulesJson")]
         public Input<string>? RulesJson { get; set; }
 
@@ -356,6 +431,9 @@ namespace Pulumi.Aws.WafV2
             set => _rules = value;
         }
 
+        /// <summary>
+        /// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rules_json` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
+        /// </summary>
         [Input("rulesJson")]
         public Input<string>? RulesJson { get; set; }
 

@@ -248,14 +248,14 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
+     * Specify how much storage users or groups can use on the volume. Maximum number of items defined by [FSx for OpenZFS Resource quota](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html#limits-openzfs-resources-file-system). See `user_and_group_quotas` Block Below.
      * 
      */
     @Import(name="userAndGroupQuotas")
     private @Nullable Output<List<OpenZfsVolumeUserAndGroupQuotaArgs>> userAndGroupQuotas;
 
     /**
-     * @return Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
+     * @return Specify how much storage users or groups can use on the volume. Maximum number of items defined by [FSx for OpenZFS Resource quota](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html#limits-openzfs-resources-file-system). See `user_and_group_quotas` Block Below.
      * 
      */
     public Optional<Output<List<OpenZfsVolumeUserAndGroupQuotaArgs>>> userAndGroupQuotas() {
@@ -625,7 +625,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param userAndGroupQuotas Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
+         * @param userAndGroupQuotas Specify how much storage users or groups can use on the volume. Maximum number of items defined by [FSx for OpenZFS Resource quota](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html#limits-openzfs-resources-file-system). See `user_and_group_quotas` Block Below.
          * 
          * @return builder
          * 
@@ -636,7 +636,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param userAndGroupQuotas Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
+         * @param userAndGroupQuotas Specify how much storage users or groups can use on the volume. Maximum number of items defined by [FSx for OpenZFS Resource quota](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html#limits-openzfs-resources-file-system). See `user_and_group_quotas` Block Below.
          * 
          * @return builder
          * 
@@ -646,7 +646,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param userAndGroupQuotas Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
+         * @param userAndGroupQuotas Specify how much storage users or groups can use on the volume. Maximum number of items defined by [FSx for OpenZFS Resource quota](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html#limits-openzfs-resources-file-system). See `user_and_group_quotas` Block Below.
          * 
          * @return builder
          * 

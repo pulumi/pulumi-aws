@@ -2126,6 +2126,8 @@ func (o ServiceDeploymentConfigurationPtrOutput) Strategy() pulumi.StringPtrOutp
 }
 
 type ServiceDeploymentConfigurationLifecycleHook struct {
+	// Custom parameters that Amazon ECS will pass to the hook target invocations (such as a Lambda function).
+	HookDetails *string `pulumi:"hookDetails"`
 	// ARN of the Lambda function to invoke for the lifecycle hook.
 	HookTargetArn string `pulumi:"hookTargetArn"`
 	// Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
@@ -2146,6 +2148,8 @@ type ServiceDeploymentConfigurationLifecycleHookInput interface {
 }
 
 type ServiceDeploymentConfigurationLifecycleHookArgs struct {
+	// Custom parameters that Amazon ECS will pass to the hook target invocations (such as a Lambda function).
+	HookDetails pulumi.StringPtrInput `pulumi:"hookDetails"`
 	// ARN of the Lambda function to invoke for the lifecycle hook.
 	HookTargetArn pulumi.StringInput `pulumi:"hookTargetArn"`
 	// Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
@@ -2203,6 +2207,11 @@ func (o ServiceDeploymentConfigurationLifecycleHookOutput) ToServiceDeploymentCo
 
 func (o ServiceDeploymentConfigurationLifecycleHookOutput) ToServiceDeploymentConfigurationLifecycleHookOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationLifecycleHookOutput {
 	return o
+}
+
+// Custom parameters that Amazon ECS will pass to the hook target invocations (such as a Lambda function).
+func (o ServiceDeploymentConfigurationLifecycleHookOutput) HookDetails() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDeploymentConfigurationLifecycleHook) *string { return v.HookDetails }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the Lambda function to invoke for the lifecycle hook.

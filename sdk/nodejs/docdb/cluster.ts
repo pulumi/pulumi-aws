@@ -87,8 +87,9 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * A list of EC2 Availability Zones that
-     * instances in the DB cluster can be created in.
+     * A list of EC2 Availability Zones that instances in the DB cluster can be created in.
+     * DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
+     * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
      */
     declare public readonly availabilityZones: pulumi.Output<string[]>;
     /**
@@ -352,8 +353,9 @@ export interface ClusterState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * A list of EC2 Availability Zones that
-     * instances in the DB cluster can be created in.
+     * A list of EC2 Availability Zones that instances in the DB cluster can be created in.
+     * DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
+     * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
      */
     availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -515,8 +517,9 @@ export interface ClusterArgs {
      */
     applyImmediately?: pulumi.Input<boolean>;
     /**
-     * A list of EC2 Availability Zones that
-     * instances in the DB cluster can be created in.
+     * A list of EC2 Availability Zones that instances in the DB cluster can be created in.
+     * DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
+     * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
      */
     availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**

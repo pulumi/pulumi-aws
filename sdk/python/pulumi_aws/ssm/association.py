@@ -838,11 +838,23 @@ class Association(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `association_id` - (String) ID of the SSM association.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import SSM associations using the `association_id`. For example:
 
-        ```sh
-        $ pulumi import aws:ssm/association:Association test-association 10abcdef-0abc-1234-5678-90abcdef123456
-        ```
+        console
+
+        % pulumi import aws_ssm_association.example 10abcdef-0abc-1234-5678-90abcdef123456
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1084,11 +1096,23 @@ class Association(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `association_id` - (String) ID of the SSM association.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import SSM associations using the `association_id`. For example:
 
-        ```sh
-        $ pulumi import aws:ssm/association:Association test-association 10abcdef-0abc-1234-5678-90abcdef123456
-        ```
+        console
+
+        % pulumi import aws_ssm_association.example 10abcdef-0abc-1234-5678-90abcdef123456
 
         :param str resource_name: The name of the resource.
         :param AssociationArgs args: The arguments to use to populate this resource's properties.

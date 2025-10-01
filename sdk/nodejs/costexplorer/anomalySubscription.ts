@@ -173,11 +173,17 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * - `arn` (String) Amazon Resource Name (ARN) of the Cost Explorer anomaly subscription.
+ *
  * Using `pulumi import`, import `aws_ce_anomaly_subscription` using the `id`. For example:
  *
- * ```sh
- * $ pulumi import aws:costexplorer/anomalySubscription:AnomalySubscription example AnomalySubscriptionARN
- * ```
+ * console
+ *
+ * % pulumi import aws_ce_anomaly_subscription.example AnomalySubscriptionARN
  */
 export class AnomalySubscription extends pulumi.CustomResource {
     /**

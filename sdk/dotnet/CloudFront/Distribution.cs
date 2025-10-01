@@ -39,13 +39,27 @@ namespace Pulumi.Aws.CloudFront
     ///         },
     ///     });
     /// 
-    ///     var bAcl = new Aws.S3.BucketAcl("b_acl", new()
+    ///     var s3OriginId = "myS3Origin";
+    /// 
+    ///     var myDomain = "mydomain.com";
+    /// 
+    ///     var myDomainGetCertificate = Aws.Acm.GetCertificate.Invoke(new()
     ///     {
-    ///         Bucket = b.Id,
-    ///         Acl = "private",
+    ///         Region = "us-east-1",
+    ///         Domain = $"*.{myDomain}",
+    ///         Statuses = new[]
+    ///         {
+    ///             "ISSUED",
+    ///         },
     ///     });
     /// 
-    ///     var s3OriginId = "myS3Origin";
+    ///     var @default = new Aws.CloudFront.OriginAccessControl("default", new()
+    ///     {
+    ///         Name = "default-oac",
+    ///         OriginAccessControlOriginType = "s3",
+    ///         SigningBehavior = "always",
+    ///         SigningProtocol = "sigv4",
+    ///     });
     /// 
     ///     var s3Distribution = new Aws.CloudFront.Distribution("s3_distribution", new()
     ///     {
@@ -62,16 +76,10 @@ namespace Pulumi.Aws.CloudFront
     ///         IsIpv6Enabled = true,
     ///         Comment = "Some comment",
     ///         DefaultRootObject = "index.html",
-    ///         LoggingConfig = new Aws.CloudFront.Inputs.DistributionLoggingConfigArgs
-    ///         {
-    ///             IncludeCookies = false,
-    ///             Bucket = "mylogs.s3.amazonaws.com",
-    ///             Prefix = "myprefix",
-    ///         },
     ///         Aliases = new[]
     ///         {
-    ///             "mysite.example.com",
-    ///             "yoursite.example.com",
+    ///             $"mysite.{myDomain}",
+    ///             $"yoursite.{myDomain}",
     ///         },
     ///         DefaultCacheBehavior = new Aws.CloudFront.Inputs.DistributionDefaultCacheBehaviorArgs
     ///         {
@@ -191,10 +199,87 @@ namespace Pulumi.Aws.CloudFront
     ///         },
     ///         ViewerCertificate = new Aws.CloudFront.Inputs.DistributionViewerCertificateArgs
     ///         {
-    ///             CloudfrontDefaultCertificate = true,
+    ///             AcmCertificateArn = myDomainGetCertificate.Apply(getCertificateResult =&gt; getCertificateResult.Arn),
+    ///             SslSupportMethod = "sni-only",
     ///         },
     ///     });
     /// 
+    ///     // See https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
+    ///     var originBucketPolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Sid = "AllowCloudFrontServicePrincipalReadWrite",
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "cloudfront.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "s3:GetObject",
+    ///                     "s3:PutObject",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     $"{b.Arn}/*",
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Variable = "AWS:SourceArn",
+    ///                         Values = new[]
+    ///                         {
+    ///                             s3Distribution.Arn,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var bBucketPolicy = new Aws.S3.BucketPolicy("b", new()
+    ///     {
+    ///         Bucket = b.BucketName,
+    ///         Policy = originBucketPolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     // Create Route53 records for the CloudFront distribution aliases
+    ///     var myDomainGetZone = Aws.Route53.GetZone.Invoke(new()
+    ///     {
+    ///         Name = myDomain,
+    ///     });
+    /// 
+    ///     var cloudfront = new List&lt;Aws.Route53.Record&gt;();
+    ///     foreach (var range in )
+    ///     {
+    ///         cloudfront.Add(new Aws.Route53.Record($"cloudfront-{range.Key}", new()
+    ///         {
+    ///             ZoneId = myDomainGetZone.Apply(getZoneResult =&gt; getZoneResult.ZoneId),
+    ///             Name = range.Value,
+    ///             Type = Aws.Route53.RecordType.A,
+    ///             Aliases = new[]
+    ///             {
+    ///                 new Aws.Route53.Inputs.RecordAliasArgs
+    ///                 {
+    ///                     Name = s3Distribution.DomainName,
+    ///                     ZoneId = s3Distribution.HostedZoneId,
+    ///                     EvaluateTargetHealth = false,
+    ///                 },
+    ///             },
+    ///         }));
+    ///     }
     /// });
     /// ```
     /// 

@@ -52,6 +52,7 @@ class FunctionArgs:
                  skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
                  snap_start: Optional[pulumi.Input['FunctionSnapStartArgs']] = None,
                  source_code_hash: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  tracing_config: Optional[pulumi.Input['FunctionTracingConfigArgs']] = None,
@@ -90,6 +91,7 @@ class FunctionArgs:
         :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`.
         :param pulumi.Input['FunctionSnapStartArgs'] snap_start: Configuration block for snap start settings. See below.
         :param pulumi.Input[_builtins.str] source_code_hash: Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
+        :param pulumi.Input[_builtins.str] source_kms_key_arn: ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.int] timeout: Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
         :param pulumi.Input['FunctionTracingConfigArgs'] tracing_config: Configuration block for X-Ray tracing. See below.
@@ -154,6 +156,8 @@ class FunctionArgs:
             pulumi.set(__self__, "snap_start", snap_start)
         if source_code_hash is not None:
             pulumi.set(__self__, "source_code_hash", source_code_hash)
+        if source_kms_key_arn is not None:
+            pulumi.set(__self__, "source_kms_key_arn", source_kms_key_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeout is not None:
@@ -526,6 +530,18 @@ class FunctionArgs:
         pulumi.set(self, "source_code_hash", value)
 
     @_builtins.property
+    @pulumi.getter(name="sourceKmsKeyArn")
+    def source_kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
+        """
+        return pulumi.get(self, "source_kms_key_arn")
+
+    @source_kms_key_arn.setter
+    def source_kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source_kms_key_arn", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -616,6 +632,7 @@ class _FunctionState:
                  snap_start: Optional[pulumi.Input['FunctionSnapStartArgs']] = None,
                  source_code_hash: Optional[pulumi.Input[_builtins.str]] = None,
                  source_code_size: Optional[pulumi.Input[_builtins.int]] = None,
+                 source_kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeout: Optional[pulumi.Input[_builtins.int]] = None,
@@ -665,6 +682,7 @@ class _FunctionState:
         :param pulumi.Input['FunctionSnapStartArgs'] snap_start: Configuration block for snap start settings. See below.
         :param pulumi.Input[_builtins.str] source_code_hash: Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
         :param pulumi.Input[_builtins.int] source_code_size: Size in bytes of the function .zip file.
+        :param pulumi.Input[_builtins.str] source_kms_key_arn: ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.int] timeout: Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
@@ -750,6 +768,8 @@ class _FunctionState:
             pulumi.set(__self__, "source_code_hash", source_code_hash)
         if source_code_size is not None:
             pulumi.set(__self__, "source_code_size", source_code_size)
+        if source_kms_key_arn is not None:
+            pulumi.set(__self__, "source_kms_key_arn", source_kms_key_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -1234,6 +1254,18 @@ class _FunctionState:
         pulumi.set(self, "source_code_size", value)
 
     @_builtins.property
+    @pulumi.getter(name="sourceKmsKeyArn")
+    def source_kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
+        """
+        return pulumi.get(self, "source_kms_key_arn")
+
+    @source_kms_key_arn.setter
+    def source_kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source_kms_key_arn", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -1342,6 +1374,7 @@ class Function(pulumi.CustomResource):
                  skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
                  snap_start: Optional[pulumi.Input[Union['FunctionSnapStartArgs', 'FunctionSnapStartArgsDict']]] = None,
                  source_code_hash: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  tracing_config: Optional[pulumi.Input[Union['FunctionTracingConfigArgs', 'FunctionTracingConfigArgsDict']]] = None,
@@ -1715,11 +1748,23 @@ class Function(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `function_name` (String) Name of the Lambda function.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import Lambda Functions using the `function_name`. For example:
 
-        ```sh
-        $ pulumi import aws:lambda/function:Function example example
-        ```
+        console
+
+        % pulumi import aws_lambda_function.example example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1755,6 +1800,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`.
         :param pulumi.Input[Union['FunctionSnapStartArgs', 'FunctionSnapStartArgsDict']] snap_start: Configuration block for snap start settings. See below.
         :param pulumi.Input[_builtins.str] source_code_hash: Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
+        :param pulumi.Input[_builtins.str] source_kms_key_arn: ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.int] timeout: Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
         :param pulumi.Input[Union['FunctionTracingConfigArgs', 'FunctionTracingConfigArgsDict']] tracing_config: Configuration block for X-Ray tracing. See below.
@@ -2134,11 +2180,23 @@ class Function(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `function_name` (String) Name of the Lambda function.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import Lambda Functions using the `function_name`. For example:
 
-        ```sh
-        $ pulumi import aws:lambda/function:Function example example
-        ```
+        console
+
+        % pulumi import aws_lambda_function.example example
 
         :param str resource_name: The name of the resource.
         :param FunctionArgs args: The arguments to use to populate this resource's properties.
@@ -2185,6 +2243,7 @@ class Function(pulumi.CustomResource):
                  skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
                  snap_start: Optional[pulumi.Input[Union['FunctionSnapStartArgs', 'FunctionSnapStartArgsDict']]] = None,
                  source_code_hash: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  tracing_config: Optional[pulumi.Input[Union['FunctionTracingConfigArgs', 'FunctionTracingConfigArgsDict']]] = None,
@@ -2230,6 +2289,7 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["skip_destroy"] = skip_destroy
             __props__.__dict__["snap_start"] = snap_start
             __props__.__dict__["source_code_hash"] = source_code_hash
+            __props__.__dict__["source_kms_key_arn"] = source_kms_key_arn
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeout"] = timeout
             __props__.__dict__["tracing_config"] = tracing_config
@@ -2294,6 +2354,7 @@ class Function(pulumi.CustomResource):
             snap_start: Optional[pulumi.Input[Union['FunctionSnapStartArgs', 'FunctionSnapStartArgsDict']]] = None,
             source_code_hash: Optional[pulumi.Input[_builtins.str]] = None,
             source_code_size: Optional[pulumi.Input[_builtins.int]] = None,
+            source_kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             timeout: Optional[pulumi.Input[_builtins.int]] = None,
@@ -2348,6 +2409,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[Union['FunctionSnapStartArgs', 'FunctionSnapStartArgsDict']] snap_start: Configuration block for snap start settings. See below.
         :param pulumi.Input[_builtins.str] source_code_hash: Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
         :param pulumi.Input[_builtins.int] source_code_size: Size in bytes of the function .zip file.
+        :param pulumi.Input[_builtins.str] source_kms_key_arn: ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.int] timeout: Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
@@ -2398,6 +2460,7 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["snap_start"] = snap_start
         __props__.__dict__["source_code_hash"] = source_code_hash
         __props__.__dict__["source_code_size"] = source_code_size
+        __props__.__dict__["source_kms_key_arn"] = source_kms_key_arn
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeout"] = timeout
@@ -2719,6 +2782,14 @@ class Function(pulumi.CustomResource):
         Size in bytes of the function .zip file.
         """
         return pulumi.get(self, "source_code_size")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceKmsKeyArn")
+    def source_kms_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
+        """
+        return pulumi.get(self, "source_kms_key_arn")
 
     @_builtins.property
     @pulumi.getter

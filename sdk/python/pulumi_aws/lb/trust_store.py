@@ -345,11 +345,17 @@ class TrustStore(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the trust store.
+
         Using `pulumi import`, import Target Groups using their ARN. For example:
 
-        ```sh
-        $ pulumi import aws:lb/trustStore:TrustStore example arn:aws:elasticloadbalancing:us-west-2:187416307283:truststore/my-trust-store/20cfe21448b66314
-        ```
+        console
+
+        % pulumi import aws_lb_trust_store.example arn:aws:elasticloadbalancing:us-west-2:187416307283:truststore/my-trust-store/20cfe21448b66314
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -396,11 +402,17 @@ class TrustStore(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the trust store.
+
         Using `pulumi import`, import Target Groups using their ARN. For example:
 
-        ```sh
-        $ pulumi import aws:lb/trustStore:TrustStore example arn:aws:elasticloadbalancing:us-west-2:187416307283:truststore/my-trust-store/20cfe21448b66314
-        ```
+        console
+
+        % pulumi import aws_lb_trust_store.example arn:aws:elasticloadbalancing:us-west-2:187416307283:truststore/my-trust-store/20cfe21448b66314
 
         :param str resource_name: The name of the resource.
         :param TrustStoreArgs args: The arguments to use to populate this resource's properties.

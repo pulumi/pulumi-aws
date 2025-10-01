@@ -56,7 +56,7 @@ public final class GroupInstanceRefreshPreferences {
      */
     private @Nullable String scaleInProtectedInstances;
     /**
-     * @return Replace instances that already have your desired configuration. Defaults to `false`.
+     * @return Skip replacing instances that already have your desired configuration. Defaults to `false`.
      * 
      */
     private @Nullable Boolean skipMatching;
@@ -124,7 +124,7 @@ public final class GroupInstanceRefreshPreferences {
         return Optional.ofNullable(this.scaleInProtectedInstances);
     }
     /**
-     * @return Replace instances that already have your desired configuration. Defaults to `false`.
+     * @return Skip replacing instances that already have your desired configuration. Defaults to `false`.
      * 
      */
     public Optional<Boolean> skipMatching() {

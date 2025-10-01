@@ -245,6 +245,9 @@ export class DataSet extends pulumi.CustomResource {
      * The following arguments are optional:
      */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * The final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set.  See `outputColumns` Block below.
+     */
     declare public /*out*/ readonly outputColumns: pulumi.Output<outputs.quicksight.DataSetOutputColumn[]>;
     /**
      * A set of resource permissions on the data source. Maximum of 64 items. See permissions.
@@ -387,6 +390,9 @@ export interface DataSetState {
      * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
+    /**
+     * The final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set.  See `outputColumns` Block below.
+     */
     outputColumns?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetOutputColumn>[]>;
     /**
      * A set of resource permissions on the data source. Maximum of 64 items. See permissions.

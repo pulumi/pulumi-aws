@@ -22,6 +22,10 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly int? NumberOfSnapshotsToRetain;
         /// <summary>
+        /// Interval in hours between retention job runs. Defaults to `24`.
+        /// </summary>
+        public readonly int? RunRateInHours;
+        /// <summary>
         /// The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
         /// </summary>
         public readonly int? SnapshotRetentionPeriodInDays;
@@ -32,10 +36,13 @@ namespace Pulumi.Aws.Glue.Outputs
 
             int? numberOfSnapshotsToRetain,
 
+            int? runRateInHours,
+
             int? snapshotRetentionPeriodInDays)
         {
             CleanExpiredFiles = cleanExpiredFiles;
             NumberOfSnapshotsToRetain = numberOfSnapshotsToRetain;
+            RunRateInHours = runRateInHours;
             SnapshotRetentionPeriodInDays = snapshotRetentionPeriodInDays;
         }
     }

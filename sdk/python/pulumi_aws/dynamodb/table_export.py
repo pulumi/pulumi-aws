@@ -576,11 +576,17 @@ class TableExport(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the DynamoDB table export.
+
         Using `pulumi import`, import DynamoDB table exports using the `arn`. For example:
 
-        ```sh
-        $ pulumi import aws:dynamodb/tableExport:TableExport example arn:aws:dynamodb:us-west-2:12345678911:table/my-table-1/export/01580735656614-2c2f422e
-        ```
+        console
+
+        % pulumi import aws_dynamodb_table_export.example arn:aws:dynamodb:us-west-2:12345678911:table/my-table-1/export/01580735656614-2c2f422e
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -662,11 +668,17 @@ class TableExport(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the DynamoDB table export.
+
         Using `pulumi import`, import DynamoDB table exports using the `arn`. For example:
 
-        ```sh
-        $ pulumi import aws:dynamodb/tableExport:TableExport example arn:aws:dynamodb:us-west-2:12345678911:table/my-table-1/export/01580735656614-2c2f422e
-        ```
+        console
+
+        % pulumi import aws_dynamodb_table_export.example arn:aws:dynamodb:us-west-2:12345678911:table/my-table-1/export/01580735656614-2c2f422e
 
         :param str resource_name: The name of the resource.
         :param TableExportArgs args: The arguments to use to populate this resource's properties.

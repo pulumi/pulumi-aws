@@ -47,6 +47,21 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationIcebe
     }
 
     /**
+     * Interval in hours between retention job runs. Defaults to `24`.
+     * 
+     */
+    @Import(name="runRateInHours")
+    private @Nullable Output<Integer> runRateInHours;
+
+    /**
+     * @return Interval in hours between retention job runs. Defaults to `24`.
+     * 
+     */
+    public Optional<Output<Integer>> runRateInHours() {
+        return Optional.ofNullable(this.runRateInHours);
+    }
+
+    /**
      * The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
      * 
      */
@@ -66,6 +81,7 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationIcebe
     private CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs(CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs $) {
         this.cleanExpiredFiles = $.cleanExpiredFiles;
         this.numberOfSnapshotsToRetain = $.numberOfSnapshotsToRetain;
+        this.runRateInHours = $.runRateInHours;
         this.snapshotRetentionPeriodInDays = $.snapshotRetentionPeriodInDays;
     }
 
@@ -127,6 +143,27 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationIcebe
          */
         public Builder numberOfSnapshotsToRetain(Integer numberOfSnapshotsToRetain) {
             return numberOfSnapshotsToRetain(Output.of(numberOfSnapshotsToRetain));
+        }
+
+        /**
+         * @param runRateInHours Interval in hours between retention job runs. Defaults to `24`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder runRateInHours(@Nullable Output<Integer> runRateInHours) {
+            $.runRateInHours = runRateInHours;
+            return this;
+        }
+
+        /**
+         * @param runRateInHours Interval in hours between retention job runs. Defaults to `24`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder runRateInHours(Integer runRateInHours) {
+            return runRateInHours(Output.of(runRateInHours));
         }
 
         /**

@@ -4466,6 +4466,8 @@ type DistributionOrigin struct {
 	OriginPath *string `pulumi:"originPath"`
 	// CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
 	OriginShield *DistributionOriginOriginShield `pulumi:"originShield"`
+	// Time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. Must be integer greater than or equal to the value of `originReadTimeout`. If omitted or explicitly set to `0`, no maximum value is enforced.
+	ResponseCompletionTimeout *int `pulumi:"responseCompletionTimeout"`
 	// CloudFront S3 origin configuration information. If a custom origin is required, use `customOriginConfig` instead.
 	S3OriginConfig *DistributionOriginS3OriginConfig `pulumi:"s3OriginConfig"`
 	// The VPC origin configuration.
@@ -4501,6 +4503,8 @@ type DistributionOriginArgs struct {
 	OriginPath pulumi.StringPtrInput `pulumi:"originPath"`
 	// CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
 	OriginShield DistributionOriginOriginShieldPtrInput `pulumi:"originShield"`
+	// Time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. Must be integer greater than or equal to the value of `originReadTimeout`. If omitted or explicitly set to `0`, no maximum value is enforced.
+	ResponseCompletionTimeout pulumi.IntPtrInput `pulumi:"responseCompletionTimeout"`
 	// CloudFront S3 origin configuration information. If a custom origin is required, use `customOriginConfig` instead.
 	S3OriginConfig DistributionOriginS3OriginConfigPtrInput `pulumi:"s3OriginConfig"`
 	// The VPC origin configuration.
@@ -4600,6 +4604,11 @@ func (o DistributionOriginOutput) OriginPath() pulumi.StringPtrOutput {
 // CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
 func (o DistributionOriginOutput) OriginShield() DistributionOriginOriginShieldPtrOutput {
 	return o.ApplyT(func(v DistributionOrigin) *DistributionOriginOriginShield { return v.OriginShield }).(DistributionOriginOriginShieldPtrOutput)
+}
+
+// Time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. Must be integer greater than or equal to the value of `originReadTimeout`. If omitted or explicitly set to `0`, no maximum value is enforced.
+func (o DistributionOriginOutput) ResponseCompletionTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DistributionOrigin) *int { return v.ResponseCompletionTimeout }).(pulumi.IntPtrOutput)
 }
 
 // CloudFront S3 origin configuration information. If a custom origin is required, use `customOriginConfig` instead.

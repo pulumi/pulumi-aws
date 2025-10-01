@@ -51,11 +51,17 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// - `arn` (String) Amazon Resource Name (ARN) of the IVS playback key pair.
+//
 // Using `pulumi import`, import IVS (Interactive Video) Playback Key Pair using the ARN. For example:
 //
-// ```sh
-// $ pulumi import aws:ivs/playbackKeyPair:PlaybackKeyPair example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
-// ```
+// console
+//
+// % pulumi import aws_ivs_playback_key_pair.example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
 type PlaybackKeyPair struct {
 	pulumi.CustomResourceState
 

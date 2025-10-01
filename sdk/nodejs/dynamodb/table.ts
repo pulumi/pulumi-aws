@@ -340,6 +340,10 @@ export class Table extends pulumi.CustomResource {
      */
     declare public readonly ttl: pulumi.Output<outputs.dynamodb.TableTtl>;
     /**
+     * Sets the number of warm read and write units for the specified table. See below.
+     */
+    declare public readonly warmThroughput: pulumi.Output<outputs.dynamodb.TableWarmThroughput>;
+    /**
      * Number of write units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
      */
     declare public readonly writeCapacity: pulumi.Output<number>;
@@ -385,6 +389,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
             resourceInputs["ttl"] = state?.ttl;
+            resourceInputs["warmThroughput"] = state?.warmThroughput;
             resourceInputs["writeCapacity"] = state?.writeCapacity;
         } else {
             const args = argsOrState as TableArgs | undefined;
@@ -412,6 +417,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["tableClass"] = args?.tableClass;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["ttl"] = args?.ttl;
+            resourceInputs["warmThroughput"] = args?.warmThroughput;
             resourceInputs["writeCapacity"] = args?.writeCapacity;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["streamArn"] = undefined /*out*/;
@@ -544,6 +550,10 @@ export interface TableState {
      */
     ttl?: pulumi.Input<inputs.dynamodb.TableTtl>;
     /**
+     * Sets the number of warm read and write units for the specified table. See below.
+     */
+    warmThroughput?: pulumi.Input<inputs.dynamodb.TableWarmThroughput>;
+    /**
      * Number of write units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
      */
     writeCapacity?: pulumi.Input<number>;
@@ -653,6 +663,10 @@ export interface TableArgs {
      * Configuration block for TTL. See below.
      */
     ttl?: pulumi.Input<inputs.dynamodb.TableTtl>;
+    /**
+     * Sets the number of warm read and write units for the specified table. See below.
+     */
+    warmThroughput?: pulumi.Input<inputs.dynamodb.TableWarmThroughput>;
     /**
      * Number of write units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
      */

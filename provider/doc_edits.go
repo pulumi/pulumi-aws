@@ -266,7 +266,7 @@ func applyReplacementsDotJSON() tfbridge.DocsEdit {
 	// Print the number of replacements actually applied, then write out the new
 	// `replacements.json` with new TODOs for elided text.
 	PostTfgenHook = append(PostTfgenHook, func() {
-		fmt.Printf("Applied %d replacements", applied)
+		fmt.Printf("Applied %d replacements\n", applied)
 		var b bytes.Buffer
 		m := json.NewEncoder(&b)
 		m.SetEscapeHTML(false)

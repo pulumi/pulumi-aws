@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.codebuild.WebhookArgs;
 import com.pulumi.aws.codebuild.inputs.WebhookState;
 import com.pulumi.aws.codebuild.outputs.WebhookFilterGroup;
+import com.pulumi.aws.codebuild.outputs.WebhookPullRequestBuildPolicy;
 import com.pulumi.aws.codebuild.outputs.WebhookScopeConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -159,14 +160,14 @@ public class Webhook extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.buildType);
     }
     /**
-     * Information about the webhook&#39;s trigger. Filter group blocks are documented below.
+     * Information about the webhook&#39;s trigger. See filter_group for details.
      * 
      */
     @Export(name="filterGroups", refs={List.class,WebhookFilterGroup.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WebhookFilterGroup>> filterGroups;
 
     /**
-     * @return Information about the webhook&#39;s trigger. Filter group blocks are documented below.
+     * @return Information about the webhook&#39;s trigger. See filter_group for details.
      * 
      */
     public Output<Optional<List<WebhookFilterGroup>>> filterGroups() {
@@ -215,6 +216,20 @@ public class Webhook extends com.pulumi.resources.CustomResource {
         return this.projectName;
     }
     /**
+     * Defines comment-based approval requirements for triggering builds on pull requests. See pull_request_build_policy for details.
+     * 
+     */
+    @Export(name="pullRequestBuildPolicy", refs={WebhookPullRequestBuildPolicy.class}, tree="[0]")
+    private Output<WebhookPullRequestBuildPolicy> pullRequestBuildPolicy;
+
+    /**
+     * @return Defines comment-based approval requirements for triggering builds on pull requests. See pull_request_build_policy for details.
+     * 
+     */
+    public Output<WebhookPullRequestBuildPolicy> pullRequestBuildPolicy() {
+        return this.pullRequestBuildPolicy;
+    }
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
@@ -229,14 +244,14 @@ public class Webhook extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+     * Scope configuration for global or organization webhooks. See scope_configuration for details.
      * 
      */
     @Export(name="scopeConfiguration", refs={WebhookScopeConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ WebhookScopeConfiguration> scopeConfiguration;
 
     /**
-     * @return Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+     * @return Scope configuration for global or organization webhooks. See scope_configuration for details.
      * 
      */
     public Output<Optional<WebhookScopeConfiguration>> scopeConfiguration() {

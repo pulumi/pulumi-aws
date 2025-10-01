@@ -70,6 +70,8 @@ type LookupBudgetResult struct {
 	Arn       string `pulumi:"arn"`
 	// Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
 	AutoAdjustDatas []GetBudgetAutoAdjustData `pulumi:"autoAdjustDatas"`
+	// ARN of the billing view.
+	BillingViewArn string `pulumi:"billingViewArn"`
 	// Boolean indicating whether this budget has been exceeded.
 	BudgetExceeded bool `pulumi:"budgetExceeded"`
 	// The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget. Contains object Spend.
@@ -153,6 +155,11 @@ func (o LookupBudgetResultOutput) Arn() pulumi.StringOutput {
 // Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
 func (o LookupBudgetResultOutput) AutoAdjustDatas() GetBudgetAutoAdjustDataArrayOutput {
 	return o.ApplyT(func(v LookupBudgetResult) []GetBudgetAutoAdjustData { return v.AutoAdjustDatas }).(GetBudgetAutoAdjustDataArrayOutput)
+}
+
+// ARN of the billing view.
+func (o LookupBudgetResultOutput) BillingViewArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBudgetResult) string { return v.BillingViewArn }).(pulumi.StringOutput)
 }
 
 // Boolean indicating whether this budget has been exceeded.

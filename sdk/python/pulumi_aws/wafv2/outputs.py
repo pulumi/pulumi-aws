@@ -20435,10 +20435,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
                  username_field: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField'] = None):
         """
         :param _builtins.str payload_type: The payload type for your login endpoint, either JSON or form encoded.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsArgs' address_fields: The names of the fields in the request payload that contain your customer's primary physical address. See `address_fields` for more details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailFieldArgs' email_field: The name of the field in the request payload that contains your customer's email. See `email_field` for more details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordFieldArgs' password_field: Details about your login page password field. See `password_field` for more details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFieldsArgs' phone_number_fields: The names of the fields in the request payload that contain your customer's primary phone number. See `phone_number_fields` for more details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameFieldArgs' username_field: Details about your login page username field. See `username_field` for more details.
         """
         pulumi.set(__self__, "payload_type", payload_type)
@@ -20464,17 +20461,11 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
     @_builtins.property
     @pulumi.getter(name="addressFields")
     def address_fields(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields']:
-        """
-        The names of the fields in the request payload that contain your customer's primary physical address. See `address_fields` for more details.
-        """
         return pulumi.get(self, "address_fields")
 
     @_builtins.property
     @pulumi.getter(name="emailField")
     def email_field(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField']:
-        """
-        The name of the field in the request payload that contains your customer's email. See `email_field` for more details.
-        """
         return pulumi.get(self, "email_field")
 
     @_builtins.property
@@ -20488,9 +20479,6 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
     @_builtins.property
     @pulumi.getter(name="phoneNumberFields")
     def phone_number_fields(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFields']:
-        """
-        The names of the fields in the request payload that contain your customer's primary phone number. See `phone_number_fields` for more details.
-        """
         return pulumi.get(self, "phone_number_fields")
 
     @_builtins.property

@@ -288,11 +288,17 @@ class VpcConnector(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the App Runner VPC connector.
+
         Using `pulumi import`, import App Runner vpc connector using the `arn`. For example:
 
-        ```sh
-        $ pulumi import aws:apprunner/vpcConnector:VpcConnector example arn:aws:apprunner:us-east-1:1234567890:vpcconnector/example/1/0a03292a89764e5882c41d8f991c82fe
-        ```
+        console
+
+        % pulumi import aws_apprunner_vpc_connector.example arn:aws:apprunner:us-east-1:1234567890:vpcconnector/example/1/0a03292a89764e5882c41d8f991c82fe
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -331,11 +337,17 @@ class VpcConnector(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the App Runner VPC connector.
+
         Using `pulumi import`, import App Runner vpc connector using the `arn`. For example:
 
-        ```sh
-        $ pulumi import aws:apprunner/vpcConnector:VpcConnector example arn:aws:apprunner:us-east-1:1234567890:vpcconnector/example/1/0a03292a89764e5882c41d8f991c82fe
-        ```
+        console
+
+        % pulumi import aws_apprunner_vpc_connector.example arn:aws:apprunner:us-east-1:1234567890:vpcconnector/example/1/0a03292a89764e5882c41d8f991c82fe
 
         :param str resource_name: The name of the resource.
         :param VpcConnectorArgs args: The arguments to use to populate this resource's properties.

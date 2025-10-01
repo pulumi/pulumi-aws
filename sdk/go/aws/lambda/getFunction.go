@@ -257,6 +257,8 @@ type LookupFunctionResult struct {
 	SourceCodeHash string `pulumi:"sourceCodeHash"`
 	// Size in bytes of the function .zip file.
 	SourceCodeSize int `pulumi:"sourceCodeSize"`
+	// ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package.
+	SourceKmsKeyArn string `pulumi:"sourceKmsKeyArn"`
 	// Map of tags assigned to the Lambda Function.
 	Tags map[string]string `pulumi:"tags"`
 	// Function execution time at which Lambda should terminate the function.
@@ -458,6 +460,11 @@ func (o LookupFunctionResultOutput) SourceCodeHash() pulumi.StringOutput {
 // Size in bytes of the function .zip file.
 func (o LookupFunctionResultOutput) SourceCodeSize() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupFunctionResult) int { return v.SourceCodeSize }).(pulumi.IntOutput)
+}
+
+// ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package.
+func (o LookupFunctionResultOutput) SourceKmsKeyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFunctionResult) string { return v.SourceKmsKeyArn }).(pulumi.StringOutput)
 }
 
 // Map of tags assigned to the Lambda Function.

@@ -236,6 +236,8 @@ export class GlobalCluster extends pulumi.CustomResource {
     declare public readonly forceDestroy: pulumi.Output<boolean | undefined>;
     /**
      * Global cluster identifier.
+     *
+     * The following arguments are optional:
      */
     declare public readonly globalClusterIdentifier: pulumi.Output<string>;
     /**
@@ -260,6 +262,8 @@ export class GlobalCluster extends pulumi.CustomResource {
     declare public readonly storageEncrypted: pulumi.Output<boolean>;
     /**
      * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * > When both `sourceDbClusterIdentifier` and `engine`/`engineVersion` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engineVersion` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -364,6 +368,8 @@ export interface GlobalClusterState {
     forceDestroy?: pulumi.Input<boolean>;
     /**
      * Global cluster identifier.
+     *
+     * The following arguments are optional:
      */
     globalClusterIdentifier?: pulumi.Input<string>;
     /**
@@ -388,6 +394,8 @@ export interface GlobalClusterState {
     storageEncrypted?: pulumi.Input<boolean>;
     /**
      * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * > When both `sourceDbClusterIdentifier` and `engine`/`engineVersion` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engineVersion` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -426,6 +434,8 @@ export interface GlobalClusterArgs {
     forceDestroy?: pulumi.Input<boolean>;
     /**
      * Global cluster identifier.
+     *
+     * The following arguments are optional:
      */
     globalClusterIdentifier: pulumi.Input<string>;
     /**
@@ -442,6 +452,8 @@ export interface GlobalClusterArgs {
     storageEncrypted?: pulumi.Input<boolean>;
     /**
      * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * > When both `sourceDbClusterIdentifier` and `engine`/`engineVersion` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engineVersion` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

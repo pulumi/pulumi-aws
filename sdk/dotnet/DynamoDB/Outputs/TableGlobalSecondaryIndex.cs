@@ -26,7 +26,7 @@ namespace Pulumi.Aws.DynamoDB.Outputs
         /// </summary>
         public readonly ImmutableArray<string> NonKeyAttributes;
         /// <summary>
-        /// Sets the maximum number of read and write units for the specified on-demand table. See below.
+        /// Sets the maximum number of read and write units for the specified on-demand index. See below.
         /// </summary>
         public readonly Outputs.TableGlobalSecondaryIndexOnDemandThroughput? OnDemandThroughput;
         /// <summary>
@@ -41,6 +41,10 @@ namespace Pulumi.Aws.DynamoDB.Outputs
         /// Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
         /// </summary>
         public readonly int? ReadCapacity;
+        /// <summary>
+        /// Sets the number of warm read and write units for this index. See below.
+        /// </summary>
+        public readonly Outputs.TableGlobalSecondaryIndexWarmThroughput? WarmThroughput;
         /// <summary>
         /// Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
         /// </summary>
@@ -62,6 +66,8 @@ namespace Pulumi.Aws.DynamoDB.Outputs
 
             int? readCapacity,
 
+            Outputs.TableGlobalSecondaryIndexWarmThroughput? warmThroughput,
+
             int? writeCapacity)
         {
             HashKey = hashKey;
@@ -71,6 +77,7 @@ namespace Pulumi.Aws.DynamoDB.Outputs
             ProjectionType = projectionType;
             RangeKey = rangeKey;
             ReadCapacity = readCapacity;
+            WarmThroughput = warmThroughput;
             WriteCapacity = writeCapacity;
         }
     }

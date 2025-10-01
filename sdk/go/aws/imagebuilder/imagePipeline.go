@@ -15,14 +15,6 @@ import (
 // Manages an Image Builder Image Pipeline.
 //
 // > **NOTE:** Starting with version `5.74.0`, lifecycle meta-argument `replaceTriggeredBy` must be used in order to prevent a dependency error on destroy.
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_imagebuilder_image_pipeline` resources using the Amazon Resource Name (ARN). For example:
-//
-// ```sh
-// $ pulumi import aws:imagebuilder/imagePipeline:ImagePipeline example arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/example
-// ```
 type ImagePipeline struct {
 	pulumi.CustomResourceState
 

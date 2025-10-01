@@ -348,11 +348,23 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `association_id` - (String) ID of the SSM association.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// 
+    /// * `region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import SSM associations using the `association_id`. For example:
     /// 
-    /// ```sh
-    /// $ pulumi import aws:ssm/association:Association test-association 10abcdef-0abc-1234-5678-90abcdef123456
-    /// ```
+    /// console
+    /// 
+    /// % pulumi import aws_ssm_association.example 10abcdef-0abc-1234-5678-90abcdef123456
     /// </summary>
     [AwsResourceType("aws:ssm/association:Association")]
     public partial class Association : global::Pulumi.CustomResource

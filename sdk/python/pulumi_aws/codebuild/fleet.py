@@ -554,11 +554,17 @@ class Fleet(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild fleet.
+
         Using `pulumi import`, import CodeBuild Fleet using the `name`. For example:
 
-        ```sh
-        $ pulumi import aws:codebuild/fleet:Fleet name fleet-name
-        ```
+        console
+
+        % pulumi import aws_codebuild_fleet.name fleet-name
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -619,11 +625,17 @@ class Fleet(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild fleet.
+
         Using `pulumi import`, import CodeBuild Fleet using the `name`. For example:
 
-        ```sh
-        $ pulumi import aws:codebuild/fleet:Fleet name fleet-name
-        ```
+        console
+
+        % pulumi import aws_codebuild_fleet.name fleet-name
 
         :param str resource_name: The name of the resource.
         :param FleetArgs args: The arguments to use to populate this resource's properties.

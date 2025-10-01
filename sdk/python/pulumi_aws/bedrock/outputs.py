@@ -8193,12 +8193,51 @@ class GuardrailWordPolicyConfig(dict):
 
 @pulumi.output_type
 class GuardrailWordPolicyConfigManagedWordListsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputAction":
+            suggest = "input_action"
+        elif key == "inputEnabled":
+            suggest = "input_enabled"
+        elif key == "outputAction":
+            suggest = "output_action"
+        elif key == "outputEnabled":
+            suggest = "output_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GuardrailWordPolicyConfigManagedWordListsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GuardrailWordPolicyConfigManagedWordListsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GuardrailWordPolicyConfigManagedWordListsConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 type: _builtins.str):
+                 type: _builtins.str,
+                 input_action: Optional[_builtins.str] = None,
+                 input_enabled: Optional[_builtins.bool] = None,
+                 output_action: Optional[_builtins.str] = None,
+                 output_enabled: Optional[_builtins.bool] = None):
         """
         :param _builtins.str type: Options for managed words.
+        :param _builtins.str input_action: Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `NONE`.
+        :param _builtins.bool input_enabled: Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
+        :param _builtins.str output_action: Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `NONE`.
+        :param _builtins.bool output_enabled: Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
         """
         pulumi.set(__self__, "type", type)
+        if input_action is not None:
+            pulumi.set(__self__, "input_action", input_action)
+        if input_enabled is not None:
+            pulumi.set(__self__, "input_enabled", input_enabled)
+        if output_action is not None:
+            pulumi.set(__self__, "output_action", output_action)
+        if output_enabled is not None:
+            pulumi.set(__self__, "output_enabled", output_enabled)
 
     @_builtins.property
     @pulumi.getter
@@ -8208,15 +8247,86 @@ class GuardrailWordPolicyConfigManagedWordListsConfig(dict):
         """
         return pulumi.get(self, "type")
 
+    @_builtins.property
+    @pulumi.getter(name="inputAction")
+    def input_action(self) -> Optional[_builtins.str]:
+        """
+        Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `NONE`.
+        """
+        return pulumi.get(self, "input_action")
+
+    @_builtins.property
+    @pulumi.getter(name="inputEnabled")
+    def input_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
+        """
+        return pulumi.get(self, "input_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="outputAction")
+    def output_action(self) -> Optional[_builtins.str]:
+        """
+        Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `NONE`.
+        """
+        return pulumi.get(self, "output_action")
+
+    @_builtins.property
+    @pulumi.getter(name="outputEnabled")
+    def output_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
+        """
+        return pulumi.get(self, "output_enabled")
+
 
 @pulumi.output_type
 class GuardrailWordPolicyConfigWordsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputAction":
+            suggest = "input_action"
+        elif key == "inputEnabled":
+            suggest = "input_enabled"
+        elif key == "outputAction":
+            suggest = "output_action"
+        elif key == "outputEnabled":
+            suggest = "output_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GuardrailWordPolicyConfigWordsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GuardrailWordPolicyConfigWordsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GuardrailWordPolicyConfigWordsConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 text: _builtins.str):
+                 text: _builtins.str,
+                 input_action: Optional[_builtins.str] = None,
+                 input_enabled: Optional[_builtins.bool] = None,
+                 output_action: Optional[_builtins.str] = None,
+                 output_enabled: Optional[_builtins.bool] = None):
         """
         :param _builtins.str text: The custom word text.
+        :param _builtins.str input_action: Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `NONE`.
+        :param _builtins.bool input_enabled: Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
+        :param _builtins.str output_action: Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `NONE`.
+        :param _builtins.bool output_enabled: Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
         """
         pulumi.set(__self__, "text", text)
+        if input_action is not None:
+            pulumi.set(__self__, "input_action", input_action)
+        if input_enabled is not None:
+            pulumi.set(__self__, "input_enabled", input_enabled)
+        if output_action is not None:
+            pulumi.set(__self__, "output_action", output_action)
+        if output_enabled is not None:
+            pulumi.set(__self__, "output_enabled", output_enabled)
 
     @_builtins.property
     @pulumi.getter
@@ -8225,6 +8335,38 @@ class GuardrailWordPolicyConfigWordsConfig(dict):
         The custom word text.
         """
         return pulumi.get(self, "text")
+
+    @_builtins.property
+    @pulumi.getter(name="inputAction")
+    def input_action(self) -> Optional[_builtins.str]:
+        """
+        Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `NONE`.
+        """
+        return pulumi.get(self, "input_action")
+
+    @_builtins.property
+    @pulumi.getter(name="inputEnabled")
+    def input_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
+        """
+        return pulumi.get(self, "input_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="outputAction")
+    def output_action(self) -> Optional[_builtins.str]:
+        """
+        Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `NONE`.
+        """
+        return pulumi.get(self, "output_action")
+
+    @_builtins.property
+    @pulumi.getter(name="outputEnabled")
+    def output_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
+        """
+        return pulumi.get(self, "output_enabled")
 
 
 @pulumi.output_type

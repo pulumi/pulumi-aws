@@ -21,15 +21,22 @@ namespace Pulumi.Aws.Glue.Outputs
         /// The number of days that orphan files should be retained before file deletion. Defaults to `3`.
         /// </summary>
         public readonly int? OrphanFileRetentionPeriodInDays;
+        /// <summary>
+        /// interval in hours between orphan file deletion job runs. Defaults to `24`.
+        /// </summary>
+        public readonly int? RunRateInHours;
 
         [OutputConstructor]
         private CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration(
             string? location,
 
-            int? orphanFileRetentionPeriodInDays)
+            int? orphanFileRetentionPeriodInDays,
+
+            int? runRateInHours)
         {
             Location = location;
             OrphanFileRetentionPeriodInDays = orphanFileRetentionPeriodInDays;
+            RunRateInHours = runRateInHours;
         }
     }
 }

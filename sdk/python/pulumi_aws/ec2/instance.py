@@ -53,6 +53,7 @@ class InstanceArgs:
                  monitoring: Optional[pulumi.Input[_builtins.bool]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceNetworkInterfaceArgs']]]] = None,
                  placement_group: Optional[pulumi.Input[_builtins.str]] = None,
+                 placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
                  placement_partition_number: Optional[pulumi.Input[_builtins.int]] = None,
                  primary_network_interface: Optional[pulumi.Input['InstancePrimaryNetworkInterfaceArgs']] = None,
                  private_dns_name_options: Optional[pulumi.Input['InstancePrivateDnsNameOptionsArgs']] = None,
@@ -102,7 +103,8 @@ class InstanceArgs:
         :param pulumi.Input['InstanceMetadataOptionsArgs'] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
         :param pulumi.Input[_builtins.bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[Sequence[pulumi.Input['InstanceNetworkInterfaceArgs']]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
-        :param pulumi.Input[_builtins.str] placement_group: Placement Group to start the instance in.
+        :param pulumi.Input[_builtins.str] placement_group: Placement Group to start the instance in. Conflicts with `placement_group_id`.
+        :param pulumi.Input[_builtins.str] placement_group_id: Placement Group ID to start the instance in. Conflicts with `placement_group`.
         :param pulumi.Input[_builtins.int] placement_partition_number: Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
         :param pulumi.Input['InstancePrimaryNetworkInterfaceArgs'] primary_network_interface: The primary network interface. See Primary Network Interface below.
         :param pulumi.Input['InstancePrivateDnsNameOptionsArgs'] private_dns_name_options: Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
@@ -190,6 +192,8 @@ class InstanceArgs:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
         if placement_group is not None:
             pulumi.set(__self__, "placement_group", placement_group)
+        if placement_group_id is not None:
+            pulumi.set(__self__, "placement_group_id", placement_group_id)
         if placement_partition_number is not None:
             pulumi.set(__self__, "placement_partition_number", placement_partition_number)
         if primary_network_interface is not None:
@@ -593,13 +597,25 @@ class InstanceArgs:
     @pulumi.getter(name="placementGroup")
     def placement_group(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Placement Group to start the instance in.
+        Placement Group to start the instance in. Conflicts with `placement_group_id`.
         """
         return pulumi.get(self, "placement_group")
 
     @placement_group.setter
     def placement_group(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "placement_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="placementGroupId")
+    def placement_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Placement Group ID to start the instance in. Conflicts with `placement_group`.
+        """
+        return pulumi.get(self, "placement_group_id")
+
+    @placement_group_id.setter
+    def placement_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "placement_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="placementPartitionNumber")
@@ -850,6 +866,7 @@ class _InstanceState:
                  outpost_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  password_data: Optional[pulumi.Input[_builtins.str]] = None,
                  placement_group: Optional[pulumi.Input[_builtins.str]] = None,
+                 placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
                  placement_partition_number: Optional[pulumi.Input[_builtins.int]] = None,
                  primary_network_interface: Optional[pulumi.Input['InstancePrimaryNetworkInterfaceArgs']] = None,
                  primary_network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -910,7 +927,8 @@ class _InstanceState:
         :param pulumi.Input[Sequence[pulumi.Input['InstanceNetworkInterfaceArgs']]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         :param pulumi.Input[_builtins.str] outpost_arn: ARN of the Outpost the instance is assigned to.
         :param pulumi.Input[_builtins.str] password_data: Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `get_password_data` is true. Note that this encrypted value will be stored in the state file, as with all exported attributes. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
-        :param pulumi.Input[_builtins.str] placement_group: Placement Group to start the instance in.
+        :param pulumi.Input[_builtins.str] placement_group: Placement Group to start the instance in. Conflicts with `placement_group_id`.
+        :param pulumi.Input[_builtins.str] placement_group_id: Placement Group ID to start the instance in. Conflicts with `placement_group`.
         :param pulumi.Input[_builtins.int] placement_partition_number: Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
         :param pulumi.Input['InstancePrimaryNetworkInterfaceArgs'] primary_network_interface: The primary network interface. See Primary Network Interface below.
         :param pulumi.Input[_builtins.str] primary_network_interface_id: ID of the instance's primary network interface.
@@ -1014,6 +1032,8 @@ class _InstanceState:
             pulumi.set(__self__, "password_data", password_data)
         if placement_group is not None:
             pulumi.set(__self__, "placement_group", placement_group)
+        if placement_group_id is not None:
+            pulumi.set(__self__, "placement_group_id", placement_group_id)
         if placement_partition_number is not None:
             pulumi.set(__self__, "placement_partition_number", placement_partition_number)
         if primary_network_interface is not None:
@@ -1489,13 +1509,25 @@ class _InstanceState:
     @pulumi.getter(name="placementGroup")
     def placement_group(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Placement Group to start the instance in.
+        Placement Group to start the instance in. Conflicts with `placement_group_id`.
         """
         return pulumi.get(self, "placement_group")
 
     @placement_group.setter
     def placement_group(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "placement_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="placementGroupId")
+    def placement_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Placement Group ID to start the instance in. Conflicts with `placement_group`.
+        """
+        return pulumi.get(self, "placement_group_id")
+
+    @placement_group_id.setter
+    def placement_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "placement_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="placementPartitionNumber")
@@ -1816,6 +1848,7 @@ class Instance(pulumi.CustomResource):
                  monitoring: Optional[pulumi.Input[_builtins.bool]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceNetworkInterfaceArgs', 'InstanceNetworkInterfaceArgsDict']]]]] = None,
                  placement_group: Optional[pulumi.Input[_builtins.str]] = None,
+                 placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
                  placement_partition_number: Optional[pulumi.Input[_builtins.int]] = None,
                  primary_network_interface: Optional[pulumi.Input[Union['InstancePrimaryNetworkInterfaceArgs', 'InstancePrimaryNetworkInterfaceArgsDict']]] = None,
                  private_dns_name_options: Optional[pulumi.Input[Union['InstancePrivateDnsNameOptionsArgs', 'InstancePrivateDnsNameOptionsArgsDict']]] = None,
@@ -2016,11 +2049,23 @@ class Instance(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `id` - (String) ID of the instance.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import instances using the `id`. For example:
 
-        ```sh
-        $ pulumi import aws:ec2/instance:Instance web i-12345678
-        ```
+        console
+
+        % pulumi import aws_instance.web i-12345678
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -2054,7 +2099,8 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[Union['InstanceMetadataOptionsArgs', 'InstanceMetadataOptionsArgsDict']] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
         :param pulumi.Input[_builtins.bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceNetworkInterfaceArgs', 'InstanceNetworkInterfaceArgsDict']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
-        :param pulumi.Input[_builtins.str] placement_group: Placement Group to start the instance in.
+        :param pulumi.Input[_builtins.str] placement_group: Placement Group to start the instance in. Conflicts with `placement_group_id`.
+        :param pulumi.Input[_builtins.str] placement_group_id: Placement Group ID to start the instance in. Conflicts with `placement_group`.
         :param pulumi.Input[_builtins.int] placement_partition_number: Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
         :param pulumi.Input[Union['InstancePrimaryNetworkInterfaceArgs', 'InstancePrimaryNetworkInterfaceArgsDict']] primary_network_interface: The primary network interface. See Primary Network Interface below.
         :param pulumi.Input[Union['InstancePrivateDnsNameOptionsArgs', 'InstancePrivateDnsNameOptionsArgsDict']] private_dns_name_options: Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
@@ -2265,11 +2311,23 @@ class Instance(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `id` - (String) ID of the instance.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import instances using the `id`. For example:
 
-        ```sh
-        $ pulumi import aws:ec2/instance:Instance web i-12345678
-        ```
+        console
+
+        % pulumi import aws_instance.web i-12345678
 
         :param str resource_name: The name of the resource.
         :param InstanceArgs args: The arguments to use to populate this resource's properties.
@@ -2317,6 +2375,7 @@ class Instance(pulumi.CustomResource):
                  monitoring: Optional[pulumi.Input[_builtins.bool]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceNetworkInterfaceArgs', 'InstanceNetworkInterfaceArgsDict']]]]] = None,
                  placement_group: Optional[pulumi.Input[_builtins.str]] = None,
+                 placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
                  placement_partition_number: Optional[pulumi.Input[_builtins.int]] = None,
                  primary_network_interface: Optional[pulumi.Input[Union['InstancePrimaryNetworkInterfaceArgs', 'InstancePrimaryNetworkInterfaceArgsDict']]] = None,
                  private_dns_name_options: Optional[pulumi.Input[Union['InstancePrivateDnsNameOptionsArgs', 'InstancePrivateDnsNameOptionsArgsDict']]] = None,
@@ -2374,6 +2433,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["monitoring"] = monitoring
             __props__.__dict__["network_interfaces"] = network_interfaces
             __props__.__dict__["placement_group"] = placement_group
+            __props__.__dict__["placement_group_id"] = placement_group_id
             __props__.__dict__["placement_partition_number"] = placement_partition_number
             __props__.__dict__["primary_network_interface"] = primary_network_interface
             __props__.__dict__["private_dns_name_options"] = private_dns_name_options
@@ -2448,6 +2508,7 @@ class Instance(pulumi.CustomResource):
             outpost_arn: Optional[pulumi.Input[_builtins.str]] = None,
             password_data: Optional[pulumi.Input[_builtins.str]] = None,
             placement_group: Optional[pulumi.Input[_builtins.str]] = None,
+            placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
             placement_partition_number: Optional[pulumi.Input[_builtins.int]] = None,
             primary_network_interface: Optional[pulumi.Input[Union['InstancePrimaryNetworkInterfaceArgs', 'InstancePrimaryNetworkInterfaceArgsDict']]] = None,
             primary_network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2513,7 +2574,8 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceNetworkInterfaceArgs', 'InstanceNetworkInterfaceArgsDict']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         :param pulumi.Input[_builtins.str] outpost_arn: ARN of the Outpost the instance is assigned to.
         :param pulumi.Input[_builtins.str] password_data: Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `get_password_data` is true. Note that this encrypted value will be stored in the state file, as with all exported attributes. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
-        :param pulumi.Input[_builtins.str] placement_group: Placement Group to start the instance in.
+        :param pulumi.Input[_builtins.str] placement_group: Placement Group to start the instance in. Conflicts with `placement_group_id`.
+        :param pulumi.Input[_builtins.str] placement_group_id: Placement Group ID to start the instance in. Conflicts with `placement_group`.
         :param pulumi.Input[_builtins.int] placement_partition_number: Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
         :param pulumi.Input[Union['InstancePrimaryNetworkInterfaceArgs', 'InstancePrimaryNetworkInterfaceArgsDict']] primary_network_interface: The primary network interface. See Primary Network Interface below.
         :param pulumi.Input[_builtins.str] primary_network_interface_id: ID of the instance's primary network interface.
@@ -2582,6 +2644,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["outpost_arn"] = outpost_arn
         __props__.__dict__["password_data"] = password_data
         __props__.__dict__["placement_group"] = placement_group
+        __props__.__dict__["placement_group_id"] = placement_group_id
         __props__.__dict__["placement_partition_number"] = placement_partition_number
         __props__.__dict__["primary_network_interface"] = primary_network_interface
         __props__.__dict__["primary_network_interface_id"] = primary_network_interface_id
@@ -2892,9 +2955,17 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="placementGroup")
     def placement_group(self) -> pulumi.Output[_builtins.str]:
         """
-        Placement Group to start the instance in.
+        Placement Group to start the instance in. Conflicts with `placement_group_id`.
         """
         return pulumi.get(self, "placement_group")
+
+    @_builtins.property
+    @pulumi.getter(name="placementGroupId")
+    def placement_group_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        Placement Group ID to start the instance in. Conflicts with `placement_group`.
+        """
+        return pulumi.get(self, "placement_group_id")
 
     @_builtins.property
     @pulumi.getter(name="placementPartitionNumber")

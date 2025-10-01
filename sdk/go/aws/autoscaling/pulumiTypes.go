@@ -981,7 +981,7 @@ type GroupInstanceRefreshPreferences struct {
 	MinHealthyPercentage *int `pulumi:"minHealthyPercentage"`
 	// Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
 	ScaleInProtectedInstances *string `pulumi:"scaleInProtectedInstances"`
-	// Replace instances that already have your desired configuration. Defaults to `false`.
+	// Skip replacing instances that already have your desired configuration. Defaults to `false`.
 	SkipMatching *bool `pulumi:"skipMatching"`
 	// Behavior when encountering instances in the `Standby` state in are found. Available behaviors are `Terminate`, `Ignore`, and `Wait`. Default is `Ignore`.
 	StandbyInstances *string `pulumi:"standbyInstances"`
@@ -1015,7 +1015,7 @@ type GroupInstanceRefreshPreferencesArgs struct {
 	MinHealthyPercentage pulumi.IntPtrInput `pulumi:"minHealthyPercentage"`
 	// Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
 	ScaleInProtectedInstances pulumi.StringPtrInput `pulumi:"scaleInProtectedInstances"`
-	// Replace instances that already have your desired configuration. Defaults to `false`.
+	// Skip replacing instances that already have your desired configuration. Defaults to `false`.
 	SkipMatching pulumi.BoolPtrInput `pulumi:"skipMatching"`
 	// Behavior when encountering instances in the `Standby` state in are found. Available behaviors are `Terminate`, `Ignore`, and `Wait`. Default is `Ignore`.
 	StandbyInstances pulumi.StringPtrInput `pulumi:"standbyInstances"`
@@ -1140,7 +1140,7 @@ func (o GroupInstanceRefreshPreferencesOutput) ScaleInProtectedInstances() pulum
 	return o.ApplyT(func(v GroupInstanceRefreshPreferences) *string { return v.ScaleInProtectedInstances }).(pulumi.StringPtrOutput)
 }
 
-// Replace instances that already have your desired configuration. Defaults to `false`.
+// Skip replacing instances that already have your desired configuration. Defaults to `false`.
 func (o GroupInstanceRefreshPreferencesOutput) SkipMatching() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GroupInstanceRefreshPreferences) *bool { return v.SkipMatching }).(pulumi.BoolPtrOutput)
 }
@@ -1254,7 +1254,7 @@ func (o GroupInstanceRefreshPreferencesPtrOutput) ScaleInProtectedInstances() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Replace instances that already have your desired configuration. Defaults to `false`.
+// Skip replacing instances that already have your desired configuration. Defaults to `false`.
 func (o GroupInstanceRefreshPreferencesPtrOutput) SkipMatching() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GroupInstanceRefreshPreferences) *bool {
 		if v == nil {

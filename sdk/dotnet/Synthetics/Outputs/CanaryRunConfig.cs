@@ -22,6 +22,10 @@ namespace Pulumi.Aws.Synthetics.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? EnvironmentVariables;
         /// <summary>
+        /// Amount of ephemeral storage (in MB) allocated for the canary run during execution. Defaults to 1024.
+        /// </summary>
+        public readonly int? EphemeralStorage;
+        /// <summary>
         /// Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
         /// </summary>
         public readonly int? MemoryInMb;
@@ -36,12 +40,15 @@ namespace Pulumi.Aws.Synthetics.Outputs
 
             ImmutableDictionary<string, string>? environmentVariables,
 
+            int? ephemeralStorage,
+
             int? memoryInMb,
 
             int? timeoutInSeconds)
         {
             ActiveTracing = activeTracing;
             EnvironmentVariables = environmentVariables;
+            EphemeralStorage = ephemeralStorage;
             MemoryInMb = memoryInMb;
             TimeoutInSeconds = timeoutInSeconds;
         }

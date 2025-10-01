@@ -120,7 +120,7 @@ export class OpenZfsVolume extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block Below.
+     * Specify how much storage users or groups can use on the volume. Maximum number of items defined by [FSx for OpenZFS Resource quota](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html#limits-openzfs-resources-file-system). See `userAndGroupQuotas` Block Below.
      */
     declare public readonly userAndGroupQuotas: pulumi.Output<outputs.fsx.OpenZfsVolumeUserAndGroupQuota[]>;
     declare public readonly volumeType: pulumi.Output<string | undefined>;
@@ -248,7 +248,7 @@ export interface OpenZfsVolumeState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block Below.
+     * Specify how much storage users or groups can use on the volume. Maximum number of items defined by [FSx for OpenZFS Resource quota](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html#limits-openzfs-resources-file-system). See `userAndGroupQuotas` Block Below.
      */
     userAndGroupQuotas?: pulumi.Input<pulumi.Input<inputs.fsx.OpenZfsVolumeUserAndGroupQuota>[]>;
     volumeType?: pulumi.Input<string>;
@@ -311,7 +311,7 @@ export interface OpenZfsVolumeArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block Below.
+     * Specify how much storage users or groups can use on the volume. Maximum number of items defined by [FSx for OpenZFS Resource quota](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html#limits-openzfs-resources-file-system). See `userAndGroupQuotas` Block Below.
      */
     userAndGroupQuotas?: pulumi.Input<pulumi.Input<inputs.fsx.OpenZfsVolumeUserAndGroupQuota>[]>;
     volumeType?: pulumi.Input<string>;

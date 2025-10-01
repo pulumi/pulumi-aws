@@ -12,6 +12,7 @@ import com.pulumi.aws.dynamodb.inputs.TablePointInTimeRecoveryArgs;
 import com.pulumi.aws.dynamodb.inputs.TableReplicaArgs;
 import com.pulumi.aws.dynamodb.inputs.TableServerSideEncryptionArgs;
 import com.pulumi.aws.dynamodb.inputs.TableTtlArgs;
+import com.pulumi.aws.dynamodb.inputs.TableWarmThroughputArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -397,6 +398,21 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Sets the number of warm read and write units for the specified table. See below.
+     * 
+     */
+    @Import(name="warmThroughput")
+    private @Nullable Output<TableWarmThroughputArgs> warmThroughput;
+
+    /**
+     * @return Sets the number of warm read and write units for the specified table. See below.
+     * 
+     */
+    public Optional<Output<TableWarmThroughputArgs>> warmThroughput() {
+        return Optional.ofNullable(this.warmThroughput);
+    }
+
+    /**
      * Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
      * 
      */
@@ -438,6 +454,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         this.tableClass = $.tableClass;
         this.tags = $.tags;
         this.ttl = $.ttl;
+        this.warmThroughput = $.warmThroughput;
         this.writeCapacity = $.writeCapacity;
     }
 
@@ -1009,6 +1026,27 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder ttl(TableTtlArgs ttl) {
             return ttl(Output.of(ttl));
+        }
+
+        /**
+         * @param warmThroughput Sets the number of warm read and write units for the specified table. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder warmThroughput(@Nullable Output<TableWarmThroughputArgs> warmThroughput) {
+            $.warmThroughput = warmThroughput;
+            return this;
+        }
+
+        /**
+         * @param warmThroughput Sets the number of warm read and write units for the specified table. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder warmThroughput(TableWarmThroughputArgs warmThroughput) {
+            return warmThroughput(Output.of(warmThroughput));
         }
 
         /**

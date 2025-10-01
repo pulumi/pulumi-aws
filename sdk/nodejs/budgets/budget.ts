@@ -218,6 +218,10 @@ export class Budget extends pulumi.CustomResource {
      */
     declare public readonly autoAdjustData: pulumi.Output<outputs.budgets.BudgetAutoAdjustData | undefined>;
     /**
+     * ARN of the billing view.
+     */
+    declare public readonly billingViewArn: pulumi.Output<string | undefined>;
+    /**
      * Whether this budget tracks monetary cost or usage.
      */
     declare public readonly budgetType: pulumi.Output<string>;
@@ -295,6 +299,7 @@ export class Budget extends pulumi.CustomResource {
             resourceInputs["accountId"] = state?.accountId;
             resourceInputs["arn"] = state?.arn;
             resourceInputs["autoAdjustData"] = state?.autoAdjustData;
+            resourceInputs["billingViewArn"] = state?.billingViewArn;
             resourceInputs["budgetType"] = state?.budgetType;
             resourceInputs["costFilters"] = state?.costFilters;
             resourceInputs["costTypes"] = state?.costTypes;
@@ -319,6 +324,7 @@ export class Budget extends pulumi.CustomResource {
             }
             resourceInputs["accountId"] = args?.accountId;
             resourceInputs["autoAdjustData"] = args?.autoAdjustData;
+            resourceInputs["billingViewArn"] = args?.billingViewArn;
             resourceInputs["budgetType"] = args?.budgetType;
             resourceInputs["costFilters"] = args?.costFilters;
             resourceInputs["costTypes"] = args?.costTypes;
@@ -356,6 +362,10 @@ export interface BudgetState {
      * Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
      */
     autoAdjustData?: pulumi.Input<inputs.budgets.BudgetAutoAdjustData>;
+    /**
+     * ARN of the billing view.
+     */
+    billingViewArn?: pulumi.Input<string>;
     /**
      * Whether this budget tracks monetary cost or usage.
      */
@@ -431,6 +441,10 @@ export interface BudgetArgs {
      * Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
      */
     autoAdjustData?: pulumi.Input<inputs.budgets.BudgetAutoAdjustData>;
+    /**
+     * ARN of the billing view.
+     */
+    billingViewArn?: pulumi.Input<string>;
     /**
      * Whether this budget tracks monetary cost or usage.
      */

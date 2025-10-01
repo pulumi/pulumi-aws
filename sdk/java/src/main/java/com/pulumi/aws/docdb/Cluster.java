@@ -130,16 +130,18 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * A list of EC2 Availability Zones that
-     * instances in the DB cluster can be created in.
+     * A list of EC2 Availability Zones that instances in the DB cluster can be created in.
+     * DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
+     * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
      * 
      */
     @Export(name="availabilityZones", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> availabilityZones;
 
     /**
-     * @return A list of EC2 Availability Zones that
-     * instances in the DB cluster can be created in.
+     * @return A list of EC2 Availability Zones that instances in the DB cluster can be created in.
+     * DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
+     * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
      * 
      */
     public Output<List<String>> availabilityZones() {

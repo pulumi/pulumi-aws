@@ -28,7 +28,7 @@ class GetInstanceResult:
     """
     A collection of values returned by getInstance.
     """
-    def __init__(__self__, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, credit_specifications=None, disable_api_stop=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, enclave_options=None, ephemeral_block_devices=None, filters=None, get_password_data=None, get_user_data=None, host_id=None, host_resource_group_arn=None, iam_instance_profile=None, id=None, instance_id=None, instance_state=None, instance_tags=None, instance_type=None, ipv6_addresses=None, key_name=None, launch_time=None, maintenance_options=None, metadata_options=None, monitoring=None, network_interface_id=None, outpost_arn=None, password_data=None, placement_group=None, placement_partition_number=None, private_dns=None, private_dns_name_options=None, private_ip=None, public_dns=None, public_ip=None, region=None, root_block_devices=None, secondary_private_ips=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, vpc_security_group_ids=None):
+    def __init__(__self__, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, credit_specifications=None, disable_api_stop=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, enclave_options=None, ephemeral_block_devices=None, filters=None, get_password_data=None, get_user_data=None, host_id=None, host_resource_group_arn=None, iam_instance_profile=None, id=None, instance_id=None, instance_state=None, instance_tags=None, instance_type=None, ipv6_addresses=None, key_name=None, launch_time=None, maintenance_options=None, metadata_options=None, monitoring=None, network_interface_id=None, outpost_arn=None, password_data=None, placement_group=None, placement_group_id=None, placement_partition_number=None, private_dns=None, private_dns_name_options=None, private_ip=None, public_dns=None, public_ip=None, region=None, root_block_devices=None, secondary_private_ips=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, vpc_security_group_ids=None):
         if ami and not isinstance(ami, str):
             raise TypeError("Expected argument 'ami' to be a str")
         pulumi.set(__self__, "ami", ami)
@@ -125,6 +125,9 @@ class GetInstanceResult:
         if placement_group and not isinstance(placement_group, str):
             raise TypeError("Expected argument 'placement_group' to be a str")
         pulumi.set(__self__, "placement_group", placement_group)
+        if placement_group_id and not isinstance(placement_group_id, str):
+            raise TypeError("Expected argument 'placement_group_id' to be a str")
+        pulumi.set(__self__, "placement_group_id", placement_group_id)
         if placement_partition_number and not isinstance(placement_partition_number, int):
             raise TypeError("Expected argument 'placement_partition_number' to be a int")
         pulumi.set(__self__, "placement_partition_number", placement_partition_number)
@@ -419,6 +422,14 @@ class GetInstanceResult:
         return pulumi.get(self, "placement_group")
 
     @_builtins.property
+    @pulumi.getter(name="placementGroupId")
+    def placement_group_id(self) -> _builtins.str:
+        """
+        Placement group ID of the Instance.
+        """
+        return pulumi.get(self, "placement_group_id")
+
+    @_builtins.property
     @pulumi.getter(name="placementPartitionNumber")
     def placement_partition_number(self) -> _builtins.int:
         """
@@ -590,6 +601,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             outpost_arn=self.outpost_arn,
             password_data=self.password_data,
             placement_group=self.placement_group,
+            placement_group_id=self.placement_group_id,
             placement_partition_number=self.placement_partition_number,
             private_dns=self.private_dns,
             private_dns_name_options=self.private_dns_name_options,
@@ -640,9 +652,10 @@ def get_instance(filters: Optional[Sequence[Union['GetInstanceFilterArgs', 'GetI
     ```
 
 
-    :param Sequence[Union['GetInstanceFilterArgs', 'GetInstanceFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are
-           several valid keys, for a full reference, check out
-           [describe-instances in the AWS CLI reference][1].
+    :param Sequence[Union['GetInstanceFilterArgs', 'GetInstanceFilterArgsDict']] filters: One or more filters to apply to the search.
+           If multiple `filter` blocks are provided, they all must be true.
+           For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+           See `filter` Block below.
     :param _builtins.bool get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
     :param _builtins.bool get_user_data: Retrieve Base64 encoded User Data contents into the `user_data_base64` attribute. A SHA-1 hash of the User Data contents will always be present in the `user_data` attribute. Defaults to `false`.
            
@@ -701,6 +714,7 @@ def get_instance(filters: Optional[Sequence[Union['GetInstanceFilterArgs', 'GetI
         outpost_arn=pulumi.get(__ret__, 'outpost_arn'),
         password_data=pulumi.get(__ret__, 'password_data'),
         placement_group=pulumi.get(__ret__, 'placement_group'),
+        placement_group_id=pulumi.get(__ret__, 'placement_group_id'),
         placement_partition_number=pulumi.get(__ret__, 'placement_partition_number'),
         private_dns=pulumi.get(__ret__, 'private_dns'),
         private_dns_name_options=pulumi.get(__ret__, 'private_dns_name_options'),
@@ -749,9 +763,10 @@ def get_instance_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['
     ```
 
 
-    :param Sequence[Union['GetInstanceFilterArgs', 'GetInstanceFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are
-           several valid keys, for a full reference, check out
-           [describe-instances in the AWS CLI reference][1].
+    :param Sequence[Union['GetInstanceFilterArgs', 'GetInstanceFilterArgsDict']] filters: One or more filters to apply to the search.
+           If multiple `filter` blocks are provided, they all must be true.
+           For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+           See `filter` Block below.
     :param _builtins.bool get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
     :param _builtins.bool get_user_data: Retrieve Base64 encoded User Data contents into the `user_data_base64` attribute. A SHA-1 hash of the User Data contents will always be present in the `user_data` attribute. Defaults to `false`.
            
@@ -809,6 +824,7 @@ def get_instance_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['
         outpost_arn=pulumi.get(__response__, 'outpost_arn'),
         password_data=pulumi.get(__response__, 'password_data'),
         placement_group=pulumi.get(__response__, 'placement_group'),
+        placement_group_id=pulumi.get(__response__, 'placement_group_id'),
         placement_partition_number=pulumi.get(__response__, 'placement_partition_number'),
         private_dns=pulumi.get(__response__, 'private_dns'),
         private_dns_name_options=pulumi.get(__response__, 'private_dns_name_options'),

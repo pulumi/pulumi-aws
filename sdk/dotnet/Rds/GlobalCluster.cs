@@ -288,6 +288,8 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Global cluster identifier.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("globalClusterIdentifier")]
         public Output<string> GlobalClusterIdentifier { get; private set; } = null!;
@@ -324,6 +326,8 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// &gt; When both `source_db_cluster_identifier` and `engine`/`engine_version` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engine_version` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -418,6 +422,8 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Global cluster identifier.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("globalClusterIdentifier", required: true)]
         public Input<string> GlobalClusterIdentifier { get; set; } = null!;
@@ -445,6 +451,8 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// &gt; When both `source_db_cluster_identifier` and `engine`/`engine_version` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engine_version` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -513,6 +521,8 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Global cluster identifier.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("globalClusterIdentifier")]
         public Input<string>? GlobalClusterIdentifier { get; set; }
@@ -558,6 +568,8 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// &gt; When both `source_db_cluster_identifier` and `engine`/`engine_version` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engine_version` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
         /// </summary>
         public InputMap<string> Tags
         {

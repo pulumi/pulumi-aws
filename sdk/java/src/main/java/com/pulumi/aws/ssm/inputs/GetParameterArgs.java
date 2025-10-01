@@ -18,14 +18,14 @@ public final class GetParameterArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetParameterArgs Empty = new GetParameterArgs();
 
     /**
-     * Name of the parameter.
+     * Name of the parameter. To query by parameter version use `name:version` (e.g., `foo:3`).
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the parameter.
+     * @return Name of the parameter. To query by parameter version use `name:version` (e.g., `foo:3`).
      * 
      */
     public Output<String> name() {
@@ -89,7 +89,7 @@ public final class GetParameterArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Name of the parameter.
+         * @param name Name of the parameter. To query by parameter version use `name:version` (e.g., `foo:3`).
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class GetParameterArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Name of the parameter.
+         * @param name Name of the parameter. To query by parameter version use `name:version` (e.g., `foo:3`).
          * 
          * @return builder
          * 

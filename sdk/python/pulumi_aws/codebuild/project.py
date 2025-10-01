@@ -1180,11 +1180,17 @@ class Project(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild project.
+
         Using `pulumi import`, import CodeBuild Project using the `name`. For example:
 
-        ```sh
-        $ pulumi import aws:codebuild/project:Project name project-name
-        ```
+        console
+
+        % pulumi import aws_codebuild_project.name project-name
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1456,11 +1462,17 @@ class Project(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild project.
+
         Using `pulumi import`, import CodeBuild Project using the `name`. For example:
 
-        ```sh
-        $ pulumi import aws:codebuild/project:Project name project-name
-        ```
+        console
+
+        % pulumi import aws_codebuild_project.name project-name
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.

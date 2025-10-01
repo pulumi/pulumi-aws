@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { BaselineArgs, BaselineState } from "./baseline";
+export type Baseline = import("./baseline").Baseline;
+export const Baseline: typeof import("./baseline").Baseline = null as any;
+utilities.lazyLoad(exports, ["Baseline"], () => require("./baseline"));
+
 export { ControlTowerControlArgs, ControlTowerControlState } from "./controlTowerControl";
 export type ControlTowerControl = import("./controlTowerControl").ControlTowerControl;
 export const ControlTowerControl: typeof import("./controlTowerControl").ControlTowerControl = null as any;
@@ -25,6 +30,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:controltower/baseline:Baseline":
+                return new Baseline(name, <any>undefined, { urn })
             case "aws:controltower/controlTowerControl:ControlTowerControl":
                 return new ControlTowerControl(name, <any>undefined, { urn })
             case "aws:controltower/landingZone:LandingZone":
@@ -34,5 +41,6 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "controltower/baseline", _module)
 pulumi.runtime.registerResourceModule("aws", "controltower/controlTowerControl", _module)
 pulumi.runtime.registerResourceModule("aws", "controltower/landingZone", _module)

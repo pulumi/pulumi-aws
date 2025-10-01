@@ -17,10 +17,20 @@ public final class VpcAttachmentOptions {
      */
     private @Nullable Boolean applianceModeSupport;
     /**
+     * @return Whether to enable DNS support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+     * 
+     */
+    private @Nullable Boolean dnsSupport;
+    /**
      * @return Whether to enable IPv6 support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
      * 
      */
     private @Nullable Boolean ipv6Support;
+    /**
+     * @return Whether to enable security group referencing support for this VPC attachment. The default is `true`. However, at the core network policy-level the default is set to `false`. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+     * 
+     */
+    private @Nullable Boolean securityGroupReferencingSupport;
 
     private VpcAttachmentOptions() {}
     /**
@@ -31,11 +41,25 @@ public final class VpcAttachmentOptions {
         return Optional.ofNullable(this.applianceModeSupport);
     }
     /**
+     * @return Whether to enable DNS support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+     * 
+     */
+    public Optional<Boolean> dnsSupport() {
+        return Optional.ofNullable(this.dnsSupport);
+    }
+    /**
      * @return Whether to enable IPv6 support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
      * 
      */
     public Optional<Boolean> ipv6Support() {
         return Optional.ofNullable(this.ipv6Support);
+    }
+    /**
+     * @return Whether to enable security group referencing support for this VPC attachment. The default is `true`. However, at the core network policy-level the default is set to `false`. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+     * 
+     */
+    public Optional<Boolean> securityGroupReferencingSupport() {
+        return Optional.ofNullable(this.securityGroupReferencingSupport);
     }
 
     public static Builder builder() {
@@ -48,12 +72,16 @@ public final class VpcAttachmentOptions {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean applianceModeSupport;
+        private @Nullable Boolean dnsSupport;
         private @Nullable Boolean ipv6Support;
+        private @Nullable Boolean securityGroupReferencingSupport;
         public Builder() {}
         public Builder(VpcAttachmentOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.applianceModeSupport = defaults.applianceModeSupport;
+    	      this.dnsSupport = defaults.dnsSupport;
     	      this.ipv6Support = defaults.ipv6Support;
+    	      this.securityGroupReferencingSupport = defaults.securityGroupReferencingSupport;
         }
 
         @CustomType.Setter
@@ -63,15 +91,29 @@ public final class VpcAttachmentOptions {
             return this;
         }
         @CustomType.Setter
+        public Builder dnsSupport(@Nullable Boolean dnsSupport) {
+
+            this.dnsSupport = dnsSupport;
+            return this;
+        }
+        @CustomType.Setter
         public Builder ipv6Support(@Nullable Boolean ipv6Support) {
 
             this.ipv6Support = ipv6Support;
             return this;
         }
+        @CustomType.Setter
+        public Builder securityGroupReferencingSupport(@Nullable Boolean securityGroupReferencingSupport) {
+
+            this.securityGroupReferencingSupport = securityGroupReferencingSupport;
+            return this;
+        }
         public VpcAttachmentOptions build() {
             final var _resultValue = new VpcAttachmentOptions();
             _resultValue.applianceModeSupport = applianceModeSupport;
+            _resultValue.dnsSupport = dnsSupport;
             _resultValue.ipv6Support = ipv6Support;
+            _resultValue.securityGroupReferencingSupport = securityGroupReferencingSupport;
             return _resultValue;
         }
     }

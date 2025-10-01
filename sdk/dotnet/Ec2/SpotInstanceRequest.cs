@@ -238,10 +238,16 @@ namespace Pulumi.Aws.Ec2
         public Output<string> PasswordData { get; private set; } = null!;
 
         /// <summary>
-        /// Placement Group to start the instance in.
+        /// Placement Group to start the instance in. Conflicts with `placement_group_id`.
         /// </summary>
         [Output("placementGroup")]
         public Output<string> PlacementGroup { get; private set; } = null!;
+
+        /// <summary>
+        /// Placement Group ID to start the instance in. Conflicts with `placement_group`.
+        /// </summary>
+        [Output("placementGroupId")]
+        public Output<string> PlacementGroupId { get; private set; } = null!;
 
         /// <summary>
         /// Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
@@ -694,10 +700,16 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Placement Group to start the instance in.
+        /// Placement Group to start the instance in. Conflicts with `placement_group_id`.
         /// </summary>
         [Input("placementGroup")]
         public Input<string>? PlacementGroup { get; set; }
+
+        /// <summary>
+        /// Placement Group ID to start the instance in. Conflicts with `placement_group`.
+        /// </summary>
+        [Input("placementGroupId")]
+        public Input<string>? PlacementGroupId { get; set; }
 
         /// <summary>
         /// Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
@@ -1095,10 +1107,16 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PasswordData { get; set; }
 
         /// <summary>
-        /// Placement Group to start the instance in.
+        /// Placement Group to start the instance in. Conflicts with `placement_group_id`.
         /// </summary>
         [Input("placementGroup")]
         public Input<string>? PlacementGroup { get; set; }
+
+        /// <summary>
+        /// Placement Group ID to start the instance in. Conflicts with `placement_group`.
+        /// </summary>
+        [Input("placementGroupId")]
+        public Input<string>? PlacementGroupId { get; set; }
 
         /// <summary>
         /// Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.

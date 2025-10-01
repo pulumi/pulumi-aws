@@ -12,11 +12,19 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class GetInstanceFilterInputArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the filter.
+        /// For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("values", required: true)]
         private InputList<string>? _values;
+
+        /// <summary>
+        /// One or more values to match.
+        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

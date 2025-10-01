@@ -289,6 +289,46 @@ import (
 //
 // ```
 //
+// ### Predictive Scaling
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appautoscaling"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appautoscaling.NewPolicy(ctx, "example", &appautoscaling.PolicyArgs{
+//				Name:              pulumi.String("example-policy"),
+//				ResourceId:        pulumi.Any(exampleAwsAppautoscalingTarget.ResourceId),
+//				ScalableDimension: pulumi.Any(exampleAwsAppautoscalingTarget.ScalableDimension),
+//				ServiceNamespace:  pulumi.Any(exampleAwsAppautoscalingTarget.ServiceNamespace),
+//				PolicyType:        pulumi.String("PredictiveScaling"),
+//				PredictiveScalingPolicyConfiguration: &appautoscaling.PolicyPredictiveScalingPolicyConfigurationArgs{
+//					MetricSpecifications: appautoscaling.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationArray{
+//						&appautoscaling.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationArgs{
+//							TargetValue: pulumi.String("40"),
+//							PredefinedMetricPairSpecification: &appautoscaling.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs{
+//								PredefinedMetricType: pulumi.String("ECSServiceMemoryUtilization"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### MSK / Kafka Autoscaling
 //
 // ```go
@@ -351,8 +391,10 @@ type Policy struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name of the policy. Must be between 1 and 255 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
+	// Policy type. Valid values are `StepScaling`, `TargetTrackingScaling`, and `PredictiveScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html), [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html), and [Predictive Scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-predictive-scaling.html) documentation.
 	PolicyType pulumi.StringPtrOutput `pulumi:"policyType"`
+	// Predictive scaling policy configuration, requires `policyType = "PredictiveScaling"`. See supported fields below.
+	PredictiveScalingPolicyConfiguration PolicyPredictiveScalingPolicyConfigurationPtrOutput `pulumi:"predictiveScalingPolicyConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
@@ -363,7 +405,7 @@ type Policy struct {
 	ServiceNamespace pulumi.StringOutput `pulumi:"serviceNamespace"`
 	// Step scaling policy configuration, requires `policyType = "StepScaling"` (default). See supported fields below.
 	StepScalingPolicyConfiguration PolicyStepScalingPolicyConfigurationPtrOutput `pulumi:"stepScalingPolicyConfiguration"`
-	// Target tracking policy, requires `policyType = "TargetTrackingScaling"`. See supported fields below.
+	// Target tracking policy configuration, requires `policyType = "TargetTrackingScaling"`. See supported fields below.
 	TargetTrackingScalingPolicyConfiguration PolicyTargetTrackingScalingPolicyConfigurationPtrOutput `pulumi:"targetTrackingScalingPolicyConfiguration"`
 }
 
@@ -412,8 +454,10 @@ type policyState struct {
 	Arn *string `pulumi:"arn"`
 	// Name of the policy. Must be between 1 and 255 characters in length.
 	Name *string `pulumi:"name"`
-	// Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
+	// Policy type. Valid values are `StepScaling`, `TargetTrackingScaling`, and `PredictiveScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html), [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html), and [Predictive Scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-predictive-scaling.html) documentation.
 	PolicyType *string `pulumi:"policyType"`
+	// Predictive scaling policy configuration, requires `policyType = "PredictiveScaling"`. See supported fields below.
+	PredictiveScalingPolicyConfiguration *PolicyPredictiveScalingPolicyConfiguration `pulumi:"predictiveScalingPolicyConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
@@ -424,7 +468,7 @@ type policyState struct {
 	ServiceNamespace *string `pulumi:"serviceNamespace"`
 	// Step scaling policy configuration, requires `policyType = "StepScaling"` (default). See supported fields below.
 	StepScalingPolicyConfiguration *PolicyStepScalingPolicyConfiguration `pulumi:"stepScalingPolicyConfiguration"`
-	// Target tracking policy, requires `policyType = "TargetTrackingScaling"`. See supported fields below.
+	// Target tracking policy configuration, requires `policyType = "TargetTrackingScaling"`. See supported fields below.
 	TargetTrackingScalingPolicyConfiguration *PolicyTargetTrackingScalingPolicyConfiguration `pulumi:"targetTrackingScalingPolicyConfiguration"`
 }
 
@@ -435,8 +479,10 @@ type PolicyState struct {
 	Arn pulumi.StringPtrInput
 	// Name of the policy. Must be between 1 and 255 characters in length.
 	Name pulumi.StringPtrInput
-	// Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
+	// Policy type. Valid values are `StepScaling`, `TargetTrackingScaling`, and `PredictiveScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html), [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html), and [Predictive Scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-predictive-scaling.html) documentation.
 	PolicyType pulumi.StringPtrInput
+	// Predictive scaling policy configuration, requires `policyType = "PredictiveScaling"`. See supported fields below.
+	PredictiveScalingPolicyConfiguration PolicyPredictiveScalingPolicyConfigurationPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
@@ -447,7 +493,7 @@ type PolicyState struct {
 	ServiceNamespace pulumi.StringPtrInput
 	// Step scaling policy configuration, requires `policyType = "StepScaling"` (default). See supported fields below.
 	StepScalingPolicyConfiguration PolicyStepScalingPolicyConfigurationPtrInput
-	// Target tracking policy, requires `policyType = "TargetTrackingScaling"`. See supported fields below.
+	// Target tracking policy configuration, requires `policyType = "TargetTrackingScaling"`. See supported fields below.
 	TargetTrackingScalingPolicyConfiguration PolicyTargetTrackingScalingPolicyConfigurationPtrInput
 }
 
@@ -458,8 +504,10 @@ func (PolicyState) ElementType() reflect.Type {
 type policyArgs struct {
 	// Name of the policy. Must be between 1 and 255 characters in length.
 	Name *string `pulumi:"name"`
-	// Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
+	// Policy type. Valid values are `StepScaling`, `TargetTrackingScaling`, and `PredictiveScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html), [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html), and [Predictive Scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-predictive-scaling.html) documentation.
 	PolicyType *string `pulumi:"policyType"`
+	// Predictive scaling policy configuration, requires `policyType = "PredictiveScaling"`. See supported fields below.
+	PredictiveScalingPolicyConfiguration *PolicyPredictiveScalingPolicyConfiguration `pulumi:"predictiveScalingPolicyConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
@@ -470,7 +518,7 @@ type policyArgs struct {
 	ServiceNamespace string `pulumi:"serviceNamespace"`
 	// Step scaling policy configuration, requires `policyType = "StepScaling"` (default). See supported fields below.
 	StepScalingPolicyConfiguration *PolicyStepScalingPolicyConfiguration `pulumi:"stepScalingPolicyConfiguration"`
-	// Target tracking policy, requires `policyType = "TargetTrackingScaling"`. See supported fields below.
+	// Target tracking policy configuration, requires `policyType = "TargetTrackingScaling"`. See supported fields below.
 	TargetTrackingScalingPolicyConfiguration *PolicyTargetTrackingScalingPolicyConfiguration `pulumi:"targetTrackingScalingPolicyConfiguration"`
 }
 
@@ -478,8 +526,10 @@ type policyArgs struct {
 type PolicyArgs struct {
 	// Name of the policy. Must be between 1 and 255 characters in length.
 	Name pulumi.StringPtrInput
-	// Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
+	// Policy type. Valid values are `StepScaling`, `TargetTrackingScaling`, and `PredictiveScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html), [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html), and [Predictive Scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-predictive-scaling.html) documentation.
 	PolicyType pulumi.StringPtrInput
+	// Predictive scaling policy configuration, requires `policyType = "PredictiveScaling"`. See supported fields below.
+	PredictiveScalingPolicyConfiguration PolicyPredictiveScalingPolicyConfigurationPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
@@ -490,7 +540,7 @@ type PolicyArgs struct {
 	ServiceNamespace pulumi.StringInput
 	// Step scaling policy configuration, requires `policyType = "StepScaling"` (default). See supported fields below.
 	StepScalingPolicyConfiguration PolicyStepScalingPolicyConfigurationPtrInput
-	// Target tracking policy, requires `policyType = "TargetTrackingScaling"`. See supported fields below.
+	// Target tracking policy configuration, requires `policyType = "TargetTrackingScaling"`. See supported fields below.
 	TargetTrackingScalingPolicyConfiguration PolicyTargetTrackingScalingPolicyConfigurationPtrInput
 }
 
@@ -596,9 +646,16 @@ func (o PolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
+// Policy type. Valid values are `StepScaling`, `TargetTrackingScaling`, and `PredictiveScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html), [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html), and [Predictive Scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-predictive-scaling.html) documentation.
 func (o PolicyOutput) PolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.PolicyType }).(pulumi.StringPtrOutput)
+}
+
+// Predictive scaling policy configuration, requires `policyType = "PredictiveScaling"`. See supported fields below.
+func (o PolicyOutput) PredictiveScalingPolicyConfiguration() PolicyPredictiveScalingPolicyConfigurationPtrOutput {
+	return o.ApplyT(func(v *Policy) PolicyPredictiveScalingPolicyConfigurationPtrOutput {
+		return v.PredictiveScalingPolicyConfiguration
+	}).(PolicyPredictiveScalingPolicyConfigurationPtrOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -626,7 +683,7 @@ func (o PolicyOutput) StepScalingPolicyConfiguration() PolicyStepScalingPolicyCo
 	return o.ApplyT(func(v *Policy) PolicyStepScalingPolicyConfigurationPtrOutput { return v.StepScalingPolicyConfiguration }).(PolicyStepScalingPolicyConfigurationPtrOutput)
 }
 
-// Target tracking policy, requires `policyType = "TargetTrackingScaling"`. See supported fields below.
+// Target tracking policy configuration, requires `policyType = "TargetTrackingScaling"`. See supported fields below.
 func (o PolicyOutput) TargetTrackingScalingPolicyConfiguration() PolicyTargetTrackingScalingPolicyConfigurationPtrOutput {
 	return o.ApplyT(func(v *Policy) PolicyTargetTrackingScalingPolicyConfigurationPtrOutput {
 		return v.TargetTrackingScalingPolicyConfiguration

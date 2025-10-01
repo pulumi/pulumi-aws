@@ -171,11 +171,23 @@ class KeyvaluestoreKey(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `key_value_store_arn` (String) ARN of the CloudFront Key Value Store.
+
+        * `key` (String) Key name.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+
         Using `pulumi import`, import CloudFront KeyValueStore Key using the `key_value_store_arn` and 'key' separated by `,`. For example:
 
-        ```sh
-        $ pulumi import aws:cloudfront/keyvaluestoreKey:KeyvaluestoreKey example arn:aws:cloudfront::111111111111:key-value-store/8562g61f-caba-2845-9d99-b97diwae5d3c,someKey
-        ```
+        console
+
+        % pulumi import aws_cloudfrontkeyvaluestore_key.example arn:aws:cloudfront::111111111111:key-value-store/8562g61f-caba-2845-9d99-b97diwae5d3c,someKey
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -209,11 +221,23 @@ class KeyvaluestoreKey(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `key_value_store_arn` (String) ARN of the CloudFront Key Value Store.
+
+        * `key` (String) Key name.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+
         Using `pulumi import`, import CloudFront KeyValueStore Key using the `key_value_store_arn` and 'key' separated by `,`. For example:
 
-        ```sh
-        $ pulumi import aws:cloudfront/keyvaluestoreKey:KeyvaluestoreKey example arn:aws:cloudfront::111111111111:key-value-store/8562g61f-caba-2845-9d99-b97diwae5d3c,someKey
-        ```
+        console
+
+        % pulumi import aws_cloudfrontkeyvaluestore_key.example arn:aws:cloudfront::111111111111:key-value-store/8562g61f-caba-2845-9d99-b97diwae5d3c,someKey
 
         :param str resource_name: The name of the resource.
         :param KeyvaluestoreKeyArgs args: The arguments to use to populate this resource's properties.

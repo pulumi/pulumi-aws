@@ -9084,9 +9084,13 @@ if not MYPY:
         """
         The Availability Zone for the instance.
         """
+        group_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The ID of the placement group for the instance. Conflicts with `group_name`.
+        """
         group_name: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The name of the placement group for the instance.
+        The name of the placement group for the instance. Conflicts with `group_id`.
         """
         host_id: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -9116,6 +9120,7 @@ class LaunchTemplatePlacementArgs:
     def __init__(__self__, *,
                  affinity: Optional[pulumi.Input[_builtins.str]] = None,
                  availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
                  group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  host_id: Optional[pulumi.Input[_builtins.str]] = None,
                  host_resource_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -9125,7 +9130,8 @@ class LaunchTemplatePlacementArgs:
         """
         :param pulumi.Input[_builtins.str] affinity: The affinity setting for an instance on a Dedicated Host.
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone for the instance.
-        :param pulumi.Input[_builtins.str] group_name: The name of the placement group for the instance.
+        :param pulumi.Input[_builtins.str] group_id: The ID of the placement group for the instance. Conflicts with `group_name`.
+        :param pulumi.Input[_builtins.str] group_name: The name of the placement group for the instance. Conflicts with `group_id`.
         :param pulumi.Input[_builtins.str] host_id: The ID of the Dedicated Host for the instance.
         :param pulumi.Input[_builtins.str] host_resource_group_arn: The ARN of the Host Resource Group in which to launch instances.
         :param pulumi.Input[_builtins.int] partition_number: The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
@@ -9136,6 +9142,8 @@ class LaunchTemplatePlacementArgs:
             pulumi.set(__self__, "affinity", affinity)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
         if group_name is not None:
             pulumi.set(__self__, "group_name", group_name)
         if host_id is not None:
@@ -9174,10 +9182,22 @@ class LaunchTemplatePlacementArgs:
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the placement group for the instance. Conflicts with `group_name`.
+        """
+        return pulumi.get(self, "group_id")
+
+    @group_id.setter
+    def group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "group_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="groupName")
     def group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the placement group for the instance.
+        The name of the placement group for the instance. Conflicts with `group_id`.
         """
         return pulumi.get(self, "group_name")
 
@@ -21992,7 +22012,14 @@ class GetElasticIpFilterArgs:
 if not MYPY:
     class GetInstanceFilterArgsDict(TypedDict):
         name: _builtins.str
+        """
+        Name of the filter.
+        For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+        """
         values: Sequence[_builtins.str]
+        """
+        One or more values to match.
+        """
 elif False:
     GetInstanceFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -22001,12 +22028,21 @@ class GetInstanceFilterArgs:
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str name: Name of the filter.
+               For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+        :param Sequence[_builtins.str] values: One or more values to match.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
+        """
+        Name of the filter.
+        For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -22016,6 +22052,9 @@ class GetInstanceFilterArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
+        """
+        One or more values to match.
+        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -22176,7 +22215,14 @@ class GetInstanceTypesFilterArgs:
 if not MYPY:
     class GetInstancesFilterArgsDict(TypedDict):
         name: _builtins.str
+        """
+        Name of the filter.
+        For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+        """
         values: Sequence[_builtins.str]
+        """
+        One or more values to match.
+        """
 elif False:
     GetInstancesFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -22185,12 +22231,21 @@ class GetInstancesFilterArgs:
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str name: Name of the filter.
+               For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+        :param Sequence[_builtins.str] values: One or more values to match.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
+        """
+        Name of the filter.
+        For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -22200,6 +22255,9 @@ class GetInstancesFilterArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
+        """
+        One or more values to match.
+        """
         return pulumi.get(self, "values")
 
     @values.setter

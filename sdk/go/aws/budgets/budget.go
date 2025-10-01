@@ -335,6 +335,8 @@ type Budget struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
 	AutoAdjustData BudgetAutoAdjustDataPtrOutput `pulumi:"autoAdjustData"`
+	// ARN of the billing view.
+	BillingViewArn pulumi.StringPtrOutput `pulumi:"billingViewArn"`
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType pulumi.StringOutput `pulumi:"budgetType"`
 	// A list of CostFilter name/values pair to apply to budget.
@@ -412,6 +414,8 @@ type budgetState struct {
 	Arn *string `pulumi:"arn"`
 	// Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
 	AutoAdjustData *BudgetAutoAdjustData `pulumi:"autoAdjustData"`
+	// ARN of the billing view.
+	BillingViewArn *string `pulumi:"billingViewArn"`
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType *string `pulumi:"budgetType"`
 	// A list of CostFilter name/values pair to apply to budget.
@@ -454,6 +458,8 @@ type BudgetState struct {
 	Arn pulumi.StringPtrInput
 	// Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
 	AutoAdjustData BudgetAutoAdjustDataPtrInput
+	// ARN of the billing view.
+	BillingViewArn pulumi.StringPtrInput
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType pulumi.StringPtrInput
 	// A list of CostFilter name/values pair to apply to budget.
@@ -498,6 +504,8 @@ type budgetArgs struct {
 	AccountId *string `pulumi:"accountId"`
 	// Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
 	AutoAdjustData *BudgetAutoAdjustData `pulumi:"autoAdjustData"`
+	// ARN of the billing view.
+	BillingViewArn *string `pulumi:"billingViewArn"`
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType string `pulumi:"budgetType"`
 	// A list of CostFilter name/values pair to apply to budget.
@@ -537,6 +545,8 @@ type BudgetArgs struct {
 	AccountId pulumi.StringPtrInput
 	// Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
 	AutoAdjustData BudgetAutoAdjustDataPtrInput
+	// ARN of the billing view.
+	BillingViewArn pulumi.StringPtrInput
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType pulumi.StringInput
 	// A list of CostFilter name/values pair to apply to budget.
@@ -670,6 +680,11 @@ func (o BudgetOutput) Arn() pulumi.StringOutput {
 // Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
 func (o BudgetOutput) AutoAdjustData() BudgetAutoAdjustDataPtrOutput {
 	return o.ApplyT(func(v *Budget) BudgetAutoAdjustDataPtrOutput { return v.AutoAdjustData }).(BudgetAutoAdjustDataPtrOutput)
+}
+
+// ARN of the billing view.
+func (o BudgetOutput) BillingViewArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Budget) pulumi.StringPtrOutput { return v.BillingViewArn }).(pulumi.StringPtrOutput)
 }
 
 // Whether this budget tracks monetary cost or usage.

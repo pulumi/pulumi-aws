@@ -2544,9 +2544,9 @@ func (o SubscriberSourceArrayOutput) Index(i pulumi.IntInput) SubscriberSourceOu
 }
 
 type SubscriberSourceAwsLogSourceResource struct {
-	// Provides data expiration details of Amazon Security Lake object.
+	// The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT` and `WAF`.
 	SourceName string `pulumi:"sourceName"`
-	// Provides data storage transition details of Amazon Security Lake object.
+	// The version for a AWS source. This must be a Regionally unique value.
 	SourceVersion *string `pulumi:"sourceVersion"`
 }
 
@@ -2562,9 +2562,9 @@ type SubscriberSourceAwsLogSourceResourceInput interface {
 }
 
 type SubscriberSourceAwsLogSourceResourceArgs struct {
-	// Provides data expiration details of Amazon Security Lake object.
+	// The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT` and `WAF`.
 	SourceName pulumi.StringInput `pulumi:"sourceName"`
-	// Provides data storage transition details of Amazon Security Lake object.
+	// The version for a AWS source. This must be a Regionally unique value.
 	SourceVersion pulumi.StringPtrInput `pulumi:"sourceVersion"`
 }
 
@@ -2645,12 +2645,12 @@ func (o SubscriberSourceAwsLogSourceResourceOutput) ToSubscriberSourceAwsLogSour
 	}).(SubscriberSourceAwsLogSourceResourcePtrOutput)
 }
 
-// Provides data expiration details of Amazon Security Lake object.
+// The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT` and `WAF`.
 func (o SubscriberSourceAwsLogSourceResourceOutput) SourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriberSourceAwsLogSourceResource) string { return v.SourceName }).(pulumi.StringOutput)
 }
 
-// Provides data storage transition details of Amazon Security Lake object.
+// The version for a AWS source. This must be a Regionally unique value.
 func (o SubscriberSourceAwsLogSourceResourceOutput) SourceVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriberSourceAwsLogSourceResource) *string { return v.SourceVersion }).(pulumi.StringPtrOutput)
 }
@@ -2679,7 +2679,7 @@ func (o SubscriberSourceAwsLogSourceResourcePtrOutput) Elem() SubscriberSourceAw
 	}).(SubscriberSourceAwsLogSourceResourceOutput)
 }
 
-// Provides data expiration details of Amazon Security Lake object.
+// The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT` and `WAF`.
 func (o SubscriberSourceAwsLogSourceResourcePtrOutput) SourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriberSourceAwsLogSourceResource) *string {
 		if v == nil {
@@ -2689,7 +2689,7 @@ func (o SubscriberSourceAwsLogSourceResourcePtrOutput) SourceName() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Provides data storage transition details of Amazon Security Lake object.
+// The version for a AWS source. This must be a Regionally unique value.
 func (o SubscriberSourceAwsLogSourceResourcePtrOutput) SourceVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriberSourceAwsLogSourceResource) *string {
 		if v == nil {

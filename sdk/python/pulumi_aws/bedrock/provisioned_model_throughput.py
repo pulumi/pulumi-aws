@@ -311,11 +311,17 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the Bedrock provisioned model throughput.
+
         Using `pulumi import`, import Provisioned Throughput using the `provisioned_model_arn`. For example:
 
-        ```sh
-        $ pulumi import aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput example arn:aws:bedrock:us-west-2:123456789012:provisioned-model/1y5n57gh5y2e
-        ```
+        console
+
+        % pulumi import aws_bedrock_provisioned_model_throughput.example arn:aws:bedrock:us-west-2:123456789012:provisioned-model/1y5n57gh5y2e
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -350,11 +356,17 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the Bedrock provisioned model throughput.
+
         Using `pulumi import`, import Provisioned Throughput using the `provisioned_model_arn`. For example:
 
-        ```sh
-        $ pulumi import aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput example arn:aws:bedrock:us-west-2:123456789012:provisioned-model/1y5n57gh5y2e
-        ```
+        console
+
+        % pulumi import aws_bedrock_provisioned_model_throughput.example arn:aws:bedrock:us-west-2:123456789012:provisioned-model/1y5n57gh5y2e
 
         :param str resource_name: The name of the resource.
         :param ProvisionedModelThroughputArgs args: The arguments to use to populate this resource's properties.

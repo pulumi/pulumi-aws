@@ -361,11 +361,17 @@ class AutoScalingConfigurationVersion(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the App Runner auto scaling configuration version.
+
         Using `pulumi import`, import App Runner AutoScaling Configuration Versions using the `arn`. For example:
 
-        ```sh
-        $ pulumi import aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion example "arn:aws:apprunner:us-east-1:1234567890:autoscalingconfiguration/example/1/69bdfe0115224b0db49398b7beb68e0f
-        ```
+        console
+
+        % pulumi import aws_apprunner_auto_scaling_configuration_version.example "arn:aws:apprunner:us-east-1:1234567890:autoscalingconfiguration/example/1/69bdfe0115224b0db49398b7beb68e0f
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -403,11 +409,17 @@ class AutoScalingConfigurationVersion(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the App Runner auto scaling configuration version.
+
         Using `pulumi import`, import App Runner AutoScaling Configuration Versions using the `arn`. For example:
 
-        ```sh
-        $ pulumi import aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion example "arn:aws:apprunner:us-east-1:1234567890:autoscalingconfiguration/example/1/69bdfe0115224b0db49398b7beb68e0f
-        ```
+        console
+
+        % pulumi import aws_apprunner_auto_scaling_configuration_version.example "arn:aws:apprunner:us-east-1:1234567890:autoscalingconfiguration/example/1/69bdfe0115224b0db49398b7beb68e0f
 
         :param str resource_name: The name of the resource.
         :param AutoScalingConfigurationVersionArgs args: The arguments to use to populate this resource's properties.

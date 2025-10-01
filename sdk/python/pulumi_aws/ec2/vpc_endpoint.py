@@ -875,14 +875,6 @@ class VpcEndpoint(pulumi.CustomResource):
             vpc_id=example_aws_vpc["id"])
         ```
 
-        ## Import
-
-        Using `pulumi import`, import VPC Endpoints using the VPC endpoint `id`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/vpcEndpoint:VpcEndpoint endpoint1 vpce-3ecf2a57
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_accept: Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
@@ -1031,14 +1023,6 @@ class VpcEndpoint(pulumi.CustomResource):
             subnet_ids=[example_aws_subnet["id"]],
             vpc_endpoint_type="ServiceNetwork",
             vpc_id=example_aws_vpc["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import VPC Endpoints using the VPC endpoint `id`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/vpcEndpoint:VpcEndpoint endpoint1 vpce-3ecf2a57
         ```
 
         :param str resource_name: The name of the resource.

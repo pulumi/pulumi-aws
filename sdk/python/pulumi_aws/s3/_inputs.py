@@ -883,6 +883,9 @@ class BucketAclAccessControlPolicyGrantGranteeArgs:
         """
         pulumi.set(__self__, "type", type)
         if display_name is not None:
+            warnings.warn("""display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.""", DeprecationWarning)
+            pulumi.log.warn("""display_name is deprecated: display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.""")
+        if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if email_address is not None:
             pulumi.set(__self__, "email_address", email_address)
@@ -905,6 +908,7 @@ class BucketAclAccessControlPolicyGrantGranteeArgs:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
+    @_utilities.deprecated("""display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.""")
     def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Display name of the owner.
@@ -976,6 +980,9 @@ class BucketAclAccessControlPolicyOwnerArgs:
         """
         pulumi.set(__self__, "id", id)
         if display_name is not None:
+            warnings.warn("""display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.""", DeprecationWarning)
+            pulumi.log.warn("""display_name is deprecated: display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.""")
+        if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
 
     @_builtins.property
@@ -992,6 +999,7 @@ class BucketAclAccessControlPolicyOwnerArgs:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
+    @_utilities.deprecated("""display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.""")
     def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Display name of the owner.
@@ -1147,6 +1155,9 @@ class BucketAclV2AccessControlPolicyGrantGranteeArgs:
         """
         pulumi.set(__self__, "type", type)
         if display_name is not None:
+            warnings.warn("""display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.""", DeprecationWarning)
+            pulumi.log.warn("""display_name is deprecated: display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.""")
+        if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if email_address is not None:
             pulumi.set(__self__, "email_address", email_address)
@@ -1169,6 +1180,7 @@ class BucketAclV2AccessControlPolicyGrantGranteeArgs:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
+    @_utilities.deprecated("""display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.""")
     def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Display name of the owner.
@@ -1240,6 +1252,9 @@ class BucketAclV2AccessControlPolicyOwnerArgs:
         """
         pulumi.set(__self__, "id", id)
         if display_name is not None:
+            warnings.warn("""display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.""", DeprecationWarning)
+            pulumi.log.warn("""display_name is deprecated: display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.""")
+        if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
 
     @_builtins.property
@@ -1256,6 +1271,7 @@ class BucketAclV2AccessControlPolicyOwnerArgs:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
+    @_utilities.deprecated("""display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.""")
     def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Display name of the owner.
@@ -4031,6 +4047,9 @@ class BucketLoggingTargetGrantGranteeArgs:
         """
         pulumi.set(__self__, "type", type)
         if display_name is not None:
+            warnings.warn("""display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.""", DeprecationWarning)
+            pulumi.log.warn("""display_name is deprecated: display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.""")
+        if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if email_address is not None:
             pulumi.set(__self__, "email_address", email_address)
@@ -4053,6 +4072,7 @@ class BucketLoggingTargetGrantGranteeArgs:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
+    @_utilities.deprecated("""display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.""")
     def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "display_name")
 
@@ -4280,6 +4300,9 @@ class BucketLoggingV2TargetGrantGranteeArgs:
         """
         pulumi.set(__self__, "type", type)
         if display_name is not None:
+            warnings.warn("""display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.""", DeprecationWarning)
+            pulumi.log.warn("""display_name is deprecated: display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.""")
+        if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if email_address is not None:
             pulumi.set(__self__, "email_address", email_address)
@@ -4302,6 +4325,7 @@ class BucketLoggingV2TargetGrantGranteeArgs:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
+    @_utilities.deprecated("""display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.""")
     def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "display_name")
 

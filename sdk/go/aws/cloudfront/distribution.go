@@ -29,7 +29,12 @@ import (
 //
 // import (
 //
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/acm"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -46,19 +51,32 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAcl(ctx, "b_acl", &s3.BucketAclArgs{
-//				Bucket: b.ID(),
-//				Acl:    pulumi.String("private"),
+//			s3OriginId := "myS3Origin"
+//			myDomain := "mydomain.com"
+//			myDomainGetCertificate, err := acm.LookupCertificate(ctx, &acm.LookupCertificateArgs{
+//				Region: pulumi.StringRef("us-east-1"),
+//				Domain: pulumi.StringRef(fmt.Sprintf("*.%v", myDomain)),
+//				Statuses: []string{
+//					"ISSUED",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_default, err := cloudfront.NewOriginAccessControl(ctx, "default", &cloudfront.OriginAccessControlArgs{
+//				Name:                          pulumi.String("default-oac"),
+//				OriginAccessControlOriginType: pulumi.String("s3"),
+//				SigningBehavior:               pulumi.String("always"),
+//				SigningProtocol:               pulumi.String("sigv4"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			s3OriginId := "myS3Origin"
-//			_, err = cloudfront.NewDistribution(ctx, "s3_distribution", &cloudfront.DistributionArgs{
+//			s3Distribution, err := cloudfront.NewDistribution(ctx, "s3_distribution", &cloudfront.DistributionArgs{
 //				Origins: cloudfront.DistributionOriginArray{
 //					&cloudfront.DistributionOriginArgs{
 //						DomainName:            b.BucketRegionalDomainName,
-//						OriginAccessControlId: pulumi.Any(_default.Id),
+//						OriginAccessControlId: _default.ID(),
 //						OriginId:              pulumi.String(s3OriginId),
 //					},
 //				},
@@ -66,14 +84,9 @@ import (
 //				IsIpv6Enabled:     pulumi.Bool(true),
 //				Comment:           pulumi.String("Some comment"),
 //				DefaultRootObject: pulumi.String("index.html"),
-//				LoggingConfig: &cloudfront.DistributionLoggingConfigArgs{
-//					IncludeCookies: pulumi.Bool(false),
-//					Bucket:         pulumi.String("mylogs.s3.amazonaws.com"),
-//					Prefix:         pulumi.String("myprefix"),
-//				},
 //				Aliases: pulumi.StringArray{
-//					pulumi.String("mysite.example.com"),
-//					pulumi.String("yoursite.example.com"),
+//					pulumi.Sprintf("mysite.%v", myDomain),
+//					pulumi.Sprintf("yoursite.%v", myDomain),
 //				},
 //				DefaultCacheBehavior: &cloudfront.DistributionDefaultCacheBehaviorArgs{
 //					AllowedMethods: pulumi.StringArray{
@@ -171,11 +184,82 @@ import (
 //					"Environment": pulumi.String("production"),
 //				},
 //				ViewerCertificate: &cloudfront.DistributionViewerCertificateArgs{
-//					CloudfrontDefaultCertificate: pulumi.Bool(true),
+//					AcmCertificateArn: pulumi.String(myDomainGetCertificate.Arn),
+//					SslSupportMethod:  pulumi.String("sni-only"),
 //				},
 //			})
 //			if err != nil {
 //				return err
+//			}
+//			// See https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
+//			originBucketPolicy := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Sid:    pulumi.String("AllowCloudFrontServicePrincipalReadWrite"),
+//						Effect: pulumi.String("Allow"),
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("Service"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("cloudfront.amazonaws.com"),
+//								},
+//							},
+//						},
+//						Actions: pulumi.StringArray{
+//							pulumi.String("s3:GetObject"),
+//							pulumi.String("s3:PutObject"),
+//						},
+//						Resources: pulumi.StringArray{
+//							b.Arn.ApplyT(func(arn string) (string, error) {
+//								return fmt.Sprintf("%v/*", arn), nil
+//							}).(pulumi.StringOutput),
+//						},
+//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test:     pulumi.String("StringEquals"),
+//								Variable: pulumi.String("AWS:SourceArn"),
+//								Values: pulumi.StringArray{
+//									s3Distribution.Arn,
+//								},
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			_, err = s3.NewBucketPolicy(ctx, "b", &s3.BucketPolicyArgs{
+//				Bucket: b.Bucket,
+//				Policy: pulumi.String(originBucketPolicy.ApplyT(func(originBucketPolicy iam.GetPolicyDocumentResult) (*string, error) {
+//					return &originBucketPolicy.Json, nil
+//				}).(pulumi.StringPtrOutput)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Create Route53 records for the CloudFront distribution aliases
+//			myDomainGetZone, err := route53.LookupZone(ctx, &route53.LookupZoneArgs{
+//				Name: pulumi.StringRef(myDomain),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			var cloudfront []*route53.Record
+//			for key0, val0 := range s3Distribution.Aliases {
+//				__res, err := route53.NewRecord(ctx, fmt.Sprintf("cloudfront-%v", key0), &route53.RecordArgs{
+//					ZoneId: pulumi.String(myDomainGetZone.ZoneId),
+//					Name:   pulumi.String(val0),
+//					Type:   pulumi.String(route53.RecordTypeA),
+//					Aliases: route53.RecordAliasArray{
+//						&route53.RecordAliasArgs{
+//							Name:                 s3Distribution.DomainName,
+//							ZoneId:               s3Distribution.HostedZoneId,
+//							EvaluateTargetHealth: pulumi.Bool(false),
+//						},
+//					},
+//				})
+//				if err != nil {
+//					return err
+//				}
+//				cloudfront = append(cloudfront, __res)
 //			}
 //			return nil
 //		})

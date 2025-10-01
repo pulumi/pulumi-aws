@@ -2713,7 +2713,7 @@ if not MYPY:
     class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgsDict(TypedDict):
         address_definition: pulumi.Input[_builtins.str]
         """
-        An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
+        An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4 and IPv6.
         """
 elif False:
     RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgsDict: TypeAlias = Mapping[str, Any]
@@ -2723,7 +2723,7 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
     def __init__(__self__, *,
                  address_definition: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] address_definition: An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
+        :param pulumi.Input[_builtins.str] address_definition: An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4 and IPv6.
         """
         pulumi.set(__self__, "address_definition", address_definition)
 
@@ -2731,7 +2731,7 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
     @pulumi.getter(name="addressDefinition")
     def address_definition(self) -> pulumi.Input[_builtins.str]:
         """
-        An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
+        An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4 and IPv6.
         """
         return pulumi.get(self, "address_definition")
 
@@ -2795,7 +2795,7 @@ if not MYPY:
     class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgsDict(TypedDict):
         address_definition: pulumi.Input[_builtins.str]
         """
-        An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
+        An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4 and IPv6.
         """
 elif False:
     RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgsDict: TypeAlias = Mapping[str, Any]
@@ -2805,7 +2805,7 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
     def __init__(__self__, *,
                  address_definition: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] address_definition: An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
+        :param pulumi.Input[_builtins.str] address_definition: An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4 and IPv6.
         """
         pulumi.set(__self__, "address_definition", address_definition)
 
@@ -2813,7 +2813,7 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
     @pulumi.getter(name="addressDefinition")
     def address_definition(self) -> pulumi.Input[_builtins.str]:
         """
-        An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
+        An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4 and IPv6.
         """
         return pulumi.get(self, "address_definition")
 

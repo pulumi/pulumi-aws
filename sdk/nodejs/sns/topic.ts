@@ -76,11 +76,17 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * - `arn` (String) Amazon Resource Name (ARN) of the SNS topic.
+ *
  * Using `pulumi import`, import SNS Topics using the topic `arn`. For example:
  *
- * ```sh
- * $ pulumi import aws:sns/topic:Topic user_updates arn:aws:sns:us-west-2:123456789012:my-topic
- * ```
+ * console
+ *
+ * % pulumi import aws_sns_topic.user_updates arn:aws:sns:us-west-2:123456789012:my-topic
  */
 export class Topic extends pulumi.CustomResource {
     /**

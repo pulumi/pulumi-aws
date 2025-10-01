@@ -23,7 +23,12 @@ public final class LaunchTemplatePlacement {
      */
     private @Nullable String availabilityZone;
     /**
-     * @return The name of the placement group for the instance.
+     * @return The ID of the placement group for the instance. Conflicts with `group_name`.
+     * 
+     */
+    private @Nullable String groupId;
+    /**
+     * @return The name of the placement group for the instance. Conflicts with `group_id`.
      * 
      */
     private @Nullable String groupName;
@@ -69,7 +74,14 @@ public final class LaunchTemplatePlacement {
         return Optional.ofNullable(this.availabilityZone);
     }
     /**
-     * @return The name of the placement group for the instance.
+     * @return The ID of the placement group for the instance. Conflicts with `group_name`.
+     * 
+     */
+    public Optional<String> groupId() {
+        return Optional.ofNullable(this.groupId);
+    }
+    /**
+     * @return The name of the placement group for the instance. Conflicts with `group_id`.
      * 
      */
     public Optional<String> groupName() {
@@ -122,6 +134,7 @@ public final class LaunchTemplatePlacement {
     public static final class Builder {
         private @Nullable String affinity;
         private @Nullable String availabilityZone;
+        private @Nullable String groupId;
         private @Nullable String groupName;
         private @Nullable String hostId;
         private @Nullable String hostResourceGroupArn;
@@ -133,6 +146,7 @@ public final class LaunchTemplatePlacement {
     	      Objects.requireNonNull(defaults);
     	      this.affinity = defaults.affinity;
     	      this.availabilityZone = defaults.availabilityZone;
+    	      this.groupId = defaults.groupId;
     	      this.groupName = defaults.groupName;
     	      this.hostId = defaults.hostId;
     	      this.hostResourceGroupArn = defaults.hostResourceGroupArn;
@@ -151,6 +165,12 @@ public final class LaunchTemplatePlacement {
         public Builder availabilityZone(@Nullable String availabilityZone) {
 
             this.availabilityZone = availabilityZone;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder groupId(@Nullable String groupId) {
+
+            this.groupId = groupId;
             return this;
         }
         @CustomType.Setter
@@ -193,6 +213,7 @@ public final class LaunchTemplatePlacement {
             final var _resultValue = new LaunchTemplatePlacement();
             _resultValue.affinity = affinity;
             _resultValue.availabilityZone = availabilityZone;
+            _resultValue.groupId = groupId;
             _resultValue.groupName = groupName;
             _resultValue.hostId = hostId;
             _resultValue.hostResourceGroupArn = hostResourceGroupArn;

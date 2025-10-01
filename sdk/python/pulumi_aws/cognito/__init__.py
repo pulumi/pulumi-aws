@@ -19,6 +19,7 @@ from .identity_pool_provider_principal_tag import *
 from .identity_pool_role_attachment import *
 from .identity_provider import *
 from .log_delivery_configuration import *
+from .managed_login_branding import *
 from .managed_user_pool_client import *
 from .resource_server import *
 from .risk_configuration import *

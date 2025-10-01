@@ -14,11 +14,11 @@ namespace Pulumi.Aws.SecurityLake.Outputs
     public sealed class SubscriberSourceAwsLogSourceResource
     {
         /// <summary>
-        /// Provides data expiration details of Amazon Security Lake object.
+        /// The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT` and `WAF`.
         /// </summary>
         public readonly string SourceName;
         /// <summary>
-        /// Provides data storage transition details of Amazon Security Lake object.
+        /// The version for a AWS source. This must be a Regionally unique value.
         /// </summary>
         public readonly string? SourceVersion;
 

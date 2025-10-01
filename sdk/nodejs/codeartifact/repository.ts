@@ -67,11 +67,17 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * - `arn` (String) Amazon Resource Name (ARN) of the CodeArtifact repository.
+ *
  * Using `pulumi import`, import CodeArtifact Repository using the CodeArtifact Repository ARN. For example:
  *
- * ```sh
- * $ pulumi import aws:codeartifact/repository:Repository example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
- * ```
+ * console
+ *
+ * % pulumi import aws_codeartifact_repository.example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
  */
 export class Repository extends pulumi.CustomResource {
     /**

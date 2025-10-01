@@ -46,11 +46,17 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * - `arn` (String) Amazon Resource Name (ARN) of the Image Builder image recipe.
+ *
  * Using `pulumi import`, import `aws_imagebuilder_image_recipe` resources using the Amazon Resource Name (ARN). For example:
  *
- * ```sh
- * $ pulumi import aws:imagebuilder/imageRecipe:ImageRecipe example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
- * ```
+ * console
+ *
+ * % pulumi import aws_imagebuilder_image_recipe.example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
  */
 export class ImageRecipe extends pulumi.CustomResource {
     /**
@@ -109,7 +115,7 @@ export class ImageRecipe extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly owner: pulumi.Output<string>;
     /**
-     * The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
+     * The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
      */
     declare public readonly parentImage: pulumi.Output<string>;
     /**
@@ -242,7 +248,7 @@ export interface ImageRecipeState {
      */
     owner?: pulumi.Input<string>;
     /**
-     * The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
+     * The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
      */
     parentImage?: pulumi.Input<string>;
     /**
@@ -302,7 +308,7 @@ export interface ImageRecipeArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
+     * The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
      */
     parentImage: pulumi.Input<string>;
     /**

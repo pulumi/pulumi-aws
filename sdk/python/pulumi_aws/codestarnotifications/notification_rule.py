@@ -372,11 +372,17 @@ class NotificationRule(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the CodeStar notification rule.
+
         Using `pulumi import`, import CodeStar notification rule using the ARN. For example:
 
-        ```sh
-        $ pulumi import aws:codestarnotifications/notificationRule:NotificationRule foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
-        ```
+        console
+
+        % pulumi import aws_codestarnotifications_notification_rule.foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -430,11 +436,17 @@ class NotificationRule(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the CodeStar notification rule.
+
         Using `pulumi import`, import CodeStar notification rule using the ARN. For example:
 
-        ```sh
-        $ pulumi import aws:codestarnotifications/notificationRule:NotificationRule foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
-        ```
+        console
+
+        % pulumi import aws_codestarnotifications_notification_rule.foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
 
         :param str resource_name: The name of the resource.
         :param NotificationRuleArgs args: The arguments to use to populate this resource's properties.

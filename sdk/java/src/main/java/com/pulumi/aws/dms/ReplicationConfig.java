@@ -74,11 +74,17 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * - `arn` (String) Amazon Resource Name (ARN) of the DMS replication configuration.
+ * 
  * Using `pulumi import`, import a replication config using the `arn`. For example:
  * 
- * ```sh
- * $ pulumi import aws:dms/replicationConfig:ReplicationConfig example arn:aws:dms:us-east-1:123456789012:replication-config:UX6OL6MHMMJKFFOXE3H7LLJCMEKBDUG4ZV7DRSI
- * ```
+ * console
+ * 
+ * % pulumi import aws_dms_replication_config.example arn:aws:dms:us-east-1:123456789012:replication-config:UX6OL6MHMMJKFFOXE3H7LLJCMEKBDUG4ZV7DRSI
  * 
  */
 @ResourceType(type="aws:dms/replicationConfig:ReplicationConfig")

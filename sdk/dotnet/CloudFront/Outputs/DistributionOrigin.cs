@@ -47,6 +47,10 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly Outputs.DistributionOriginOriginShield? OriginShield;
         /// <summary>
+        /// Time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. Must be integer greater than or equal to the value of `origin_read_timeout`. If omitted or explicitly set to `0`, no maximum value is enforced.
+        /// </summary>
+        public readonly int? ResponseCompletionTimeout;
+        /// <summary>
         /// CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
         /// </summary>
         public readonly Outputs.DistributionOriginS3OriginConfig? S3OriginConfig;
@@ -75,6 +79,8 @@ namespace Pulumi.Aws.CloudFront.Outputs
 
             Outputs.DistributionOriginOriginShield? originShield,
 
+            int? responseCompletionTimeout,
+
             Outputs.DistributionOriginS3OriginConfig? s3OriginConfig,
 
             Outputs.DistributionOriginVpcOriginConfig? vpcOriginConfig)
@@ -88,6 +94,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
             OriginId = originId;
             OriginPath = originPath;
             OriginShield = originShield;
+            ResponseCompletionTimeout = responseCompletionTimeout;
             S3OriginConfig = s3OriginConfig;
             VpcOriginConfig = vpcOriginConfig;
         }

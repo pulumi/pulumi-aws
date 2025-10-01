@@ -19,6 +19,21 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
     public static final ScheduleArgs Empty = new ScheduleArgs();
 
     /**
+     * Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
+     * 
+     */
+    @Import(name="actionAfterCompletion")
+    private @Nullable Output<String> actionAfterCompletion;
+
+    /**
+     * @return Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
+     * 
+     */
+    public Optional<Output<String>> actionAfterCompletion() {
+        return Optional.ofNullable(this.actionAfterCompletion);
+    }
+
+    /**
      * Brief description of the schedule.
      * 
      */
@@ -220,6 +235,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
     private ScheduleArgs() {}
 
     private ScheduleArgs(ScheduleArgs $) {
+        this.actionAfterCompletion = $.actionAfterCompletion;
         this.description = $.description;
         this.endDate = $.endDate;
         this.flexibleTimeWindow = $.flexibleTimeWindow;
@@ -251,6 +267,27 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ScheduleArgs defaults) {
             $ = new ScheduleArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param actionAfterCompletion Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder actionAfterCompletion(@Nullable Output<String> actionAfterCompletion) {
+            $.actionAfterCompletion = actionAfterCompletion;
+            return this;
+        }
+
+        /**
+         * @param actionAfterCompletion Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder actionAfterCompletion(String actionAfterCompletion) {
+            return actionAfterCompletion(Output.of(actionAfterCompletion));
         }
 
         /**

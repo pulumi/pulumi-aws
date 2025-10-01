@@ -27434,6 +27434,14 @@ func (o GuardrailWordPolicyConfigPtrOutput) WordsConfigs() GuardrailWordPolicyCo
 }
 
 type GuardrailWordPolicyConfigManagedWordListsConfig struct {
+	// Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `NONE`.
+	InputAction *string `pulumi:"inputAction"`
+	// Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
+	InputEnabled *bool `pulumi:"inputEnabled"`
+	// Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `NONE`.
+	OutputAction *string `pulumi:"outputAction"`
+	// Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
+	OutputEnabled *bool `pulumi:"outputEnabled"`
 	// Options for managed words.
 	Type string `pulumi:"type"`
 }
@@ -27450,6 +27458,14 @@ type GuardrailWordPolicyConfigManagedWordListsConfigInput interface {
 }
 
 type GuardrailWordPolicyConfigManagedWordListsConfigArgs struct {
+	// Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `NONE`.
+	InputAction pulumi.StringPtrInput `pulumi:"inputAction"`
+	// Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
+	InputEnabled pulumi.BoolPtrInput `pulumi:"inputEnabled"`
+	// Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `NONE`.
+	OutputAction pulumi.StringPtrInput `pulumi:"outputAction"`
+	// Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
+	OutputEnabled pulumi.BoolPtrInput `pulumi:"outputEnabled"`
 	// Options for managed words.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -27505,6 +27521,26 @@ func (o GuardrailWordPolicyConfigManagedWordListsConfigOutput) ToGuardrailWordPo
 	return o
 }
 
+// Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `NONE`.
+func (o GuardrailWordPolicyConfigManagedWordListsConfigOutput) InputAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuardrailWordPolicyConfigManagedWordListsConfig) *string { return v.InputAction }).(pulumi.StringPtrOutput)
+}
+
+// Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
+func (o GuardrailWordPolicyConfigManagedWordListsConfigOutput) InputEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GuardrailWordPolicyConfigManagedWordListsConfig) *bool { return v.InputEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `NONE`.
+func (o GuardrailWordPolicyConfigManagedWordListsConfigOutput) OutputAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuardrailWordPolicyConfigManagedWordListsConfig) *string { return v.OutputAction }).(pulumi.StringPtrOutput)
+}
+
+// Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
+func (o GuardrailWordPolicyConfigManagedWordListsConfigOutput) OutputEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GuardrailWordPolicyConfigManagedWordListsConfig) *bool { return v.OutputEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Options for managed words.
 func (o GuardrailWordPolicyConfigManagedWordListsConfigOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GuardrailWordPolicyConfigManagedWordListsConfig) string { return v.Type }).(pulumi.StringOutput)
@@ -27531,6 +27567,14 @@ func (o GuardrailWordPolicyConfigManagedWordListsConfigArrayOutput) Index(i pulu
 }
 
 type GuardrailWordPolicyConfigWordsConfig struct {
+	// Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `NONE`.
+	InputAction *string `pulumi:"inputAction"`
+	// Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
+	InputEnabled *bool `pulumi:"inputEnabled"`
+	// Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `NONE`.
+	OutputAction *string `pulumi:"outputAction"`
+	// Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
+	OutputEnabled *bool `pulumi:"outputEnabled"`
 	// The custom word text.
 	Text string `pulumi:"text"`
 }
@@ -27547,6 +27591,14 @@ type GuardrailWordPolicyConfigWordsConfigInput interface {
 }
 
 type GuardrailWordPolicyConfigWordsConfigArgs struct {
+	// Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `NONE`.
+	InputAction pulumi.StringPtrInput `pulumi:"inputAction"`
+	// Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
+	InputEnabled pulumi.BoolPtrInput `pulumi:"inputEnabled"`
+	// Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `NONE`.
+	OutputAction pulumi.StringPtrInput `pulumi:"outputAction"`
+	// Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
+	OutputEnabled pulumi.BoolPtrInput `pulumi:"outputEnabled"`
 	// The custom word text.
 	Text pulumi.StringInput `pulumi:"text"`
 }
@@ -27600,6 +27652,26 @@ func (o GuardrailWordPolicyConfigWordsConfigOutput) ToGuardrailWordPolicyConfigW
 
 func (o GuardrailWordPolicyConfigWordsConfigOutput) ToGuardrailWordPolicyConfigWordsConfigOutputWithContext(ctx context.Context) GuardrailWordPolicyConfigWordsConfigOutput {
 	return o
+}
+
+// Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `NONE`.
+func (o GuardrailWordPolicyConfigWordsConfigOutput) InputAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuardrailWordPolicyConfigWordsConfig) *string { return v.InputAction }).(pulumi.StringPtrOutput)
+}
+
+// Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
+func (o GuardrailWordPolicyConfigWordsConfigOutput) InputEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GuardrailWordPolicyConfigWordsConfig) *bool { return v.InputEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `NONE`.
+func (o GuardrailWordPolicyConfigWordsConfigOutput) OutputAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuardrailWordPolicyConfigWordsConfig) *string { return v.OutputAction }).(pulumi.StringPtrOutput)
+}
+
+// Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
+func (o GuardrailWordPolicyConfigWordsConfigOutput) OutputEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GuardrailWordPolicyConfigWordsConfig) *bool { return v.OutputEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The custom word text.

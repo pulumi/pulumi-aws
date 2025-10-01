@@ -51,11 +51,17 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// - `arn` (String) Amazon Resource Name (ARN) of the Device Farm network profile.
+//
 // Using `pulumi import`, import DeviceFarm Network Profiles using their ARN. For example:
 //
-// ```sh
-// $ pulumi import aws:devicefarm/networkProfile:NetworkProfile example arn:aws:devicefarm:us-west-2:123456789012:networkprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
-// ```
+// console
+//
+// % pulumi import aws_devicefarm_network_profile.example arn:aws:devicefarm:us-west-2:123456789012:networkprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
 type NetworkProfile struct {
 	pulumi.CustomResourceState
 

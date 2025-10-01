@@ -317,11 +317,23 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `id` - (String) ID of the instance.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// 
+    /// * `region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import instances using the `id`. For example:
     /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2/instance:Instance web i-12345678
-    /// ```
+    /// console
+    /// 
+    /// % pulumi import aws_instance.web i-12345678
     /// </summary>
     [AwsResourceType("aws:ec2/instance:Instance")]
     public partial class Instance : global::Pulumi.CustomResource
@@ -537,10 +549,16 @@ namespace Pulumi.Aws.Ec2
         public Output<string> PasswordData { get; private set; } = null!;
 
         /// <summary>
-        /// Placement Group to start the instance in.
+        /// Placement Group to start the instance in. Conflicts with `placement_group_id`.
         /// </summary>
         [Output("placementGroup")]
         public Output<string> PlacementGroup { get; private set; } = null!;
+
+        /// <summary>
+        /// Placement Group ID to start the instance in. Conflicts with `placement_group`.
+        /// </summary>
+        [Output("placementGroupId")]
+        public Output<string> PlacementGroupId { get; private set; } = null!;
 
         /// <summary>
         /// Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
@@ -936,10 +954,16 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Placement Group to start the instance in.
+        /// Placement Group to start the instance in. Conflicts with `placement_group_id`.
         /// </summary>
         [Input("placementGroup")]
         public Input<string>? PlacementGroup { get; set; }
+
+        /// <summary>
+        /// Placement Group ID to start the instance in. Conflicts with `placement_group`.
+        /// </summary>
+        [Input("placementGroupId")]
+        public Input<string>? PlacementGroupId { get; set; }
 
         /// <summary>
         /// Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
@@ -1322,10 +1346,16 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PasswordData { get; set; }
 
         /// <summary>
-        /// Placement Group to start the instance in.
+        /// Placement Group to start the instance in. Conflicts with `placement_group_id`.
         /// </summary>
         [Input("placementGroup")]
         public Input<string>? PlacementGroup { get; set; }
+
+        /// <summary>
+        /// Placement Group ID to start the instance in. Conflicts with `placement_group`.
+        /// </summary>
+        [Input("placementGroupId")]
+        public Input<string>? PlacementGroupId { get; set; }
 
         /// <summary>
         /// Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.

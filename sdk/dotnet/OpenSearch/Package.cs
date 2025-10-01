@@ -73,6 +73,12 @@ namespace Pulumi.Aws.OpenSearch
         public Output<string> AvailablePackageVersion { get; private set; } = null!;
 
         /// <summary>
+        /// Engine version that the package is compatible with. This argument is required and only valid when `package_type` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
+        /// </summary>
+        [Output("engineVersion")]
+        public Output<string?> EngineVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Description of the package.
         /// </summary>
         [Output("packageDescription")]
@@ -94,7 +100,7 @@ namespace Pulumi.Aws.OpenSearch
         public Output<Outputs.PackagePackageSource> PackageSource { get; private set; } = null!;
 
         /// <summary>
-        /// The type of package.
+        /// The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
         /// </summary>
         [Output("packageType")]
         public Output<string> PackageType { get; private set; } = null!;
@@ -152,6 +158,12 @@ namespace Pulumi.Aws.OpenSearch
     public sealed class PackageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Engine version that the package is compatible with. This argument is required and only valid when `package_type` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
+        /// </summary>
+        [Input("engineVersion")]
+        public Input<string>? EngineVersion { get; set; }
+
+        /// <summary>
         /// Description of the package.
         /// </summary>
         [Input("packageDescription")]
@@ -170,7 +182,7 @@ namespace Pulumi.Aws.OpenSearch
         public Input<Inputs.PackagePackageSourceArgs> PackageSource { get; set; } = null!;
 
         /// <summary>
-        /// The type of package.
+        /// The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
         /// </summary>
         [Input("packageType", required: true)]
         public Input<string> PackageType { get; set; } = null!;
@@ -196,6 +208,12 @@ namespace Pulumi.Aws.OpenSearch
         public Input<string>? AvailablePackageVersion { get; set; }
 
         /// <summary>
+        /// Engine version that the package is compatible with. This argument is required and only valid when `package_type` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
+        /// </summary>
+        [Input("engineVersion")]
+        public Input<string>? EngineVersion { get; set; }
+
+        /// <summary>
         /// Description of the package.
         /// </summary>
         [Input("packageDescription")]
@@ -217,7 +235,7 @@ namespace Pulumi.Aws.OpenSearch
         public Input<Inputs.PackagePackageSourceGetArgs>? PackageSource { get; set; }
 
         /// <summary>
-        /// The type of package.
+        /// The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
         /// </summary>
         [Input("packageType")]
         public Input<string>? PackageType { get; set; }

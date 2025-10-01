@@ -50,9 +50,10 @@ export function getInstance(args?: GetInstanceArgs, opts?: pulumi.InvokeOptions)
  */
 export interface GetInstanceArgs {
     /**
-     * One or more name/value pairs to use as filters. There are
-     * several valid keys, for a full reference, check out
-     * [describe-instances in the AWS CLI reference][1].
+     * One or more filters to apply to the search.
+     * If multiple `filter` blocks are provided, they all must be true.
+     * For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+     * See `filter` Block below.
      */
     filters?: inputs.ec2.GetInstanceFilter[];
     /**
@@ -206,6 +207,10 @@ export interface GetInstanceResult {
      */
     readonly placementGroup: string;
     /**
+     * Placement group ID of the Instance.
+     */
+    readonly placementGroupId: string;
+    /**
      * Number of the partition the instance is in.
      */
     readonly placementPartitionNumber: number;
@@ -314,9 +319,10 @@ export function getInstanceOutput(args?: GetInstanceOutputArgs, opts?: pulumi.In
  */
 export interface GetInstanceOutputArgs {
     /**
-     * One or more name/value pairs to use as filters. There are
-     * several valid keys, for a full reference, check out
-     * [describe-instances in the AWS CLI reference][1].
+     * One or more filters to apply to the search.
+     * If multiple `filter` blocks are provided, they all must be true.
+     * For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+     * See `filter` Block below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetInstanceFilterArgs>[]>;
     /**

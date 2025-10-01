@@ -4,6 +4,7 @@
 package com.pulumi.aws.dynamodb.inputs;
 
 import com.pulumi.aws.dynamodb.inputs.TableGlobalSecondaryIndexOnDemandThroughputArgs;
+import com.pulumi.aws.dynamodb.inputs.TableGlobalSecondaryIndexWarmThroughputArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -65,14 +66,14 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Sets the maximum number of read and write units for the specified on-demand table. See below.
+     * Sets the maximum number of read and write units for the specified on-demand index. See below.
      * 
      */
     @Import(name="onDemandThroughput")
     private @Nullable Output<TableGlobalSecondaryIndexOnDemandThroughputArgs> onDemandThroughput;
 
     /**
-     * @return Sets the maximum number of read and write units for the specified on-demand table. See below.
+     * @return Sets the maximum number of read and write units for the specified on-demand index. See below.
      * 
      */
     public Optional<Output<TableGlobalSecondaryIndexOnDemandThroughputArgs>> onDemandThroughput() {
@@ -125,6 +126,21 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
     }
 
     /**
+     * Sets the number of warm read and write units for this index. See below.
+     * 
+     */
+    @Import(name="warmThroughput")
+    private @Nullable Output<TableGlobalSecondaryIndexWarmThroughputArgs> warmThroughput;
+
+    /**
+     * @return Sets the number of warm read and write units for this index. See below.
+     * 
+     */
+    public Optional<Output<TableGlobalSecondaryIndexWarmThroughputArgs>> warmThroughput() {
+        return Optional.ofNullable(this.warmThroughput);
+    }
+
+    /**
      * Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
      * 
      */
@@ -149,6 +165,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         this.projectionType = $.projectionType;
         this.rangeKey = $.rangeKey;
         this.readCapacity = $.readCapacity;
+        this.warmThroughput = $.warmThroughput;
         this.writeCapacity = $.writeCapacity;
     }
 
@@ -244,7 +261,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param onDemandThroughput Sets the maximum number of read and write units for the specified on-demand table. See below.
+         * @param onDemandThroughput Sets the maximum number of read and write units for the specified on-demand index. See below.
          * 
          * @return builder
          * 
@@ -255,7 +272,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param onDemandThroughput Sets the maximum number of read and write units for the specified on-demand table. See below.
+         * @param onDemandThroughput Sets the maximum number of read and write units for the specified on-demand index. See below.
          * 
          * @return builder
          * 
@@ -325,6 +342,27 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
          */
         public Builder readCapacity(Integer readCapacity) {
             return readCapacity(Output.of(readCapacity));
+        }
+
+        /**
+         * @param warmThroughput Sets the number of warm read and write units for this index. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder warmThroughput(@Nullable Output<TableGlobalSecondaryIndexWarmThroughputArgs> warmThroughput) {
+            $.warmThroughput = warmThroughput;
+            return this;
+        }
+
+        /**
+         * @param warmThroughput Sets the number of warm read and write units for this index. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder warmThroughput(TableGlobalSecondaryIndexWarmThroughputArgs warmThroughput) {
+            return warmThroughput(Output.of(warmThroughput));
         }
 
         /**

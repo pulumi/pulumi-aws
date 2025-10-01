@@ -401,11 +401,23 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `function_name` (String) Name of the Lambda function.
+ *
+ * #### Optional
+ *
+ * * `account_id` (String) AWS Account where this resource is managed.
+ *
+ * * `region` (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import Lambda Functions using the `function_name`. For example:
  *
- * ```sh
- * $ pulumi import aws:lambda/function:Function example example
- * ```
+ * console
+ *
+ * % pulumi import aws_lambda_function.example example
  */
 export class Function extends pulumi.CustomResource {
     /**
@@ -594,6 +606,10 @@ export class Function extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly sourceCodeSize: pulumi.Output<number>;
     /**
+     * ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `imageUri`.
+     */
+    declare public readonly sourceKmsKeyArn: pulumi.Output<string | undefined>;
+    /**
      * Key-value map of tags for the Lambda function. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
@@ -670,6 +686,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["snapStart"] = state?.snapStart;
             resourceInputs["sourceCodeHash"] = state?.sourceCodeHash;
             resourceInputs["sourceCodeSize"] = state?.sourceCodeSize;
+            resourceInputs["sourceKmsKeyArn"] = state?.sourceKmsKeyArn;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
             resourceInputs["timeout"] = state?.timeout;
@@ -711,6 +728,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["skipDestroy"] = args?.skipDestroy;
             resourceInputs["snapStart"] = args?.snapStart;
             resourceInputs["sourceCodeHash"] = args?.sourceCodeHash;
+            resourceInputs["sourceKmsKeyArn"] = args?.sourceKmsKeyArn;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["timeout"] = args?.timeout;
             resourceInputs["tracingConfig"] = args?.tracingConfig;
@@ -895,6 +913,10 @@ export interface FunctionState {
      */
     sourceCodeSize?: pulumi.Input<number>;
     /**
+     * ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `imageUri`.
+     */
+    sourceKmsKeyArn?: pulumi.Input<string>;
+    /**
      * Key-value map of tags for the Lambda function. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -1046,6 +1068,10 @@ export interface FunctionArgs {
      * Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
      */
     sourceCodeHash?: pulumi.Input<string>;
+    /**
+     * ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `imageUri`.
+     */
+    sourceKmsKeyArn?: pulumi.Input<string>;
     /**
      * Key-value map of tags for the Lambda function. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

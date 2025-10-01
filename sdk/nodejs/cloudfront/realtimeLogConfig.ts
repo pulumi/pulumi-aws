@@ -68,11 +68,17 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * - `arn` (String) Amazon Resource Name (ARN) of the CloudFront real-time log configuration.
+ *
  * Using `pulumi import`, import CloudFront real-time log configurations using the ARN. For example:
  *
- * ```sh
- * $ pulumi import aws:cloudfront/realtimeLogConfig:RealtimeLogConfig example arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig
- * ```
+ * console
+ *
+ * % pulumi import aws_cloudfront_realtime_log_config.example arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig
  */
 export class RealtimeLogConfig extends pulumi.CustomResource {
     /**

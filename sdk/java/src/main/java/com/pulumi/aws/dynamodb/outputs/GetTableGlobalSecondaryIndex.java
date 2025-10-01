@@ -4,6 +4,7 @@
 package com.pulumi.aws.dynamodb.outputs;
 
 import com.pulumi.aws.dynamodb.outputs.GetTableGlobalSecondaryIndexOnDemandThroughput;
+import com.pulumi.aws.dynamodb.outputs.GetTableGlobalSecondaryIndexWarmThroughput;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
@@ -24,6 +25,7 @@ public final class GetTableGlobalSecondaryIndex {
     private String projectionType;
     private String rangeKey;
     private Integer readCapacity;
+    private List<GetTableGlobalSecondaryIndexWarmThroughput> warmThroughputs;
     private Integer writeCapacity;
 
     private GetTableGlobalSecondaryIndex() {}
@@ -52,6 +54,9 @@ public final class GetTableGlobalSecondaryIndex {
     public Integer readCapacity() {
         return this.readCapacity;
     }
+    public List<GetTableGlobalSecondaryIndexWarmThroughput> warmThroughputs() {
+        return this.warmThroughputs;
+    }
     public Integer writeCapacity() {
         return this.writeCapacity;
     }
@@ -72,6 +77,7 @@ public final class GetTableGlobalSecondaryIndex {
         private String projectionType;
         private String rangeKey;
         private Integer readCapacity;
+        private List<GetTableGlobalSecondaryIndexWarmThroughput> warmThroughputs;
         private Integer writeCapacity;
         public Builder() {}
         public Builder(GetTableGlobalSecondaryIndex defaults) {
@@ -83,6 +89,7 @@ public final class GetTableGlobalSecondaryIndex {
     	      this.projectionType = defaults.projectionType;
     	      this.rangeKey = defaults.rangeKey;
     	      this.readCapacity = defaults.readCapacity;
+    	      this.warmThroughputs = defaults.warmThroughputs;
     	      this.writeCapacity = defaults.writeCapacity;
         }
 
@@ -149,6 +156,17 @@ public final class GetTableGlobalSecondaryIndex {
             return this;
         }
         @CustomType.Setter
+        public Builder warmThroughputs(List<GetTableGlobalSecondaryIndexWarmThroughput> warmThroughputs) {
+            if (warmThroughputs == null) {
+              throw new MissingRequiredPropertyException("GetTableGlobalSecondaryIndex", "warmThroughputs");
+            }
+            this.warmThroughputs = warmThroughputs;
+            return this;
+        }
+        public Builder warmThroughputs(GetTableGlobalSecondaryIndexWarmThroughput... warmThroughputs) {
+            return warmThroughputs(List.of(warmThroughputs));
+        }
+        @CustomType.Setter
         public Builder writeCapacity(Integer writeCapacity) {
             if (writeCapacity == null) {
               throw new MissingRequiredPropertyException("GetTableGlobalSecondaryIndex", "writeCapacity");
@@ -165,6 +183,7 @@ public final class GetTableGlobalSecondaryIndex {
             _resultValue.projectionType = projectionType;
             _resultValue.rangeKey = rangeKey;
             _resultValue.readCapacity = readCapacity;
+            _resultValue.warmThroughputs = warmThroughputs;
             _resultValue.writeCapacity = writeCapacity;
             return _resultValue;
         }

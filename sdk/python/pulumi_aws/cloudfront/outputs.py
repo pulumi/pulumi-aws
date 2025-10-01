@@ -1898,6 +1898,8 @@ class DistributionOrigin(dict):
             suggest = "origin_path"
         elif key == "originShield":
             suggest = "origin_shield"
+        elif key == "responseCompletionTimeout":
+            suggest = "response_completion_timeout"
         elif key == "s3OriginConfig":
             suggest = "s3_origin_config"
         elif key == "vpcOriginConfig":
@@ -1924,6 +1926,7 @@ class DistributionOrigin(dict):
                  origin_access_control_id: Optional[_builtins.str] = None,
                  origin_path: Optional[_builtins.str] = None,
                  origin_shield: Optional['outputs.DistributionOriginOriginShield'] = None,
+                 response_completion_timeout: Optional[_builtins.int] = None,
                  s3_origin_config: Optional['outputs.DistributionOriginS3OriginConfig'] = None,
                  vpc_origin_config: Optional['outputs.DistributionOriginVpcOriginConfig'] = None):
         """
@@ -1935,6 +1938,7 @@ class DistributionOrigin(dict):
         :param _builtins.str origin_access_control_id: Unique identifier of a [CloudFront origin access control][8] for this origin.
         :param _builtins.str origin_path: Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
         :param 'DistributionOriginOriginShieldArgs' origin_shield: CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
+        :param _builtins.int response_completion_timeout: Time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. Must be integer greater than or equal to the value of `origin_read_timeout`. If omitted or explicitly set to `0`, no maximum value is enforced.
         :param 'DistributionOriginS3OriginConfigArgs' s3_origin_config: CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
         :param 'DistributionOriginVpcOriginConfigArgs' vpc_origin_config: The VPC origin configuration.
         """
@@ -1954,6 +1958,8 @@ class DistributionOrigin(dict):
             pulumi.set(__self__, "origin_path", origin_path)
         if origin_shield is not None:
             pulumi.set(__self__, "origin_shield", origin_shield)
+        if response_completion_timeout is not None:
+            pulumi.set(__self__, "response_completion_timeout", response_completion_timeout)
         if s3_origin_config is not None:
             pulumi.set(__self__, "s3_origin_config", s3_origin_config)
         if vpc_origin_config is not None:
@@ -2027,6 +2033,14 @@ class DistributionOrigin(dict):
         CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
         """
         return pulumi.get(self, "origin_shield")
+
+    @_builtins.property
+    @pulumi.getter(name="responseCompletionTimeout")
+    def response_completion_timeout(self) -> Optional[_builtins.int]:
+        """
+        Time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. Must be integer greater than or equal to the value of `origin_read_timeout`. If omitted or explicitly set to `0`, no maximum value is enforced.
+        """
+        return pulumi.get(self, "response_completion_timeout")
 
     @_builtins.property
     @pulumi.getter(name="s3OriginConfig")

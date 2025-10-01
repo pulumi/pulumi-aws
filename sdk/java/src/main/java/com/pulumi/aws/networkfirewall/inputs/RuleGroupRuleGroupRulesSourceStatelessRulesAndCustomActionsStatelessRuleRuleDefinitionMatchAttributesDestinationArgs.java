@@ -15,14 +15,14 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
     public static final RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgs Empty = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgs();
 
     /**
-     * An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
+     * An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4 and IPv6.
      * 
      */
     @Import(name="addressDefinition", required=true)
     private Output<String> addressDefinition;
 
     /**
-     * @return An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
+     * @return An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4 and IPv6.
      * 
      */
     public Output<String> addressDefinition() {
@@ -54,7 +54,7 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
         }
 
         /**
-         * @param addressDefinition An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
+         * @param addressDefinition An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4 and IPv6.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
         }
 
         /**
-         * @param addressDefinition An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
+         * @param addressDefinition An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4 and IPv6.
          * 
          * @return builder
          * 

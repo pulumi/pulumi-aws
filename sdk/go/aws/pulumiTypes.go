@@ -1160,6 +1160,8 @@ type ProviderEndpoint struct {
 	// Use this to override the default service endpoint URL
 	Wellarchitected *string `pulumi:"wellarchitected"`
 	// Use this to override the default service endpoint URL
+	Workmail *string `pulumi:"workmail"`
+	// Use this to override the default service endpoint URL
 	Workspaces *string `pulumi:"workspaces"`
 	// Use this to override the default service endpoint URL
 	Workspacesweb *string `pulumi:"workspacesweb"`
@@ -1775,6 +1777,8 @@ type ProviderEndpointArgs struct {
 	Wafv2 pulumi.StringPtrInput `pulumi:"wafv2"`
 	// Use this to override the default service endpoint URL
 	Wellarchitected pulumi.StringPtrInput `pulumi:"wellarchitected"`
+	// Use this to override the default service endpoint URL
+	Workmail pulumi.StringPtrInput `pulumi:"workmail"`
 	// Use this to override the default service endpoint URL
 	Workspaces pulumi.StringPtrInput `pulumi:"workspaces"`
 	// Use this to override the default service endpoint URL
@@ -3322,6 +3326,11 @@ func (o ProviderEndpointOutput) Wafv2() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) Wellarchitected() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Wellarchitected }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o ProviderEndpointOutput) Workmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Workmail }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

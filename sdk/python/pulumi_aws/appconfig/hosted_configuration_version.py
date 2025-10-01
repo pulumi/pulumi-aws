@@ -345,6 +345,44 @@ class HostedConfigurationVersion(pulumi.CustomResource):
             }))
         ```
 
+        ### Multi-variant Feature Flags
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        example = aws.appconfig.HostedConfigurationVersion("example",
+            application_id=example_aws_appconfig_application["id"],
+            configuration_profile_id=example_aws_appconfig_configuration_profile["configurationProfileId"],
+            description="Example Multi-variant Feature Flag Configuration Version",
+            content_type="application/json",
+            content=json.dumps({
+                "flags": {
+                    "loggingenabled": {
+                        "name": "loggingEnabled",
+                    },
+                },
+                "values": {
+                    "loggingenabled": {
+                        "_variants": std.concat(input=[
+                            [{
+                                "enabled": True,
+                                "name": f"usersWithLoggingEnabled_{user_id}",
+                                "rule": f"(or (eq $userId \\"{user_id}\\"))",
+                            } for userId in appcfg_enable_logging_user_ids],
+                            [{
+                                "enabled": False,
+                                "name": "Default",
+                            }],
+                        ]).result,
+                    },
+                },
+                "version": "1",
+            }))
+        ```
+
         ## Import
 
         Using `pulumi import`, import AppConfig Hosted Configuration Versions using the application ID, configuration profile ID, and version number separated by a slash (`/`). For example:
@@ -442,6 +480,44 @@ class HostedConfigurationVersion(pulumi.CustomResource):
                         "enabled": "true",
                         "someAttribute": "Hello World",
                         "someOtherAttribute": 123,
+                    },
+                },
+                "version": "1",
+            }))
+        ```
+
+        ### Multi-variant Feature Flags
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        example = aws.appconfig.HostedConfigurationVersion("example",
+            application_id=example_aws_appconfig_application["id"],
+            configuration_profile_id=example_aws_appconfig_configuration_profile["configurationProfileId"],
+            description="Example Multi-variant Feature Flag Configuration Version",
+            content_type="application/json",
+            content=json.dumps({
+                "flags": {
+                    "loggingenabled": {
+                        "name": "loggingEnabled",
+                    },
+                },
+                "values": {
+                    "loggingenabled": {
+                        "_variants": std.concat(input=[
+                            [{
+                                "enabled": True,
+                                "name": f"usersWithLoggingEnabled_{user_id}",
+                                "rule": f"(or (eq $userId \\"{user_id}\\"))",
+                            } for userId in appcfg_enable_logging_user_ids],
+                            [{
+                                "enabled": False,
+                                "name": "Default",
+                            }],
+                        ]).result,
                     },
                 },
                 "version": "1",

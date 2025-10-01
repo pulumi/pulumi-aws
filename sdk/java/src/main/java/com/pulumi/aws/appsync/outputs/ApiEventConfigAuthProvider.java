@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ApiEventConfigAuthProvider {
     /**
-     * @return Type of authentication provider. Valid values: `AMAZON_COGNITO_USER_POOLS`, `AWS_LAMBDA`, `OPENID_CONNECT`, `API_KEY`.
+     * @return Type of authentication provider. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
      * 
      */
     private String authType;
@@ -38,7 +38,7 @@ public final class ApiEventConfigAuthProvider {
 
     private ApiEventConfigAuthProvider() {}
     /**
-     * @return Type of authentication provider. Valid values: `AMAZON_COGNITO_USER_POOLS`, `AWS_LAMBDA`, `OPENID_CONNECT`, `API_KEY`.
+     * @return Type of authentication provider. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
      * 
      */
     public String authType() {

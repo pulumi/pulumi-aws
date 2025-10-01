@@ -475,6 +475,8 @@ class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergCo
         suggest = None
         if key == "orphanFileRetentionPeriodInDays":
             suggest = "orphan_file_retention_period_in_days"
+        elif key == "runRateInHours":
+            suggest = "run_rate_in_hours"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -489,15 +491,19 @@ class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergCo
 
     def __init__(__self__, *,
                  location: Optional[_builtins.str] = None,
-                 orphan_file_retention_period_in_days: Optional[_builtins.int] = None):
+                 orphan_file_retention_period_in_days: Optional[_builtins.int] = None,
+                 run_rate_in_hours: Optional[_builtins.int] = None):
         """
         :param _builtins.str location: Specifies a directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table's location.
         :param _builtins.int orphan_file_retention_period_in_days: The number of days that orphan files should be retained before file deletion. Defaults to `3`.
+        :param _builtins.int run_rate_in_hours: interval in hours between orphan file deletion job runs. Defaults to `24`.
         """
         if location is not None:
             pulumi.set(__self__, "location", location)
         if orphan_file_retention_period_in_days is not None:
             pulumi.set(__self__, "orphan_file_retention_period_in_days", orphan_file_retention_period_in_days)
+        if run_rate_in_hours is not None:
+            pulumi.set(__self__, "run_rate_in_hours", run_rate_in_hours)
 
     @_builtins.property
     @pulumi.getter
@@ -514,6 +520,14 @@ class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergCo
         The number of days that orphan files should be retained before file deletion. Defaults to `3`.
         """
         return pulumi.get(self, "orphan_file_retention_period_in_days")
+
+    @_builtins.property
+    @pulumi.getter(name="runRateInHours")
+    def run_rate_in_hours(self) -> Optional[_builtins.int]:
+        """
+        interval in hours between orphan file deletion job runs. Defaults to `24`.
+        """
+        return pulumi.get(self, "run_rate_in_hours")
 
 
 @pulumi.output_type
@@ -561,6 +575,8 @@ class CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurati
             suggest = "clean_expired_files"
         elif key == "numberOfSnapshotsToRetain":
             suggest = "number_of_snapshots_to_retain"
+        elif key == "runRateInHours":
+            suggest = "run_rate_in_hours"
         elif key == "snapshotRetentionPeriodInDays":
             suggest = "snapshot_retention_period_in_days"
 
@@ -578,16 +594,20 @@ class CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurati
     def __init__(__self__, *,
                  clean_expired_files: Optional[_builtins.bool] = None,
                  number_of_snapshots_to_retain: Optional[_builtins.int] = None,
+                 run_rate_in_hours: Optional[_builtins.int] = None,
                  snapshot_retention_period_in_days: Optional[_builtins.int] = None):
         """
         :param _builtins.bool clean_expired_files: If set to `false`, snapshots are only deleted from table metadata, and the underlying data and metadata files are not deleted. Defaults to `false`.
         :param _builtins.int number_of_snapshots_to_retain: The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
+        :param _builtins.int run_rate_in_hours: Interval in hours between retention job runs. Defaults to `24`.
         :param _builtins.int snapshot_retention_period_in_days: The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
         """
         if clean_expired_files is not None:
             pulumi.set(__self__, "clean_expired_files", clean_expired_files)
         if number_of_snapshots_to_retain is not None:
             pulumi.set(__self__, "number_of_snapshots_to_retain", number_of_snapshots_to_retain)
+        if run_rate_in_hours is not None:
+            pulumi.set(__self__, "run_rate_in_hours", run_rate_in_hours)
         if snapshot_retention_period_in_days is not None:
             pulumi.set(__self__, "snapshot_retention_period_in_days", snapshot_retention_period_in_days)
 
@@ -606,6 +626,14 @@ class CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurati
         The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
         """
         return pulumi.get(self, "number_of_snapshots_to_retain")
+
+    @_builtins.property
+    @pulumi.getter(name="runRateInHours")
+    def run_rate_in_hours(self) -> Optional[_builtins.int]:
+        """
+        Interval in hours between retention job runs. Defaults to `24`.
+        """
+        return pulumi.get(self, "run_rate_in_hours")
 
     @_builtins.property
     @pulumi.getter(name="snapshotRetentionPeriodInDays")

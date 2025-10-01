@@ -71,6 +71,75 @@ import (
 //
 // ```
 //
+// ### Using rulesJson
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/wafv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal([]map[string]interface{}{
+//				map[string]interface{}{
+//					"Name":     "rule-1",
+//					"Priority": 1,
+//					"Action": map[string]interface{}{
+//						"Count": map[string]interface{}{},
+//					},
+//					"Statement": map[string]interface{}{
+//						"ByteMatchStatement": map[string]interface{}{
+//							"SearchString": "badbot",
+//							"FieldToMatch": map[string]interface{}{
+//								"UriPath": map[string]interface{}{},
+//							},
+//							"TextTransformations": []map[string]interface{}{
+//								map[string]interface{}{
+//									"Priority": 1,
+//									"Type":     "NONE",
+//								},
+//							},
+//							"PositionalConstraint": "CONTAINS",
+//						},
+//					},
+//					"VisibilityConfig": map[string]interface{}{
+//						"CloudwatchMetricsEnabled": false,
+//						"MetricName":               "friendly-rule-metric-name",
+//						"SampledRequestsEnabled":   false,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = wafv2.NewRuleGroup(ctx, "example", &wafv2.RuleGroupArgs{
+//				Name:      pulumi.String("example-rule-group"),
+//				Scope:     pulumi.String("REGIONAL"),
+//				Capacity:  pulumi.Int(100),
+//				RulesJson: pulumi.String(json0),
+//				VisibilityConfig: &wafv2.RuleGroupVisibilityConfigArgs{
+//					CloudwatchMetricsEnabled: pulumi.Bool(false),
+//					MetricName:               pulumi.String("friendly-metric-name"),
+//					SampledRequestsEnabled:   pulumi.Bool(false),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import WAFv2 Rule Group using `ID/name/scope`. For example:
@@ -97,8 +166,9 @@ type RuleGroup struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
-	Rules     RuleGroupRuleArrayOutput `pulumi:"rules"`
-	RulesJson pulumi.StringPtrOutput   `pulumi:"rulesJson"`
+	Rules RuleGroupRuleArrayOutput `pulumi:"rules"`
+	// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rulesJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
+	RulesJson pulumi.StringPtrOutput `pulumi:"rulesJson"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope pulumi.StringOutput `pulumi:"scope"`
 	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -164,8 +234,9 @@ type ruleGroupState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
-	Rules     []RuleGroupRule `pulumi:"rules"`
-	RulesJson *string         `pulumi:"rulesJson"`
+	Rules []RuleGroupRule `pulumi:"rules"`
+	// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rulesJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
+	RulesJson *string `pulumi:"rulesJson"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope *string `pulumi:"scope"`
 	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -193,7 +264,8 @@ type RuleGroupState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
-	Rules     RuleGroupRuleArrayInput
+	Rules RuleGroupRuleArrayInput
+	// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rulesJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
 	RulesJson pulumi.StringPtrInput
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope pulumi.StringPtrInput
@@ -223,8 +295,9 @@ type ruleGroupArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
-	Rules     []RuleGroupRule `pulumi:"rules"`
-	RulesJson *string         `pulumi:"rulesJson"`
+	Rules []RuleGroupRule `pulumi:"rules"`
+	// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rulesJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
+	RulesJson *string `pulumi:"rulesJson"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope string `pulumi:"scope"`
 	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -248,7 +321,8 @@ type RuleGroupArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
-	Rules     RuleGroupRuleArrayInput
+	Rules RuleGroupRuleArrayInput
+	// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rulesJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
 	RulesJson pulumi.StringPtrInput
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope pulumi.StringInput
@@ -389,6 +463,7 @@ func (o RuleGroupOutput) Rules() RuleGroupRuleArrayOutput {
 	return o.ApplyT(func(v *RuleGroup) RuleGroupRuleArrayOutput { return v.Rules }).(RuleGroupRuleArrayOutput)
 }
 
+// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rulesJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
 func (o RuleGroupOutput) RulesJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringPtrOutput { return v.RulesJson }).(pulumi.StringPtrOutput)
 }

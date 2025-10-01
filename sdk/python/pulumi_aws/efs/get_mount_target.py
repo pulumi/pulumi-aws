@@ -26,7 +26,7 @@ class GetMountTargetResult:
     """
     A collection of values returned by getMountTarget.
     """
-    def __init__(__self__, access_point_id=None, availability_zone_id=None, availability_zone_name=None, dns_name=None, file_system_arn=None, file_system_id=None, id=None, ip_address=None, mount_target_dns_name=None, mount_target_id=None, network_interface_id=None, owner_id=None, region=None, security_groups=None, subnet_id=None):
+    def __init__(__self__, access_point_id=None, availability_zone_id=None, availability_zone_name=None, dns_name=None, file_system_arn=None, file_system_id=None, id=None, ip_address=None, ip_address_type=None, ipv6_address=None, mount_target_dns_name=None, mount_target_id=None, network_interface_id=None, owner_id=None, region=None, security_groups=None, subnet_id=None):
         if access_point_id and not isinstance(access_point_id, str):
             raise TypeError("Expected argument 'access_point_id' to be a str")
         pulumi.set(__self__, "access_point_id", access_point_id)
@@ -51,6 +51,12 @@ class GetMountTargetResult:
         if ip_address and not isinstance(ip_address, str):
             raise TypeError("Expected argument 'ip_address' to be a str")
         pulumi.set(__self__, "ip_address", ip_address)
+        if ip_address_type and not isinstance(ip_address_type, str):
+            raise TypeError("Expected argument 'ip_address_type' to be a str")
+        pulumi.set(__self__, "ip_address_type", ip_address_type)
+        if ipv6_address and not isinstance(ipv6_address, str):
+            raise TypeError("Expected argument 'ipv6_address' to be a str")
+        pulumi.set(__self__, "ipv6_address", ipv6_address)
         if mount_target_dns_name and not isinstance(mount_target_dns_name, str):
             raise TypeError("Expected argument 'mount_target_dns_name' to be a str")
         pulumi.set(__self__, "mount_target_dns_name", mount_target_dns_name)
@@ -132,6 +138,22 @@ class GetMountTargetResult:
         return pulumi.get(self, "ip_address")
 
     @_builtins.property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> _builtins.str:
+        """
+        IP address type for the mount target.
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @_builtins.property
+    @pulumi.getter(name="ipv6Address")
+    def ipv6_address(self) -> _builtins.str:
+        """
+        IPv6 address at which the file system may be mounted via the mount target.
+        """
+        return pulumi.get(self, "ipv6_address")
+
+    @_builtins.property
     @pulumi.getter(name="mountTargetDnsName")
     def mount_target_dns_name(self) -> _builtins.str:
         """
@@ -196,6 +218,8 @@ class AwaitableGetMountTargetResult(GetMountTargetResult):
             file_system_id=self.file_system_id,
             id=self.id,
             ip_address=self.ip_address,
+            ip_address_type=self.ip_address_type,
+            ipv6_address=self.ipv6_address,
             mount_target_dns_name=self.mount_target_dns_name,
             mount_target_id=self.mount_target_id,
             network_interface_id=self.network_interface_id,
@@ -249,6 +273,8 @@ def get_mount_target(access_point_id: Optional[_builtins.str] = None,
         file_system_id=pulumi.get(__ret__, 'file_system_id'),
         id=pulumi.get(__ret__, 'id'),
         ip_address=pulumi.get(__ret__, 'ip_address'),
+        ip_address_type=pulumi.get(__ret__, 'ip_address_type'),
+        ipv6_address=pulumi.get(__ret__, 'ipv6_address'),
         mount_target_dns_name=pulumi.get(__ret__, 'mount_target_dns_name'),
         mount_target_id=pulumi.get(__ret__, 'mount_target_id'),
         network_interface_id=pulumi.get(__ret__, 'network_interface_id'),
@@ -299,6 +325,8 @@ def get_mount_target_output(access_point_id: Optional[pulumi.Input[Optional[_bui
         file_system_id=pulumi.get(__response__, 'file_system_id'),
         id=pulumi.get(__response__, 'id'),
         ip_address=pulumi.get(__response__, 'ip_address'),
+        ip_address_type=pulumi.get(__response__, 'ip_address_type'),
+        ipv6_address=pulumi.get(__response__, 'ipv6_address'),
         mount_target_dns_name=pulumi.get(__response__, 'mount_target_dns_name'),
         mount_target_id=pulumi.get(__response__, 'mount_target_id'),
         network_interface_id=pulumi.get(__response__, 'network_interface_id'),

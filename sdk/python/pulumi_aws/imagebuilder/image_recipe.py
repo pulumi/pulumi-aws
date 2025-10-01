@@ -35,7 +35,7 @@ class ImageRecipeArgs:
         """
         The set of arguments for constructing a ImageRecipe resource.
         :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentArgs']]] components: Ordered configuration block(s) with components for the image recipe. Detailed below.
-        :param pulumi.Input[_builtins.str] parent_image: The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
+        :param pulumi.Input[_builtins.str] parent_image: The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
         :param pulumi.Input[_builtins.str] version: The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
                
                The following arguments are optional:
@@ -84,7 +84,7 @@ class ImageRecipeArgs:
     @pulumi.getter(name="parentImage")
     def parent_image(self) -> pulumi.Input[_builtins.str]:
         """
-        The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
+        The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
         """
         return pulumi.get(self, "parent_image")
 
@@ -231,7 +231,7 @@ class _ImageRecipeState:
         :param pulumi.Input[_builtins.str] description: Description of the image recipe.
         :param pulumi.Input[_builtins.str] name: Name of the image recipe.
         :param pulumi.Input[_builtins.str] owner: Owner of the image recipe.
-        :param pulumi.Input[_builtins.str] parent_image: The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
+        :param pulumi.Input[_builtins.str] parent_image: The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
         :param pulumi.Input[_builtins.str] platform: Platform of the image recipe.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ImageRecipeSystemsManagerAgentArgs'] systems_manager_agent: Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
@@ -364,7 +364,7 @@ class _ImageRecipeState:
     @pulumi.getter(name="parentImage")
     def parent_image(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
+        The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
         """
         return pulumi.get(self, "parent_image")
 
@@ -527,11 +527,17 @@ class ImageRecipe(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the Image Builder image recipe.
+
         Using `pulumi import`, import `aws_imagebuilder_image_recipe` resources using the Amazon Resource Name (ARN). For example:
 
-        ```sh
-        $ pulumi import aws:imagebuilder/imageRecipe:ImageRecipe example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
-        ```
+        console
+
+        % pulumi import aws_imagebuilder_image_recipe.example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -539,7 +545,7 @@ class ImageRecipe(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeComponentArgs', 'ImageRecipeComponentArgsDict']]]] components: Ordered configuration block(s) with components for the image recipe. Detailed below.
         :param pulumi.Input[_builtins.str] description: Description of the image recipe.
         :param pulumi.Input[_builtins.str] name: Name of the image recipe.
-        :param pulumi.Input[_builtins.str] parent_image: The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
+        :param pulumi.Input[_builtins.str] parent_image: The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ImageRecipeSystemsManagerAgentArgs', 'ImageRecipeSystemsManagerAgentArgsDict']] systems_manager_agent: Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -593,11 +599,17 @@ class ImageRecipe(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the Image Builder image recipe.
+
         Using `pulumi import`, import `aws_imagebuilder_image_recipe` resources using the Amazon Resource Name (ARN). For example:
 
-        ```sh
-        $ pulumi import aws:imagebuilder/imageRecipe:ImageRecipe example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
-        ```
+        console
+
+        % pulumi import aws_imagebuilder_image_recipe.example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
 
         :param str resource_name: The name of the resource.
         :param ImageRecipeArgs args: The arguments to use to populate this resource's properties.
@@ -696,7 +708,7 @@ class ImageRecipe(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description of the image recipe.
         :param pulumi.Input[_builtins.str] name: Name of the image recipe.
         :param pulumi.Input[_builtins.str] owner: Owner of the image recipe.
-        :param pulumi.Input[_builtins.str] parent_image: The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
+        :param pulumi.Input[_builtins.str] parent_image: The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
         :param pulumi.Input[_builtins.str] platform: Platform of the image recipe.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ImageRecipeSystemsManagerAgentArgs', 'ImageRecipeSystemsManagerAgentArgsDict']] systems_manager_agent: Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
@@ -790,7 +802,7 @@ class ImageRecipe(pulumi.CustomResource):
     @pulumi.getter(name="parentImage")
     def parent_image(self) -> pulumi.Output[_builtins.str]:
         """
-        The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
+        The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
         """
         return pulumi.get(self, "parent_image")
 

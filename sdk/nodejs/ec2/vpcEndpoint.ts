@@ -136,14 +136,6 @@ import * as utilities from "../utilities";
  *     vpcId: exampleAwsVpc.id,
  * });
  * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import VPC Endpoints using the VPC endpoint `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:ec2/vpcEndpoint:VpcEndpoint endpoint1 vpce-3ecf2a57
- * ```
  */
 export class VpcEndpoint extends pulumi.CustomResource {
     /**

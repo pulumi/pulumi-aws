@@ -70,7 +70,7 @@ index 96abcbecf98..bfec91c4990 100644
  			names.AttrName: {
  				Type:          schema.TypeString,
 diff --git a/internal/service/ec2/vpc_security_group.go b/internal/service/ec2/vpc_security_group.go
-index 5397965c94e..698aac72ea0 100644
+index b335b96d447..dda4ce39c19 100644
 --- a/internal/service/ec2/vpc_security_group.go
 +++ b/internal/service/ec2/vpc_security_group.go
 @@ -67,7 +67,7 @@ func resourceSecurityGroup() *schema.Resource {
@@ -83,10 +83,10 @@ index 5397965c94e..698aac72ea0 100644
  			},
  			"egress":  securityGroupRuleSetNestedBlock,
 diff --git a/internal/service/elasticache/parameter_group.go b/internal/service/elasticache/parameter_group.go
-index a13e4addce9..f2936b7076b 100644
+index 4e6a87148dc..ac2e529f977 100644
 --- a/internal/service/elasticache/parameter_group.go
 +++ b/internal/service/elasticache/parameter_group.go
-@@ -50,7 +50,7 @@ func resourceParameterGroup() *schema.Resource {
+@@ -49,7 +49,7 @@ func resourceParameterGroup() *schema.Resource {
  				Type:     schema.TypeString,
  				Optional: true,
  				ForceNew: true,
@@ -109,7 +109,7 @@ index e733ba52e0f..bea550d91de 100644
  			names.AttrName: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/mediapackage/channel.go b/internal/service/mediapackage/channel.go
-index 1ffa1c6e0c1..f61dd40591e 100644
+index 5036619ae9f..c041473ad75 100644
 --- a/internal/service/mediapackage/channel.go
 +++ b/internal/service/mediapackage/channel.go
 @@ -50,7 +50,7 @@ func ResourceChannel() *schema.Resource {

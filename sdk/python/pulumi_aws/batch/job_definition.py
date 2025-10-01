@@ -867,11 +867,17 @@ class JobDefinition(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the job definition.
+
         Using `pulumi import`, import Batch Job Definition using the `arn`. For example:
 
-        ```sh
-        $ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample
-        ```
+        console
+
+        % pulumi import aws_batch_job_definition.test arn:aws:batch:us-east-1:123456789012:job-definition/sample
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1159,11 +1165,17 @@ class JobDefinition(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the job definition.
+
         Using `pulumi import`, import Batch Job Definition using the `arn`. For example:
 
-        ```sh
-        $ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample
-        ```
+        console
+
+        % pulumi import aws_batch_job_definition.test arn:aws:batch:us-east-1:123456789012:job-definition/sample
 
         :param str resource_name: The name of the resource.
         :param JobDefinitionArgs args: The arguments to use to populate this resource's properties.
