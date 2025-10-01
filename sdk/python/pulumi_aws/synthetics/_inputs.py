@@ -23,6 +23,8 @@ __all__ = [
     'CanaryRunConfigArgsDict',
     'CanaryScheduleArgs',
     'CanaryScheduleArgsDict',
+    'CanaryScheduleRetryConfigArgs',
+    'CanaryScheduleRetryConfigArgsDict',
     'CanaryTimelineArgs',
     'CanaryTimelineArgsDict',
     'CanaryVpcConfigArgs',
@@ -125,6 +127,10 @@ if not MYPY:
         """
         Map of environment variables that are accessible from the canary during execution. Please see [AWS Docs](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime) for variables reserved for Lambda.
         """
+        ephemeral_storage: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Amount of ephemeral storage (in MB) allocated for the canary run during execution. Defaults to 1024.
+        """
         memory_in_mb: NotRequired[pulumi.Input[_builtins.int]]
         """
         Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
@@ -141,11 +147,13 @@ class CanaryRunConfigArgs:
     def __init__(__self__, *,
                  active_tracing: Optional[pulumi.Input[_builtins.bool]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ephemeral_storage: Optional[pulumi.Input[_builtins.int]] = None,
                  memory_in_mb: Optional[pulumi.Input[_builtins.int]] = None,
                  timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.bool] active_tracing: Whether this canary is to use active AWS X-Ray tracing when it runs. You can enable active tracing only for canaries that use version syn-nodejs-2.0 or later for their canary runtime.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables that are accessible from the canary during execution. Please see [AWS Docs](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime) for variables reserved for Lambda.
+        :param pulumi.Input[_builtins.int] ephemeral_storage: Amount of ephemeral storage (in MB) allocated for the canary run during execution. Defaults to 1024.
         :param pulumi.Input[_builtins.int] memory_in_mb: Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
         :param pulumi.Input[_builtins.int] timeout_in_seconds: Number of seconds the canary is allowed to run before it must stop. If you omit this field, the frequency of the canary is used, up to a maximum of 840 (14 minutes).
         """
@@ -153,6 +161,8 @@ class CanaryRunConfigArgs:
             pulumi.set(__self__, "active_tracing", active_tracing)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
+        if ephemeral_storage is not None:
+            pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
         if memory_in_mb is not None:
             pulumi.set(__self__, "memory_in_mb", memory_in_mb)
         if timeout_in_seconds is not None:
@@ -181,6 +191,18 @@ class CanaryRunConfigArgs:
     @environment_variables.setter
     def environment_variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "environment_variables", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ephemeralStorage")
+    def ephemeral_storage(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Amount of ephemeral storage (in MB) allocated for the canary run during execution. Defaults to 1024.
+        """
+        return pulumi.get(self, "ephemeral_storage")
+
+    @ephemeral_storage.setter
+    def ephemeral_storage(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "ephemeral_storage", value)
 
     @_builtins.property
     @pulumi.getter(name="memoryInMb")
@@ -217,6 +239,10 @@ if not MYPY:
         """
         Duration in seconds, for the canary to continue making regular runs according to the schedule in the Expression value.
         """
+        retry_config: NotRequired[pulumi.Input['CanaryScheduleRetryConfigArgsDict']]
+        """
+        Configuration block for canary retries. Detailed below.
+        """
 elif False:
     CanaryScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -224,14 +250,18 @@ elif False:
 class CanaryScheduleArgs:
     def __init__(__self__, *,
                  expression: pulumi.Input[_builtins.str],
-                 duration_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 duration_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 retry_config: Optional[pulumi.Input['CanaryScheduleRetryConfigArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] expression: Rate expression or cron expression that defines how often the canary is to run. For rate expression, the syntax is `rate(number unit)`. _unit_ can be `minute`, `minutes`, or `hour`. For cron expression, the syntax is `cron(expression)`. For more information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html).
         :param pulumi.Input[_builtins.int] duration_in_seconds: Duration in seconds, for the canary to continue making regular runs according to the schedule in the Expression value.
+        :param pulumi.Input['CanaryScheduleRetryConfigArgs'] retry_config: Configuration block for canary retries. Detailed below.
         """
         pulumi.set(__self__, "expression", expression)
         if duration_in_seconds is not None:
             pulumi.set(__self__, "duration_in_seconds", duration_in_seconds)
+        if retry_config is not None:
+            pulumi.set(__self__, "retry_config", retry_config)
 
     @_builtins.property
     @pulumi.getter
@@ -256,6 +286,49 @@ class CanaryScheduleArgs:
     @duration_in_seconds.setter
     def duration_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "duration_in_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="retryConfig")
+    def retry_config(self) -> Optional[pulumi.Input['CanaryScheduleRetryConfigArgs']]:
+        """
+        Configuration block for canary retries. Detailed below.
+        """
+        return pulumi.get(self, "retry_config")
+
+    @retry_config.setter
+    def retry_config(self, value: Optional[pulumi.Input['CanaryScheduleRetryConfigArgs']]):
+        pulumi.set(self, "retry_config", value)
+
+
+if not MYPY:
+    class CanaryScheduleRetryConfigArgsDict(TypedDict):
+        max_retries: pulumi.Input[_builtins.int]
+        """
+        Maximum number of retries. The value must be less than or equal to `2`. If `max_retries` is `2`, `run_config.timeout_in_seconds` should be less than 600 seconds. Defaults to `0`.
+        """
+elif False:
+    CanaryScheduleRetryConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CanaryScheduleRetryConfigArgs:
+    def __init__(__self__, *,
+                 max_retries: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.int] max_retries: Maximum number of retries. The value must be less than or equal to `2`. If `max_retries` is `2`, `run_config.timeout_in_seconds` should be less than 600 seconds. Defaults to `0`.
+        """
+        pulumi.set(__self__, "max_retries", max_retries)
+
+    @_builtins.property
+    @pulumi.getter(name="maxRetries")
+    def max_retries(self) -> pulumi.Input[_builtins.int]:
+        """
+        Maximum number of retries. The value must be less than or equal to `2`. If `max_retries` is `2`, `run_config.timeout_in_seconds` should be less than 600 seconds. Defaults to `0`.
+        """
+        return pulumi.get(self, "max_retries")
+
+    @max_retries.setter
+    def max_retries(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "max_retries", value)
 
 
 if not MYPY:

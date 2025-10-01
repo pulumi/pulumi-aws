@@ -15,6 +15,8 @@ import (
 //
 // ## Example Usage
 //
+// ### Default
+//
 // ```go
 // package main
 //
@@ -39,6 +41,32 @@ import (
 //
 // ```
 //
+// ### With version
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssm.LookupParameter(ctx, &ssm.LookupParameterArgs{
+//				Name: "foo:3",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
 func LookupParameter(ctx *pulumi.Context, args *LookupParameterArgs, opts ...pulumi.InvokeOption) (*LookupParameterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
@@ -52,7 +80,7 @@ func LookupParameter(ctx *pulumi.Context, args *LookupParameterArgs, opts ...pul
 
 // A collection of arguments for invoking getParameter.
 type LookupParameterArgs struct {
-	// Name of the parameter.
+	// Name of the parameter. To query by parameter version use `name:version` (e.g., `foo:3`).
 	Name string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -91,7 +119,7 @@ func LookupParameterOutput(ctx *pulumi.Context, args LookupParameterOutputArgs, 
 
 // A collection of arguments for invoking getParameter.
 type LookupParameterOutputArgs struct {
-	// Name of the parameter.
+	// Name of the parameter. To query by parameter version use `name:version` (e.g., `foo:3`).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`

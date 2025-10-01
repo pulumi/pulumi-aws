@@ -27,9 +27,9 @@ class ResponseArgs:
                  status_code: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Response resource.
-        :param pulumi.Input[_builtins.str] response_type: Response type of the associated GatewayResponse.
+        :param pulumi.Input[_builtins.str] response_type: Response type of the associated GatewayResponse. See the [AWS Documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html) for supported values.
         :param pulumi.Input[_builtins.str] rest_api_id: String identifier of the associated REST API.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be managed. See the [AWS Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints) for supported values. Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] response_parameters: Map of parameters (paths, query strings and headers) of the Gateway Response.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] response_templates: Map of templates used to transform the response body.
         :param pulumi.Input[_builtins.str] status_code: HTTP status code of the Gateway Response.
@@ -49,7 +49,7 @@ class ResponseArgs:
     @pulumi.getter(name="responseType")
     def response_type(self) -> pulumi.Input[_builtins.str]:
         """
-        Response type of the associated GatewayResponse.
+        Response type of the associated GatewayResponse. See the [AWS Documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html) for supported values.
         """
         return pulumi.get(self, "response_type")
 
@@ -73,7 +73,7 @@ class ResponseArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        Region where this resource will be managed. See the [AWS Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints) for supported values. Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -129,10 +129,10 @@ class _ResponseState:
                  status_code: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Response resources.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be managed. See the [AWS Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints) for supported values. Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] response_parameters: Map of parameters (paths, query strings and headers) of the Gateway Response.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] response_templates: Map of templates used to transform the response body.
-        :param pulumi.Input[_builtins.str] response_type: Response type of the associated GatewayResponse.
+        :param pulumi.Input[_builtins.str] response_type: Response type of the associated GatewayResponse. See the [AWS Documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html) for supported values.
         :param pulumi.Input[_builtins.str] rest_api_id: String identifier of the associated REST API.
         :param pulumi.Input[_builtins.str] status_code: HTTP status code of the Gateway Response.
         """
@@ -153,7 +153,7 @@ class _ResponseState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        Region where this resource will be managed. See the [AWS Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints) for supported values. Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -189,7 +189,7 @@ class _ResponseState:
     @pulumi.getter(name="responseType")
     def response_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Response type of the associated GatewayResponse.
+        Response type of the associated GatewayResponse. See the [AWS Documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html) for supported values.
         """
         return pulumi.get(self, "response_type")
 
@@ -267,10 +267,10 @@ class Response(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be managed. See the [AWS Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints) for supported values. Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] response_parameters: Map of parameters (paths, query strings and headers) of the Gateway Response.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] response_templates: Map of templates used to transform the response body.
-        :param pulumi.Input[_builtins.str] response_type: Response type of the associated GatewayResponse.
+        :param pulumi.Input[_builtins.str] response_type: Response type of the associated GatewayResponse. See the [AWS Documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html) for supported values.
         :param pulumi.Input[_builtins.str] rest_api_id: String identifier of the associated REST API.
         :param pulumi.Input[_builtins.str] status_code: HTTP status code of the Gateway Response.
         """
@@ -373,10 +373,10 @@ class Response(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be managed. See the [AWS Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints) for supported values. Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] response_parameters: Map of parameters (paths, query strings and headers) of the Gateway Response.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] response_templates: Map of templates used to transform the response body.
-        :param pulumi.Input[_builtins.str] response_type: Response type of the associated GatewayResponse.
+        :param pulumi.Input[_builtins.str] response_type: Response type of the associated GatewayResponse. See the [AWS Documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html) for supported values.
         :param pulumi.Input[_builtins.str] rest_api_id: String identifier of the associated REST API.
         :param pulumi.Input[_builtins.str] status_code: HTTP status code of the Gateway Response.
         """
@@ -396,7 +396,7 @@ class Response(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
         """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        Region where this resource will be managed. See the [AWS Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints) for supported values. Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -420,7 +420,7 @@ class Response(pulumi.CustomResource):
     @pulumi.getter(name="responseType")
     def response_type(self) -> pulumi.Output[_builtins.str]:
         """
-        Response type of the associated GatewayResponse.
+        Response type of the associated GatewayResponse. See the [AWS Documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html) for supported values.
         """
         return pulumi.get(self, "response_type")
 

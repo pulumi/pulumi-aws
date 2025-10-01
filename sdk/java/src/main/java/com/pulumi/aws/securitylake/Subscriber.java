@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Basic Usage
+ * 
  * <pre>
  * {@code
  * package generated_program;
@@ -61,6 +63,63 @@ import javax.annotation.Nullable;
  *                     .sourceVersion("1.0")
  *                     .build())
  *                 .build())
+ *             .subscriberIdentity(SubscriberSubscriberIdentityArgs.builder()
+ *                 .externalId("example")
+ *                 .principal("1234567890")
+ *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAwsSecuritylakeDataLake)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Multiple Log Sources
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.securitylake.Subscriber;
+ * import com.pulumi.aws.securitylake.SubscriberArgs;
+ * import com.pulumi.aws.securitylake.inputs.SubscriberSourceArgs;
+ * import com.pulumi.aws.securitylake.inputs.SubscriberSourceAwsLogSourceResourceArgs;
+ * import com.pulumi.aws.securitylake.inputs.SubscriberSubscriberIdentityArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Subscriber("example", SubscriberArgs.builder()
+ *             .subscriberName("example-name")
+ *             .accessType("S3")
+ *             .sources(            
+ *                 SubscriberSourceArgs.builder()
+ *                     .awsLogSourceResource(SubscriberSourceAwsLogSourceResourceArgs.builder()
+ *                         .sourceName("SH_FINDINGS")
+ *                         .sourceVersion("2.0")
+ *                         .build())
+ *                     .build(),
+ *                 SubscriberSourceArgs.builder()
+ *                     .awsLogSourceResource(SubscriberSourceAwsLogSourceResourceArgs.builder()
+ *                         .sourceName("ROUTE53")
+ *                         .sourceVersion("2.0")
+ *                         .build())
+ *                     .build())
  *             .subscriberIdentity(SubscriberSubscriberIdentityArgs.builder()
  *                 .externalId("example")
  *                 .principal("1234567890")

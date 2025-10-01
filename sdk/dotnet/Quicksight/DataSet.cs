@@ -354,6 +354,9 @@ namespace Pulumi.Aws.Quicksight
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set.  See `output_columns` Block below.
+        /// </summary>
         [Output("outputColumns")]
         public Output<ImmutableArray<Outputs.DataSetOutputColumn>> OutputColumns { get; private set; } = null!;
 
@@ -681,6 +684,10 @@ namespace Pulumi.Aws.Quicksight
 
         [Input("outputColumns")]
         private InputList<Inputs.DataSetOutputColumnGetArgs>? _outputColumns;
+
+        /// <summary>
+        /// The final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set.  See `output_columns` Block below.
+        /// </summary>
         public InputList<Inputs.DataSetOutputColumnGetArgs> OutputColumns
         {
             get => _outputColumns ?? (_outputColumns = new InputList<Inputs.DataSetOutputColumnGetArgs>());

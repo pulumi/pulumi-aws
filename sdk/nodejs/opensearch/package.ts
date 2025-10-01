@@ -79,6 +79,10 @@ export class Package extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly availablePackageVersion: pulumi.Output<string>;
     /**
+     * Engine version that the package is compatible with. This argument is required and only valid when `packageType` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
+     */
+    declare public readonly engineVersion: pulumi.Output<string | undefined>;
+    /**
      * Description of the package.
      */
     declare public readonly packageDescription: pulumi.Output<string | undefined>;
@@ -92,7 +96,7 @@ export class Package extends pulumi.CustomResource {
      */
     declare public readonly packageSource: pulumi.Output<outputs.opensearch.PackagePackageSource>;
     /**
-     * The type of package.
+     * The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
      */
     declare public readonly packageType: pulumi.Output<string>;
     /**
@@ -114,6 +118,7 @@ export class Package extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as PackageState | undefined;
             resourceInputs["availablePackageVersion"] = state?.availablePackageVersion;
+            resourceInputs["engineVersion"] = state?.engineVersion;
             resourceInputs["packageDescription"] = state?.packageDescription;
             resourceInputs["packageId"] = state?.packageId;
             resourceInputs["packageName"] = state?.packageName;
@@ -131,6 +136,7 @@ export class Package extends pulumi.CustomResource {
             if (args?.packageType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'packageType'");
             }
+            resourceInputs["engineVersion"] = args?.engineVersion;
             resourceInputs["packageDescription"] = args?.packageDescription;
             resourceInputs["packageName"] = args?.packageName;
             resourceInputs["packageSource"] = args?.packageSource;
@@ -153,6 +159,10 @@ export interface PackageState {
      */
     availablePackageVersion?: pulumi.Input<string>;
     /**
+     * Engine version that the package is compatible with. This argument is required and only valid when `packageType` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
+     */
+    engineVersion?: pulumi.Input<string>;
+    /**
      * Description of the package.
      */
     packageDescription?: pulumi.Input<string>;
@@ -166,7 +176,7 @@ export interface PackageState {
      */
     packageSource?: pulumi.Input<inputs.opensearch.PackagePackageSource>;
     /**
-     * The type of package.
+     * The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
      */
     packageType?: pulumi.Input<string>;
     /**
@@ -180,6 +190,10 @@ export interface PackageState {
  */
 export interface PackageArgs {
     /**
+     * Engine version that the package is compatible with. This argument is required and only valid when `packageType` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
+     */
+    engineVersion?: pulumi.Input<string>;
+    /**
      * Description of the package.
      */
     packageDescription?: pulumi.Input<string>;
@@ -192,7 +206,7 @@ export interface PackageArgs {
      */
     packageSource: pulumi.Input<inputs.opensearch.PackagePackageSource>;
     /**
-     * The type of package.
+     * The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
      */
     packageType: pulumi.Input<string>;
     /**

@@ -315,6 +315,7 @@ class _DataSetState:
         :param pulumi.Input[_builtins.str] name: Display name for the dataset.
                
                The following arguments are optional:
+        :param pulumi.Input[Sequence[pulumi.Input['DataSetOutputColumnArgs']]] output_columns: The final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set.  See `output_columns` Block below.
         :param pulumi.Input[Sequence[pulumi.Input['DataSetPermissionArgs']]] permissions: A set of resource permissions on the data source. Maximum of 64 items. See permissions.
         :param pulumi.Input[Sequence[pulumi.Input['DataSetPhysicalTableMapArgs']]] physical_table_maps: Declares the physical tables that are available in the underlying data sources. See physical_table_map.
         :param pulumi.Input['DataSetRefreshPropertiesArgs'] refresh_properties: The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
@@ -485,6 +486,9 @@ class _DataSetState:
     @_builtins.property
     @pulumi.getter(name="outputColumns")
     def output_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSetOutputColumnArgs']]]]:
+        """
+        The final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set.  See `output_columns` Block below.
+        """
         return pulumi.get(self, "output_columns")
 
     @output_columns.setter
@@ -1079,6 +1083,7 @@ class DataSet(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Display name for the dataset.
                
                The following arguments are optional:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetOutputColumnArgs', 'DataSetOutputColumnArgsDict']]]] output_columns: The final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set.  See `output_columns` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetPermissionArgs', 'DataSetPermissionArgsDict']]]] permissions: A set of resource permissions on the data source. Maximum of 64 items. See permissions.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetPhysicalTableMapArgs', 'DataSetPhysicalTableMapArgsDict']]]] physical_table_maps: Declares the physical tables that are available in the underlying data sources. See physical_table_map.
         :param pulumi.Input[Union['DataSetRefreshPropertiesArgs', 'DataSetRefreshPropertiesArgsDict']] refresh_properties: The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
@@ -1195,6 +1200,9 @@ class DataSet(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="outputColumns")
     def output_columns(self) -> pulumi.Output[Sequence['outputs.DataSetOutputColumn']]:
+        """
+        The final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set.  See `output_columns` Block below.
+        """
         return pulumi.get(self, "output_columns")
 
     @_builtins.property

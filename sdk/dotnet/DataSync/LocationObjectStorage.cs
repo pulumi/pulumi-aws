@@ -39,11 +39,17 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// - `arn` (String) Amazon Resource Name (ARN) of the DataSync object storage location.
+    /// 
     /// Using `pulumi import`, import `aws_datasync_location_object_storage` using the Amazon Resource Name (ARN). For example:
     /// 
-    /// ```sh
-    /// $ pulumi import aws:datasync/locationObjectStorage:LocationObjectStorage example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-    /// ```
+    /// console
+    /// 
+    /// % pulumi import aws_datasync_location_object_storage.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
     /// </summary>
     [AwsResourceType("aws:datasync/locationObjectStorage:LocationObjectStorage")]
     public partial class LocationObjectStorage : global::Pulumi.CustomResource
@@ -55,7 +61,7 @@ namespace Pulumi.Aws.DataSync
         public Output<string?> AccessKey { get; private set; } = null!;
 
         /// <summary>
-        /// A list of DataSync Agent ARNs with which this location will be associated.
+        /// A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
         /// </summary>
         [Output("agentArns")]
         public Output<ImmutableArray<string>> AgentArns { get; private set; } = null!;
@@ -192,7 +198,7 @@ namespace Pulumi.Aws.DataSync
         private InputList<string>? _agentArns;
 
         /// <summary>
-        /// A list of DataSync Agent ARNs with which this location will be associated.
+        /// A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
         /// </summary>
         public InputList<string> AgentArns
         {
@@ -288,7 +294,7 @@ namespace Pulumi.Aws.DataSync
         private InputList<string>? _agentArns;
 
         /// <summary>
-        /// A list of DataSync Agent ARNs with which this location will be associated.
+        /// A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
         /// </summary>
         public InputList<string> AgentArns
         {

@@ -149,12 +149,16 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
     /**
      * Global cluster identifier.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="globalClusterIdentifier")
     private @Nullable Output<String> globalClusterIdentifier;
 
     /**
      * @return Global cluster identifier.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> globalClusterIdentifier() {
@@ -239,12 +243,16 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
     /**
      * A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
+     * &gt; When both `source_db_cluster_identifier` and `engine`/`engine_version` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engine_version` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
      * @return A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * &gt; When both `source_db_cluster_identifier` and `engine`/`engine_version` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engine_version` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -486,6 +494,8 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param globalClusterIdentifier Global cluster identifier.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -496,6 +506,8 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param globalClusterIdentifier Global cluster identifier.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -622,6 +634,8 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param tags A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
+         * &gt; When both `source_db_cluster_identifier` and `engine`/`engine_version` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engine_version` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
+         * 
          * @return builder
          * 
          */
@@ -632,6 +646,8 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param tags A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * &gt; When both `source_db_cluster_identifier` and `engine`/`engine_version` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engine_version` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
          * 
          * @return builder
          * 

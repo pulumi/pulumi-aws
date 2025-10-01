@@ -15,7 +15,11 @@ public final class BucketAclV2AccessControlPolicyGrantGrantee {
     /**
      * @return Display name of the owner.
      * 
+     * @deprecated
+     * display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
+     * 
      */
+    @Deprecated /* display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version. */
     private @Nullable String displayName;
     /**
      * @return Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
@@ -42,7 +46,11 @@ public final class BucketAclV2AccessControlPolicyGrantGrantee {
     /**
      * @return Display name of the owner.
      * 
+     * @deprecated
+     * display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
+     * 
      */
+    @Deprecated /* display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version. */
     public Optional<String> displayName() {
         return Optional.ofNullable(this.displayName);
     }

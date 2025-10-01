@@ -203,11 +203,17 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * - `arn` (String) Amazon Resource Name (ARN) of the SSM Contacts rotation.
+ * 
  * Using `pulumi import`, import CodeGuru Profiler Profiling Group using the `arn`. For example:
  * 
- * ```sh
- * $ pulumi import aws:ssm/contactsRotation:ContactsRotation example arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example
- * ```
+ * console
+ * 
+ * % pulumi import aws_ssmcontacts_rotation.example arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example
  * 
  */
 @ResourceType(type="aws:ssm/contactsRotation:ContactsRotation")

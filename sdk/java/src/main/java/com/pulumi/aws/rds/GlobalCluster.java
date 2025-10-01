@@ -422,12 +422,16 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
     /**
      * Global cluster identifier.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="globalClusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> globalClusterIdentifier;
 
     /**
      * @return Global cluster identifier.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> globalClusterIdentifier() {
@@ -506,12 +510,16 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
+     * &gt; When both `source_db_cluster_identifier` and `engine`/`engine_version` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engine_version` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
+     * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
      * @return A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * &gt; When both `source_db_cluster_identifier` and `engine`/`engine_version` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engine_version` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

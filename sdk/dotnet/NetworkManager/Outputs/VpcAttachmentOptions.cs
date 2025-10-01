@@ -18,18 +18,32 @@ namespace Pulumi.Aws.NetworkManager.Outputs
         /// </summary>
         public readonly bool? ApplianceModeSupport;
         /// <summary>
+        /// Whether to enable DNS support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+        /// </summary>
+        public readonly bool? DnsSupport;
+        /// <summary>
         /// Whether to enable IPv6 support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
         /// </summary>
         public readonly bool? Ipv6Support;
+        /// <summary>
+        /// Whether to enable security group referencing support for this VPC attachment. The default is `true`. However, at the core network policy-level the default is set to `false`. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+        /// </summary>
+        public readonly bool? SecurityGroupReferencingSupport;
 
         [OutputConstructor]
         private VpcAttachmentOptions(
             bool? applianceModeSupport,
 
-            bool? ipv6Support)
+            bool? dnsSupport,
+
+            bool? ipv6Support,
+
+            bool? securityGroupReferencingSupport)
         {
             ApplianceModeSupport = applianceModeSupport;
+            DnsSupport = dnsSupport;
             Ipv6Support = ipv6Support;
+            SecurityGroupReferencingSupport = securityGroupReferencingSupport;
         }
     }
 }

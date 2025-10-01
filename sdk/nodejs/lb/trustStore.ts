@@ -35,11 +35,17 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * - `arn` (String) Amazon Resource Name (ARN) of the trust store.
+ *
  * Using `pulumi import`, import Target Groups using their ARN. For example:
  *
- * ```sh
- * $ pulumi import aws:lb/trustStore:TrustStore example arn:aws:elasticloadbalancing:us-west-2:187416307283:truststore/my-trust-store/20cfe21448b66314
- * ```
+ * console
+ *
+ * % pulumi import aws_lb_trust_store.example arn:aws:elasticloadbalancing:us-west-2:187416307283:truststore/my-trust-store/20cfe21448b66314
  */
 export class TrustStore extends pulumi.CustomResource {
     /**

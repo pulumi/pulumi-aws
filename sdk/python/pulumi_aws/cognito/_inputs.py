@@ -29,6 +29,8 @@ __all__ = [
     'LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgsDict',
     'LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs',
     'LogDeliveryConfigurationLogConfigurationS3ConfigurationArgsDict',
+    'ManagedLoginBrandingAssetArgs',
+    'ManagedLoginBrandingAssetArgsDict',
     'ManagedUserPoolClientAnalyticsConfigurationArgs',
     'ManagedUserPoolClientAnalyticsConfigurationArgsDict',
     'ManagedUserPoolClientRefreshTokenRotationArgs',
@@ -579,6 +581,108 @@ class LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs:
     @bucket_arn.setter
     def bucket_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "bucket_arn", value)
+
+
+if not MYPY:
+    class ManagedLoginBrandingAssetArgsDict(TypedDict):
+        category: pulumi.Input[_builtins.str]
+        """
+        Category that the image corresponds to. See [AWS documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssetType.html#CognitoUserPools-Type-AssetType-Category) for valid values.
+        """
+        color_mode: pulumi.Input[_builtins.str]
+        """
+        Display-mode target of the asset. Valid values: `LIGHT`, `DARK`, `DYNAMIC`.
+        """
+        extension: pulumi.Input[_builtins.str]
+        bytes: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Image file, in Base64-encoded binary.
+        """
+        resource_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Asset ID.
+        """
+elif False:
+    ManagedLoginBrandingAssetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ManagedLoginBrandingAssetArgs:
+    def __init__(__self__, *,
+                 category: pulumi.Input[_builtins.str],
+                 color_mode: pulumi.Input[_builtins.str],
+                 extension: pulumi.Input[_builtins.str],
+                 bytes: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] category: Category that the image corresponds to. See [AWS documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssetType.html#CognitoUserPools-Type-AssetType-Category) for valid values.
+        :param pulumi.Input[_builtins.str] color_mode: Display-mode target of the asset. Valid values: `LIGHT`, `DARK`, `DYNAMIC`.
+        :param pulumi.Input[_builtins.str] bytes: Image file, in Base64-encoded binary.
+        :param pulumi.Input[_builtins.str] resource_id: Asset ID.
+        """
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "color_mode", color_mode)
+        pulumi.set(__self__, "extension", extension)
+        if bytes is not None:
+            pulumi.set(__self__, "bytes", bytes)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> pulumi.Input[_builtins.str]:
+        """
+        Category that the image corresponds to. See [AWS documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssetType.html#CognitoUserPools-Type-AssetType-Category) for valid values.
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "category", value)
+
+    @_builtins.property
+    @pulumi.getter(name="colorMode")
+    def color_mode(self) -> pulumi.Input[_builtins.str]:
+        """
+        Display-mode target of the asset. Valid values: `LIGHT`, `DARK`, `DYNAMIC`.
+        """
+        return pulumi.get(self, "color_mode")
+
+    @color_mode.setter
+    def color_mode(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "color_mode", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def extension(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "extension")
+
+    @extension.setter
+    def extension(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "extension", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def bytes(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Image file, in Base64-encoded binary.
+        """
+        return pulumi.get(self, "bytes")
+
+    @bytes.setter
+    def bytes(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "bytes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Asset ID.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "resource_id", value)
 
 
 if not MYPY:

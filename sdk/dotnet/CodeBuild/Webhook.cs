@@ -118,7 +118,7 @@ namespace Pulumi.Aws.CodeBuild
         public Output<string?> BuildType { get; private set; } = null!;
 
         /// <summary>
-        /// Information about the webhook's trigger. Filter group blocks are documented below.
+        /// Information about the webhook's trigger. See filter_group for details.
         /// </summary>
         [Output("filterGroups")]
         public Output<ImmutableArray<Outputs.WebhookFilterGroup>> FilterGroups { get; private set; } = null!;
@@ -142,13 +142,19 @@ namespace Pulumi.Aws.CodeBuild
         public Output<string> ProjectName { get; private set; } = null!;
 
         /// <summary>
+        /// Defines comment-based approval requirements for triggering builds on pull requests. See pull_request_build_policy for details.
+        /// </summary>
+        [Output("pullRequestBuildPolicy")]
+        public Output<Outputs.WebhookPullRequestBuildPolicy> PullRequestBuildPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+        /// Scope configuration for global or organization webhooks. See scope_configuration for details.
         /// </summary>
         [Output("scopeConfiguration")]
         public Output<Outputs.WebhookScopeConfiguration?> ScopeConfiguration { get; private set; } = null!;
@@ -231,7 +237,7 @@ namespace Pulumi.Aws.CodeBuild
         private InputList<Inputs.WebhookFilterGroupArgs>? _filterGroups;
 
         /// <summary>
-        /// Information about the webhook's trigger. Filter group blocks are documented below.
+        /// Information about the webhook's trigger. See filter_group for details.
         /// </summary>
         public InputList<Inputs.WebhookFilterGroupArgs> FilterGroups
         {
@@ -252,13 +258,19 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string> ProjectName { get; set; } = null!;
 
         /// <summary>
+        /// Defines comment-based approval requirements for triggering builds on pull requests. See pull_request_build_policy for details.
+        /// </summary>
+        [Input("pullRequestBuildPolicy")]
+        public Input<Inputs.WebhookPullRequestBuildPolicyArgs>? PullRequestBuildPolicy { get; set; }
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+        /// Scope configuration for global or organization webhooks. See scope_configuration for details.
         /// </summary>
         [Input("scopeConfiguration")]
         public Input<Inputs.WebhookScopeConfigurationArgs>? ScopeConfiguration { get; set; }
@@ -287,7 +299,7 @@ namespace Pulumi.Aws.CodeBuild
         private InputList<Inputs.WebhookFilterGroupGetArgs>? _filterGroups;
 
         /// <summary>
-        /// Information about the webhook's trigger. Filter group blocks are documented below.
+        /// Information about the webhook's trigger. See filter_group for details.
         /// </summary>
         public InputList<Inputs.WebhookFilterGroupGetArgs> FilterGroups
         {
@@ -314,13 +326,19 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? ProjectName { get; set; }
 
         /// <summary>
+        /// Defines comment-based approval requirements for triggering builds on pull requests. See pull_request_build_policy for details.
+        /// </summary>
+        [Input("pullRequestBuildPolicy")]
+        public Input<Inputs.WebhookPullRequestBuildPolicyGetArgs>? PullRequestBuildPolicy { get; set; }
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+        /// Scope configuration for global or organization webhooks. See scope_configuration for details.
         /// </summary>
         [Input("scopeConfiguration")]
         public Input<Inputs.WebhookScopeConfigurationGetArgs>? ScopeConfiguration { get; set; }

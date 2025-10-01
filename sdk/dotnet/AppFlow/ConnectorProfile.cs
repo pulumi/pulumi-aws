@@ -110,11 +110,27 @@ namespace Pulumi.Aws.AppFlow
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `name` (String) Name of the Appflow connector profile.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// 
+    /// * `region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import AppFlow Connector Profile using the connector profile `name`. For example:
     /// 
-    /// ```sh
-    /// $ pulumi import aws:appflow/connectorProfile:ConnectorProfile example example-profile
-    /// ```
+    /// console
+    /// 
+    /// % pulumi import aws_appflow_connector_profile.example example-profile
+    /// 
+    /// [1]: https://docs.aws.amazon.com/appflow/1.0/APIReference/Welcome.html
+    /// 
+    /// [2]: https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateConnectorProfile.html
     /// </summary>
     [AwsResourceType("aws:appflow/connectorProfile:ConnectorProfile")]
     public partial class ConnectorProfile : global::Pulumi.CustomResource

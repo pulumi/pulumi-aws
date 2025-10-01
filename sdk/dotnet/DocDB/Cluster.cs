@@ -77,8 +77,9 @@ namespace Pulumi.Aws.DocDB
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A list of EC2 Availability Zones that
-        /// instances in the DB cluster can be created in.
+        /// A list of EC2 Availability Zones that instances in the DB cluster can be created in.
+        /// DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
+        /// We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
         /// </summary>
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
@@ -361,8 +362,9 @@ namespace Pulumi.Aws.DocDB
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// A list of EC2 Availability Zones that
-        /// instances in the DB cluster can be created in.
+        /// A list of EC2 Availability Zones that instances in the DB cluster can be created in.
+        /// DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
+        /// We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -613,8 +615,9 @@ namespace Pulumi.Aws.DocDB
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// A list of EC2 Availability Zones that
-        /// instances in the DB cluster can be created in.
+        /// A list of EC2 Availability Zones that instances in the DB cluster can be created in.
+        /// DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
+        /// We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
         /// </summary>
         public InputList<string> AvailabilityZones
         {

@@ -64,9 +64,10 @@ func LookupInstance(ctx *pulumi.Context, args *LookupInstanceArgs, opts ...pulum
 
 // A collection of arguments for invoking getInstance.
 type LookupInstanceArgs struct {
-	// One or more name/value pairs to use as filters. There are
-	// several valid keys, for a full reference, check out
-	// [describe-instances in the AWS CLI reference][1].
+	// One or more filters to apply to the search.
+	// If multiple `filter` blocks are provided, they all must be true.
+	// For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+	// See `filter` Block below.
 	Filters []GetInstanceFilter `pulumi:"filters"`
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData *bool `pulumi:"getPasswordData"`
@@ -150,6 +151,8 @@ type LookupInstanceResult struct {
 	PasswordData string `pulumi:"passwordData"`
 	// Placement group of the Instance.
 	PlacementGroup string `pulumi:"placementGroup"`
+	// Placement group ID of the Instance.
+	PlacementGroupId string `pulumi:"placementGroupId"`
 	// Number of the partition the instance is in.
 	PlacementPartitionNumber int `pulumi:"placementPartitionNumber"`
 	// Private DNS name assigned to the Instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
@@ -196,9 +199,10 @@ func LookupInstanceOutput(ctx *pulumi.Context, args LookupInstanceOutputArgs, op
 
 // A collection of arguments for invoking getInstance.
 type LookupInstanceOutputArgs struct {
-	// One or more name/value pairs to use as filters. There are
-	// several valid keys, for a full reference, check out
-	// [describe-instances in the AWS CLI reference][1].
+	// One or more filters to apply to the search.
+	// If multiple `filter` blocks are provided, they all must be true.
+	// For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+	// See `filter` Block below.
 	Filters GetInstanceFilterArrayInput `pulumi:"filters"`
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData pulumi.BoolPtrInput `pulumi:"getPasswordData"`
@@ -393,6 +397,11 @@ func (o LookupInstanceResultOutput) PasswordData() pulumi.StringOutput {
 // Placement group of the Instance.
 func (o LookupInstanceResultOutput) PlacementGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceResult) string { return v.PlacementGroup }).(pulumi.StringOutput)
+}
+
+// Placement group ID of the Instance.
+func (o LookupInstanceResultOutput) PlacementGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.PlacementGroupId }).(pulumi.StringOutput)
 }
 
 // Number of the partition the instance is in.

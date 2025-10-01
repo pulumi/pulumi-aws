@@ -213,14 +213,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import VPC Endpoints using the VPC endpoint `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2/vpcEndpoint:VpcEndpoint endpoint1 vpce-3ecf2a57
-    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcEndpoint:VpcEndpoint")]
     public partial class VpcEndpoint : global::Pulumi.CustomResource

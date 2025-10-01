@@ -50,6 +50,49 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Using rulesJson
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.wafv2.RuleGroup("example", {
+ *     name: "example-rule-group",
+ *     scope: "REGIONAL",
+ *     capacity: 100,
+ *     rulesJson: JSON.stringify([{
+ *         Name: "rule-1",
+ *         Priority: 1,
+ *         Action: {
+ *             Count: {},
+ *         },
+ *         Statement: {
+ *             ByteMatchStatement: {
+ *                 SearchString: "badbot",
+ *                 FieldToMatch: {
+ *                     UriPath: {},
+ *                 },
+ *                 TextTransformations: [{
+ *                     Priority: 1,
+ *                     Type: "NONE",
+ *                 }],
+ *                 PositionalConstraint: "CONTAINS",
+ *             },
+ *         },
+ *         VisibilityConfig: {
+ *             CloudwatchMetricsEnabled: false,
+ *             MetricName: "friendly-rule-metric-name",
+ *             SampledRequestsEnabled: false,
+ *         },
+ *     }]),
+ *     visibilityConfig: {
+ *         cloudwatchMetricsEnabled: false,
+ *         metricName: "friendly-metric-name",
+ *         sampledRequestsEnabled: false,
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import WAFv2 Rule Group using `ID/name/scope`. For example:
@@ -119,6 +162,9 @@ export class RuleGroup extends pulumi.CustomResource {
      * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
      */
     declare public readonly rules: pulumi.Output<outputs.wafv2.RuleGroupRule[] | undefined>;
+    /**
+     * Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rulesJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
+     */
     declare public readonly rulesJson: pulumi.Output<string | undefined>;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
@@ -232,6 +278,9 @@ export interface RuleGroupState {
      * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRule>[]>;
+    /**
+     * Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rulesJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
+     */
     rulesJson?: pulumi.Input<string>;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
@@ -283,6 +332,9 @@ export interface RuleGroupArgs {
      * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRule>[]>;
+    /**
+     * Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rulesJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
+     */
     rulesJson?: pulumi.Input<string>;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.

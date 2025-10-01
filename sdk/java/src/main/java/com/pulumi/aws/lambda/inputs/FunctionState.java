@@ -621,6 +621,21 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * ARN of the AWS Key Management Service key used to encrypt the function&#39;s `.zip` deployment package. Conflicts with `image_uri`.
+     * 
+     */
+    @Import(name="sourceKmsKeyArn")
+    private @Nullable Output<String> sourceKmsKeyArn;
+
+    /**
+     * @return ARN of the AWS Key Management Service key used to encrypt the function&#39;s `.zip` deployment package. Conflicts with `image_uri`.
+     * 
+     */
+    public Optional<Output<String>> sourceKmsKeyArn() {
+        return Optional.ofNullable(this.sourceKmsKeyArn);
+    }
+
+    /**
      * Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -752,6 +767,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         this.snapStart = $.snapStart;
         this.sourceCodeHash = $.sourceCodeHash;
         this.sourceCodeSize = $.sourceCodeSize;
+        this.sourceKmsKeyArn = $.sourceKmsKeyArn;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.timeout = $.timeout;
@@ -1649,6 +1665,27 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder sourceCodeSize(Integer sourceCodeSize) {
             return sourceCodeSize(Output.of(sourceCodeSize));
+        }
+
+        /**
+         * @param sourceKmsKeyArn ARN of the AWS Key Management Service key used to encrypt the function&#39;s `.zip` deployment package. Conflicts with `image_uri`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sourceKmsKeyArn(@Nullable Output<String> sourceKmsKeyArn) {
+            $.sourceKmsKeyArn = sourceKmsKeyArn;
+            return this;
+        }
+
+        /**
+         * @param sourceKmsKeyArn ARN of the AWS Key Management Service key used to encrypt the function&#39;s `.zip` deployment package. Conflicts with `image_uri`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sourceKmsKeyArn(String sourceKmsKeyArn) {
+            return sourceKmsKeyArn(Output.of(sourceKmsKeyArn));
         }
 
         /**

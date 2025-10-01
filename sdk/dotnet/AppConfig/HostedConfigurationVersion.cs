@@ -120,6 +120,69 @@ namespace Pulumi.Aws.AppConfig
     /// });
     /// ```
     /// 
+    /// ### Multi-variant Feature Flags
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.AppConfig.HostedConfigurationVersion("example", new()
+    ///     {
+    ///         ApplicationId = exampleAwsAppconfigApplication.Id,
+    ///         ConfigurationProfileId = exampleAwsAppconfigConfigurationProfile.ConfigurationProfileId,
+    ///         Description = "Example Multi-variant Feature Flag Configuration Version",
+    ///         ContentType = "application/json",
+    ///         Content = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["flags"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["loggingenabled"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["name"] = "loggingEnabled",
+    ///                 },
+    ///             },
+    ///             ["values"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["loggingenabled"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["_variants"] = Std.Concat.Invoke(new()
+    ///                     {
+    ///                         Input = new[]
+    ///                         {
+    ///                             .Select(userId =&gt; 
+    ///                             {
+    ///                                 return 
+    ///                                 {
+    ///                                     { "enabled", true },
+    ///                                     { "name", $"usersWithLoggingEnabled_{userId}" },
+    ///                                     { "rule", $"(or (eq $userId \"{userId}\"))" },
+    ///                                 };
+    ///                             }).ToList(),
+    ///                             new[]
+    ///                             {
+    ///                                 
+    ///                                 {
+    ///                                     { "enabled", false },
+    ///                                     { "name", "Default" },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     }).Apply(invoke =&gt; invoke.Result),
+    ///                 },
+    ///             },
+    ///             ["version"] = "1",
+    ///         }),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AppConfig Hosted Configuration Versions using the application ID, configuration profile ID, and version number separated by a slash (`/`). For example:

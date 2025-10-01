@@ -243,11 +243,17 @@ class PlaybackKeyPair(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the IVS playback key pair.
+
         Using `pulumi import`, import IVS (Interactive Video) Playback Key Pair using the ARN. For example:
 
-        ```sh
-        $ pulumi import aws:ivs/playbackKeyPair:PlaybackKeyPair example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
-        ```
+        console
+
+        % pulumi import aws_ivs_playback_key_pair.example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -281,11 +287,17 @@ class PlaybackKeyPair(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the IVS playback key pair.
+
         Using `pulumi import`, import IVS (Interactive Video) Playback Key Pair using the ARN. For example:
 
-        ```sh
-        $ pulumi import aws:ivs/playbackKeyPair:PlaybackKeyPair example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
-        ```
+        console
+
+        % pulumi import aws_ivs_playback_key_pair.example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
 
         :param str resource_name: The name of the resource.
         :param PlaybackKeyPairArgs args: The arguments to use to populate this resource's properties.

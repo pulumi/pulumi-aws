@@ -53,11 +53,17 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild report group.
+ *
  * Using `pulumi import`, import CodeBuild Report Group using the CodeBuild Report Group arn. For example:
  *
- * ```sh
- * $ pulumi import aws:codebuild/reportGroup:ReportGroup example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
- * ```
+ * console
+ *
+ * % pulumi import aws_codebuild_report_group.example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
  */
 export class ReportGroup extends pulumi.CustomResource {
     /**

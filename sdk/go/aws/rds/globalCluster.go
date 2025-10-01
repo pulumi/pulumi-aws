@@ -290,6 +290,8 @@ type GlobalCluster struct {
 	// Enable to remove DB Cluster members from Global Cluster on destroy. Required with `sourceDbClusterIdentifier`.
 	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
 	// Global cluster identifier.
+	//
+	// The following arguments are optional:
 	GlobalClusterIdentifier pulumi.StringOutput `pulumi:"globalClusterIdentifier"`
 	// Set of objects containing Global Cluster members.
 	GlobalClusterMembers GlobalClusterGlobalClusterMemberArrayOutput `pulumi:"globalClusterMembers"`
@@ -302,6 +304,8 @@ type GlobalCluster struct {
 	// Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
 	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
 	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > When both `sourceDbClusterIdentifier` and `engine`/`engineVersion` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engineVersion` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -358,6 +362,8 @@ type globalClusterState struct {
 	// Enable to remove DB Cluster members from Global Cluster on destroy. Required with `sourceDbClusterIdentifier`.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// Global cluster identifier.
+	//
+	// The following arguments are optional:
 	GlobalClusterIdentifier *string `pulumi:"globalClusterIdentifier"`
 	// Set of objects containing Global Cluster members.
 	GlobalClusterMembers []GlobalClusterGlobalClusterMember `pulumi:"globalClusterMembers"`
@@ -370,6 +376,8 @@ type globalClusterState struct {
 	// Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
 	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > When both `sourceDbClusterIdentifier` and `engine`/`engineVersion` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engineVersion` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -394,6 +402,8 @@ type GlobalClusterState struct {
 	// Enable to remove DB Cluster members from Global Cluster on destroy. Required with `sourceDbClusterIdentifier`.
 	ForceDestroy pulumi.BoolPtrInput
 	// Global cluster identifier.
+	//
+	// The following arguments are optional:
 	GlobalClusterIdentifier pulumi.StringPtrInput
 	// Set of objects containing Global Cluster members.
 	GlobalClusterMembers GlobalClusterGlobalClusterMemberArrayInput
@@ -406,6 +416,8 @@ type GlobalClusterState struct {
 	// Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
 	StorageEncrypted pulumi.BoolPtrInput
 	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > When both `sourceDbClusterIdentifier` and `engine`/`engineVersion` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engineVersion` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -429,6 +441,8 @@ type globalClusterArgs struct {
 	// Enable to remove DB Cluster members from Global Cluster on destroy. Required with `sourceDbClusterIdentifier`.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// Global cluster identifier.
+	//
+	// The following arguments are optional:
 	GlobalClusterIdentifier string `pulumi:"globalClusterIdentifier"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -437,6 +451,8 @@ type globalClusterArgs struct {
 	// Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
 	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > When both `sourceDbClusterIdentifier` and `engine`/`engineVersion` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engineVersion` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -455,6 +471,8 @@ type GlobalClusterArgs struct {
 	// Enable to remove DB Cluster members from Global Cluster on destroy. Required with `sourceDbClusterIdentifier`.
 	ForceDestroy pulumi.BoolPtrInput
 	// Global cluster identifier.
+	//
+	// The following arguments are optional:
 	GlobalClusterIdentifier pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -463,6 +481,8 @@ type GlobalClusterArgs struct {
 	// Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
 	StorageEncrypted pulumi.BoolPtrInput
 	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > When both `sourceDbClusterIdentifier` and `engine`/`engineVersion` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engineVersion` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
 	Tags pulumi.StringMapInput
 }
 
@@ -598,6 +618,8 @@ func (o GlobalClusterOutput) ForceDestroy() pulumi.BoolPtrOutput {
 }
 
 // Global cluster identifier.
+//
+// The following arguments are optional:
 func (o GlobalClusterOutput) GlobalClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalCluster) pulumi.StringOutput { return v.GlobalClusterIdentifier }).(pulumi.StringOutput)
 }
@@ -628,6 +650,8 @@ func (o GlobalClusterOutput) StorageEncrypted() pulumi.BoolOutput {
 }
 
 // A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// > When both `sourceDbClusterIdentifier` and `engine`/`engineVersion` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engineVersion` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
 func (o GlobalClusterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *GlobalCluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

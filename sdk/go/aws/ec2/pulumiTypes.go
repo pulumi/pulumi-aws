@@ -14974,7 +14974,9 @@ type LaunchTemplatePlacement struct {
 	Affinity *string `pulumi:"affinity"`
 	// The Availability Zone for the instance.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// The name of the placement group for the instance.
+	// The ID of the placement group for the instance. Conflicts with `groupName`.
+	GroupId *string `pulumi:"groupId"`
+	// The name of the placement group for the instance. Conflicts with `groupId`.
 	GroupName *string `pulumi:"groupName"`
 	// The ID of the Dedicated Host for the instance.
 	HostId *string `pulumi:"hostId"`
@@ -15004,7 +15006,9 @@ type LaunchTemplatePlacementArgs struct {
 	Affinity pulumi.StringPtrInput `pulumi:"affinity"`
 	// The Availability Zone for the instance.
 	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
-	// The name of the placement group for the instance.
+	// The ID of the placement group for the instance. Conflicts with `groupName`.
+	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
+	// The name of the placement group for the instance. Conflicts with `groupId`.
 	GroupName pulumi.StringPtrInput `pulumi:"groupName"`
 	// The ID of the Dedicated Host for the instance.
 	HostId pulumi.StringPtrInput `pulumi:"hostId"`
@@ -15105,7 +15109,12 @@ func (o LaunchTemplatePlacementOutput) AvailabilityZone() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
-// The name of the placement group for the instance.
+// The ID of the placement group for the instance. Conflicts with `groupName`.
+func (o LaunchTemplatePlacementOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.GroupId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the placement group for the instance. Conflicts with `groupId`.
 func (o LaunchTemplatePlacementOutput) GroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.GroupName }).(pulumi.StringPtrOutput)
 }
@@ -15179,7 +15188,17 @@ func (o LaunchTemplatePlacementPtrOutput) AvailabilityZone() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the placement group for the instance.
+// The ID of the placement group for the instance. Conflicts with `groupName`.
+func (o LaunchTemplatePlacementPtrOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the placement group for the instance. Conflicts with `groupId`.
 func (o LaunchTemplatePlacementPtrOutput) GroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
 		if v == nil {
@@ -38098,7 +38117,10 @@ func (o GetInstanceEphemeralBlockDeviceArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetInstanceFilter struct {
-	Name   string   `pulumi:"name"`
+	// Name of the filter.
+	// For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+	Name string `pulumi:"name"`
+	// One or more values to match.
 	Values []string `pulumi:"values"`
 }
 
@@ -38114,7 +38136,10 @@ type GetInstanceFilterInput interface {
 }
 
 type GetInstanceFilterArgs struct {
-	Name   pulumi.StringInput      `pulumi:"name"`
+	// Name of the filter.
+	// For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+	Name pulumi.StringInput `pulumi:"name"`
+	// One or more values to match.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -38169,10 +38194,13 @@ func (o GetInstanceFilterOutput) ToGetInstanceFilterOutputWithContext(ctx contex
 	return o
 }
 
+// Name of the filter.
+// For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
 func (o GetInstanceFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// One or more values to match.
 func (o GetInstanceFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetInstanceFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -39838,7 +39866,10 @@ func (o GetInstanceTypesFilterArrayOutput) Index(i pulumi.IntInput) GetInstanceT
 }
 
 type GetInstancesFilter struct {
-	Name   string   `pulumi:"name"`
+	// Name of the filter.
+	// For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+	Name string `pulumi:"name"`
+	// One or more values to match.
 	Values []string `pulumi:"values"`
 }
 
@@ -39854,7 +39885,10 @@ type GetInstancesFilterInput interface {
 }
 
 type GetInstancesFilterArgs struct {
-	Name   pulumi.StringInput      `pulumi:"name"`
+	// Name of the filter.
+	// For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+	Name pulumi.StringInput `pulumi:"name"`
+	// One or more values to match.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -39909,10 +39943,13 @@ func (o GetInstancesFilterOutput) ToGetInstancesFilterOutputWithContext(ctx cont
 	return o
 }
 
+// Name of the filter.
+// For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
 func (o GetInstancesFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstancesFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// One or more values to match.
 func (o GetInstancesFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetInstancesFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -43953,6 +43990,7 @@ func (o GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArrayOut
 type GetLaunchTemplatePlacement struct {
 	Affinity             string `pulumi:"affinity"`
 	AvailabilityZone     string `pulumi:"availabilityZone"`
+	GroupId              string `pulumi:"groupId"`
 	GroupName            string `pulumi:"groupName"`
 	HostId               string `pulumi:"hostId"`
 	HostResourceGroupArn string `pulumi:"hostResourceGroupArn"`
@@ -43975,6 +44013,7 @@ type GetLaunchTemplatePlacementInput interface {
 type GetLaunchTemplatePlacementArgs struct {
 	Affinity             pulumi.StringInput `pulumi:"affinity"`
 	AvailabilityZone     pulumi.StringInput `pulumi:"availabilityZone"`
+	GroupId              pulumi.StringInput `pulumi:"groupId"`
 	GroupName            pulumi.StringInput `pulumi:"groupName"`
 	HostId               pulumi.StringInput `pulumi:"hostId"`
 	HostResourceGroupArn pulumi.StringInput `pulumi:"hostResourceGroupArn"`
@@ -44040,6 +44079,10 @@ func (o GetLaunchTemplatePlacementOutput) Affinity() pulumi.StringOutput {
 
 func (o GetLaunchTemplatePlacementOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLaunchTemplatePlacement) string { return v.AvailabilityZone }).(pulumi.StringOutput)
+}
+
+func (o GetLaunchTemplatePlacementOutput) GroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLaunchTemplatePlacement) string { return v.GroupId }).(pulumi.StringOutput)
 }
 
 func (o GetLaunchTemplatePlacementOutput) GroupName() pulumi.StringOutput {

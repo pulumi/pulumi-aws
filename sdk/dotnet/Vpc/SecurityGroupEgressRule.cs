@@ -42,11 +42,23 @@ namespace Pulumi.Aws.Vpc
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `id` - (String) ID of the security group rule.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// 
+    /// * `region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import security group egress rules using the `security_group_rule_id`. For example:
     /// 
-    /// ```sh
-    /// $ pulumi import aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule example sgr-02108b27edd666983
-    /// ```
+    /// console
+    /// 
+    /// % pulumi import aws_vpc_security_group_egress_rule.example sgr-02108b27edd666983
     /// </summary>
     [AwsResourceType("aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule")]
     public partial class SecurityGroupEgressRule : global::Pulumi.CustomResource

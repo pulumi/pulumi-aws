@@ -38,11 +38,17 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * - `arn` (String) Amazon Resource Name (ARN) of the Image Builder distribution configuration.
+ *
  * Using `pulumi import`, import `aws_imagebuilder_distribution_configurations` resources using the Amazon Resource Name (ARN). For example:
  *
- * ```sh
- * $ pulumi import aws:imagebuilder/distributionConfiguration:DistributionConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
- * ```
+ * console
+ *
+ * % pulumi import aws_imagebuilder_distribution_configuration.example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
  */
 export class DistributionConfiguration extends pulumi.CustomResource {
     /**

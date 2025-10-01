@@ -46,7 +46,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// </summary>
         public readonly string? ScaleInProtectedInstances;
         /// <summary>
-        /// Replace instances that already have your desired configuration. Defaults to `false`.
+        /// Skip replacing instances that already have your desired configuration. Defaults to `false`.
         /// </summary>
         public readonly bool? SkipMatching;
         /// <summary>

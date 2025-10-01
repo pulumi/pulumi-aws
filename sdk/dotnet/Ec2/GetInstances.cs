@@ -205,9 +205,10 @@ namespace Pulumi.Aws.Ec2
         private List<Inputs.GetInstancesFilterArgs>? _filters;
 
         /// <summary>
-        /// One or more name/value pairs to use as filters. There are
-        /// several valid keys, for a full reference, check out
-        /// [describe-instances in the AWS CLI reference][1].
+        /// One or more filters to apply to the search.
+        /// If multiple `filter` blocks are provided, they all must be true.
+        /// For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+        /// See `filter` Block below.
         /// </summary>
         public List<Inputs.GetInstancesFilterArgs> Filters
         {
@@ -258,9 +259,10 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.GetInstancesFilterInputArgs>? _filters;
 
         /// <summary>
-        /// One or more name/value pairs to use as filters. There are
-        /// several valid keys, for a full reference, check out
-        /// [describe-instances in the AWS CLI reference][1].
+        /// One or more filters to apply to the search.
+        /// If multiple `filter` blocks are provided, they all must be true.
+        /// For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+        /// See `filter` Block below.
         /// </summary>
         public InputList<Inputs.GetInstancesFilterInputArgs> Filters
         {

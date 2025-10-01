@@ -936,6 +936,136 @@ func (o LogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutput) Bucket
 	}).(pulumi.StringPtrOutput)
 }
 
+type ManagedLoginBrandingAsset struct {
+	// Image file, in Base64-encoded binary.
+	Bytes *string `pulumi:"bytes"`
+	// Category that the image corresponds to. See [AWS documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssetType.html#CognitoUserPools-Type-AssetType-Category) for valid values.
+	Category string `pulumi:"category"`
+	// Display-mode target of the asset. Valid values: `LIGHT`, `DARK`, `DYNAMIC`.
+	ColorMode string `pulumi:"colorMode"`
+	Extension string `pulumi:"extension"`
+	// Asset ID.
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+// ManagedLoginBrandingAssetInput is an input type that accepts ManagedLoginBrandingAssetArgs and ManagedLoginBrandingAssetOutput values.
+// You can construct a concrete instance of `ManagedLoginBrandingAssetInput` via:
+//
+//	ManagedLoginBrandingAssetArgs{...}
+type ManagedLoginBrandingAssetInput interface {
+	pulumi.Input
+
+	ToManagedLoginBrandingAssetOutput() ManagedLoginBrandingAssetOutput
+	ToManagedLoginBrandingAssetOutputWithContext(context.Context) ManagedLoginBrandingAssetOutput
+}
+
+type ManagedLoginBrandingAssetArgs struct {
+	// Image file, in Base64-encoded binary.
+	Bytes pulumi.StringPtrInput `pulumi:"bytes"`
+	// Category that the image corresponds to. See [AWS documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssetType.html#CognitoUserPools-Type-AssetType-Category) for valid values.
+	Category pulumi.StringInput `pulumi:"category"`
+	// Display-mode target of the asset. Valid values: `LIGHT`, `DARK`, `DYNAMIC`.
+	ColorMode pulumi.StringInput `pulumi:"colorMode"`
+	Extension pulumi.StringInput `pulumi:"extension"`
+	// Asset ID.
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+}
+
+func (ManagedLoginBrandingAssetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedLoginBrandingAsset)(nil)).Elem()
+}
+
+func (i ManagedLoginBrandingAssetArgs) ToManagedLoginBrandingAssetOutput() ManagedLoginBrandingAssetOutput {
+	return i.ToManagedLoginBrandingAssetOutputWithContext(context.Background())
+}
+
+func (i ManagedLoginBrandingAssetArgs) ToManagedLoginBrandingAssetOutputWithContext(ctx context.Context) ManagedLoginBrandingAssetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedLoginBrandingAssetOutput)
+}
+
+// ManagedLoginBrandingAssetArrayInput is an input type that accepts ManagedLoginBrandingAssetArray and ManagedLoginBrandingAssetArrayOutput values.
+// You can construct a concrete instance of `ManagedLoginBrandingAssetArrayInput` via:
+//
+//	ManagedLoginBrandingAssetArray{ ManagedLoginBrandingAssetArgs{...} }
+type ManagedLoginBrandingAssetArrayInput interface {
+	pulumi.Input
+
+	ToManagedLoginBrandingAssetArrayOutput() ManagedLoginBrandingAssetArrayOutput
+	ToManagedLoginBrandingAssetArrayOutputWithContext(context.Context) ManagedLoginBrandingAssetArrayOutput
+}
+
+type ManagedLoginBrandingAssetArray []ManagedLoginBrandingAssetInput
+
+func (ManagedLoginBrandingAssetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedLoginBrandingAsset)(nil)).Elem()
+}
+
+func (i ManagedLoginBrandingAssetArray) ToManagedLoginBrandingAssetArrayOutput() ManagedLoginBrandingAssetArrayOutput {
+	return i.ToManagedLoginBrandingAssetArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedLoginBrandingAssetArray) ToManagedLoginBrandingAssetArrayOutputWithContext(ctx context.Context) ManagedLoginBrandingAssetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedLoginBrandingAssetArrayOutput)
+}
+
+type ManagedLoginBrandingAssetOutput struct{ *pulumi.OutputState }
+
+func (ManagedLoginBrandingAssetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedLoginBrandingAsset)(nil)).Elem()
+}
+
+func (o ManagedLoginBrandingAssetOutput) ToManagedLoginBrandingAssetOutput() ManagedLoginBrandingAssetOutput {
+	return o
+}
+
+func (o ManagedLoginBrandingAssetOutput) ToManagedLoginBrandingAssetOutputWithContext(ctx context.Context) ManagedLoginBrandingAssetOutput {
+	return o
+}
+
+// Image file, in Base64-encoded binary.
+func (o ManagedLoginBrandingAssetOutput) Bytes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedLoginBrandingAsset) *string { return v.Bytes }).(pulumi.StringPtrOutput)
+}
+
+// Category that the image corresponds to. See [AWS documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssetType.html#CognitoUserPools-Type-AssetType-Category) for valid values.
+func (o ManagedLoginBrandingAssetOutput) Category() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedLoginBrandingAsset) string { return v.Category }).(pulumi.StringOutput)
+}
+
+// Display-mode target of the asset. Valid values: `LIGHT`, `DARK`, `DYNAMIC`.
+func (o ManagedLoginBrandingAssetOutput) ColorMode() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedLoginBrandingAsset) string { return v.ColorMode }).(pulumi.StringOutput)
+}
+
+func (o ManagedLoginBrandingAssetOutput) Extension() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedLoginBrandingAsset) string { return v.Extension }).(pulumi.StringOutput)
+}
+
+// Asset ID.
+func (o ManagedLoginBrandingAssetOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedLoginBrandingAsset) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+type ManagedLoginBrandingAssetArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedLoginBrandingAssetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedLoginBrandingAsset)(nil)).Elem()
+}
+
+func (o ManagedLoginBrandingAssetArrayOutput) ToManagedLoginBrandingAssetArrayOutput() ManagedLoginBrandingAssetArrayOutput {
+	return o
+}
+
+func (o ManagedLoginBrandingAssetArrayOutput) ToManagedLoginBrandingAssetArrayOutputWithContext(ctx context.Context) ManagedLoginBrandingAssetArrayOutput {
+	return o
+}
+
+func (o ManagedLoginBrandingAssetArrayOutput) Index(i pulumi.IntInput) ManagedLoginBrandingAssetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedLoginBrandingAsset {
+		return vs[0].([]ManagedLoginBrandingAsset)[vs[1].(int)]
+	}).(ManagedLoginBrandingAssetOutput)
+}
+
 type ManagedUserPoolClientAnalyticsConfiguration struct {
 	// Application ARN for an Amazon Pinpoint application. It conflicts with `externalId` and `roleArn`.
 	ApplicationArn *string `pulumi:"applicationArn"`
@@ -10598,6 +10728,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrInput)(nil)).Elem(), LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationLogConfigurationS3ConfigurationInput)(nil)).Elem(), LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationLogConfigurationS3ConfigurationPtrInput)(nil)).Elem(), LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedLoginBrandingAssetInput)(nil)).Elem(), ManagedLoginBrandingAssetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedLoginBrandingAssetArrayInput)(nil)).Elem(), ManagedLoginBrandingAssetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedUserPoolClientAnalyticsConfigurationInput)(nil)).Elem(), ManagedUserPoolClientAnalyticsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedUserPoolClientAnalyticsConfigurationPtrInput)(nil)).Elem(), ManagedUserPoolClientAnalyticsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedUserPoolClientRefreshTokenRotationInput)(nil)).Elem(), ManagedUserPoolClientRefreshTokenRotationArgs{})
@@ -10738,6 +10870,8 @@ func init() {
 	pulumi.RegisterOutputType(LogDeliveryConfigurationLogConfigurationFirehoseConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LogDeliveryConfigurationLogConfigurationS3ConfigurationOutput{})
 	pulumi.RegisterOutputType(LogDeliveryConfigurationLogConfigurationS3ConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ManagedLoginBrandingAssetOutput{})
+	pulumi.RegisterOutputType(ManagedLoginBrandingAssetArrayOutput{})
 	pulumi.RegisterOutputType(ManagedUserPoolClientAnalyticsConfigurationOutput{})
 	pulumi.RegisterOutputType(ManagedUserPoolClientAnalyticsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ManagedUserPoolClientRefreshTokenRotationOutput{})

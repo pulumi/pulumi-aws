@@ -24,11 +24,17 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * - `arn` (String) Amazon Resource Name (ARN) of the DataSync object storage location.
+ *
  * Using `pulumi import`, import `aws_datasync_location_object_storage` using the Amazon Resource Name (ARN). For example:
  *
- * ```sh
- * $ pulumi import aws:datasync/locationObjectStorage:LocationObjectStorage example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
- * ```
+ * console
+ *
+ * % pulumi import aws_datasync_location_object_storage.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
  */
 export class LocationObjectStorage extends pulumi.CustomResource {
     /**
@@ -63,7 +69,7 @@ export class LocationObjectStorage extends pulumi.CustomResource {
      */
     declare public readonly accessKey: pulumi.Output<string | undefined>;
     /**
-     * A list of DataSync Agent ARNs with which this location will be associated.
+     * A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
      */
     declare public readonly agentArns: pulumi.Output<string[] | undefined>;
     /**
@@ -181,7 +187,7 @@ export interface LocationObjectStorageState {
      */
     accessKey?: pulumi.Input<string>;
     /**
-     * A list of DataSync Agent ARNs with which this location will be associated.
+     * A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
      */
     agentArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -243,7 +249,7 @@ export interface LocationObjectStorageArgs {
      */
     accessKey?: pulumi.Input<string>;
     /**
-     * A list of DataSync Agent ARNs with which this location will be associated.
+     * A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
      */
     agentArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**

@@ -95,6 +95,12 @@ namespace Pulumi.Aws.Scheduler
     public partial class Schedule : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
+        /// </summary>
+        [Output("actionAfterCompletion")]
+        public Output<string> ActionAfterCompletion { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of the schedule.
         /// </summary>
         [Output("arn")]
@@ -227,6 +233,12 @@ namespace Pulumi.Aws.Scheduler
     public sealed class ScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
+        /// </summary>
+        [Input("actionAfterCompletion")]
+        public Input<string>? ActionAfterCompletion { get; set; }
+
+        /// <summary>
         /// Brief description of the schedule.
         /// </summary>
         [Input("description")]
@@ -314,6 +326,12 @@ namespace Pulumi.Aws.Scheduler
 
     public sealed class ScheduleState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
+        /// </summary>
+        [Input("actionAfterCompletion")]
+        public Input<string>? ActionAfterCompletion { get; set; }
+
         /// <summary>
         /// ARN of the schedule.
         /// </summary>

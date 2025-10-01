@@ -48,17 +48,23 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// - `arn` (String) Amazon Resource Name (ARN) of the DataSync object storage location.
+//
 // Using `pulumi import`, import `aws_datasync_location_object_storage` using the Amazon Resource Name (ARN). For example:
 //
-// ```sh
-// $ pulumi import aws:datasync/locationObjectStorage:LocationObjectStorage example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-// ```
+// console
+//
+// % pulumi import aws_datasync_location_object_storage.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
 type LocationObjectStorage struct {
 	pulumi.CustomResourceState
 
 	// The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
 	AccessKey pulumi.StringPtrOutput `pulumi:"accessKey"`
-	// A list of DataSync Agent ARNs with which this location will be associated.
+	// A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
 	AgentArns pulumi.StringArrayOutput `pulumi:"agentArns"`
 	// Amazon Resource Name (ARN) of the DataSync Location.
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -131,7 +137,7 @@ func GetLocationObjectStorage(ctx *pulumi.Context,
 type locationObjectStorageState struct {
 	// The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
 	AccessKey *string `pulumi:"accessKey"`
-	// A list of DataSync Agent ARNs with which this location will be associated.
+	// A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
 	AgentArns []string `pulumi:"agentArns"`
 	// Amazon Resource Name (ARN) of the DataSync Location.
 	Arn *string `pulumi:"arn"`
@@ -162,7 +168,7 @@ type locationObjectStorageState struct {
 type LocationObjectStorageState struct {
 	// The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
 	AccessKey pulumi.StringPtrInput
-	// A list of DataSync Agent ARNs with which this location will be associated.
+	// A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
 	AgentArns pulumi.StringArrayInput
 	// Amazon Resource Name (ARN) of the DataSync Location.
 	Arn pulumi.StringPtrInput
@@ -197,7 +203,7 @@ func (LocationObjectStorageState) ElementType() reflect.Type {
 type locationObjectStorageArgs struct {
 	// The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
 	AccessKey *string `pulumi:"accessKey"`
-	// A list of DataSync Agent ARNs with which this location will be associated.
+	// A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
 	AgentArns []string `pulumi:"agentArns"`
 	// The bucket on the self-managed object storage server that is used to read data from.
 	BucketName string `pulumi:"bucketName"`
@@ -223,7 +229,7 @@ type locationObjectStorageArgs struct {
 type LocationObjectStorageArgs struct {
 	// The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
 	AccessKey pulumi.StringPtrInput
-	// A list of DataSync Agent ARNs with which this location will be associated.
+	// A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
 	AgentArns pulumi.StringArrayInput
 	// The bucket on the self-managed object storage server that is used to read data from.
 	BucketName pulumi.StringInput
@@ -337,7 +343,7 @@ func (o LocationObjectStorageOutput) AccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringPtrOutput { return v.AccessKey }).(pulumi.StringPtrOutput)
 }
 
-// A list of DataSync Agent ARNs with which this location will be associated.
+// A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
 func (o LocationObjectStorageOutput) AgentArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringArrayOutput { return v.AgentArns }).(pulumi.StringArrayOutput)
 }

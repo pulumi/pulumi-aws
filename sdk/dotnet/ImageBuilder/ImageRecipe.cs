@@ -67,11 +67,17 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// - `arn` (String) Amazon Resource Name (ARN) of the Image Builder image recipe.
+    /// 
     /// Using `pulumi import`, import `aws_imagebuilder_image_recipe` resources using the Amazon Resource Name (ARN). For example:
     /// 
-    /// ```sh
-    /// $ pulumi import aws:imagebuilder/imageRecipe:ImageRecipe example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
-    /// ```
+    /// console
+    /// 
+    /// % pulumi import aws_imagebuilder_image_recipe.example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
     /// </summary>
     [AwsResourceType("aws:imagebuilder/imageRecipe:ImageRecipe")]
     public partial class ImageRecipe : global::Pulumi.CustomResource
@@ -119,7 +125,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string> Owner { get; private set; } = null!;
 
         /// <summary>
-        /// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
+        /// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
         /// </summary>
         [Output("parentImage")]
         public Output<string> ParentImage { get; private set; } = null!;
@@ -257,7 +263,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
+        /// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
         /// </summary>
         [Input("parentImage", required: true)]
         public Input<string> ParentImage { get; set; } = null!;
@@ -369,7 +375,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? Owner { get; set; }
 
         /// <summary>
-        /// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
+        /// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
         /// </summary>
         [Input("parentImage")]
         public Input<string>? ParentImage { get; set; }

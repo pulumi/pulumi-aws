@@ -57,11 +57,17 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// - `arn` (String) Amazon Resource Name (ARN) of the Resource Explorer view.
+//
 // Using `pulumi import`, import Resource Explorer views using the `arn`. For example:
 //
-// ```sh
-// $ pulumi import aws:resourceexplorer/view:View example arn:aws:resource-explorer-2:us-west-2:123456789012:view/exampleview/e0914f6c-6c27-4b47-b5d4-6b28381a2421
-// ```
+// console
+//
+// % pulumi import aws_resourceexplorer2_view.example arn:aws:resource-explorer-2:us-west-2:123456789012:view/exampleview/e0914f6c-6c27-4b47-b5d4-6b28381a2421
 type View struct {
 	pulumi.CustomResourceState
 

@@ -46,6 +46,16 @@ public final class GetMountTargetResult {
      */
     private String ipAddress;
     /**
+     * @return IP address type for the mount target.
+     * 
+     */
+    private String ipAddressType;
+    /**
+     * @return IPv6 address at which the file system may be mounted via the mount target.
+     * 
+     */
+    private String ipv6Address;
+    /**
      * @return The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
      * 
      */
@@ -123,6 +133,20 @@ public final class GetMountTargetResult {
         return this.ipAddress;
     }
     /**
+     * @return IP address type for the mount target.
+     * 
+     */
+    public String ipAddressType() {
+        return this.ipAddressType;
+    }
+    /**
+     * @return IPv6 address at which the file system may be mounted via the mount target.
+     * 
+     */
+    public String ipv6Address() {
+        return this.ipv6Address;
+    }
+    /**
      * @return The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
      * 
      */
@@ -181,6 +205,8 @@ public final class GetMountTargetResult {
         private String fileSystemId;
         private String id;
         private String ipAddress;
+        private String ipAddressType;
+        private String ipv6Address;
         private String mountTargetDnsName;
         private String mountTargetId;
         private String networkInterfaceId;
@@ -199,6 +225,8 @@ public final class GetMountTargetResult {
     	      this.fileSystemId = defaults.fileSystemId;
     	      this.id = defaults.id;
     	      this.ipAddress = defaults.ipAddress;
+    	      this.ipAddressType = defaults.ipAddressType;
+    	      this.ipv6Address = defaults.ipv6Address;
     	      this.mountTargetDnsName = defaults.mountTargetDnsName;
     	      this.mountTargetId = defaults.mountTargetId;
     	      this.networkInterfaceId = defaults.networkInterfaceId;
@@ -271,6 +299,22 @@ public final class GetMountTargetResult {
             return this;
         }
         @CustomType.Setter
+        public Builder ipAddressType(String ipAddressType) {
+            if (ipAddressType == null) {
+              throw new MissingRequiredPropertyException("GetMountTargetResult", "ipAddressType");
+            }
+            this.ipAddressType = ipAddressType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder ipv6Address(String ipv6Address) {
+            if (ipv6Address == null) {
+              throw new MissingRequiredPropertyException("GetMountTargetResult", "ipv6Address");
+            }
+            this.ipv6Address = ipv6Address;
+            return this;
+        }
+        @CustomType.Setter
         public Builder mountTargetDnsName(String mountTargetDnsName) {
             if (mountTargetDnsName == null) {
               throw new MissingRequiredPropertyException("GetMountTargetResult", "mountTargetDnsName");
@@ -339,6 +383,8 @@ public final class GetMountTargetResult {
             _resultValue.fileSystemId = fileSystemId;
             _resultValue.id = id;
             _resultValue.ipAddress = ipAddress;
+            _resultValue.ipAddressType = ipAddressType;
+            _resultValue.ipv6Address = ipv6Address;
             _resultValue.mountTargetDnsName = mountTargetDnsName;
             _resultValue.mountTargetId = mountTargetId;
             _resultValue.networkInterfaceId = networkInterfaceId;

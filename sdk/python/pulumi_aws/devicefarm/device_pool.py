@@ -335,11 +335,17 @@ class DevicePool(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the Device Farm device pool.
+
         Using `pulumi import`, import DeviceFarm Device Pools using their ARN. For example:
 
-        ```sh
-        $ pulumi import aws:devicefarm/devicePool:DevicePool example arn:aws:devicefarm:us-west-2:123456789012:devicepool:4fa784c7-ccb4-4dbf-ba4f-02198320daa1/4fa784c7-ccb4-4dbf-ba4f-02198320daa1
-        ```
+        console
+
+        % pulumi import aws_devicefarm_device_pool.example arn:aws:devicefarm:us-west-2:123456789012:devicepool:4fa784c7-ccb4-4dbf-ba4f-02198320daa1/4fa784c7-ccb4-4dbf-ba4f-02198320daa1
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -378,11 +384,17 @@ class DevicePool(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the Device Farm device pool.
+
         Using `pulumi import`, import DeviceFarm Device Pools using their ARN. For example:
 
-        ```sh
-        $ pulumi import aws:devicefarm/devicePool:DevicePool example arn:aws:devicefarm:us-west-2:123456789012:devicepool:4fa784c7-ccb4-4dbf-ba4f-02198320daa1/4fa784c7-ccb4-4dbf-ba4f-02198320daa1
-        ```
+        console
+
+        % pulumi import aws_devicefarm_device_pool.example arn:aws:devicefarm:us-west-2:123456789012:devicepool:4fa784c7-ccb4-4dbf-ba4f-02198320daa1/4fa784c7-ccb4-4dbf-ba4f-02198320daa1
 
         :param str resource_name: The name of the resource.
         :param DevicePoolArgs args: The arguments to use to populate this resource's properties.

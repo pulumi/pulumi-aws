@@ -621,11 +621,25 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `window_id` - (String) ID of the maintenance window.
+
+        * `id` - (String) ID of the maintenance window task.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import AWS Maintenance Window Task using the `window_id` and `window_task_id` separated by `/`. For example:
 
-        ```sh
-        $ pulumi import aws:ssm/maintenanceWindowTask:MaintenanceWindowTask task <window_id>/<window_task_id>
-        ```
+        console
+
+        % pulumi import aws_ssm_maintenance_window_task.example <window_id>/<window_task_id>
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -771,11 +785,25 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `window_id` - (String) ID of the maintenance window.
+
+        * `id` - (String) ID of the maintenance window task.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import AWS Maintenance Window Task using the `window_id` and `window_task_id` separated by `/`. For example:
 
-        ```sh
-        $ pulumi import aws:ssm/maintenanceWindowTask:MaintenanceWindowTask task <window_id>/<window_task_id>
-        ```
+        console
+
+        % pulumi import aws_ssm_maintenance_window_task.example <window_id>/<window_task_id>
 
         :param str resource_name: The name of the resource.
         :param MaintenanceWindowTaskArgs args: The arguments to use to populate this resource's properties.

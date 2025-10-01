@@ -47,14 +47,29 @@ public final class LaunchTemplatePlacementArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The name of the placement group for the instance.
+     * The ID of the placement group for the instance. Conflicts with `group_name`.
+     * 
+     */
+    @Import(name="groupId")
+    private @Nullable Output<String> groupId;
+
+    /**
+     * @return The ID of the placement group for the instance. Conflicts with `group_name`.
+     * 
+     */
+    public Optional<Output<String>> groupId() {
+        return Optional.ofNullable(this.groupId);
+    }
+
+    /**
+     * The name of the placement group for the instance. Conflicts with `group_id`.
      * 
      */
     @Import(name="groupName")
     private @Nullable Output<String> groupName;
 
     /**
-     * @return The name of the placement group for the instance.
+     * @return The name of the placement group for the instance. Conflicts with `group_id`.
      * 
      */
     public Optional<Output<String>> groupName() {
@@ -141,6 +156,7 @@ public final class LaunchTemplatePlacementArgs extends com.pulumi.resources.Reso
     private LaunchTemplatePlacementArgs(LaunchTemplatePlacementArgs $) {
         this.affinity = $.affinity;
         this.availabilityZone = $.availabilityZone;
+        this.groupId = $.groupId;
         this.groupName = $.groupName;
         this.hostId = $.hostId;
         this.hostResourceGroupArn = $.hostResourceGroupArn;
@@ -210,7 +226,28 @@ public final class LaunchTemplatePlacementArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param groupName The name of the placement group for the instance.
+         * @param groupId The ID of the placement group for the instance. Conflicts with `group_name`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder groupId(@Nullable Output<String> groupId) {
+            $.groupId = groupId;
+            return this;
+        }
+
+        /**
+         * @param groupId The ID of the placement group for the instance. Conflicts with `group_name`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder groupId(String groupId) {
+            return groupId(Output.of(groupId));
+        }
+
+        /**
+         * @param groupName The name of the placement group for the instance. Conflicts with `group_id`.
          * 
          * @return builder
          * 
@@ -221,7 +258,7 @@ public final class LaunchTemplatePlacementArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param groupName The name of the placement group for the instance.
+         * @param groupName The name of the placement group for the instance. Conflicts with `group_id`.
          * 
          * @return builder
          * 

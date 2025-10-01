@@ -547,11 +547,17 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the Network Firewall TLS inspection configuration.
+
         Using `pulumi import`, import Network Firewall TLS Inspection Configuration using the `arn`. For example:
 
-        ```sh
-        $ pulumi import aws:networkfirewall/tlsInspectionConfiguration:TlsInspectionConfiguration example arn:aws:network-firewall::<region>:<account_id>:tls-configuration/example
-        ```
+        console
+
+        % pulumi import aws_networkfirewall_tls_inspection_configuration.example arn:aws:network-firewall::<region>:<account_id>:tls-configuration/example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -744,11 +750,17 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the Network Firewall TLS inspection configuration.
+
         Using `pulumi import`, import Network Firewall TLS Inspection Configuration using the `arn`. For example:
 
-        ```sh
-        $ pulumi import aws:networkfirewall/tlsInspectionConfiguration:TlsInspectionConfiguration example arn:aws:network-firewall::<region>:<account_id>:tls-configuration/example
-        ```
+        console
+
+        % pulumi import aws_networkfirewall_tls_inspection_configuration.example arn:aws:network-firewall::<region>:<account_id>:tls-configuration/example
 
         :param str resource_name: The name of the resource.
         :param TlsInspectionConfigurationArgs args: The arguments to use to populate this resource's properties.

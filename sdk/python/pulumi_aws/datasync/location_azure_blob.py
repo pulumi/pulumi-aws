@@ -401,11 +401,17 @@ class LocationAzureBlob(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the DataSync Azure Blob location.
+
         Using `pulumi import`, import `aws_datasync_location_azure_blob` using the Amazon Resource Name (ARN). For example:
 
-        ```sh
-        $ pulumi import aws:datasync/locationAzureBlob:LocationAzureBlob example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-        ```
+        console
+
+        % pulumi import aws_datasync_location_azure_blob.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -447,11 +453,17 @@ class LocationAzureBlob(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the DataSync Azure Blob location.
+
         Using `pulumi import`, import `aws_datasync_location_azure_blob` using the Amazon Resource Name (ARN). For example:
 
-        ```sh
-        $ pulumi import aws:datasync/locationAzureBlob:LocationAzureBlob example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-        ```
+        console
+
+        % pulumi import aws_datasync_location_azure_blob.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
 
         :param str resource_name: The name of the resource.
         :param LocationAzureBlobArgs args: The arguments to use to populate this resource's properties.

@@ -24,6 +24,12 @@ namespace Pulumi.Aws.Glue.Inputs
         [Input("orphanFileRetentionPeriodInDays")]
         public Input<int>? OrphanFileRetentionPeriodInDays { get; set; }
 
+        /// <summary>
+        /// interval in hours between orphan file deletion job runs. Defaults to `24`.
+        /// </summary>
+        [Input("runRateInHours")]
+        public Input<int>? RunRateInHours { get; set; }
+
         public CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationGetArgs()
         {
         }

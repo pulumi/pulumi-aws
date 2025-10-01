@@ -84,6 +84,46 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Multi-variant Feature Flags
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = new aws.appconfig.HostedConfigurationVersion("example", {
+ *     applicationId: exampleAwsAppconfigApplication.id,
+ *     configurationProfileId: exampleAwsAppconfigConfigurationProfile.configurationProfileId,
+ *     description: "Example Multi-variant Feature Flag Configuration Version",
+ *     contentType: "application/json",
+ *     content: JSON.stringify({
+ *         flags: {
+ *             loggingenabled: {
+ *                 name: "loggingEnabled",
+ *             },
+ *         },
+ *         values: {
+ *             loggingenabled: {
+ *                 _variants: std.concat({
+ *                     input: [
+ *                         .map(userId => ({
+ *                             enabled: true,
+ *                             name: `usersWithLoggingEnabled_${userId}`,
+ *                             rule: `(or (eq $userId "${userId}"))`,
+ *                         })),
+ *                         [{
+ *                             enabled: false,
+ *                             name: "Default",
+ *                         }],
+ *                     ],
+ *                 }).then(invoke => invoke.result),
+ *             },
+ *         },
+ *         version: "1",
+ *     }),
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import AppConfig Hosted Configuration Versions using the application ID, configuration profile ID, and version number separated by a slash (`/`). For example:

@@ -308,11 +308,17 @@ class RecordingConfiguration(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the IVS recording configuration.
+
         Using `pulumi import`, import IVS (Interactive Video) Recording Configuration using the ARN. For example:
 
-        ```sh
-        $ pulumi import aws:ivs/recordingConfiguration:RecordingConfiguration example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
-        ```
+        console
+
+        % pulumi import aws_ivs_recording_configuration.example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -351,11 +357,17 @@ class RecordingConfiguration(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the IVS recording configuration.
+
         Using `pulumi import`, import IVS (Interactive Video) Recording Configuration using the ARN. For example:
 
-        ```sh
-        $ pulumi import aws:ivs/recordingConfiguration:RecordingConfiguration example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
-        ```
+        console
+
+        % pulumi import aws_ivs_recording_configuration.example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
 
         :param str resource_name: The name of the resource.
         :param RecordingConfigurationArgs args: The arguments to use to populate this resource's properties.

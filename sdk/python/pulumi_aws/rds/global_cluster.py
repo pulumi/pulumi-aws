@@ -35,6 +35,8 @@ class GlobalClusterArgs:
         """
         The set of arguments for constructing a GlobalCluster resource.
         :param pulumi.Input[_builtins.str] global_cluster_identifier: Global cluster identifier.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.str] database_name: Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[_builtins.bool] deletion_protection: If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         :param pulumi.Input[_builtins.str] engine: Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
@@ -45,6 +47,8 @@ class GlobalClusterArgs:
         :param pulumi.Input[_builtins.str] source_db_cluster_identifier: Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engine_version`. This allows upgrading the engine version of the Global Cluster.
         :param pulumi.Input[_builtins.bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               > When both `source_db_cluster_identifier` and `engine`/`engine_version` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engine_version` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
         """
         pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
         if database_name is not None:
@@ -73,6 +77,8 @@ class GlobalClusterArgs:
     def global_cluster_identifier(self) -> pulumi.Input[_builtins.str]:
         """
         Global cluster identifier.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "global_cluster_identifier")
 
@@ -193,6 +199,8 @@ class GlobalClusterArgs:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        > When both `source_db_cluster_identifier` and `engine`/`engine_version` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engine_version` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
         """
         return pulumi.get(self, "tags")
 
@@ -232,12 +240,16 @@ class _GlobalClusterState:
         :param pulumi.Input[_builtins.str] engine_version: Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `rds.Cluster` resource as shown above in Upgrading Engine Versions example.
         :param pulumi.Input[_builtins.bool] force_destroy: Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.
         :param pulumi.Input[_builtins.str] global_cluster_identifier: Global cluster identifier.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['GlobalClusterGlobalClusterMemberArgs']]] global_cluster_members: Set of objects containing Global Cluster members.
         :param pulumi.Input[_builtins.str] global_cluster_resource_id: AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] source_db_cluster_identifier: Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engine_version`. This allows upgrading the engine version of the Global Cluster.
         :param pulumi.Input[_builtins.bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               > When both `source_db_cluster_identifier` and `engine`/`engine_version` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engine_version` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
@@ -385,6 +397,8 @@ class _GlobalClusterState:
     def global_cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Global cluster identifier.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "global_cluster_identifier")
 
@@ -457,6 +471,8 @@ class _GlobalClusterState:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        > When both `source_db_cluster_identifier` and `engine`/`engine_version` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engine_version` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
         """
         return pulumi.get(self, "tags")
 
@@ -654,10 +670,14 @@ class GlobalCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] engine_version: Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `rds.Cluster` resource as shown above in Upgrading Engine Versions example.
         :param pulumi.Input[_builtins.bool] force_destroy: Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.
         :param pulumi.Input[_builtins.str] global_cluster_identifier: Global cluster identifier.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] source_db_cluster_identifier: Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engine_version`. This allows upgrading the engine version of the Global Cluster.
         :param pulumi.Input[_builtins.bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               > When both `source_db_cluster_identifier` and `engine`/`engine_version` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engine_version` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
         """
         ...
     @overload
@@ -912,12 +932,16 @@ class GlobalCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] engine_version: Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `rds.Cluster` resource as shown above in Upgrading Engine Versions example.
         :param pulumi.Input[_builtins.bool] force_destroy: Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.
         :param pulumi.Input[_builtins.str] global_cluster_identifier: Global cluster identifier.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalClusterGlobalClusterMemberArgs', 'GlobalClusterGlobalClusterMemberArgsDict']]]] global_cluster_members: Set of objects containing Global Cluster members.
         :param pulumi.Input[_builtins.str] global_cluster_resource_id: AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] source_db_cluster_identifier: Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engine_version`. This allows upgrading the engine version of the Global Cluster.
         :param pulumi.Input[_builtins.bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               > When both `source_db_cluster_identifier` and `engine`/`engine_version` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engine_version` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1017,6 +1041,8 @@ class GlobalCluster(pulumi.CustomResource):
     def global_cluster_identifier(self) -> pulumi.Output[_builtins.str]:
         """
         Global cluster identifier.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "global_cluster_identifier")
 
@@ -1065,6 +1091,8 @@ class GlobalCluster(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
         A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        > When both `source_db_cluster_identifier` and `engine`/`engine_version` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engine_version` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
         """
         return pulumi.get(self, "tags")
 

@@ -97,6 +97,10 @@ export class Schedule extends pulumi.CustomResource {
     }
 
     /**
+     * Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
+     */
+    declare public readonly actionAfterCompletion: pulumi.Output<string>;
+    /**
      * ARN of the schedule.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
@@ -168,6 +172,7 @@ export class Schedule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScheduleState | undefined;
+            resourceInputs["actionAfterCompletion"] = state?.actionAfterCompletion;
             resourceInputs["arn"] = state?.arn;
             resourceInputs["description"] = state?.description;
             resourceInputs["endDate"] = state?.endDate;
@@ -193,6 +198,7 @@ export class Schedule extends pulumi.CustomResource {
             if (args?.target === undefined && !opts.urn) {
                 throw new Error("Missing required property 'target'");
             }
+            resourceInputs["actionAfterCompletion"] = args?.actionAfterCompletion;
             resourceInputs["description"] = args?.description;
             resourceInputs["endDate"] = args?.endDate;
             resourceInputs["flexibleTimeWindow"] = args?.flexibleTimeWindow;
@@ -217,6 +223,10 @@ export class Schedule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Schedule resources.
  */
 export interface ScheduleState {
+    /**
+     * Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
+     */
+    actionAfterCompletion?: pulumi.Input<string>;
     /**
      * ARN of the schedule.
      */
@@ -281,6 +291,10 @@ export interface ScheduleState {
  * The set of arguments for constructing a Schedule resource.
  */
 export interface ScheduleArgs {
+    /**
+     * Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
+     */
+    actionAfterCompletion?: pulumi.Input<string>;
     /**
      * Brief description of the schedule.
      */

@@ -28,7 +28,7 @@ class GetTableResult:
     """
     A collection of values returned by getTable.
     """
-    def __init__(__self__, arn=None, attributes=None, billing_mode=None, deletion_protection_enabled=None, global_secondary_indexes=None, hash_key=None, id=None, local_secondary_indexes=None, name=None, on_demand_throughputs=None, point_in_time_recovery=None, range_key=None, read_capacity=None, region=None, replicas=None, server_side_encryption=None, stream_arn=None, stream_enabled=None, stream_label=None, stream_view_type=None, table_class=None, tags=None, ttl=None, write_capacity=None):
+    def __init__(__self__, arn=None, attributes=None, billing_mode=None, deletion_protection_enabled=None, global_secondary_indexes=None, hash_key=None, id=None, local_secondary_indexes=None, name=None, on_demand_throughputs=None, point_in_time_recovery=None, range_key=None, read_capacity=None, region=None, replicas=None, server_side_encryption=None, stream_arn=None, stream_enabled=None, stream_label=None, stream_view_type=None, table_class=None, tags=None, ttl=None, warm_throughputs=None, write_capacity=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -98,6 +98,9 @@ class GetTableResult:
         if ttl and not isinstance(ttl, dict):
             raise TypeError("Expected argument 'ttl' to be a dict")
         pulumi.set(__self__, "ttl", ttl)
+        if warm_throughputs and not isinstance(warm_throughputs, list):
+            raise TypeError("Expected argument 'warm_throughputs' to be a list")
+        pulumi.set(__self__, "warm_throughputs", warm_throughputs)
         if write_capacity and not isinstance(write_capacity, int):
             raise TypeError("Expected argument 'write_capacity' to be a int")
         pulumi.set(__self__, "write_capacity", write_capacity)
@@ -221,6 +224,11 @@ class GetTableResult:
         return pulumi.get(self, "ttl")
 
     @_builtins.property
+    @pulumi.getter(name="warmThroughputs")
+    def warm_throughputs(self) -> Sequence['outputs.GetTableWarmThroughputResult']:
+        return pulumi.get(self, "warm_throughputs")
+
+    @_builtins.property
     @pulumi.getter(name="writeCapacity")
     def write_capacity(self) -> _builtins.int:
         return pulumi.get(self, "write_capacity")
@@ -255,6 +263,7 @@ class AwaitableGetTableResult(GetTableResult):
             table_class=self.table_class,
             tags=self.tags,
             ttl=self.ttl,
+            warm_throughputs=self.warm_throughputs,
             write_capacity=self.write_capacity)
 
 
@@ -311,6 +320,7 @@ def get_table(name: Optional[_builtins.str] = None,
         table_class=pulumi.get(__ret__, 'table_class'),
         tags=pulumi.get(__ret__, 'tags'),
         ttl=pulumi.get(__ret__, 'ttl'),
+        warm_throughputs=pulumi.get(__ret__, 'warm_throughputs'),
         write_capacity=pulumi.get(__ret__, 'write_capacity'))
 def get_table_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
@@ -364,4 +374,5 @@ def get_table_output(name: Optional[pulumi.Input[_builtins.str]] = None,
         table_class=pulumi.get(__response__, 'table_class'),
         tags=pulumi.get(__response__, 'tags'),
         ttl=pulumi.get(__response__, 'ttl'),
+        warm_throughputs=pulumi.get(__response__, 'warm_throughputs'),
         write_capacity=pulumi.get(__response__, 'write_capacity')))

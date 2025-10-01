@@ -92,6 +92,18 @@ namespace Pulumi.Aws.Efs
         public Output<string> IpAddress { get; private set; } = null!;
 
         /// <summary>
+        /// IP address type for the mount target. Valid values are `IPV4_ONLY` (only IPv4 addresses), `IPV6_ONLY` (only IPv6 addresses), and `DUAL_STACK` (dual-stack, both IPv4 and IPv6 addresses). Defaults to `IPV4_ONLY`.
+        /// </summary>
+        [Output("ipAddressType")]
+        public Output<string> IpAddressType { get; private set; } = null!;
+
+        /// <summary>
+        /// IPv6 address to use. Valid only when `ip_address_type` is set to `IPV6_ONLY` or `DUAL_STACK`.
+        /// </summary>
+        [Output("ipv6Address")]
+        public Output<string> Ipv6Address { get; private set; } = null!;
+
+        /// <summary>
         /// The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
         /// </summary>
         [Output("mountTargetDnsName")]
@@ -188,6 +200,18 @@ namespace Pulumi.Aws.Efs
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
+        /// IP address type for the mount target. Valid values are `IPV4_ONLY` (only IPv4 addresses), `IPV6_ONLY` (only IPv6 addresses), and `DUAL_STACK` (dual-stack, both IPv4 and IPv6 addresses). Defaults to `IPV4_ONLY`.
+        /// </summary>
+        [Input("ipAddressType")]
+        public Input<string>? IpAddressType { get; set; }
+
+        /// <summary>
+        /// IPv6 address to use. Valid only when `ip_address_type` is set to `IPV6_ONLY` or `DUAL_STACK`.
+        /// </summary>
+        [Input("ipv6Address")]
+        public Input<string>? Ipv6Address { get; set; }
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
@@ -256,6 +280,18 @@ namespace Pulumi.Aws.Efs
         /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
+
+        /// <summary>
+        /// IP address type for the mount target. Valid values are `IPV4_ONLY` (only IPv4 addresses), `IPV6_ONLY` (only IPv6 addresses), and `DUAL_STACK` (dual-stack, both IPv4 and IPv6 addresses). Defaults to `IPV4_ONLY`.
+        /// </summary>
+        [Input("ipAddressType")]
+        public Input<string>? IpAddressType { get; set; }
+
+        /// <summary>
+        /// IPv6 address to use. Valid only when `ip_address_type` is set to `IPV6_ONLY` or `DUAL_STACK`.
+        /// </summary>
+        [Input("ipv6Address")]
+        public Input<string>? Ipv6Address { get; set; }
 
         /// <summary>
         /// The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).

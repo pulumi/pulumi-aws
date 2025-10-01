@@ -25,7 +25,13 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// The name of the placement group for the instance.
+        /// The ID of the placement group for the instance. Conflicts with `group_name`.
+        /// </summary>
+        [Input("groupId")]
+        public Input<string>? GroupId { get; set; }
+
+        /// <summary>
+        /// The name of the placement group for the instance. Conflicts with `group_id`.
         /// </summary>
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }

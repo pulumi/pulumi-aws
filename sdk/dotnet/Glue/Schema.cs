@@ -36,11 +36,17 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// - `arn` (String) Amazon Resource Name (ARN) of the Glue schema.
+    /// 
     /// Using `pulumi import`, import Glue Registries using `arn`. For example:
     /// 
-    /// ```sh
-    /// $ pulumi import aws:glue/schema:Schema example arn:aws:glue:us-west-2:123456789012:schema/example/example
-    /// ```
+    /// console
+    /// 
+    /// % pulumi import aws_glue_schema.example arn:aws:glue:us-west-2:123456789012:schema/example/example
     /// </summary>
     [AwsResourceType("aws:glue/schema:Schema")]
     public partial class Schema : global::Pulumi.CustomResource

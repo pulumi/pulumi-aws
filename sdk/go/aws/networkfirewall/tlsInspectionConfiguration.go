@@ -316,11 +316,17 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// - `arn` (String) Amazon Resource Name (ARN) of the Network Firewall TLS inspection configuration.
+//
 // Using `pulumi import`, import Network Firewall TLS Inspection Configuration using the `arn`. For example:
 //
-// ```sh
-// $ pulumi import aws:networkfirewall/tlsInspectionConfiguration:TlsInspectionConfiguration example arn:aws:network-firewall::<region>:<account_id>:tls-configuration/example
-// ```
+// console
+//
+// % pulumi import aws_networkfirewall_tls_inspection_configuration.example arn:aws:network-firewall::<region>:<account_id>:tls-configuration/example
 type TlsInspectionConfiguration struct {
 	pulumi.CustomResourceState
 

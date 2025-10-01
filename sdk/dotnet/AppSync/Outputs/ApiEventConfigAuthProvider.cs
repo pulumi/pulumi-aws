@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppSync.Outputs
     public sealed class ApiEventConfigAuthProvider
     {
         /// <summary>
-        /// Type of authentication provider. Valid values: `AMAZON_COGNITO_USER_POOLS`, `AWS_LAMBDA`, `OPENID_CONNECT`, `API_KEY`.
+        /// Type of authentication provider. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
         /// </summary>
         public readonly string AuthType;
         /// <summary>

@@ -1040,11 +1040,11 @@ if not MYPY:
     class SubscriberSourceAwsLogSourceResourceArgsDict(TypedDict):
         source_name: pulumi.Input[_builtins.str]
         """
-        Provides data expiration details of Amazon Security Lake object.
+        The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT` and `WAF`.
         """
         source_version: NotRequired[pulumi.Input[_builtins.str]]
         """
-        Provides data storage transition details of Amazon Security Lake object.
+        The version for a AWS source. This must be a Regionally unique value.
         """
 elif False:
     SubscriberSourceAwsLogSourceResourceArgsDict: TypeAlias = Mapping[str, Any]
@@ -1055,8 +1055,8 @@ class SubscriberSourceAwsLogSourceResourceArgs:
                  source_name: pulumi.Input[_builtins.str],
                  source_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] source_name: Provides data expiration details of Amazon Security Lake object.
-        :param pulumi.Input[_builtins.str] source_version: Provides data storage transition details of Amazon Security Lake object.
+        :param pulumi.Input[_builtins.str] source_name: The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT` and `WAF`.
+        :param pulumi.Input[_builtins.str] source_version: The version for a AWS source. This must be a Regionally unique value.
         """
         pulumi.set(__self__, "source_name", source_name)
         if source_version is not None:
@@ -1066,7 +1066,7 @@ class SubscriberSourceAwsLogSourceResourceArgs:
     @pulumi.getter(name="sourceName")
     def source_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Provides data expiration details of Amazon Security Lake object.
+        The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT` and `WAF`.
         """
         return pulumi.get(self, "source_name")
 
@@ -1078,7 +1078,7 @@ class SubscriberSourceAwsLogSourceResourceArgs:
     @pulumi.getter(name="sourceVersion")
     def source_version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Provides data storage transition details of Amazon Security Lake object.
+        The version for a AWS source. This must be a Regionally unique value.
         """
         return pulumi.get(self, "source_version")
 

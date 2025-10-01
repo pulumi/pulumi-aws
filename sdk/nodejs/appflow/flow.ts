@@ -111,11 +111,23 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `name` (String) Name of the AppFlow flow.
+ *
+ * #### Optional
+ *
+ * * `account_id` (String) AWS Account where this resource is managed.
+ *
+ * * `region` (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import AppFlow flows using the `name`. For example:
  *
- * ```sh
- * $ pulumi import aws:appflow/flow:Flow example example-flow
- * ```
+ * console
+ *
+ * % pulumi import aws_appflow_flow.example example-flow
  */
 export class Flow extends pulumi.CustomResource {
     /**

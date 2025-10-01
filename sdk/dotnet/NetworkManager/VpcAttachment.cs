@@ -37,6 +37,36 @@ namespace Pulumi.Aws.NetworkManager
     /// });
     /// ```
     /// 
+    /// ### Usage with Options
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.NetworkManager.VpcAttachment("example", new()
+    ///     {
+    ///         SubnetArns = new[]
+    ///         {
+    ///             exampleAwsSubnet.Arn,
+    ///         },
+    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
+    ///         VpcArn = exampleAwsVpc.Arn,
+    ///         Options = new Aws.NetworkManager.Inputs.VpcAttachmentOptionsArgs
+    ///         {
+    ///             ApplianceModeSupport = false,
+    ///             DnsSupport = true,
+    ///             Ipv6Support = false,
+    ///             SecurityGroupReferencingSupport = true,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_networkmanager_vpc_attachment` using the attachment ID. For example:
@@ -88,7 +118,7 @@ namespace Pulumi.Aws.NetworkManager
         /// Options for the VPC attachment. See below.
         /// </summary>
         [Output("options")]
-        public Output<Outputs.VpcAttachmentOptions?> Options { get; private set; } = null!;
+        public Output<Outputs.VpcAttachmentOptions> Options { get; private set; } = null!;
 
         /// <summary>
         /// ID of the attachment account owner.

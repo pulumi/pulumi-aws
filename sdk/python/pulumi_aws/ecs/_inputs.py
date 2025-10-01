@@ -1062,6 +1062,10 @@ if not MYPY:
         """
         ARN of the IAM role that grants the service permission to invoke the Lambda function.
         """
+        hook_details: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Custom parameters that Amazon ECS will pass to the hook target invocations (such as a Lambda function).
+        """
 elif False:
     ServiceDeploymentConfigurationLifecycleHookArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1070,15 +1074,19 @@ class ServiceDeploymentConfigurationLifecycleHookArgs:
     def __init__(__self__, *,
                  hook_target_arn: pulumi.Input[_builtins.str],
                  lifecycle_stages: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 role_arn: pulumi.Input[_builtins.str]):
+                 role_arn: pulumi.Input[_builtins.str],
+                 hook_details: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] hook_target_arn: ARN of the Lambda function to invoke for the lifecycle hook.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] lifecycle_stages: Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that grants the service permission to invoke the Lambda function.
+        :param pulumi.Input[_builtins.str] hook_details: Custom parameters that Amazon ECS will pass to the hook target invocations (such as a Lambda function).
         """
         pulumi.set(__self__, "hook_target_arn", hook_target_arn)
         pulumi.set(__self__, "lifecycle_stages", lifecycle_stages)
         pulumi.set(__self__, "role_arn", role_arn)
+        if hook_details is not None:
+            pulumi.set(__self__, "hook_details", hook_details)
 
     @_builtins.property
     @pulumi.getter(name="hookTargetArn")
@@ -1115,6 +1123,18 @@ class ServiceDeploymentConfigurationLifecycleHookArgs:
     @role_arn.setter
     def role_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hookDetails")
+    def hook_details(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Custom parameters that Amazon ECS will pass to the hook target invocations (such as a Lambda function).
+        """
+        return pulumi.get(self, "hook_details")
+
+    @hook_details.setter
+    def hook_details(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "hook_details", value)
 
 
 if not MYPY:

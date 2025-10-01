@@ -82,6 +82,10 @@ type LookupMountTargetResult struct {
 	Id string `pulumi:"id"`
 	// Address at which the file system may be mounted via the mount target.
 	IpAddress string `pulumi:"ipAddress"`
+	// IP address type for the mount target.
+	IpAddressType string `pulumi:"ipAddressType"`
+	// IPv6 address at which the file system may be mounted via the mount target.
+	Ipv6Address string `pulumi:"ipv6Address"`
 	// The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
 	MountTargetDnsName string `pulumi:"mountTargetDnsName"`
 	MountTargetId      string `pulumi:"mountTargetId"`
@@ -172,6 +176,16 @@ func (o LookupMountTargetResultOutput) Id() pulumi.StringOutput {
 // Address at which the file system may be mounted via the mount target.
 func (o LookupMountTargetResultOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMountTargetResult) string { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+// IP address type for the mount target.
+func (o LookupMountTargetResultOutput) IpAddressType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMountTargetResult) string { return v.IpAddressType }).(pulumi.StringOutput)
+}
+
+// IPv6 address at which the file system may be mounted via the mount target.
+func (o LookupMountTargetResultOutput) Ipv6Address() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMountTargetResult) string { return v.Ipv6Address }).(pulumi.StringOutput)
 }
 
 // The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).

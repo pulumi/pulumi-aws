@@ -272,11 +272,21 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// - `arn` (String) Amazon Resource Name (ARN) of the compute environment.
+//
 // Using `pulumi import`, import AWS Batch compute using the `name`. For example:
 //
-// ```sh
-// $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
-// ```
+// console
+//
+// % pulumi import aws_batch_compute_environment.sample sample
+//
+// [1]: http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html
+// [2]: http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html
+// [3]: http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html
 type ComputeEnvironment struct {
 	pulumi.CustomResourceState
 

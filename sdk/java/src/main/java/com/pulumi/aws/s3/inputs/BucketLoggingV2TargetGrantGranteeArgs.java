@@ -16,9 +16,21 @@ public final class BucketLoggingV2TargetGrantGranteeArgs extends com.pulumi.reso
 
     public static final BucketLoggingV2TargetGrantGranteeArgs Empty = new BucketLoggingV2TargetGrantGranteeArgs();
 
+    /**
+     * @deprecated
+     * display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
+     * 
+     */
+    @Deprecated /* display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version. */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
+    /**
+     * @deprecated
+     * display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
+     * 
+     */
+    @Deprecated /* display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version. */
     public Optional<Output<String>> displayName() {
         return Optional.ofNullable(this.displayName);
     }
@@ -111,11 +123,27 @@ public final class BucketLoggingV2TargetGrantGranteeArgs extends com.pulumi.reso
             $ = new BucketLoggingV2TargetGrantGranteeArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
+         * 
+         */
+        @Deprecated /* display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version. */
         public Builder displayName(@Nullable Output<String> displayName) {
             $.displayName = displayName;
             return this;
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
+         * 
+         */
+        @Deprecated /* display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version. */
         public Builder displayName(String displayName) {
             return displayName(Output.of(displayName));
         }

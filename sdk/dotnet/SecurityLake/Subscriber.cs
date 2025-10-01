@@ -16,6 +16,8 @@ namespace Pulumi.Aws.SecurityLake
     /// 
     /// ## Example Usage
     /// 
+    /// ### Basic Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,6 +38,55 @@ namespace Pulumi.Aws.SecurityLake
     ///                 {
     ///                     SourceName = "ROUTE53",
     ///                     SourceVersion = "1.0",
+    ///                 },
+    ///             },
+    ///         },
+    ///         SubscriberIdentity = new Aws.SecurityLake.Inputs.SubscriberSubscriberIdentityArgs
+    ///         {
+    ///             ExternalId = "example",
+    ///             Principal = "1234567890",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAwsSecuritylakeDataLake,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Multiple Log Sources
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.SecurityLake.Subscriber("example", new()
+    ///     {
+    ///         SubscriberName = "example-name",
+    ///         AccessType = "S3",
+    ///         Sources = new[]
+    ///         {
+    ///             new Aws.SecurityLake.Inputs.SubscriberSourceArgs
+    ///             {
+    ///                 AwsLogSourceResource = new Aws.SecurityLake.Inputs.SubscriberSourceAwsLogSourceResourceArgs
+    ///                 {
+    ///                     SourceName = "SH_FINDINGS",
+    ///                     SourceVersion = "2.0",
+    ///                 },
+    ///             },
+    ///             new Aws.SecurityLake.Inputs.SubscriberSourceArgs
+    ///             {
+    ///                 AwsLogSourceResource = new Aws.SecurityLake.Inputs.SubscriberSourceAwsLogSourceResourceArgs
+    ///                 {
+    ///                     SourceName = "ROUTE53",
+    ///                     SourceVersion = "2.0",
     ///                 },
     ///             },
     ///         },

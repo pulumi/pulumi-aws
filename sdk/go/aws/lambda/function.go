@@ -646,11 +646,23 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `function_name` (String) Name of the Lambda function.
+//
+// #### Optional
+//
+// * `account_id` (String) AWS Account where this resource is managed.
+//
+// * `region` (String) Region where this resource is managed.
+//
 // Using `pulumi import`, import Lambda Functions using the `function_name`. For example:
 //
-// ```sh
-// $ pulumi import aws:lambda/function:Function example example
-// ```
+// console
+//
+// % pulumi import aws_lambda_function.example example
 type Function struct {
 	pulumi.CustomResourceState
 
@@ -734,6 +746,8 @@ type Function struct {
 	SourceCodeHash pulumi.StringOutput `pulumi:"sourceCodeHash"`
 	// Size in bytes of the function .zip file.
 	SourceCodeSize pulumi.IntOutput `pulumi:"sourceCodeSize"`
+	// ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `imageUri`.
+	SourceKmsKeyArn pulumi.StringPtrOutput `pulumi:"sourceKmsKeyArn"`
 	// Key-value map of tags for the Lambda function. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -861,6 +875,8 @@ type functionState struct {
 	SourceCodeHash *string `pulumi:"sourceCodeHash"`
 	// Size in bytes of the function .zip file.
 	SourceCodeSize *int `pulumi:"sourceCodeSize"`
+	// ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `imageUri`.
+	SourceKmsKeyArn *string `pulumi:"sourceKmsKeyArn"`
 	// Key-value map of tags for the Lambda function. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -956,6 +972,8 @@ type FunctionState struct {
 	SourceCodeHash pulumi.StringPtrInput
 	// Size in bytes of the function .zip file.
 	SourceCodeSize pulumi.IntPtrInput
+	// ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `imageUri`.
+	SourceKmsKeyArn pulumi.StringPtrInput
 	// Key-value map of tags for the Lambda function. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -1037,6 +1055,8 @@ type functionArgs struct {
 	SnapStart *FunctionSnapStart `pulumi:"snapStart"`
 	// Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
 	SourceCodeHash *string `pulumi:"sourceCodeHash"`
+	// ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `imageUri`.
+	SourceKmsKeyArn *string `pulumi:"sourceKmsKeyArn"`
 	// Key-value map of tags for the Lambda function. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
@@ -1111,6 +1131,8 @@ type FunctionArgs struct {
 	SnapStart FunctionSnapStartPtrInput
 	// Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
 	SourceCodeHash pulumi.StringPtrInput
+	// ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `imageUri`.
+	SourceKmsKeyArn pulumi.StringPtrInput
 	// Key-value map of tags for the Lambda function. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
@@ -1403,6 +1425,11 @@ func (o FunctionOutput) SourceCodeHash() pulumi.StringOutput {
 // Size in bytes of the function .zip file.
 func (o FunctionOutput) SourceCodeSize() pulumi.IntOutput {
 	return o.ApplyT(func(v *Function) pulumi.IntOutput { return v.SourceCodeSize }).(pulumi.IntOutput)
+}
+
+// ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `imageUri`.
+func (o FunctionOutput) SourceKmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.SourceKmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of tags for the Lambda function. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

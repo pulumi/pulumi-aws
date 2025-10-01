@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Ecs.Outputs
     public sealed class ServiceDeploymentConfigurationLifecycleHook
     {
         /// <summary>
+        /// Custom parameters that Amazon ECS will pass to the hook target invocations (such as a Lambda function).
+        /// </summary>
+        public readonly string? HookDetails;
+        /// <summary>
         /// ARN of the Lambda function to invoke for the lifecycle hook.
         /// </summary>
         public readonly string HookTargetArn;
@@ -28,12 +32,15 @@ namespace Pulumi.Aws.Ecs.Outputs
 
         [OutputConstructor]
         private ServiceDeploymentConfigurationLifecycleHook(
+            string? hookDetails,
+
             string hookTargetArn,
 
             ImmutableArray<string> lifecycleStages,
 
             string roleArn)
         {
+            HookDetails = hookDetails;
             HookTargetArn = hookTargetArn;
             LifecycleStages = lifecycleStages;
             RoleArn = roleArn;

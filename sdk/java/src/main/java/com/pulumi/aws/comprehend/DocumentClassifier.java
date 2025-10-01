@@ -72,11 +72,17 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * - `arn` (String) Amazon Resource Name (ARN) of the Comprehend document classifier.
+ * 
  * Using `pulumi import`, import Comprehend Document Classifier using the ARN. For example:
  * 
- * ```sh
- * $ pulumi import aws:comprehend/documentClassifier:DocumentClassifier example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
- * ```
+ * console
+ * 
+ * % pulumi import aws_comprehend_document_classifier.example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
  * 
  */
 @ResourceType(type="aws:comprehend/documentClassifier:DocumentClassifier")

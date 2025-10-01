@@ -615,11 +615,17 @@ class CustomModel(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the Bedrock custom model.
+
         Using `pulumi import`, import Bedrock custom model using the `job_arn`. For example:
 
-        ```sh
-        $ pulumi import aws:bedrock/customModel:CustomModel example arn:aws:bedrock:us-west-2:123456789012:model-customization-job/amazon.titan-text-express-v1:0:8k/1y5n57gh5y2e
-        ```
+        console
+
+        % pulumi import aws_bedrock_custom_model.example arn:aws:bedrock:us-west-2:123456789012:model-customization-job/amazon.titan-text-express-v1:0:8k/1y5n57gh5y2e
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -672,11 +678,17 @@ class CustomModel(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the Bedrock custom model.
+
         Using `pulumi import`, import Bedrock custom model using the `job_arn`. For example:
 
-        ```sh
-        $ pulumi import aws:bedrock/customModel:CustomModel example arn:aws:bedrock:us-west-2:123456789012:model-customization-job/amazon.titan-text-express-v1:0:8k/1y5n57gh5y2e
-        ```
+        console
+
+        % pulumi import aws_bedrock_custom_model.example arn:aws:bedrock:us-west-2:123456789012:model-customization-job/amazon.titan-text-express-v1:0:8k/1y5n57gh5y2e
 
         :param str resource_name: The name of the resource.
         :param CustomModelArgs args: The arguments to use to populate this resource's properties.

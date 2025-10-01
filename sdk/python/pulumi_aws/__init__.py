@@ -85,6 +85,8 @@ if typing.TYPE_CHECKING:
     bedrockfoundation = __bedrockfoundation
     import pulumi_aws.bedrockmodel as __bedrockmodel
     bedrockmodel = __bedrockmodel
+    import pulumi_aws.billing as __billing
+    billing = __billing
     import pulumi_aws.budgets as __budgets
     budgets = __budgets
     import pulumi_aws.cfg as __cfg
@@ -323,6 +325,8 @@ if typing.TYPE_CHECKING:
     notifications = __notifications
     import pulumi_aws.oam as __oam
     oam = __oam
+    import pulumi_aws.odb as __odb
+    odb = __odb
     import pulumi_aws.opensearch as __opensearch
     opensearch = __opensearch
     import pulumi_aws.opensearchingest as __opensearchingest
@@ -498,6 +502,7 @@ else:
     bedrock = _utilities.lazy_import('pulumi_aws.bedrock')
     bedrockfoundation = _utilities.lazy_import('pulumi_aws.bedrockfoundation')
     bedrockmodel = _utilities.lazy_import('pulumi_aws.bedrockmodel')
+    billing = _utilities.lazy_import('pulumi_aws.billing')
     budgets = _utilities.lazy_import('pulumi_aws.budgets')
     cfg = _utilities.lazy_import('pulumi_aws.cfg')
     chatbot = _utilities.lazy_import('pulumi_aws.chatbot')
@@ -617,6 +622,7 @@ else:
     networkmonitor = _utilities.lazy_import('pulumi_aws.networkmonitor')
     notifications = _utilities.lazy_import('pulumi_aws.notifications')
     oam = _utilities.lazy_import('pulumi_aws.oam')
+    odb = _utilities.lazy_import('pulumi_aws.odb')
     opensearch = _utilities.lazy_import('pulumi_aws.opensearch')
     opensearchingest = _utilities.lazy_import('pulumi_aws.opensearchingest')
     organizations = _utilities.lazy_import('pulumi_aws.organizations')
@@ -3183,6 +3189,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "cognito/managedLoginBranding",
+  "fqn": "pulumi_aws.cognito",
+  "classes": {
+   "aws:cognito/managedLoginBranding:ManagedLoginBranding": "ManagedLoginBranding"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "cognito/managedUserPoolClient",
   "fqn": "pulumi_aws.cognito",
   "classes": {
@@ -3427,6 +3441,14 @@ _utilities.register(
   "fqn": "pulumi_aws.connect",
   "classes": {
    "aws:connect/vocabulary:Vocabulary": "Vocabulary"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "controltower/baseline",
+  "fqn": "pulumi_aws.controltower",
+  "classes": {
+   "aws:controltower/baseline:Baseline": "Baseline"
   }
  },
  {
@@ -8771,6 +8793,46 @@ _utilities.register(
   "fqn": "pulumi_aws.oam",
   "classes": {
    "aws:oam/sinkPolicy:SinkPolicy": "SinkPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "odb/cloudAutonomousVmCluster",
+  "fqn": "pulumi_aws.odb",
+  "classes": {
+   "aws:odb/cloudAutonomousVmCluster:CloudAutonomousVmCluster": "CloudAutonomousVmCluster"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "odb/cloudExadataInfrastructure",
+  "fqn": "pulumi_aws.odb",
+  "classes": {
+   "aws:odb/cloudExadataInfrastructure:CloudExadataInfrastructure": "CloudExadataInfrastructure"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "odb/cloudVmCluster",
+  "fqn": "pulumi_aws.odb",
+  "classes": {
+   "aws:odb/cloudVmCluster:CloudVmCluster": "CloudVmCluster"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "odb/network",
+  "fqn": "pulumi_aws.odb",
+  "classes": {
+   "aws:odb/network:Network": "Network"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "odb/networkPeeringConnection",
+  "fqn": "pulumi_aws.odb",
+  "classes": {
+   "aws:odb/networkPeeringConnection:NetworkPeeringConnection": "NetworkPeeringConnection"
   }
  },
  {

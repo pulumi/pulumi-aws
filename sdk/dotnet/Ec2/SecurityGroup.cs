@@ -286,11 +286,23 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `id` (String) ID of the security group.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// 
+    /// * `region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import Security Groups using the security group `id`. For example:
     /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2/securityGroup:SecurityGroup elb_sg sg-903004f8
-    /// ```
+    /// console
+    /// 
+    /// % pulumi import aws_security_group.example sg-903004f8
     /// </summary>
     [AwsResourceType("aws:ec2/securityGroup:SecurityGroup")]
     public partial class SecurityGroup : global::Pulumi.CustomResource

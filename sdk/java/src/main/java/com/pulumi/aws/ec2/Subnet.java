@@ -105,11 +105,23 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `id` (String) ID of the subnet.
+ * 
+ * #### Optional
+ * 
+ * * `account_id` (String) AWS Account where this resource is managed.
+ * 
+ * * `region` (String) Region where this resource is managed.
+ * 
  * Using `pulumi import`, import subnets using the subnet `id`. For example:
  * 
- * ```sh
- * $ pulumi import aws:ec2/subnet:Subnet public_subnet subnet-9d4a7b6c
- * ```
+ * console
+ * 
+ * % pulumi import aws_subnet.example subnet-9d4a7b6c
  * 
  */
 @ResourceType(type="aws:ec2/subnet:Subnet")

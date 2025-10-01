@@ -31,6 +31,21 @@ public final class VpcAttachmentOptionsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
+     * Whether to enable DNS support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+     * 
+     */
+    @Import(name="dnsSupport")
+    private @Nullable Output<Boolean> dnsSupport;
+
+    /**
+     * @return Whether to enable DNS support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+     * 
+     */
+    public Optional<Output<Boolean>> dnsSupport() {
+        return Optional.ofNullable(this.dnsSupport);
+    }
+
+    /**
      * Whether to enable IPv6 support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
      * 
      */
@@ -45,11 +60,28 @@ public final class VpcAttachmentOptionsArgs extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.ipv6Support);
     }
 
+    /**
+     * Whether to enable security group referencing support for this VPC attachment. The default is `true`. However, at the core network policy-level the default is set to `false`. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+     * 
+     */
+    @Import(name="securityGroupReferencingSupport")
+    private @Nullable Output<Boolean> securityGroupReferencingSupport;
+
+    /**
+     * @return Whether to enable security group referencing support for this VPC attachment. The default is `true`. However, at the core network policy-level the default is set to `false`. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+     * 
+     */
+    public Optional<Output<Boolean>> securityGroupReferencingSupport() {
+        return Optional.ofNullable(this.securityGroupReferencingSupport);
+    }
+
     private VpcAttachmentOptionsArgs() {}
 
     private VpcAttachmentOptionsArgs(VpcAttachmentOptionsArgs $) {
         this.applianceModeSupport = $.applianceModeSupport;
+        this.dnsSupport = $.dnsSupport;
         this.ipv6Support = $.ipv6Support;
+        this.securityGroupReferencingSupport = $.securityGroupReferencingSupport;
     }
 
     public static Builder builder() {
@@ -92,6 +124,27 @@ public final class VpcAttachmentOptionsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
+         * @param dnsSupport Whether to enable DNS support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dnsSupport(@Nullable Output<Boolean> dnsSupport) {
+            $.dnsSupport = dnsSupport;
+            return this;
+        }
+
+        /**
+         * @param dnsSupport Whether to enable DNS support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dnsSupport(Boolean dnsSupport) {
+            return dnsSupport(Output.of(dnsSupport));
+        }
+
+        /**
          * @param ipv6Support Whether to enable IPv6 support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
          * 
          * @return builder
@@ -110,6 +163,27 @@ public final class VpcAttachmentOptionsArgs extends com.pulumi.resources.Resourc
          */
         public Builder ipv6Support(Boolean ipv6Support) {
             return ipv6Support(Output.of(ipv6Support));
+        }
+
+        /**
+         * @param securityGroupReferencingSupport Whether to enable security group referencing support for this VPC attachment. The default is `true`. However, at the core network policy-level the default is set to `false`. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityGroupReferencingSupport(@Nullable Output<Boolean> securityGroupReferencingSupport) {
+            $.securityGroupReferencingSupport = securityGroupReferencingSupport;
+            return this;
+        }
+
+        /**
+         * @param securityGroupReferencingSupport Whether to enable security group referencing support for this VPC attachment. The default is `true`. However, at the core network policy-level the default is set to `false`. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityGroupReferencingSupport(Boolean securityGroupReferencingSupport) {
+            return securityGroupReferencingSupport(Output.of(securityGroupReferencingSupport));
         }
 
         public VpcAttachmentOptionsArgs build() {

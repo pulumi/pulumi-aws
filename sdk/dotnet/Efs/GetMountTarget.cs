@@ -186,6 +186,14 @@ namespace Pulumi.Aws.Efs
         /// </summary>
         public readonly string IpAddress;
         /// <summary>
+        /// IP address type for the mount target.
+        /// </summary>
+        public readonly string IpAddressType;
+        /// <summary>
+        /// IPv6 address at which the file system may be mounted via the mount target.
+        /// </summary>
+        public readonly string Ipv6Address;
+        /// <summary>
         /// The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
         /// </summary>
         public readonly string MountTargetDnsName;
@@ -226,6 +234,10 @@ namespace Pulumi.Aws.Efs
 
             string ipAddress,
 
+            string ipAddressType,
+
+            string ipv6Address,
+
             string mountTargetDnsName,
 
             string mountTargetId,
@@ -248,6 +260,8 @@ namespace Pulumi.Aws.Efs
             FileSystemId = fileSystemId;
             Id = id;
             IpAddress = ipAddress;
+            IpAddressType = ipAddressType;
+            Ipv6Address = ipv6Address;
             MountTargetDnsName = mountTargetDnsName;
             MountTargetId = mountTargetId;
             NetworkInterfaceId = networkInterfaceId;

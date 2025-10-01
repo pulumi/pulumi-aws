@@ -23,6 +23,7 @@ namespace Pulumi.Aws.DynamoDB.Outputs
         public readonly string ProjectionType;
         public readonly string RangeKey;
         public readonly int ReadCapacity;
+        public readonly ImmutableArray<Outputs.GetTableGlobalSecondaryIndexWarmThroughputResult> WarmThroughputs;
         public readonly int WriteCapacity;
 
         [OutputConstructor]
@@ -41,6 +42,8 @@ namespace Pulumi.Aws.DynamoDB.Outputs
 
             int readCapacity,
 
+            ImmutableArray<Outputs.GetTableGlobalSecondaryIndexWarmThroughputResult> warmThroughputs,
+
             int writeCapacity)
         {
             HashKey = hashKey;
@@ -50,6 +53,7 @@ namespace Pulumi.Aws.DynamoDB.Outputs
             ProjectionType = projectionType;
             RangeKey = rangeKey;
             ReadCapacity = readCapacity;
+            WarmThroughputs = warmThroughputs;
             WriteCapacity = writeCapacity;
         }
     }

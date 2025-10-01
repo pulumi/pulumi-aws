@@ -54,11 +54,17 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild source credential.
+ *
  * Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential arn. For example:
  *
- * ```sh
- * $ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github
- * ```
+ * console
+ *
+ * % pulumi import aws_codebuild_source_credential.example arn:aws:codebuild:us-west-2:123456789:token:github
  */
 export class SourceCredential extends pulumi.CustomResource {
     /**

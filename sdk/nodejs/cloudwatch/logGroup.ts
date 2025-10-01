@@ -24,11 +24,23 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `name` (String) Name of the CloudWatch log group.
+ *
+ * #### Optional
+ *
+ * * `account_id` (String) AWS Account where this resource is managed.
+ *
+ * * `region` (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import Cloudwatch Log Groups using the `name`. For example:
  *
- * ```sh
- * $ pulumi import aws:cloudwatch/logGroup:LogGroup test_group yada
- * ```
+ * console
+ *
+ * % pulumi import aws_cloudwatch_log_group.example yada
  */
 export class LogGroup extends pulumi.CustomResource {
     /**

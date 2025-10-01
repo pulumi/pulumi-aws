@@ -1004,11 +1004,23 @@ class Bucket(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `bucket` (String) Name of the S3 bucket.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import S3 bucket using the `bucket`. For example:
 
-        ```sh
-        $ pulumi import aws:s3/bucket:Bucket bucket bucket-name
-        ```
+        console
+
+        % pulumi import aws_s3_bucket.example bucket-name
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1080,11 +1092,23 @@ class Bucket(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `bucket` (String) Name of the S3 bucket.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import S3 bucket using the `bucket`. For example:
 
-        ```sh
-        $ pulumi import aws:s3/bucket:Bucket bucket bucket-name
-        ```
+        console
+
+        % pulumi import aws_s3_bucket.example bucket-name
 
         :param str resource_name: The name of the resource.
         :param BucketArgs args: The arguments to use to populate this resource's properties.

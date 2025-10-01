@@ -461,11 +461,17 @@ class AnomalySubscription(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the Cost Explorer anomaly subscription.
+
         Using `pulumi import`, import `aws_ce_anomaly_subscription` using the `id`. For example:
 
-        ```sh
-        $ pulumi import aws:costexplorer/anomalySubscription:AnomalySubscription example AnomalySubscriptionARN
-        ```
+        console
+
+        % pulumi import aws_ce_anomaly_subscription.example AnomalySubscriptionARN
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -643,11 +649,17 @@ class AnomalySubscription(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the Cost Explorer anomaly subscription.
+
         Using `pulumi import`, import `aws_ce_anomaly_subscription` using the `id`. For example:
 
-        ```sh
-        $ pulumi import aws:costexplorer/anomalySubscription:AnomalySubscription example AnomalySubscriptionARN
-        ```
+        console
+
+        % pulumi import aws_ce_anomaly_subscription.example AnomalySubscriptionARN
 
         :param str resource_name: The name of the resource.
         :param AnomalySubscriptionArgs args: The arguments to use to populate this resource's properties.

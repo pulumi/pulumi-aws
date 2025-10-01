@@ -84,6 +84,7 @@ type LookupTableResult struct {
 	TableClass            string                        `pulumi:"tableClass"`
 	Tags                  map[string]string             `pulumi:"tags"`
 	Ttl                   GetTableTtl                   `pulumi:"ttl"`
+	WarmThroughputs       []GetTableWarmThroughput      `pulumi:"warmThroughputs"`
 	WriteCapacity         int                           `pulumi:"writeCapacity"`
 }
 
@@ -216,6 +217,10 @@ func (o LookupTableResultOutput) Tags() pulumi.StringMapOutput {
 
 func (o LookupTableResultOutput) Ttl() GetTableTtlOutput {
 	return o.ApplyT(func(v LookupTableResult) GetTableTtl { return v.Ttl }).(GetTableTtlOutput)
+}
+
+func (o LookupTableResultOutput) WarmThroughputs() GetTableWarmThroughputArrayOutput {
+	return o.ApplyT(func(v LookupTableResult) []GetTableWarmThroughput { return v.WarmThroughputs }).(GetTableWarmThroughputArrayOutput)
 }
 
 func (o LookupTableResultOutput) WriteCapacity() pulumi.IntOutput {

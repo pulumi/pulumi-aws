@@ -145,11 +145,17 @@ class CustomRoutingListener(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator custom routing listener.
+
         Using `pulumi import`, import Global Accelerator custom routing listeners using the `id`. For example:
 
-        ```sh
-        $ pulumi import aws:globalaccelerator/customRoutingListener:CustomRoutingListener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
-        ```
+        console
+
+        % pulumi import aws_globalaccelerator_custom_routing_listener.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -190,11 +196,17 @@ class CustomRoutingListener(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator custom routing listener.
+
         Using `pulumi import`, import Global Accelerator custom routing listeners using the `id`. For example:
 
-        ```sh
-        $ pulumi import aws:globalaccelerator/customRoutingListener:CustomRoutingListener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
-        ```
+        console
+
+        % pulumi import aws_globalaccelerator_custom_routing_listener.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
 
         :param str resource_name: The name of the resource.
         :param CustomRoutingListenerArgs args: The arguments to use to populate this resource's properties.

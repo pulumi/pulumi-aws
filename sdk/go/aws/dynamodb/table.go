@@ -351,6 +351,8 @@ type Table struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block for TTL. See below.
 	Ttl TableTtlOutput `pulumi:"ttl"`
+	// Sets the number of warm read and write units for the specified table. See below.
+	WarmThroughput TableWarmThroughputOutput `pulumi:"warmThroughput"`
 	// Number of write units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
 	WriteCapacity pulumi.IntOutput `pulumi:"writeCapacity"`
 }
@@ -445,6 +447,8 @@ type tableState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block for TTL. See below.
 	Ttl *TableTtl `pulumi:"ttl"`
+	// Sets the number of warm read and write units for the specified table. See below.
+	WarmThroughput *TableWarmThroughput `pulumi:"warmThroughput"`
 	// Number of write units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
 	WriteCapacity *int `pulumi:"writeCapacity"`
 }
@@ -510,6 +514,8 @@ type TableState struct {
 	TagsAll pulumi.StringMapInput
 	// Configuration block for TTL. See below.
 	Ttl TableTtlPtrInput
+	// Sets the number of warm read and write units for the specified table. See below.
+	WarmThroughput TableWarmThroughputPtrInput
 	// Number of write units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
 	WriteCapacity pulumi.IntPtrInput
 }
@@ -571,6 +577,8 @@ type tableArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Configuration block for TTL. See below.
 	Ttl *TableTtl `pulumi:"ttl"`
+	// Sets the number of warm read and write units for the specified table. See below.
+	WarmThroughput *TableWarmThroughput `pulumi:"warmThroughput"`
 	// Number of write units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
 	WriteCapacity *int `pulumi:"writeCapacity"`
 }
@@ -629,6 +637,8 @@ type TableArgs struct {
 	Tags pulumi.StringMapInput
 	// Configuration block for TTL. See below.
 	Ttl TableTtlPtrInput
+	// Sets the number of warm read and write units for the specified table. See below.
+	WarmThroughput TableWarmThroughputPtrInput
 	// Number of write units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
 	WriteCapacity pulumi.IntPtrInput
 }
@@ -862,6 +872,11 @@ func (o TableOutput) TagsAll() pulumi.StringMapOutput {
 // Configuration block for TTL. See below.
 func (o TableOutput) Ttl() TableTtlOutput {
 	return o.ApplyT(func(v *Table) TableTtlOutput { return v.Ttl }).(TableTtlOutput)
+}
+
+// Sets the number of warm read and write units for the specified table. See below.
+func (o TableOutput) WarmThroughput() TableWarmThroughputOutput {
+	return o.ApplyT(func(v *Table) TableWarmThroughputOutput { return v.WarmThroughput }).(TableWarmThroughputOutput)
 }
 
 // Number of write units for this table. If the `billingMode` is `PROVISIONED`, this field is required.

@@ -27,11 +27,17 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * - `arn` (String) Amazon Resource Name (ARN) of the CodeStar connections host.
+ *
  * Using `pulumi import`, import CodeStar Host using the ARN. For example:
  *
- * ```sh
- * $ pulumi import aws:codestarconnections/host:Host example-host arn:aws:codestar-connections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448
- * ```
+ * console
+ *
+ * % pulumi import aws_codestarconnections_host.example-host arn:aws:codestar-connections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448
  */
 export class Host extends pulumi.CustomResource {
     /**

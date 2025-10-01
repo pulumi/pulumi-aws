@@ -25,6 +25,25 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Usage with Options
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.networkmanager.VpcAttachment("example", {
+ *     subnetArns: [exampleAwsSubnet.arn],
+ *     coreNetworkId: exampleAwsccNetworkmanagerCoreNetwork.id,
+ *     vpcArn: exampleAwsVpc.arn,
+ *     options: {
+ *         applianceModeSupport: false,
+ *         dnsSupport: true,
+ *         ipv6Support: false,
+ *         securityGroupReferencingSupport: true,
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import `aws_networkmanager_vpc_attachment` using the attachment ID. For example:
@@ -88,7 +107,7 @@ export class VpcAttachment extends pulumi.CustomResource {
     /**
      * Options for the VPC attachment. See below.
      */
-    declare public readonly options: pulumi.Output<outputs.networkmanager.VpcAttachmentOptions | undefined>;
+    declare public readonly options: pulumi.Output<outputs.networkmanager.VpcAttachmentOptions>;
     /**
      * ID of the attachment account owner.
      */

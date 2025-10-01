@@ -30,11 +30,19 @@ import * as utilities from "../utilities";
  *         Name: "My bucket",
  *     },
  * });
- * const bAcl = new aws.s3.BucketAcl("b_acl", {
- *     bucket: b.id,
- *     acl: "private",
- * });
  * const s3OriginId = "myS3Origin";
+ * const myDomain = "mydomain.com";
+ * const myDomainGetCertificate = aws.acm.getCertificate({
+ *     region: "us-east-1",
+ *     domain: `*.${myDomain}`,
+ *     statuses: ["ISSUED"],
+ * });
+ * const _default = new aws.cloudfront.OriginAccessControl("default", {
+ *     name: "default-oac",
+ *     originAccessControlOriginType: "s3",
+ *     signingBehavior: "always",
+ *     signingProtocol: "sigv4",
+ * });
  * const s3Distribution = new aws.cloudfront.Distribution("s3_distribution", {
  *     origins: [{
  *         domainName: b.bucketRegionalDomainName,
@@ -45,14 +53,9 @@ import * as utilities from "../utilities";
  *     isIpv6Enabled: true,
  *     comment: "Some comment",
  *     defaultRootObject: "index.html",
- *     loggingConfig: {
- *         includeCookies: false,
- *         bucket: "mylogs.s3.amazonaws.com",
- *         prefix: "myprefix",
- *     },
  *     aliases: [
- *         "mysite.example.com",
- *         "yoursite.example.com",
+ *         `mysite.${myDomain}`,
+ *         `yoursite.${myDomain}`,
  *     ],
  *     defaultCacheBehavior: {
  *         allowedMethods: [
@@ -148,8 +151,53 @@ import * as utilities from "../utilities";
  *         Environment: "production",
  *     },
  *     viewerCertificate: {
- *         cloudfrontDefaultCertificate: true,
+ *         acmCertificateArn: myDomainGetCertificate.then(myDomainGetCertificate => myDomainGetCertificate.arn),
+ *         sslSupportMethod: "sni-only",
  *     },
+ * });
+ * // See https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
+ * const originBucketPolicy = aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         sid: "AllowCloudFrontServicePrincipalReadWrite",
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["cloudfront.amazonaws.com"],
+ *         }],
+ *         actions: [
+ *             "s3:GetObject",
+ *             "s3:PutObject",
+ *         ],
+ *         resources: [pulumi.interpolate`${b.arn}/*`],
+ *         conditions: [{
+ *             test: "StringEquals",
+ *             variable: "AWS:SourceArn",
+ *             values: [s3Distribution.arn],
+ *         }],
+ *     }],
+ * });
+ * const bBucketPolicy = new aws.s3.BucketPolicy("b", {
+ *     bucket: b.bucket,
+ *     policy: originBucketPolicy.apply(originBucketPolicy => originBucketPolicy.json),
+ * });
+ * // Create Route53 records for the CloudFront distribution aliases
+ * const myDomainGetZone = aws.route53.getZone({
+ *     name: myDomain,
+ * });
+ * const cloudfront: aws.route53.Record[] = [];
+ * s3Distribution.aliases.apply(rangeBody => {
+ *     for (const range of rangeBody.map((v, k) => ({key: k, value: v}))) {
+ *         cloudfront.push(new aws.route53.Record(`cloudfront-${range.key}`, {
+ *             zoneId: myDomainGetZone.then(myDomainGetZone => myDomainGetZone.zoneId),
+ *             name: range.value,
+ *             type: aws.route53.RecordType.A,
+ *             aliases: [{
+ *                 name: s3Distribution.domainName,
+ *                 zoneId: s3Distribution.hostedZoneId,
+ *                 evaluateTargetHealth: false,
+ *             }],
+ *         }));
+ *     }
  * });
  * ```
  *

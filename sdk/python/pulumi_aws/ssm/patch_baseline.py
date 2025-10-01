@@ -729,11 +729,23 @@ class PatchBaseline(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `id` - (String) ID of the patch baseline.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import SSM Patch Baselines using their baseline ID. For example:
 
-        ```sh
-        $ pulumi import aws:ssm/patchBaseline:PatchBaseline example pb-12345678
-        ```
+        console
+
+        % pulumi import aws_ssm_patch_baseline.example pb-12345678
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -930,11 +942,23 @@ class PatchBaseline(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `id` - (String) ID of the patch baseline.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import SSM Patch Baselines using their baseline ID. For example:
 
-        ```sh
-        $ pulumi import aws:ssm/patchBaseline:PatchBaseline example pb-12345678
-        ```
+        console
+
+        % pulumi import aws_ssm_patch_baseline.example pb-12345678
 
         :param str resource_name: The name of the resource.
         :param PatchBaselineArgs args: The arguments to use to populate this resource's properties.

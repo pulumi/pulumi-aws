@@ -148,9 +148,10 @@ namespace Pulumi.Aws.Ec2
         private List<Inputs.GetInstanceFilterArgs>? _filters;
 
         /// <summary>
-        /// One or more name/value pairs to use as filters. There are
-        /// several valid keys, for a full reference, check out
-        /// [describe-instances in the AWS CLI reference][1].
+        /// One or more filters to apply to the search.
+        /// If multiple `filter` blocks are provided, they all must be true.
+        /// For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+        /// See `filter` Block below.
         /// </summary>
         public List<Inputs.GetInstanceFilterArgs> Filters
         {
@@ -225,9 +226,10 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.GetInstanceFilterInputArgs>? _filters;
 
         /// <summary>
-        /// One or more name/value pairs to use as filters. There are
-        /// several valid keys, for a full reference, check out
-        /// [describe-instances in the AWS CLI reference][1].
+        /// One or more filters to apply to the search.
+        /// If multiple `filter` blocks are provided, they all must be true.
+        /// For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+        /// See `filter` Block below.
         /// </summary>
         public InputList<Inputs.GetInstanceFilterInputArgs> Filters
         {
@@ -414,6 +416,10 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string PlacementGroup;
         /// <summary>
+        /// Placement group ID of the Instance.
+        /// </summary>
+        public readonly string PlacementGroupId;
+        /// <summary>
         /// Number of the partition the instance is in.
         /// </summary>
         public readonly int PlacementPartitionNumber;
@@ -545,6 +551,8 @@ namespace Pulumi.Aws.Ec2
 
             string placementGroup,
 
+            string placementGroupId,
+
             int placementPartitionNumber,
 
             string privateDns,
@@ -611,6 +619,7 @@ namespace Pulumi.Aws.Ec2
             OutpostArn = outpostArn;
             PasswordData = passwordData;
             PlacementGroup = placementGroup;
+            PlacementGroupId = placementGroupId;
             PlacementPartitionNumber = placementPartitionNumber;
             PrivateDns = privateDns;
             PrivateDnsNameOptions = privateDnsNameOptions;

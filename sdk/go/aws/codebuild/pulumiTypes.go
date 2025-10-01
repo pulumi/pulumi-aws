@@ -5635,7 +5635,7 @@ func (o ReportGroupExportConfigS3DestinationPtrOutput) Path() pulumi.StringPtrOu
 }
 
 type WebhookFilterGroup struct {
-	// A webhook filter for the group. Filter blocks are documented below.
+	// A webhook filter for the group. See filter for details.
 	Filters []WebhookFilterGroupFilter `pulumi:"filters"`
 }
 
@@ -5651,7 +5651,7 @@ type WebhookFilterGroupInput interface {
 }
 
 type WebhookFilterGroupArgs struct {
-	// A webhook filter for the group. Filter blocks are documented below.
+	// A webhook filter for the group. See filter for details.
 	Filters WebhookFilterGroupFilterArrayInput `pulumi:"filters"`
 }
 
@@ -5706,7 +5706,7 @@ func (o WebhookFilterGroupOutput) ToWebhookFilterGroupOutputWithContext(ctx cont
 	return o
 }
 
-// A webhook filter for the group. Filter blocks are documented below.
+// A webhook filter for the group. See filter for details.
 func (o WebhookFilterGroupOutput) Filters() WebhookFilterGroupFilterArrayOutput {
 	return o.ApplyT(func(v WebhookFilterGroup) []WebhookFilterGroupFilter { return v.Filters }).(WebhookFilterGroupFilterArrayOutput)
 }
@@ -5844,6 +5844,162 @@ func (o WebhookFilterGroupFilterArrayOutput) Index(i pulumi.IntInput) WebhookFil
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebhookFilterGroupFilter {
 		return vs[0].([]WebhookFilterGroupFilter)[vs[1].(int)]
 	}).(WebhookFilterGroupFilterOutput)
+}
+
+type WebhookPullRequestBuildPolicy struct {
+	// List of repository roles that have approval privileges for pull request builds when comment approval is required. This argument must be specified only when `requiresCommentApproval` is not `DISABLED`. See the [AWS documentation](https://docs.aws.amazon.com/codebuild/latest/userguide/pull-request-build-policy.html#pull-request-build-policy.configuration) for valid values and defaults.
+	ApproverRoles []string `pulumi:"approverRoles"`
+	// Specifies when comment-based approval is required before triggering a build on pull requests. Valid values are: `DISABLED`, `ALL_PULL_REQUESTS`, and `FORK_PULL_REQUESTS`.
+	RequiresCommentApproval string `pulumi:"requiresCommentApproval"`
+}
+
+// WebhookPullRequestBuildPolicyInput is an input type that accepts WebhookPullRequestBuildPolicyArgs and WebhookPullRequestBuildPolicyOutput values.
+// You can construct a concrete instance of `WebhookPullRequestBuildPolicyInput` via:
+//
+//	WebhookPullRequestBuildPolicyArgs{...}
+type WebhookPullRequestBuildPolicyInput interface {
+	pulumi.Input
+
+	ToWebhookPullRequestBuildPolicyOutput() WebhookPullRequestBuildPolicyOutput
+	ToWebhookPullRequestBuildPolicyOutputWithContext(context.Context) WebhookPullRequestBuildPolicyOutput
+}
+
+type WebhookPullRequestBuildPolicyArgs struct {
+	// List of repository roles that have approval privileges for pull request builds when comment approval is required. This argument must be specified only when `requiresCommentApproval` is not `DISABLED`. See the [AWS documentation](https://docs.aws.amazon.com/codebuild/latest/userguide/pull-request-build-policy.html#pull-request-build-policy.configuration) for valid values and defaults.
+	ApproverRoles pulumi.StringArrayInput `pulumi:"approverRoles"`
+	// Specifies when comment-based approval is required before triggering a build on pull requests. Valid values are: `DISABLED`, `ALL_PULL_REQUESTS`, and `FORK_PULL_REQUESTS`.
+	RequiresCommentApproval pulumi.StringInput `pulumi:"requiresCommentApproval"`
+}
+
+func (WebhookPullRequestBuildPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebhookPullRequestBuildPolicy)(nil)).Elem()
+}
+
+func (i WebhookPullRequestBuildPolicyArgs) ToWebhookPullRequestBuildPolicyOutput() WebhookPullRequestBuildPolicyOutput {
+	return i.ToWebhookPullRequestBuildPolicyOutputWithContext(context.Background())
+}
+
+func (i WebhookPullRequestBuildPolicyArgs) ToWebhookPullRequestBuildPolicyOutputWithContext(ctx context.Context) WebhookPullRequestBuildPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebhookPullRequestBuildPolicyOutput)
+}
+
+func (i WebhookPullRequestBuildPolicyArgs) ToWebhookPullRequestBuildPolicyPtrOutput() WebhookPullRequestBuildPolicyPtrOutput {
+	return i.ToWebhookPullRequestBuildPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i WebhookPullRequestBuildPolicyArgs) ToWebhookPullRequestBuildPolicyPtrOutputWithContext(ctx context.Context) WebhookPullRequestBuildPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebhookPullRequestBuildPolicyOutput).ToWebhookPullRequestBuildPolicyPtrOutputWithContext(ctx)
+}
+
+// WebhookPullRequestBuildPolicyPtrInput is an input type that accepts WebhookPullRequestBuildPolicyArgs, WebhookPullRequestBuildPolicyPtr and WebhookPullRequestBuildPolicyPtrOutput values.
+// You can construct a concrete instance of `WebhookPullRequestBuildPolicyPtrInput` via:
+//
+//	        WebhookPullRequestBuildPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebhookPullRequestBuildPolicyPtrInput interface {
+	pulumi.Input
+
+	ToWebhookPullRequestBuildPolicyPtrOutput() WebhookPullRequestBuildPolicyPtrOutput
+	ToWebhookPullRequestBuildPolicyPtrOutputWithContext(context.Context) WebhookPullRequestBuildPolicyPtrOutput
+}
+
+type webhookPullRequestBuildPolicyPtrType WebhookPullRequestBuildPolicyArgs
+
+func WebhookPullRequestBuildPolicyPtr(v *WebhookPullRequestBuildPolicyArgs) WebhookPullRequestBuildPolicyPtrInput {
+	return (*webhookPullRequestBuildPolicyPtrType)(v)
+}
+
+func (*webhookPullRequestBuildPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebhookPullRequestBuildPolicy)(nil)).Elem()
+}
+
+func (i *webhookPullRequestBuildPolicyPtrType) ToWebhookPullRequestBuildPolicyPtrOutput() WebhookPullRequestBuildPolicyPtrOutput {
+	return i.ToWebhookPullRequestBuildPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *webhookPullRequestBuildPolicyPtrType) ToWebhookPullRequestBuildPolicyPtrOutputWithContext(ctx context.Context) WebhookPullRequestBuildPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebhookPullRequestBuildPolicyPtrOutput)
+}
+
+type WebhookPullRequestBuildPolicyOutput struct{ *pulumi.OutputState }
+
+func (WebhookPullRequestBuildPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebhookPullRequestBuildPolicy)(nil)).Elem()
+}
+
+func (o WebhookPullRequestBuildPolicyOutput) ToWebhookPullRequestBuildPolicyOutput() WebhookPullRequestBuildPolicyOutput {
+	return o
+}
+
+func (o WebhookPullRequestBuildPolicyOutput) ToWebhookPullRequestBuildPolicyOutputWithContext(ctx context.Context) WebhookPullRequestBuildPolicyOutput {
+	return o
+}
+
+func (o WebhookPullRequestBuildPolicyOutput) ToWebhookPullRequestBuildPolicyPtrOutput() WebhookPullRequestBuildPolicyPtrOutput {
+	return o.ToWebhookPullRequestBuildPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o WebhookPullRequestBuildPolicyOutput) ToWebhookPullRequestBuildPolicyPtrOutputWithContext(ctx context.Context) WebhookPullRequestBuildPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebhookPullRequestBuildPolicy) *WebhookPullRequestBuildPolicy {
+		return &v
+	}).(WebhookPullRequestBuildPolicyPtrOutput)
+}
+
+// List of repository roles that have approval privileges for pull request builds when comment approval is required. This argument must be specified only when `requiresCommentApproval` is not `DISABLED`. See the [AWS documentation](https://docs.aws.amazon.com/codebuild/latest/userguide/pull-request-build-policy.html#pull-request-build-policy.configuration) for valid values and defaults.
+func (o WebhookPullRequestBuildPolicyOutput) ApproverRoles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WebhookPullRequestBuildPolicy) []string { return v.ApproverRoles }).(pulumi.StringArrayOutput)
+}
+
+// Specifies when comment-based approval is required before triggering a build on pull requests. Valid values are: `DISABLED`, `ALL_PULL_REQUESTS`, and `FORK_PULL_REQUESTS`.
+func (o WebhookPullRequestBuildPolicyOutput) RequiresCommentApproval() pulumi.StringOutput {
+	return o.ApplyT(func(v WebhookPullRequestBuildPolicy) string { return v.RequiresCommentApproval }).(pulumi.StringOutput)
+}
+
+type WebhookPullRequestBuildPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (WebhookPullRequestBuildPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebhookPullRequestBuildPolicy)(nil)).Elem()
+}
+
+func (o WebhookPullRequestBuildPolicyPtrOutput) ToWebhookPullRequestBuildPolicyPtrOutput() WebhookPullRequestBuildPolicyPtrOutput {
+	return o
+}
+
+func (o WebhookPullRequestBuildPolicyPtrOutput) ToWebhookPullRequestBuildPolicyPtrOutputWithContext(ctx context.Context) WebhookPullRequestBuildPolicyPtrOutput {
+	return o
+}
+
+func (o WebhookPullRequestBuildPolicyPtrOutput) Elem() WebhookPullRequestBuildPolicyOutput {
+	return o.ApplyT(func(v *WebhookPullRequestBuildPolicy) WebhookPullRequestBuildPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret WebhookPullRequestBuildPolicy
+		return ret
+	}).(WebhookPullRequestBuildPolicyOutput)
+}
+
+// List of repository roles that have approval privileges for pull request builds when comment approval is required. This argument must be specified only when `requiresCommentApproval` is not `DISABLED`. See the [AWS documentation](https://docs.aws.amazon.com/codebuild/latest/userguide/pull-request-build-policy.html#pull-request-build-policy.configuration) for valid values and defaults.
+func (o WebhookPullRequestBuildPolicyPtrOutput) ApproverRoles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WebhookPullRequestBuildPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ApproverRoles
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies when comment-based approval is required before triggering a build on pull requests. Valid values are: `DISABLED`, `ALL_PULL_REQUESTS`, and `FORK_PULL_REQUESTS`.
+func (o WebhookPullRequestBuildPolicyPtrOutput) RequiresCommentApproval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebhookPullRequestBuildPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RequiresCommentApproval
+	}).(pulumi.StringPtrOutput)
 }
 
 type WebhookScopeConfiguration struct {
@@ -6683,6 +6839,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookFilterGroupArrayInput)(nil)).Elem(), WebhookFilterGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookFilterGroupFilterInput)(nil)).Elem(), WebhookFilterGroupFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookFilterGroupFilterArrayInput)(nil)).Elem(), WebhookFilterGroupFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookPullRequestBuildPolicyInput)(nil)).Elem(), WebhookPullRequestBuildPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookPullRequestBuildPolicyPtrInput)(nil)).Elem(), WebhookPullRequestBuildPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookScopeConfigurationInput)(nil)).Elem(), WebhookScopeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookScopeConfigurationPtrInput)(nil)).Elem(), WebhookScopeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFleetComputeConfigurationInput)(nil)).Elem(), GetFleetComputeConfigurationArgs{})
@@ -6761,6 +6919,8 @@ func init() {
 	pulumi.RegisterOutputType(WebhookFilterGroupArrayOutput{})
 	pulumi.RegisterOutputType(WebhookFilterGroupFilterOutput{})
 	pulumi.RegisterOutputType(WebhookFilterGroupFilterArrayOutput{})
+	pulumi.RegisterOutputType(WebhookPullRequestBuildPolicyOutput{})
+	pulumi.RegisterOutputType(WebhookPullRequestBuildPolicyPtrOutput{})
 	pulumi.RegisterOutputType(WebhookScopeConfigurationOutput{})
 	pulumi.RegisterOutputType(WebhookScopeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GetFleetComputeConfigurationOutput{})

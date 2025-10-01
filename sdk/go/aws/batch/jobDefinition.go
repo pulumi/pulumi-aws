@@ -422,11 +422,17 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// - `arn` (String) Amazon Resource Name (ARN) of the job definition.
+//
 // Using `pulumi import`, import Batch Job Definition using the `arn`. For example:
 //
-// ```sh
-// $ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample
-// ```
+// console
+//
+// % pulumi import aws_batch_job_definition.test arn:aws:batch:us-east-1:123456789012:job-definition/sample
 type JobDefinition struct {
 	pulumi.CustomResourceState
 

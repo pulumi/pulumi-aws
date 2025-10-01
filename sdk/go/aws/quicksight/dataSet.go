@@ -313,7 +313,8 @@ type DataSet struct {
 	// Display name for the dataset.
 	//
 	// The following arguments are optional:
-	Name          pulumi.StringOutput            `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set.  See `outputColumns` Block below.
 	OutputColumns DataSetOutputColumnArrayOutput `pulumi:"outputColumns"`
 	// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
 	Permissions DataSetPermissionArrayOutput `pulumi:"permissions"`
@@ -389,7 +390,8 @@ type dataSetState struct {
 	// Display name for the dataset.
 	//
 	// The following arguments are optional:
-	Name          *string               `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set.  See `outputColumns` Block below.
 	OutputColumns []DataSetOutputColumn `pulumi:"outputColumns"`
 	// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
 	Permissions []DataSetPermission `pulumi:"permissions"`
@@ -430,7 +432,8 @@ type DataSetState struct {
 	// Display name for the dataset.
 	//
 	// The following arguments are optional:
-	Name          pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set.  See `outputColumns` Block below.
 	OutputColumns DataSetOutputColumnArrayInput
 	// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
 	Permissions DataSetPermissionArrayInput
@@ -665,6 +668,7 @@ func (o DataSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set.  See `outputColumns` Block below.
 func (o DataSetOutput) OutputColumns() DataSetOutputColumnArrayOutput {
 	return o.ApplyT(func(v *DataSet) DataSetOutputColumnArrayOutput { return v.OutputColumns }).(DataSetOutputColumnArrayOutput)
 }

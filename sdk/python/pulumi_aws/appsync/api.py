@@ -377,7 +377,7 @@ class Api(pulumi.CustomResource):
                 "auth_providers": [{
                     "auth_type": "AWS_LAMBDA",
                     "lambda_authorizer_config": {
-                        "authorizer_uri": example_aws_lambda_function["invokeArn"],
+                        "authorizer_uri": example_aws_lambda_function["arn"],
                         "authorizer_result_ttl_in_seconds": 300,
                     },
                 }],
@@ -488,7 +488,7 @@ class Api(pulumi.CustomResource):
                 "auth_providers": [{
                     "auth_type": "AWS_LAMBDA",
                     "lambda_authorizer_config": {
-                        "authorizer_uri": example_aws_lambda_function["invokeArn"],
+                        "authorizer_uri": example_aws_lambda_function["arn"],
                         "authorizer_result_ttl_in_seconds": 300,
                     },
                 }],

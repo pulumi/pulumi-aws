@@ -231,7 +231,7 @@ if not MYPY:
     class ApiEventConfigAuthProviderArgsDict(TypedDict):
         auth_type: pulumi.Input[_builtins.str]
         """
-        Type of authentication provider. Valid values: `AMAZON_COGNITO_USER_POOLS`, `AWS_LAMBDA`, `OPENID_CONNECT`, `API_KEY`.
+        Type of authentication provider. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
         """
         cognito_config: NotRequired[pulumi.Input['ApiEventConfigAuthProviderCognitoConfigArgsDict']]
         """
@@ -256,7 +256,7 @@ class ApiEventConfigAuthProviderArgs:
                  lambda_authorizer_config: Optional[pulumi.Input['ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs']] = None,
                  openid_connect_config: Optional[pulumi.Input['ApiEventConfigAuthProviderOpenidConnectConfigArgs']] = None):
         """
-        :param pulumi.Input[_builtins.str] auth_type: Type of authentication provider. Valid values: `AMAZON_COGNITO_USER_POOLS`, `AWS_LAMBDA`, `OPENID_CONNECT`, `API_KEY`.
+        :param pulumi.Input[_builtins.str] auth_type: Type of authentication provider. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
         :param pulumi.Input['ApiEventConfigAuthProviderCognitoConfigArgs'] cognito_config: Configuration for Cognito user pool authentication. Required when `auth_type` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
         :param pulumi.Input['ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs'] lambda_authorizer_config: Configuration for Lambda authorization. Required when `auth_type` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
         :param pulumi.Input['ApiEventConfigAuthProviderOpenidConnectConfigArgs'] openid_connect_config: Configuration for OpenID Connect. Required when `auth_type` is `OPENID_CONNECT`. See OpenID Connect Config below.
@@ -273,7 +273,7 @@ class ApiEventConfigAuthProviderArgs:
     @pulumi.getter(name="authType")
     def auth_type(self) -> pulumi.Input[_builtins.str]:
         """
-        Type of authentication provider. Valid values: `AMAZON_COGNITO_USER_POOLS`, `AWS_LAMBDA`, `OPENID_CONNECT`, `API_KEY`.
+        Type of authentication provider. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
         """
         return pulumi.get(self, "auth_type")
 

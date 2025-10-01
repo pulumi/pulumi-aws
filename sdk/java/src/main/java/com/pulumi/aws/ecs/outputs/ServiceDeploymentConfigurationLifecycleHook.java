@@ -8,9 +8,16 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceDeploymentConfigurationLifecycleHook {
+    /**
+     * @return Custom parameters that Amazon ECS will pass to the hook target invocations (such as a Lambda function).
+     * 
+     */
+    private @Nullable String hookDetails;
     /**
      * @return ARN of the Lambda function to invoke for the lifecycle hook.
      * 
@@ -28,6 +35,13 @@ public final class ServiceDeploymentConfigurationLifecycleHook {
     private String roleArn;
 
     private ServiceDeploymentConfigurationLifecycleHook() {}
+    /**
+     * @return Custom parameters that Amazon ECS will pass to the hook target invocations (such as a Lambda function).
+     * 
+     */
+    public Optional<String> hookDetails() {
+        return Optional.ofNullable(this.hookDetails);
+    }
     /**
      * @return ARN of the Lambda function to invoke for the lifecycle hook.
      * 
@@ -59,17 +73,25 @@ public final class ServiceDeploymentConfigurationLifecycleHook {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String hookDetails;
         private String hookTargetArn;
         private List<String> lifecycleStages;
         private String roleArn;
         public Builder() {}
         public Builder(ServiceDeploymentConfigurationLifecycleHook defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.hookDetails = defaults.hookDetails;
     	      this.hookTargetArn = defaults.hookTargetArn;
     	      this.lifecycleStages = defaults.lifecycleStages;
     	      this.roleArn = defaults.roleArn;
         }
 
+        @CustomType.Setter
+        public Builder hookDetails(@Nullable String hookDetails) {
+
+            this.hookDetails = hookDetails;
+            return this;
+        }
         @CustomType.Setter
         public Builder hookTargetArn(String hookTargetArn) {
             if (hookTargetArn == null) {
@@ -99,6 +121,7 @@ public final class ServiceDeploymentConfigurationLifecycleHook {
         }
         public ServiceDeploymentConfigurationLifecycleHook build() {
             final var _resultValue = new ServiceDeploymentConfigurationLifecycleHook();
+            _resultValue.hookDetails = hookDetails;
             _resultValue.hookTargetArn = hookTargetArn;
             _resultValue.lifecycleStages = lifecycleStages;
             _resultValue.roleArn = roleArn;

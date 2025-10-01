@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Fsx
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
+        /// Specify how much storage users or groups can use on the volume. Maximum number of items defined by [FSx for OpenZFS Resource quota](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html#limits-openzfs-resources-file-system). See `user_and_group_quotas` Block Below.
         /// </summary>
         [Output("userAndGroupQuotas")]
         public Output<ImmutableArray<Outputs.OpenZfsVolumeUserAndGroupQuota>> UserAndGroupQuotas { get; private set; } = null!;
@@ -276,7 +276,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<Inputs.OpenZfsVolumeUserAndGroupQuotaArgs>? _userAndGroupQuotas;
 
         /// <summary>
-        /// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
+        /// Specify how much storage users or groups can use on the volume. Maximum number of items defined by [FSx for OpenZFS Resource quota](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html#limits-openzfs-resources-file-system). See `user_and_group_quotas` Block Below.
         /// </summary>
         public InputList<Inputs.OpenZfsVolumeUserAndGroupQuotaArgs> UserAndGroupQuotas
         {
@@ -401,7 +401,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<Inputs.OpenZfsVolumeUserAndGroupQuotaGetArgs>? _userAndGroupQuotas;
 
         /// <summary>
-        /// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
+        /// Specify how much storage users or groups can use on the volume. Maximum number of items defined by [FSx for OpenZFS Resource quota](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html#limits-openzfs-resources-file-system). See `user_and_group_quotas` Block Below.
         /// </summary>
         public InputList<Inputs.OpenZfsVolumeUserAndGroupQuotaGetArgs> UserAndGroupQuotas
         {

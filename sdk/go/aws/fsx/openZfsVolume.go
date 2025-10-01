@@ -82,7 +82,7 @@ type OpenZfsVolume struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block Below.
+	// Specify how much storage users or groups can use on the volume. Maximum number of items defined by [FSx for OpenZFS Resource quota](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html#limits-openzfs-resources-file-system). See `userAndGroupQuotas` Block Below.
 	UserAndGroupQuotas OpenZfsVolumeUserAndGroupQuotaArrayOutput `pulumi:"userAndGroupQuotas"`
 	VolumeType         pulumi.StringPtrOutput                    `pulumi:"volumeType"`
 }
@@ -150,7 +150,7 @@ type openZfsVolumeState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block Below.
+	// Specify how much storage users or groups can use on the volume. Maximum number of items defined by [FSx for OpenZFS Resource quota](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html#limits-openzfs-resources-file-system). See `userAndGroupQuotas` Block Below.
 	UserAndGroupQuotas []OpenZfsVolumeUserAndGroupQuota `pulumi:"userAndGroupQuotas"`
 	VolumeType         *string                          `pulumi:"volumeType"`
 }
@@ -186,7 +186,7 @@ type OpenZfsVolumeState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block Below.
+	// Specify how much storage users or groups can use on the volume. Maximum number of items defined by [FSx for OpenZFS Resource quota](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html#limits-openzfs-resources-file-system). See `userAndGroupQuotas` Block Below.
 	UserAndGroupQuotas OpenZfsVolumeUserAndGroupQuotaArrayInput
 	VolumeType         pulumi.StringPtrInput
 }
@@ -222,7 +222,7 @@ type openZfsVolumeArgs struct {
 	StorageCapacityReservationGib *int `pulumi:"storageCapacityReservationGib"`
 	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block Below.
+	// Specify how much storage users or groups can use on the volume. Maximum number of items defined by [FSx for OpenZFS Resource quota](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html#limits-openzfs-resources-file-system). See `userAndGroupQuotas` Block Below.
 	UserAndGroupQuotas []OpenZfsVolumeUserAndGroupQuota `pulumi:"userAndGroupQuotas"`
 	VolumeType         *string                          `pulumi:"volumeType"`
 }
@@ -255,7 +255,7 @@ type OpenZfsVolumeArgs struct {
 	StorageCapacityReservationGib pulumi.IntPtrInput
 	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block Below.
+	// Specify how much storage users or groups can use on the volume. Maximum number of items defined by [FSx for OpenZFS Resource quota](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html#limits-openzfs-resources-file-system). See `userAndGroupQuotas` Block Below.
 	UserAndGroupQuotas OpenZfsVolumeUserAndGroupQuotaArrayInput
 	VolumeType         pulumi.StringPtrInput
 }
@@ -422,7 +422,7 @@ func (o OpenZfsVolumeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block Below.
+// Specify how much storage users or groups can use on the volume. Maximum number of items defined by [FSx for OpenZFS Resource quota](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html#limits-openzfs-resources-file-system). See `userAndGroupQuotas` Block Below.
 func (o OpenZfsVolumeOutput) UserAndGroupQuotas() OpenZfsVolumeUserAndGroupQuotaArrayOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) OpenZfsVolumeUserAndGroupQuotaArrayOutput { return v.UserAndGroupQuotas }).(OpenZfsVolumeUserAndGroupQuotaArrayOutput)
 }

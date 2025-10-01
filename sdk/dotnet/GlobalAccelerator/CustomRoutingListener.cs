@@ -53,11 +53,17 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator custom routing listener.
+    /// 
     /// Using `pulumi import`, import Global Accelerator custom routing listeners using the `id`. For example:
     /// 
-    /// ```sh
-    /// $ pulumi import aws:globalaccelerator/customRoutingListener:CustomRoutingListener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
-    /// ```
+    /// console
+    /// 
+    /// % pulumi import aws_globalaccelerator_custom_routing_listener.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
     /// </summary>
     [AwsResourceType("aws:globalaccelerator/customRoutingListener:CustomRoutingListener")]
     public partial class CustomRoutingListener : global::Pulumi.CustomResource

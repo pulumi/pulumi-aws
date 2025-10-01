@@ -1803,6 +1803,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("workmail")]
+        public Input<string>? Workmail { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("workspaces")]
         public Input<string>? Workspaces { get; set; }
 

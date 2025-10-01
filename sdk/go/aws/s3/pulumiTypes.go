@@ -1427,6 +1427,8 @@ func (o BucketAclAccessControlPolicyGrantArrayOutput) Index(i pulumi.IntInput) B
 
 type BucketAclAccessControlPolicyGrantGrantee struct {
 	// Display name of the owner.
+	//
+	// Deprecated: display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
 	DisplayName *string `pulumi:"displayName"`
 	// Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
 	EmailAddress *string `pulumi:"emailAddress"`
@@ -1451,6 +1453,8 @@ type BucketAclAccessControlPolicyGrantGranteeInput interface {
 
 type BucketAclAccessControlPolicyGrantGranteeArgs struct {
 	// Display name of the owner.
+	//
+	// Deprecated: display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
 	EmailAddress pulumi.StringPtrInput `pulumi:"emailAddress"`
@@ -1540,6 +1544,8 @@ func (o BucketAclAccessControlPolicyGrantGranteeOutput) ToBucketAclAccessControl
 }
 
 // Display name of the owner.
+//
+// Deprecated: display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
 func (o BucketAclAccessControlPolicyGrantGranteeOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketAclAccessControlPolicyGrantGrantee) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
@@ -1589,6 +1595,8 @@ func (o BucketAclAccessControlPolicyGrantGranteePtrOutput) Elem() BucketAclAcces
 }
 
 // Display name of the owner.
+//
+// Deprecated: display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
 func (o BucketAclAccessControlPolicyGrantGranteePtrOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketAclAccessControlPolicyGrantGrantee) *string {
 		if v == nil {
@@ -1640,6 +1648,8 @@ func (o BucketAclAccessControlPolicyGrantGranteePtrOutput) Uri() pulumi.StringPt
 
 type BucketAclAccessControlPolicyOwner struct {
 	// Display name of the owner.
+	//
+	// Deprecated: display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
 	DisplayName *string `pulumi:"displayName"`
 	// ID of the owner.
 	Id string `pulumi:"id"`
@@ -1658,6 +1668,8 @@ type BucketAclAccessControlPolicyOwnerInput interface {
 
 type BucketAclAccessControlPolicyOwnerArgs struct {
 	// Display name of the owner.
+	//
+	// Deprecated: display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// ID of the owner.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -1741,6 +1753,8 @@ func (o BucketAclAccessControlPolicyOwnerOutput) ToBucketAclAccessControlPolicyO
 }
 
 // Display name of the owner.
+//
+// Deprecated: display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
 func (o BucketAclAccessControlPolicyOwnerOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketAclAccessControlPolicyOwner) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
@@ -1775,6 +1789,8 @@ func (o BucketAclAccessControlPolicyOwnerPtrOutput) Elem() BucketAclAccessContro
 }
 
 // Display name of the owner.
+//
+// Deprecated: display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
 func (o BucketAclAccessControlPolicyOwnerPtrOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketAclAccessControlPolicyOwner) *string {
 		if v == nil {
@@ -2060,6 +2076,8 @@ func (o BucketAclV2AccessControlPolicyGrantArrayOutput) Index(i pulumi.IntInput)
 
 type BucketAclV2AccessControlPolicyGrantGrantee struct {
 	// Display name of the owner.
+	//
+	// Deprecated: display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
 	DisplayName *string `pulumi:"displayName"`
 	// Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
 	EmailAddress *string `pulumi:"emailAddress"`
@@ -2084,6 +2102,8 @@ type BucketAclV2AccessControlPolicyGrantGranteeInput interface {
 
 type BucketAclV2AccessControlPolicyGrantGranteeArgs struct {
 	// Display name of the owner.
+	//
+	// Deprecated: display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
 	EmailAddress pulumi.StringPtrInput `pulumi:"emailAddress"`
@@ -2173,6 +2193,8 @@ func (o BucketAclV2AccessControlPolicyGrantGranteeOutput) ToBucketAclV2AccessCon
 }
 
 // Display name of the owner.
+//
+// Deprecated: display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
 func (o BucketAclV2AccessControlPolicyGrantGranteeOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketAclV2AccessControlPolicyGrantGrantee) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
@@ -2222,6 +2244,8 @@ func (o BucketAclV2AccessControlPolicyGrantGranteePtrOutput) Elem() BucketAclV2A
 }
 
 // Display name of the owner.
+//
+// Deprecated: display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
 func (o BucketAclV2AccessControlPolicyGrantGranteePtrOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketAclV2AccessControlPolicyGrantGrantee) *string {
 		if v == nil {
@@ -2273,6 +2297,8 @@ func (o BucketAclV2AccessControlPolicyGrantGranteePtrOutput) Uri() pulumi.String
 
 type BucketAclV2AccessControlPolicyOwner struct {
 	// Display name of the owner.
+	//
+	// Deprecated: display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
 	DisplayName *string `pulumi:"displayName"`
 	// ID of the owner.
 	Id string `pulumi:"id"`
@@ -2291,6 +2317,8 @@ type BucketAclV2AccessControlPolicyOwnerInput interface {
 
 type BucketAclV2AccessControlPolicyOwnerArgs struct {
 	// Display name of the owner.
+	//
+	// Deprecated: display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// ID of the owner.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -2374,6 +2402,8 @@ func (o BucketAclV2AccessControlPolicyOwnerOutput) ToBucketAclV2AccessControlPol
 }
 
 // Display name of the owner.
+//
+// Deprecated: display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
 func (o BucketAclV2AccessControlPolicyOwnerOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketAclV2AccessControlPolicyOwner) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
@@ -2408,6 +2438,8 @@ func (o BucketAclV2AccessControlPolicyOwnerPtrOutput) Elem() BucketAclV2AccessCo
 }
 
 // Display name of the owner.
+//
+// Deprecated: display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
 func (o BucketAclV2AccessControlPolicyOwnerPtrOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketAclV2AccessControlPolicyOwner) *string {
 		if v == nil {
@@ -7481,6 +7513,7 @@ func (o BucketLoggingTargetGrantArrayOutput) Index(i pulumi.IntInput) BucketLogg
 }
 
 type BucketLoggingTargetGrantGrantee struct {
+	// Deprecated: display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
 	DisplayName *string `pulumi:"displayName"`
 	// Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
 	EmailAddress *string `pulumi:"emailAddress"`
@@ -7504,6 +7537,7 @@ type BucketLoggingTargetGrantGranteeInput interface {
 }
 
 type BucketLoggingTargetGrantGranteeArgs struct {
+	// Deprecated: display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
 	EmailAddress pulumi.StringPtrInput `pulumi:"emailAddress"`
@@ -7541,6 +7575,7 @@ func (o BucketLoggingTargetGrantGranteeOutput) ToBucketLoggingTargetGrantGrantee
 	return o
 }
 
+// Deprecated: display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
 func (o BucketLoggingTargetGrantGranteeOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLoggingTargetGrantGrantee) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
@@ -8087,6 +8122,7 @@ func (o BucketLoggingV2TargetGrantArrayOutput) Index(i pulumi.IntInput) BucketLo
 }
 
 type BucketLoggingV2TargetGrantGrantee struct {
+	// Deprecated: display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
 	DisplayName *string `pulumi:"displayName"`
 	// Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
 	EmailAddress *string `pulumi:"emailAddress"`
@@ -8110,6 +8146,7 @@ type BucketLoggingV2TargetGrantGranteeInput interface {
 }
 
 type BucketLoggingV2TargetGrantGranteeArgs struct {
+	// Deprecated: display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
 	EmailAddress pulumi.StringPtrInput `pulumi:"emailAddress"`
@@ -8147,6 +8184,7 @@ func (o BucketLoggingV2TargetGrantGranteeOutput) ToBucketLoggingV2TargetGrantGra
 	return o
 }
 
+// Deprecated: display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
 func (o BucketLoggingV2TargetGrantGranteeOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLoggingV2TargetGrantGrantee) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }

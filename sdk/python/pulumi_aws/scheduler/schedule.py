@@ -24,6 +24,7 @@ class ScheduleArgs:
                  flexible_time_window: pulumi.Input['ScheduleFlexibleTimeWindowArgs'],
                  schedule_expression: pulumi.Input[_builtins.str],
                  target: pulumi.Input['ScheduleTargetArgs'],
+                 action_after_completion: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  end_date: Optional[pulumi.Input[_builtins.str]] = None,
                  group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -41,6 +42,7 @@ class ScheduleArgs:
         :param pulumi.Input['ScheduleTargetArgs'] target: Configures the target of the schedule. Detailed below.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] action_after_completion: Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
         :param pulumi.Input[_builtins.str] description: Brief description of the schedule.
         :param pulumi.Input[_builtins.str] end_date: The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the end date you specify. EventBridge Scheduler ignores the end date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
         :param pulumi.Input[_builtins.str] group_name: Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
@@ -55,6 +57,8 @@ class ScheduleArgs:
         pulumi.set(__self__, "flexible_time_window", flexible_time_window)
         pulumi.set(__self__, "schedule_expression", schedule_expression)
         pulumi.set(__self__, "target", target)
+        if action_after_completion is not None:
+            pulumi.set(__self__, "action_after_completion", action_after_completion)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if end_date is not None:
@@ -113,6 +117,18 @@ class ScheduleArgs:
     @target.setter
     def target(self, value: pulumi.Input['ScheduleTargetArgs']):
         pulumi.set(self, "target", value)
+
+    @_builtins.property
+    @pulumi.getter(name="actionAfterCompletion")
+    def action_after_completion(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
+        """
+        return pulumi.get(self, "action_after_completion")
+
+    @action_after_completion.setter
+    def action_after_completion(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "action_after_completion", value)
 
     @_builtins.property
     @pulumi.getter
@@ -238,6 +254,7 @@ class ScheduleArgs:
 @pulumi.input_type
 class _ScheduleState:
     def __init__(__self__, *,
+                 action_after_completion: Optional[pulumi.Input[_builtins.str]] = None,
                  arn: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  end_date: Optional[pulumi.Input[_builtins.str]] = None,
@@ -254,6 +271,7 @@ class _ScheduleState:
                  target: Optional[pulumi.Input['ScheduleTargetArgs']] = None):
         """
         Input properties used for looking up and filtering Schedule resources.
+        :param pulumi.Input[_builtins.str] action_after_completion: Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
         :param pulumi.Input[_builtins.str] arn: ARN of the schedule.
         :param pulumi.Input[_builtins.str] description: Brief description of the schedule.
         :param pulumi.Input[_builtins.str] end_date: The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the end date you specify. EventBridge Scheduler ignores the end date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
@@ -271,6 +289,8 @@ class _ScheduleState:
                
                The following arguments are optional:
         """
+        if action_after_completion is not None:
+            pulumi.set(__self__, "action_after_completion", action_after_completion)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if description is not None:
@@ -299,6 +319,18 @@ class _ScheduleState:
             pulumi.set(__self__, "state", state)
         if target is not None:
             pulumi.set(__self__, "target", target)
+
+    @_builtins.property
+    @pulumi.getter(name="actionAfterCompletion")
+    def action_after_completion(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
+        """
+        return pulumi.get(self, "action_after_completion")
+
+    @action_after_completion.setter
+    def action_after_completion(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "action_after_completion", value)
 
     @_builtins.property
     @pulumi.getter
@@ -477,6 +509,7 @@ class Schedule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 action_after_completion: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  end_date: Optional[pulumi.Input[_builtins.str]] = None,
                  flexible_time_window: Optional[pulumi.Input[Union['ScheduleFlexibleTimeWindowArgs', 'ScheduleFlexibleTimeWindowArgsDict']]] = None,
@@ -553,6 +586,7 @@ class Schedule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] action_after_completion: Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
         :param pulumi.Input[_builtins.str] description: Brief description of the schedule.
         :param pulumi.Input[_builtins.str] end_date: The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the end date you specify. EventBridge Scheduler ignores the end date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
         :param pulumi.Input[Union['ScheduleFlexibleTimeWindowArgs', 'ScheduleFlexibleTimeWindowArgsDict']] flexible_time_window: Configures a time window during which EventBridge Scheduler invokes the schedule. Detailed below.
@@ -650,6 +684,7 @@ class Schedule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 action_after_completion: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  end_date: Optional[pulumi.Input[_builtins.str]] = None,
                  flexible_time_window: Optional[pulumi.Input[Union['ScheduleFlexibleTimeWindowArgs', 'ScheduleFlexibleTimeWindowArgsDict']]] = None,
@@ -672,6 +707,7 @@ class Schedule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ScheduleArgs.__new__(ScheduleArgs)
 
+            __props__.__dict__["action_after_completion"] = action_after_completion
             __props__.__dict__["description"] = description
             __props__.__dict__["end_date"] = end_date
             if flexible_time_window is None and not opts.urn:
@@ -702,6 +738,7 @@ class Schedule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            action_after_completion: Optional[pulumi.Input[_builtins.str]] = None,
             arn: Optional[pulumi.Input[_builtins.str]] = None,
             description: Optional[pulumi.Input[_builtins.str]] = None,
             end_date: Optional[pulumi.Input[_builtins.str]] = None,
@@ -723,6 +760,7 @@ class Schedule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] action_after_completion: Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
         :param pulumi.Input[_builtins.str] arn: ARN of the schedule.
         :param pulumi.Input[_builtins.str] description: Brief description of the schedule.
         :param pulumi.Input[_builtins.str] end_date: The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the end date you specify. EventBridge Scheduler ignores the end date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
@@ -744,6 +782,7 @@ class Schedule(pulumi.CustomResource):
 
         __props__ = _ScheduleState.__new__(_ScheduleState)
 
+        __props__.__dict__["action_after_completion"] = action_after_completion
         __props__.__dict__["arn"] = arn
         __props__.__dict__["description"] = description
         __props__.__dict__["end_date"] = end_date
@@ -759,6 +798,14 @@ class Schedule(pulumi.CustomResource):
         __props__.__dict__["state"] = state
         __props__.__dict__["target"] = target
         return Schedule(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="actionAfterCompletion")
+    def action_after_completion(self) -> pulumi.Output[_builtins.str]:
+        """
+        Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
+        """
+        return pulumi.get(self, "action_after_completion")
 
     @_builtins.property
     @pulumi.getter

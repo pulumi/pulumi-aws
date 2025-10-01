@@ -35,7 +35,7 @@ class LocationObjectStorageArgs:
         :param pulumi.Input[_builtins.str] bucket_name: The bucket on the self-managed object storage server that is used to read data from.
         :param pulumi.Input[_builtins.str] server_hostname: The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this host name to mount the object storage server in a network.
         :param pulumi.Input[_builtins.str] access_key: The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] secret_key: The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
         :param pulumi.Input[_builtins.str] server_certificate: Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
@@ -105,7 +105,7 @@ class LocationObjectStorageArgs:
     @pulumi.getter(name="agentArns")
     def agent_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of DataSync Agent ARNs with which this location will be associated.
+        A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
         """
         return pulumi.get(self, "agent_arns")
 
@@ -218,7 +218,7 @@ class _LocationObjectStorageState:
         """
         Input properties used for looking up and filtering LocationObjectStorage resources.
         :param pulumi.Input[_builtins.str] access_key: The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Location.
         :param pulumi.Input[_builtins.str] bucket_name: The bucket on the self-managed object storage server that is used to read data from.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -277,7 +277,7 @@ class _LocationObjectStorageState:
     @pulumi.getter(name="agentArns")
     def agent_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of DataSync Agent ARNs with which this location will be associated.
+        A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
         """
         return pulumi.get(self, "agent_arns")
 
@@ -467,16 +467,22 @@ class LocationObjectStorage(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the DataSync object storage location.
+
         Using `pulumi import`, import `aws_datasync_location_object_storage` using the Amazon Resource Name (ARN). For example:
 
-        ```sh
-        $ pulumi import aws:datasync/locationObjectStorage:LocationObjectStorage example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-        ```
+        console
+
+        % pulumi import aws_datasync_location_object_storage.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_key: The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
         :param pulumi.Input[_builtins.str] bucket_name: The bucket on the self-managed object storage server that is used to read data from.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] secret_key: The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
@@ -512,11 +518,17 @@ class LocationObjectStorage(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the DataSync object storage location.
+
         Using `pulumi import`, import `aws_datasync_location_object_storage` using the Amazon Resource Name (ARN). For example:
 
-        ```sh
-        $ pulumi import aws:datasync/locationObjectStorage:LocationObjectStorage example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-        ```
+        console
+
+        % pulumi import aws_datasync_location_object_storage.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
 
         :param str resource_name: The name of the resource.
         :param LocationObjectStorageArgs args: The arguments to use to populate this resource's properties.
@@ -605,7 +617,7 @@ class LocationObjectStorage(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_key: The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Location.
         :param pulumi.Input[_builtins.str] bucket_name: The bucket on the self-managed object storage server that is used to read data from.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -651,7 +663,7 @@ class LocationObjectStorage(pulumi.CustomResource):
     @pulumi.getter(name="agentArns")
     def agent_arns(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        A list of DataSync Agent ARNs with which this location will be associated.
+        A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
         """
         return pulumi.get(self, "agent_arns")
 

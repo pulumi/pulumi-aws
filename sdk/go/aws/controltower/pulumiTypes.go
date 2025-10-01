@@ -13,6 +13,337 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type BaselineParameters struct {
+	// The key of the parameter.
+	Key string `pulumi:"key"`
+	// The value of the parameter.
+	Value string `pulumi:"value"`
+}
+
+// BaselineParametersInput is an input type that accepts BaselineParametersArgs and BaselineParametersOutput values.
+// You can construct a concrete instance of `BaselineParametersInput` via:
+//
+//	BaselineParametersArgs{...}
+type BaselineParametersInput interface {
+	pulumi.Input
+
+	ToBaselineParametersOutput() BaselineParametersOutput
+	ToBaselineParametersOutputWithContext(context.Context) BaselineParametersOutput
+}
+
+type BaselineParametersArgs struct {
+	// The key of the parameter.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of the parameter.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (BaselineParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BaselineParameters)(nil)).Elem()
+}
+
+func (i BaselineParametersArgs) ToBaselineParametersOutput() BaselineParametersOutput {
+	return i.ToBaselineParametersOutputWithContext(context.Background())
+}
+
+func (i BaselineParametersArgs) ToBaselineParametersOutputWithContext(ctx context.Context) BaselineParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BaselineParametersOutput)
+}
+
+func (i BaselineParametersArgs) ToBaselineParametersPtrOutput() BaselineParametersPtrOutput {
+	return i.ToBaselineParametersPtrOutputWithContext(context.Background())
+}
+
+func (i BaselineParametersArgs) ToBaselineParametersPtrOutputWithContext(ctx context.Context) BaselineParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BaselineParametersOutput).ToBaselineParametersPtrOutputWithContext(ctx)
+}
+
+// BaselineParametersPtrInput is an input type that accepts BaselineParametersArgs, BaselineParametersPtr and BaselineParametersPtrOutput values.
+// You can construct a concrete instance of `BaselineParametersPtrInput` via:
+//
+//	        BaselineParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type BaselineParametersPtrInput interface {
+	pulumi.Input
+
+	ToBaselineParametersPtrOutput() BaselineParametersPtrOutput
+	ToBaselineParametersPtrOutputWithContext(context.Context) BaselineParametersPtrOutput
+}
+
+type baselineParametersPtrType BaselineParametersArgs
+
+func BaselineParametersPtr(v *BaselineParametersArgs) BaselineParametersPtrInput {
+	return (*baselineParametersPtrType)(v)
+}
+
+func (*baselineParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BaselineParameters)(nil)).Elem()
+}
+
+func (i *baselineParametersPtrType) ToBaselineParametersPtrOutput() BaselineParametersPtrOutput {
+	return i.ToBaselineParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *baselineParametersPtrType) ToBaselineParametersPtrOutputWithContext(ctx context.Context) BaselineParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BaselineParametersPtrOutput)
+}
+
+type BaselineParametersOutput struct{ *pulumi.OutputState }
+
+func (BaselineParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BaselineParameters)(nil)).Elem()
+}
+
+func (o BaselineParametersOutput) ToBaselineParametersOutput() BaselineParametersOutput {
+	return o
+}
+
+func (o BaselineParametersOutput) ToBaselineParametersOutputWithContext(ctx context.Context) BaselineParametersOutput {
+	return o
+}
+
+func (o BaselineParametersOutput) ToBaselineParametersPtrOutput() BaselineParametersPtrOutput {
+	return o.ToBaselineParametersPtrOutputWithContext(context.Background())
+}
+
+func (o BaselineParametersOutput) ToBaselineParametersPtrOutputWithContext(ctx context.Context) BaselineParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BaselineParameters) *BaselineParameters {
+		return &v
+	}).(BaselineParametersPtrOutput)
+}
+
+// The key of the parameter.
+func (o BaselineParametersOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v BaselineParameters) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value of the parameter.
+func (o BaselineParametersOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v BaselineParameters) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type BaselineParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (BaselineParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BaselineParameters)(nil)).Elem()
+}
+
+func (o BaselineParametersPtrOutput) ToBaselineParametersPtrOutput() BaselineParametersPtrOutput {
+	return o
+}
+
+func (o BaselineParametersPtrOutput) ToBaselineParametersPtrOutputWithContext(ctx context.Context) BaselineParametersPtrOutput {
+	return o
+}
+
+func (o BaselineParametersPtrOutput) Elem() BaselineParametersOutput {
+	return o.ApplyT(func(v *BaselineParameters) BaselineParameters {
+		if v != nil {
+			return *v
+		}
+		var ret BaselineParameters
+		return ret
+	}).(BaselineParametersOutput)
+}
+
+// The key of the parameter.
+func (o BaselineParametersPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BaselineParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value of the parameter.
+func (o BaselineParametersPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BaselineParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type BaselineTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// BaselineTimeoutsInput is an input type that accepts BaselineTimeoutsArgs and BaselineTimeoutsOutput values.
+// You can construct a concrete instance of `BaselineTimeoutsInput` via:
+//
+//	BaselineTimeoutsArgs{...}
+type BaselineTimeoutsInput interface {
+	pulumi.Input
+
+	ToBaselineTimeoutsOutput() BaselineTimeoutsOutput
+	ToBaselineTimeoutsOutputWithContext(context.Context) BaselineTimeoutsOutput
+}
+
+type BaselineTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (BaselineTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BaselineTimeouts)(nil)).Elem()
+}
+
+func (i BaselineTimeoutsArgs) ToBaselineTimeoutsOutput() BaselineTimeoutsOutput {
+	return i.ToBaselineTimeoutsOutputWithContext(context.Background())
+}
+
+func (i BaselineTimeoutsArgs) ToBaselineTimeoutsOutputWithContext(ctx context.Context) BaselineTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BaselineTimeoutsOutput)
+}
+
+func (i BaselineTimeoutsArgs) ToBaselineTimeoutsPtrOutput() BaselineTimeoutsPtrOutput {
+	return i.ToBaselineTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i BaselineTimeoutsArgs) ToBaselineTimeoutsPtrOutputWithContext(ctx context.Context) BaselineTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BaselineTimeoutsOutput).ToBaselineTimeoutsPtrOutputWithContext(ctx)
+}
+
+// BaselineTimeoutsPtrInput is an input type that accepts BaselineTimeoutsArgs, BaselineTimeoutsPtr and BaselineTimeoutsPtrOutput values.
+// You can construct a concrete instance of `BaselineTimeoutsPtrInput` via:
+//
+//	        BaselineTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BaselineTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToBaselineTimeoutsPtrOutput() BaselineTimeoutsPtrOutput
+	ToBaselineTimeoutsPtrOutputWithContext(context.Context) BaselineTimeoutsPtrOutput
+}
+
+type baselineTimeoutsPtrType BaselineTimeoutsArgs
+
+func BaselineTimeoutsPtr(v *BaselineTimeoutsArgs) BaselineTimeoutsPtrInput {
+	return (*baselineTimeoutsPtrType)(v)
+}
+
+func (*baselineTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BaselineTimeouts)(nil)).Elem()
+}
+
+func (i *baselineTimeoutsPtrType) ToBaselineTimeoutsPtrOutput() BaselineTimeoutsPtrOutput {
+	return i.ToBaselineTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *baselineTimeoutsPtrType) ToBaselineTimeoutsPtrOutputWithContext(ctx context.Context) BaselineTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BaselineTimeoutsPtrOutput)
+}
+
+type BaselineTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (BaselineTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BaselineTimeouts)(nil)).Elem()
+}
+
+func (o BaselineTimeoutsOutput) ToBaselineTimeoutsOutput() BaselineTimeoutsOutput {
+	return o
+}
+
+func (o BaselineTimeoutsOutput) ToBaselineTimeoutsOutputWithContext(ctx context.Context) BaselineTimeoutsOutput {
+	return o
+}
+
+func (o BaselineTimeoutsOutput) ToBaselineTimeoutsPtrOutput() BaselineTimeoutsPtrOutput {
+	return o.ToBaselineTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o BaselineTimeoutsOutput) ToBaselineTimeoutsPtrOutputWithContext(ctx context.Context) BaselineTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BaselineTimeouts) *BaselineTimeouts {
+		return &v
+	}).(BaselineTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o BaselineTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BaselineTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o BaselineTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BaselineTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o BaselineTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BaselineTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type BaselineTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (BaselineTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BaselineTimeouts)(nil)).Elem()
+}
+
+func (o BaselineTimeoutsPtrOutput) ToBaselineTimeoutsPtrOutput() BaselineTimeoutsPtrOutput {
+	return o
+}
+
+func (o BaselineTimeoutsPtrOutput) ToBaselineTimeoutsPtrOutputWithContext(ctx context.Context) BaselineTimeoutsPtrOutput {
+	return o
+}
+
+func (o BaselineTimeoutsPtrOutput) Elem() BaselineTimeoutsOutput {
+	return o.ApplyT(func(v *BaselineTimeouts) BaselineTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret BaselineTimeouts
+		return ret
+	}).(BaselineTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o BaselineTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BaselineTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o BaselineTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BaselineTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o BaselineTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BaselineTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type ControlTowerControlParameter struct {
 	// The name of the parameter.
 	Key string `pulumi:"key"`
@@ -217,10 +548,18 @@ func (o LandingZoneDriftStatusArrayOutput) Index(i pulumi.IntInput) LandingZoneD
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BaselineParametersInput)(nil)).Elem(), BaselineParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BaselineParametersPtrInput)(nil)).Elem(), BaselineParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BaselineTimeoutsInput)(nil)).Elem(), BaselineTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BaselineTimeoutsPtrInput)(nil)).Elem(), BaselineTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ControlTowerControlParameterInput)(nil)).Elem(), ControlTowerControlParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ControlTowerControlParameterArrayInput)(nil)).Elem(), ControlTowerControlParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LandingZoneDriftStatusInput)(nil)).Elem(), LandingZoneDriftStatusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LandingZoneDriftStatusArrayInput)(nil)).Elem(), LandingZoneDriftStatusArray{})
+	pulumi.RegisterOutputType(BaselineParametersOutput{})
+	pulumi.RegisterOutputType(BaselineParametersPtrOutput{})
+	pulumi.RegisterOutputType(BaselineTimeoutsOutput{})
+	pulumi.RegisterOutputType(BaselineTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ControlTowerControlParameterOutput{})
 	pulumi.RegisterOutputType(ControlTowerControlParameterArrayOutput{})
 	pulumi.RegisterOutputType(LandingZoneDriftStatusOutput{})

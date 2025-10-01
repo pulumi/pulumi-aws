@@ -275,11 +275,23 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `id` - (String) ID of the patch baseline.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// 
+    /// * `region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import SSM Patch Baselines using their baseline ID. For example:
     /// 
-    /// ```sh
-    /// $ pulumi import aws:ssm/patchBaseline:PatchBaseline example pb-12345678
-    /// ```
+    /// console
+    /// 
+    /// % pulumi import aws_ssm_patch_baseline.example pb-12345678
     /// </summary>
     [AwsResourceType("aws:ssm/patchBaseline:PatchBaseline")]
     public partial class PatchBaseline : global::Pulumi.CustomResource

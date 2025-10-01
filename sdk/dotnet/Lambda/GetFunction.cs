@@ -641,6 +641,10 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly int SourceCodeSize;
         /// <summary>
+        /// ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package.
+        /// </summary>
+        public readonly string SourceKmsKeyArn;
+        /// <summary>
         /// Map of tags assigned to the Lambda Function.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
@@ -723,6 +727,8 @@ namespace Pulumi.Aws.Lambda
 
             int sourceCodeSize,
 
+            string sourceKmsKeyArn,
+
             ImmutableDictionary<string, string> tags,
 
             int timeout,
@@ -763,6 +769,7 @@ namespace Pulumi.Aws.Lambda
             SigningProfileVersionArn = signingProfileVersionArn;
             SourceCodeHash = sourceCodeHash;
             SourceCodeSize = sourceCodeSize;
+            SourceKmsKeyArn = sourceKmsKeyArn;
             Tags = tags;
             Timeout = timeout;
             TracingConfig = tracingConfig;

@@ -68,11 +68,17 @@ namespace Pulumi.Aws.Comprehend
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// - `arn` (String) Amazon Resource Name (ARN) of the Comprehend entity recognizer.
+    /// 
     /// Using `pulumi import`, import Comprehend Entity Recognizer using the ARN. For example:
     /// 
-    /// ```sh
-    /// $ pulumi import aws:comprehend/entityRecognizer:EntityRecognizer example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
-    /// ```
+    /// console
+    /// 
+    /// % pulumi import aws_comprehend_entity_recognizer.example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
     /// </summary>
     [AwsResourceType("aws:comprehend/entityRecognizer:EntityRecognizer")]
     public partial class EntityRecognizer : global::Pulumi.CustomResource

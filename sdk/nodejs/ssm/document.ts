@@ -70,12 +70,51 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `name` - (String) Name of the SSM document.
+ *
+ * #### Optional
+ *
+ * * `account_id` (String) AWS Account where this resource is managed.
+ *
+ * * `region` (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import SSM Documents using the name. For example:
  *
- * ```sh
- * $ pulumi import aws:ssm/document:Document example example
- * ```
+ * console
+ *
+ * % pulumi import aws_ssm_document.example example
+ *
  * The `attachments_source` argument does not have an SSM API method for reading the attachment information detail after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+ *
+ * terraform
+ *
+ * resource "aws_ssm_document" "test" {
+ *
+ *   name          = "test_document"
+ *
+ *   document_type = "Package"
+ *
+ *   attachments_source {
+ *
+ *     key    = "SourceUrl"
+ *     
+ *     values = ["s3://${aws_s3_bucket.object_bucket.bucket}/test.zip"]
+ *
+ *   }
+ *
+ * # There is no AWS SSM API for reading attachments_source info directly
+ *
+ *   lifecycle {
+ *
+ *     ignore_changes = [attachments_source]
+ *
+ *   }
+ *
+ * }
  */
 export class Document extends pulumi.CustomResource {
     /**

@@ -46,6 +46,42 @@ import (
 //
 // ```
 //
+// ### Usage with Options
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := networkmanager.NewVpcAttachment(ctx, "example", &networkmanager.VpcAttachmentArgs{
+//				SubnetArns: pulumi.StringArray{
+//					exampleAwsSubnet.Arn,
+//				},
+//				CoreNetworkId: pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
+//				VpcArn:        pulumi.Any(exampleAwsVpc.Arn),
+//				Options: &networkmanager.VpcAttachmentOptionsArgs{
+//					ApplianceModeSupport:            pulumi.Bool(false),
+//					DnsSupport:                      pulumi.Bool(true),
+//					Ipv6Support:                     pulumi.Bool(false),
+//					SecurityGroupReferencingSupport: pulumi.Bool(true),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import `aws_networkmanager_vpc_attachment` using the attachment ID. For example:
@@ -69,7 +105,7 @@ type VpcAttachment struct {
 	// Region where the edge is located.
 	EdgeLocation pulumi.StringOutput `pulumi:"edgeLocation"`
 	// Options for the VPC attachment. See below.
-	Options VpcAttachmentOptionsPtrOutput `pulumi:"options"`
+	Options VpcAttachmentOptionsOutput `pulumi:"options"`
 	// ID of the attachment account owner.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
 	// Attachment resource ARN.
@@ -351,8 +387,8 @@ func (o VpcAttachmentOutput) EdgeLocation() pulumi.StringOutput {
 }
 
 // Options for the VPC attachment. See below.
-func (o VpcAttachmentOutput) Options() VpcAttachmentOptionsPtrOutput {
-	return o.ApplyT(func(v *VpcAttachment) VpcAttachmentOptionsPtrOutput { return v.Options }).(VpcAttachmentOptionsPtrOutput)
+func (o VpcAttachmentOutput) Options() VpcAttachmentOptionsOutput {
+	return o.ApplyT(func(v *VpcAttachment) VpcAttachmentOptionsOutput { return v.Options }).(VpcAttachmentOptionsOutput)
 }
 
 // ID of the attachment account owner.

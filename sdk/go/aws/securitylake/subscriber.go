@@ -17,6 +17,8 @@ import (
 //
 // ## Example Usage
 //
+// ### Basic Usage
+//
 // ```go
 // package main
 //
@@ -37,6 +39,53 @@ import (
 //						AwsLogSourceResource: &securitylake.SubscriberSourceAwsLogSourceResourceArgs{
 //							SourceName:    pulumi.String("ROUTE53"),
 //							SourceVersion: pulumi.String("1.0"),
+//						},
+//					},
+//				},
+//				SubscriberIdentity: &securitylake.SubscriberSubscriberIdentityArgs{
+//					ExternalId: pulumi.String("example"),
+//					Principal:  pulumi.String("1234567890"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAwsSecuritylakeDataLake,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Multiple Log Sources
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securitylake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := securitylake.NewSubscriber(ctx, "example", &securitylake.SubscriberArgs{
+//				SubscriberName: pulumi.String("example-name"),
+//				AccessType:     pulumi.String("S3"),
+//				Sources: securitylake.SubscriberSourceArray{
+//					&securitylake.SubscriberSourceArgs{
+//						AwsLogSourceResource: &securitylake.SubscriberSourceAwsLogSourceResourceArgs{
+//							SourceName:    pulumi.String("SH_FINDINGS"),
+//							SourceVersion: pulumi.String("2.0"),
+//						},
+//					},
+//					&securitylake.SubscriberSourceArgs{
+//						AwsLogSourceResource: &securitylake.SubscriberSourceAwsLogSourceResourceArgs{
+//							SourceName:    pulumi.String("ROUTE53"),
+//							SourceVersion: pulumi.String("2.0"),
 //						},
 //					},
 //				},

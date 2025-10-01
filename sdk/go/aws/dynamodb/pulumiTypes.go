@@ -386,7 +386,7 @@ type TableGlobalSecondaryIndex struct {
 	Name string `pulumi:"name"`
 	// Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
 	NonKeyAttributes []string `pulumi:"nonKeyAttributes"`
-	// Sets the maximum number of read and write units for the specified on-demand table. See below.
+	// Sets the maximum number of read and write units for the specified on-demand index. See below.
 	OnDemandThroughput *TableGlobalSecondaryIndexOnDemandThroughput `pulumi:"onDemandThroughput"`
 	// One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
 	ProjectionType string `pulumi:"projectionType"`
@@ -394,6 +394,8 @@ type TableGlobalSecondaryIndex struct {
 	RangeKey *string `pulumi:"rangeKey"`
 	// Number of read units for this index. Must be set if billingMode is set to PROVISIONED.
 	ReadCapacity *int `pulumi:"readCapacity"`
+	// Sets the number of warm read and write units for this index. See below.
+	WarmThroughput *TableGlobalSecondaryIndexWarmThroughput `pulumi:"warmThroughput"`
 	// Number of write units for this index. Must be set if billingMode is set to PROVISIONED.
 	WriteCapacity *int `pulumi:"writeCapacity"`
 }
@@ -416,7 +418,7 @@ type TableGlobalSecondaryIndexArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
 	NonKeyAttributes pulumi.StringArrayInput `pulumi:"nonKeyAttributes"`
-	// Sets the maximum number of read and write units for the specified on-demand table. See below.
+	// Sets the maximum number of read and write units for the specified on-demand index. See below.
 	OnDemandThroughput TableGlobalSecondaryIndexOnDemandThroughputPtrInput `pulumi:"onDemandThroughput"`
 	// One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
 	ProjectionType pulumi.StringInput `pulumi:"projectionType"`
@@ -424,6 +426,8 @@ type TableGlobalSecondaryIndexArgs struct {
 	RangeKey pulumi.StringPtrInput `pulumi:"rangeKey"`
 	// Number of read units for this index. Must be set if billingMode is set to PROVISIONED.
 	ReadCapacity pulumi.IntPtrInput `pulumi:"readCapacity"`
+	// Sets the number of warm read and write units for this index. See below.
+	WarmThroughput TableGlobalSecondaryIndexWarmThroughputPtrInput `pulumi:"warmThroughput"`
 	// Number of write units for this index. Must be set if billingMode is set to PROVISIONED.
 	WriteCapacity pulumi.IntPtrInput `pulumi:"writeCapacity"`
 }
@@ -494,7 +498,7 @@ func (o TableGlobalSecondaryIndexOutput) NonKeyAttributes() pulumi.StringArrayOu
 	return o.ApplyT(func(v TableGlobalSecondaryIndex) []string { return v.NonKeyAttributes }).(pulumi.StringArrayOutput)
 }
 
-// Sets the maximum number of read and write units for the specified on-demand table. See below.
+// Sets the maximum number of read and write units for the specified on-demand index. See below.
 func (o TableGlobalSecondaryIndexOutput) OnDemandThroughput() TableGlobalSecondaryIndexOnDemandThroughputPtrOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndex) *TableGlobalSecondaryIndexOnDemandThroughput {
 		return v.OnDemandThroughput
@@ -514,6 +518,11 @@ func (o TableGlobalSecondaryIndexOutput) RangeKey() pulumi.StringPtrOutput {
 // Number of read units for this index. Must be set if billingMode is set to PROVISIONED.
 func (o TableGlobalSecondaryIndexOutput) ReadCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndex) *int { return v.ReadCapacity }).(pulumi.IntPtrOutput)
+}
+
+// Sets the number of warm read and write units for this index. See below.
+func (o TableGlobalSecondaryIndexOutput) WarmThroughput() TableGlobalSecondaryIndexWarmThroughputPtrOutput {
+	return o.ApplyT(func(v TableGlobalSecondaryIndex) *TableGlobalSecondaryIndexWarmThroughput { return v.WarmThroughput }).(TableGlobalSecondaryIndexWarmThroughputPtrOutput)
 }
 
 // Number of write units for this index. Must be set if billingMode is set to PROVISIONED.
@@ -694,6 +703,162 @@ func (o TableGlobalSecondaryIndexOnDemandThroughputPtrOutput) MaxWriteRequestUni
 			return nil
 		}
 		return v.MaxWriteRequestUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+type TableGlobalSecondaryIndexWarmThroughput struct {
+	// Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
+	ReadUnitsPerSecond *int `pulumi:"readUnitsPerSecond"`
+	// Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+	WriteUnitsPerSecond *int `pulumi:"writeUnitsPerSecond"`
+}
+
+// TableGlobalSecondaryIndexWarmThroughputInput is an input type that accepts TableGlobalSecondaryIndexWarmThroughputArgs and TableGlobalSecondaryIndexWarmThroughputOutput values.
+// You can construct a concrete instance of `TableGlobalSecondaryIndexWarmThroughputInput` via:
+//
+//	TableGlobalSecondaryIndexWarmThroughputArgs{...}
+type TableGlobalSecondaryIndexWarmThroughputInput interface {
+	pulumi.Input
+
+	ToTableGlobalSecondaryIndexWarmThroughputOutput() TableGlobalSecondaryIndexWarmThroughputOutput
+	ToTableGlobalSecondaryIndexWarmThroughputOutputWithContext(context.Context) TableGlobalSecondaryIndexWarmThroughputOutput
+}
+
+type TableGlobalSecondaryIndexWarmThroughputArgs struct {
+	// Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
+	ReadUnitsPerSecond pulumi.IntPtrInput `pulumi:"readUnitsPerSecond"`
+	// Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+	WriteUnitsPerSecond pulumi.IntPtrInput `pulumi:"writeUnitsPerSecond"`
+}
+
+func (TableGlobalSecondaryIndexWarmThroughputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableGlobalSecondaryIndexWarmThroughput)(nil)).Elem()
+}
+
+func (i TableGlobalSecondaryIndexWarmThroughputArgs) ToTableGlobalSecondaryIndexWarmThroughputOutput() TableGlobalSecondaryIndexWarmThroughputOutput {
+	return i.ToTableGlobalSecondaryIndexWarmThroughputOutputWithContext(context.Background())
+}
+
+func (i TableGlobalSecondaryIndexWarmThroughputArgs) ToTableGlobalSecondaryIndexWarmThroughputOutputWithContext(ctx context.Context) TableGlobalSecondaryIndexWarmThroughputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableGlobalSecondaryIndexWarmThroughputOutput)
+}
+
+func (i TableGlobalSecondaryIndexWarmThroughputArgs) ToTableGlobalSecondaryIndexWarmThroughputPtrOutput() TableGlobalSecondaryIndexWarmThroughputPtrOutput {
+	return i.ToTableGlobalSecondaryIndexWarmThroughputPtrOutputWithContext(context.Background())
+}
+
+func (i TableGlobalSecondaryIndexWarmThroughputArgs) ToTableGlobalSecondaryIndexWarmThroughputPtrOutputWithContext(ctx context.Context) TableGlobalSecondaryIndexWarmThroughputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableGlobalSecondaryIndexWarmThroughputOutput).ToTableGlobalSecondaryIndexWarmThroughputPtrOutputWithContext(ctx)
+}
+
+// TableGlobalSecondaryIndexWarmThroughputPtrInput is an input type that accepts TableGlobalSecondaryIndexWarmThroughputArgs, TableGlobalSecondaryIndexWarmThroughputPtr and TableGlobalSecondaryIndexWarmThroughputPtrOutput values.
+// You can construct a concrete instance of `TableGlobalSecondaryIndexWarmThroughputPtrInput` via:
+//
+//	        TableGlobalSecondaryIndexWarmThroughputArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableGlobalSecondaryIndexWarmThroughputPtrInput interface {
+	pulumi.Input
+
+	ToTableGlobalSecondaryIndexWarmThroughputPtrOutput() TableGlobalSecondaryIndexWarmThroughputPtrOutput
+	ToTableGlobalSecondaryIndexWarmThroughputPtrOutputWithContext(context.Context) TableGlobalSecondaryIndexWarmThroughputPtrOutput
+}
+
+type tableGlobalSecondaryIndexWarmThroughputPtrType TableGlobalSecondaryIndexWarmThroughputArgs
+
+func TableGlobalSecondaryIndexWarmThroughputPtr(v *TableGlobalSecondaryIndexWarmThroughputArgs) TableGlobalSecondaryIndexWarmThroughputPtrInput {
+	return (*tableGlobalSecondaryIndexWarmThroughputPtrType)(v)
+}
+
+func (*tableGlobalSecondaryIndexWarmThroughputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableGlobalSecondaryIndexWarmThroughput)(nil)).Elem()
+}
+
+func (i *tableGlobalSecondaryIndexWarmThroughputPtrType) ToTableGlobalSecondaryIndexWarmThroughputPtrOutput() TableGlobalSecondaryIndexWarmThroughputPtrOutput {
+	return i.ToTableGlobalSecondaryIndexWarmThroughputPtrOutputWithContext(context.Background())
+}
+
+func (i *tableGlobalSecondaryIndexWarmThroughputPtrType) ToTableGlobalSecondaryIndexWarmThroughputPtrOutputWithContext(ctx context.Context) TableGlobalSecondaryIndexWarmThroughputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableGlobalSecondaryIndexWarmThroughputPtrOutput)
+}
+
+type TableGlobalSecondaryIndexWarmThroughputOutput struct{ *pulumi.OutputState }
+
+func (TableGlobalSecondaryIndexWarmThroughputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableGlobalSecondaryIndexWarmThroughput)(nil)).Elem()
+}
+
+func (o TableGlobalSecondaryIndexWarmThroughputOutput) ToTableGlobalSecondaryIndexWarmThroughputOutput() TableGlobalSecondaryIndexWarmThroughputOutput {
+	return o
+}
+
+func (o TableGlobalSecondaryIndexWarmThroughputOutput) ToTableGlobalSecondaryIndexWarmThroughputOutputWithContext(ctx context.Context) TableGlobalSecondaryIndexWarmThroughputOutput {
+	return o
+}
+
+func (o TableGlobalSecondaryIndexWarmThroughputOutput) ToTableGlobalSecondaryIndexWarmThroughputPtrOutput() TableGlobalSecondaryIndexWarmThroughputPtrOutput {
+	return o.ToTableGlobalSecondaryIndexWarmThroughputPtrOutputWithContext(context.Background())
+}
+
+func (o TableGlobalSecondaryIndexWarmThroughputOutput) ToTableGlobalSecondaryIndexWarmThroughputPtrOutputWithContext(ctx context.Context) TableGlobalSecondaryIndexWarmThroughputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableGlobalSecondaryIndexWarmThroughput) *TableGlobalSecondaryIndexWarmThroughput {
+		return &v
+	}).(TableGlobalSecondaryIndexWarmThroughputPtrOutput)
+}
+
+// Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
+func (o TableGlobalSecondaryIndexWarmThroughputOutput) ReadUnitsPerSecond() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableGlobalSecondaryIndexWarmThroughput) *int { return v.ReadUnitsPerSecond }).(pulumi.IntPtrOutput)
+}
+
+// Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+func (o TableGlobalSecondaryIndexWarmThroughputOutput) WriteUnitsPerSecond() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableGlobalSecondaryIndexWarmThroughput) *int { return v.WriteUnitsPerSecond }).(pulumi.IntPtrOutput)
+}
+
+type TableGlobalSecondaryIndexWarmThroughputPtrOutput struct{ *pulumi.OutputState }
+
+func (TableGlobalSecondaryIndexWarmThroughputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableGlobalSecondaryIndexWarmThroughput)(nil)).Elem()
+}
+
+func (o TableGlobalSecondaryIndexWarmThroughputPtrOutput) ToTableGlobalSecondaryIndexWarmThroughputPtrOutput() TableGlobalSecondaryIndexWarmThroughputPtrOutput {
+	return o
+}
+
+func (o TableGlobalSecondaryIndexWarmThroughputPtrOutput) ToTableGlobalSecondaryIndexWarmThroughputPtrOutputWithContext(ctx context.Context) TableGlobalSecondaryIndexWarmThroughputPtrOutput {
+	return o
+}
+
+func (o TableGlobalSecondaryIndexWarmThroughputPtrOutput) Elem() TableGlobalSecondaryIndexWarmThroughputOutput {
+	return o.ApplyT(func(v *TableGlobalSecondaryIndexWarmThroughput) TableGlobalSecondaryIndexWarmThroughput {
+		if v != nil {
+			return *v
+		}
+		var ret TableGlobalSecondaryIndexWarmThroughput
+		return ret
+	}).(TableGlobalSecondaryIndexWarmThroughputOutput)
+}
+
+// Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
+func (o TableGlobalSecondaryIndexWarmThroughputPtrOutput) ReadUnitsPerSecond() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableGlobalSecondaryIndexWarmThroughput) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ReadUnitsPerSecond
+	}).(pulumi.IntPtrOutput)
+}
+
+// Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+func (o TableGlobalSecondaryIndexWarmThroughputPtrOutput) WriteUnitsPerSecond() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableGlobalSecondaryIndexWarmThroughput) *int {
+		if v == nil {
+			return nil
+		}
+		return v.WriteUnitsPerSecond
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -2328,6 +2493,162 @@ func (o TableTtlPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type TableWarmThroughput struct {
+	// Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
+	ReadUnitsPerSecond *int `pulumi:"readUnitsPerSecond"`
+	// Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+	WriteUnitsPerSecond *int `pulumi:"writeUnitsPerSecond"`
+}
+
+// TableWarmThroughputInput is an input type that accepts TableWarmThroughputArgs and TableWarmThroughputOutput values.
+// You can construct a concrete instance of `TableWarmThroughputInput` via:
+//
+//	TableWarmThroughputArgs{...}
+type TableWarmThroughputInput interface {
+	pulumi.Input
+
+	ToTableWarmThroughputOutput() TableWarmThroughputOutput
+	ToTableWarmThroughputOutputWithContext(context.Context) TableWarmThroughputOutput
+}
+
+type TableWarmThroughputArgs struct {
+	// Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
+	ReadUnitsPerSecond pulumi.IntPtrInput `pulumi:"readUnitsPerSecond"`
+	// Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+	WriteUnitsPerSecond pulumi.IntPtrInput `pulumi:"writeUnitsPerSecond"`
+}
+
+func (TableWarmThroughputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableWarmThroughput)(nil)).Elem()
+}
+
+func (i TableWarmThroughputArgs) ToTableWarmThroughputOutput() TableWarmThroughputOutput {
+	return i.ToTableWarmThroughputOutputWithContext(context.Background())
+}
+
+func (i TableWarmThroughputArgs) ToTableWarmThroughputOutputWithContext(ctx context.Context) TableWarmThroughputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableWarmThroughputOutput)
+}
+
+func (i TableWarmThroughputArgs) ToTableWarmThroughputPtrOutput() TableWarmThroughputPtrOutput {
+	return i.ToTableWarmThroughputPtrOutputWithContext(context.Background())
+}
+
+func (i TableWarmThroughputArgs) ToTableWarmThroughputPtrOutputWithContext(ctx context.Context) TableWarmThroughputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableWarmThroughputOutput).ToTableWarmThroughputPtrOutputWithContext(ctx)
+}
+
+// TableWarmThroughputPtrInput is an input type that accepts TableWarmThroughputArgs, TableWarmThroughputPtr and TableWarmThroughputPtrOutput values.
+// You can construct a concrete instance of `TableWarmThroughputPtrInput` via:
+//
+//	        TableWarmThroughputArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableWarmThroughputPtrInput interface {
+	pulumi.Input
+
+	ToTableWarmThroughputPtrOutput() TableWarmThroughputPtrOutput
+	ToTableWarmThroughputPtrOutputWithContext(context.Context) TableWarmThroughputPtrOutput
+}
+
+type tableWarmThroughputPtrType TableWarmThroughputArgs
+
+func TableWarmThroughputPtr(v *TableWarmThroughputArgs) TableWarmThroughputPtrInput {
+	return (*tableWarmThroughputPtrType)(v)
+}
+
+func (*tableWarmThroughputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableWarmThroughput)(nil)).Elem()
+}
+
+func (i *tableWarmThroughputPtrType) ToTableWarmThroughputPtrOutput() TableWarmThroughputPtrOutput {
+	return i.ToTableWarmThroughputPtrOutputWithContext(context.Background())
+}
+
+func (i *tableWarmThroughputPtrType) ToTableWarmThroughputPtrOutputWithContext(ctx context.Context) TableWarmThroughputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableWarmThroughputPtrOutput)
+}
+
+type TableWarmThroughputOutput struct{ *pulumi.OutputState }
+
+func (TableWarmThroughputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableWarmThroughput)(nil)).Elem()
+}
+
+func (o TableWarmThroughputOutput) ToTableWarmThroughputOutput() TableWarmThroughputOutput {
+	return o
+}
+
+func (o TableWarmThroughputOutput) ToTableWarmThroughputOutputWithContext(ctx context.Context) TableWarmThroughputOutput {
+	return o
+}
+
+func (o TableWarmThroughputOutput) ToTableWarmThroughputPtrOutput() TableWarmThroughputPtrOutput {
+	return o.ToTableWarmThroughputPtrOutputWithContext(context.Background())
+}
+
+func (o TableWarmThroughputOutput) ToTableWarmThroughputPtrOutputWithContext(ctx context.Context) TableWarmThroughputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableWarmThroughput) *TableWarmThroughput {
+		return &v
+	}).(TableWarmThroughputPtrOutput)
+}
+
+// Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
+func (o TableWarmThroughputOutput) ReadUnitsPerSecond() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableWarmThroughput) *int { return v.ReadUnitsPerSecond }).(pulumi.IntPtrOutput)
+}
+
+// Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+func (o TableWarmThroughputOutput) WriteUnitsPerSecond() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableWarmThroughput) *int { return v.WriteUnitsPerSecond }).(pulumi.IntPtrOutput)
+}
+
+type TableWarmThroughputPtrOutput struct{ *pulumi.OutputState }
+
+func (TableWarmThroughputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableWarmThroughput)(nil)).Elem()
+}
+
+func (o TableWarmThroughputPtrOutput) ToTableWarmThroughputPtrOutput() TableWarmThroughputPtrOutput {
+	return o
+}
+
+func (o TableWarmThroughputPtrOutput) ToTableWarmThroughputPtrOutputWithContext(ctx context.Context) TableWarmThroughputPtrOutput {
+	return o
+}
+
+func (o TableWarmThroughputPtrOutput) Elem() TableWarmThroughputOutput {
+	return o.ApplyT(func(v *TableWarmThroughput) TableWarmThroughput {
+		if v != nil {
+			return *v
+		}
+		var ret TableWarmThroughput
+		return ret
+	}).(TableWarmThroughputOutput)
+}
+
+// Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
+func (o TableWarmThroughputPtrOutput) ReadUnitsPerSecond() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableWarmThroughput) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ReadUnitsPerSecond
+	}).(pulumi.IntPtrOutput)
+}
+
+// Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+func (o TableWarmThroughputPtrOutput) WriteUnitsPerSecond() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableWarmThroughput) *int {
+		if v == nil {
+			return nil
+		}
+		return v.WriteUnitsPerSecond
+	}).(pulumi.IntPtrOutput)
+}
+
 type GetTableAttribute struct {
 	// Name of the DynamoDB table.
 	Name string `pulumi:"name"`
@@ -2440,6 +2761,7 @@ type GetTableGlobalSecondaryIndex struct {
 	ProjectionType      string                                           `pulumi:"projectionType"`
 	RangeKey            string                                           `pulumi:"rangeKey"`
 	ReadCapacity        int                                              `pulumi:"readCapacity"`
+	WarmThroughputs     []GetTableGlobalSecondaryIndexWarmThroughput     `pulumi:"warmThroughputs"`
 	WriteCapacity       int                                              `pulumi:"writeCapacity"`
 }
 
@@ -2463,6 +2785,7 @@ type GetTableGlobalSecondaryIndexArgs struct {
 	ProjectionType      pulumi.StringInput                                       `pulumi:"projectionType"`
 	RangeKey            pulumi.StringInput                                       `pulumi:"rangeKey"`
 	ReadCapacity        pulumi.IntInput                                          `pulumi:"readCapacity"`
+	WarmThroughputs     GetTableGlobalSecondaryIndexWarmThroughputArrayInput     `pulumi:"warmThroughputs"`
 	WriteCapacity       pulumi.IntInput                                          `pulumi:"writeCapacity"`
 }
 
@@ -2546,6 +2869,12 @@ func (o GetTableGlobalSecondaryIndexOutput) RangeKey() pulumi.StringOutput {
 
 func (o GetTableGlobalSecondaryIndexOutput) ReadCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v GetTableGlobalSecondaryIndex) int { return v.ReadCapacity }).(pulumi.IntOutput)
+}
+
+func (o GetTableGlobalSecondaryIndexOutput) WarmThroughputs() GetTableGlobalSecondaryIndexWarmThroughputArrayOutput {
+	return o.ApplyT(func(v GetTableGlobalSecondaryIndex) []GetTableGlobalSecondaryIndexWarmThroughput {
+		return v.WarmThroughputs
+	}).(GetTableGlobalSecondaryIndexWarmThroughputArrayOutput)
 }
 
 func (o GetTableGlobalSecondaryIndexOutput) WriteCapacity() pulumi.IntOutput {
@@ -2670,6 +2999,106 @@ func (o GetTableGlobalSecondaryIndexOnDemandThroughputArrayOutput) Index(i pulum
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTableGlobalSecondaryIndexOnDemandThroughput {
 		return vs[0].([]GetTableGlobalSecondaryIndexOnDemandThroughput)[vs[1].(int)]
 	}).(GetTableGlobalSecondaryIndexOnDemandThroughputOutput)
+}
+
+type GetTableGlobalSecondaryIndexWarmThroughput struct {
+	ReadUnitsPerSecond  int `pulumi:"readUnitsPerSecond"`
+	WriteUnitsPerSecond int `pulumi:"writeUnitsPerSecond"`
+}
+
+// GetTableGlobalSecondaryIndexWarmThroughputInput is an input type that accepts GetTableGlobalSecondaryIndexWarmThroughputArgs and GetTableGlobalSecondaryIndexWarmThroughputOutput values.
+// You can construct a concrete instance of `GetTableGlobalSecondaryIndexWarmThroughputInput` via:
+//
+//	GetTableGlobalSecondaryIndexWarmThroughputArgs{...}
+type GetTableGlobalSecondaryIndexWarmThroughputInput interface {
+	pulumi.Input
+
+	ToGetTableGlobalSecondaryIndexWarmThroughputOutput() GetTableGlobalSecondaryIndexWarmThroughputOutput
+	ToGetTableGlobalSecondaryIndexWarmThroughputOutputWithContext(context.Context) GetTableGlobalSecondaryIndexWarmThroughputOutput
+}
+
+type GetTableGlobalSecondaryIndexWarmThroughputArgs struct {
+	ReadUnitsPerSecond  pulumi.IntInput `pulumi:"readUnitsPerSecond"`
+	WriteUnitsPerSecond pulumi.IntInput `pulumi:"writeUnitsPerSecond"`
+}
+
+func (GetTableGlobalSecondaryIndexWarmThroughputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableGlobalSecondaryIndexWarmThroughput)(nil)).Elem()
+}
+
+func (i GetTableGlobalSecondaryIndexWarmThroughputArgs) ToGetTableGlobalSecondaryIndexWarmThroughputOutput() GetTableGlobalSecondaryIndexWarmThroughputOutput {
+	return i.ToGetTableGlobalSecondaryIndexWarmThroughputOutputWithContext(context.Background())
+}
+
+func (i GetTableGlobalSecondaryIndexWarmThroughputArgs) ToGetTableGlobalSecondaryIndexWarmThroughputOutputWithContext(ctx context.Context) GetTableGlobalSecondaryIndexWarmThroughputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableGlobalSecondaryIndexWarmThroughputOutput)
+}
+
+// GetTableGlobalSecondaryIndexWarmThroughputArrayInput is an input type that accepts GetTableGlobalSecondaryIndexWarmThroughputArray and GetTableGlobalSecondaryIndexWarmThroughputArrayOutput values.
+// You can construct a concrete instance of `GetTableGlobalSecondaryIndexWarmThroughputArrayInput` via:
+//
+//	GetTableGlobalSecondaryIndexWarmThroughputArray{ GetTableGlobalSecondaryIndexWarmThroughputArgs{...} }
+type GetTableGlobalSecondaryIndexWarmThroughputArrayInput interface {
+	pulumi.Input
+
+	ToGetTableGlobalSecondaryIndexWarmThroughputArrayOutput() GetTableGlobalSecondaryIndexWarmThroughputArrayOutput
+	ToGetTableGlobalSecondaryIndexWarmThroughputArrayOutputWithContext(context.Context) GetTableGlobalSecondaryIndexWarmThroughputArrayOutput
+}
+
+type GetTableGlobalSecondaryIndexWarmThroughputArray []GetTableGlobalSecondaryIndexWarmThroughputInput
+
+func (GetTableGlobalSecondaryIndexWarmThroughputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableGlobalSecondaryIndexWarmThroughput)(nil)).Elem()
+}
+
+func (i GetTableGlobalSecondaryIndexWarmThroughputArray) ToGetTableGlobalSecondaryIndexWarmThroughputArrayOutput() GetTableGlobalSecondaryIndexWarmThroughputArrayOutput {
+	return i.ToGetTableGlobalSecondaryIndexWarmThroughputArrayOutputWithContext(context.Background())
+}
+
+func (i GetTableGlobalSecondaryIndexWarmThroughputArray) ToGetTableGlobalSecondaryIndexWarmThroughputArrayOutputWithContext(ctx context.Context) GetTableGlobalSecondaryIndexWarmThroughputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableGlobalSecondaryIndexWarmThroughputArrayOutput)
+}
+
+type GetTableGlobalSecondaryIndexWarmThroughputOutput struct{ *pulumi.OutputState }
+
+func (GetTableGlobalSecondaryIndexWarmThroughputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableGlobalSecondaryIndexWarmThroughput)(nil)).Elem()
+}
+
+func (o GetTableGlobalSecondaryIndexWarmThroughputOutput) ToGetTableGlobalSecondaryIndexWarmThroughputOutput() GetTableGlobalSecondaryIndexWarmThroughputOutput {
+	return o
+}
+
+func (o GetTableGlobalSecondaryIndexWarmThroughputOutput) ToGetTableGlobalSecondaryIndexWarmThroughputOutputWithContext(ctx context.Context) GetTableGlobalSecondaryIndexWarmThroughputOutput {
+	return o
+}
+
+func (o GetTableGlobalSecondaryIndexWarmThroughputOutput) ReadUnitsPerSecond() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTableGlobalSecondaryIndexWarmThroughput) int { return v.ReadUnitsPerSecond }).(pulumi.IntOutput)
+}
+
+func (o GetTableGlobalSecondaryIndexWarmThroughputOutput) WriteUnitsPerSecond() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTableGlobalSecondaryIndexWarmThroughput) int { return v.WriteUnitsPerSecond }).(pulumi.IntOutput)
+}
+
+type GetTableGlobalSecondaryIndexWarmThroughputArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTableGlobalSecondaryIndexWarmThroughputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableGlobalSecondaryIndexWarmThroughput)(nil)).Elem()
+}
+
+func (o GetTableGlobalSecondaryIndexWarmThroughputArrayOutput) ToGetTableGlobalSecondaryIndexWarmThroughputArrayOutput() GetTableGlobalSecondaryIndexWarmThroughputArrayOutput {
+	return o
+}
+
+func (o GetTableGlobalSecondaryIndexWarmThroughputArrayOutput) ToGetTableGlobalSecondaryIndexWarmThroughputArrayOutputWithContext(ctx context.Context) GetTableGlobalSecondaryIndexWarmThroughputArrayOutput {
+	return o
+}
+
+func (o GetTableGlobalSecondaryIndexWarmThroughputArrayOutput) Index(i pulumi.IntInput) GetTableGlobalSecondaryIndexWarmThroughputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTableGlobalSecondaryIndexWarmThroughput {
+		return vs[0].([]GetTableGlobalSecondaryIndexWarmThroughput)[vs[1].(int)]
+	}).(GetTableGlobalSecondaryIndexWarmThroughputOutput)
 }
 
 type GetTableLocalSecondaryIndex struct {
@@ -3245,6 +3674,106 @@ func (o GetTableTtlOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetTableTtl) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+type GetTableWarmThroughput struct {
+	ReadUnitsPerSecond  int `pulumi:"readUnitsPerSecond"`
+	WriteUnitsPerSecond int `pulumi:"writeUnitsPerSecond"`
+}
+
+// GetTableWarmThroughputInput is an input type that accepts GetTableWarmThroughputArgs and GetTableWarmThroughputOutput values.
+// You can construct a concrete instance of `GetTableWarmThroughputInput` via:
+//
+//	GetTableWarmThroughputArgs{...}
+type GetTableWarmThroughputInput interface {
+	pulumi.Input
+
+	ToGetTableWarmThroughputOutput() GetTableWarmThroughputOutput
+	ToGetTableWarmThroughputOutputWithContext(context.Context) GetTableWarmThroughputOutput
+}
+
+type GetTableWarmThroughputArgs struct {
+	ReadUnitsPerSecond  pulumi.IntInput `pulumi:"readUnitsPerSecond"`
+	WriteUnitsPerSecond pulumi.IntInput `pulumi:"writeUnitsPerSecond"`
+}
+
+func (GetTableWarmThroughputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableWarmThroughput)(nil)).Elem()
+}
+
+func (i GetTableWarmThroughputArgs) ToGetTableWarmThroughputOutput() GetTableWarmThroughputOutput {
+	return i.ToGetTableWarmThroughputOutputWithContext(context.Background())
+}
+
+func (i GetTableWarmThroughputArgs) ToGetTableWarmThroughputOutputWithContext(ctx context.Context) GetTableWarmThroughputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableWarmThroughputOutput)
+}
+
+// GetTableWarmThroughputArrayInput is an input type that accepts GetTableWarmThroughputArray and GetTableWarmThroughputArrayOutput values.
+// You can construct a concrete instance of `GetTableWarmThroughputArrayInput` via:
+//
+//	GetTableWarmThroughputArray{ GetTableWarmThroughputArgs{...} }
+type GetTableWarmThroughputArrayInput interface {
+	pulumi.Input
+
+	ToGetTableWarmThroughputArrayOutput() GetTableWarmThroughputArrayOutput
+	ToGetTableWarmThroughputArrayOutputWithContext(context.Context) GetTableWarmThroughputArrayOutput
+}
+
+type GetTableWarmThroughputArray []GetTableWarmThroughputInput
+
+func (GetTableWarmThroughputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableWarmThroughput)(nil)).Elem()
+}
+
+func (i GetTableWarmThroughputArray) ToGetTableWarmThroughputArrayOutput() GetTableWarmThroughputArrayOutput {
+	return i.ToGetTableWarmThroughputArrayOutputWithContext(context.Background())
+}
+
+func (i GetTableWarmThroughputArray) ToGetTableWarmThroughputArrayOutputWithContext(ctx context.Context) GetTableWarmThroughputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableWarmThroughputArrayOutput)
+}
+
+type GetTableWarmThroughputOutput struct{ *pulumi.OutputState }
+
+func (GetTableWarmThroughputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableWarmThroughput)(nil)).Elem()
+}
+
+func (o GetTableWarmThroughputOutput) ToGetTableWarmThroughputOutput() GetTableWarmThroughputOutput {
+	return o
+}
+
+func (o GetTableWarmThroughputOutput) ToGetTableWarmThroughputOutputWithContext(ctx context.Context) GetTableWarmThroughputOutput {
+	return o
+}
+
+func (o GetTableWarmThroughputOutput) ReadUnitsPerSecond() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTableWarmThroughput) int { return v.ReadUnitsPerSecond }).(pulumi.IntOutput)
+}
+
+func (o GetTableWarmThroughputOutput) WriteUnitsPerSecond() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTableWarmThroughput) int { return v.WriteUnitsPerSecond }).(pulumi.IntOutput)
+}
+
+type GetTableWarmThroughputArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTableWarmThroughputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableWarmThroughput)(nil)).Elem()
+}
+
+func (o GetTableWarmThroughputArrayOutput) ToGetTableWarmThroughputArrayOutput() GetTableWarmThroughputArrayOutput {
+	return o
+}
+
+func (o GetTableWarmThroughputArrayOutput) ToGetTableWarmThroughputArrayOutputWithContext(ctx context.Context) GetTableWarmThroughputArrayOutput {
+	return o
+}
+
+func (o GetTableWarmThroughputArrayOutput) Index(i pulumi.IntInput) GetTableWarmThroughputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTableWarmThroughput {
+		return vs[0].([]GetTableWarmThroughput)[vs[1].(int)]
+	}).(GetTableWarmThroughputOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableReplicaInput)(nil)).Elem(), GlobalTableReplicaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableReplicaArrayInput)(nil)).Elem(), GlobalTableReplicaArray{})
@@ -3256,6 +3785,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableGlobalSecondaryIndexArrayInput)(nil)).Elem(), TableGlobalSecondaryIndexArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableGlobalSecondaryIndexOnDemandThroughputInput)(nil)).Elem(), TableGlobalSecondaryIndexOnDemandThroughputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableGlobalSecondaryIndexOnDemandThroughputPtrInput)(nil)).Elem(), TableGlobalSecondaryIndexOnDemandThroughputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableGlobalSecondaryIndexWarmThroughputInput)(nil)).Elem(), TableGlobalSecondaryIndexWarmThroughputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableGlobalSecondaryIndexWarmThroughputPtrInput)(nil)).Elem(), TableGlobalSecondaryIndexWarmThroughputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableImportTableInput)(nil)).Elem(), TableImportTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableImportTablePtrInput)(nil)).Elem(), TableImportTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableImportTableInputFormatOptionsInput)(nil)).Elem(), TableImportTableInputFormatOptionsArgs{})
@@ -3276,12 +3807,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableServerSideEncryptionPtrInput)(nil)).Elem(), TableServerSideEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTtlInput)(nil)).Elem(), TableTtlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTtlPtrInput)(nil)).Elem(), TableTtlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableWarmThroughputInput)(nil)).Elem(), TableWarmThroughputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableWarmThroughputPtrInput)(nil)).Elem(), TableWarmThroughputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableAttributeInput)(nil)).Elem(), GetTableAttributeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableAttributeArrayInput)(nil)).Elem(), GetTableAttributeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableGlobalSecondaryIndexInput)(nil)).Elem(), GetTableGlobalSecondaryIndexArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableGlobalSecondaryIndexArrayInput)(nil)).Elem(), GetTableGlobalSecondaryIndexArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableGlobalSecondaryIndexOnDemandThroughputInput)(nil)).Elem(), GetTableGlobalSecondaryIndexOnDemandThroughputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableGlobalSecondaryIndexOnDemandThroughputArrayInput)(nil)).Elem(), GetTableGlobalSecondaryIndexOnDemandThroughputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableGlobalSecondaryIndexWarmThroughputInput)(nil)).Elem(), GetTableGlobalSecondaryIndexWarmThroughputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableGlobalSecondaryIndexWarmThroughputArrayInput)(nil)).Elem(), GetTableGlobalSecondaryIndexWarmThroughputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableLocalSecondaryIndexInput)(nil)).Elem(), GetTableLocalSecondaryIndexArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableLocalSecondaryIndexArrayInput)(nil)).Elem(), GetTableLocalSecondaryIndexArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableOnDemandThroughputInput)(nil)).Elem(), GetTableOnDemandThroughputArgs{})
@@ -3292,6 +3827,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableServerSideEncryptionInput)(nil)).Elem(), GetTableServerSideEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableServerSideEncryptionPtrInput)(nil)).Elem(), GetTableServerSideEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableTtlInput)(nil)).Elem(), GetTableTtlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableWarmThroughputInput)(nil)).Elem(), GetTableWarmThroughputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableWarmThroughputArrayInput)(nil)).Elem(), GetTableWarmThroughputArray{})
 	pulumi.RegisterOutputType(GlobalTableReplicaOutput{})
 	pulumi.RegisterOutputType(GlobalTableReplicaArrayOutput{})
 	pulumi.RegisterOutputType(TableAttributeOutput{})
@@ -3302,6 +3839,8 @@ func init() {
 	pulumi.RegisterOutputType(TableGlobalSecondaryIndexArrayOutput{})
 	pulumi.RegisterOutputType(TableGlobalSecondaryIndexOnDemandThroughputOutput{})
 	pulumi.RegisterOutputType(TableGlobalSecondaryIndexOnDemandThroughputPtrOutput{})
+	pulumi.RegisterOutputType(TableGlobalSecondaryIndexWarmThroughputOutput{})
+	pulumi.RegisterOutputType(TableGlobalSecondaryIndexWarmThroughputPtrOutput{})
 	pulumi.RegisterOutputType(TableImportTableOutput{})
 	pulumi.RegisterOutputType(TableImportTablePtrOutput{})
 	pulumi.RegisterOutputType(TableImportTableInputFormatOptionsOutput{})
@@ -3322,12 +3861,16 @@ func init() {
 	pulumi.RegisterOutputType(TableServerSideEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(TableTtlOutput{})
 	pulumi.RegisterOutputType(TableTtlPtrOutput{})
+	pulumi.RegisterOutputType(TableWarmThroughputOutput{})
+	pulumi.RegisterOutputType(TableWarmThroughputPtrOutput{})
 	pulumi.RegisterOutputType(GetTableAttributeOutput{})
 	pulumi.RegisterOutputType(GetTableAttributeArrayOutput{})
 	pulumi.RegisterOutputType(GetTableGlobalSecondaryIndexOutput{})
 	pulumi.RegisterOutputType(GetTableGlobalSecondaryIndexArrayOutput{})
 	pulumi.RegisterOutputType(GetTableGlobalSecondaryIndexOnDemandThroughputOutput{})
 	pulumi.RegisterOutputType(GetTableGlobalSecondaryIndexOnDemandThroughputArrayOutput{})
+	pulumi.RegisterOutputType(GetTableGlobalSecondaryIndexWarmThroughputOutput{})
+	pulumi.RegisterOutputType(GetTableGlobalSecondaryIndexWarmThroughputArrayOutput{})
 	pulumi.RegisterOutputType(GetTableLocalSecondaryIndexOutput{})
 	pulumi.RegisterOutputType(GetTableLocalSecondaryIndexArrayOutput{})
 	pulumi.RegisterOutputType(GetTableOnDemandThroughputOutput{})
@@ -3338,4 +3881,6 @@ func init() {
 	pulumi.RegisterOutputType(GetTableServerSideEncryptionOutput{})
 	pulumi.RegisterOutputType(GetTableServerSideEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(GetTableTtlOutput{})
+	pulumi.RegisterOutputType(GetTableWarmThroughputOutput{})
+	pulumi.RegisterOutputType(GetTableWarmThroughputArrayOutput{})
 }

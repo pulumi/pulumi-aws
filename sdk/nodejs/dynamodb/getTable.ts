@@ -77,6 +77,7 @@ export interface GetTableResult {
     readonly tableClass: string;
     readonly tags: {[key: string]: string};
     readonly ttl: outputs.dynamodb.GetTableTtl;
+    readonly warmThroughputs: outputs.dynamodb.GetTableWarmThroughput[];
     readonly writeCapacity: number;
 }
 /**

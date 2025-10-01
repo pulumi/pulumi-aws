@@ -252,6 +252,10 @@ export interface GetFunctionResult {
      */
     readonly sourceCodeSize: number;
     /**
+     * ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package.
+     */
+    readonly sourceKmsKeyArn: string;
+    /**
      * Map of tags assigned to the Lambda Function.
      */
     readonly tags: {[key: string]: string};

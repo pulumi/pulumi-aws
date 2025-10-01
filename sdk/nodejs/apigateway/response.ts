@@ -64,7 +64,7 @@ export class Response extends pulumi.CustomResource {
     }
 
     /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * Region where this resource will be managed. See the [AWS Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints) for supported values. Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
     /**
@@ -76,7 +76,7 @@ export class Response extends pulumi.CustomResource {
      */
     declare public readonly responseTemplates: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Response type of the associated GatewayResponse.
+     * Response type of the associated GatewayResponse. See the [AWS Documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html) for supported values.
      */
     declare public readonly responseType: pulumi.Output<string>;
     /**
@@ -132,7 +132,7 @@ export class Response extends pulumi.CustomResource {
  */
 export interface ResponseState {
     /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * Region where this resource will be managed. See the [AWS Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints) for supported values. Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -144,7 +144,7 @@ export interface ResponseState {
      */
     responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Response type of the associated GatewayResponse.
+     * Response type of the associated GatewayResponse. See the [AWS Documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html) for supported values.
      */
     responseType?: pulumi.Input<string>;
     /**
@@ -162,7 +162,7 @@ export interface ResponseState {
  */
 export interface ResponseArgs {
     /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * Region where this resource will be managed. See the [AWS Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints) for supported values. Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -174,7 +174,7 @@ export interface ResponseArgs {
      */
     responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Response type of the associated GatewayResponse.
+     * Response type of the associated GatewayResponse. See the [AWS Documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html) for supported values.
      */
     responseType: pulumi.Input<string>;
     /**

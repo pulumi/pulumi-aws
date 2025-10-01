@@ -203,11 +203,21 @@ class OrganizationalUnit(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) ID of the organizational unit.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+
         Using `pulumi import`, import AWS Organizations Organizational Units using the `id`. For example:
 
-        ```sh
-        $ pulumi import aws:organizations/organizationalUnit:OrganizationalUnit example ou-1234567
-        ```
+        console
+
+        % pulumi import aws_organizations_organizational_unit.example ou-1234567
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -237,11 +247,21 @@ class OrganizationalUnit(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) ID of the organizational unit.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+
         Using `pulumi import`, import AWS Organizations Organizational Units using the `id`. For example:
 
-        ```sh
-        $ pulumi import aws:organizations/organizationalUnit:OrganizationalUnit example ou-1234567
-        ```
+        console
+
+        % pulumi import aws_organizations_organizational_unit.example ou-1234567
 
         :param str resource_name: The name of the resource.
         :param OrganizationalUnitArgs args: The arguments to use to populate this resource's properties.

@@ -14,13 +14,42 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class GuardrailWordPolicyConfigWordsConfig
     {
         /// <summary>
+        /// Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `NONE`.
+        /// </summary>
+        public readonly string? InputAction;
+        /// <summary>
+        /// Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
+        /// </summary>
+        public readonly bool? InputEnabled;
+        /// <summary>
+        /// Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `NONE`.
+        /// </summary>
+        public readonly string? OutputAction;
+        /// <summary>
+        /// Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
+        /// </summary>
+        public readonly bool? OutputEnabled;
+        /// <summary>
         /// The custom word text.
         /// </summary>
         public readonly string Text;
 
         [OutputConstructor]
-        private GuardrailWordPolicyConfigWordsConfig(string text)
+        private GuardrailWordPolicyConfigWordsConfig(
+            string? inputAction,
+
+            bool? inputEnabled,
+
+            string? outputAction,
+
+            bool? outputEnabled,
+
+            string text)
         {
+            InputAction = inputAction;
+            InputEnabled = inputEnabled;
+            OutputAction = outputAction;
+            OutputEnabled = outputEnabled;
             Text = text;
         }
     }

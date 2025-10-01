@@ -1619,8 +1619,12 @@ func (o SiteLocationPtrOutput) Longitude() pulumi.StringPtrOutput {
 type VpcAttachmentOptions struct {
 	// Whether to enable appliance mode support. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
 	ApplianceModeSupport *bool `pulumi:"applianceModeSupport"`
+	// Whether to enable DNS support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+	DnsSupport *bool `pulumi:"dnsSupport"`
 	// Whether to enable IPv6 support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
 	Ipv6Support *bool `pulumi:"ipv6Support"`
+	// Whether to enable security group referencing support for this VPC attachment. The default is `true`. However, at the core network policy-level the default is set to `false`. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+	SecurityGroupReferencingSupport *bool `pulumi:"securityGroupReferencingSupport"`
 }
 
 // VpcAttachmentOptionsInput is an input type that accepts VpcAttachmentOptionsArgs and VpcAttachmentOptionsOutput values.
@@ -1637,8 +1641,12 @@ type VpcAttachmentOptionsInput interface {
 type VpcAttachmentOptionsArgs struct {
 	// Whether to enable appliance mode support. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
 	ApplianceModeSupport pulumi.BoolPtrInput `pulumi:"applianceModeSupport"`
+	// Whether to enable DNS support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+	DnsSupport pulumi.BoolPtrInput `pulumi:"dnsSupport"`
 	// Whether to enable IPv6 support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
 	Ipv6Support pulumi.BoolPtrInput `pulumi:"ipv6Support"`
+	// Whether to enable security group referencing support for this VPC attachment. The default is `true`. However, at the core network policy-level the default is set to `false`. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+	SecurityGroupReferencingSupport pulumi.BoolPtrInput `pulumi:"securityGroupReferencingSupport"`
 }
 
 func (VpcAttachmentOptionsArgs) ElementType() reflect.Type {
@@ -1723,9 +1731,19 @@ func (o VpcAttachmentOptionsOutput) ApplianceModeSupport() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v VpcAttachmentOptions) *bool { return v.ApplianceModeSupport }).(pulumi.BoolPtrOutput)
 }
 
+// Whether to enable DNS support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+func (o VpcAttachmentOptionsOutput) DnsSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VpcAttachmentOptions) *bool { return v.DnsSupport }).(pulumi.BoolPtrOutput)
+}
+
 // Whether to enable IPv6 support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
 func (o VpcAttachmentOptionsOutput) Ipv6Support() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VpcAttachmentOptions) *bool { return v.Ipv6Support }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to enable security group referencing support for this VPC attachment. The default is `true`. However, at the core network policy-level the default is set to `false`. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+func (o VpcAttachmentOptionsOutput) SecurityGroupReferencingSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VpcAttachmentOptions) *bool { return v.SecurityGroupReferencingSupport }).(pulumi.BoolPtrOutput)
 }
 
 type VpcAttachmentOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -1762,6 +1780,16 @@ func (o VpcAttachmentOptionsPtrOutput) ApplianceModeSupport() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Whether to enable DNS support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+func (o VpcAttachmentOptionsPtrOutput) DnsSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VpcAttachmentOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DnsSupport
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Whether to enable IPv6 support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
 func (o VpcAttachmentOptionsPtrOutput) Ipv6Support() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpcAttachmentOptions) *bool {
@@ -1769,6 +1797,16 @@ func (o VpcAttachmentOptionsPtrOutput) Ipv6Support() pulumi.BoolPtrOutput {
 			return nil
 		}
 		return v.Ipv6Support
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether to enable security group referencing support for this VPC attachment. The default is `true`. However, at the core network policy-level the default is set to `false`. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+func (o VpcAttachmentOptionsPtrOutput) SecurityGroupReferencingSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VpcAttachmentOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupReferencingSupport
 	}).(pulumi.BoolPtrOutput)
 }
 

@@ -1228,6 +1228,8 @@ type CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergCon
 	Location *string `pulumi:"location"`
 	// The number of days that orphan files should be retained before file deletion. Defaults to `3`.
 	OrphanFileRetentionPeriodInDays *int `pulumi:"orphanFileRetentionPeriodInDays"`
+	// interval in hours between orphan file deletion job runs. Defaults to `24`.
+	RunRateInHours *int `pulumi:"runRateInHours"`
 }
 
 // CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationInput is an input type that accepts CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs and CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutput values.
@@ -1246,6 +1248,8 @@ type CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergCon
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// The number of days that orphan files should be retained before file deletion. Defaults to `3`.
 	OrphanFileRetentionPeriodInDays pulumi.IntPtrInput `pulumi:"orphanFileRetentionPeriodInDays"`
+	// interval in hours between orphan file deletion job runs. Defaults to `24`.
+	RunRateInHours pulumi.IntPtrInput `pulumi:"runRateInHours"`
 }
 
 func (CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs) ElementType() reflect.Type {
@@ -1339,6 +1343,13 @@ func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIceberg
 	}).(pulumi.IntPtrOutput)
 }
 
+// interval in hours between orphan file deletion job runs. Defaults to `24`.
+func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutput) RunRateInHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration) *int {
+		return v.RunRateInHours
+	}).(pulumi.IntPtrOutput)
+}
+
 type CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput) ElementType() reflect.Type {
@@ -1380,6 +1391,16 @@ func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIceberg
 			return nil
 		}
 		return v.OrphanFileRetentionPeriodInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// interval in hours between orphan file deletion job runs. Defaults to `24`.
+func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput) RunRateInHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RunRateInHours
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -1527,6 +1548,8 @@ type CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguratio
 	CleanExpiredFiles *bool `pulumi:"cleanExpiredFiles"`
 	// The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
 	NumberOfSnapshotsToRetain *int `pulumi:"numberOfSnapshotsToRetain"`
+	// Interval in hours between retention job runs. Defaults to `24`.
+	RunRateInHours *int `pulumi:"runRateInHours"`
 	// The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
 	SnapshotRetentionPeriodInDays *int `pulumi:"snapshotRetentionPeriodInDays"`
 }
@@ -1547,6 +1570,8 @@ type CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguratio
 	CleanExpiredFiles pulumi.BoolPtrInput `pulumi:"cleanExpiredFiles"`
 	// The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
 	NumberOfSnapshotsToRetain pulumi.IntPtrInput `pulumi:"numberOfSnapshotsToRetain"`
+	// Interval in hours between retention job runs. Defaults to `24`.
+	RunRateInHours pulumi.IntPtrInput `pulumi:"runRateInHours"`
 	// The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
 	SnapshotRetentionPeriodInDays pulumi.IntPtrInput `pulumi:"snapshotRetentionPeriodInDays"`
 }
@@ -1642,6 +1667,13 @@ func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigura
 	}).(pulumi.IntPtrOutput)
 }
 
+// Interval in hours between retention job runs. Defaults to `24`.
+func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutput) RunRateInHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration) *int {
+		return v.RunRateInHours
+	}).(pulumi.IntPtrOutput)
+}
+
 // The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
 func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutput) SnapshotRetentionPeriodInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration) *int {
@@ -1690,6 +1722,16 @@ func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigura
 			return nil
 		}
 		return v.NumberOfSnapshotsToRetain
+	}).(pulumi.IntPtrOutput)
+}
+
+// Interval in hours between retention job runs. Defaults to `24`.
+func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput) RunRateInHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RunRateInHours
 	}).(pulumi.IntPtrOutput)
 }
 

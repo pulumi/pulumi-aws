@@ -343,11 +343,23 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `id` - (String) ID of the instance.
+//
+// #### Optional
+//
+// * `account_id` (String) AWS Account where this resource is managed.
+//
+// * `region` (String) Region where this resource is managed.
+//
 // Using `pulumi import`, import instances using the `id`. For example:
 //
-// ```sh
-// $ pulumi import aws:ec2/instance:Instance web i-12345678
-// ```
+// console
+//
+// % pulumi import aws_instance.web i-12345678
 type Instance struct {
 	pulumi.CustomResourceState
 
@@ -423,8 +435,10 @@ type Instance struct {
 	OutpostArn pulumi.StringOutput `pulumi:"outpostArn"`
 	// Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `getPasswordData` is true. Note that this encrypted value will be stored in the state file, as with all exported attributes. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	PasswordData pulumi.StringOutput `pulumi:"passwordData"`
-	// Placement Group to start the instance in.
+	// Placement Group to start the instance in. Conflicts with `placementGroupId`.
 	PlacementGroup pulumi.StringOutput `pulumi:"placementGroup"`
+	// Placement Group ID to start the instance in. Conflicts with `placementGroup`.
+	PlacementGroupId pulumi.StringOutput `pulumi:"placementGroupId"`
 	// Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
 	PlacementPartitionNumber pulumi.IntOutput `pulumi:"placementPartitionNumber"`
 	// The primary network interface. See Primary Network Interface below.
@@ -581,8 +595,10 @@ type instanceState struct {
 	OutpostArn *string `pulumi:"outpostArn"`
 	// Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `getPasswordData` is true. Note that this encrypted value will be stored in the state file, as with all exported attributes. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	PasswordData *string `pulumi:"passwordData"`
-	// Placement Group to start the instance in.
+	// Placement Group to start the instance in. Conflicts with `placementGroupId`.
 	PlacementGroup *string `pulumi:"placementGroup"`
+	// Placement Group ID to start the instance in. Conflicts with `placementGroup`.
+	PlacementGroupId *string `pulumi:"placementGroupId"`
 	// Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
 	PlacementPartitionNumber *int `pulumi:"placementPartitionNumber"`
 	// The primary network interface. See Primary Network Interface below.
@@ -710,8 +726,10 @@ type InstanceState struct {
 	OutpostArn pulumi.StringPtrInput
 	// Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `getPasswordData` is true. Note that this encrypted value will be stored in the state file, as with all exported attributes. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	PasswordData pulumi.StringPtrInput
-	// Placement Group to start the instance in.
+	// Placement Group to start the instance in. Conflicts with `placementGroupId`.
 	PlacementGroup pulumi.StringPtrInput
+	// Placement Group ID to start the instance in. Conflicts with `placementGroup`.
+	PlacementGroupId pulumi.StringPtrInput
 	// Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
 	PlacementPartitionNumber pulumi.IntPtrInput
 	// The primary network interface. See Primary Network Interface below.
@@ -833,8 +851,10 @@ type instanceArgs struct {
 	//
 	// Deprecated: network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the ec2.NetworkInterfaceAttachment resource.
 	NetworkInterfaces []InstanceNetworkInterface `pulumi:"networkInterfaces"`
-	// Placement Group to start the instance in.
+	// Placement Group to start the instance in. Conflicts with `placementGroupId`.
 	PlacementGroup *string `pulumi:"placementGroup"`
+	// Placement Group ID to start the instance in. Conflicts with `placementGroup`.
+	PlacementGroupId *string `pulumi:"placementGroupId"`
 	// Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
 	PlacementPartitionNumber *int `pulumi:"placementPartitionNumber"`
 	// The primary network interface. See Primary Network Interface below.
@@ -941,8 +961,10 @@ type InstanceArgs struct {
 	//
 	// Deprecated: network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the ec2.NetworkInterfaceAttachment resource.
 	NetworkInterfaces InstanceNetworkInterfaceArrayInput
-	// Placement Group to start the instance in.
+	// Placement Group to start the instance in. Conflicts with `placementGroupId`.
 	PlacementGroup pulumi.StringPtrInput
+	// Placement Group ID to start the instance in. Conflicts with `placementGroup`.
+	PlacementGroupId pulumi.StringPtrInput
 	// Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
 	PlacementPartitionNumber pulumi.IntPtrInput
 	// The primary network interface. See Primary Network Interface below.
@@ -1251,9 +1273,14 @@ func (o InstanceOutput) PasswordData() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.PasswordData }).(pulumi.StringOutput)
 }
 
-// Placement Group to start the instance in.
+// Placement Group to start the instance in. Conflicts with `placementGroupId`.
 func (o InstanceOutput) PlacementGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.PlacementGroup }).(pulumi.StringOutput)
+}
+
+// Placement Group ID to start the instance in. Conflicts with `placementGroup`.
+func (o InstanceOutput) PlacementGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.PlacementGroupId }).(pulumi.StringOutput)
 }
 
 // Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.

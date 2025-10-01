@@ -291,11 +291,17 @@ class VpcIngressConnection(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the App Runner VPC ingress connection.
+
         Using `pulumi import`, import App Runner VPC Ingress Connection using the `arn`. For example:
 
-        ```sh
-        $ pulumi import aws:apprunner/vpcIngressConnection:VpcIngressConnection example "arn:aws:apprunner:us-west-2:837424938642:vpcingressconnection/example/b379f86381d74825832c2e82080342fa"
-        ```
+        console
+
+        % pulumi import aws_apprunner_vpc_ingress_connection.example "arn:aws:apprunner:us-west-2:837424938642:vpcingressconnection/example/b379f86381d74825832c2e82080342fa"
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -334,11 +340,17 @@ class VpcIngressConnection(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the App Runner VPC ingress connection.
+
         Using `pulumi import`, import App Runner VPC Ingress Connection using the `arn`. For example:
 
-        ```sh
-        $ pulumi import aws:apprunner/vpcIngressConnection:VpcIngressConnection example "arn:aws:apprunner:us-west-2:837424938642:vpcingressconnection/example/b379f86381d74825832c2e82080342fa"
-        ```
+        console
+
+        % pulumi import aws_apprunner_vpc_ingress_connection.example "arn:aws:apprunner:us-west-2:837424938642:vpcingressconnection/example/b379f86381d74825832c2e82080342fa"
 
         :param str resource_name: The name of the resource.
         :param VpcIngressConnectionArgs args: The arguments to use to populate this resource's properties.
