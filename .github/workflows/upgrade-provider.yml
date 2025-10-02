@@ -63,10 +63,13 @@ jobs:
         id: esc-secrets
         name: Fetch secrets from ESC
         uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
-      - name: Setup tools
-        uses: ./.github/actions/setup-tools
+      - name: Setup mise
+        uses: jdx/mise-action@v3
         with:
-          tools: pulumictl, pulumicli, nodejs, python, dotnet, go, java
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          cache_key: "mise-{{platform}}-{{file_hash}}"
+          # only saving the cache in the prerequisites job
+          cache_save: false
       - name: Install upgrade-provider
         run: go install github.com/pulumi/upgrade-provider@${{ inputs.upgradeProviderVersion || 'main' }}
         shell: bash
@@ -94,7 +97,7 @@ jobs:
         id: upgrade_provider
         if: steps.target_version.outputs.version != ''
         continue-on-error: true
-        uses: pulumi/pulumi-upgrade-provider-action@3c670a7cb92732324c8ccc17f7f9ef9dfca126d0 # v0.0.17
+        uses: pulumi/pulumi-upgrade-provider-action@e247104aede3eb4641f48c8ad0ea9de9346f2457 # v0.0.18
         with:
           kind: provider
           email: bot@pulumi.com

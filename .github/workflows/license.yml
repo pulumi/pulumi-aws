@@ -23,11 +23,13 @@ jobs:
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           persist-credentials: false
-      - name: Setup tools
-        uses: ./.github/actions/setup-tools
+      - name: Setup mise
+        uses: jdx/mise-action@v3
         with:
-          tools: go
-          cache-go: false
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          cache_key: "mise-{{platform}}-{{file_hash}}"
+          # only saving the cache in the prerequisites job
+          cache_save: false
       - run: make prepare_local_workspace
         continue-on-error: true
         env:
