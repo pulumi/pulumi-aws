@@ -1,0 +1,43 @@
+[[tools.dotnet]]
+version = "8.0.414"
+backend = "asdf:dotnet"
+
+[[tools."github:pulumi/pulumictl"]]
+version = "0.0.50"
+backend = "github:pulumi/pulumictl"
+
+[tools."github:pulumi/pulumictl".platforms.linux-x64]
+checksum = "blake3:c128dd74993f779c613296fe7cd21c20cbd323f24e59cb76e007620660b60348"
+size = 27744219
+url = "https://github.com/pulumi/pulumictl/releases/download/v0.0.50/pulumictl-v0.0.50-linux-amd64.tar.gz"
+
+[[tools."github:pulumi/schema-tools"]]
+version = "0.6.0"
+backend = "github:pulumi/schema-tools"
+
+[tools."github:pulumi/schema-tools".platforms.linux-x64]
+checksum = "blake3:82dfe616fee18b4258f6e3d2dc3c4e9f14afd43a0a4cc33eff2d2a04088d6ca3"
+size = 14282746
+url = "https://github.com/pulumi/schema-tools/releases/download/v0.6.0/schema-tools-v0.6.0-linux-amd64.tar.gz"
+
+[[tools.go]]
+version = "1.24.6"
+backend = "core:go"
+
+[tools.go.platforms.linux-x64]
+checksum = "sha256:bbca37cc395c974ffa4893ee35819ad23ebb27426df87af92e93a9ec66ef8712"
+size = 78583176
+url = "https://dl.google.com/go/go1.24.6.linux-amd64.tar.gz"
+
+[[tools.golangci-lint]]
+version = "1.64.8"
+backend = "aqua:golangci/golangci-lint"
+
+[tools.golangci-lint.platforms.linux-x64]
+checksum = "sha256:b6270687afb143d019f387c791cd2a6f1cb383be9b3124d241ca11bd3ce2e54e"
+size = 12364828
+url = "https://github.com/golangci/golangci-lint/releases/download/v1.64.8/golangci-lint-1.64.8-linux-amd64.tar.gz"
+
+[[tools.yarn]]
+version = "1.22.22"
+backend = "vfox:yarn"
