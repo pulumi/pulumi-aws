@@ -106,6 +106,10 @@ jobs:
             sdk/nodejs/package.json
             sdk/python/pyproject.toml
             sdk/java/build.gradle
+            **/mise.lock
+            **/.config/mise.lock
+            **/mise.*.lock
+            **/.config/mise.*.lock
       - name: Commit ${{ matrix.language }} SDK changes for Renovate
         # If the worktree is dirty and this is a Renovate PR to bump
         # dependencies, commit the updated SDK and push it back to the PR. The
