@@ -62,31 +62,31 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the certificate.
      */
-    declare public /*out*/ readonly certificateArn: pulumi.Output<string>;
+    public /*out*/ readonly certificateArn!: pulumi.Output<string>;
     /**
      * The certificate identifier.
      */
-    declare public readonly certificateId: pulumi.Output<string>;
+    public readonly certificateId!: pulumi.Output<string>;
     /**
      * The contents of the .pem X.509 certificate file for the certificate. Either `certificatePem` or `certificateWallet` must be set.
      */
-    declare public readonly certificatePem: pulumi.Output<string | undefined>;
+    public readonly certificatePem!: pulumi.Output<string | undefined>;
     /**
      * The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificatePem` or `certificateWallet` must be set.
      */
-    declare public readonly certificateWallet: pulumi.Output<string | undefined>;
+    public readonly certificateWallet!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -101,23 +101,23 @@ export class Certificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateState | undefined;
-            resourceInputs["certificateArn"] = state?.certificateArn;
-            resourceInputs["certificateId"] = state?.certificateId;
-            resourceInputs["certificatePem"] = state?.certificatePem;
-            resourceInputs["certificateWallet"] = state?.certificateWallet;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["certificateArn"] = state ? state.certificateArn : undefined;
+            resourceInputs["certificateId"] = state ? state.certificateId : undefined;
+            resourceInputs["certificatePem"] = state ? state.certificatePem : undefined;
+            resourceInputs["certificateWallet"] = state ? state.certificateWallet : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
-            if (args?.certificateId === undefined && !opts.urn) {
+            if ((!args || args.certificateId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'certificateId'");
             }
-            resourceInputs["certificateId"] = args?.certificateId;
+            resourceInputs["certificateId"] = args ? args.certificateId : undefined;
             resourceInputs["certificatePem"] = args?.certificatePem ? pulumi.secret(args.certificatePem) : undefined;
             resourceInputs["certificateWallet"] = args?.certificateWallet ? pulumi.secret(args.certificateWallet) : undefined;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["certificateArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

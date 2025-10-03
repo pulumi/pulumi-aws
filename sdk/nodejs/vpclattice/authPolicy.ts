@@ -78,19 +78,19 @@ export class AuthPolicy extends pulumi.CustomResource {
     /**
      * The auth policy. The policy string in JSON must not contain newlines or blank lines.
      */
-    declare public readonly policy: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
      */
-    declare public readonly resourceIdentifier: pulumi.Output<string>;
+    public readonly resourceIdentifier!: pulumi.Output<string>;
     /**
      * The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
      */
-    declare public readonly state: pulumi.Output<string | undefined>;
+    public readonly state!: pulumi.Output<string | undefined>;
 
     /**
      * Create a AuthPolicy resource with the given unique name, arguments, and options.
@@ -105,22 +105,22 @@ export class AuthPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AuthPolicyState | undefined;
-            resourceInputs["policy"] = state?.policy;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceIdentifier"] = state?.resourceIdentifier;
-            resourceInputs["state"] = state?.state;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceIdentifier"] = state ? state.resourceIdentifier : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
         } else {
             const args = argsOrState as AuthPolicyArgs | undefined;
-            if (args?.policy === undefined && !opts.urn) {
+            if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            if (args?.resourceIdentifier === undefined && !opts.urn) {
+            if ((!args || args.resourceIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceIdentifier'");
             }
-            resourceInputs["policy"] = args?.policy;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resourceIdentifier"] = args?.resourceIdentifier;
-            resourceInputs["state"] = args?.state;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourceIdentifier"] = args ? args.resourceIdentifier : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AuthPolicy.__pulumiType, name, resourceInputs, opts);

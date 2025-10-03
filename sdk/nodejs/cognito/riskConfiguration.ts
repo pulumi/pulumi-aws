@@ -72,27 +72,27 @@ export class RiskConfiguration extends pulumi.CustomResource {
     /**
      * The account takeover risk configuration. See details below.
      */
-    declare public readonly accountTakeoverRiskConfiguration: pulumi.Output<outputs.cognito.RiskConfigurationAccountTakeoverRiskConfiguration | undefined>;
+    public readonly accountTakeoverRiskConfiguration!: pulumi.Output<outputs.cognito.RiskConfigurationAccountTakeoverRiskConfiguration | undefined>;
     /**
      * The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
      */
-    declare public readonly clientId: pulumi.Output<string | undefined>;
+    public readonly clientId!: pulumi.Output<string | undefined>;
     /**
      * The compromised credentials risk configuration. See details below.
      */
-    declare public readonly compromisedCredentialsRiskConfiguration: pulumi.Output<outputs.cognito.RiskConfigurationCompromisedCredentialsRiskConfiguration | undefined>;
+    public readonly compromisedCredentialsRiskConfiguration!: pulumi.Output<outputs.cognito.RiskConfigurationCompromisedCredentialsRiskConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The configuration to override the risk decision. See details below.
      */
-    declare public readonly riskExceptionConfiguration: pulumi.Output<outputs.cognito.RiskConfigurationRiskExceptionConfiguration | undefined>;
+    public readonly riskExceptionConfiguration!: pulumi.Output<outputs.cognito.RiskConfigurationRiskExceptionConfiguration | undefined>;
     /**
      * The user pool ID.
      */
-    declare public readonly userPoolId: pulumi.Output<string>;
+    public readonly userPoolId!: pulumi.Output<string>;
 
     /**
      * Create a RiskConfiguration resource with the given unique name, arguments, and options.
@@ -107,23 +107,23 @@ export class RiskConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RiskConfigurationState | undefined;
-            resourceInputs["accountTakeoverRiskConfiguration"] = state?.accountTakeoverRiskConfiguration;
-            resourceInputs["clientId"] = state?.clientId;
-            resourceInputs["compromisedCredentialsRiskConfiguration"] = state?.compromisedCredentialsRiskConfiguration;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["riskExceptionConfiguration"] = state?.riskExceptionConfiguration;
-            resourceInputs["userPoolId"] = state?.userPoolId;
+            resourceInputs["accountTakeoverRiskConfiguration"] = state ? state.accountTakeoverRiskConfiguration : undefined;
+            resourceInputs["clientId"] = state ? state.clientId : undefined;
+            resourceInputs["compromisedCredentialsRiskConfiguration"] = state ? state.compromisedCredentialsRiskConfiguration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["riskExceptionConfiguration"] = state ? state.riskExceptionConfiguration : undefined;
+            resourceInputs["userPoolId"] = state ? state.userPoolId : undefined;
         } else {
             const args = argsOrState as RiskConfigurationArgs | undefined;
-            if (args?.userPoolId === undefined && !opts.urn) {
+            if ((!args || args.userPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            resourceInputs["accountTakeoverRiskConfiguration"] = args?.accountTakeoverRiskConfiguration;
-            resourceInputs["clientId"] = args?.clientId;
-            resourceInputs["compromisedCredentialsRiskConfiguration"] = args?.compromisedCredentialsRiskConfiguration;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["riskExceptionConfiguration"] = args?.riskExceptionConfiguration;
-            resourceInputs["userPoolId"] = args?.userPoolId;
+            resourceInputs["accountTakeoverRiskConfiguration"] = args ? args.accountTakeoverRiskConfiguration : undefined;
+            resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["compromisedCredentialsRiskConfiguration"] = args ? args.compromisedCredentialsRiskConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["riskExceptionConfiguration"] = args ? args.riskExceptionConfiguration : undefined;
+            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RiskConfiguration.__pulumiType, name, resourceInputs, opts);

@@ -74,43 +74,43 @@ export class ReportPlan extends pulumi.CustomResource {
     /**
      * The ARN of the backup report plan.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
      */
-    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
     /**
      * The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
      */
-    declare public /*out*/ readonly deploymentStatus: pulumi.Output<string>;
+    public /*out*/ readonly deploymentStatus!: pulumi.Output<string>;
     /**
      * The description of the report plan with a maximum of 1,024 characters
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
      */
-    declare public readonly reportDeliveryChannel: pulumi.Output<outputs.backup.ReportPlanReportDeliveryChannel>;
+    public readonly reportDeliveryChannel!: pulumi.Output<outputs.backup.ReportPlanReportDeliveryChannel>;
     /**
      * An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
      */
-    declare public readonly reportSetting: pulumi.Output<outputs.backup.ReportPlanReportSetting>;
+    public readonly reportSetting!: pulumi.Output<outputs.backup.ReportPlanReportSetting>;
     /**
      * Metadata that you can assign to help organize the report plans you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ReportPlan resource with the given unique name, arguments, and options.
@@ -125,30 +125,30 @@ export class ReportPlan extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReportPlanState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["creationTime"] = state?.creationTime;
-            resourceInputs["deploymentStatus"] = state?.deploymentStatus;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["reportDeliveryChannel"] = state?.reportDeliveryChannel;
-            resourceInputs["reportSetting"] = state?.reportSetting;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["creationTime"] = state ? state.creationTime : undefined;
+            resourceInputs["deploymentStatus"] = state ? state.deploymentStatus : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["reportDeliveryChannel"] = state ? state.reportDeliveryChannel : undefined;
+            resourceInputs["reportSetting"] = state ? state.reportSetting : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ReportPlanArgs | undefined;
-            if (args?.reportDeliveryChannel === undefined && !opts.urn) {
+            if ((!args || args.reportDeliveryChannel === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'reportDeliveryChannel'");
             }
-            if (args?.reportSetting === undefined && !opts.urn) {
+            if ((!args || args.reportSetting === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'reportSetting'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["reportDeliveryChannel"] = args?.reportDeliveryChannel;
-            resourceInputs["reportSetting"] = args?.reportSetting;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["reportDeliveryChannel"] = args ? args.reportDeliveryChannel : undefined;
+            resourceInputs["reportSetting"] = args ? args.reportSetting : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["deploymentStatus"] = undefined /*out*/;

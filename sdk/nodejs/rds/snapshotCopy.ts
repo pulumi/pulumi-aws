@@ -74,97 +74,97 @@ export class SnapshotCopy extends pulumi.CustomResource {
     /**
      * Specifies the allocated storage size in gigabytes (GB).
      */
-    declare public /*out*/ readonly allocatedStorage: pulumi.Output<number>;
+    public /*out*/ readonly allocatedStorage!: pulumi.Output<number>;
     /**
      * Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
      */
-    declare public /*out*/ readonly availabilityZone: pulumi.Output<string>;
+    public /*out*/ readonly availabilityZone!: pulumi.Output<string>;
     /**
      * Whether to copy existing tags. Defaults to `false`.
      */
-    declare public readonly copyTags: pulumi.Output<boolean | undefined>;
+    public readonly copyTags!: pulumi.Output<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the DB snapshot.
      */
-    declare public /*out*/ readonly dbSnapshotArn: pulumi.Output<string>;
+    public /*out*/ readonly dbSnapshotArn!: pulumi.Output<string>;
     /**
      * The Destination region to place snapshot copy.
      */
-    declare public readonly destinationRegion: pulumi.Output<string | undefined>;
+    public readonly destinationRegion!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the DB snapshot is encrypted.
      */
-    declare public /*out*/ readonly encrypted: pulumi.Output<boolean>;
+    public /*out*/ readonly encrypted!: pulumi.Output<boolean>;
     /**
      * Specifies the name of the database engine.
      */
-    declare public /*out*/ readonly engine: pulumi.Output<string>;
+    public /*out*/ readonly engine!: pulumi.Output<string>;
     /**
      * Specifies the version of the database engine.
      */
-    declare public /*out*/ readonly engineVersion: pulumi.Output<string>;
+    public /*out*/ readonly engineVersion!: pulumi.Output<string>;
     /**
      * Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
      */
-    declare public /*out*/ readonly iops: pulumi.Output<number>;
+    public /*out*/ readonly iops!: pulumi.Output<number>;
     /**
      * KMS key ID.
      */
-    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * License model information for the restored DB instance.
      */
-    declare public /*out*/ readonly licenseModel: pulumi.Output<string>;
+    public /*out*/ readonly licenseModel!: pulumi.Output<string>;
     /**
      * The name of an option group to associate with the copy of the snapshot.
      */
-    declare public readonly optionGroupName: pulumi.Output<string>;
-    declare public /*out*/ readonly port: pulumi.Output<number>;
+    public readonly optionGroupName!: pulumi.Output<string>;
+    public /*out*/ readonly port!: pulumi.Output<number>;
     /**
      * he URL that contains a Signature Version 4 signed request.
      */
-    declare public readonly presignedUrl: pulumi.Output<string | undefined>;
+    public readonly presignedUrl!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      */
-    declare public readonly sharedAccounts: pulumi.Output<string[] | undefined>;
-    declare public /*out*/ readonly snapshotType: pulumi.Output<string>;
+    public readonly sharedAccounts!: pulumi.Output<string[] | undefined>;
+    public /*out*/ readonly snapshotType!: pulumi.Output<string>;
     /**
      * Snapshot identifier of the source snapshot.
      */
-    declare public readonly sourceDbSnapshotIdentifier: pulumi.Output<string>;
+    public readonly sourceDbSnapshotIdentifier!: pulumi.Output<string>;
     /**
      * The region that the DB snapshot was created in or copied from.
      */
-    declare public /*out*/ readonly sourceRegion: pulumi.Output<string>;
+    public /*out*/ readonly sourceRegion!: pulumi.Output<string>;
     /**
      * Specifies the storage type associated with DB snapshot.
      */
-    declare public /*out*/ readonly storageType: pulumi.Output<string>;
+    public /*out*/ readonly storageType!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The external custom Availability Zone.
      */
-    declare public readonly targetCustomAvailabilityZone: pulumi.Output<string | undefined>;
+    public readonly targetCustomAvailabilityZone!: pulumi.Output<string | undefined>;
     /**
      * The Identifier for the snapshot.
      */
-    declare public readonly targetDbSnapshotIdentifier: pulumi.Output<string>;
+    public readonly targetDbSnapshotIdentifier!: pulumi.Output<string>;
     /**
      * Provides the VPC ID associated with the DB snapshot.
      */
-    declare public /*out*/ readonly vpcId: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a SnapshotCopy resource with the given unique name, arguments, and options.
@@ -179,50 +179,50 @@ export class SnapshotCopy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SnapshotCopyState | undefined;
-            resourceInputs["allocatedStorage"] = state?.allocatedStorage;
-            resourceInputs["availabilityZone"] = state?.availabilityZone;
-            resourceInputs["copyTags"] = state?.copyTags;
-            resourceInputs["dbSnapshotArn"] = state?.dbSnapshotArn;
-            resourceInputs["destinationRegion"] = state?.destinationRegion;
-            resourceInputs["encrypted"] = state?.encrypted;
-            resourceInputs["engine"] = state?.engine;
-            resourceInputs["engineVersion"] = state?.engineVersion;
-            resourceInputs["iops"] = state?.iops;
-            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
-            resourceInputs["licenseModel"] = state?.licenseModel;
-            resourceInputs["optionGroupName"] = state?.optionGroupName;
-            resourceInputs["port"] = state?.port;
-            resourceInputs["presignedUrl"] = state?.presignedUrl;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["sharedAccounts"] = state?.sharedAccounts;
-            resourceInputs["snapshotType"] = state?.snapshotType;
-            resourceInputs["sourceDbSnapshotIdentifier"] = state?.sourceDbSnapshotIdentifier;
-            resourceInputs["sourceRegion"] = state?.sourceRegion;
-            resourceInputs["storageType"] = state?.storageType;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["targetCustomAvailabilityZone"] = state?.targetCustomAvailabilityZone;
-            resourceInputs["targetDbSnapshotIdentifier"] = state?.targetDbSnapshotIdentifier;
-            resourceInputs["vpcId"] = state?.vpcId;
+            resourceInputs["allocatedStorage"] = state ? state.allocatedStorage : undefined;
+            resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            resourceInputs["copyTags"] = state ? state.copyTags : undefined;
+            resourceInputs["dbSnapshotArn"] = state ? state.dbSnapshotArn : undefined;
+            resourceInputs["destinationRegion"] = state ? state.destinationRegion : undefined;
+            resourceInputs["encrypted"] = state ? state.encrypted : undefined;
+            resourceInputs["engine"] = state ? state.engine : undefined;
+            resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
+            resourceInputs["iops"] = state ? state.iops : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["licenseModel"] = state ? state.licenseModel : undefined;
+            resourceInputs["optionGroupName"] = state ? state.optionGroupName : undefined;
+            resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["presignedUrl"] = state ? state.presignedUrl : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["sharedAccounts"] = state ? state.sharedAccounts : undefined;
+            resourceInputs["snapshotType"] = state ? state.snapshotType : undefined;
+            resourceInputs["sourceDbSnapshotIdentifier"] = state ? state.sourceDbSnapshotIdentifier : undefined;
+            resourceInputs["sourceRegion"] = state ? state.sourceRegion : undefined;
+            resourceInputs["storageType"] = state ? state.storageType : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["targetCustomAvailabilityZone"] = state ? state.targetCustomAvailabilityZone : undefined;
+            resourceInputs["targetDbSnapshotIdentifier"] = state ? state.targetDbSnapshotIdentifier : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as SnapshotCopyArgs | undefined;
-            if (args?.sourceDbSnapshotIdentifier === undefined && !opts.urn) {
+            if ((!args || args.sourceDbSnapshotIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceDbSnapshotIdentifier'");
             }
-            if (args?.targetDbSnapshotIdentifier === undefined && !opts.urn) {
+            if ((!args || args.targetDbSnapshotIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetDbSnapshotIdentifier'");
             }
-            resourceInputs["copyTags"] = args?.copyTags;
-            resourceInputs["destinationRegion"] = args?.destinationRegion;
-            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
-            resourceInputs["optionGroupName"] = args?.optionGroupName;
-            resourceInputs["presignedUrl"] = args?.presignedUrl;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["sharedAccounts"] = args?.sharedAccounts;
-            resourceInputs["sourceDbSnapshotIdentifier"] = args?.sourceDbSnapshotIdentifier;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["targetCustomAvailabilityZone"] = args?.targetCustomAvailabilityZone;
-            resourceInputs["targetDbSnapshotIdentifier"] = args?.targetDbSnapshotIdentifier;
+            resourceInputs["copyTags"] = args ? args.copyTags : undefined;
+            resourceInputs["destinationRegion"] = args ? args.destinationRegion : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["optionGroupName"] = args ? args.optionGroupName : undefined;
+            resourceInputs["presignedUrl"] = args ? args.presignedUrl : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["sharedAccounts"] = args ? args.sharedAccounts : undefined;
+            resourceInputs["sourceDbSnapshotIdentifier"] = args ? args.sourceDbSnapshotIdentifier : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetCustomAvailabilityZone"] = args ? args.targetCustomAvailabilityZone : undefined;
+            resourceInputs["targetDbSnapshotIdentifier"] = args ? args.targetDbSnapshotIdentifier : undefined;
             resourceInputs["allocatedStorage"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["dbSnapshotArn"] = undefined /*out*/;

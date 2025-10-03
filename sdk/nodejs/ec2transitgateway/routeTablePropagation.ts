@@ -58,23 +58,23 @@ export class RouteTablePropagation extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Identifier of the resource
      */
-    declare public /*out*/ readonly resourceId: pulumi.Output<string>;
+    public /*out*/ readonly resourceId!: pulumi.Output<string>;
     /**
      * Type of the resource
      */
-    declare public /*out*/ readonly resourceType: pulumi.Output<string>;
+    public /*out*/ readonly resourceType!: pulumi.Output<string>;
     /**
      * Identifier of EC2 Transit Gateway Attachment.
      */
-    declare public readonly transitGatewayAttachmentId: pulumi.Output<string>;
+    public readonly transitGatewayAttachmentId!: pulumi.Output<string>;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      */
-    declare public readonly transitGatewayRouteTableId: pulumi.Output<string>;
+    public readonly transitGatewayRouteTableId!: pulumi.Output<string>;
 
     /**
      * Create a RouteTablePropagation resource with the given unique name, arguments, and options.
@@ -89,22 +89,22 @@ export class RouteTablePropagation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteTablePropagationState | undefined;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceId"] = state?.resourceId;
-            resourceInputs["resourceType"] = state?.resourceType;
-            resourceInputs["transitGatewayAttachmentId"] = state?.transitGatewayAttachmentId;
-            resourceInputs["transitGatewayRouteTableId"] = state?.transitGatewayRouteTableId;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
+            resourceInputs["resourceType"] = state ? state.resourceType : undefined;
+            resourceInputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;
+            resourceInputs["transitGatewayRouteTableId"] = state ? state.transitGatewayRouteTableId : undefined;
         } else {
             const args = argsOrState as RouteTablePropagationArgs | undefined;
-            if (args?.transitGatewayAttachmentId === undefined && !opts.urn) {
+            if ((!args || args.transitGatewayAttachmentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayAttachmentId'");
             }
-            if (args?.transitGatewayRouteTableId === undefined && !opts.urn) {
+            if ((!args || args.transitGatewayRouteTableId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayRouteTableId'");
             }
-            resourceInputs["region"] = args?.region;
-            resourceInputs["transitGatewayAttachmentId"] = args?.transitGatewayAttachmentId;
-            resourceInputs["transitGatewayRouteTableId"] = args?.transitGatewayRouteTableId;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
+            resourceInputs["transitGatewayRouteTableId"] = args ? args.transitGatewayRouteTableId : undefined;
             resourceInputs["resourceId"] = undefined /*out*/;
             resourceInputs["resourceType"] = undefined /*out*/;
         }

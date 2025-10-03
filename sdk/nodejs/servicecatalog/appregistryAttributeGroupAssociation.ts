@@ -69,15 +69,15 @@ export class AppregistryAttributeGroupAssociation extends pulumi.CustomResource 
     /**
      * ID of the application.
      */
-    declare public readonly applicationId: pulumi.Output<string>;
+    public readonly applicationId!: pulumi.Output<string>;
     /**
      * ID of the attribute group to associate with the application.
      */
-    declare public readonly attributeGroupId: pulumi.Output<string>;
+    public readonly attributeGroupId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a AppregistryAttributeGroupAssociation resource with the given unique name, arguments, and options.
@@ -92,20 +92,20 @@ export class AppregistryAttributeGroupAssociation extends pulumi.CustomResource 
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppregistryAttributeGroupAssociationState | undefined;
-            resourceInputs["applicationId"] = state?.applicationId;
-            resourceInputs["attributeGroupId"] = state?.attributeGroupId;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["applicationId"] = state ? state.applicationId : undefined;
+            resourceInputs["attributeGroupId"] = state ? state.attributeGroupId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as AppregistryAttributeGroupAssociationArgs | undefined;
-            if (args?.applicationId === undefined && !opts.urn) {
+            if ((!args || args.applicationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if (args?.attributeGroupId === undefined && !opts.urn) {
+            if ((!args || args.attributeGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'attributeGroupId'");
             }
-            resourceInputs["applicationId"] = args?.applicationId;
-            resourceInputs["attributeGroupId"] = args?.attributeGroupId;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["attributeGroupId"] = args ? args.attributeGroupId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AppregistryAttributeGroupAssociation.__pulumiType, name, resourceInputs, opts);

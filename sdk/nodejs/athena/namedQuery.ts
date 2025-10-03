@@ -80,27 +80,27 @@ export class NamedQuery extends pulumi.CustomResource {
     /**
      * Database to which the query belongs.
      */
-    declare public readonly database: pulumi.Output<string>;
+    public readonly database!: pulumi.Output<string>;
     /**
      * Brief explanation of the query. Maximum length of 1024.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Plain language name for the query. Maximum length of 128.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Text of the query itself. In other words, all query statements. Maximum length of 262144.
      */
-    declare public readonly query: pulumi.Output<string>;
+    public readonly query!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Workgroup to which the query belongs. Defaults to `primary`
      */
-    declare public readonly workgroup: pulumi.Output<string | undefined>;
+    public readonly workgroup!: pulumi.Output<string | undefined>;
 
     /**
      * Create a NamedQuery resource with the given unique name, arguments, and options.
@@ -115,26 +115,26 @@ export class NamedQuery extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NamedQueryState | undefined;
-            resourceInputs["database"] = state?.database;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["query"] = state?.query;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["workgroup"] = state?.workgroup;
+            resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["query"] = state ? state.query : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["workgroup"] = state ? state.workgroup : undefined;
         } else {
             const args = argsOrState as NamedQueryArgs | undefined;
-            if (args?.database === undefined && !opts.urn) {
+            if ((!args || args.database === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if (args?.query === undefined && !opts.urn) {
+            if ((!args || args.query === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'query'");
             }
-            resourceInputs["database"] = args?.database;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["query"] = args?.query;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["workgroup"] = args?.workgroup;
+            resourceInputs["database"] = args ? args.database : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["query"] = args ? args.query : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["workgroup"] = args ? args.workgroup : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NamedQuery.__pulumiType, name, resourceInputs, opts);

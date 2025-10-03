@@ -78,27 +78,27 @@ export class FieldLevelEncryptionConfig extends pulumi.CustomResource {
     /**
      * The Field Level Encryption Config ARN.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Internal value used by CloudFront to allow future updates to the Field Level Encryption Config.
      */
-    declare public /*out*/ readonly callerReference: pulumi.Output<string>;
+    public /*out*/ readonly callerReference!: pulumi.Output<string>;
     /**
      * An optional comment about the Field Level Encryption Config.
      */
-    declare public readonly comment: pulumi.Output<string | undefined>;
+    public readonly comment!: pulumi.Output<string | undefined>;
     /**
      * Content Type Profile Config specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
      */
-    declare public readonly contentTypeProfileConfig: pulumi.Output<outputs.cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfig>;
+    public readonly contentTypeProfileConfig!: pulumi.Output<outputs.cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfig>;
     /**
      * The current version of the Field Level Encryption Config. For example: `E2QWRUHAPOMQZL`.
      */
-    declare public /*out*/ readonly etag: pulumi.Output<string>;
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
      */
-    declare public readonly queryArgProfileConfig: pulumi.Output<outputs.cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfig>;
+    public readonly queryArgProfileConfig!: pulumi.Output<outputs.cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfig>;
 
     /**
      * Create a FieldLevelEncryptionConfig resource with the given unique name, arguments, and options.
@@ -113,23 +113,23 @@ export class FieldLevelEncryptionConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FieldLevelEncryptionConfigState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["callerReference"] = state?.callerReference;
-            resourceInputs["comment"] = state?.comment;
-            resourceInputs["contentTypeProfileConfig"] = state?.contentTypeProfileConfig;
-            resourceInputs["etag"] = state?.etag;
-            resourceInputs["queryArgProfileConfig"] = state?.queryArgProfileConfig;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["callerReference"] = state ? state.callerReference : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["contentTypeProfileConfig"] = state ? state.contentTypeProfileConfig : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["queryArgProfileConfig"] = state ? state.queryArgProfileConfig : undefined;
         } else {
             const args = argsOrState as FieldLevelEncryptionConfigArgs | undefined;
-            if (args?.contentTypeProfileConfig === undefined && !opts.urn) {
+            if ((!args || args.contentTypeProfileConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'contentTypeProfileConfig'");
             }
-            if (args?.queryArgProfileConfig === undefined && !opts.urn) {
+            if ((!args || args.queryArgProfileConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'queryArgProfileConfig'");
             }
-            resourceInputs["comment"] = args?.comment;
-            resourceInputs["contentTypeProfileConfig"] = args?.contentTypeProfileConfig;
-            resourceInputs["queryArgProfileConfig"] = args?.queryArgProfileConfig;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["contentTypeProfileConfig"] = args ? args.contentTypeProfileConfig : undefined;
+            resourceInputs["queryArgProfileConfig"] = args ? args.queryArgProfileConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["callerReference"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

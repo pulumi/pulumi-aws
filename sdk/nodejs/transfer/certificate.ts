@@ -48,48 +48,48 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * An date when the certificate becomes active
      */
-    declare public /*out*/ readonly activeDate: pulumi.Output<string>;
+    public /*out*/ readonly activeDate!: pulumi.Output<string>;
     /**
      * The ARN of the certificate
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The valid certificate file required for the transfer.
      */
-    declare public readonly certificate: pulumi.Output<string>;
+    public readonly certificate!: pulumi.Output<string>;
     /**
      * The optional list of certificate that make up the chain for the certificate that is being imported.
      */
-    declare public readonly certificateChain: pulumi.Output<string | undefined>;
+    public readonly certificateChain!: pulumi.Output<string | undefined>;
     /**
      * The unique identifier for the AS2 certificate
      */
-    declare public /*out*/ readonly certificateId: pulumi.Output<string>;
+    public /*out*/ readonly certificateId!: pulumi.Output<string>;
     /**
      * A short description that helps identify the certificate.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * An date when the certificate becomes inactive
      */
-    declare public /*out*/ readonly inactiveDate: pulumi.Output<string>;
+    public /*out*/ readonly inactiveDate!: pulumi.Output<string>;
     /**
      * The private key associated with the certificate being imported.
      */
-    declare public readonly privateKey: pulumi.Output<string | undefined>;
+    public readonly privateKey!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
      */
-    declare public readonly usage: pulumi.Output<string>;
+    public readonly usage!: pulumi.Output<string>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -104,33 +104,33 @@ export class Certificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateState | undefined;
-            resourceInputs["activeDate"] = state?.activeDate;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["certificate"] = state?.certificate;
-            resourceInputs["certificateChain"] = state?.certificateChain;
-            resourceInputs["certificateId"] = state?.certificateId;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["inactiveDate"] = state?.inactiveDate;
-            resourceInputs["privateKey"] = state?.privateKey;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["usage"] = state?.usage;
+            resourceInputs["activeDate"] = state ? state.activeDate : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["certificate"] = state ? state.certificate : undefined;
+            resourceInputs["certificateChain"] = state ? state.certificateChain : undefined;
+            resourceInputs["certificateId"] = state ? state.certificateId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["inactiveDate"] = state ? state.inactiveDate : undefined;
+            resourceInputs["privateKey"] = state ? state.privateKey : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["usage"] = state ? state.usage : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
-            if (args?.certificate === undefined && !opts.urn) {
+            if ((!args || args.certificate === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'certificate'");
             }
-            if (args?.usage === undefined && !opts.urn) {
+            if ((!args || args.usage === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'usage'");
             }
             resourceInputs["certificate"] = args?.certificate ? pulumi.secret(args.certificate) : undefined;
             resourceInputs["certificateChain"] = args?.certificateChain ? pulumi.secret(args.certificateChain) : undefined;
-            resourceInputs["description"] = args?.description;
+            resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["privateKey"] = args?.privateKey ? pulumi.secret(args.privateKey) : undefined;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["usage"] = args?.usage;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["usage"] = args ? args.usage : undefined;
             resourceInputs["activeDate"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["certificateId"] = undefined /*out*/;

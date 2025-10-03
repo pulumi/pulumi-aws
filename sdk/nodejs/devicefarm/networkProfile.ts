@@ -67,67 +67,67 @@ export class NetworkProfile extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name of this network profile.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The description of the network profile.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
      */
-    declare public readonly downlinkBandwidthBits: pulumi.Output<number | undefined>;
+    public readonly downlinkBandwidthBits!: pulumi.Output<number | undefined>;
     /**
      * Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
      */
-    declare public readonly downlinkDelayMs: pulumi.Output<number | undefined>;
+    public readonly downlinkDelayMs!: pulumi.Output<number | undefined>;
     /**
      * Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
      */
-    declare public readonly downlinkJitterMs: pulumi.Output<number | undefined>;
+    public readonly downlinkJitterMs!: pulumi.Output<number | undefined>;
     /**
      * Proportion of received packets that fail to arrive from `0` to `100` percent.
      */
-    declare public readonly downlinkLossPercent: pulumi.Output<number | undefined>;
+    public readonly downlinkLossPercent!: pulumi.Output<number | undefined>;
     /**
      * The name for the network profile.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The ARN of the project for the network profile.
      */
-    declare public readonly projectArn: pulumi.Output<string>;
+    public readonly projectArn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
      */
-    declare public readonly type: pulumi.Output<string | undefined>;
+    public readonly type!: pulumi.Output<string | undefined>;
     /**
      * The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
      */
-    declare public readonly uplinkBandwidthBits: pulumi.Output<number | undefined>;
+    public readonly uplinkBandwidthBits!: pulumi.Output<number | undefined>;
     /**
      * Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
      */
-    declare public readonly uplinkDelayMs: pulumi.Output<number | undefined>;
+    public readonly uplinkDelayMs!: pulumi.Output<number | undefined>;
     /**
      * Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
      */
-    declare public readonly uplinkJitterMs: pulumi.Output<number | undefined>;
+    public readonly uplinkJitterMs!: pulumi.Output<number | undefined>;
     /**
      * Proportion of received packets that fail to arrive from `0` to `100` percent.
      */
-    declare public readonly uplinkLossPercent: pulumi.Output<number | undefined>;
+    public readonly uplinkLossPercent!: pulumi.Output<number | undefined>;
 
     /**
      * Create a NetworkProfile resource with the given unique name, arguments, and options.
@@ -142,41 +142,41 @@ export class NetworkProfile extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkProfileState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["downlinkBandwidthBits"] = state?.downlinkBandwidthBits;
-            resourceInputs["downlinkDelayMs"] = state?.downlinkDelayMs;
-            resourceInputs["downlinkJitterMs"] = state?.downlinkJitterMs;
-            resourceInputs["downlinkLossPercent"] = state?.downlinkLossPercent;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["projectArn"] = state?.projectArn;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["type"] = state?.type;
-            resourceInputs["uplinkBandwidthBits"] = state?.uplinkBandwidthBits;
-            resourceInputs["uplinkDelayMs"] = state?.uplinkDelayMs;
-            resourceInputs["uplinkJitterMs"] = state?.uplinkJitterMs;
-            resourceInputs["uplinkLossPercent"] = state?.uplinkLossPercent;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["downlinkBandwidthBits"] = state ? state.downlinkBandwidthBits : undefined;
+            resourceInputs["downlinkDelayMs"] = state ? state.downlinkDelayMs : undefined;
+            resourceInputs["downlinkJitterMs"] = state ? state.downlinkJitterMs : undefined;
+            resourceInputs["downlinkLossPercent"] = state ? state.downlinkLossPercent : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["projectArn"] = state ? state.projectArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["uplinkBandwidthBits"] = state ? state.uplinkBandwidthBits : undefined;
+            resourceInputs["uplinkDelayMs"] = state ? state.uplinkDelayMs : undefined;
+            resourceInputs["uplinkJitterMs"] = state ? state.uplinkJitterMs : undefined;
+            resourceInputs["uplinkLossPercent"] = state ? state.uplinkLossPercent : undefined;
         } else {
             const args = argsOrState as NetworkProfileArgs | undefined;
-            if (args?.projectArn === undefined && !opts.urn) {
+            if ((!args || args.projectArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectArn'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["downlinkBandwidthBits"] = args?.downlinkBandwidthBits;
-            resourceInputs["downlinkDelayMs"] = args?.downlinkDelayMs;
-            resourceInputs["downlinkJitterMs"] = args?.downlinkJitterMs;
-            resourceInputs["downlinkLossPercent"] = args?.downlinkLossPercent;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["projectArn"] = args?.projectArn;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["type"] = args?.type;
-            resourceInputs["uplinkBandwidthBits"] = args?.uplinkBandwidthBits;
-            resourceInputs["uplinkDelayMs"] = args?.uplinkDelayMs;
-            resourceInputs["uplinkJitterMs"] = args?.uplinkJitterMs;
-            resourceInputs["uplinkLossPercent"] = args?.uplinkLossPercent;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["downlinkBandwidthBits"] = args ? args.downlinkBandwidthBits : undefined;
+            resourceInputs["downlinkDelayMs"] = args ? args.downlinkDelayMs : undefined;
+            resourceInputs["downlinkJitterMs"] = args ? args.downlinkJitterMs : undefined;
+            resourceInputs["downlinkLossPercent"] = args ? args.downlinkLossPercent : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["projectArn"] = args ? args.projectArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["uplinkBandwidthBits"] = args ? args.uplinkBandwidthBits : undefined;
+            resourceInputs["uplinkDelayMs"] = args ? args.uplinkDelayMs : undefined;
+            resourceInputs["uplinkJitterMs"] = args ? args.uplinkJitterMs : undefined;
+            resourceInputs["uplinkLossPercent"] = args ? args.uplinkLossPercent : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

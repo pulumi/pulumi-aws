@@ -51,89 +51,89 @@ export class Network extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the odb network resource.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
-    declare public readonly availabilityZone: pulumi.Output<string>;
-    declare public readonly availabilityZoneId: pulumi.Output<string>;
-    declare public readonly backupSubnetCidr: pulumi.Output<string>;
-    declare public readonly clientSubnetCidr: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public readonly availabilityZone!: pulumi.Output<string>;
+    public readonly availabilityZoneId!: pulumi.Output<string>;
+    public readonly backupSubnetCidr!: pulumi.Output<string>;
+    public readonly clientSubnetCidr!: pulumi.Output<string>;
     /**
      * The date and time when the ODB network was created.
      */
-    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
      * The name of the custom domain that the network is located. customDomainName and defaultDnsPrefix both can't be given.
      */
-    declare public readonly customDomainName: pulumi.Output<string | undefined>;
-    declare public readonly defaultDnsPrefix: pulumi.Output<string | undefined>;
-    declare public readonly displayName: pulumi.Output<string>;
+    public readonly customDomainName!: pulumi.Output<string | undefined>;
+    public readonly defaultDnsPrefix!: pulumi.Output<string | undefined>;
+    public readonly displayName!: pulumi.Output<string>;
     /**
      * The name of the OCI resource anchor for the Exadata infrastructure.
      */
-    declare public /*out*/ readonly managedServices: pulumi.Output<outputs.odb.NetworkManagedService[]>;
+    public /*out*/ readonly managedServices!: pulumi.Output<outputs.odb.NetworkManagedService[]>;
     /**
      * The number of storage servers requested for the Exadata infrastructure.
      */
-    declare public /*out*/ readonly ociDnsForwardingConfigs: pulumi.Output<outputs.odb.NetworkOciDnsForwardingConfig[]>;
+    public /*out*/ readonly ociDnsForwardingConfigs!: pulumi.Output<outputs.odb.NetworkOciDnsForwardingConfig[]>;
     /**
      * The unique identifier of the OCI network anchor for the ODB network.
      */
-    declare public /*out*/ readonly ociNetworkAnchorId: pulumi.Output<string>;
+    public /*out*/ readonly ociNetworkAnchorId!: pulumi.Output<string>;
     /**
      * The URL of the OCI network anchor for the ODB network.
      */
-    declare public /*out*/ readonly ociNetworkAnchorUrl: pulumi.Output<string>;
+    public /*out*/ readonly ociNetworkAnchorUrl!: pulumi.Output<string>;
     /**
      * The name of the OCI resource anchor for the ODB network.
      */
-    declare public /*out*/ readonly ociResourceAnchorName: pulumi.Output<string>;
+    public /*out*/ readonly ociResourceAnchorName!: pulumi.Output<string>;
     /**
      * The unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
      */
-    declare public /*out*/ readonly ociVcnId: pulumi.Output<string>;
+    public /*out*/ readonly ociVcnId!: pulumi.Output<string>;
     /**
      * The URL of the OCI VCN for the ODB network.
      */
-    declare public /*out*/ readonly ociVcnUrl: pulumi.Output<string>;
+    public /*out*/ readonly ociVcnUrl!: pulumi.Output<string>;
     /**
      * The list of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
      */
-    declare public /*out*/ readonly peeredCidrs: pulumi.Output<string[]>;
+    public /*out*/ readonly peeredCidrs!: pulumi.Output<string[]>;
     /**
      * The amount of progress made on the current operation on the ODB network, expressed as a percentage.
      */
-    declare public /*out*/ readonly percentProgress: pulumi.Output<number>;
+    public /*out*/ readonly percentProgress!: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Specifies the configuration for Amazon S3 access from the ODB network.
      */
-    declare public readonly s3Access: pulumi.Output<string>;
+    public readonly s3Access!: pulumi.Output<string>;
     /**
      * Specifies the endpoint policy for Amazon S3 access from the ODB network.
      */
-    declare public readonly s3PolicyDocument: pulumi.Output<string | undefined>;
+    public readonly s3PolicyDocument!: pulumi.Output<string | undefined>;
     /**
      * The status of the network resource.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Additional information about the current status of the ODB network.
      */
-    declare public /*out*/ readonly statusReason: pulumi.Output<string>;
+    public /*out*/ readonly statusReason!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public readonly timeouts: pulumi.Output<outputs.odb.NetworkTimeouts | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly timeouts!: pulumi.Output<outputs.odb.NetworkTimeouts | undefined>;
     /**
      * Specifies the configuration for Zero-ETL access from the ODB network.
      *
      * The following arguments are optional:
      */
-    declare public readonly zeroEtlAccess: pulumi.Output<string>;
+    public readonly zeroEtlAccess!: pulumi.Output<string>;
 
     /**
      * Create a Network resource with the given unique name, arguments, and options.
@@ -148,66 +148,66 @@ export class Network extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["availabilityZone"] = state?.availabilityZone;
-            resourceInputs["availabilityZoneId"] = state?.availabilityZoneId;
-            resourceInputs["backupSubnetCidr"] = state?.backupSubnetCidr;
-            resourceInputs["clientSubnetCidr"] = state?.clientSubnetCidr;
-            resourceInputs["createdAt"] = state?.createdAt;
-            resourceInputs["customDomainName"] = state?.customDomainName;
-            resourceInputs["defaultDnsPrefix"] = state?.defaultDnsPrefix;
-            resourceInputs["displayName"] = state?.displayName;
-            resourceInputs["managedServices"] = state?.managedServices;
-            resourceInputs["ociDnsForwardingConfigs"] = state?.ociDnsForwardingConfigs;
-            resourceInputs["ociNetworkAnchorId"] = state?.ociNetworkAnchorId;
-            resourceInputs["ociNetworkAnchorUrl"] = state?.ociNetworkAnchorUrl;
-            resourceInputs["ociResourceAnchorName"] = state?.ociResourceAnchorName;
-            resourceInputs["ociVcnId"] = state?.ociVcnId;
-            resourceInputs["ociVcnUrl"] = state?.ociVcnUrl;
-            resourceInputs["peeredCidrs"] = state?.peeredCidrs;
-            resourceInputs["percentProgress"] = state?.percentProgress;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["s3Access"] = state?.s3Access;
-            resourceInputs["s3PolicyDocument"] = state?.s3PolicyDocument;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["statusReason"] = state?.statusReason;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timeouts"] = state?.timeouts;
-            resourceInputs["zeroEtlAccess"] = state?.zeroEtlAccess;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            resourceInputs["availabilityZoneId"] = state ? state.availabilityZoneId : undefined;
+            resourceInputs["backupSubnetCidr"] = state ? state.backupSubnetCidr : undefined;
+            resourceInputs["clientSubnetCidr"] = state ? state.clientSubnetCidr : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["customDomainName"] = state ? state.customDomainName : undefined;
+            resourceInputs["defaultDnsPrefix"] = state ? state.defaultDnsPrefix : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["managedServices"] = state ? state.managedServices : undefined;
+            resourceInputs["ociDnsForwardingConfigs"] = state ? state.ociDnsForwardingConfigs : undefined;
+            resourceInputs["ociNetworkAnchorId"] = state ? state.ociNetworkAnchorId : undefined;
+            resourceInputs["ociNetworkAnchorUrl"] = state ? state.ociNetworkAnchorUrl : undefined;
+            resourceInputs["ociResourceAnchorName"] = state ? state.ociResourceAnchorName : undefined;
+            resourceInputs["ociVcnId"] = state ? state.ociVcnId : undefined;
+            resourceInputs["ociVcnUrl"] = state ? state.ociVcnUrl : undefined;
+            resourceInputs["peeredCidrs"] = state ? state.peeredCidrs : undefined;
+            resourceInputs["percentProgress"] = state ? state.percentProgress : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["s3Access"] = state ? state.s3Access : undefined;
+            resourceInputs["s3PolicyDocument"] = state ? state.s3PolicyDocument : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["statusReason"] = state ? state.statusReason : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["zeroEtlAccess"] = state ? state.zeroEtlAccess : undefined;
         } else {
             const args = argsOrState as NetworkArgs | undefined;
-            if (args?.availabilityZoneId === undefined && !opts.urn) {
+            if ((!args || args.availabilityZoneId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'availabilityZoneId'");
             }
-            if (args?.backupSubnetCidr === undefined && !opts.urn) {
+            if ((!args || args.backupSubnetCidr === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'backupSubnetCidr'");
             }
-            if (args?.clientSubnetCidr === undefined && !opts.urn) {
+            if ((!args || args.clientSubnetCidr === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clientSubnetCidr'");
             }
-            if (args?.displayName === undefined && !opts.urn) {
+            if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if (args?.s3Access === undefined && !opts.urn) {
+            if ((!args || args.s3Access === undefined) && !opts.urn) {
                 throw new Error("Missing required property 's3Access'");
             }
-            if (args?.zeroEtlAccess === undefined && !opts.urn) {
+            if ((!args || args.zeroEtlAccess === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'zeroEtlAccess'");
             }
-            resourceInputs["availabilityZone"] = args?.availabilityZone;
-            resourceInputs["availabilityZoneId"] = args?.availabilityZoneId;
-            resourceInputs["backupSubnetCidr"] = args?.backupSubnetCidr;
-            resourceInputs["clientSubnetCidr"] = args?.clientSubnetCidr;
-            resourceInputs["customDomainName"] = args?.customDomainName;
-            resourceInputs["defaultDnsPrefix"] = args?.defaultDnsPrefix;
-            resourceInputs["displayName"] = args?.displayName;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["s3Access"] = args?.s3Access;
-            resourceInputs["s3PolicyDocument"] = args?.s3PolicyDocument;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timeouts"] = args?.timeouts;
-            resourceInputs["zeroEtlAccess"] = args?.zeroEtlAccess;
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["availabilityZoneId"] = args ? args.availabilityZoneId : undefined;
+            resourceInputs["backupSubnetCidr"] = args ? args.backupSubnetCidr : undefined;
+            resourceInputs["clientSubnetCidr"] = args ? args.clientSubnetCidr : undefined;
+            resourceInputs["customDomainName"] = args ? args.customDomainName : undefined;
+            resourceInputs["defaultDnsPrefix"] = args ? args.defaultDnsPrefix : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["s3Access"] = args ? args.s3Access : undefined;
+            resourceInputs["s3PolicyDocument"] = args ? args.s3PolicyDocument : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["zeroEtlAccess"] = args ? args.zeroEtlAccess : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["managedServices"] = undefined /*out*/;

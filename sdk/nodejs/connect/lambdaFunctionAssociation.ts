@@ -59,15 +59,15 @@ export class LambdaFunctionAssociation extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
      */
-    declare public readonly functionArn: pulumi.Output<string>;
+    public readonly functionArn!: pulumi.Output<string>;
     /**
      * The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
      */
-    declare public readonly instanceId: pulumi.Output<string>;
+    public readonly instanceId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a LambdaFunctionAssociation resource with the given unique name, arguments, and options.
@@ -82,20 +82,20 @@ export class LambdaFunctionAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LambdaFunctionAssociationState | undefined;
-            resourceInputs["functionArn"] = state?.functionArn;
-            resourceInputs["instanceId"] = state?.instanceId;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["functionArn"] = state ? state.functionArn : undefined;
+            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as LambdaFunctionAssociationArgs | undefined;
-            if (args?.functionArn === undefined && !opts.urn) {
+            if ((!args || args.functionArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'functionArn'");
             }
-            if (args?.instanceId === undefined && !opts.urn) {
+            if ((!args || args.instanceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            resourceInputs["functionArn"] = args?.functionArn;
-            resourceInputs["instanceId"] = args?.instanceId;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["functionArn"] = args ? args.functionArn : undefined;
+            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LambdaFunctionAssociation.__pulumiType, name, resourceInputs, opts);

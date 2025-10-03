@@ -101,39 +101,39 @@ export class Table extends pulumi.CustomResource {
     /**
      * The ARN that uniquely identifies this table.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name of the Timestream database.
      */
-    declare public readonly databaseName: pulumi.Output<string>;
+    public readonly databaseName!: pulumi.Output<string>;
     /**
      * Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
      */
-    declare public readonly magneticStoreWriteProperties: pulumi.Output<outputs.timestreamwrite.TableMagneticStoreWriteProperties>;
+    public readonly magneticStoreWriteProperties!: pulumi.Output<outputs.timestreamwrite.TableMagneticStoreWriteProperties>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
      */
-    declare public readonly retentionProperties: pulumi.Output<outputs.timestreamwrite.TableRetentionProperties>;
+    public readonly retentionProperties!: pulumi.Output<outputs.timestreamwrite.TableRetentionProperties>;
     /**
      * The schema of the table. See Schema below for more details.
      */
-    declare public readonly schema: pulumi.Output<outputs.timestreamwrite.TableSchema>;
+    public readonly schema!: pulumi.Output<outputs.timestreamwrite.TableSchema>;
     /**
      * The name of the Timestream table.
      */
-    declare public readonly tableName: pulumi.Output<string>;
+    public readonly tableName!: pulumi.Output<string>;
     /**
      * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Table resource with the given unique name, arguments, and options.
@@ -148,30 +148,30 @@ export class Table extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TableState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["databaseName"] = state?.databaseName;
-            resourceInputs["magneticStoreWriteProperties"] = state?.magneticStoreWriteProperties;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["retentionProperties"] = state?.retentionProperties;
-            resourceInputs["schema"] = state?.schema;
-            resourceInputs["tableName"] = state?.tableName;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["magneticStoreWriteProperties"] = state ? state.magneticStoreWriteProperties : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["retentionProperties"] = state ? state.retentionProperties : undefined;
+            resourceInputs["schema"] = state ? state.schema : undefined;
+            resourceInputs["tableName"] = state ? state.tableName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as TableArgs | undefined;
-            if (args?.databaseName === undefined && !opts.urn) {
+            if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if (args?.tableName === undefined && !opts.urn) {
+            if ((!args || args.tableName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
-            resourceInputs["databaseName"] = args?.databaseName;
-            resourceInputs["magneticStoreWriteProperties"] = args?.magneticStoreWriteProperties;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["retentionProperties"] = args?.retentionProperties;
-            resourceInputs["schema"] = args?.schema;
-            resourceInputs["tableName"] = args?.tableName;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["magneticStoreWriteProperties"] = args ? args.magneticStoreWriteProperties : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["retentionProperties"] = args ? args.retentionProperties : undefined;
+            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

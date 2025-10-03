@@ -87,21 +87,21 @@ export class CustomerGatewayAssociation extends pulumi.CustomResource {
     /**
      * ARN of the customer gateway.
      */
-    declare public readonly customerGatewayArn: pulumi.Output<string>;
+    public readonly customerGatewayArn!: pulumi.Output<string>;
     /**
      * ID of the device.
      */
-    declare public readonly deviceId: pulumi.Output<string>;
+    public readonly deviceId!: pulumi.Output<string>;
     /**
      * ID of the global network.
      *
      * The following arguments are optional:
      */
-    declare public readonly globalNetworkId: pulumi.Output<string>;
+    public readonly globalNetworkId!: pulumi.Output<string>;
     /**
      * ID of the link.
      */
-    declare public readonly linkId: pulumi.Output<string | undefined>;
+    public readonly linkId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a CustomerGatewayAssociation resource with the given unique name, arguments, and options.
@@ -116,25 +116,25 @@ export class CustomerGatewayAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomerGatewayAssociationState | undefined;
-            resourceInputs["customerGatewayArn"] = state?.customerGatewayArn;
-            resourceInputs["deviceId"] = state?.deviceId;
-            resourceInputs["globalNetworkId"] = state?.globalNetworkId;
-            resourceInputs["linkId"] = state?.linkId;
+            resourceInputs["customerGatewayArn"] = state ? state.customerGatewayArn : undefined;
+            resourceInputs["deviceId"] = state ? state.deviceId : undefined;
+            resourceInputs["globalNetworkId"] = state ? state.globalNetworkId : undefined;
+            resourceInputs["linkId"] = state ? state.linkId : undefined;
         } else {
             const args = argsOrState as CustomerGatewayAssociationArgs | undefined;
-            if (args?.customerGatewayArn === undefined && !opts.urn) {
+            if ((!args || args.customerGatewayArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'customerGatewayArn'");
             }
-            if (args?.deviceId === undefined && !opts.urn) {
+            if ((!args || args.deviceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deviceId'");
             }
-            if (args?.globalNetworkId === undefined && !opts.urn) {
+            if ((!args || args.globalNetworkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'globalNetworkId'");
             }
-            resourceInputs["customerGatewayArn"] = args?.customerGatewayArn;
-            resourceInputs["deviceId"] = args?.deviceId;
-            resourceInputs["globalNetworkId"] = args?.globalNetworkId;
-            resourceInputs["linkId"] = args?.linkId;
+            resourceInputs["customerGatewayArn"] = args ? args.customerGatewayArn : undefined;
+            resourceInputs["deviceId"] = args ? args.deviceId : undefined;
+            resourceInputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
+            resourceInputs["linkId"] = args ? args.linkId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CustomerGatewayAssociation.__pulumiType, name, resourceInputs, opts);

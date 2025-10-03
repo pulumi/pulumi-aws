@@ -153,70 +153,70 @@ export class ExportTask extends pulumi.CustomResource {
     /**
      * Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
      */
-    declare public readonly exportOnlies: pulumi.Output<string[] | undefined>;
+    public readonly exportOnlies!: pulumi.Output<string[] | undefined>;
     /**
      * Unique identifier for the snapshot export task.
      */
-    declare public readonly exportTaskIdentifier: pulumi.Output<string>;
+    public readonly exportTaskIdentifier!: pulumi.Output<string>;
     /**
      * Reason the export failed, if it failed.
      */
-    declare public /*out*/ readonly failureCause: pulumi.Output<string>;
+    public /*out*/ readonly failureCause!: pulumi.Output<string>;
     /**
      * ARN of the IAM role to use for writing to the Amazon S3 bucket.
      */
-    declare public readonly iamRoleArn: pulumi.Output<string>;
+    public readonly iamRoleArn!: pulumi.Output<string>;
     /**
      * ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
      */
-    declare public readonly kmsKeyId: pulumi.Output<string>;
+    public readonly kmsKeyId!: pulumi.Output<string>;
     /**
      * Progress of the snapshot export task as a percentage.
      */
-    declare public /*out*/ readonly percentProgress: pulumi.Output<number>;
+    public /*out*/ readonly percentProgress!: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Name of the Amazon S3 bucket to export the snapshot to.
      */
-    declare public readonly s3BucketName: pulumi.Output<string>;
+    public readonly s3BucketName!: pulumi.Output<string>;
     /**
      * Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
      */
-    declare public readonly s3Prefix: pulumi.Output<string>;
+    public readonly s3Prefix!: pulumi.Output<string>;
     /**
      * Time that the snapshot was created.
      */
-    declare public /*out*/ readonly snapshotTime: pulumi.Output<string>;
+    public /*out*/ readonly snapshotTime!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the snapshot to export.
      *
      * The following arguments are optional:
      */
-    declare public readonly sourceArn: pulumi.Output<string>;
+    public readonly sourceArn!: pulumi.Output<string>;
     /**
      * Type of source for the export.
      */
-    declare public /*out*/ readonly sourceType: pulumi.Output<string>;
+    public /*out*/ readonly sourceType!: pulumi.Output<string>;
     /**
      * Status of the export task.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Time that the snapshot export task completed.
      */
-    declare public /*out*/ readonly taskEndTime: pulumi.Output<string>;
+    public /*out*/ readonly taskEndTime!: pulumi.Output<string>;
     /**
      * Time that the snapshot export task started.
      */
-    declare public /*out*/ readonly taskStartTime: pulumi.Output<string>;
-    declare public readonly timeouts: pulumi.Output<outputs.rds.ExportTaskTimeouts | undefined>;
+    public /*out*/ readonly taskStartTime!: pulumi.Output<string>;
+    public readonly timeouts!: pulumi.Output<outputs.rds.ExportTaskTimeouts | undefined>;
     /**
      * Warning about the snapshot export task, if any.
      */
-    declare public /*out*/ readonly warningMessage: pulumi.Output<string>;
+    public /*out*/ readonly warningMessage!: pulumi.Output<string>;
 
     /**
      * Create a ExportTask resource with the given unique name, arguments, and options.
@@ -231,49 +231,49 @@ export class ExportTask extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExportTaskState | undefined;
-            resourceInputs["exportOnlies"] = state?.exportOnlies;
-            resourceInputs["exportTaskIdentifier"] = state?.exportTaskIdentifier;
-            resourceInputs["failureCause"] = state?.failureCause;
-            resourceInputs["iamRoleArn"] = state?.iamRoleArn;
-            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
-            resourceInputs["percentProgress"] = state?.percentProgress;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["s3BucketName"] = state?.s3BucketName;
-            resourceInputs["s3Prefix"] = state?.s3Prefix;
-            resourceInputs["snapshotTime"] = state?.snapshotTime;
-            resourceInputs["sourceArn"] = state?.sourceArn;
-            resourceInputs["sourceType"] = state?.sourceType;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["taskEndTime"] = state?.taskEndTime;
-            resourceInputs["taskStartTime"] = state?.taskStartTime;
-            resourceInputs["timeouts"] = state?.timeouts;
-            resourceInputs["warningMessage"] = state?.warningMessage;
+            resourceInputs["exportOnlies"] = state ? state.exportOnlies : undefined;
+            resourceInputs["exportTaskIdentifier"] = state ? state.exportTaskIdentifier : undefined;
+            resourceInputs["failureCause"] = state ? state.failureCause : undefined;
+            resourceInputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["percentProgress"] = state ? state.percentProgress : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["s3BucketName"] = state ? state.s3BucketName : undefined;
+            resourceInputs["s3Prefix"] = state ? state.s3Prefix : undefined;
+            resourceInputs["snapshotTime"] = state ? state.snapshotTime : undefined;
+            resourceInputs["sourceArn"] = state ? state.sourceArn : undefined;
+            resourceInputs["sourceType"] = state ? state.sourceType : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["taskEndTime"] = state ? state.taskEndTime : undefined;
+            resourceInputs["taskStartTime"] = state ? state.taskStartTime : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["warningMessage"] = state ? state.warningMessage : undefined;
         } else {
             const args = argsOrState as ExportTaskArgs | undefined;
-            if (args?.exportTaskIdentifier === undefined && !opts.urn) {
+            if ((!args || args.exportTaskIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'exportTaskIdentifier'");
             }
-            if (args?.iamRoleArn === undefined && !opts.urn) {
+            if ((!args || args.iamRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'iamRoleArn'");
             }
-            if (args?.kmsKeyId === undefined && !opts.urn) {
+            if ((!args || args.kmsKeyId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kmsKeyId'");
             }
-            if (args?.s3BucketName === undefined && !opts.urn) {
+            if ((!args || args.s3BucketName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 's3BucketName'");
             }
-            if (args?.sourceArn === undefined && !opts.urn) {
+            if ((!args || args.sourceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceArn'");
             }
-            resourceInputs["exportOnlies"] = args?.exportOnlies;
-            resourceInputs["exportTaskIdentifier"] = args?.exportTaskIdentifier;
-            resourceInputs["iamRoleArn"] = args?.iamRoleArn;
-            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["s3BucketName"] = args?.s3BucketName;
-            resourceInputs["s3Prefix"] = args?.s3Prefix;
-            resourceInputs["sourceArn"] = args?.sourceArn;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["exportOnlies"] = args ? args.exportOnlies : undefined;
+            resourceInputs["exportTaskIdentifier"] = args ? args.exportTaskIdentifier : undefined;
+            resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["s3BucketName"] = args ? args.s3BucketName : undefined;
+            resourceInputs["s3Prefix"] = args ? args.s3Prefix : undefined;
+            resourceInputs["sourceArn"] = args ? args.sourceArn : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["failureCause"] = undefined /*out*/;
             resourceInputs["percentProgress"] = undefined /*out*/;
             resourceInputs["snapshotTime"] = undefined /*out*/;

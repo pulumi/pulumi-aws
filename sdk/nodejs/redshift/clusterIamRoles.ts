@@ -60,19 +60,19 @@ export class ClusterIamRoles extends pulumi.CustomResource {
     /**
      * The name of the Redshift Cluster IAM Roles.
      */
-    declare public readonly clusterIdentifier: pulumi.Output<string>;
+    public readonly clusterIdentifier!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
      */
-    declare public readonly defaultIamRoleArn: pulumi.Output<string>;
+    public readonly defaultIamRoleArn!: pulumi.Output<string>;
     /**
      * A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
      */
-    declare public readonly iamRoleArns: pulumi.Output<string[]>;
+    public readonly iamRoleArns!: pulumi.Output<string[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ClusterIamRoles resource with the given unique name, arguments, and options.
@@ -87,19 +87,19 @@ export class ClusterIamRoles extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterIamRolesState | undefined;
-            resourceInputs["clusterIdentifier"] = state?.clusterIdentifier;
-            resourceInputs["defaultIamRoleArn"] = state?.defaultIamRoleArn;
-            resourceInputs["iamRoleArns"] = state?.iamRoleArns;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
+            resourceInputs["defaultIamRoleArn"] = state ? state.defaultIamRoleArn : undefined;
+            resourceInputs["iamRoleArns"] = state ? state.iamRoleArns : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ClusterIamRolesArgs | undefined;
-            if (args?.clusterIdentifier === undefined && !opts.urn) {
+            if ((!args || args.clusterIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterIdentifier'");
             }
-            resourceInputs["clusterIdentifier"] = args?.clusterIdentifier;
-            resourceInputs["defaultIamRoleArn"] = args?.defaultIamRoleArn;
-            resourceInputs["iamRoleArns"] = args?.iamRoleArns;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
+            resourceInputs["defaultIamRoleArn"] = args ? args.defaultIamRoleArn : undefined;
+            resourceInputs["iamRoleArns"] = args ? args.iamRoleArns : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ClusterIamRoles.__pulumiType, name, resourceInputs, opts);

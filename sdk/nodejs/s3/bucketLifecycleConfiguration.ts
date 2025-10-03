@@ -371,24 +371,24 @@ export class BucketLifecycleConfiguration extends pulumi.CustomResource {
     /**
      * Name of the source S3 bucket you want Amazon S3 to monitor.
      */
-    declare public readonly bucket: pulumi.Output<string>;
+    public readonly bucket!: pulumi.Output<string>;
     /**
      * Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      */
-    declare public readonly expectedBucketOwner: pulumi.Output<string>;
+    public readonly expectedBucketOwner!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * List of configuration blocks describing the rules managing the replication. See below.
      */
-    declare public readonly rules: pulumi.Output<outputs.s3.BucketLifecycleConfigurationRule[] | undefined>;
-    declare public readonly timeouts: pulumi.Output<outputs.s3.BucketLifecycleConfigurationTimeouts | undefined>;
+    public readonly rules!: pulumi.Output<outputs.s3.BucketLifecycleConfigurationRule[] | undefined>;
+    public readonly timeouts!: pulumi.Output<outputs.s3.BucketLifecycleConfigurationTimeouts | undefined>;
     /**
      * The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `variesByStorageClass`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `objectSizeGreaterThan` or `objectSizeLessThan` value. Custom filters always take precedence over the default transition behavior.
      */
-    declare public readonly transitionDefaultMinimumObjectSize: pulumi.Output<string>;
+    public readonly transitionDefaultMinimumObjectSize!: pulumi.Output<string>;
 
     /**
      * Create a BucketLifecycleConfiguration resource with the given unique name, arguments, and options.
@@ -403,23 +403,23 @@ export class BucketLifecycleConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketLifecycleConfigurationState | undefined;
-            resourceInputs["bucket"] = state?.bucket;
-            resourceInputs["expectedBucketOwner"] = state?.expectedBucketOwner;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["rules"] = state?.rules;
-            resourceInputs["timeouts"] = state?.timeouts;
-            resourceInputs["transitionDefaultMinimumObjectSize"] = state?.transitionDefaultMinimumObjectSize;
+            resourceInputs["bucket"] = state ? state.bucket : undefined;
+            resourceInputs["expectedBucketOwner"] = state ? state.expectedBucketOwner : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["rules"] = state ? state.rules : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["transitionDefaultMinimumObjectSize"] = state ? state.transitionDefaultMinimumObjectSize : undefined;
         } else {
             const args = argsOrState as BucketLifecycleConfigurationArgs | undefined;
-            if (args?.bucket === undefined && !opts.urn) {
+            if ((!args || args.bucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            resourceInputs["bucket"] = args?.bucket;
-            resourceInputs["expectedBucketOwner"] = args?.expectedBucketOwner;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["rules"] = args?.rules;
-            resourceInputs["timeouts"] = args?.timeouts;
-            resourceInputs["transitionDefaultMinimumObjectSize"] = args?.transitionDefaultMinimumObjectSize;
+            resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["transitionDefaultMinimumObjectSize"] = args ? args.transitionDefaultMinimumObjectSize : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2" }] };

@@ -77,19 +77,19 @@ export class Disk_attachment extends pulumi.CustomResource {
     /**
      * Name of the Lightsail disk.
      */
-    declare public readonly diskName: pulumi.Output<string>;
+    public readonly diskName!: pulumi.Output<string>;
     /**
      * Disk path to expose to the instance.
      */
-    declare public readonly diskPath: pulumi.Output<string>;
+    public readonly diskPath!: pulumi.Output<string>;
     /**
      * Name of the Lightsail instance to attach to.
      */
-    declare public readonly instanceName: pulumi.Output<string>;
+    public readonly instanceName!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a Disk_attachment resource with the given unique name, arguments, and options.
@@ -104,25 +104,25 @@ export class Disk_attachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as Disk_attachmentState | undefined;
-            resourceInputs["diskName"] = state?.diskName;
-            resourceInputs["diskPath"] = state?.diskPath;
-            resourceInputs["instanceName"] = state?.instanceName;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["diskName"] = state ? state.diskName : undefined;
+            resourceInputs["diskPath"] = state ? state.diskPath : undefined;
+            resourceInputs["instanceName"] = state ? state.instanceName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as Disk_attachmentArgs | undefined;
-            if (args?.diskName === undefined && !opts.urn) {
+            if ((!args || args.diskName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'diskName'");
             }
-            if (args?.diskPath === undefined && !opts.urn) {
+            if ((!args || args.diskPath === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'diskPath'");
             }
-            if (args?.instanceName === undefined && !opts.urn) {
+            if ((!args || args.instanceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceName'");
             }
-            resourceInputs["diskName"] = args?.diskName;
-            resourceInputs["diskPath"] = args?.diskPath;
-            resourceInputs["instanceName"] = args?.instanceName;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["diskName"] = args ? args.diskName : undefined;
+            resourceInputs["diskPath"] = args ? args.diskPath : undefined;
+            resourceInputs["instanceName"] = args ? args.instanceName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Disk_attachment.__pulumiType, name, resourceInputs, opts);

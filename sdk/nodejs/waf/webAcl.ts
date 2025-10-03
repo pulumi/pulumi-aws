@@ -121,35 +121,35 @@ export class WebAcl extends pulumi.CustomResource {
     /**
      * The ARN of the WAF WebACL.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
      */
-    declare public readonly defaultAction: pulumi.Output<outputs.waf.WebAclDefaultAction>;
+    public readonly defaultAction!: pulumi.Output<outputs.waf.WebAclDefaultAction>;
     /**
      * Configuration block to enable WAF logging. Detailed below.
      */
-    declare public readonly loggingConfiguration: pulumi.Output<outputs.waf.WebAclLoggingConfiguration | undefined>;
+    public readonly loggingConfiguration!: pulumi.Output<outputs.waf.WebAclLoggingConfiguration | undefined>;
     /**
      * The name or description for the Amazon CloudWatch metric of this web ACL.
      */
-    declare public readonly metricName: pulumi.Output<string>;
+    public readonly metricName!: pulumi.Output<string>;
     /**
      * The name or description of the web ACL.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
      */
-    declare public readonly rules: pulumi.Output<outputs.waf.WebAclRule[] | undefined>;
+    public readonly rules!: pulumi.Output<outputs.waf.WebAclRule[] | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a WebAcl resource with the given unique name, arguments, and options.
@@ -164,28 +164,28 @@ export class WebAcl extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebAclState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["defaultAction"] = state?.defaultAction;
-            resourceInputs["loggingConfiguration"] = state?.loggingConfiguration;
-            resourceInputs["metricName"] = state?.metricName;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["rules"] = state?.rules;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["defaultAction"] = state ? state.defaultAction : undefined;
+            resourceInputs["loggingConfiguration"] = state ? state.loggingConfiguration : undefined;
+            resourceInputs["metricName"] = state ? state.metricName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["rules"] = state ? state.rules : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as WebAclArgs | undefined;
-            if (args?.defaultAction === undefined && !opts.urn) {
+            if ((!args || args.defaultAction === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'defaultAction'");
             }
-            if (args?.metricName === undefined && !opts.urn) {
+            if ((!args || args.metricName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'metricName'");
             }
-            resourceInputs["defaultAction"] = args?.defaultAction;
-            resourceInputs["loggingConfiguration"] = args?.loggingConfiguration;
-            resourceInputs["metricName"] = args?.metricName;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["rules"] = args?.rules;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["defaultAction"] = args ? args.defaultAction : undefined;
+            resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
+            resourceInputs["metricName"] = args ? args.metricName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

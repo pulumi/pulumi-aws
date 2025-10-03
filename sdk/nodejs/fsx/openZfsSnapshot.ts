@@ -89,28 +89,28 @@ export class OpenZfsSnapshot extends pulumi.CustomResource {
     /**
      * Amazon Resource Name of the snapshot.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
-    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
     /**
      * The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the volume to snapshot. This can be the root volume or a child volume.
      */
-    declare public readonly volumeId: pulumi.Output<string>;
+    public readonly volumeId!: pulumi.Output<string>;
 
     /**
      * Create a OpenZfsSnapshot resource with the given unique name, arguments, and options.
@@ -125,22 +125,22 @@ export class OpenZfsSnapshot extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OpenZfsSnapshotState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["creationTime"] = state?.creationTime;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["volumeId"] = state?.volumeId;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["creationTime"] = state ? state.creationTime : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["volumeId"] = state ? state.volumeId : undefined;
         } else {
             const args = argsOrState as OpenZfsSnapshotArgs | undefined;
-            if (args?.volumeId === undefined && !opts.urn) {
+            if ((!args || args.volumeId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'volumeId'");
             }
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["volumeId"] = args?.volumeId;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["volumeId"] = args ? args.volumeId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

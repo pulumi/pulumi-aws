@@ -70,105 +70,105 @@ export class Canary extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the Canary.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
      */
-    declare public readonly artifactConfig: pulumi.Output<outputs.synthetics.CanaryArtifactConfig | undefined>;
+    public readonly artifactConfig!: pulumi.Output<outputs.synthetics.CanaryArtifactConfig | undefined>;
     /**
      * Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
      */
-    declare public readonly artifactS3Location: pulumi.Output<string>;
+    public readonly artifactS3Location!: pulumi.Output<string>;
     /**
      * Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
      */
-    declare public readonly deleteLambda: pulumi.Output<boolean | undefined>;
+    public readonly deleteLambda!: pulumi.Output<boolean | undefined>;
     /**
      * ARN of the Lambda function that is used as your canary's engine.
      */
-    declare public /*out*/ readonly engineArn: pulumi.Output<string>;
+    public /*out*/ readonly engineArn!: pulumi.Output<string>;
     /**
      * ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
      */
-    declare public readonly executionRoleArn: pulumi.Output<string>;
+    public readonly executionRoleArn!: pulumi.Output<string>;
     /**
      * Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
      */
-    declare public readonly failureRetentionPeriod: pulumi.Output<number | undefined>;
+    public readonly failureRetentionPeriod!: pulumi.Output<number | undefined>;
     /**
      * Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
      */
-    declare public readonly handler: pulumi.Output<string>;
+    public readonly handler!: pulumi.Output<string>;
     /**
      * Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Configuration block for individual canary runs. Detailed below.
      */
-    declare public readonly runConfig: pulumi.Output<outputs.synthetics.CanaryRunConfig>;
+    public readonly runConfig!: pulumi.Output<outputs.synthetics.CanaryRunConfig>;
     /**
      * Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
      */
-    declare public readonly runtimeVersion: pulumi.Output<string>;
+    public readonly runtimeVersion!: pulumi.Output<string>;
     /**
      * Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zipFile`.**
      */
-    declare public readonly s3Bucket: pulumi.Output<string | undefined>;
+    public readonly s3Bucket!: pulumi.Output<string | undefined>;
     /**
      * S3 key of your script. **Conflicts with `zipFile`.**
      */
-    declare public readonly s3Key: pulumi.Output<string | undefined>;
+    public readonly s3Key!: pulumi.Output<string | undefined>;
     /**
      * S3 version ID of your script. **Conflicts with `zipFile`.**
      */
-    declare public readonly s3Version: pulumi.Output<string | undefined>;
+    public readonly s3Version!: pulumi.Output<string | undefined>;
     /**
      * Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
      *
      * The following arguments are optional:
      */
-    declare public readonly schedule: pulumi.Output<outputs.synthetics.CanarySchedule>;
+    public readonly schedule!: pulumi.Output<outputs.synthetics.CanarySchedule>;
     /**
      * ARN of the Lambda layer where Synthetics stores the canary script code.
      */
-    declare public /*out*/ readonly sourceLocationArn: pulumi.Output<string>;
+    public /*out*/ readonly sourceLocationArn!: pulumi.Output<string>;
     /**
      * Whether to run or stop the canary.
      */
-    declare public readonly startCanary: pulumi.Output<boolean | undefined>;
+    public readonly startCanary!: pulumi.Output<boolean | undefined>;
     /**
      * Canary status.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
      */
-    declare public readonly successRetentionPeriod: pulumi.Output<number | undefined>;
+    public readonly successRetentionPeriod!: pulumi.Output<number | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Structure that contains information about when the canary was created, modified, and most recently run. see Timeline.
      */
-    declare public /*out*/ readonly timelines: pulumi.Output<outputs.synthetics.CanaryTimeline[]>;
+    public /*out*/ readonly timelines!: pulumi.Output<outputs.synthetics.CanaryTimeline[]>;
     /**
      * Configuration block. Detailed below.
      */
-    declare public readonly vpcConfig: pulumi.Output<outputs.synthetics.CanaryVpcConfig | undefined>;
+    public readonly vpcConfig!: pulumi.Output<outputs.synthetics.CanaryVpcConfig | undefined>;
     /**
      * ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3Bucket`, `s3Key`, and `s3Version`.**
      */
-    declare public readonly zipFile: pulumi.Output<string | undefined>;
+    public readonly zipFile!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Canary resource with the given unique name, arguments, and options.
@@ -183,67 +183,67 @@ export class Canary extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CanaryState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["artifactConfig"] = state?.artifactConfig;
-            resourceInputs["artifactS3Location"] = state?.artifactS3Location;
-            resourceInputs["deleteLambda"] = state?.deleteLambda;
-            resourceInputs["engineArn"] = state?.engineArn;
-            resourceInputs["executionRoleArn"] = state?.executionRoleArn;
-            resourceInputs["failureRetentionPeriod"] = state?.failureRetentionPeriod;
-            resourceInputs["handler"] = state?.handler;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["runConfig"] = state?.runConfig;
-            resourceInputs["runtimeVersion"] = state?.runtimeVersion;
-            resourceInputs["s3Bucket"] = state?.s3Bucket;
-            resourceInputs["s3Key"] = state?.s3Key;
-            resourceInputs["s3Version"] = state?.s3Version;
-            resourceInputs["schedule"] = state?.schedule;
-            resourceInputs["sourceLocationArn"] = state?.sourceLocationArn;
-            resourceInputs["startCanary"] = state?.startCanary;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["successRetentionPeriod"] = state?.successRetentionPeriod;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timelines"] = state?.timelines;
-            resourceInputs["vpcConfig"] = state?.vpcConfig;
-            resourceInputs["zipFile"] = state?.zipFile;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["artifactConfig"] = state ? state.artifactConfig : undefined;
+            resourceInputs["artifactS3Location"] = state ? state.artifactS3Location : undefined;
+            resourceInputs["deleteLambda"] = state ? state.deleteLambda : undefined;
+            resourceInputs["engineArn"] = state ? state.engineArn : undefined;
+            resourceInputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
+            resourceInputs["failureRetentionPeriod"] = state ? state.failureRetentionPeriod : undefined;
+            resourceInputs["handler"] = state ? state.handler : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["runConfig"] = state ? state.runConfig : undefined;
+            resourceInputs["runtimeVersion"] = state ? state.runtimeVersion : undefined;
+            resourceInputs["s3Bucket"] = state ? state.s3Bucket : undefined;
+            resourceInputs["s3Key"] = state ? state.s3Key : undefined;
+            resourceInputs["s3Version"] = state ? state.s3Version : undefined;
+            resourceInputs["schedule"] = state ? state.schedule : undefined;
+            resourceInputs["sourceLocationArn"] = state ? state.sourceLocationArn : undefined;
+            resourceInputs["startCanary"] = state ? state.startCanary : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["successRetentionPeriod"] = state ? state.successRetentionPeriod : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timelines"] = state ? state.timelines : undefined;
+            resourceInputs["vpcConfig"] = state ? state.vpcConfig : undefined;
+            resourceInputs["zipFile"] = state ? state.zipFile : undefined;
         } else {
             const args = argsOrState as CanaryArgs | undefined;
-            if (args?.artifactS3Location === undefined && !opts.urn) {
+            if ((!args || args.artifactS3Location === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'artifactS3Location'");
             }
-            if (args?.executionRoleArn === undefined && !opts.urn) {
+            if ((!args || args.executionRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'executionRoleArn'");
             }
-            if (args?.handler === undefined && !opts.urn) {
+            if ((!args || args.handler === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'handler'");
             }
-            if (args?.runtimeVersion === undefined && !opts.urn) {
+            if ((!args || args.runtimeVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'runtimeVersion'");
             }
-            if (args?.schedule === undefined && !opts.urn) {
+            if ((!args || args.schedule === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schedule'");
             }
-            resourceInputs["artifactConfig"] = args?.artifactConfig;
-            resourceInputs["artifactS3Location"] = args?.artifactS3Location;
-            resourceInputs["deleteLambda"] = args?.deleteLambda;
-            resourceInputs["executionRoleArn"] = args?.executionRoleArn;
-            resourceInputs["failureRetentionPeriod"] = args?.failureRetentionPeriod;
-            resourceInputs["handler"] = args?.handler;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["runConfig"] = args?.runConfig;
-            resourceInputs["runtimeVersion"] = args?.runtimeVersion;
-            resourceInputs["s3Bucket"] = args?.s3Bucket;
-            resourceInputs["s3Key"] = args?.s3Key;
-            resourceInputs["s3Version"] = args?.s3Version;
-            resourceInputs["schedule"] = args?.schedule;
-            resourceInputs["startCanary"] = args?.startCanary;
-            resourceInputs["successRetentionPeriod"] = args?.successRetentionPeriod;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["vpcConfig"] = args?.vpcConfig;
-            resourceInputs["zipFile"] = args?.zipFile;
+            resourceInputs["artifactConfig"] = args ? args.artifactConfig : undefined;
+            resourceInputs["artifactS3Location"] = args ? args.artifactS3Location : undefined;
+            resourceInputs["deleteLambda"] = args ? args.deleteLambda : undefined;
+            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
+            resourceInputs["failureRetentionPeriod"] = args ? args.failureRetentionPeriod : undefined;
+            resourceInputs["handler"] = args ? args.handler : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["runConfig"] = args ? args.runConfig : undefined;
+            resourceInputs["runtimeVersion"] = args ? args.runtimeVersion : undefined;
+            resourceInputs["s3Bucket"] = args ? args.s3Bucket : undefined;
+            resourceInputs["s3Key"] = args ? args.s3Key : undefined;
+            resourceInputs["s3Version"] = args ? args.s3Version : undefined;
+            resourceInputs["schedule"] = args ? args.schedule : undefined;
+            resourceInputs["startCanary"] = args ? args.startCanary : undefined;
+            resourceInputs["successRetentionPeriod"] = args ? args.successRetentionPeriod : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
+            resourceInputs["zipFile"] = args ? args.zipFile : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["engineArn"] = undefined /*out*/;
             resourceInputs["sourceLocationArn"] = undefined /*out*/;

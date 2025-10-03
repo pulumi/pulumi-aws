@@ -60,15 +60,15 @@ export class InternetGatewayAttachment extends pulumi.CustomResource {
     /**
      * The ID of the internet gateway.
      */
-    declare public readonly internetGatewayId: pulumi.Output<string>;
+    public readonly internetGatewayId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ID of the VPC.
      */
-    declare public readonly vpcId: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a InternetGatewayAttachment resource with the given unique name, arguments, and options.
@@ -83,20 +83,20 @@ export class InternetGatewayAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InternetGatewayAttachmentState | undefined;
-            resourceInputs["internetGatewayId"] = state?.internetGatewayId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["vpcId"] = state?.vpcId;
+            resourceInputs["internetGatewayId"] = state ? state.internetGatewayId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as InternetGatewayAttachmentArgs | undefined;
-            if (args?.internetGatewayId === undefined && !opts.urn) {
+            if ((!args || args.internetGatewayId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'internetGatewayId'");
             }
-            if (args?.vpcId === undefined && !opts.urn) {
+            if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["internetGatewayId"] = args?.internetGatewayId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["vpcId"] = args?.vpcId;
+            resourceInputs["internetGatewayId"] = args ? args.internetGatewayId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(InternetGatewayAttachment.__pulumiType, name, resourceInputs, opts);

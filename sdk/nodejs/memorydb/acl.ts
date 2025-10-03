@@ -63,35 +63,35 @@ export class Acl extends pulumi.CustomResource {
     /**
      * The ARN of the ACL.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The minimum engine version supported by the ACL.
      */
-    declare public /*out*/ readonly minimumEngineVersion: pulumi.Output<string>;
+    public /*out*/ readonly minimumEngineVersion!: pulumi.Output<string>;
     /**
      * Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    declare public readonly namePrefix: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Set of MemoryDB user names to be included in this ACL.
      */
-    declare public readonly userNames: pulumi.Output<string[] | undefined>;
+    public readonly userNames!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Acl resource with the given unique name, arguments, and options.
@@ -106,21 +106,21 @@ export class Acl extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AclState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["minimumEngineVersion"] = state?.minimumEngineVersion;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["namePrefix"] = state?.namePrefix;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["userNames"] = state?.userNames;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["minimumEngineVersion"] = state ? state.minimumEngineVersion : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["userNames"] = state ? state.userNames : undefined;
         } else {
             const args = argsOrState as AclArgs | undefined;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["namePrefix"] = args?.namePrefix;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["userNames"] = args?.userNames;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userNames"] = args ? args.userNames : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["minimumEngineVersion"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

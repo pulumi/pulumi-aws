@@ -75,33 +75,33 @@ export class EnvironmentBlueprintConfiguration extends pulumi.CustomResource {
     /**
      * ID of the Domain.
      */
-    declare public readonly domainId: pulumi.Output<string>;
+    public readonly domainId!: pulumi.Output<string>;
     /**
      * Regions in which the blueprint is enabled
      *
      * The following arguments are optional:
      */
-    declare public readonly enabledRegions: pulumi.Output<string[]>;
+    public readonly enabledRegions!: pulumi.Output<string[]>;
     /**
      * ID of the Environment Blueprint
      */
-    declare public readonly environmentBlueprintId: pulumi.Output<string>;
+    public readonly environmentBlueprintId!: pulumi.Output<string>;
     /**
      * ARN of the manage access role with which this blueprint is created.
      */
-    declare public readonly manageAccessRoleArn: pulumi.Output<string | undefined>;
+    public readonly manageAccessRoleArn!: pulumi.Output<string | undefined>;
     /**
      * ARN of the provisioning role with which this blueprint is created.
      */
-    declare public readonly provisioningRoleArn: pulumi.Output<string | undefined>;
+    public readonly provisioningRoleArn!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Parameters for each region in which the blueprint is enabled
      */
-    declare public readonly regionalParameters: pulumi.Output<{[key: string]: {[key: string]: string}} | undefined>;
+    public readonly regionalParameters!: pulumi.Output<{[key: string]: {[key: string]: string}} | undefined>;
 
     /**
      * Create a EnvironmentBlueprintConfiguration resource with the given unique name, arguments, and options.
@@ -116,31 +116,31 @@ export class EnvironmentBlueprintConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnvironmentBlueprintConfigurationState | undefined;
-            resourceInputs["domainId"] = state?.domainId;
-            resourceInputs["enabledRegions"] = state?.enabledRegions;
-            resourceInputs["environmentBlueprintId"] = state?.environmentBlueprintId;
-            resourceInputs["manageAccessRoleArn"] = state?.manageAccessRoleArn;
-            resourceInputs["provisioningRoleArn"] = state?.provisioningRoleArn;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["regionalParameters"] = state?.regionalParameters;
+            resourceInputs["domainId"] = state ? state.domainId : undefined;
+            resourceInputs["enabledRegions"] = state ? state.enabledRegions : undefined;
+            resourceInputs["environmentBlueprintId"] = state ? state.environmentBlueprintId : undefined;
+            resourceInputs["manageAccessRoleArn"] = state ? state.manageAccessRoleArn : undefined;
+            resourceInputs["provisioningRoleArn"] = state ? state.provisioningRoleArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["regionalParameters"] = state ? state.regionalParameters : undefined;
         } else {
             const args = argsOrState as EnvironmentBlueprintConfigurationArgs | undefined;
-            if (args?.domainId === undefined && !opts.urn) {
+            if ((!args || args.domainId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainId'");
             }
-            if (args?.enabledRegions === undefined && !opts.urn) {
+            if ((!args || args.enabledRegions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'enabledRegions'");
             }
-            if (args?.environmentBlueprintId === undefined && !opts.urn) {
+            if ((!args || args.environmentBlueprintId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'environmentBlueprintId'");
             }
-            resourceInputs["domainId"] = args?.domainId;
-            resourceInputs["enabledRegions"] = args?.enabledRegions;
-            resourceInputs["environmentBlueprintId"] = args?.environmentBlueprintId;
-            resourceInputs["manageAccessRoleArn"] = args?.manageAccessRoleArn;
-            resourceInputs["provisioningRoleArn"] = args?.provisioningRoleArn;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["regionalParameters"] = args?.regionalParameters;
+            resourceInputs["domainId"] = args ? args.domainId : undefined;
+            resourceInputs["enabledRegions"] = args ? args.enabledRegions : undefined;
+            resourceInputs["environmentBlueprintId"] = args ? args.environmentBlueprintId : undefined;
+            resourceInputs["manageAccessRoleArn"] = args ? args.manageAccessRoleArn : undefined;
+            resourceInputs["provisioningRoleArn"] = args ? args.provisioningRoleArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["regionalParameters"] = args ? args.regionalParameters : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EnvironmentBlueprintConfiguration.__pulumiType, name, resourceInputs, opts);

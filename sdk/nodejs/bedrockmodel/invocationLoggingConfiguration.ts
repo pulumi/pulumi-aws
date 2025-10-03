@@ -107,11 +107,11 @@ export class InvocationLoggingConfiguration extends pulumi.CustomResource {
     /**
      * The logging configuration values to set. See `loggingConfig` Block for details.
      */
-    declare public readonly loggingConfig: pulumi.Output<outputs.bedrockmodel.InvocationLoggingConfigurationLoggingConfig | undefined>;
+    public readonly loggingConfig!: pulumi.Output<outputs.bedrockmodel.InvocationLoggingConfigurationLoggingConfig | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a InvocationLoggingConfiguration resource with the given unique name, arguments, and options.
@@ -126,12 +126,12 @@ export class InvocationLoggingConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InvocationLoggingConfigurationState | undefined;
-            resourceInputs["loggingConfig"] = state?.loggingConfig;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["loggingConfig"] = state ? state.loggingConfig : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as InvocationLoggingConfigurationArgs | undefined;
-            resourceInputs["loggingConfig"] = args?.loggingConfig;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["loggingConfig"] = args ? args.loggingConfig : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(InvocationLoggingConfiguration.__pulumiType, name, resourceInputs, opts);

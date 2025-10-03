@@ -81,50 +81,50 @@ export class ResiliencyPolicy extends pulumi.CustomResource {
     /**
      * ARN of the Resiliency Policy.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Data Location Constraint of the Policy.
      * Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
      */
-    declare public readonly dataLocationConstraint: pulumi.Output<string>;
+    public readonly dataLocationConstraint!: pulumi.Output<string>;
     /**
      * Description of Resiliency Policy.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Estimated Cost Tier of the Resiliency Policy.
      */
-    declare public /*out*/ readonly estimatedCostTier: pulumi.Output<string>;
+    public /*out*/ readonly estimatedCostTier!: pulumi.Output<string>;
     /**
      * Name of Resiliency Policy.
      * Must be between 2 and 60 characters long.
      * Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
      *
      * The following arguments are optional:
      */
-    declare public readonly policy: pulumi.Output<outputs.resiliencehub.ResiliencyPolicyPolicy | undefined>;
+    public readonly policy!: pulumi.Output<outputs.resiliencehub.ResiliencyPolicyPolicy | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Resiliency Policy Tier.
      * Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
      */
-    declare public readonly tier: pulumi.Output<string>;
-    declare public readonly timeouts: pulumi.Output<outputs.resiliencehub.ResiliencyPolicyTimeouts | undefined>;
+    public readonly tier!: pulumi.Output<string>;
+    public readonly timeouts!: pulumi.Output<outputs.resiliencehub.ResiliencyPolicyTimeouts | undefined>;
 
     /**
      * Create a ResiliencyPolicy resource with the given unique name, arguments, and options.
@@ -139,30 +139,30 @@ export class ResiliencyPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResiliencyPolicyState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["dataLocationConstraint"] = state?.dataLocationConstraint;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["estimatedCostTier"] = state?.estimatedCostTier;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["policy"] = state?.policy;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["tier"] = state?.tier;
-            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["dataLocationConstraint"] = state ? state.dataLocationConstraint : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["estimatedCostTier"] = state ? state.estimatedCostTier : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["tier"] = state ? state.tier : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as ResiliencyPolicyArgs | undefined;
-            if (args?.tier === undefined && !opts.urn) {
+            if ((!args || args.tier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tier'");
             }
-            resourceInputs["dataLocationConstraint"] = args?.dataLocationConstraint;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["policy"] = args?.policy;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["tier"] = args?.tier;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["dataLocationConstraint"] = args ? args.dataLocationConstraint : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tier"] = args ? args.tier : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["estimatedCostTier"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

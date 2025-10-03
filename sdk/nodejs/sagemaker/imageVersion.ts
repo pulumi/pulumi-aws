@@ -76,60 +76,60 @@ export class ImageVersion extends pulumi.CustomResource {
     /**
      * A list of aliases for the image version.
      */
-    declare public readonly aliases: pulumi.Output<string[] | undefined>;
+    public readonly aliases!: pulumi.Output<string[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The registry path of the container image on which this image version is based.
      */
-    declare public readonly baseImage: pulumi.Output<string>;
+    public readonly baseImage!: pulumi.Output<string>;
     /**
      * The registry path of the container image that contains this image version.
      */
-    declare public /*out*/ readonly containerImage: pulumi.Output<string>;
+    public /*out*/ readonly containerImage!: pulumi.Output<string>;
     /**
      * Indicates Horovod compatibility.
      */
-    declare public readonly horovod: pulumi.Output<boolean | undefined>;
-    declare public /*out*/ readonly imageArn: pulumi.Output<string>;
+    public readonly horovod!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly imageArn!: pulumi.Output<string>;
     /**
      * The name of the image. Must be unique to your account.
      */
-    declare public readonly imageName: pulumi.Output<string>;
+    public readonly imageName!: pulumi.Output<string>;
     /**
      * Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
      */
-    declare public readonly jobType: pulumi.Output<string | undefined>;
+    public readonly jobType!: pulumi.Output<string | undefined>;
     /**
      * The machine learning framework vended in the image version.
      */
-    declare public readonly mlFramework: pulumi.Output<string | undefined>;
+    public readonly mlFramework!: pulumi.Output<string | undefined>;
     /**
      * Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
      */
-    declare public readonly processor: pulumi.Output<string | undefined>;
+    public readonly processor!: pulumi.Output<string | undefined>;
     /**
      * The supported programming language and its version.
      */
-    declare public readonly programmingLang: pulumi.Output<string | undefined>;
+    public readonly programmingLang!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The maintainer description of the image version.
      */
-    declare public readonly releaseNotes: pulumi.Output<string | undefined>;
+    public readonly releaseNotes!: pulumi.Output<string | undefined>;
     /**
      * The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
      */
-    declare public readonly vendorGuidance: pulumi.Output<string | undefined>;
+    public readonly vendorGuidance!: pulumi.Output<string | undefined>;
     /**
      * The version of the image. If not specified, the latest version is described.
      */
-    declare public /*out*/ readonly version: pulumi.Output<number>;
+    public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
      * Create a ImageVersion resource with the given unique name, arguments, and options.
@@ -144,40 +144,40 @@ export class ImageVersion extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ImageVersionState | undefined;
-            resourceInputs["aliases"] = state?.aliases;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["baseImage"] = state?.baseImage;
-            resourceInputs["containerImage"] = state?.containerImage;
-            resourceInputs["horovod"] = state?.horovod;
-            resourceInputs["imageArn"] = state?.imageArn;
-            resourceInputs["imageName"] = state?.imageName;
-            resourceInputs["jobType"] = state?.jobType;
-            resourceInputs["mlFramework"] = state?.mlFramework;
-            resourceInputs["processor"] = state?.processor;
-            resourceInputs["programmingLang"] = state?.programmingLang;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["releaseNotes"] = state?.releaseNotes;
-            resourceInputs["vendorGuidance"] = state?.vendorGuidance;
-            resourceInputs["version"] = state?.version;
+            resourceInputs["aliases"] = state ? state.aliases : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["baseImage"] = state ? state.baseImage : undefined;
+            resourceInputs["containerImage"] = state ? state.containerImage : undefined;
+            resourceInputs["horovod"] = state ? state.horovod : undefined;
+            resourceInputs["imageArn"] = state ? state.imageArn : undefined;
+            resourceInputs["imageName"] = state ? state.imageName : undefined;
+            resourceInputs["jobType"] = state ? state.jobType : undefined;
+            resourceInputs["mlFramework"] = state ? state.mlFramework : undefined;
+            resourceInputs["processor"] = state ? state.processor : undefined;
+            resourceInputs["programmingLang"] = state ? state.programmingLang : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["releaseNotes"] = state ? state.releaseNotes : undefined;
+            resourceInputs["vendorGuidance"] = state ? state.vendorGuidance : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ImageVersionArgs | undefined;
-            if (args?.baseImage === undefined && !opts.urn) {
+            if ((!args || args.baseImage === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'baseImage'");
             }
-            if (args?.imageName === undefined && !opts.urn) {
+            if ((!args || args.imageName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'imageName'");
             }
-            resourceInputs["aliases"] = args?.aliases;
-            resourceInputs["baseImage"] = args?.baseImage;
-            resourceInputs["horovod"] = args?.horovod;
-            resourceInputs["imageName"] = args?.imageName;
-            resourceInputs["jobType"] = args?.jobType;
-            resourceInputs["mlFramework"] = args?.mlFramework;
-            resourceInputs["processor"] = args?.processor;
-            resourceInputs["programmingLang"] = args?.programmingLang;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["releaseNotes"] = args?.releaseNotes;
-            resourceInputs["vendorGuidance"] = args?.vendorGuidance;
+            resourceInputs["aliases"] = args ? args.aliases : undefined;
+            resourceInputs["baseImage"] = args ? args.baseImage : undefined;
+            resourceInputs["horovod"] = args ? args.horovod : undefined;
+            resourceInputs["imageName"] = args ? args.imageName : undefined;
+            resourceInputs["jobType"] = args ? args.jobType : undefined;
+            resourceInputs["mlFramework"] = args ? args.mlFramework : undefined;
+            resourceInputs["processor"] = args ? args.processor : undefined;
+            resourceInputs["programmingLang"] = args ? args.programmingLang : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["releaseNotes"] = args ? args.releaseNotes : undefined;
+            resourceInputs["vendorGuidance"] = args ? args.vendorGuidance : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["containerImage"] = undefined /*out*/;
             resourceInputs["imageArn"] = undefined /*out*/;

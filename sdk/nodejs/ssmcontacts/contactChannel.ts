@@ -89,31 +89,31 @@ export class ContactChannel extends pulumi.CustomResource {
     /**
      * Whether the contact channel is activated. The contact channel must be activated to use it to engage the contact. One of `ACTIVATED` or `NOT_ACTIVATED`.
      */
-    declare public /*out*/ readonly activationStatus: pulumi.Output<string>;
+    public /*out*/ readonly activationStatus!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the contact channel.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
      */
-    declare public readonly contactId: pulumi.Output<string>;
+    public readonly contactId!: pulumi.Output<string>;
     /**
      * Block that contains contact engagement details. See details below.
      */
-    declare public readonly deliveryAddress: pulumi.Output<outputs.ssmcontacts.ContactChannelDeliveryAddress>;
+    public readonly deliveryAddress!: pulumi.Output<outputs.ssmcontacts.ContactChannelDeliveryAddress>;
     /**
      * Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
      */
-    declare public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a ContactChannel resource with the given unique name, arguments, and options.
@@ -128,29 +128,29 @@ export class ContactChannel extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ContactChannelState | undefined;
-            resourceInputs["activationStatus"] = state?.activationStatus;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["contactId"] = state?.contactId;
-            resourceInputs["deliveryAddress"] = state?.deliveryAddress;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["type"] = state?.type;
+            resourceInputs["activationStatus"] = state ? state.activationStatus : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["contactId"] = state ? state.contactId : undefined;
+            resourceInputs["deliveryAddress"] = state ? state.deliveryAddress : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ContactChannelArgs | undefined;
-            if (args?.contactId === undefined && !opts.urn) {
+            if ((!args || args.contactId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'contactId'");
             }
-            if (args?.deliveryAddress === undefined && !opts.urn) {
+            if ((!args || args.deliveryAddress === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deliveryAddress'");
             }
-            if (args?.type === undefined && !opts.urn) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["contactId"] = args?.contactId;
-            resourceInputs["deliveryAddress"] = args?.deliveryAddress;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["type"] = args?.type;
+            resourceInputs["contactId"] = args ? args.contactId : undefined;
+            resourceInputs["deliveryAddress"] = args ? args.deliveryAddress : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["activationStatus"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
         }

@@ -103,11 +103,11 @@ export class HostedZoneDnsSec extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    declare public readonly hostedZoneId: pulumi.Output<string>;
+    public readonly hostedZoneId!: pulumi.Output<string>;
     /**
      * Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
      */
-    declare public readonly signingStatus: pulumi.Output<string | undefined>;
+    public readonly signingStatus!: pulumi.Output<string | undefined>;
 
     /**
      * Create a HostedZoneDnsSec resource with the given unique name, arguments, and options.
@@ -122,15 +122,15 @@ export class HostedZoneDnsSec extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HostedZoneDnsSecState | undefined;
-            resourceInputs["hostedZoneId"] = state?.hostedZoneId;
-            resourceInputs["signingStatus"] = state?.signingStatus;
+            resourceInputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
+            resourceInputs["signingStatus"] = state ? state.signingStatus : undefined;
         } else {
             const args = argsOrState as HostedZoneDnsSecArgs | undefined;
-            if (args?.hostedZoneId === undefined && !opts.urn) {
+            if ((!args || args.hostedZoneId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hostedZoneId'");
             }
-            resourceInputs["hostedZoneId"] = args?.hostedZoneId;
-            resourceInputs["signingStatus"] = args?.signingStatus;
+            resourceInputs["hostedZoneId"] = args ? args.hostedZoneId : undefined;
+            resourceInputs["signingStatus"] = args ? args.signingStatus : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(HostedZoneDnsSec.__pulumiType, name, resourceInputs, opts);

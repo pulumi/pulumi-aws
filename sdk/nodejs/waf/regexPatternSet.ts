@@ -61,15 +61,15 @@ export class RegexPatternSet extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN)
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name or description of the Regex Pattern Set.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
      */
-    declare public readonly regexPatternStrings: pulumi.Output<string[] | undefined>;
+    public readonly regexPatternStrings!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a RegexPatternSet resource with the given unique name, arguments, and options.
@@ -84,13 +84,13 @@ export class RegexPatternSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RegexPatternSetState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["regexPatternStrings"] = state?.regexPatternStrings;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["regexPatternStrings"] = state ? state.regexPatternStrings : undefined;
         } else {
             const args = argsOrState as RegexPatternSetArgs | undefined;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["regexPatternStrings"] = args?.regexPatternStrings;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["regexPatternStrings"] = args ? args.regexPatternStrings : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

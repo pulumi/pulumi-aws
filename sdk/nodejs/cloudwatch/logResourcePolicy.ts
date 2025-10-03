@@ -102,15 +102,15 @@ export class LogResourcePolicy extends pulumi.CustomResource {
     /**
      * Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
      */
-    declare public readonly policyDocument: pulumi.Output<string>;
+    public readonly policyDocument!: pulumi.Output<string>;
     /**
      * Name of the resource policy.
      */
-    declare public readonly policyName: pulumi.Output<string>;
+    public readonly policyName!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a LogResourcePolicy resource with the given unique name, arguments, and options.
@@ -125,20 +125,20 @@ export class LogResourcePolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogResourcePolicyState | undefined;
-            resourceInputs["policyDocument"] = state?.policyDocument;
-            resourceInputs["policyName"] = state?.policyName;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["policyDocument"] = state ? state.policyDocument : undefined;
+            resourceInputs["policyName"] = state ? state.policyName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as LogResourcePolicyArgs | undefined;
-            if (args?.policyDocument === undefined && !opts.urn) {
+            if ((!args || args.policyDocument === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyDocument'");
             }
-            if (args?.policyName === undefined && !opts.urn) {
+            if ((!args || args.policyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyName'");
             }
-            resourceInputs["policyDocument"] = args?.policyDocument;
-            resourceInputs["policyName"] = args?.policyName;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
+            resourceInputs["policyName"] = args ? args.policyName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogResourcePolicy.__pulumiType, name, resourceInputs, opts);

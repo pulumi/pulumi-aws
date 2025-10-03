@@ -112,15 +112,15 @@ export class LoggingConfiguration extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Network Firewall firewall.
      */
-    declare public readonly firewallArn: pulumi.Output<string>;
+    public readonly firewallArn!: pulumi.Output<string>;
     /**
      * A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
      */
-    declare public readonly loggingConfiguration: pulumi.Output<outputs.networkfirewall.LoggingConfigurationLoggingConfiguration>;
+    public readonly loggingConfiguration!: pulumi.Output<outputs.networkfirewall.LoggingConfigurationLoggingConfiguration>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a LoggingConfiguration resource with the given unique name, arguments, and options.
@@ -135,20 +135,20 @@ export class LoggingConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LoggingConfigurationState | undefined;
-            resourceInputs["firewallArn"] = state?.firewallArn;
-            resourceInputs["loggingConfiguration"] = state?.loggingConfiguration;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["firewallArn"] = state ? state.firewallArn : undefined;
+            resourceInputs["loggingConfiguration"] = state ? state.loggingConfiguration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as LoggingConfigurationArgs | undefined;
-            if (args?.firewallArn === undefined && !opts.urn) {
+            if ((!args || args.firewallArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'firewallArn'");
             }
-            if (args?.loggingConfiguration === undefined && !opts.urn) {
+            if ((!args || args.loggingConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loggingConfiguration'");
             }
-            resourceInputs["firewallArn"] = args?.firewallArn;
-            resourceInputs["loggingConfiguration"] = args?.loggingConfiguration;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["firewallArn"] = args ? args.firewallArn : undefined;
+            resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LoggingConfiguration.__pulumiType, name, resourceInputs, opts);

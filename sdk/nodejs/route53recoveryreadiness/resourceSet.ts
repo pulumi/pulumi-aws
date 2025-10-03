@@ -65,29 +65,29 @@ export class ResourceSet extends pulumi.CustomResource {
      * ARN of the resource set
      * * `resources.#.component_id` - Unique identified for DNS Target Resources, use for readiness checks.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Unique name describing the resource set.
      */
-    declare public readonly resourceSetName: pulumi.Output<string>;
+    public readonly resourceSetName!: pulumi.Output<string>;
     /**
      * Type of the resources in the resource set.
      */
-    declare public readonly resourceSetType: pulumi.Output<string>;
+    public readonly resourceSetType!: pulumi.Output<string>;
     /**
      * List of resources to add to this resource set. See below.
      *
      * The following arguments are optional:
      */
-    declare public readonly resources: pulumi.Output<outputs.route53recoveryreadiness.ResourceSetResource[]>;
+    public readonly resources!: pulumi.Output<outputs.route53recoveryreadiness.ResourceSetResource[]>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ResourceSet resource with the given unique name, arguments, and options.
@@ -102,27 +102,27 @@ export class ResourceSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceSetState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["resourceSetName"] = state?.resourceSetName;
-            resourceInputs["resourceSetType"] = state?.resourceSetType;
-            resourceInputs["resources"] = state?.resources;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["resourceSetName"] = state ? state.resourceSetName : undefined;
+            resourceInputs["resourceSetType"] = state ? state.resourceSetType : undefined;
+            resourceInputs["resources"] = state ? state.resources : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ResourceSetArgs | undefined;
-            if (args?.resourceSetName === undefined && !opts.urn) {
+            if ((!args || args.resourceSetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceSetName'");
             }
-            if (args?.resourceSetType === undefined && !opts.urn) {
+            if ((!args || args.resourceSetType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceSetType'");
             }
-            if (args?.resources === undefined && !opts.urn) {
+            if ((!args || args.resources === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resources'");
             }
-            resourceInputs["resourceSetName"] = args?.resourceSetName;
-            resourceInputs["resourceSetType"] = args?.resourceSetType;
-            resourceInputs["resources"] = args?.resources;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["resourceSetName"] = args ? args.resourceSetName : undefined;
+            resourceInputs["resourceSetType"] = args ? args.resourceSetType : undefined;
+            resourceInputs["resources"] = args ? args.resources : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

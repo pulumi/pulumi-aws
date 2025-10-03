@@ -80,15 +80,15 @@ export class DomainServiceAccessPolicy extends pulumi.CustomResource {
     /**
      * The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
      */
-    declare public readonly accessPolicy: pulumi.Output<string>;
+    public readonly accessPolicy!: pulumi.Output<string>;
     /**
      * The CloudSearch domain name the policy applies to.
      */
-    declare public readonly domainName: pulumi.Output<string>;
+    public readonly domainName!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a DomainServiceAccessPolicy resource with the given unique name, arguments, and options.
@@ -103,20 +103,20 @@ export class DomainServiceAccessPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainServiceAccessPolicyState | undefined;
-            resourceInputs["accessPolicy"] = state?.accessPolicy;
-            resourceInputs["domainName"] = state?.domainName;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["accessPolicy"] = state ? state.accessPolicy : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as DomainServiceAccessPolicyArgs | undefined;
-            if (args?.accessPolicy === undefined && !opts.urn) {
+            if ((!args || args.accessPolicy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accessPolicy'");
             }
-            if (args?.domainName === undefined && !opts.urn) {
+            if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            resourceInputs["accessPolicy"] = args?.accessPolicy;
-            resourceInputs["domainName"] = args?.domainName;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["accessPolicy"] = args ? args.accessPolicy : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DomainServiceAccessPolicy.__pulumiType, name, resourceInputs, opts);

@@ -96,15 +96,15 @@ export class UserHierarchyStructure extends pulumi.CustomResource {
     /**
      * A block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
      */
-    declare public readonly hierarchyStructure: pulumi.Output<outputs.connect.UserHierarchyStructureHierarchyStructure>;
+    public readonly hierarchyStructure!: pulumi.Output<outputs.connect.UserHierarchyStructureHierarchyStructure>;
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      */
-    declare public readonly instanceId: pulumi.Output<string>;
+    public readonly instanceId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a UserHierarchyStructure resource with the given unique name, arguments, and options.
@@ -119,20 +119,20 @@ export class UserHierarchyStructure extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserHierarchyStructureState | undefined;
-            resourceInputs["hierarchyStructure"] = state?.hierarchyStructure;
-            resourceInputs["instanceId"] = state?.instanceId;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["hierarchyStructure"] = state ? state.hierarchyStructure : undefined;
+            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as UserHierarchyStructureArgs | undefined;
-            if (args?.hierarchyStructure === undefined && !opts.urn) {
+            if ((!args || args.hierarchyStructure === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hierarchyStructure'");
             }
-            if (args?.instanceId === undefined && !opts.urn) {
+            if ((!args || args.instanceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            resourceInputs["hierarchyStructure"] = args?.hierarchyStructure;
-            resourceInputs["instanceId"] = args?.instanceId;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["hierarchyStructure"] = args ? args.hierarchyStructure : undefined;
+            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(UserHierarchyStructure.__pulumiType, name, resourceInputs, opts);

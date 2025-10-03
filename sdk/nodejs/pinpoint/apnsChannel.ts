@@ -66,15 +66,15 @@ export class ApnsChannel extends pulumi.CustomResource {
     /**
      * The application ID.
      */
-    declare public readonly applicationId: pulumi.Output<string>;
+    public readonly applicationId!: pulumi.Output<string>;
     /**
      * The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
      */
-    declare public readonly bundleId: pulumi.Output<string | undefined>;
+    public readonly bundleId!: pulumi.Output<string | undefined>;
     /**
      * The pem encoded TLS Certificate from Apple.
      */
-    declare public readonly certificate: pulumi.Output<string | undefined>;
+    public readonly certificate!: pulumi.Output<string | undefined>;
     /**
      * The default authentication method used for APNs.
      * __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
@@ -85,33 +85,33 @@ export class ApnsChannel extends pulumi.CustomResource {
      *
      * If you choose to use __Certificate credentials__ you will have to provide:
      */
-    declare public readonly defaultAuthenticationMethod: pulumi.Output<string | undefined>;
+    public readonly defaultAuthenticationMethod!: pulumi.Output<string | undefined>;
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      */
-    declare public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * The Certificate Private Key file (ie. `.key` file).
      *
      * If you choose to use __Key credentials__ you will have to provide:
      */
-    declare public readonly privateKey: pulumi.Output<string | undefined>;
+    public readonly privateKey!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ID assigned to your Apple developer account team. This value is provided on the Membership page.
      */
-    declare public readonly teamId: pulumi.Output<string | undefined>;
+    public readonly teamId!: pulumi.Output<string | undefined>;
     /**
      * The `.p8` file that you download from your Apple developer account when you create an authentication key.
      */
-    declare public readonly tokenKey: pulumi.Output<string | undefined>;
+    public readonly tokenKey!: pulumi.Output<string | undefined>;
     /**
      * The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
      */
-    declare public readonly tokenKeyId: pulumi.Output<string | undefined>;
+    public readonly tokenKeyId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ApnsChannel resource with the given unique name, arguments, and options.
@@ -126,28 +126,28 @@ export class ApnsChannel extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApnsChannelState | undefined;
-            resourceInputs["applicationId"] = state?.applicationId;
-            resourceInputs["bundleId"] = state?.bundleId;
-            resourceInputs["certificate"] = state?.certificate;
-            resourceInputs["defaultAuthenticationMethod"] = state?.defaultAuthenticationMethod;
-            resourceInputs["enabled"] = state?.enabled;
-            resourceInputs["privateKey"] = state?.privateKey;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["teamId"] = state?.teamId;
-            resourceInputs["tokenKey"] = state?.tokenKey;
-            resourceInputs["tokenKeyId"] = state?.tokenKeyId;
+            resourceInputs["applicationId"] = state ? state.applicationId : undefined;
+            resourceInputs["bundleId"] = state ? state.bundleId : undefined;
+            resourceInputs["certificate"] = state ? state.certificate : undefined;
+            resourceInputs["defaultAuthenticationMethod"] = state ? state.defaultAuthenticationMethod : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["privateKey"] = state ? state.privateKey : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["teamId"] = state ? state.teamId : undefined;
+            resourceInputs["tokenKey"] = state ? state.tokenKey : undefined;
+            resourceInputs["tokenKeyId"] = state ? state.tokenKeyId : undefined;
         } else {
             const args = argsOrState as ApnsChannelArgs | undefined;
-            if (args?.applicationId === undefined && !opts.urn) {
+            if ((!args || args.applicationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
             resourceInputs["bundleId"] = args?.bundleId ? pulumi.secret(args.bundleId) : undefined;
             resourceInputs["certificate"] = args?.certificate ? pulumi.secret(args.certificate) : undefined;
-            resourceInputs["defaultAuthenticationMethod"] = args?.defaultAuthenticationMethod;
-            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["defaultAuthenticationMethod"] = args ? args.defaultAuthenticationMethod : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["privateKey"] = args?.privateKey ? pulumi.secret(args.privateKey) : undefined;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["teamId"] = args?.teamId ? pulumi.secret(args.teamId) : undefined;
             resourceInputs["tokenKey"] = args?.tokenKey ? pulumi.secret(args.tokenKey) : undefined;
             resourceInputs["tokenKeyId"] = args?.tokenKeyId ? pulumi.secret(args.tokenKeyId) : undefined;

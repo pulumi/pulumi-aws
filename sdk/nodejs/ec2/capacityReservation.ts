@@ -63,71 +63,71 @@ export class CapacityReservation extends pulumi.CustomResource {
     /**
      * The ARN of the Capacity Reservation.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The Availability Zone in which to create the Capacity Reservation.
      */
-    declare public readonly availabilityZone: pulumi.Output<string>;
+    public readonly availabilityZone!: pulumi.Output<string>;
     /**
      * Indicates whether the Capacity Reservation supports EBS-optimized instances.
      */
-    declare public readonly ebsOptimized: pulumi.Output<boolean | undefined>;
+    public readonly ebsOptimized!: pulumi.Output<boolean | undefined>;
     /**
      * The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      */
-    declare public readonly endDate: pulumi.Output<string | undefined>;
+    public readonly endDate!: pulumi.Output<string | undefined>;
     /**
      * Indicates the way in which the Capacity Reservation ends. Specify either `unlimited` or `limited`.
      */
-    declare public readonly endDateType: pulumi.Output<string | undefined>;
+    public readonly endDateType!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
      */
-    declare public readonly ephemeralStorage: pulumi.Output<boolean | undefined>;
+    public readonly ephemeralStorage!: pulumi.Output<boolean | undefined>;
     /**
      * The number of instances for which to reserve capacity.
      */
-    declare public readonly instanceCount: pulumi.Output<number>;
+    public readonly instanceCount!: pulumi.Output<number>;
     /**
      * Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
      */
-    declare public readonly instanceMatchCriteria: pulumi.Output<string | undefined>;
+    public readonly instanceMatchCriteria!: pulumi.Output<string | undefined>;
     /**
      * The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
      */
-    declare public readonly instancePlatform: pulumi.Output<string>;
+    public readonly instancePlatform!: pulumi.Output<string>;
     /**
      * The instance type for which to reserve capacity.
      */
-    declare public readonly instanceType: pulumi.Output<string>;
+    public readonly instanceType!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
      */
-    declare public readonly outpostArn: pulumi.Output<string | undefined>;
+    public readonly outpostArn!: pulumi.Output<string | undefined>;
     /**
      * The ID of the AWS account that owns the Capacity Reservation.
      */
-    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
      */
-    declare public readonly placementGroupArn: pulumi.Output<string | undefined>;
+    public readonly placementGroupArn!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
      */
-    declare public readonly tenancy: pulumi.Output<string | undefined>;
+    public readonly tenancy!: pulumi.Output<string | undefined>;
 
     /**
      * Create a CapacityReservation resource with the given unique name, arguments, and options.
@@ -142,51 +142,51 @@ export class CapacityReservation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CapacityReservationState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["availabilityZone"] = state?.availabilityZone;
-            resourceInputs["ebsOptimized"] = state?.ebsOptimized;
-            resourceInputs["endDate"] = state?.endDate;
-            resourceInputs["endDateType"] = state?.endDateType;
-            resourceInputs["ephemeralStorage"] = state?.ephemeralStorage;
-            resourceInputs["instanceCount"] = state?.instanceCount;
-            resourceInputs["instanceMatchCriteria"] = state?.instanceMatchCriteria;
-            resourceInputs["instancePlatform"] = state?.instancePlatform;
-            resourceInputs["instanceType"] = state?.instanceType;
-            resourceInputs["outpostArn"] = state?.outpostArn;
-            resourceInputs["ownerId"] = state?.ownerId;
-            resourceInputs["placementGroupArn"] = state?.placementGroupArn;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["tenancy"] = state?.tenancy;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            resourceInputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;
+            resourceInputs["endDate"] = state ? state.endDate : undefined;
+            resourceInputs["endDateType"] = state ? state.endDateType : undefined;
+            resourceInputs["ephemeralStorage"] = state ? state.ephemeralStorage : undefined;
+            resourceInputs["instanceCount"] = state ? state.instanceCount : undefined;
+            resourceInputs["instanceMatchCriteria"] = state ? state.instanceMatchCriteria : undefined;
+            resourceInputs["instancePlatform"] = state ? state.instancePlatform : undefined;
+            resourceInputs["instanceType"] = state ? state.instanceType : undefined;
+            resourceInputs["outpostArn"] = state ? state.outpostArn : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["placementGroupArn"] = state ? state.placementGroupArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["tenancy"] = state ? state.tenancy : undefined;
         } else {
             const args = argsOrState as CapacityReservationArgs | undefined;
-            if (args?.availabilityZone === undefined && !opts.urn) {
+            if ((!args || args.availabilityZone === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'availabilityZone'");
             }
-            if (args?.instanceCount === undefined && !opts.urn) {
+            if ((!args || args.instanceCount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceCount'");
             }
-            if (args?.instancePlatform === undefined && !opts.urn) {
+            if ((!args || args.instancePlatform === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instancePlatform'");
             }
-            if (args?.instanceType === undefined && !opts.urn) {
+            if ((!args || args.instanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            resourceInputs["availabilityZone"] = args?.availabilityZone;
-            resourceInputs["ebsOptimized"] = args?.ebsOptimized;
-            resourceInputs["endDate"] = args?.endDate;
-            resourceInputs["endDateType"] = args?.endDateType;
-            resourceInputs["ephemeralStorage"] = args?.ephemeralStorage;
-            resourceInputs["instanceCount"] = args?.instanceCount;
-            resourceInputs["instanceMatchCriteria"] = args?.instanceMatchCriteria;
-            resourceInputs["instancePlatform"] = args?.instancePlatform;
-            resourceInputs["instanceType"] = args?.instanceType;
-            resourceInputs["outpostArn"] = args?.outpostArn;
-            resourceInputs["placementGroupArn"] = args?.placementGroupArn;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["tenancy"] = args?.tenancy;
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
+            resourceInputs["endDate"] = args ? args.endDate : undefined;
+            resourceInputs["endDateType"] = args ? args.endDateType : undefined;
+            resourceInputs["ephemeralStorage"] = args ? args.ephemeralStorage : undefined;
+            resourceInputs["instanceCount"] = args ? args.instanceCount : undefined;
+            resourceInputs["instanceMatchCriteria"] = args ? args.instanceMatchCriteria : undefined;
+            resourceInputs["instancePlatform"] = args ? args.instancePlatform : undefined;
+            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
+            resourceInputs["outpostArn"] = args ? args.outpostArn : undefined;
+            resourceInputs["placementGroupArn"] = args ? args.placementGroupArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tenancy"] = args ? args.tenancy : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

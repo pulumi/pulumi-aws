@@ -103,34 +103,34 @@ export class Invocation extends pulumi.CustomResource {
     /**
      * Name of the Lambda function.
      */
-    declare public readonly functionName: pulumi.Output<string>;
+    public readonly functionName!: pulumi.Output<string>;
     /**
      * JSON payload to the Lambda function.
      *
      * The following arguments are optional:
      */
-    declare public readonly input: pulumi.Output<string>;
+    public readonly input!: pulumi.Output<string>;
     /**
      * Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
      */
-    declare public readonly lifecycleScope: pulumi.Output<string | undefined>;
+    public readonly lifecycleScope!: pulumi.Output<string | undefined>;
     /**
      * Qualifier (i.e., version) of the Lambda function. Defaults to `$LATEST`.
      */
-    declare public readonly qualifier: pulumi.Output<string | undefined>;
+    public readonly qualifier!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * String result of the Lambda function invocation.
      */
-    declare public /*out*/ readonly result: pulumi.Output<string>;
-    declare public readonly terraformKey: pulumi.Output<string | undefined>;
+    public /*out*/ readonly result!: pulumi.Output<string>;
+    public readonly terraformKey!: pulumi.Output<string | undefined>;
     /**
      * Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
      */
-    declare public readonly triggers: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly triggers!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Invocation resource with the given unique name, arguments, and options.
@@ -145,29 +145,29 @@ export class Invocation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InvocationState | undefined;
-            resourceInputs["functionName"] = state?.functionName;
-            resourceInputs["input"] = state?.input;
-            resourceInputs["lifecycleScope"] = state?.lifecycleScope;
-            resourceInputs["qualifier"] = state?.qualifier;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["result"] = state?.result;
-            resourceInputs["terraformKey"] = state?.terraformKey;
-            resourceInputs["triggers"] = state?.triggers;
+            resourceInputs["functionName"] = state ? state.functionName : undefined;
+            resourceInputs["input"] = state ? state.input : undefined;
+            resourceInputs["lifecycleScope"] = state ? state.lifecycleScope : undefined;
+            resourceInputs["qualifier"] = state ? state.qualifier : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["result"] = state ? state.result : undefined;
+            resourceInputs["terraformKey"] = state ? state.terraformKey : undefined;
+            resourceInputs["triggers"] = state ? state.triggers : undefined;
         } else {
             const args = argsOrState as InvocationArgs | undefined;
-            if (args?.functionName === undefined && !opts.urn) {
+            if ((!args || args.functionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'functionName'");
             }
-            if (args?.input === undefined && !opts.urn) {
+            if ((!args || args.input === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'input'");
             }
-            resourceInputs["functionName"] = args?.functionName;
-            resourceInputs["input"] = args?.input;
-            resourceInputs["lifecycleScope"] = args?.lifecycleScope;
-            resourceInputs["qualifier"] = args?.qualifier;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["terraformKey"] = args?.terraformKey;
-            resourceInputs["triggers"] = args?.triggers;
+            resourceInputs["functionName"] = args ? args.functionName : undefined;
+            resourceInputs["input"] = args ? args.input : undefined;
+            resourceInputs["lifecycleScope"] = args ? args.lifecycleScope : undefined;
+            resourceInputs["qualifier"] = args ? args.qualifier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["terraformKey"] = args ? args.terraformKey : undefined;
+            resourceInputs["triggers"] = args ? args.triggers : undefined;
             resourceInputs["result"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

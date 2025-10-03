@@ -96,47 +96,47 @@ export class PhoneNumber extends pulumi.CustomResource {
     /**
      * The ARN of the phone number.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
      */
-    declare public readonly countryCode: pulumi.Output<string>;
+    public readonly countryCode!: pulumi.Output<string>;
     /**
      * The description of the phone number.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The phone number. Phone numbers are formatted `[+] [country code] [subscriber number including area code]`.
      */
-    declare public /*out*/ readonly phoneNumber: pulumi.Output<string>;
+    public /*out*/ readonly phoneNumber!: pulumi.Output<string>;
     /**
      * The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
      */
-    declare public readonly prefix: pulumi.Output<string | undefined>;
+    public readonly prefix!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
      */
-    declare public /*out*/ readonly statuses: pulumi.Output<outputs.connect.PhoneNumberStatus[]>;
+    public /*out*/ readonly statuses!: pulumi.Output<outputs.connect.PhoneNumberStatus[]>;
     /**
      * Tags to apply to the Phone Number. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
      */
-    declare public readonly targetArn: pulumi.Output<string>;
+    public readonly targetArn!: pulumi.Output<string>;
     /**
      * The type of phone number. Valid Values: `TOLL_FREE` | `DID`.
      */
-    declare public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a PhoneNumber resource with the given unique name, arguments, and options.
@@ -151,35 +151,35 @@ export class PhoneNumber extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PhoneNumberState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["countryCode"] = state?.countryCode;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["phoneNumber"] = state?.phoneNumber;
-            resourceInputs["prefix"] = state?.prefix;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["statuses"] = state?.statuses;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["targetArn"] = state?.targetArn;
-            resourceInputs["type"] = state?.type;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["countryCode"] = state ? state.countryCode : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["phoneNumber"] = state ? state.phoneNumber : undefined;
+            resourceInputs["prefix"] = state ? state.prefix : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["statuses"] = state ? state.statuses : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["targetArn"] = state ? state.targetArn : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as PhoneNumberArgs | undefined;
-            if (args?.countryCode === undefined && !opts.urn) {
+            if ((!args || args.countryCode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'countryCode'");
             }
-            if (args?.targetArn === undefined && !opts.urn) {
+            if ((!args || args.targetArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetArn'");
             }
-            if (args?.type === undefined && !opts.urn) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["countryCode"] = args?.countryCode;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["prefix"] = args?.prefix;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["targetArn"] = args?.targetArn;
-            resourceInputs["type"] = args?.type;
+            resourceInputs["countryCode"] = args ? args.countryCode : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["prefix"] = args ? args.prefix : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetArn"] = args ? args.targetArn : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["phoneNumber"] = undefined /*out*/;
             resourceInputs["statuses"] = undefined /*out*/;

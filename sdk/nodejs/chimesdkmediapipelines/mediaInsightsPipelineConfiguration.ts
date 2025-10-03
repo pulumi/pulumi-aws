@@ -322,32 +322,32 @@ export class MediaInsightsPipelineConfiguration extends pulumi.CustomResource {
     /**
      * ARN of the Media Insights Pipeline Configuration.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Collection of processors and sinks to transform media and deliver data.
      */
-    declare public readonly elements: pulumi.Output<outputs.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElement[]>;
+    public readonly elements!: pulumi.Output<outputs.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElement[]>;
     /**
      * Configuration name.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
      */
-    declare public readonly realTimeAlertConfiguration: pulumi.Output<outputs.chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration | undefined>;
+    public readonly realTimeAlertConfiguration!: pulumi.Output<outputs.chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
      */
-    declare public readonly resourceAccessRoleArn: pulumi.Output<string>;
+    public readonly resourceAccessRoleArn!: pulumi.Output<string>;
     /**
      * Key-value map of tags for the resource.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a MediaInsightsPipelineConfiguration resource with the given unique name, arguments, and options.
@@ -362,28 +362,28 @@ export class MediaInsightsPipelineConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MediaInsightsPipelineConfigurationState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["elements"] = state?.elements;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["realTimeAlertConfiguration"] = state?.realTimeAlertConfiguration;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceAccessRoleArn"] = state?.resourceAccessRoleArn;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["elements"] = state ? state.elements : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["realTimeAlertConfiguration"] = state ? state.realTimeAlertConfiguration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceAccessRoleArn"] = state ? state.resourceAccessRoleArn : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as MediaInsightsPipelineConfigurationArgs | undefined;
-            if (args?.elements === undefined && !opts.urn) {
+            if ((!args || args.elements === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'elements'");
             }
-            if (args?.resourceAccessRoleArn === undefined && !opts.urn) {
+            if ((!args || args.resourceAccessRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceAccessRoleArn'");
             }
-            resourceInputs["elements"] = args?.elements;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["realTimeAlertConfiguration"] = args?.realTimeAlertConfiguration;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resourceAccessRoleArn"] = args?.resourceAccessRoleArn;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["elements"] = args ? args.elements : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["realTimeAlertConfiguration"] = args ? args.realTimeAlertConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourceAccessRoleArn"] = args ? args.resourceAccessRoleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

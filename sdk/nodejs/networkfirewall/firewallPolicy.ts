@@ -184,39 +184,39 @@ export class FirewallPolicy extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) that identifies the firewall policy.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A friendly description of the firewall policy.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * KMS encryption configuration settings. See Encryption Configuration below for details.
      */
-    declare public readonly encryptionConfiguration: pulumi.Output<outputs.networkfirewall.FirewallPolicyEncryptionConfiguration | undefined>;
+    public readonly encryptionConfiguration!: pulumi.Output<outputs.networkfirewall.FirewallPolicyEncryptionConfiguration | undefined>;
     /**
      * A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
      */
-    declare public readonly firewallPolicy: pulumi.Output<outputs.networkfirewall.FirewallPolicyFirewallPolicy>;
+    public readonly firewallPolicy!: pulumi.Output<outputs.networkfirewall.FirewallPolicyFirewallPolicy>;
     /**
      * A friendly name of the firewall policy.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * A string token used when updating a firewall policy.
      */
-    declare public /*out*/ readonly updateToken: pulumi.Output<string>;
+    public /*out*/ readonly updateToken!: pulumi.Output<string>;
 
     /**
      * Create a FirewallPolicy resource with the given unique name, arguments, and options.
@@ -231,26 +231,26 @@ export class FirewallPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FirewallPolicyState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["encryptionConfiguration"] = state?.encryptionConfiguration;
-            resourceInputs["firewallPolicy"] = state?.firewallPolicy;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["updateToken"] = state?.updateToken;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["encryptionConfiguration"] = state ? state.encryptionConfiguration : undefined;
+            resourceInputs["firewallPolicy"] = state ? state.firewallPolicy : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["updateToken"] = state ? state.updateToken : undefined;
         } else {
             const args = argsOrState as FirewallPolicyArgs | undefined;
-            if (args?.firewallPolicy === undefined && !opts.urn) {
+            if ((!args || args.firewallPolicy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'firewallPolicy'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["encryptionConfiguration"] = args?.encryptionConfiguration;
-            resourceInputs["firewallPolicy"] = args?.firewallPolicy;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
+            resourceInputs["firewallPolicy"] = args ? args.firewallPolicy : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["updateToken"] = undefined /*out*/;

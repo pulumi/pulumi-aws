@@ -119,27 +119,27 @@ export class LogAccountPolicy extends pulumi.CustomResource {
     /**
      * Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
      */
-    declare public readonly policyDocument: pulumi.Output<string>;
+    public readonly policyDocument!: pulumi.Output<string>;
     /**
      * Name of the account policy.
      */
-    declare public readonly policyName: pulumi.Output<string>;
+    public readonly policyName!: pulumi.Output<string>;
     /**
      * Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
      */
-    declare public readonly policyType: pulumi.Output<string>;
+    public readonly policyType!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Currently defaults to and only accepts the value: `ALL`.
      */
-    declare public readonly scope: pulumi.Output<string | undefined>;
+    public readonly scope!: pulumi.Output<string | undefined>;
     /**
      * Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
      */
-    declare public readonly selectionCriteria: pulumi.Output<string | undefined>;
+    public readonly selectionCriteria!: pulumi.Output<string | undefined>;
 
     /**
      * Create a LogAccountPolicy resource with the given unique name, arguments, and options.
@@ -154,29 +154,29 @@ export class LogAccountPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogAccountPolicyState | undefined;
-            resourceInputs["policyDocument"] = state?.policyDocument;
-            resourceInputs["policyName"] = state?.policyName;
-            resourceInputs["policyType"] = state?.policyType;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["scope"] = state?.scope;
-            resourceInputs["selectionCriteria"] = state?.selectionCriteria;
+            resourceInputs["policyDocument"] = state ? state.policyDocument : undefined;
+            resourceInputs["policyName"] = state ? state.policyName : undefined;
+            resourceInputs["policyType"] = state ? state.policyType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["scope"] = state ? state.scope : undefined;
+            resourceInputs["selectionCriteria"] = state ? state.selectionCriteria : undefined;
         } else {
             const args = argsOrState as LogAccountPolicyArgs | undefined;
-            if (args?.policyDocument === undefined && !opts.urn) {
+            if ((!args || args.policyDocument === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyDocument'");
             }
-            if (args?.policyName === undefined && !opts.urn) {
+            if ((!args || args.policyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyName'");
             }
-            if (args?.policyType === undefined && !opts.urn) {
+            if ((!args || args.policyType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyType'");
             }
-            resourceInputs["policyDocument"] = args?.policyDocument;
-            resourceInputs["policyName"] = args?.policyName;
-            resourceInputs["policyType"] = args?.policyType;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["scope"] = args?.scope;
-            resourceInputs["selectionCriteria"] = args?.selectionCriteria;
+            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
+            resourceInputs["policyName"] = args ? args.policyName : undefined;
+            resourceInputs["policyType"] = args ? args.policyType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["selectionCriteria"] = args ? args.selectionCriteria : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogAccountPolicy.__pulumiType, name, resourceInputs, opts);

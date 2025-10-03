@@ -72,52 +72,52 @@ export class FeatureGroup extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A free-form description of a Feature Group.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The name of the feature that stores the EventTime of a Record in a Feature Group.
      */
-    declare public readonly eventTimeFeatureName: pulumi.Output<string>;
+    public readonly eventTimeFeatureName!: pulumi.Output<string>;
     /**
      * A list of Feature names and types. See Feature Definition Below.
      */
-    declare public readonly featureDefinitions: pulumi.Output<outputs.sagemaker.FeatureGroupFeatureDefinition[]>;
+    public readonly featureDefinitions!: pulumi.Output<outputs.sagemaker.FeatureGroupFeatureDefinition[]>;
     /**
      * The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.
      */
-    declare public readonly featureGroupName: pulumi.Output<string>;
+    public readonly featureGroupName!: pulumi.Output<string>;
     /**
      * The Offline Feature Store Configuration. See Offline Store Config Below.
      */
-    declare public readonly offlineStoreConfig: pulumi.Output<outputs.sagemaker.FeatureGroupOfflineStoreConfig | undefined>;
+    public readonly offlineStoreConfig!: pulumi.Output<outputs.sagemaker.FeatureGroupOfflineStoreConfig | undefined>;
     /**
      * The Online Feature Store Configuration. See Online Store Config Below.
      */
-    declare public readonly onlineStoreConfig: pulumi.Output<outputs.sagemaker.FeatureGroupOnlineStoreConfig | undefined>;
+    public readonly onlineStoreConfig!: pulumi.Output<outputs.sagemaker.FeatureGroupOnlineStoreConfig | undefined>;
     /**
      * The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
      */
-    declare public readonly recordIdentifierFeatureName: pulumi.Output<string>;
+    public readonly recordIdentifierFeatureName!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
      */
-    declare public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * Map of resource tags for the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public readonly throughputConfig: pulumi.Output<outputs.sagemaker.FeatureGroupThroughputConfig>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly throughputConfig!: pulumi.Output<outputs.sagemaker.FeatureGroupThroughputConfig>;
 
     /**
      * Create a FeatureGroup resource with the given unique name, arguments, and options.
@@ -132,47 +132,47 @@ export class FeatureGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FeatureGroupState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["eventTimeFeatureName"] = state?.eventTimeFeatureName;
-            resourceInputs["featureDefinitions"] = state?.featureDefinitions;
-            resourceInputs["featureGroupName"] = state?.featureGroupName;
-            resourceInputs["offlineStoreConfig"] = state?.offlineStoreConfig;
-            resourceInputs["onlineStoreConfig"] = state?.onlineStoreConfig;
-            resourceInputs["recordIdentifierFeatureName"] = state?.recordIdentifierFeatureName;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["roleArn"] = state?.roleArn;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["throughputConfig"] = state?.throughputConfig;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["eventTimeFeatureName"] = state ? state.eventTimeFeatureName : undefined;
+            resourceInputs["featureDefinitions"] = state ? state.featureDefinitions : undefined;
+            resourceInputs["featureGroupName"] = state ? state.featureGroupName : undefined;
+            resourceInputs["offlineStoreConfig"] = state ? state.offlineStoreConfig : undefined;
+            resourceInputs["onlineStoreConfig"] = state ? state.onlineStoreConfig : undefined;
+            resourceInputs["recordIdentifierFeatureName"] = state ? state.recordIdentifierFeatureName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["throughputConfig"] = state ? state.throughputConfig : undefined;
         } else {
             const args = argsOrState as FeatureGroupArgs | undefined;
-            if (args?.eventTimeFeatureName === undefined && !opts.urn) {
+            if ((!args || args.eventTimeFeatureName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventTimeFeatureName'");
             }
-            if (args?.featureDefinitions === undefined && !opts.urn) {
+            if ((!args || args.featureDefinitions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'featureDefinitions'");
             }
-            if (args?.featureGroupName === undefined && !opts.urn) {
+            if ((!args || args.featureGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'featureGroupName'");
             }
-            if (args?.recordIdentifierFeatureName === undefined && !opts.urn) {
+            if ((!args || args.recordIdentifierFeatureName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'recordIdentifierFeatureName'");
             }
-            if (args?.roleArn === undefined && !opts.urn) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["eventTimeFeatureName"] = args?.eventTimeFeatureName;
-            resourceInputs["featureDefinitions"] = args?.featureDefinitions;
-            resourceInputs["featureGroupName"] = args?.featureGroupName;
-            resourceInputs["offlineStoreConfig"] = args?.offlineStoreConfig;
-            resourceInputs["onlineStoreConfig"] = args?.onlineStoreConfig;
-            resourceInputs["recordIdentifierFeatureName"] = args?.recordIdentifierFeatureName;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["roleArn"] = args?.roleArn;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["throughputConfig"] = args?.throughputConfig;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["eventTimeFeatureName"] = args ? args.eventTimeFeatureName : undefined;
+            resourceInputs["featureDefinitions"] = args ? args.featureDefinitions : undefined;
+            resourceInputs["featureGroupName"] = args ? args.featureGroupName : undefined;
+            resourceInputs["offlineStoreConfig"] = args ? args.offlineStoreConfig : undefined;
+            resourceInputs["onlineStoreConfig"] = args ? args.onlineStoreConfig : undefined;
+            resourceInputs["recordIdentifierFeatureName"] = args ? args.recordIdentifierFeatureName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["throughputConfig"] = args ? args.throughputConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

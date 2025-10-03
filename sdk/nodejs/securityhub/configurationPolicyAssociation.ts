@@ -94,15 +94,15 @@ export class ConfigurationPolicyAssociation extends pulumi.CustomResource {
     /**
      * The universally unique identifier (UUID) of the configuration policy.
      */
-    declare public readonly policyId: pulumi.Output<string>;
+    public readonly policyId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
      */
-    declare public readonly targetId: pulumi.Output<string>;
+    public readonly targetId!: pulumi.Output<string>;
 
     /**
      * Create a ConfigurationPolicyAssociation resource with the given unique name, arguments, and options.
@@ -117,20 +117,20 @@ export class ConfigurationPolicyAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConfigurationPolicyAssociationState | undefined;
-            resourceInputs["policyId"] = state?.policyId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["targetId"] = state?.targetId;
+            resourceInputs["policyId"] = state ? state.policyId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["targetId"] = state ? state.targetId : undefined;
         } else {
             const args = argsOrState as ConfigurationPolicyAssociationArgs | undefined;
-            if (args?.policyId === undefined && !opts.urn) {
+            if ((!args || args.policyId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyId'");
             }
-            if (args?.targetId === undefined && !opts.urn) {
+            if ((!args || args.targetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetId'");
             }
-            resourceInputs["policyId"] = args?.policyId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["targetId"] = args?.targetId;
+            resourceInputs["policyId"] = args ? args.policyId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["targetId"] = args ? args.targetId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ConfigurationPolicyAssociation.__pulumiType, name, resourceInputs, opts);

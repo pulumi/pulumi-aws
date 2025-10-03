@@ -115,68 +115,68 @@ export class Trust extends pulumi.CustomResource {
      * Set of IPv4 addresses for the DNS server associated with the remote Directory.
      * Can contain between 1 and 4 values.
      */
-    declare public readonly conditionalForwarderIpAddrs: pulumi.Output<string[] | undefined>;
+    public readonly conditionalForwarderIpAddrs!: pulumi.Output<string[] | undefined>;
     /**
      * Date and time when the Trust was created.
      */
-    declare public /*out*/ readonly createdDateTime: pulumi.Output<string>;
+    public /*out*/ readonly createdDateTime!: pulumi.Output<string>;
     /**
      * Whether to delete the conditional forwarder when deleting the Trust relationship.
      */
-    declare public readonly deleteAssociatedConditionalForwarder: pulumi.Output<boolean>;
+    public readonly deleteAssociatedConditionalForwarder!: pulumi.Output<boolean>;
     /**
      * ID of the Directory.
      */
-    declare public readonly directoryId: pulumi.Output<string>;
+    public readonly directoryId!: pulumi.Output<string>;
     /**
      * Date and time when the Trust was last updated.
      */
-    declare public /*out*/ readonly lastUpdatedDateTime: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedDateTime!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Fully qualified domain name of the remote Directory.
      */
-    declare public readonly remoteDomainName: pulumi.Output<string>;
+    public readonly remoteDomainName!: pulumi.Output<string>;
     /**
      * Whether to enable selective authentication.
      * Valid values are `Enabled` and `Disabled`.
      * Default value is `Disabled`.
      */
-    declare public readonly selectiveAuth: pulumi.Output<string>;
+    public readonly selectiveAuth!: pulumi.Output<string>;
     /**
      * Date and time when the Trust state in `trustState` was last updated.
      */
-    declare public /*out*/ readonly stateLastUpdatedDateTime: pulumi.Output<string>;
+    public /*out*/ readonly stateLastUpdatedDateTime!: pulumi.Output<string>;
     /**
      * The direction of the Trust relationship.
      * Valid values are `One-Way: Outgoing`, `One-Way: Incoming`, and `Two-Way`.
      */
-    declare public readonly trustDirection: pulumi.Output<string>;
+    public readonly trustDirection!: pulumi.Output<string>;
     /**
      * Password for the Trust.
      * Does not need to match the passwords for either Directory.
      * Can contain upper- and lower-case letters, numbers, and punctuation characters.
      * May be up to 128 characters long.
      */
-    declare public readonly trustPassword: pulumi.Output<string>;
+    public readonly trustPassword!: pulumi.Output<string>;
     /**
      * State of the Trust relationship.
      * One of `Created`, `VerifyFailed`,`Verified`, `UpdateFailed`,`Updated`,`Deleted`, or `Failed`.
      */
-    declare public /*out*/ readonly trustState: pulumi.Output<string>;
+    public /*out*/ readonly trustState!: pulumi.Output<string>;
     /**
      * Reason for the Trust state set in `trustState`.
      */
-    declare public /*out*/ readonly trustStateReason: pulumi.Output<string>;
+    public /*out*/ readonly trustStateReason!: pulumi.Output<string>;
     /**
      * Type of the Trust relationship.
      * Valid values are `Forest` and `External`.
      * Default value is `Forest`.
      */
-    declare public readonly trustType: pulumi.Output<string>;
+    public readonly trustType!: pulumi.Output<string>;
 
     /**
      * Create a Trust resource with the given unique name, arguments, and options.
@@ -191,43 +191,43 @@ export class Trust extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TrustState | undefined;
-            resourceInputs["conditionalForwarderIpAddrs"] = state?.conditionalForwarderIpAddrs;
-            resourceInputs["createdDateTime"] = state?.createdDateTime;
-            resourceInputs["deleteAssociatedConditionalForwarder"] = state?.deleteAssociatedConditionalForwarder;
-            resourceInputs["directoryId"] = state?.directoryId;
-            resourceInputs["lastUpdatedDateTime"] = state?.lastUpdatedDateTime;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["remoteDomainName"] = state?.remoteDomainName;
-            resourceInputs["selectiveAuth"] = state?.selectiveAuth;
-            resourceInputs["stateLastUpdatedDateTime"] = state?.stateLastUpdatedDateTime;
-            resourceInputs["trustDirection"] = state?.trustDirection;
-            resourceInputs["trustPassword"] = state?.trustPassword;
-            resourceInputs["trustState"] = state?.trustState;
-            resourceInputs["trustStateReason"] = state?.trustStateReason;
-            resourceInputs["trustType"] = state?.trustType;
+            resourceInputs["conditionalForwarderIpAddrs"] = state ? state.conditionalForwarderIpAddrs : undefined;
+            resourceInputs["createdDateTime"] = state ? state.createdDateTime : undefined;
+            resourceInputs["deleteAssociatedConditionalForwarder"] = state ? state.deleteAssociatedConditionalForwarder : undefined;
+            resourceInputs["directoryId"] = state ? state.directoryId : undefined;
+            resourceInputs["lastUpdatedDateTime"] = state ? state.lastUpdatedDateTime : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["remoteDomainName"] = state ? state.remoteDomainName : undefined;
+            resourceInputs["selectiveAuth"] = state ? state.selectiveAuth : undefined;
+            resourceInputs["stateLastUpdatedDateTime"] = state ? state.stateLastUpdatedDateTime : undefined;
+            resourceInputs["trustDirection"] = state ? state.trustDirection : undefined;
+            resourceInputs["trustPassword"] = state ? state.trustPassword : undefined;
+            resourceInputs["trustState"] = state ? state.trustState : undefined;
+            resourceInputs["trustStateReason"] = state ? state.trustStateReason : undefined;
+            resourceInputs["trustType"] = state ? state.trustType : undefined;
         } else {
             const args = argsOrState as TrustArgs | undefined;
-            if (args?.directoryId === undefined && !opts.urn) {
+            if ((!args || args.directoryId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'directoryId'");
             }
-            if (args?.remoteDomainName === undefined && !opts.urn) {
+            if ((!args || args.remoteDomainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'remoteDomainName'");
             }
-            if (args?.trustDirection === undefined && !opts.urn) {
+            if ((!args || args.trustDirection === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'trustDirection'");
             }
-            if (args?.trustPassword === undefined && !opts.urn) {
+            if ((!args || args.trustPassword === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'trustPassword'");
             }
-            resourceInputs["conditionalForwarderIpAddrs"] = args?.conditionalForwarderIpAddrs;
-            resourceInputs["deleteAssociatedConditionalForwarder"] = args?.deleteAssociatedConditionalForwarder;
-            resourceInputs["directoryId"] = args?.directoryId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["remoteDomainName"] = args?.remoteDomainName;
-            resourceInputs["selectiveAuth"] = args?.selectiveAuth;
-            resourceInputs["trustDirection"] = args?.trustDirection;
-            resourceInputs["trustPassword"] = args?.trustPassword;
-            resourceInputs["trustType"] = args?.trustType;
+            resourceInputs["conditionalForwarderIpAddrs"] = args ? args.conditionalForwarderIpAddrs : undefined;
+            resourceInputs["deleteAssociatedConditionalForwarder"] = args ? args.deleteAssociatedConditionalForwarder : undefined;
+            resourceInputs["directoryId"] = args ? args.directoryId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["remoteDomainName"] = args ? args.remoteDomainName : undefined;
+            resourceInputs["selectiveAuth"] = args ? args.selectiveAuth : undefined;
+            resourceInputs["trustDirection"] = args ? args.trustDirection : undefined;
+            resourceInputs["trustPassword"] = args ? args.trustPassword : undefined;
+            resourceInputs["trustType"] = args ? args.trustType : undefined;
             resourceInputs["createdDateTime"] = undefined /*out*/;
             resourceInputs["lastUpdatedDateTime"] = undefined /*out*/;
             resourceInputs["stateLastUpdatedDateTime"] = undefined /*out*/;

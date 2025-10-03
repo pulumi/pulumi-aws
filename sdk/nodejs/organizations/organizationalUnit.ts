@@ -71,27 +71,27 @@ export class OrganizationalUnit extends pulumi.CustomResource {
     /**
      * List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
      */
-    declare public /*out*/ readonly accounts: pulumi.Output<outputs.organizations.OrganizationalUnitAccount[]>;
+    public /*out*/ readonly accounts!: pulumi.Output<outputs.organizations.OrganizationalUnitAccount[]>;
     /**
      * ARN of the organizational unit
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name for the organizational unit
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * ID of the parent organizational unit, which may be the root
      */
-    declare public readonly parentId: pulumi.Output<string>;
+    public readonly parentId!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a OrganizationalUnit resource with the given unique name, arguments, and options.
@@ -106,20 +106,20 @@ export class OrganizationalUnit extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrganizationalUnitState | undefined;
-            resourceInputs["accounts"] = state?.accounts;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["parentId"] = state?.parentId;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["accounts"] = state ? state.accounts : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parentId"] = state ? state.parentId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as OrganizationalUnitArgs | undefined;
-            if (args?.parentId === undefined && !opts.urn) {
+            if ((!args || args.parentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'parentId'");
             }
-            resourceInputs["name"] = args?.name;
-            resourceInputs["parentId"] = args?.parentId;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parentId"] = args ? args.parentId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["accounts"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

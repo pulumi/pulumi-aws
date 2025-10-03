@@ -65,11 +65,11 @@ export class MonitoringSubscription extends pulumi.CustomResource {
     /**
      * The ID of the distribution that you are enabling metrics for.
      */
-    declare public readonly distributionId: pulumi.Output<string>;
+    public readonly distributionId!: pulumi.Output<string>;
     /**
      * A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
      */
-    declare public readonly monitoringSubscription: pulumi.Output<outputs.cloudfront.MonitoringSubscriptionMonitoringSubscription>;
+    public readonly monitoringSubscription!: pulumi.Output<outputs.cloudfront.MonitoringSubscriptionMonitoringSubscription>;
 
     /**
      * Create a MonitoringSubscription resource with the given unique name, arguments, and options.
@@ -84,18 +84,18 @@ export class MonitoringSubscription extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MonitoringSubscriptionState | undefined;
-            resourceInputs["distributionId"] = state?.distributionId;
-            resourceInputs["monitoringSubscription"] = state?.monitoringSubscription;
+            resourceInputs["distributionId"] = state ? state.distributionId : undefined;
+            resourceInputs["monitoringSubscription"] = state ? state.monitoringSubscription : undefined;
         } else {
             const args = argsOrState as MonitoringSubscriptionArgs | undefined;
-            if (args?.distributionId === undefined && !opts.urn) {
+            if ((!args || args.distributionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'distributionId'");
             }
-            if (args?.monitoringSubscription === undefined && !opts.urn) {
+            if ((!args || args.monitoringSubscription === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'monitoringSubscription'");
             }
-            resourceInputs["distributionId"] = args?.distributionId;
-            resourceInputs["monitoringSubscription"] = args?.monitoringSubscription;
+            resourceInputs["distributionId"] = args ? args.distributionId : undefined;
+            resourceInputs["monitoringSubscription"] = args ? args.monitoringSubscription : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MonitoringSubscription.__pulumiType, name, resourceInputs, opts);

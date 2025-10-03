@@ -58,25 +58,25 @@ export class FolderMembership extends pulumi.CustomResource {
         return obj['__pulumiType'] === FolderMembership.__pulumiType;
     }
 
-    declare public readonly awsAccountId: pulumi.Output<string>;
+    public readonly awsAccountId!: pulumi.Output<string>;
     /**
      * Identifier for the folder.
      */
-    declare public readonly folderId: pulumi.Output<string>;
+    public readonly folderId!: pulumi.Output<string>;
     /**
      * ID of the asset (the dashboard, analysis, or dataset).
      */
-    declare public readonly memberId: pulumi.Output<string>;
+    public readonly memberId!: pulumi.Output<string>;
     /**
      * Type of the member. Valid values are `ANALYSIS`, `DASHBOARD`, and `DATASET`.
      *
      * The following arguments are optional:
      */
-    declare public readonly memberType: pulumi.Output<string>;
+    public readonly memberType!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a FolderMembership resource with the given unique name, arguments, and options.
@@ -91,27 +91,27 @@ export class FolderMembership extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FolderMembershipState | undefined;
-            resourceInputs["awsAccountId"] = state?.awsAccountId;
-            resourceInputs["folderId"] = state?.folderId;
-            resourceInputs["memberId"] = state?.memberId;
-            resourceInputs["memberType"] = state?.memberType;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
+            resourceInputs["folderId"] = state ? state.folderId : undefined;
+            resourceInputs["memberId"] = state ? state.memberId : undefined;
+            resourceInputs["memberType"] = state ? state.memberType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as FolderMembershipArgs | undefined;
-            if (args?.folderId === undefined && !opts.urn) {
+            if ((!args || args.folderId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'folderId'");
             }
-            if (args?.memberId === undefined && !opts.urn) {
+            if ((!args || args.memberId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'memberId'");
             }
-            if (args?.memberType === undefined && !opts.urn) {
+            if ((!args || args.memberType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'memberType'");
             }
-            resourceInputs["awsAccountId"] = args?.awsAccountId;
-            resourceInputs["folderId"] = args?.folderId;
-            resourceInputs["memberId"] = args?.memberId;
-            resourceInputs["memberType"] = args?.memberType;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
+            resourceInputs["folderId"] = args ? args.folderId : undefined;
+            resourceInputs["memberId"] = args ? args.memberId : undefined;
+            resourceInputs["memberType"] = args ? args.memberType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FolderMembership.__pulumiType, name, resourceInputs, opts);

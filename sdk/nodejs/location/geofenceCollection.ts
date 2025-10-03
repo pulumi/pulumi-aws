@@ -55,38 +55,38 @@ export class GeofenceCollection extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
      */
-    declare public /*out*/ readonly collectionArn: pulumi.Output<string>;
+    public /*out*/ readonly collectionArn!: pulumi.Output<string>;
     /**
      * The name of the geofence collection.
      *
      * The following arguments are optional:
      */
-    declare public readonly collectionName: pulumi.Output<string>;
+    public readonly collectionName!: pulumi.Output<string>;
     /**
      * The timestamp for when the geofence collection resource was created in ISO 8601 format.
      */
-    declare public /*out*/ readonly createTime: pulumi.Output<string>;
+    public /*out*/ readonly createTime!: pulumi.Output<string>;
     /**
      * The optional description for the geofence collection.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
      */
-    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value tags for the geofence collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The timestamp for when the geofence collection resource was last updated in ISO 8601 format.
      */
-    declare public /*out*/ readonly updateTime: pulumi.Output<string>;
+    public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
     /**
      * Create a GeofenceCollection resource with the given unique name, arguments, and options.
@@ -101,25 +101,25 @@ export class GeofenceCollection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GeofenceCollectionState | undefined;
-            resourceInputs["collectionArn"] = state?.collectionArn;
-            resourceInputs["collectionName"] = state?.collectionName;
-            resourceInputs["createTime"] = state?.createTime;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["updateTime"] = state?.updateTime;
+            resourceInputs["collectionArn"] = state ? state.collectionArn : undefined;
+            resourceInputs["collectionName"] = state ? state.collectionName : undefined;
+            resourceInputs["createTime"] = state ? state.createTime : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["updateTime"] = state ? state.updateTime : undefined;
         } else {
             const args = argsOrState as GeofenceCollectionArgs | undefined;
-            if (args?.collectionName === undefined && !opts.urn) {
+            if ((!args || args.collectionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'collectionName'");
             }
-            resourceInputs["collectionName"] = args?.collectionName;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["collectionName"] = args ? args.collectionName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["collectionArn"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

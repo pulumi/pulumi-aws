@@ -68,39 +68,39 @@ export class Baseline extends pulumi.CustomResource {
     /**
      * ARN of the Baseline.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The ARN of the baseline to be enabled.
      */
-    declare public readonly baselineIdentifier: pulumi.Output<string>;
+    public readonly baselineIdentifier!: pulumi.Output<string>;
     /**
      * The version of the baseline to be enabled.
      */
-    declare public readonly baselineVersion: pulumi.Output<string>;
-    declare public /*out*/ readonly operationIdentifier: pulumi.Output<string>;
+    public readonly baselineVersion!: pulumi.Output<string>;
+    public /*out*/ readonly operationIdentifier!: pulumi.Output<string>;
     /**
      * A list of key-value objects that specify enablement parameters, where key is a string and value is a document of any type. See Parameter below for details.
      */
-    declare public readonly parameters: pulumi.Output<outputs.controltower.BaselineParameters | undefined>;
+    public readonly parameters!: pulumi.Output<outputs.controltower.BaselineParameters | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the landing zone, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ARN of the target on which the baseline will be enabled. Only OUs are supported as targets.
      *
      * The following arguments are optional:
      */
-    declare public readonly targetIdentifier: pulumi.Output<string>;
-    declare public readonly timeouts: pulumi.Output<outputs.controltower.BaselineTimeouts | undefined>;
+    public readonly targetIdentifier!: pulumi.Output<string>;
+    public readonly timeouts!: pulumi.Output<outputs.controltower.BaselineTimeouts | undefined>;
 
     /**
      * Create a Baseline resource with the given unique name, arguments, and options.
@@ -115,34 +115,34 @@ export class Baseline extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BaselineState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["baselineIdentifier"] = state?.baselineIdentifier;
-            resourceInputs["baselineVersion"] = state?.baselineVersion;
-            resourceInputs["operationIdentifier"] = state?.operationIdentifier;
-            resourceInputs["parameters"] = state?.parameters;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["targetIdentifier"] = state?.targetIdentifier;
-            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["baselineIdentifier"] = state ? state.baselineIdentifier : undefined;
+            resourceInputs["baselineVersion"] = state ? state.baselineVersion : undefined;
+            resourceInputs["operationIdentifier"] = state ? state.operationIdentifier : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["targetIdentifier"] = state ? state.targetIdentifier : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as BaselineArgs | undefined;
-            if (args?.baselineIdentifier === undefined && !opts.urn) {
+            if ((!args || args.baselineIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'baselineIdentifier'");
             }
-            if (args?.baselineVersion === undefined && !opts.urn) {
+            if ((!args || args.baselineVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'baselineVersion'");
             }
-            if (args?.targetIdentifier === undefined && !opts.urn) {
+            if ((!args || args.targetIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetIdentifier'");
             }
-            resourceInputs["baselineIdentifier"] = args?.baselineIdentifier;
-            resourceInputs["baselineVersion"] = args?.baselineVersion;
-            resourceInputs["parameters"] = args?.parameters;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["targetIdentifier"] = args?.targetIdentifier;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["baselineIdentifier"] = args ? args.baselineIdentifier : undefined;
+            resourceInputs["baselineVersion"] = args ? args.baselineVersion : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetIdentifier"] = args ? args.targetIdentifier : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["operationIdentifier"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

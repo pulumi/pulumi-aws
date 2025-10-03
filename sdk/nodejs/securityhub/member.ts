@@ -62,27 +62,27 @@ export class Member extends pulumi.CustomResource {
     /**
      * The ID of the member AWS account.
      */
-    declare public readonly accountId: pulumi.Output<string>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * The email of the member AWS account.
      */
-    declare public readonly email: pulumi.Output<string | undefined>;
+    public readonly email!: pulumi.Output<string | undefined>;
     /**
      * Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
      */
-    declare public readonly invite: pulumi.Output<boolean | undefined>;
+    public readonly invite!: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the master Security Hub AWS account.
      */
-    declare public /*out*/ readonly masterId: pulumi.Output<string>;
+    public /*out*/ readonly masterId!: pulumi.Output<string>;
     /**
      * The status of the member account relationship.
      */
-    declare public /*out*/ readonly memberStatus: pulumi.Output<string>;
+    public /*out*/ readonly memberStatus!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a Member resource with the given unique name, arguments, and options.
@@ -97,21 +97,21 @@ export class Member extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MemberState | undefined;
-            resourceInputs["accountId"] = state?.accountId;
-            resourceInputs["email"] = state?.email;
-            resourceInputs["invite"] = state?.invite;
-            resourceInputs["masterId"] = state?.masterId;
-            resourceInputs["memberStatus"] = state?.memberStatus;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["email"] = state ? state.email : undefined;
+            resourceInputs["invite"] = state ? state.invite : undefined;
+            resourceInputs["masterId"] = state ? state.masterId : undefined;
+            resourceInputs["memberStatus"] = state ? state.memberStatus : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as MemberArgs | undefined;
-            if (args?.accountId === undefined && !opts.urn) {
+            if ((!args || args.accountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
             }
-            resourceInputs["accountId"] = args?.accountId;
-            resourceInputs["email"] = args?.email;
-            resourceInputs["invite"] = args?.invite;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["email"] = args ? args.email : undefined;
+            resourceInputs["invite"] = args ? args.invite : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["masterId"] = undefined /*out*/;
             resourceInputs["memberStatus"] = undefined /*out*/;
         }

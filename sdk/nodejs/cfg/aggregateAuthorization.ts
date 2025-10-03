@@ -58,29 +58,29 @@ export class AggregateAuthorization extends pulumi.CustomResource {
     /**
      * Account ID.
      */
-    declare public readonly accountId: pulumi.Output<string>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * The ARN of the authorization
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The region authorized to collect aggregated data.
      */
-    declare public readonly authorizedAwsRegion: pulumi.Output<string | undefined>;
+    public readonly authorizedAwsRegion!: pulumi.Output<string | undefined>;
     /**
      * The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
      *
      * @deprecated region is deprecated. Use authorizedAwsRegion instead.
      */
-    declare public readonly region: pulumi.Output<string | undefined>;
+    public readonly region!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a AggregateAuthorization resource with the given unique name, arguments, and options.
@@ -95,21 +95,21 @@ export class AggregateAuthorization extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AggregateAuthorizationState | undefined;
-            resourceInputs["accountId"] = state?.accountId;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["authorizedAwsRegion"] = state?.authorizedAwsRegion;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["authorizedAwsRegion"] = state ? state.authorizedAwsRegion : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as AggregateAuthorizationArgs | undefined;
-            if (args?.accountId === undefined && !opts.urn) {
+            if ((!args || args.accountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
             }
-            resourceInputs["accountId"] = args?.accountId;
-            resourceInputs["authorizedAwsRegion"] = args?.authorizedAwsRegion;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["authorizedAwsRegion"] = args ? args.authorizedAwsRegion : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

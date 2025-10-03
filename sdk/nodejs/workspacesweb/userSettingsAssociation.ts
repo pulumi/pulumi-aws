@@ -62,15 +62,15 @@ export class UserSettingsAssociation extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    declare public readonly portalArn: pulumi.Output<string>;
+    public readonly portalArn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ARN of the user settings to associate with the portal. Forces replacement if changed.
      */
-    declare public readonly userSettingsArn: pulumi.Output<string>;
+    public readonly userSettingsArn!: pulumi.Output<string>;
 
     /**
      * Create a UserSettingsAssociation resource with the given unique name, arguments, and options.
@@ -85,20 +85,20 @@ export class UserSettingsAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserSettingsAssociationState | undefined;
-            resourceInputs["portalArn"] = state?.portalArn;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["userSettingsArn"] = state?.userSettingsArn;
+            resourceInputs["portalArn"] = state ? state.portalArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["userSettingsArn"] = state ? state.userSettingsArn : undefined;
         } else {
             const args = argsOrState as UserSettingsAssociationArgs | undefined;
-            if (args?.portalArn === undefined && !opts.urn) {
+            if ((!args || args.portalArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'portalArn'");
             }
-            if (args?.userSettingsArn === undefined && !opts.urn) {
+            if ((!args || args.userSettingsArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userSettingsArn'");
             }
-            resourceInputs["portalArn"] = args?.portalArn;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["userSettingsArn"] = args?.userSettingsArn;
+            resourceInputs["portalArn"] = args ? args.portalArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["userSettingsArn"] = args ? args.userSettingsArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(UserSettingsAssociation.__pulumiType, name, resourceInputs, opts);

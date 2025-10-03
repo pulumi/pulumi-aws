@@ -128,59 +128,59 @@ export class Function extends pulumi.CustomResource {
     /**
      * ID of the associated AppSync API.
      */
-    declare public readonly apiId: pulumi.Output<string>;
+    public readonly apiId!: pulumi.Output<string>;
     /**
      * ARN of the Function object.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
      */
-    declare public readonly code: pulumi.Output<string | undefined>;
+    public readonly code!: pulumi.Output<string | undefined>;
     /**
      * Function data source name.
      */
-    declare public readonly dataSource: pulumi.Output<string>;
+    public readonly dataSource!: pulumi.Output<string>;
     /**
      * Function description.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Unique ID representing the Function object.
      */
-    declare public /*out*/ readonly functionId: pulumi.Output<string>;
+    public /*out*/ readonly functionId!: pulumi.Output<string>;
     /**
      * Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
      */
-    declare public readonly functionVersion: pulumi.Output<string>;
+    public readonly functionVersion!: pulumi.Output<string>;
     /**
      * Maximum batching size for a resolver. Valid values are between `0` and `2000`.
      */
-    declare public readonly maxBatchSize: pulumi.Output<number | undefined>;
+    public readonly maxBatchSize!: pulumi.Output<number | undefined>;
     /**
      * Function name. The function name does not have to be unique.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
      */
-    declare public readonly requestMappingTemplate: pulumi.Output<string | undefined>;
+    public readonly requestMappingTemplate!: pulumi.Output<string | undefined>;
     /**
      * Function response mapping template.
      */
-    declare public readonly responseMappingTemplate: pulumi.Output<string | undefined>;
+    public readonly responseMappingTemplate!: pulumi.Output<string | undefined>;
     /**
      * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
      */
-    declare public readonly runtime: pulumi.Output<outputs.appsync.FunctionRuntime | undefined>;
+    public readonly runtime!: pulumi.Output<outputs.appsync.FunctionRuntime | undefined>;
     /**
      * Describes a Sync configuration for a resolver. See `syncConfig` Block for details.
      */
-    declare public readonly syncConfig: pulumi.Output<outputs.appsync.FunctionSyncConfig | undefined>;
+    public readonly syncConfig!: pulumi.Output<outputs.appsync.FunctionSyncConfig | undefined>;
 
     /**
      * Create a Function resource with the given unique name, arguments, and options.
@@ -195,40 +195,40 @@ export class Function extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FunctionState | undefined;
-            resourceInputs["apiId"] = state?.apiId;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["code"] = state?.code;
-            resourceInputs["dataSource"] = state?.dataSource;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["functionId"] = state?.functionId;
-            resourceInputs["functionVersion"] = state?.functionVersion;
-            resourceInputs["maxBatchSize"] = state?.maxBatchSize;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["requestMappingTemplate"] = state?.requestMappingTemplate;
-            resourceInputs["responseMappingTemplate"] = state?.responseMappingTemplate;
-            resourceInputs["runtime"] = state?.runtime;
-            resourceInputs["syncConfig"] = state?.syncConfig;
+            resourceInputs["apiId"] = state ? state.apiId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["code"] = state ? state.code : undefined;
+            resourceInputs["dataSource"] = state ? state.dataSource : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["functionId"] = state ? state.functionId : undefined;
+            resourceInputs["functionVersion"] = state ? state.functionVersion : undefined;
+            resourceInputs["maxBatchSize"] = state ? state.maxBatchSize : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["requestMappingTemplate"] = state ? state.requestMappingTemplate : undefined;
+            resourceInputs["responseMappingTemplate"] = state ? state.responseMappingTemplate : undefined;
+            resourceInputs["runtime"] = state ? state.runtime : undefined;
+            resourceInputs["syncConfig"] = state ? state.syncConfig : undefined;
         } else {
             const args = argsOrState as FunctionArgs | undefined;
-            if (args?.apiId === undefined && !opts.urn) {
+            if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if (args?.dataSource === undefined && !opts.urn) {
+            if ((!args || args.dataSource === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataSource'");
             }
-            resourceInputs["apiId"] = args?.apiId;
-            resourceInputs["code"] = args?.code;
-            resourceInputs["dataSource"] = args?.dataSource;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["functionVersion"] = args?.functionVersion;
-            resourceInputs["maxBatchSize"] = args?.maxBatchSize;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["requestMappingTemplate"] = args?.requestMappingTemplate;
-            resourceInputs["responseMappingTemplate"] = args?.responseMappingTemplate;
-            resourceInputs["runtime"] = args?.runtime;
-            resourceInputs["syncConfig"] = args?.syncConfig;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["code"] = args ? args.code : undefined;
+            resourceInputs["dataSource"] = args ? args.dataSource : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["functionVersion"] = args ? args.functionVersion : undefined;
+            resourceInputs["maxBatchSize"] = args ? args.maxBatchSize : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["requestMappingTemplate"] = args ? args.requestMappingTemplate : undefined;
+            resourceInputs["responseMappingTemplate"] = args ? args.responseMappingTemplate : undefined;
+            resourceInputs["runtime"] = args ? args.runtime : undefined;
+            resourceInputs["syncConfig"] = args ? args.syncConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["functionId"] = undefined /*out*/;
         }

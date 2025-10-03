@@ -81,15 +81,15 @@ export class RegionSettings extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
      */
-    declare public readonly resourceTypeManagementPreference: pulumi.Output<{[key: string]: boolean}>;
+    public readonly resourceTypeManagementPreference!: pulumi.Output<{[key: string]: boolean}>;
     /**
      * A map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
      */
-    declare public readonly resourceTypeOptInPreference: pulumi.Output<{[key: string]: boolean}>;
+    public readonly resourceTypeOptInPreference!: pulumi.Output<{[key: string]: boolean}>;
 
     /**
      * Create a RegionSettings resource with the given unique name, arguments, and options.
@@ -104,17 +104,17 @@ export class RegionSettings extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RegionSettingsState | undefined;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceTypeManagementPreference"] = state?.resourceTypeManagementPreference;
-            resourceInputs["resourceTypeOptInPreference"] = state?.resourceTypeOptInPreference;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceTypeManagementPreference"] = state ? state.resourceTypeManagementPreference : undefined;
+            resourceInputs["resourceTypeOptInPreference"] = state ? state.resourceTypeOptInPreference : undefined;
         } else {
             const args = argsOrState as RegionSettingsArgs | undefined;
-            if (args?.resourceTypeOptInPreference === undefined && !opts.urn) {
+            if ((!args || args.resourceTypeOptInPreference === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceTypeOptInPreference'");
             }
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resourceTypeManagementPreference"] = args?.resourceTypeManagementPreference;
-            resourceInputs["resourceTypeOptInPreference"] = args?.resourceTypeOptInPreference;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourceTypeManagementPreference"] = args ? args.resourceTypeManagementPreference : undefined;
+            resourceInputs["resourceTypeOptInPreference"] = args ? args.resourceTypeOptInPreference : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RegionSettings.__pulumiType, name, resourceInputs, opts);

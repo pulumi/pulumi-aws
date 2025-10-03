@@ -65,12 +65,12 @@ export class DrtAccessLogBucketAssociation extends pulumi.CustomResource {
     /**
      * The Amazon S3 bucket that contains the logs that you want to share.
      */
-    declare public readonly logBucket: pulumi.Output<string>;
+    public readonly logBucket!: pulumi.Output<string>;
     /**
      * The ID of the Role Arn association used for allowing Shield DRT Access.
      */
-    declare public readonly roleArnAssociationId: pulumi.Output<string>;
-    declare public readonly timeouts: pulumi.Output<outputs.shield.DrtAccessLogBucketAssociationTimeouts | undefined>;
+    public readonly roleArnAssociationId!: pulumi.Output<string>;
+    public readonly timeouts!: pulumi.Output<outputs.shield.DrtAccessLogBucketAssociationTimeouts | undefined>;
 
     /**
      * Create a DrtAccessLogBucketAssociation resource with the given unique name, arguments, and options.
@@ -85,20 +85,20 @@ export class DrtAccessLogBucketAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DrtAccessLogBucketAssociationState | undefined;
-            resourceInputs["logBucket"] = state?.logBucket;
-            resourceInputs["roleArnAssociationId"] = state?.roleArnAssociationId;
-            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["logBucket"] = state ? state.logBucket : undefined;
+            resourceInputs["roleArnAssociationId"] = state ? state.roleArnAssociationId : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as DrtAccessLogBucketAssociationArgs | undefined;
-            if (args?.logBucket === undefined && !opts.urn) {
+            if ((!args || args.logBucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logBucket'");
             }
-            if (args?.roleArnAssociationId === undefined && !opts.urn) {
+            if ((!args || args.roleArnAssociationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArnAssociationId'");
             }
-            resourceInputs["logBucket"] = args?.logBucket;
-            resourceInputs["roleArnAssociationId"] = args?.roleArnAssociationId;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["logBucket"] = args ? args.logBucket : undefined;
+            resourceInputs["roleArnAssociationId"] = args ? args.roleArnAssociationId : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DrtAccessLogBucketAssociation.__pulumiType, name, resourceInputs, opts);

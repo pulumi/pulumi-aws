@@ -84,71 +84,71 @@ export class Stack extends pulumi.CustomResource {
      * A list of capabilities.
      * Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
      */
-    declare public readonly capabilities: pulumi.Output<string[] | undefined>;
+    public readonly capabilities!: pulumi.Output<string[] | undefined>;
     /**
      * Set to true to disable rollback of the stack if stack creation failed.
      * Conflicts with `onFailure`.
      */
-    declare public readonly disableRollback: pulumi.Output<boolean | undefined>;
+    public readonly disableRollback!: pulumi.Output<boolean | undefined>;
     /**
      * The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
      */
-    declare public readonly iamRoleArn: pulumi.Output<string | undefined>;
+    public readonly iamRoleArn!: pulumi.Output<string | undefined>;
     /**
      * Stack name.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A list of SNS topic ARNs to publish stack related events.
      */
-    declare public readonly notificationArns: pulumi.Output<string[] | undefined>;
+    public readonly notificationArns!: pulumi.Output<string[] | undefined>;
     /**
      * Action to be taken if stack creation fails. This must be
      * one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disableRollback`.
      */
-    declare public readonly onFailure: pulumi.Output<string | undefined>;
+    public readonly onFailure!: pulumi.Output<string | undefined>;
     /**
      * A map of outputs from the stack.
      */
-    declare public /*out*/ readonly outputs: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly outputs!: pulumi.Output<{[key: string]: string}>;
     /**
      * A map of Parameter structures that specify input parameters for the stack.
      */
-    declare public readonly parameters: pulumi.Output<{[key: string]: string}>;
+    public readonly parameters!: pulumi.Output<{[key: string]: string}>;
     /**
      * Structure containing the stack policy body.
      * Conflicts w/ `policyUrl`.
      */
-    declare public readonly policyBody: pulumi.Output<string>;
+    public readonly policyBody!: pulumi.Output<string>;
     /**
      * Location of a file containing the stack policy.
      * Conflicts w/ `policyBody`.
      */
-    declare public readonly policyUrl: pulumi.Output<string | undefined>;
+    public readonly policyUrl!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Map of resource tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Structure containing the template body (max size: 51,200 bytes).
      */
-    declare public readonly templateBody: pulumi.Output<string>;
+    public readonly templateBody!: pulumi.Output<string>;
     /**
      * Location of a file containing the template body (max size: 460,800 bytes).
      */
-    declare public readonly templateUrl: pulumi.Output<string | undefined>;
+    public readonly templateUrl!: pulumi.Output<string | undefined>;
     /**
      * The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
      */
-    declare public readonly timeoutInMinutes: pulumi.Output<number | undefined>;
+    public readonly timeoutInMinutes!: pulumi.Output<number | undefined>;
 
     /**
      * Create a Stack resource with the given unique name, arguments, and options.
@@ -163,38 +163,38 @@ export class Stack extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StackState | undefined;
-            resourceInputs["capabilities"] = state?.capabilities;
-            resourceInputs["disableRollback"] = state?.disableRollback;
-            resourceInputs["iamRoleArn"] = state?.iamRoleArn;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["notificationArns"] = state?.notificationArns;
-            resourceInputs["onFailure"] = state?.onFailure;
-            resourceInputs["outputs"] = state?.outputs;
-            resourceInputs["parameters"] = state?.parameters;
-            resourceInputs["policyBody"] = state?.policyBody;
-            resourceInputs["policyUrl"] = state?.policyUrl;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["templateBody"] = state?.templateBody;
-            resourceInputs["templateUrl"] = state?.templateUrl;
-            resourceInputs["timeoutInMinutes"] = state?.timeoutInMinutes;
+            resourceInputs["capabilities"] = state ? state.capabilities : undefined;
+            resourceInputs["disableRollback"] = state ? state.disableRollback : undefined;
+            resourceInputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notificationArns"] = state ? state.notificationArns : undefined;
+            resourceInputs["onFailure"] = state ? state.onFailure : undefined;
+            resourceInputs["outputs"] = state ? state.outputs : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["policyBody"] = state ? state.policyBody : undefined;
+            resourceInputs["policyUrl"] = state ? state.policyUrl : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["templateBody"] = state ? state.templateBody : undefined;
+            resourceInputs["templateUrl"] = state ? state.templateUrl : undefined;
+            resourceInputs["timeoutInMinutes"] = state ? state.timeoutInMinutes : undefined;
         } else {
             const args = argsOrState as StackArgs | undefined;
-            resourceInputs["capabilities"] = args?.capabilities;
-            resourceInputs["disableRollback"] = args?.disableRollback;
-            resourceInputs["iamRoleArn"] = args?.iamRoleArn;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["notificationArns"] = args?.notificationArns;
-            resourceInputs["onFailure"] = args?.onFailure;
-            resourceInputs["parameters"] = args?.parameters;
-            resourceInputs["policyBody"] = args?.policyBody;
-            resourceInputs["policyUrl"] = args?.policyUrl;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["templateBody"] = args?.templateBody;
-            resourceInputs["templateUrl"] = args?.templateUrl;
-            resourceInputs["timeoutInMinutes"] = args?.timeoutInMinutes;
+            resourceInputs["capabilities"] = args ? args.capabilities : undefined;
+            resourceInputs["disableRollback"] = args ? args.disableRollback : undefined;
+            resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notificationArns"] = args ? args.notificationArns : undefined;
+            resourceInputs["onFailure"] = args ? args.onFailure : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["policyBody"] = args ? args.policyBody : undefined;
+            resourceInputs["policyUrl"] = args ? args.policyUrl : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["templateBody"] = args ? args.templateBody : undefined;
+            resourceInputs["templateUrl"] = args ? args.templateUrl : undefined;
+            resourceInputs["timeoutInMinutes"] = args ? args.timeoutInMinutes : undefined;
             resourceInputs["outputs"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

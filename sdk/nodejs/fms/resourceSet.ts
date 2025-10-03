@@ -63,18 +63,18 @@ export class ResourceSet extends pulumi.CustomResource {
     /**
      * ARN of the Resource Set.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
      */
-    declare public readonly resourceSets: pulumi.Output<outputs.fms.ResourceSetResourceSet[] | undefined>;
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public readonly timeouts: pulumi.Output<outputs.fms.ResourceSetTimeouts | undefined>;
+    public readonly resourceSets!: pulumi.Output<outputs.fms.ResourceSetResourceSet[] | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly timeouts!: pulumi.Output<outputs.fms.ResourceSetTimeouts | undefined>;
 
     /**
      * Create a ResourceSet resource with the given unique name, arguments, and options.
@@ -89,18 +89,18 @@ export class ResourceSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceSetState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceSets"] = state?.resourceSets;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceSets"] = state ? state.resourceSets : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as ResourceSetArgs | undefined;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resourceSets"] = args?.resourceSets;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourceSets"] = args ? args.resourceSets : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

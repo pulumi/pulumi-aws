@@ -98,75 +98,75 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
     /**
      * Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Whether mutual CHAP is enabled for the iSCSI target.
      */
-    declare public /*out*/ readonly chapEnabled: pulumi.Output<boolean>;
+    public /*out*/ readonly chapEnabled!: pulumi.Output<boolean>;
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      */
-    declare public readonly gatewayArn: pulumi.Output<string>;
+    public readonly gatewayArn!: pulumi.Output<string>;
     /**
      * Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
      */
-    declare public readonly kmsEncrypted: pulumi.Output<boolean | undefined>;
+    public readonly kmsEncrypted!: pulumi.Output<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
      */
-    declare public readonly kmsKey: pulumi.Output<string | undefined>;
+    public readonly kmsKey!: pulumi.Output<string | undefined>;
     /**
      * Logical disk number.
      */
-    declare public /*out*/ readonly lunNumber: pulumi.Output<number>;
+    public /*out*/ readonly lunNumber!: pulumi.Output<number>;
     /**
      * The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
      */
-    declare public readonly networkInterfaceId: pulumi.Output<string>;
+    public readonly networkInterfaceId!: pulumi.Output<string>;
     /**
      * The port used to communicate with iSCSI targets.
      */
-    declare public /*out*/ readonly networkInterfacePort: pulumi.Output<number>;
+    public /*out*/ readonly networkInterfacePort!: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
      */
-    declare public readonly snapshotId: pulumi.Output<string | undefined>;
+    public readonly snapshotId!: pulumi.Output<string | undefined>;
     /**
      * The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volumeSizeInBytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
      */
-    declare public readonly sourceVolumeArn: pulumi.Output<string | undefined>;
+    public readonly sourceVolumeArn!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
      */
-    declare public /*out*/ readonly targetArn: pulumi.Output<string>;
+    public /*out*/ readonly targetArn!: pulumi.Output<string>;
     /**
      * The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
      */
-    declare public readonly targetName: pulumi.Output<string>;
+    public readonly targetName!: pulumi.Output<string>;
     /**
      * Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
      */
-    declare public /*out*/ readonly volumeArn: pulumi.Output<string>;
+    public /*out*/ readonly volumeArn!: pulumi.Output<string>;
     /**
      * Volume ID, e.g., `vol-12345678`.
      */
-    declare public /*out*/ readonly volumeId: pulumi.Output<string>;
+    public /*out*/ readonly volumeId!: pulumi.Output<string>;
     /**
      * The size of the volume in bytes.
      */
-    declare public readonly volumeSizeInBytes: pulumi.Output<number>;
+    public readonly volumeSizeInBytes!: pulumi.Output<number>;
 
     /**
      * Create a CachesIscsiVolume resource with the given unique name, arguments, and options.
@@ -181,48 +181,48 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CachesIscsiVolumeState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["chapEnabled"] = state?.chapEnabled;
-            resourceInputs["gatewayArn"] = state?.gatewayArn;
-            resourceInputs["kmsEncrypted"] = state?.kmsEncrypted;
-            resourceInputs["kmsKey"] = state?.kmsKey;
-            resourceInputs["lunNumber"] = state?.lunNumber;
-            resourceInputs["networkInterfaceId"] = state?.networkInterfaceId;
-            resourceInputs["networkInterfacePort"] = state?.networkInterfacePort;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["snapshotId"] = state?.snapshotId;
-            resourceInputs["sourceVolumeArn"] = state?.sourceVolumeArn;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["targetArn"] = state?.targetArn;
-            resourceInputs["targetName"] = state?.targetName;
-            resourceInputs["volumeArn"] = state?.volumeArn;
-            resourceInputs["volumeId"] = state?.volumeId;
-            resourceInputs["volumeSizeInBytes"] = state?.volumeSizeInBytes;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["chapEnabled"] = state ? state.chapEnabled : undefined;
+            resourceInputs["gatewayArn"] = state ? state.gatewayArn : undefined;
+            resourceInputs["kmsEncrypted"] = state ? state.kmsEncrypted : undefined;
+            resourceInputs["kmsKey"] = state ? state.kmsKey : undefined;
+            resourceInputs["lunNumber"] = state ? state.lunNumber : undefined;
+            resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
+            resourceInputs["networkInterfacePort"] = state ? state.networkInterfacePort : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["snapshotId"] = state ? state.snapshotId : undefined;
+            resourceInputs["sourceVolumeArn"] = state ? state.sourceVolumeArn : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["targetArn"] = state ? state.targetArn : undefined;
+            resourceInputs["targetName"] = state ? state.targetName : undefined;
+            resourceInputs["volumeArn"] = state ? state.volumeArn : undefined;
+            resourceInputs["volumeId"] = state ? state.volumeId : undefined;
+            resourceInputs["volumeSizeInBytes"] = state ? state.volumeSizeInBytes : undefined;
         } else {
             const args = argsOrState as CachesIscsiVolumeArgs | undefined;
-            if (args?.gatewayArn === undefined && !opts.urn) {
+            if ((!args || args.gatewayArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'gatewayArn'");
             }
-            if (args?.networkInterfaceId === undefined && !opts.urn) {
+            if ((!args || args.networkInterfaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaceId'");
             }
-            if (args?.targetName === undefined && !opts.urn) {
+            if ((!args || args.targetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetName'");
             }
-            if (args?.volumeSizeInBytes === undefined && !opts.urn) {
+            if ((!args || args.volumeSizeInBytes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'volumeSizeInBytes'");
             }
-            resourceInputs["gatewayArn"] = args?.gatewayArn;
-            resourceInputs["kmsEncrypted"] = args?.kmsEncrypted;
-            resourceInputs["kmsKey"] = args?.kmsKey;
-            resourceInputs["networkInterfaceId"] = args?.networkInterfaceId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["snapshotId"] = args?.snapshotId;
-            resourceInputs["sourceVolumeArn"] = args?.sourceVolumeArn;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["targetName"] = args?.targetName;
-            resourceInputs["volumeSizeInBytes"] = args?.volumeSizeInBytes;
+            resourceInputs["gatewayArn"] = args ? args.gatewayArn : undefined;
+            resourceInputs["kmsEncrypted"] = args ? args.kmsEncrypted : undefined;
+            resourceInputs["kmsKey"] = args ? args.kmsKey : undefined;
+            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["snapshotId"] = args ? args.snapshotId : undefined;
+            resourceInputs["sourceVolumeArn"] = args ? args.sourceVolumeArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetName"] = args ? args.targetName : undefined;
+            resourceInputs["volumeSizeInBytes"] = args ? args.volumeSizeInBytes : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["chapEnabled"] = undefined /*out*/;
             resourceInputs["lunNumber"] = undefined /*out*/;

@@ -68,38 +68,38 @@ export class VocabularyFilter extends pulumi.CustomResource {
     /**
      * ARN of the VocabularyFilter.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Generated download URI.
      */
-    declare public /*out*/ readonly downloadUri: pulumi.Output<string>;
+    public /*out*/ readonly downloadUri!: pulumi.Output<string>;
     /**
      * The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
      */
-    declare public readonly languageCode: pulumi.Output<string>;
+    public readonly languageCode!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
      */
-    declare public readonly vocabularyFilterFileUri: pulumi.Output<string | undefined>;
+    public readonly vocabularyFilterFileUri!: pulumi.Output<string | undefined>;
     /**
      * The name of the VocabularyFilter.
      *
      * The following arguments are optional:
      */
-    declare public readonly vocabularyFilterName: pulumi.Output<string>;
+    public readonly vocabularyFilterName!: pulumi.Output<string>;
     /**
      * A list of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
      */
-    declare public readonly words: pulumi.Output<string[] | undefined>;
+    public readonly words!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a VocabularyFilter resource with the given unique name, arguments, and options.
@@ -114,29 +114,29 @@ export class VocabularyFilter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VocabularyFilterState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["downloadUri"] = state?.downloadUri;
-            resourceInputs["languageCode"] = state?.languageCode;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["vocabularyFilterFileUri"] = state?.vocabularyFilterFileUri;
-            resourceInputs["vocabularyFilterName"] = state?.vocabularyFilterName;
-            resourceInputs["words"] = state?.words;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["downloadUri"] = state ? state.downloadUri : undefined;
+            resourceInputs["languageCode"] = state ? state.languageCode : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vocabularyFilterFileUri"] = state ? state.vocabularyFilterFileUri : undefined;
+            resourceInputs["vocabularyFilterName"] = state ? state.vocabularyFilterName : undefined;
+            resourceInputs["words"] = state ? state.words : undefined;
         } else {
             const args = argsOrState as VocabularyFilterArgs | undefined;
-            if (args?.languageCode === undefined && !opts.urn) {
+            if ((!args || args.languageCode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'languageCode'");
             }
-            if (args?.vocabularyFilterName === undefined && !opts.urn) {
+            if ((!args || args.vocabularyFilterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vocabularyFilterName'");
             }
-            resourceInputs["languageCode"] = args?.languageCode;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["vocabularyFilterFileUri"] = args?.vocabularyFilterFileUri;
-            resourceInputs["vocabularyFilterName"] = args?.vocabularyFilterName;
-            resourceInputs["words"] = args?.words;
+            resourceInputs["languageCode"] = args ? args.languageCode : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vocabularyFilterFileUri"] = args ? args.vocabularyFilterFileUri : undefined;
+            resourceInputs["vocabularyFilterName"] = args ? args.vocabularyFilterName : undefined;
+            resourceInputs["words"] = args ? args.words : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["downloadUri"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

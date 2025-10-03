@@ -52,24 +52,24 @@ export class OptIn extends pulumi.CustomResource {
     /**
      * Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
      */
-    declare public readonly conditions: pulumi.Output<outputs.lakeformation.OptInCondition[] | undefined>;
+    public readonly conditions!: pulumi.Output<outputs.lakeformation.OptInCondition[] | undefined>;
     /**
      * Last modified date and time of the record.
      */
-    declare public /*out*/ readonly lastModified: pulumi.Output<string>;
-    declare public /*out*/ readonly lastUpdatedBy: pulumi.Output<string>;
+    public /*out*/ readonly lastModified!: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedBy!: pulumi.Output<string>;
     /**
      * Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
      */
-    declare public readonly principals: pulumi.Output<outputs.lakeformation.OptInPrincipal[] | undefined>;
+    public readonly principals!: pulumi.Output<outputs.lakeformation.OptInPrincipal[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Structure for the resource. See Resource for more details.
      */
-    declare public readonly resourceDatas: pulumi.Output<outputs.lakeformation.OptInResourceData[] | undefined>;
+    public readonly resourceDatas!: pulumi.Output<outputs.lakeformation.OptInResourceData[] | undefined>;
 
     /**
      * Create a OptIn resource with the given unique name, arguments, and options.
@@ -84,18 +84,18 @@ export class OptIn extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OptInState | undefined;
-            resourceInputs["conditions"] = state?.conditions;
-            resourceInputs["lastModified"] = state?.lastModified;
-            resourceInputs["lastUpdatedBy"] = state?.lastUpdatedBy;
-            resourceInputs["principals"] = state?.principals;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceDatas"] = state?.resourceDatas;
+            resourceInputs["conditions"] = state ? state.conditions : undefined;
+            resourceInputs["lastModified"] = state ? state.lastModified : undefined;
+            resourceInputs["lastUpdatedBy"] = state ? state.lastUpdatedBy : undefined;
+            resourceInputs["principals"] = state ? state.principals : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceDatas"] = state ? state.resourceDatas : undefined;
         } else {
             const args = argsOrState as OptInArgs | undefined;
-            resourceInputs["conditions"] = args?.conditions;
-            resourceInputs["principals"] = args?.principals;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resourceDatas"] = args?.resourceDatas;
+            resourceInputs["conditions"] = args ? args.conditions : undefined;
+            resourceInputs["principals"] = args ? args.principals : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourceDatas"] = args ? args.resourceDatas : undefined;
             resourceInputs["lastModified"] = undefined /*out*/;
             resourceInputs["lastUpdatedBy"] = undefined /*out*/;
         }

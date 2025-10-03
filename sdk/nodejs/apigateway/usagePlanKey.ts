@@ -69,27 +69,27 @@ export class UsagePlanKey extends pulumi.CustomResource {
     /**
      * Identifier of the API key resource.
      */
-    declare public readonly keyId: pulumi.Output<string>;
+    public readonly keyId!: pulumi.Output<string>;
     /**
      * Type of the API key resource. Currently, the valid key type is API_KEY.
      */
-    declare public readonly keyType: pulumi.Output<string>;
+    public readonly keyType!: pulumi.Output<string>;
     /**
      * Name of a usage plan key.
      */
-    declare public /*out*/ readonly name: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Id of the usage plan resource representing to associate the key to.
      */
-    declare public readonly usagePlanId: pulumi.Output<string>;
+    public readonly usagePlanId!: pulumi.Output<string>;
     /**
      * Value of a usage plan key.
      */
-    declare public /*out*/ readonly value: pulumi.Output<string>;
+    public /*out*/ readonly value!: pulumi.Output<string>;
 
     /**
      * Create a UsagePlanKey resource with the given unique name, arguments, and options.
@@ -104,27 +104,27 @@ export class UsagePlanKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UsagePlanKeyState | undefined;
-            resourceInputs["keyId"] = state?.keyId;
-            resourceInputs["keyType"] = state?.keyType;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["usagePlanId"] = state?.usagePlanId;
-            resourceInputs["value"] = state?.value;
+            resourceInputs["keyId"] = state ? state.keyId : undefined;
+            resourceInputs["keyType"] = state ? state.keyType : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["usagePlanId"] = state ? state.usagePlanId : undefined;
+            resourceInputs["value"] = state ? state.value : undefined;
         } else {
             const args = argsOrState as UsagePlanKeyArgs | undefined;
-            if (args?.keyId === undefined && !opts.urn) {
+            if ((!args || args.keyId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyId'");
             }
-            if (args?.keyType === undefined && !opts.urn) {
+            if ((!args || args.keyType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyType'");
             }
-            if (args?.usagePlanId === undefined && !opts.urn) {
+            if ((!args || args.usagePlanId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'usagePlanId'");
             }
-            resourceInputs["keyId"] = args?.keyId;
-            resourceInputs["keyType"] = args?.keyType;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["usagePlanId"] = args?.usagePlanId;
+            resourceInputs["keyId"] = args ? args.keyId : undefined;
+            resourceInputs["keyType"] = args ? args.keyType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["usagePlanId"] = args ? args.usagePlanId : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["value"] = undefined /*out*/;
         }

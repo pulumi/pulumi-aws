@@ -64,37 +64,37 @@ export class SourceApiAssociation extends pulumi.CustomResource {
     /**
      * ARN of the Source API Association.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * ID of the Source API Association.
      */
-    declare public /*out*/ readonly associationId: pulumi.Output<string>;
+    public /*out*/ readonly associationId!: pulumi.Output<string>;
     /**
      * Description of the source API being merged.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * ARN of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
      */
-    declare public readonly mergedApiArn: pulumi.Output<string>;
+    public readonly mergedApiArn!: pulumi.Output<string>;
     /**
      * ID of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
      */
-    declare public readonly mergedApiId: pulumi.Output<string>;
+    public readonly mergedApiId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
      */
-    declare public readonly sourceApiArn: pulumi.Output<string>;
-    declare public readonly sourceApiAssociationConfigs: pulumi.Output<outputs.appsync.SourceApiAssociationSourceApiAssociationConfig[]>;
+    public readonly sourceApiArn!: pulumi.Output<string>;
+    public readonly sourceApiAssociationConfigs!: pulumi.Output<outputs.appsync.SourceApiAssociationSourceApiAssociationConfig[]>;
     /**
      * ID of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
      */
-    declare public readonly sourceApiId: pulumi.Output<string>;
-    declare public readonly timeouts: pulumi.Output<outputs.appsync.SourceApiAssociationTimeouts | undefined>;
+    public readonly sourceApiId!: pulumi.Output<string>;
+    public readonly timeouts!: pulumi.Output<outputs.appsync.SourceApiAssociationTimeouts | undefined>;
 
     /**
      * Create a SourceApiAssociation resource with the given unique name, arguments, and options.
@@ -109,26 +109,26 @@ export class SourceApiAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SourceApiAssociationState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["associationId"] = state?.associationId;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["mergedApiArn"] = state?.mergedApiArn;
-            resourceInputs["mergedApiId"] = state?.mergedApiId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["sourceApiArn"] = state?.sourceApiArn;
-            resourceInputs["sourceApiAssociationConfigs"] = state?.sourceApiAssociationConfigs;
-            resourceInputs["sourceApiId"] = state?.sourceApiId;
-            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["associationId"] = state ? state.associationId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["mergedApiArn"] = state ? state.mergedApiArn : undefined;
+            resourceInputs["mergedApiId"] = state ? state.mergedApiId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["sourceApiArn"] = state ? state.sourceApiArn : undefined;
+            resourceInputs["sourceApiAssociationConfigs"] = state ? state.sourceApiAssociationConfigs : undefined;
+            resourceInputs["sourceApiId"] = state ? state.sourceApiId : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as SourceApiAssociationArgs | undefined;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["mergedApiArn"] = args?.mergedApiArn;
-            resourceInputs["mergedApiId"] = args?.mergedApiId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["sourceApiArn"] = args?.sourceApiArn;
-            resourceInputs["sourceApiAssociationConfigs"] = args?.sourceApiAssociationConfigs;
-            resourceInputs["sourceApiId"] = args?.sourceApiId;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["mergedApiArn"] = args ? args.mergedApiArn : undefined;
+            resourceInputs["mergedApiId"] = args ? args.mergedApiId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["sourceApiArn"] = args ? args.sourceApiArn : undefined;
+            resourceInputs["sourceApiAssociationConfigs"] = args ? args.sourceApiAssociationConfigs : undefined;
+            resourceInputs["sourceApiId"] = args ? args.sourceApiId : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associationId"] = undefined /*out*/;
         }

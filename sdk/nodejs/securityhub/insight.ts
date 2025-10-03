@@ -163,23 +163,23 @@ export class Insight extends pulumi.CustomResource {
     /**
      * ARN of the insight.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
      */
-    declare public readonly filters: pulumi.Output<outputs.securityhub.InsightFilters>;
+    public readonly filters!: pulumi.Output<outputs.securityhub.InsightFilters>;
     /**
      * The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
      */
-    declare public readonly groupByAttribute: pulumi.Output<string>;
+    public readonly groupByAttribute!: pulumi.Output<string>;
     /**
      * The name of the custom insight.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a Insight resource with the given unique name, arguments, and options.
@@ -194,23 +194,23 @@ export class Insight extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InsightState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["filters"] = state?.filters;
-            resourceInputs["groupByAttribute"] = state?.groupByAttribute;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["filters"] = state ? state.filters : undefined;
+            resourceInputs["groupByAttribute"] = state ? state.groupByAttribute : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as InsightArgs | undefined;
-            if (args?.filters === undefined && !opts.urn) {
+            if ((!args || args.filters === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'filters'");
             }
-            if (args?.groupByAttribute === undefined && !opts.urn) {
+            if ((!args || args.groupByAttribute === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groupByAttribute'");
             }
-            resourceInputs["filters"] = args?.filters;
-            resourceInputs["groupByAttribute"] = args?.groupByAttribute;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["filters"] = args ? args.filters : undefined;
+            resourceInputs["groupByAttribute"] = args ? args.groupByAttribute : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -78,15 +78,15 @@ export class VpcAssociationAuthorization extends pulumi.CustomResource {
     /**
      * The VPC to authorize for association with the private hosted zone.
      */
-    declare public readonly vpcId: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string>;
     /**
      * The VPC's region. Defaults to the region of the AWS provider.
      */
-    declare public readonly vpcRegion: pulumi.Output<string>;
+    public readonly vpcRegion!: pulumi.Output<string>;
     /**
      * The ID of the private hosted zone that you want to authorize associating a VPC with.
      */
-    declare public readonly zoneId: pulumi.Output<string>;
+    public readonly zoneId!: pulumi.Output<string>;
 
     /**
      * Create a VpcAssociationAuthorization resource with the given unique name, arguments, and options.
@@ -101,20 +101,20 @@ export class VpcAssociationAuthorization extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcAssociationAuthorizationState | undefined;
-            resourceInputs["vpcId"] = state?.vpcId;
-            resourceInputs["vpcRegion"] = state?.vpcRegion;
-            resourceInputs["zoneId"] = state?.zoneId;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["vpcRegion"] = state ? state.vpcRegion : undefined;
+            resourceInputs["zoneId"] = state ? state.zoneId : undefined;
         } else {
             const args = argsOrState as VpcAssociationAuthorizationArgs | undefined;
-            if (args?.vpcId === undefined && !opts.urn) {
+            if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            if (args?.zoneId === undefined && !opts.urn) {
+            if ((!args || args.zoneId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'zoneId'");
             }
-            resourceInputs["vpcId"] = args?.vpcId;
-            resourceInputs["vpcRegion"] = args?.vpcRegion;
-            resourceInputs["zoneId"] = args?.zoneId;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["vpcRegion"] = args ? args.vpcRegion : undefined;
+            resourceInputs["zoneId"] = args ? args.zoneId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VpcAssociationAuthorization.__pulumiType, name, resourceInputs, opts);

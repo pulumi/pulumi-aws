@@ -83,32 +83,32 @@ export class VpcBlockPublicAccessExclusion extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    declare public readonly internetGatewayExclusionMode: pulumi.Output<string>;
+    public readonly internetGatewayExclusionMode!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) the excluded resource.
      */
-    declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
+    public /*out*/ readonly resourceArn!: pulumi.Output<string>;
     /**
      * Id of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
      */
-    declare public readonly subnetId: pulumi.Output<string | undefined>;
+    public readonly subnetId!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the exclusion. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public readonly timeouts: pulumi.Output<outputs.ec2.VpcBlockPublicAccessExclusionTimeouts | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly timeouts!: pulumi.Output<outputs.ec2.VpcBlockPublicAccessExclusionTimeouts | undefined>;
     /**
      * Id of the VPC to which this exclusion applies. Either this or the subnetId needs to be provided.
      */
-    declare public readonly vpcId: pulumi.Output<string | undefined>;
+    public readonly vpcId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a VpcBlockPublicAccessExclusion resource with the given unique name, arguments, and options.
@@ -123,25 +123,25 @@ export class VpcBlockPublicAccessExclusion extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcBlockPublicAccessExclusionState | undefined;
-            resourceInputs["internetGatewayExclusionMode"] = state?.internetGatewayExclusionMode;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceArn"] = state?.resourceArn;
-            resourceInputs["subnetId"] = state?.subnetId;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timeouts"] = state?.timeouts;
-            resourceInputs["vpcId"] = state?.vpcId;
+            resourceInputs["internetGatewayExclusionMode"] = state ? state.internetGatewayExclusionMode : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as VpcBlockPublicAccessExclusionArgs | undefined;
-            if (args?.internetGatewayExclusionMode === undefined && !opts.urn) {
+            if ((!args || args.internetGatewayExclusionMode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'internetGatewayExclusionMode'");
             }
-            resourceInputs["internetGatewayExclusionMode"] = args?.internetGatewayExclusionMode;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["subnetId"] = args?.subnetId;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timeouts"] = args?.timeouts;
-            resourceInputs["vpcId"] = args?.vpcId;
+            resourceInputs["internetGatewayExclusionMode"] = args ? args.internetGatewayExclusionMode : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

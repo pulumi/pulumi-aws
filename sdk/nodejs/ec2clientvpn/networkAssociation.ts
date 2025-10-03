@@ -59,23 +59,23 @@ export class NetworkAssociation extends pulumi.CustomResource {
     /**
      * The unique ID of the target network association.
      */
-    declare public /*out*/ readonly associationId: pulumi.Output<string>;
+    public /*out*/ readonly associationId!: pulumi.Output<string>;
     /**
      * The ID of the Client VPN endpoint.
      */
-    declare public readonly clientVpnEndpointId: pulumi.Output<string>;
+    public readonly clientVpnEndpointId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ID of the subnet to associate with the Client VPN endpoint.
      */
-    declare public readonly subnetId: pulumi.Output<string>;
+    public readonly subnetId!: pulumi.Output<string>;
     /**
      * The ID of the VPC in which the target subnet is located.
      */
-    declare public /*out*/ readonly vpcId: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a NetworkAssociation resource with the given unique name, arguments, and options.
@@ -90,22 +90,22 @@ export class NetworkAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkAssociationState | undefined;
-            resourceInputs["associationId"] = state?.associationId;
-            resourceInputs["clientVpnEndpointId"] = state?.clientVpnEndpointId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["subnetId"] = state?.subnetId;
-            resourceInputs["vpcId"] = state?.vpcId;
+            resourceInputs["associationId"] = state ? state.associationId : undefined;
+            resourceInputs["clientVpnEndpointId"] = state ? state.clientVpnEndpointId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as NetworkAssociationArgs | undefined;
-            if (args?.clientVpnEndpointId === undefined && !opts.urn) {
+            if ((!args || args.clientVpnEndpointId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clientVpnEndpointId'");
             }
-            if (args?.subnetId === undefined && !opts.urn) {
+            if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["clientVpnEndpointId"] = args?.clientVpnEndpointId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["clientVpnEndpointId"] = args ? args.clientVpnEndpointId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["associationId"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;
         }

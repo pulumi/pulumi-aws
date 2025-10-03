@@ -64,27 +64,27 @@ export class Webhook extends pulumi.CustomResource {
     /**
      * Unique ID for an Amplify app.
      */
-    declare public readonly appId: pulumi.Output<string>;
+    public readonly appId!: pulumi.Output<string>;
     /**
      * ARN for the webhook.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Name for a branch that is part of the Amplify app.
      */
-    declare public readonly branchName: pulumi.Output<string>;
+    public readonly branchName!: pulumi.Output<string>;
     /**
      * Description for a webhook.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * URL of the webhook.
      */
-    declare public /*out*/ readonly url: pulumi.Output<string>;
+    public /*out*/ readonly url!: pulumi.Output<string>;
 
     /**
      * Create a Webhook resource with the given unique name, arguments, and options.
@@ -99,24 +99,24 @@ export class Webhook extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebhookState | undefined;
-            resourceInputs["appId"] = state?.appId;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["branchName"] = state?.branchName;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["url"] = state?.url;
+            resourceInputs["appId"] = state ? state.appId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["branchName"] = state ? state.branchName : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as WebhookArgs | undefined;
-            if (args?.appId === undefined && !opts.urn) {
+            if ((!args || args.appId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'appId'");
             }
-            if (args?.branchName === undefined && !opts.urn) {
+            if ((!args || args.branchName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'branchName'");
             }
-            resourceInputs["appId"] = args?.appId;
-            resourceInputs["branchName"] = args?.branchName;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["appId"] = args ? args.appId : undefined;
+            resourceInputs["branchName"] = args ? args.branchName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
         }

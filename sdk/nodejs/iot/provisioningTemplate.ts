@@ -115,51 +115,51 @@ export class ProvisioningTemplate extends pulumi.CustomResource {
     /**
      * The ARN that identifies the provisioning template.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The default version of the fleet provisioning template.
      */
-    declare public /*out*/ readonly defaultVersionId: pulumi.Output<number>;
+    public /*out*/ readonly defaultVersionId!: pulumi.Output<number>;
     /**
      * The description of the fleet provisioning template.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * True to enable the fleet provisioning template, otherwise false.
      */
-    declare public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the fleet provisioning template.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Creates a pre-provisioning hook template. Details below.
      */
-    declare public readonly preProvisioningHook: pulumi.Output<outputs.iot.ProvisioningTemplatePreProvisioningHook | undefined>;
+    public readonly preProvisioningHook!: pulumi.Output<outputs.iot.ProvisioningTemplatePreProvisioningHook | undefined>;
     /**
      * The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
      */
-    declare public readonly provisioningRoleArn: pulumi.Output<string>;
+    public readonly provisioningRoleArn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The JSON formatted contents of the fleet provisioning template.
      */
-    declare public readonly templateBody: pulumi.Output<string>;
+    public readonly templateBody!: pulumi.Output<string>;
     /**
      * The type you define in a provisioning template.
      */
-    declare public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a ProvisioningTemplate resource with the given unique name, arguments, and options.
@@ -174,35 +174,35 @@ export class ProvisioningTemplate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProvisioningTemplateState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["defaultVersionId"] = state?.defaultVersionId;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["enabled"] = state?.enabled;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["preProvisioningHook"] = state?.preProvisioningHook;
-            resourceInputs["provisioningRoleArn"] = state?.provisioningRoleArn;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["templateBody"] = state?.templateBody;
-            resourceInputs["type"] = state?.type;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["defaultVersionId"] = state ? state.defaultVersionId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["preProvisioningHook"] = state ? state.preProvisioningHook : undefined;
+            resourceInputs["provisioningRoleArn"] = state ? state.provisioningRoleArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["templateBody"] = state ? state.templateBody : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ProvisioningTemplateArgs | undefined;
-            if (args?.provisioningRoleArn === undefined && !opts.urn) {
+            if ((!args || args.provisioningRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'provisioningRoleArn'");
             }
-            if (args?.templateBody === undefined && !opts.urn) {
+            if ((!args || args.templateBody === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'templateBody'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["enabled"] = args?.enabled;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["preProvisioningHook"] = args?.preProvisioningHook;
-            resourceInputs["provisioningRoleArn"] = args?.provisioningRoleArn;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["templateBody"] = args?.templateBody;
-            resourceInputs["type"] = args?.type;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["preProvisioningHook"] = args ? args.preProvisioningHook : undefined;
+            resourceInputs["provisioningRoleArn"] = args ? args.provisioningRoleArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["templateBody"] = args ? args.templateBody : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["defaultVersionId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

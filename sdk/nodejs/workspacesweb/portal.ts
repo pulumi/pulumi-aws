@@ -88,100 +88,100 @@ export class Portal extends pulumi.CustomResource {
     /**
      * Additional encryption context for the customer managed key. Forces replacement if changed.
      */
-    declare public readonly additionalEncryptionContext: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly additionalEncryptionContext!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Authentication type for the portal. Valid values: `Standard`, `IAM_Identity_Center`.
      */
-    declare public readonly authenticationType: pulumi.Output<string>;
+    public readonly authenticationType!: pulumi.Output<string>;
     /**
      * ARN of the browser settings to use for the portal.
      */
-    declare public readonly browserSettingsArn: pulumi.Output<string>;
+    public readonly browserSettingsArn!: pulumi.Output<string>;
     /**
      * Browser type of the portal.
      */
-    declare public /*out*/ readonly browserType: pulumi.Output<string>;
+    public /*out*/ readonly browserType!: pulumi.Output<string>;
     /**
      * Creation date of the portal.
      */
-    declare public /*out*/ readonly creationDate: pulumi.Output<string>;
+    public /*out*/ readonly creationDate!: pulumi.Output<string>;
     /**
      * ARN of the customer managed key. Forces replacement if changed.
      */
-    declare public readonly customerManagedKey: pulumi.Output<string | undefined>;
+    public readonly customerManagedKey!: pulumi.Output<string | undefined>;
     /**
      * ARN of the data protection settings associated with the portal.
      */
-    declare public /*out*/ readonly dataProtectionSettingsArn: pulumi.Output<string>;
+    public /*out*/ readonly dataProtectionSettingsArn!: pulumi.Output<string>;
     /**
      * Display name of the portal.
      */
-    declare public readonly displayName: pulumi.Output<string>;
+    public readonly displayName!: pulumi.Output<string>;
     /**
      * Instance type for the portal. Valid values: `standard.regular`, `standard.large`.
      */
-    declare public readonly instanceType: pulumi.Output<string>;
+    public readonly instanceType!: pulumi.Output<string>;
     /**
      * ARN of the IP access settings associated with the portal.
      */
-    declare public /*out*/ readonly ipAccessSettingsArn: pulumi.Output<string>;
+    public /*out*/ readonly ipAccessSettingsArn!: pulumi.Output<string>;
     /**
      * Maximum number of concurrent sessions for the portal.
      */
-    declare public readonly maxConcurrentSessions: pulumi.Output<number>;
+    public readonly maxConcurrentSessions!: pulumi.Output<number>;
     /**
      * ARN of the network settings associated with the portal.
      */
-    declare public /*out*/ readonly networkSettingsArn: pulumi.Output<string>;
+    public /*out*/ readonly networkSettingsArn!: pulumi.Output<string>;
     /**
      * ARN of the portal.
      */
-    declare public /*out*/ readonly portalArn: pulumi.Output<string>;
+    public /*out*/ readonly portalArn!: pulumi.Output<string>;
     /**
      * Endpoint URL of the portal.
      */
-    declare public /*out*/ readonly portalEndpoint: pulumi.Output<string>;
+    public /*out*/ readonly portalEndpoint!: pulumi.Output<string>;
     /**
      * Status of the portal.
      */
-    declare public /*out*/ readonly portalStatus: pulumi.Output<string>;
+    public /*out*/ readonly portalStatus!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Renderer type of the portal.
      */
-    declare public /*out*/ readonly rendererType: pulumi.Output<string>;
+    public /*out*/ readonly rendererType!: pulumi.Output<string>;
     /**
      * ARN of the session logger associated with the portal.
      */
-    declare public /*out*/ readonly sessionLoggerArn: pulumi.Output<string>;
+    public /*out*/ readonly sessionLoggerArn!: pulumi.Output<string>;
     /**
      * Reason for the current status of the portal.
      */
-    declare public /*out*/ readonly statusReason: pulumi.Output<string>;
+    public /*out*/ readonly statusReason!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public readonly timeouts: pulumi.Output<outputs.workspacesweb.PortalTimeouts | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly timeouts!: pulumi.Output<outputs.workspacesweb.PortalTimeouts | undefined>;
     /**
      * ARN of the trust store associated with the portal.
      */
-    declare public /*out*/ readonly trustStoreArn: pulumi.Output<string>;
+    public /*out*/ readonly trustStoreArn!: pulumi.Output<string>;
     /**
      * ARN of the user access logging settings associated with the portal.
      */
-    declare public /*out*/ readonly userAccessLoggingSettingsArn: pulumi.Output<string>;
+    public /*out*/ readonly userAccessLoggingSettingsArn!: pulumi.Output<string>;
     /**
      * ARN of the user settings associated with the portal.
      */
-    declare public /*out*/ readonly userSettingsArn: pulumi.Output<string>;
+    public /*out*/ readonly userSettingsArn!: pulumi.Output<string>;
 
     /**
      * Create a Portal resource with the given unique name, arguments, and options.
@@ -196,43 +196,43 @@ export class Portal extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PortalState | undefined;
-            resourceInputs["additionalEncryptionContext"] = state?.additionalEncryptionContext;
-            resourceInputs["authenticationType"] = state?.authenticationType;
-            resourceInputs["browserSettingsArn"] = state?.browserSettingsArn;
-            resourceInputs["browserType"] = state?.browserType;
-            resourceInputs["creationDate"] = state?.creationDate;
-            resourceInputs["customerManagedKey"] = state?.customerManagedKey;
-            resourceInputs["dataProtectionSettingsArn"] = state?.dataProtectionSettingsArn;
-            resourceInputs["displayName"] = state?.displayName;
-            resourceInputs["instanceType"] = state?.instanceType;
-            resourceInputs["ipAccessSettingsArn"] = state?.ipAccessSettingsArn;
-            resourceInputs["maxConcurrentSessions"] = state?.maxConcurrentSessions;
-            resourceInputs["networkSettingsArn"] = state?.networkSettingsArn;
-            resourceInputs["portalArn"] = state?.portalArn;
-            resourceInputs["portalEndpoint"] = state?.portalEndpoint;
-            resourceInputs["portalStatus"] = state?.portalStatus;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["rendererType"] = state?.rendererType;
-            resourceInputs["sessionLoggerArn"] = state?.sessionLoggerArn;
-            resourceInputs["statusReason"] = state?.statusReason;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timeouts"] = state?.timeouts;
-            resourceInputs["trustStoreArn"] = state?.trustStoreArn;
-            resourceInputs["userAccessLoggingSettingsArn"] = state?.userAccessLoggingSettingsArn;
-            resourceInputs["userSettingsArn"] = state?.userSettingsArn;
+            resourceInputs["additionalEncryptionContext"] = state ? state.additionalEncryptionContext : undefined;
+            resourceInputs["authenticationType"] = state ? state.authenticationType : undefined;
+            resourceInputs["browserSettingsArn"] = state ? state.browserSettingsArn : undefined;
+            resourceInputs["browserType"] = state ? state.browserType : undefined;
+            resourceInputs["creationDate"] = state ? state.creationDate : undefined;
+            resourceInputs["customerManagedKey"] = state ? state.customerManagedKey : undefined;
+            resourceInputs["dataProtectionSettingsArn"] = state ? state.dataProtectionSettingsArn : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["instanceType"] = state ? state.instanceType : undefined;
+            resourceInputs["ipAccessSettingsArn"] = state ? state.ipAccessSettingsArn : undefined;
+            resourceInputs["maxConcurrentSessions"] = state ? state.maxConcurrentSessions : undefined;
+            resourceInputs["networkSettingsArn"] = state ? state.networkSettingsArn : undefined;
+            resourceInputs["portalArn"] = state ? state.portalArn : undefined;
+            resourceInputs["portalEndpoint"] = state ? state.portalEndpoint : undefined;
+            resourceInputs["portalStatus"] = state ? state.portalStatus : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["rendererType"] = state ? state.rendererType : undefined;
+            resourceInputs["sessionLoggerArn"] = state ? state.sessionLoggerArn : undefined;
+            resourceInputs["statusReason"] = state ? state.statusReason : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["trustStoreArn"] = state ? state.trustStoreArn : undefined;
+            resourceInputs["userAccessLoggingSettingsArn"] = state ? state.userAccessLoggingSettingsArn : undefined;
+            resourceInputs["userSettingsArn"] = state ? state.userSettingsArn : undefined;
         } else {
             const args = argsOrState as PortalArgs | undefined;
-            resourceInputs["additionalEncryptionContext"] = args?.additionalEncryptionContext;
-            resourceInputs["authenticationType"] = args?.authenticationType;
-            resourceInputs["browserSettingsArn"] = args?.browserSettingsArn;
-            resourceInputs["customerManagedKey"] = args?.customerManagedKey;
-            resourceInputs["displayName"] = args?.displayName;
-            resourceInputs["instanceType"] = args?.instanceType;
-            resourceInputs["maxConcurrentSessions"] = args?.maxConcurrentSessions;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["additionalEncryptionContext"] = args ? args.additionalEncryptionContext : undefined;
+            resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
+            resourceInputs["browserSettingsArn"] = args ? args.browserSettingsArn : undefined;
+            resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
+            resourceInputs["maxConcurrentSessions"] = args ? args.maxConcurrentSessions : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["browserType"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["dataProtectionSettingsArn"] = undefined /*out*/;

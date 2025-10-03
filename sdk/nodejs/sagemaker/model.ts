@@ -83,47 +83,47 @@ export class Model extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this model.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
      */
-    declare public readonly containers: pulumi.Output<outputs.sagemaker.ModelContainer[] | undefined>;
+    public readonly containers!: pulumi.Output<outputs.sagemaker.ModelContainer[] | undefined>;
     /**
      * Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
      */
-    declare public readonly enableNetworkIsolation: pulumi.Output<boolean | undefined>;
+    public readonly enableNetworkIsolation!: pulumi.Output<boolean | undefined>;
     /**
      * A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
      */
-    declare public readonly executionRoleArn: pulumi.Output<string>;
+    public readonly executionRoleArn!: pulumi.Output<string>;
     /**
      * Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
      */
-    declare public readonly inferenceExecutionConfig: pulumi.Output<outputs.sagemaker.ModelInferenceExecutionConfig>;
+    public readonly inferenceExecutionConfig!: pulumi.Output<outputs.sagemaker.ModelInferenceExecutionConfig>;
     /**
      * The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
      */
-    declare public readonly primaryContainer: pulumi.Output<outputs.sagemaker.ModelPrimaryContainer | undefined>;
+    public readonly primaryContainer!: pulumi.Output<outputs.sagemaker.ModelPrimaryContainer | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
      */
-    declare public readonly vpcConfig: pulumi.Output<outputs.sagemaker.ModelVpcConfig | undefined>;
+    public readonly vpcConfig!: pulumi.Output<outputs.sagemaker.ModelVpcConfig | undefined>;
 
     /**
      * Create a Model resource with the given unique name, arguments, and options.
@@ -138,31 +138,31 @@ export class Model extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ModelState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["containers"] = state?.containers;
-            resourceInputs["enableNetworkIsolation"] = state?.enableNetworkIsolation;
-            resourceInputs["executionRoleArn"] = state?.executionRoleArn;
-            resourceInputs["inferenceExecutionConfig"] = state?.inferenceExecutionConfig;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["primaryContainer"] = state?.primaryContainer;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["vpcConfig"] = state?.vpcConfig;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["containers"] = state ? state.containers : undefined;
+            resourceInputs["enableNetworkIsolation"] = state ? state.enableNetworkIsolation : undefined;
+            resourceInputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
+            resourceInputs["inferenceExecutionConfig"] = state ? state.inferenceExecutionConfig : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["primaryContainer"] = state ? state.primaryContainer : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcConfig"] = state ? state.vpcConfig : undefined;
         } else {
             const args = argsOrState as ModelArgs | undefined;
-            if (args?.executionRoleArn === undefined && !opts.urn) {
+            if ((!args || args.executionRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'executionRoleArn'");
             }
-            resourceInputs["containers"] = args?.containers;
-            resourceInputs["enableNetworkIsolation"] = args?.enableNetworkIsolation;
-            resourceInputs["executionRoleArn"] = args?.executionRoleArn;
-            resourceInputs["inferenceExecutionConfig"] = args?.inferenceExecutionConfig;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["primaryContainer"] = args?.primaryContainer;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["vpcConfig"] = args?.vpcConfig;
+            resourceInputs["containers"] = args ? args.containers : undefined;
+            resourceInputs["enableNetworkIsolation"] = args ? args.enableNetworkIsolation : undefined;
+            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
+            resourceInputs["inferenceExecutionConfig"] = args ? args.inferenceExecutionConfig : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["primaryContainer"] = args ? args.primaryContainer : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

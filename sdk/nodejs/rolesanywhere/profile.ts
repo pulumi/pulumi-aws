@@ -77,43 +77,43 @@ export class Profile extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the Profile
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The number of seconds the vended session credentials are valid for. Defaults to 3600.
      */
-    declare public readonly durationSeconds: pulumi.Output<number>;
+    public readonly durationSeconds!: pulumi.Output<number>;
     /**
      * Whether or not the Profile is enabled.
      */
-    declare public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * A list of managed policy ARNs that apply to the vended session credentials.
      */
-    declare public readonly managedPolicyArns: pulumi.Output<string[] | undefined>;
+    public readonly managedPolicyArns!: pulumi.Output<string[] | undefined>;
     /**
      * The name of the Profile.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies whether instance properties are required in [CreateSession](https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html) requests with this profile.
      */
-    declare public readonly requireInstanceProperties: pulumi.Output<boolean | undefined>;
+    public readonly requireInstanceProperties!: pulumi.Output<boolean | undefined>;
     /**
      * A list of IAM roles that this profile can assume
      */
-    declare public readonly roleArns: pulumi.Output<string[] | undefined>;
+    public readonly roleArns!: pulumi.Output<string[] | undefined>;
     /**
      * A session policy that applies to the trust boundary of the vended session credentials.
      */
-    declare public readonly sessionPolicy: pulumi.Output<string | undefined>;
+    public readonly sessionPolicy!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Profile resource with the given unique name, arguments, and options.
@@ -128,26 +128,26 @@ export class Profile extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProfileState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["durationSeconds"] = state?.durationSeconds;
-            resourceInputs["enabled"] = state?.enabled;
-            resourceInputs["managedPolicyArns"] = state?.managedPolicyArns;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["requireInstanceProperties"] = state?.requireInstanceProperties;
-            resourceInputs["roleArns"] = state?.roleArns;
-            resourceInputs["sessionPolicy"] = state?.sessionPolicy;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["durationSeconds"] = state ? state.durationSeconds : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["managedPolicyArns"] = state ? state.managedPolicyArns : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["requireInstanceProperties"] = state ? state.requireInstanceProperties : undefined;
+            resourceInputs["roleArns"] = state ? state.roleArns : undefined;
+            resourceInputs["sessionPolicy"] = state ? state.sessionPolicy : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ProfileArgs | undefined;
-            resourceInputs["durationSeconds"] = args?.durationSeconds;
-            resourceInputs["enabled"] = args?.enabled;
-            resourceInputs["managedPolicyArns"] = args?.managedPolicyArns;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["requireInstanceProperties"] = args?.requireInstanceProperties;
-            resourceInputs["roleArns"] = args?.roleArns;
-            resourceInputs["sessionPolicy"] = args?.sessionPolicy;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["durationSeconds"] = args ? args.durationSeconds : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["managedPolicyArns"] = args ? args.managedPolicyArns : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["requireInstanceProperties"] = args ? args.requireInstanceProperties : undefined;
+            resourceInputs["roleArns"] = args ? args.roleArns : undefined;
+            resourceInputs["sessionPolicy"] = args ? args.sessionPolicy : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

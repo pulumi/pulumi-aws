@@ -71,31 +71,31 @@ export class Group extends pulumi.CustomResource {
     /**
      * The ARN of the Group.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
      */
-    declare public readonly filterExpression: pulumi.Output<string>;
+    public readonly filterExpression!: pulumi.Output<string>;
     /**
      * The name of the group.
      */
-    declare public readonly groupName: pulumi.Output<string>;
+    public readonly groupName!: pulumi.Output<string>;
     /**
      * Configuration options for enabling insights.
      */
-    declare public readonly insightsConfiguration: pulumi.Output<outputs.xray.GroupInsightsConfiguration>;
+    public readonly insightsConfiguration!: pulumi.Output<outputs.xray.GroupInsightsConfiguration>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -110,26 +110,26 @@ export class Group extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["filterExpression"] = state?.filterExpression;
-            resourceInputs["groupName"] = state?.groupName;
-            resourceInputs["insightsConfiguration"] = state?.insightsConfiguration;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["filterExpression"] = state ? state.filterExpression : undefined;
+            resourceInputs["groupName"] = state ? state.groupName : undefined;
+            resourceInputs["insightsConfiguration"] = state ? state.insightsConfiguration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as GroupArgs | undefined;
-            if (args?.filterExpression === undefined && !opts.urn) {
+            if ((!args || args.filterExpression === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'filterExpression'");
             }
-            if (args?.groupName === undefined && !opts.urn) {
+            if ((!args || args.groupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
-            resourceInputs["filterExpression"] = args?.filterExpression;
-            resourceInputs["groupName"] = args?.groupName;
-            resourceInputs["insightsConfiguration"] = args?.insightsConfiguration;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["filterExpression"] = args ? args.filterExpression : undefined;
+            resourceInputs["groupName"] = args ? args.groupName : undefined;
+            resourceInputs["insightsConfiguration"] = args ? args.insightsConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

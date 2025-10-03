@@ -77,117 +77,117 @@ export class ClusterInstance extends pulumi.CustomResource {
     /**
      * The hostname of the instance. See also `endpoint` and `port`.
      */
-    declare public /*out*/ readonly address: pulumi.Output<string>;
+    public /*out*/ readonly address!: pulumi.Output<string>;
     /**
      * Specifies whether any instance modifications
      * are applied immediately, or during the next maintenance window. Default is`false`.
      */
-    declare public readonly applyImmediately: pulumi.Output<boolean>;
+    public readonly applyImmediately!: pulumi.Output<boolean>;
     /**
      * Amazon Resource Name (ARN) of neptune instance
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
      */
-    declare public readonly autoMinorVersionUpgrade: pulumi.Output<boolean | undefined>;
+    public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean | undefined>;
     /**
      * The EC2 Availability Zone that the neptune instance is created in.
      */
-    declare public readonly availabilityZone: pulumi.Output<string>;
+    public readonly availabilityZone!: pulumi.Output<string>;
     /**
      * The identifier of the `aws.neptune.Cluster` in which to launch this instance.
      */
-    declare public readonly clusterIdentifier: pulumi.Output<string>;
+    public readonly clusterIdentifier!: pulumi.Output<string>;
     /**
      * The region-unique, immutable identifier for the neptune instance.
      */
-    declare public /*out*/ readonly dbiResourceId: pulumi.Output<string>;
+    public /*out*/ readonly dbiResourceId!: pulumi.Output<string>;
     /**
      * The connection endpoint in `address:port` format.
      */
-    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
      * The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
      */
-    declare public readonly engine: pulumi.Output<string | undefined>;
+    public readonly engine!: pulumi.Output<string | undefined>;
     /**
      * The neptune engine version. Currently configuring this argumnet has no effect.
      */
-    declare public readonly engineVersion: pulumi.Output<string>;
+    public readonly engineVersion!: pulumi.Output<string>;
     /**
      * The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
      */
-    declare public readonly identifier: pulumi.Output<string>;
+    public readonly identifier!: pulumi.Output<string>;
     /**
      * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
-    declare public readonly identifierPrefix: pulumi.Output<string>;
+    public readonly identifierPrefix!: pulumi.Output<string>;
     /**
      * The instance class to use.
      */
-    declare public readonly instanceClass: pulumi.Output<string>;
+    public readonly instanceClass!: pulumi.Output<string>;
     /**
      * The ARN for the KMS encryption key if one is set to the neptune cluster.
      */
-    declare public /*out*/ readonly kmsKeyArn: pulumi.Output<string>;
+    public /*out*/ readonly kmsKeyArn!: pulumi.Output<string>;
     /**
      * The name of the neptune parameter group to associate with this instance.
      */
-    declare public readonly neptuneParameterGroupName: pulumi.Output<string>;
+    public readonly neptuneParameterGroupName!: pulumi.Output<string>;
     /**
      * A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached `aws.neptune.Cluster`.
      */
-    declare public readonly neptuneSubnetGroupName: pulumi.Output<string>;
+    public readonly neptuneSubnetGroupName!: pulumi.Output<string>;
     /**
      * The port on which the DB accepts connections. Defaults to `8182`.
      */
-    declare public readonly port: pulumi.Output<number | undefined>;
+    public readonly port!: pulumi.Output<number | undefined>;
     /**
      * The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00"
      */
-    declare public readonly preferredBackupWindow: pulumi.Output<string>;
+    public readonly preferredBackupWindow!: pulumi.Output<string>;
     /**
      * The window to perform maintenance in.
      * Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
      */
-    declare public readonly preferredMaintenanceWindow: pulumi.Output<string>;
+    public readonly preferredMaintenanceWindow!: pulumi.Output<string>;
     /**
      * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
      */
-    declare public readonly promotionTier: pulumi.Output<number | undefined>;
+    public readonly promotionTier!: pulumi.Output<number | undefined>;
     /**
      * Bool to control if instance is publicly accessible. Default is `false`.
      */
-    declare public readonly publiclyAccessible: pulumi.Output<boolean | undefined>;
+    public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Determines whether a final DB snapshot is created before the DB instance is deleted.
      */
-    declare public readonly skipFinalSnapshot: pulumi.Output<boolean | undefined>;
+    public readonly skipFinalSnapshot!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether the neptune cluster is encrypted.
      */
-    declare public /*out*/ readonly storageEncrypted: pulumi.Output<boolean>;
+    public /*out*/ readonly storageEncrypted!: pulumi.Output<boolean>;
     /**
      * Storage type associated with the cluster `standard/iopt1`.
      */
-    declare public /*out*/ readonly storageType: pulumi.Output<string>;
+    public /*out*/ readonly storageType!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
      */
-    declare public /*out*/ readonly writer: pulumi.Output<boolean>;
+    public /*out*/ readonly writer!: pulumi.Output<boolean>;
 
     /**
      * Create a ClusterInstance resource with the given unique name, arguments, and options.
@@ -202,61 +202,61 @@ export class ClusterInstance extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterInstanceState | undefined;
-            resourceInputs["address"] = state?.address;
-            resourceInputs["applyImmediately"] = state?.applyImmediately;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["autoMinorVersionUpgrade"] = state?.autoMinorVersionUpgrade;
-            resourceInputs["availabilityZone"] = state?.availabilityZone;
-            resourceInputs["clusterIdentifier"] = state?.clusterIdentifier;
-            resourceInputs["dbiResourceId"] = state?.dbiResourceId;
-            resourceInputs["endpoint"] = state?.endpoint;
-            resourceInputs["engine"] = state?.engine;
-            resourceInputs["engineVersion"] = state?.engineVersion;
-            resourceInputs["identifier"] = state?.identifier;
-            resourceInputs["identifierPrefix"] = state?.identifierPrefix;
-            resourceInputs["instanceClass"] = state?.instanceClass;
-            resourceInputs["kmsKeyArn"] = state?.kmsKeyArn;
-            resourceInputs["neptuneParameterGroupName"] = state?.neptuneParameterGroupName;
-            resourceInputs["neptuneSubnetGroupName"] = state?.neptuneSubnetGroupName;
-            resourceInputs["port"] = state?.port;
-            resourceInputs["preferredBackupWindow"] = state?.preferredBackupWindow;
-            resourceInputs["preferredMaintenanceWindow"] = state?.preferredMaintenanceWindow;
-            resourceInputs["promotionTier"] = state?.promotionTier;
-            resourceInputs["publiclyAccessible"] = state?.publiclyAccessible;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["skipFinalSnapshot"] = state?.skipFinalSnapshot;
-            resourceInputs["storageEncrypted"] = state?.storageEncrypted;
-            resourceInputs["storageType"] = state?.storageType;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["writer"] = state?.writer;
+            resourceInputs["address"] = state ? state.address : undefined;
+            resourceInputs["applyImmediately"] = state ? state.applyImmediately : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
+            resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            resourceInputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
+            resourceInputs["dbiResourceId"] = state ? state.dbiResourceId : undefined;
+            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
+            resourceInputs["engine"] = state ? state.engine : undefined;
+            resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
+            resourceInputs["identifier"] = state ? state.identifier : undefined;
+            resourceInputs["identifierPrefix"] = state ? state.identifierPrefix : undefined;
+            resourceInputs["instanceClass"] = state ? state.instanceClass : undefined;
+            resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
+            resourceInputs["neptuneParameterGroupName"] = state ? state.neptuneParameterGroupName : undefined;
+            resourceInputs["neptuneSubnetGroupName"] = state ? state.neptuneSubnetGroupName : undefined;
+            resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["preferredBackupWindow"] = state ? state.preferredBackupWindow : undefined;
+            resourceInputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
+            resourceInputs["promotionTier"] = state ? state.promotionTier : undefined;
+            resourceInputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["skipFinalSnapshot"] = state ? state.skipFinalSnapshot : undefined;
+            resourceInputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
+            resourceInputs["storageType"] = state ? state.storageType : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["writer"] = state ? state.writer : undefined;
         } else {
             const args = argsOrState as ClusterInstanceArgs | undefined;
-            if (args?.clusterIdentifier === undefined && !opts.urn) {
+            if ((!args || args.clusterIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterIdentifier'");
             }
-            if (args?.instanceClass === undefined && !opts.urn) {
+            if ((!args || args.instanceClass === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceClass'");
             }
-            resourceInputs["applyImmediately"] = args?.applyImmediately;
-            resourceInputs["autoMinorVersionUpgrade"] = args?.autoMinorVersionUpgrade;
-            resourceInputs["availabilityZone"] = args?.availabilityZone;
-            resourceInputs["clusterIdentifier"] = args?.clusterIdentifier;
-            resourceInputs["engine"] = args?.engine;
-            resourceInputs["engineVersion"] = args?.engineVersion;
-            resourceInputs["identifier"] = args?.identifier;
-            resourceInputs["identifierPrefix"] = args?.identifierPrefix;
-            resourceInputs["instanceClass"] = args?.instanceClass;
-            resourceInputs["neptuneParameterGroupName"] = args?.neptuneParameterGroupName;
-            resourceInputs["neptuneSubnetGroupName"] = args?.neptuneSubnetGroupName;
-            resourceInputs["port"] = args?.port;
-            resourceInputs["preferredBackupWindow"] = args?.preferredBackupWindow;
-            resourceInputs["preferredMaintenanceWindow"] = args?.preferredMaintenanceWindow;
-            resourceInputs["promotionTier"] = args?.promotionTier;
-            resourceInputs["publiclyAccessible"] = args?.publiclyAccessible;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["skipFinalSnapshot"] = args?.skipFinalSnapshot;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["applyImmediately"] = args ? args.applyImmediately : undefined;
+            resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
+            resourceInputs["engine"] = args ? args.engine : undefined;
+            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
+            resourceInputs["identifier"] = args ? args.identifier : undefined;
+            resourceInputs["identifierPrefix"] = args ? args.identifierPrefix : undefined;
+            resourceInputs["instanceClass"] = args ? args.instanceClass : undefined;
+            resourceInputs["neptuneParameterGroupName"] = args ? args.neptuneParameterGroupName : undefined;
+            resourceInputs["neptuneSubnetGroupName"] = args ? args.neptuneSubnetGroupName : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
+            resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
+            resourceInputs["promotionTier"] = args ? args.promotionTier : undefined;
+            resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["skipFinalSnapshot"] = args ? args.skipFinalSnapshot : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["address"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dbiResourceId"] = undefined /*out*/;

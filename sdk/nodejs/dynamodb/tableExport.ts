@@ -113,75 +113,75 @@ export class TableExport extends pulumi.CustomResource {
     /**
      * ARN of the Table Export.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Billable size of the table export.
      */
-    declare public /*out*/ readonly billedSizeInBytes: pulumi.Output<number>;
+    public /*out*/ readonly billedSizeInBytes!: pulumi.Output<number>;
     /**
      * Time at which the export task completed.
      */
-    declare public /*out*/ readonly endTime: pulumi.Output<string>;
+    public /*out*/ readonly endTime!: pulumi.Output<string>;
     /**
      * Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
      */
-    declare public readonly exportFormat: pulumi.Output<string | undefined>;
+    public readonly exportFormat!: pulumi.Output<string | undefined>;
     /**
      * Status of the export - export can be in one of the following states `IN_PROGRESS`, `COMPLETED`, or `FAILED`.
      */
-    declare public /*out*/ readonly exportStatus: pulumi.Output<string>;
+    public /*out*/ readonly exportStatus!: pulumi.Output<string>;
     /**
      * Time in RFC3339 format from which to export table data. The table export will be a snapshot of the table's state at this point in time. Omitting this value will result in a snapshot from the current time.
      */
-    declare public readonly exportTime: pulumi.Output<string>;
+    public readonly exportTime!: pulumi.Output<string>;
     /**
      * Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incrementalExportSpecification` argument must also be provided.
      * `incrementalExportSpecification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incrementalExportSpecification` Block for details.
      */
-    declare public readonly exportType: pulumi.Output<string>;
-    declare public readonly incrementalExportSpecification: pulumi.Output<outputs.dynamodb.TableExportIncrementalExportSpecification | undefined>;
+    public readonly exportType!: pulumi.Output<string>;
+    public readonly incrementalExportSpecification!: pulumi.Output<outputs.dynamodb.TableExportIncrementalExportSpecification | undefined>;
     /**
      * Number of items exported.
      */
-    declare public /*out*/ readonly itemCount: pulumi.Output<number>;
+    public /*out*/ readonly itemCount!: pulumi.Output<number>;
     /**
      * Name of the manifest file for the export task. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Manifest) for more information on this manifest file.
      */
-    declare public /*out*/ readonly manifestFilesS3Key: pulumi.Output<string>;
+    public /*out*/ readonly manifestFilesS3Key!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Name of the Amazon S3 bucket to export the snapshot to. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport_Requesting.html#S3DataExport_Requesting_Permissions) for information on how configure this S3 bucket.
      */
-    declare public readonly s3Bucket: pulumi.Output<string>;
+    public readonly s3Bucket!: pulumi.Output<string>;
     /**
      * ID of the AWS account that owns the bucket the export will be stored in.
      */
-    declare public readonly s3BucketOwner: pulumi.Output<string>;
+    public readonly s3BucketOwner!: pulumi.Output<string>;
     /**
      * Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
      */
-    declare public readonly s3Prefix: pulumi.Output<string>;
+    public readonly s3Prefix!: pulumi.Output<string>;
     /**
      * Type of encryption used on the bucket where export data will be stored. Valid values are: `AES256`, `KMS`.
      */
-    declare public readonly s3SseAlgorithm: pulumi.Output<string>;
+    public readonly s3SseAlgorithm!: pulumi.Output<string>;
     /**
      * ID of the AWS KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).
      */
-    declare public readonly s3SseKmsKeyId: pulumi.Output<string | undefined>;
+    public readonly s3SseKmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * Time at which the export task began.
      */
-    declare public /*out*/ readonly startTime: pulumi.Output<string>;
+    public /*out*/ readonly startTime!: pulumi.Output<string>;
     /**
      * ARN associated with the table to export.
      *
      * The following arguments are optional:
      */
-    declare public readonly tableArn: pulumi.Output<string>;
+    public readonly tableArn!: pulumi.Output<string>;
 
     /**
      * Create a TableExport resource with the given unique name, arguments, and options.
@@ -196,43 +196,43 @@ export class TableExport extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TableExportState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["billedSizeInBytes"] = state?.billedSizeInBytes;
-            resourceInputs["endTime"] = state?.endTime;
-            resourceInputs["exportFormat"] = state?.exportFormat;
-            resourceInputs["exportStatus"] = state?.exportStatus;
-            resourceInputs["exportTime"] = state?.exportTime;
-            resourceInputs["exportType"] = state?.exportType;
-            resourceInputs["incrementalExportSpecification"] = state?.incrementalExportSpecification;
-            resourceInputs["itemCount"] = state?.itemCount;
-            resourceInputs["manifestFilesS3Key"] = state?.manifestFilesS3Key;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["s3Bucket"] = state?.s3Bucket;
-            resourceInputs["s3BucketOwner"] = state?.s3BucketOwner;
-            resourceInputs["s3Prefix"] = state?.s3Prefix;
-            resourceInputs["s3SseAlgorithm"] = state?.s3SseAlgorithm;
-            resourceInputs["s3SseKmsKeyId"] = state?.s3SseKmsKeyId;
-            resourceInputs["startTime"] = state?.startTime;
-            resourceInputs["tableArn"] = state?.tableArn;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["billedSizeInBytes"] = state ? state.billedSizeInBytes : undefined;
+            resourceInputs["endTime"] = state ? state.endTime : undefined;
+            resourceInputs["exportFormat"] = state ? state.exportFormat : undefined;
+            resourceInputs["exportStatus"] = state ? state.exportStatus : undefined;
+            resourceInputs["exportTime"] = state ? state.exportTime : undefined;
+            resourceInputs["exportType"] = state ? state.exportType : undefined;
+            resourceInputs["incrementalExportSpecification"] = state ? state.incrementalExportSpecification : undefined;
+            resourceInputs["itemCount"] = state ? state.itemCount : undefined;
+            resourceInputs["manifestFilesS3Key"] = state ? state.manifestFilesS3Key : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["s3Bucket"] = state ? state.s3Bucket : undefined;
+            resourceInputs["s3BucketOwner"] = state ? state.s3BucketOwner : undefined;
+            resourceInputs["s3Prefix"] = state ? state.s3Prefix : undefined;
+            resourceInputs["s3SseAlgorithm"] = state ? state.s3SseAlgorithm : undefined;
+            resourceInputs["s3SseKmsKeyId"] = state ? state.s3SseKmsKeyId : undefined;
+            resourceInputs["startTime"] = state ? state.startTime : undefined;
+            resourceInputs["tableArn"] = state ? state.tableArn : undefined;
         } else {
             const args = argsOrState as TableExportArgs | undefined;
-            if (args?.s3Bucket === undefined && !opts.urn) {
+            if ((!args || args.s3Bucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 's3Bucket'");
             }
-            if (args?.tableArn === undefined && !opts.urn) {
+            if ((!args || args.tableArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tableArn'");
             }
-            resourceInputs["exportFormat"] = args?.exportFormat;
-            resourceInputs["exportTime"] = args?.exportTime;
-            resourceInputs["exportType"] = args?.exportType;
-            resourceInputs["incrementalExportSpecification"] = args?.incrementalExportSpecification;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["s3Bucket"] = args?.s3Bucket;
-            resourceInputs["s3BucketOwner"] = args?.s3BucketOwner;
-            resourceInputs["s3Prefix"] = args?.s3Prefix;
-            resourceInputs["s3SseAlgorithm"] = args?.s3SseAlgorithm;
-            resourceInputs["s3SseKmsKeyId"] = args?.s3SseKmsKeyId;
-            resourceInputs["tableArn"] = args?.tableArn;
+            resourceInputs["exportFormat"] = args ? args.exportFormat : undefined;
+            resourceInputs["exportTime"] = args ? args.exportTime : undefined;
+            resourceInputs["exportType"] = args ? args.exportType : undefined;
+            resourceInputs["incrementalExportSpecification"] = args ? args.incrementalExportSpecification : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["s3Bucket"] = args ? args.s3Bucket : undefined;
+            resourceInputs["s3BucketOwner"] = args ? args.s3BucketOwner : undefined;
+            resourceInputs["s3Prefix"] = args ? args.s3Prefix : undefined;
+            resourceInputs["s3SseAlgorithm"] = args ? args.s3SseAlgorithm : undefined;
+            resourceInputs["s3SseKmsKeyId"] = args ? args.s3SseKmsKeyId : undefined;
+            resourceInputs["tableArn"] = args ? args.tableArn : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["billedSizeInBytes"] = undefined /*out*/;
             resourceInputs["endTime"] = undefined /*out*/;

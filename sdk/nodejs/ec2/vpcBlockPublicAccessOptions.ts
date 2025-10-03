@@ -60,20 +60,20 @@ export class VpcBlockPublicAccessOptions extends pulumi.CustomResource {
     /**
      * The AWS account id to which these options apply.
      */
-    declare public /*out*/ readonly awsAccountId: pulumi.Output<string>;
+    public /*out*/ readonly awsAccountId!: pulumi.Output<string>;
     /**
      * The AWS region to which these options apply.
      */
-    declare public /*out*/ readonly awsRegion: pulumi.Output<string>;
+    public /*out*/ readonly awsRegion!: pulumi.Output<string>;
     /**
      * Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
      */
-    declare public readonly internetGatewayBlockMode: pulumi.Output<string>;
+    public readonly internetGatewayBlockMode!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
-    declare public readonly timeouts: pulumi.Output<outputs.ec2.VpcBlockPublicAccessOptionsTimeouts | undefined>;
+    public readonly region!: pulumi.Output<string>;
+    public readonly timeouts!: pulumi.Output<outputs.ec2.VpcBlockPublicAccessOptionsTimeouts | undefined>;
 
     /**
      * Create a VpcBlockPublicAccessOptions resource with the given unique name, arguments, and options.
@@ -88,19 +88,19 @@ export class VpcBlockPublicAccessOptions extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcBlockPublicAccessOptionsState | undefined;
-            resourceInputs["awsAccountId"] = state?.awsAccountId;
-            resourceInputs["awsRegion"] = state?.awsRegion;
-            resourceInputs["internetGatewayBlockMode"] = state?.internetGatewayBlockMode;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
+            resourceInputs["awsRegion"] = state ? state.awsRegion : undefined;
+            resourceInputs["internetGatewayBlockMode"] = state ? state.internetGatewayBlockMode : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as VpcBlockPublicAccessOptionsArgs | undefined;
-            if (args?.internetGatewayBlockMode === undefined && !opts.urn) {
+            if ((!args || args.internetGatewayBlockMode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'internetGatewayBlockMode'");
             }
-            resourceInputs["internetGatewayBlockMode"] = args?.internetGatewayBlockMode;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["internetGatewayBlockMode"] = args ? args.internetGatewayBlockMode : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["awsAccountId"] = undefined /*out*/;
             resourceInputs["awsRegion"] = undefined /*out*/;
         }

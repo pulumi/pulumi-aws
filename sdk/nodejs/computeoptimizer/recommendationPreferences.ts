@@ -93,43 +93,43 @@ export class RecommendationPreferences extends pulumi.CustomResource {
     /**
      * The status of the enhanced infrastructure metrics recommendation preference. Valid values: `Active`, `Inactive`.
      */
-    declare public readonly enhancedInfrastructureMetrics: pulumi.Output<string | undefined>;
+    public readonly enhancedInfrastructureMetrics!: pulumi.Output<string | undefined>;
     /**
      * The provider of the external metrics recommendation preference. See External Metrics Preference below.
      */
-    declare public readonly externalMetricsPreference: pulumi.Output<outputs.computeoptimizer.RecommendationPreferencesExternalMetricsPreference | undefined>;
+    public readonly externalMetricsPreference!: pulumi.Output<outputs.computeoptimizer.RecommendationPreferencesExternalMetricsPreference | undefined>;
     /**
      * The status of the inferred workload types recommendation preference. Valid values: `Active`, `Inactive`.
      */
-    declare public readonly inferredWorkloadTypes: pulumi.Output<string | undefined>;
+    public readonly inferredWorkloadTypes!: pulumi.Output<string | undefined>;
     /**
      * The preference to control the number of days the utilization metrics of the AWS resource are analyzed. Valid values: `DAYS_14`, `DAYS_32`, `DAYS_93`.
      */
-    declare public readonly lookBackPeriod: pulumi.Output<string>;
+    public readonly lookBackPeriod!: pulumi.Output<string>;
     /**
      * The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
      */
-    declare public readonly preferredResources: pulumi.Output<outputs.computeoptimizer.RecommendationPreferencesPreferredResource[] | undefined>;
+    public readonly preferredResources!: pulumi.Output<outputs.computeoptimizer.RecommendationPreferencesPreferredResource[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
      */
-    declare public readonly resourceType: pulumi.Output<string>;
+    public readonly resourceType!: pulumi.Output<string>;
     /**
      * The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
      */
-    declare public readonly savingsEstimationMode: pulumi.Output<string | undefined>;
+    public readonly savingsEstimationMode!: pulumi.Output<string | undefined>;
     /**
      * The scope of the recommendation preferences. See Scope below.
      */
-    declare public readonly scope: pulumi.Output<outputs.computeoptimizer.RecommendationPreferencesScope | undefined>;
+    public readonly scope!: pulumi.Output<outputs.computeoptimizer.RecommendationPreferencesScope | undefined>;
     /**
      * The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. See Utilization Preferences below.
      */
-    declare public readonly utilizationPreferences: pulumi.Output<outputs.computeoptimizer.RecommendationPreferencesUtilizationPreference[] | undefined>;
+    public readonly utilizationPreferences!: pulumi.Output<outputs.computeoptimizer.RecommendationPreferencesUtilizationPreference[] | undefined>;
 
     /**
      * Create a RecommendationPreferences resource with the given unique name, arguments, and options.
@@ -144,31 +144,31 @@ export class RecommendationPreferences extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RecommendationPreferencesState | undefined;
-            resourceInputs["enhancedInfrastructureMetrics"] = state?.enhancedInfrastructureMetrics;
-            resourceInputs["externalMetricsPreference"] = state?.externalMetricsPreference;
-            resourceInputs["inferredWorkloadTypes"] = state?.inferredWorkloadTypes;
-            resourceInputs["lookBackPeriod"] = state?.lookBackPeriod;
-            resourceInputs["preferredResources"] = state?.preferredResources;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceType"] = state?.resourceType;
-            resourceInputs["savingsEstimationMode"] = state?.savingsEstimationMode;
-            resourceInputs["scope"] = state?.scope;
-            resourceInputs["utilizationPreferences"] = state?.utilizationPreferences;
+            resourceInputs["enhancedInfrastructureMetrics"] = state ? state.enhancedInfrastructureMetrics : undefined;
+            resourceInputs["externalMetricsPreference"] = state ? state.externalMetricsPreference : undefined;
+            resourceInputs["inferredWorkloadTypes"] = state ? state.inferredWorkloadTypes : undefined;
+            resourceInputs["lookBackPeriod"] = state ? state.lookBackPeriod : undefined;
+            resourceInputs["preferredResources"] = state ? state.preferredResources : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceType"] = state ? state.resourceType : undefined;
+            resourceInputs["savingsEstimationMode"] = state ? state.savingsEstimationMode : undefined;
+            resourceInputs["scope"] = state ? state.scope : undefined;
+            resourceInputs["utilizationPreferences"] = state ? state.utilizationPreferences : undefined;
         } else {
             const args = argsOrState as RecommendationPreferencesArgs | undefined;
-            if (args?.resourceType === undefined && !opts.urn) {
+            if ((!args || args.resourceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            resourceInputs["enhancedInfrastructureMetrics"] = args?.enhancedInfrastructureMetrics;
-            resourceInputs["externalMetricsPreference"] = args?.externalMetricsPreference;
-            resourceInputs["inferredWorkloadTypes"] = args?.inferredWorkloadTypes;
-            resourceInputs["lookBackPeriod"] = args?.lookBackPeriod;
-            resourceInputs["preferredResources"] = args?.preferredResources;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resourceType"] = args?.resourceType;
-            resourceInputs["savingsEstimationMode"] = args?.savingsEstimationMode;
-            resourceInputs["scope"] = args?.scope;
-            resourceInputs["utilizationPreferences"] = args?.utilizationPreferences;
+            resourceInputs["enhancedInfrastructureMetrics"] = args ? args.enhancedInfrastructureMetrics : undefined;
+            resourceInputs["externalMetricsPreference"] = args ? args.externalMetricsPreference : undefined;
+            resourceInputs["inferredWorkloadTypes"] = args ? args.inferredWorkloadTypes : undefined;
+            resourceInputs["lookBackPeriod"] = args ? args.lookBackPeriod : undefined;
+            resourceInputs["preferredResources"] = args ? args.preferredResources : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
+            resourceInputs["savingsEstimationMode"] = args ? args.savingsEstimationMode : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["utilizationPreferences"] = args ? args.utilizationPreferences : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RecommendationPreferences.__pulumiType, name, resourceInputs, opts);

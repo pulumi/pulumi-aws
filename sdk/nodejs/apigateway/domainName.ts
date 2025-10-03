@@ -134,99 +134,99 @@ export class DomainName extends pulumi.CustomResource {
     /**
      * ARN of domain name.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificateName`, `certificateBody`, `certificateChain`, `certificatePrivateKey`, `regionalCertificateArn`, and `regionalCertificateName`.
      */
-    declare public readonly certificateArn: pulumi.Output<string | undefined>;
+    public readonly certificateArn!: pulumi.Output<string | undefined>;
     /**
      * Certificate issued for the domain name being registered, in PEM format. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`, `regionalCertificateArn`, and `regionalCertificateName`.
      */
-    declare public readonly certificateBody: pulumi.Output<string | undefined>;
+    public readonly certificateBody!: pulumi.Output<string | undefined>;
     /**
      * Certificate for the CA that issued the certificate, along with any intermediate CA certificates required to create an unbroken chain to a certificate trusted by the intended API clients. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`, `regionalCertificateArn`, and `regionalCertificateName`.
      */
-    declare public readonly certificateChain: pulumi.Output<string | undefined>;
+    public readonly certificateChain!: pulumi.Output<string | undefined>;
     /**
      * Unique name to use when registering this certificate as an IAM server certificate. Conflicts with `certificateArn`, `regionalCertificateArn`, and `regionalCertificateName`. Required if `certificateArn` is not set.
      */
-    declare public readonly certificateName: pulumi.Output<string | undefined>;
+    public readonly certificateName!: pulumi.Output<string | undefined>;
     /**
      * Private key associated with the domain certificate given in `certificateBody`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`, `regionalCertificateArn`, and `regionalCertificateName`.
      */
-    declare public readonly certificatePrivateKey: pulumi.Output<string | undefined>;
+    public readonly certificatePrivateKey!: pulumi.Output<string | undefined>;
     /**
      * Upload date associated with the domain certificate.
      */
-    declare public /*out*/ readonly certificateUploadDate: pulumi.Output<string>;
+    public /*out*/ readonly certificateUploadDate!: pulumi.Output<string>;
     /**
      * Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
      */
-    declare public /*out*/ readonly cloudfrontDomainName: pulumi.Output<string>;
+    public /*out*/ readonly cloudfrontDomainName!: pulumi.Output<string>;
     /**
      * For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
      */
-    declare public /*out*/ readonly cloudfrontZoneId: pulumi.Output<string>;
+    public /*out*/ readonly cloudfrontZoneId!: pulumi.Output<string>;
     /**
      * Fully-qualified domain name to register.
      */
-    declare public readonly domainName: pulumi.Output<string>;
+    public readonly domainName!: pulumi.Output<string>;
     /**
      * The identifier for the domain name resource. Supported only for private custom domain names.
      */
-    declare public /*out*/ readonly domainNameId: pulumi.Output<string>;
+    public /*out*/ readonly domainNameId!: pulumi.Output<string>;
     /**
      * Configuration block defining API endpoint information including type. See below.
      */
-    declare public readonly endpointConfiguration: pulumi.Output<outputs.apigateway.DomainNameEndpointConfiguration>;
+    public readonly endpointConfiguration!: pulumi.Output<outputs.apigateway.DomainNameEndpointConfiguration>;
     /**
      * Mutual TLS authentication configuration for the domain name. See below.
      */
-    declare public readonly mutualTlsAuthentication: pulumi.Output<outputs.apigateway.DomainNameMutualTlsAuthentication | undefined>;
+    public readonly mutualTlsAuthentication!: pulumi.Output<outputs.apigateway.DomainNameMutualTlsAuthentication | undefined>;
     /**
      * ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
      */
-    declare public readonly ownershipVerificationCertificateArn: pulumi.Output<string>;
+    public readonly ownershipVerificationCertificateArn!: pulumi.Output<string>;
     /**
      * A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
      */
-    declare public readonly policy: pulumi.Output<string | undefined>;
+    public readonly policy!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
      *
      * When uploading a certificate, the following arguments are supported:
      */
-    declare public readonly regionalCertificateArn: pulumi.Output<string | undefined>;
+    public readonly regionalCertificateArn!: pulumi.Output<string | undefined>;
     /**
      * User-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
      */
-    declare public readonly regionalCertificateName: pulumi.Output<string | undefined>;
+    public readonly regionalCertificateName!: pulumi.Output<string | undefined>;
     /**
      * Hostname for the custom domain's regional endpoint.
      */
-    declare public /*out*/ readonly regionalDomainName: pulumi.Output<string>;
+    public /*out*/ readonly regionalDomainName!: pulumi.Output<string>;
     /**
      * Hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
      */
-    declare public /*out*/ readonly regionalZoneId: pulumi.Output<string>;
+    public /*out*/ readonly regionalZoneId!: pulumi.Output<string>;
     /**
      * Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
      */
-    declare public readonly securityPolicy: pulumi.Output<string>;
+    public readonly securityPolicy!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * When referencing an AWS-managed certificate, the following arguments are supported:
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a DomainName resource with the given unique name, arguments, and options.
@@ -241,49 +241,49 @@ export class DomainName extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainNameState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["certificateArn"] = state?.certificateArn;
-            resourceInputs["certificateBody"] = state?.certificateBody;
-            resourceInputs["certificateChain"] = state?.certificateChain;
-            resourceInputs["certificateName"] = state?.certificateName;
-            resourceInputs["certificatePrivateKey"] = state?.certificatePrivateKey;
-            resourceInputs["certificateUploadDate"] = state?.certificateUploadDate;
-            resourceInputs["cloudfrontDomainName"] = state?.cloudfrontDomainName;
-            resourceInputs["cloudfrontZoneId"] = state?.cloudfrontZoneId;
-            resourceInputs["domainName"] = state?.domainName;
-            resourceInputs["domainNameId"] = state?.domainNameId;
-            resourceInputs["endpointConfiguration"] = state?.endpointConfiguration;
-            resourceInputs["mutualTlsAuthentication"] = state?.mutualTlsAuthentication;
-            resourceInputs["ownershipVerificationCertificateArn"] = state?.ownershipVerificationCertificateArn;
-            resourceInputs["policy"] = state?.policy;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["regionalCertificateArn"] = state?.regionalCertificateArn;
-            resourceInputs["regionalCertificateName"] = state?.regionalCertificateName;
-            resourceInputs["regionalDomainName"] = state?.regionalDomainName;
-            resourceInputs["regionalZoneId"] = state?.regionalZoneId;
-            resourceInputs["securityPolicy"] = state?.securityPolicy;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["certificateArn"] = state ? state.certificateArn : undefined;
+            resourceInputs["certificateBody"] = state ? state.certificateBody : undefined;
+            resourceInputs["certificateChain"] = state ? state.certificateChain : undefined;
+            resourceInputs["certificateName"] = state ? state.certificateName : undefined;
+            resourceInputs["certificatePrivateKey"] = state ? state.certificatePrivateKey : undefined;
+            resourceInputs["certificateUploadDate"] = state ? state.certificateUploadDate : undefined;
+            resourceInputs["cloudfrontDomainName"] = state ? state.cloudfrontDomainName : undefined;
+            resourceInputs["cloudfrontZoneId"] = state ? state.cloudfrontZoneId : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["domainNameId"] = state ? state.domainNameId : undefined;
+            resourceInputs["endpointConfiguration"] = state ? state.endpointConfiguration : undefined;
+            resourceInputs["mutualTlsAuthentication"] = state ? state.mutualTlsAuthentication : undefined;
+            resourceInputs["ownershipVerificationCertificateArn"] = state ? state.ownershipVerificationCertificateArn : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["regionalCertificateArn"] = state ? state.regionalCertificateArn : undefined;
+            resourceInputs["regionalCertificateName"] = state ? state.regionalCertificateName : undefined;
+            resourceInputs["regionalDomainName"] = state ? state.regionalDomainName : undefined;
+            resourceInputs["regionalZoneId"] = state ? state.regionalZoneId : undefined;
+            resourceInputs["securityPolicy"] = state ? state.securityPolicy : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as DomainNameArgs | undefined;
-            if (args?.domainName === undefined && !opts.urn) {
+            if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            resourceInputs["certificateArn"] = args?.certificateArn;
-            resourceInputs["certificateBody"] = args?.certificateBody;
-            resourceInputs["certificateChain"] = args?.certificateChain;
-            resourceInputs["certificateName"] = args?.certificateName;
+            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
+            resourceInputs["certificateBody"] = args ? args.certificateBody : undefined;
+            resourceInputs["certificateChain"] = args ? args.certificateChain : undefined;
+            resourceInputs["certificateName"] = args ? args.certificateName : undefined;
             resourceInputs["certificatePrivateKey"] = args?.certificatePrivateKey ? pulumi.secret(args.certificatePrivateKey) : undefined;
-            resourceInputs["domainName"] = args?.domainName;
-            resourceInputs["endpointConfiguration"] = args?.endpointConfiguration;
-            resourceInputs["mutualTlsAuthentication"] = args?.mutualTlsAuthentication;
-            resourceInputs["ownershipVerificationCertificateArn"] = args?.ownershipVerificationCertificateArn;
-            resourceInputs["policy"] = args?.policy;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["regionalCertificateArn"] = args?.regionalCertificateArn;
-            resourceInputs["regionalCertificateName"] = args?.regionalCertificateName;
-            resourceInputs["securityPolicy"] = args?.securityPolicy;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["endpointConfiguration"] = args ? args.endpointConfiguration : undefined;
+            resourceInputs["mutualTlsAuthentication"] = args ? args.mutualTlsAuthentication : undefined;
+            resourceInputs["ownershipVerificationCertificateArn"] = args ? args.ownershipVerificationCertificateArn : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["regionalCertificateArn"] = args ? args.regionalCertificateArn : undefined;
+            resourceInputs["regionalCertificateName"] = args ? args.regionalCertificateName : undefined;
+            resourceInputs["securityPolicy"] = args ? args.securityPolicy : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["certificateUploadDate"] = undefined /*out*/;
             resourceInputs["cloudfrontDomainName"] = undefined /*out*/;

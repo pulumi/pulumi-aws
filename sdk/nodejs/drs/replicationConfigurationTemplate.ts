@@ -97,78 +97,78 @@ export class ReplicationConfigurationTemplate extends pulumi.CustomResource {
     /**
      * Replication configuration template ARN.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template.
      */
-    declare public readonly associateDefaultSecurityGroup: pulumi.Output<boolean>;
+    public readonly associateDefaultSecurityGroup!: pulumi.Output<boolean>;
     /**
      * Whether to allow the AWS replication agent to automatically replicate newly added disks.
      */
-    declare public readonly autoReplicateNewDisks: pulumi.Output<boolean>;
+    public readonly autoReplicateNewDisks!: pulumi.Output<boolean>;
     /**
      * Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.
      */
-    declare public readonly bandwidthThrottling: pulumi.Output<number>;
+    public readonly bandwidthThrottling!: pulumi.Output<number>;
     /**
      * Whether to create a Public IP for the Recovery Instance by default.
      */
-    declare public readonly createPublicIp: pulumi.Output<boolean>;
+    public readonly createPublicIp!: pulumi.Output<boolean>;
     /**
      * Data plane routing mechanism that will be used for replication. Valid values are `PUBLIC_IP` and `PRIVATE_IP`.
      */
-    declare public readonly dataPlaneRouting: pulumi.Output<string>;
+    public readonly dataPlaneRouting!: pulumi.Output<string>;
     /**
      * Staging Disk EBS volume type to be used during replication. Valid values are `GP2`, `GP3`, `ST1`, or `AUTO`.
      */
-    declare public readonly defaultLargeStagingDiskType: pulumi.Output<string>;
+    public readonly defaultLargeStagingDiskType!: pulumi.Output<string>;
     /**
      * Type of EBS encryption to be used during replication. Valid values are `DEFAULT` and `CUSTOM`.
      */
-    declare public readonly ebsEncryption: pulumi.Output<string>;
+    public readonly ebsEncryption!: pulumi.Output<string>;
     /**
      * ARN of the EBS encryption key to be used during replication.
      */
-    declare public readonly ebsEncryptionKeyArn: pulumi.Output<string | undefined>;
+    public readonly ebsEncryptionKeyArn!: pulumi.Output<string | undefined>;
     /**
      * Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
      */
-    declare public readonly pitPolicies: pulumi.Output<outputs.drs.ReplicationConfigurationTemplatePitPolicy[] | undefined>;
+    public readonly pitPolicies!: pulumi.Output<outputs.drs.ReplicationConfigurationTemplatePitPolicy[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Instance type to be used for the replication server.
      */
-    declare public readonly replicationServerInstanceType: pulumi.Output<string>;
+    public readonly replicationServerInstanceType!: pulumi.Output<string>;
     /**
      * Security group IDs that will be used by the replication server.
      */
-    declare public readonly replicationServersSecurityGroupsIds: pulumi.Output<string[]>;
+    public readonly replicationServersSecurityGroupsIds!: pulumi.Output<string[]>;
     /**
      * Subnet to be used by the replication staging area.
      */
-    declare public readonly stagingAreaSubnetId: pulumi.Output<string>;
+    public readonly stagingAreaSubnetId!: pulumi.Output<string>;
     /**
      * Set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
      */
-    declare public readonly stagingAreaTags: pulumi.Output<{[key: string]: string}>;
+    public readonly stagingAreaTags!: pulumi.Output<{[key: string]: string}>;
     /**
      * Set of tags to be associated with the Replication Configuration Template resource.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public readonly timeouts: pulumi.Output<outputs.drs.ReplicationConfigurationTemplateTimeouts | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly timeouts!: pulumi.Output<outputs.drs.ReplicationConfigurationTemplateTimeouts | undefined>;
     /**
      * Whether to use a dedicated Replication Server in the replication staging area.
      *
      * The following arguments are optional:
      */
-    declare public readonly useDedicatedReplicationServer: pulumi.Output<boolean>;
+    public readonly useDedicatedReplicationServer!: pulumi.Output<boolean>;
 
     /**
      * Create a ReplicationConfigurationTemplate resource with the given unique name, arguments, and options.
@@ -183,77 +183,77 @@ export class ReplicationConfigurationTemplate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReplicationConfigurationTemplateState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["associateDefaultSecurityGroup"] = state?.associateDefaultSecurityGroup;
-            resourceInputs["autoReplicateNewDisks"] = state?.autoReplicateNewDisks;
-            resourceInputs["bandwidthThrottling"] = state?.bandwidthThrottling;
-            resourceInputs["createPublicIp"] = state?.createPublicIp;
-            resourceInputs["dataPlaneRouting"] = state?.dataPlaneRouting;
-            resourceInputs["defaultLargeStagingDiskType"] = state?.defaultLargeStagingDiskType;
-            resourceInputs["ebsEncryption"] = state?.ebsEncryption;
-            resourceInputs["ebsEncryptionKeyArn"] = state?.ebsEncryptionKeyArn;
-            resourceInputs["pitPolicies"] = state?.pitPolicies;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["replicationServerInstanceType"] = state?.replicationServerInstanceType;
-            resourceInputs["replicationServersSecurityGroupsIds"] = state?.replicationServersSecurityGroupsIds;
-            resourceInputs["stagingAreaSubnetId"] = state?.stagingAreaSubnetId;
-            resourceInputs["stagingAreaTags"] = state?.stagingAreaTags;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timeouts"] = state?.timeouts;
-            resourceInputs["useDedicatedReplicationServer"] = state?.useDedicatedReplicationServer;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["associateDefaultSecurityGroup"] = state ? state.associateDefaultSecurityGroup : undefined;
+            resourceInputs["autoReplicateNewDisks"] = state ? state.autoReplicateNewDisks : undefined;
+            resourceInputs["bandwidthThrottling"] = state ? state.bandwidthThrottling : undefined;
+            resourceInputs["createPublicIp"] = state ? state.createPublicIp : undefined;
+            resourceInputs["dataPlaneRouting"] = state ? state.dataPlaneRouting : undefined;
+            resourceInputs["defaultLargeStagingDiskType"] = state ? state.defaultLargeStagingDiskType : undefined;
+            resourceInputs["ebsEncryption"] = state ? state.ebsEncryption : undefined;
+            resourceInputs["ebsEncryptionKeyArn"] = state ? state.ebsEncryptionKeyArn : undefined;
+            resourceInputs["pitPolicies"] = state ? state.pitPolicies : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["replicationServerInstanceType"] = state ? state.replicationServerInstanceType : undefined;
+            resourceInputs["replicationServersSecurityGroupsIds"] = state ? state.replicationServersSecurityGroupsIds : undefined;
+            resourceInputs["stagingAreaSubnetId"] = state ? state.stagingAreaSubnetId : undefined;
+            resourceInputs["stagingAreaTags"] = state ? state.stagingAreaTags : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["useDedicatedReplicationServer"] = state ? state.useDedicatedReplicationServer : undefined;
         } else {
             const args = argsOrState as ReplicationConfigurationTemplateArgs | undefined;
-            if (args?.associateDefaultSecurityGroup === undefined && !opts.urn) {
+            if ((!args || args.associateDefaultSecurityGroup === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'associateDefaultSecurityGroup'");
             }
-            if (args?.bandwidthThrottling === undefined && !opts.urn) {
+            if ((!args || args.bandwidthThrottling === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bandwidthThrottling'");
             }
-            if (args?.createPublicIp === undefined && !opts.urn) {
+            if ((!args || args.createPublicIp === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'createPublicIp'");
             }
-            if (args?.dataPlaneRouting === undefined && !opts.urn) {
+            if ((!args || args.dataPlaneRouting === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataPlaneRouting'");
             }
-            if (args?.defaultLargeStagingDiskType === undefined && !opts.urn) {
+            if ((!args || args.defaultLargeStagingDiskType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'defaultLargeStagingDiskType'");
             }
-            if (args?.ebsEncryption === undefined && !opts.urn) {
+            if ((!args || args.ebsEncryption === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ebsEncryption'");
             }
-            if (args?.replicationServerInstanceType === undefined && !opts.urn) {
+            if ((!args || args.replicationServerInstanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'replicationServerInstanceType'");
             }
-            if (args?.replicationServersSecurityGroupsIds === undefined && !opts.urn) {
+            if ((!args || args.replicationServersSecurityGroupsIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'replicationServersSecurityGroupsIds'");
             }
-            if (args?.stagingAreaSubnetId === undefined && !opts.urn) {
+            if ((!args || args.stagingAreaSubnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stagingAreaSubnetId'");
             }
-            if (args?.stagingAreaTags === undefined && !opts.urn) {
+            if ((!args || args.stagingAreaTags === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stagingAreaTags'");
             }
-            if (args?.useDedicatedReplicationServer === undefined && !opts.urn) {
+            if ((!args || args.useDedicatedReplicationServer === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'useDedicatedReplicationServer'");
             }
-            resourceInputs["associateDefaultSecurityGroup"] = args?.associateDefaultSecurityGroup;
-            resourceInputs["autoReplicateNewDisks"] = args?.autoReplicateNewDisks;
-            resourceInputs["bandwidthThrottling"] = args?.bandwidthThrottling;
-            resourceInputs["createPublicIp"] = args?.createPublicIp;
-            resourceInputs["dataPlaneRouting"] = args?.dataPlaneRouting;
-            resourceInputs["defaultLargeStagingDiskType"] = args?.defaultLargeStagingDiskType;
-            resourceInputs["ebsEncryption"] = args?.ebsEncryption;
-            resourceInputs["ebsEncryptionKeyArn"] = args?.ebsEncryptionKeyArn;
-            resourceInputs["pitPolicies"] = args?.pitPolicies;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["replicationServerInstanceType"] = args?.replicationServerInstanceType;
-            resourceInputs["replicationServersSecurityGroupsIds"] = args?.replicationServersSecurityGroupsIds;
-            resourceInputs["stagingAreaSubnetId"] = args?.stagingAreaSubnetId;
-            resourceInputs["stagingAreaTags"] = args?.stagingAreaTags;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timeouts"] = args?.timeouts;
-            resourceInputs["useDedicatedReplicationServer"] = args?.useDedicatedReplicationServer;
+            resourceInputs["associateDefaultSecurityGroup"] = args ? args.associateDefaultSecurityGroup : undefined;
+            resourceInputs["autoReplicateNewDisks"] = args ? args.autoReplicateNewDisks : undefined;
+            resourceInputs["bandwidthThrottling"] = args ? args.bandwidthThrottling : undefined;
+            resourceInputs["createPublicIp"] = args ? args.createPublicIp : undefined;
+            resourceInputs["dataPlaneRouting"] = args ? args.dataPlaneRouting : undefined;
+            resourceInputs["defaultLargeStagingDiskType"] = args ? args.defaultLargeStagingDiskType : undefined;
+            resourceInputs["ebsEncryption"] = args ? args.ebsEncryption : undefined;
+            resourceInputs["ebsEncryptionKeyArn"] = args ? args.ebsEncryptionKeyArn : undefined;
+            resourceInputs["pitPolicies"] = args ? args.pitPolicies : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["replicationServerInstanceType"] = args ? args.replicationServerInstanceType : undefined;
+            resourceInputs["replicationServersSecurityGroupsIds"] = args ? args.replicationServersSecurityGroupsIds : undefined;
+            resourceInputs["stagingAreaSubnetId"] = args ? args.stagingAreaSubnetId : undefined;
+            resourceInputs["stagingAreaTags"] = args ? args.stagingAreaTags : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["useDedicatedReplicationServer"] = args ? args.useDedicatedReplicationServer : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

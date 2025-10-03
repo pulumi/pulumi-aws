@@ -55,25 +55,25 @@ export class RoleCustomPermission extends pulumi.CustomResource {
         return obj['__pulumiType'] === RoleCustomPermission.__pulumiType;
     }
 
-    declare public readonly awsAccountId: pulumi.Output<string>;
+    public readonly awsAccountId!: pulumi.Output<string>;
     /**
      * Custom permissions profile name.
      */
-    declare public readonly customPermissionsName: pulumi.Output<string>;
+    public readonly customPermissionsName!: pulumi.Output<string>;
     /**
      * Namespace containing the role. Defaults to `default`.
      */
-    declare public readonly namespace: pulumi.Output<string>;
+    public readonly namespace!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Role. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
      *
      * The following arguments are optional:
      */
-    declare public readonly role: pulumi.Output<string>;
+    public readonly role!: pulumi.Output<string>;
 
     /**
      * Create a RoleCustomPermission resource with the given unique name, arguments, and options.
@@ -88,24 +88,24 @@ export class RoleCustomPermission extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RoleCustomPermissionState | undefined;
-            resourceInputs["awsAccountId"] = state?.awsAccountId;
-            resourceInputs["customPermissionsName"] = state?.customPermissionsName;
-            resourceInputs["namespace"] = state?.namespace;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["role"] = state?.role;
+            resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
+            resourceInputs["customPermissionsName"] = state ? state.customPermissionsName : undefined;
+            resourceInputs["namespace"] = state ? state.namespace : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["role"] = state ? state.role : undefined;
         } else {
             const args = argsOrState as RoleCustomPermissionArgs | undefined;
-            if (args?.customPermissionsName === undefined && !opts.urn) {
+            if ((!args || args.customPermissionsName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'customPermissionsName'");
             }
-            if (args?.role === undefined && !opts.urn) {
+            if ((!args || args.role === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
-            resourceInputs["awsAccountId"] = args?.awsAccountId;
-            resourceInputs["customPermissionsName"] = args?.customPermissionsName;
-            resourceInputs["namespace"] = args?.namespace;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["role"] = args?.role;
+            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
+            resourceInputs["customPermissionsName"] = args ? args.customPermissionsName : undefined;
+            resourceInputs["namespace"] = args ? args.namespace : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["role"] = args ? args.role : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RoleCustomPermission.__pulumiType, name, resourceInputs, opts);

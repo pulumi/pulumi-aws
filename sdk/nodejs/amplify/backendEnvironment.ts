@@ -61,27 +61,27 @@ export class BackendEnvironment extends pulumi.CustomResource {
     /**
      * Unique ID for an Amplify app.
      */
-    declare public readonly appId: pulumi.Output<string>;
+    public readonly appId!: pulumi.Output<string>;
     /**
      * ARN for a backend environment that is part of an Amplify app.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Name of deployment artifacts.
      */
-    declare public readonly deploymentArtifacts: pulumi.Output<string>;
+    public readonly deploymentArtifacts!: pulumi.Output<string>;
     /**
      * Name for the backend environment.
      */
-    declare public readonly environmentName: pulumi.Output<string>;
+    public readonly environmentName!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * AWS CloudFormation stack name of a backend environment.
      */
-    declare public readonly stackName: pulumi.Output<string>;
+    public readonly stackName!: pulumi.Output<string>;
 
     /**
      * Create a BackendEnvironment resource with the given unique name, arguments, and options.
@@ -96,25 +96,25 @@ export class BackendEnvironment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BackendEnvironmentState | undefined;
-            resourceInputs["appId"] = state?.appId;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["deploymentArtifacts"] = state?.deploymentArtifacts;
-            resourceInputs["environmentName"] = state?.environmentName;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["stackName"] = state?.stackName;
+            resourceInputs["appId"] = state ? state.appId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["deploymentArtifacts"] = state ? state.deploymentArtifacts : undefined;
+            resourceInputs["environmentName"] = state ? state.environmentName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["stackName"] = state ? state.stackName : undefined;
         } else {
             const args = argsOrState as BackendEnvironmentArgs | undefined;
-            if (args?.appId === undefined && !opts.urn) {
+            if ((!args || args.appId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'appId'");
             }
-            if (args?.environmentName === undefined && !opts.urn) {
+            if ((!args || args.environmentName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'environmentName'");
             }
-            resourceInputs["appId"] = args?.appId;
-            resourceInputs["deploymentArtifacts"] = args?.deploymentArtifacts;
-            resourceInputs["environmentName"] = args?.environmentName;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["stackName"] = args?.stackName;
+            resourceInputs["appId"] = args ? args.appId : undefined;
+            resourceInputs["deploymentArtifacts"] = args ? args.deploymentArtifacts : undefined;
+            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["stackName"] = args ? args.stackName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

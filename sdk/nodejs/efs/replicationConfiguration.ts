@@ -102,31 +102,31 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
      * * `destination[0].file_system_id` - The fs ID of the replica.
      * * `destination[0].status` - The status of the replication.
      */
-    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
     /**
      * A destination configuration block (documented below).
      */
-    declare public readonly destination: pulumi.Output<outputs.efs.ReplicationConfigurationDestination>;
+    public readonly destination!: pulumi.Output<outputs.efs.ReplicationConfigurationDestination>;
     /**
      * The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
      */
-    declare public /*out*/ readonly originalSourceFileSystemArn: pulumi.Output<string>;
+    public /*out*/ readonly originalSourceFileSystemArn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
      */
-    declare public /*out*/ readonly sourceFileSystemArn: pulumi.Output<string>;
+    public /*out*/ readonly sourceFileSystemArn!: pulumi.Output<string>;
     /**
      * The ID of the file system that is to be replicated.
      */
-    declare public readonly sourceFileSystemId: pulumi.Output<string>;
+    public readonly sourceFileSystemId!: pulumi.Output<string>;
     /**
      * The AWS Region in which the source Amazon EFS file system is located.
      */
-    declare public /*out*/ readonly sourceFileSystemRegion: pulumi.Output<string>;
+    public /*out*/ readonly sourceFileSystemRegion!: pulumi.Output<string>;
 
     /**
      * Create a ReplicationConfiguration resource with the given unique name, arguments, and options.
@@ -141,24 +141,24 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReplicationConfigurationState | undefined;
-            resourceInputs["creationTime"] = state?.creationTime;
-            resourceInputs["destination"] = state?.destination;
-            resourceInputs["originalSourceFileSystemArn"] = state?.originalSourceFileSystemArn;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["sourceFileSystemArn"] = state?.sourceFileSystemArn;
-            resourceInputs["sourceFileSystemId"] = state?.sourceFileSystemId;
-            resourceInputs["sourceFileSystemRegion"] = state?.sourceFileSystemRegion;
+            resourceInputs["creationTime"] = state ? state.creationTime : undefined;
+            resourceInputs["destination"] = state ? state.destination : undefined;
+            resourceInputs["originalSourceFileSystemArn"] = state ? state.originalSourceFileSystemArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["sourceFileSystemArn"] = state ? state.sourceFileSystemArn : undefined;
+            resourceInputs["sourceFileSystemId"] = state ? state.sourceFileSystemId : undefined;
+            resourceInputs["sourceFileSystemRegion"] = state ? state.sourceFileSystemRegion : undefined;
         } else {
             const args = argsOrState as ReplicationConfigurationArgs | undefined;
-            if (args?.destination === undefined && !opts.urn) {
+            if ((!args || args.destination === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destination'");
             }
-            if (args?.sourceFileSystemId === undefined && !opts.urn) {
+            if ((!args || args.sourceFileSystemId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceFileSystemId'");
             }
-            resourceInputs["destination"] = args?.destination;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["sourceFileSystemId"] = args?.sourceFileSystemId;
+            resourceInputs["destination"] = args ? args.destination : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["sourceFileSystemId"] = args ? args.sourceFileSystemId : undefined;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["originalSourceFileSystemArn"] = undefined /*out*/;
             resourceInputs["sourceFileSystemArn"] = undefined /*out*/;

@@ -74,19 +74,19 @@ export class ApplicationAssignment extends pulumi.CustomResource {
     /**
      * ARN of the application.
      */
-    declare public readonly applicationArn: pulumi.Output<string>;
+    public readonly applicationArn!: pulumi.Output<string>;
     /**
      * An identifier for an object in IAM Identity Center, such as a user or group.
      */
-    declare public readonly principalId: pulumi.Output<string>;
+    public readonly principalId!: pulumi.Output<string>;
     /**
      * Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
      */
-    declare public readonly principalType: pulumi.Output<string>;
+    public readonly principalType!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ApplicationAssignment resource with the given unique name, arguments, and options.
@@ -101,25 +101,25 @@ export class ApplicationAssignment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationAssignmentState | undefined;
-            resourceInputs["applicationArn"] = state?.applicationArn;
-            resourceInputs["principalId"] = state?.principalId;
-            resourceInputs["principalType"] = state?.principalType;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["applicationArn"] = state ? state.applicationArn : undefined;
+            resourceInputs["principalId"] = state ? state.principalId : undefined;
+            resourceInputs["principalType"] = state ? state.principalType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ApplicationAssignmentArgs | undefined;
-            if (args?.applicationArn === undefined && !opts.urn) {
+            if ((!args || args.applicationArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationArn'");
             }
-            if (args?.principalId === undefined && !opts.urn) {
+            if ((!args || args.principalId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principalId'");
             }
-            if (args?.principalType === undefined && !opts.urn) {
+            if ((!args || args.principalType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principalType'");
             }
-            resourceInputs["applicationArn"] = args?.applicationArn;
-            resourceInputs["principalId"] = args?.principalId;
-            resourceInputs["principalType"] = args?.principalType;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["applicationArn"] = args ? args.applicationArn : undefined;
+            resourceInputs["principalId"] = args ? args.principalId : undefined;
+            resourceInputs["principalType"] = args ? args.principalType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ApplicationAssignment.__pulumiType, name, resourceInputs, opts);

@@ -208,80 +208,80 @@ export class Budget extends pulumi.CustomResource {
     /**
      * The ID of the target account for budget. Will use current user's accountId by default if omitted.
      */
-    declare public readonly accountId: pulumi.Output<string>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * The ARN of the budget.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
      */
-    declare public readonly autoAdjustData: pulumi.Output<outputs.budgets.BudgetAutoAdjustData | undefined>;
+    public readonly autoAdjustData!: pulumi.Output<outputs.budgets.BudgetAutoAdjustData | undefined>;
     /**
      * ARN of the billing view.
      */
-    declare public readonly billingViewArn: pulumi.Output<string | undefined>;
+    public readonly billingViewArn!: pulumi.Output<string | undefined>;
     /**
      * Whether this budget tracks monetary cost or usage.
      */
-    declare public readonly budgetType: pulumi.Output<string>;
+    public readonly budgetType!: pulumi.Output<string>;
     /**
      * A list of CostFilter name/values pair to apply to budget.
      */
-    declare public readonly costFilters: pulumi.Output<outputs.budgets.BudgetCostFilter[]>;
+    public readonly costFilters!: pulumi.Output<outputs.budgets.BudgetCostFilter[]>;
     /**
      * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
      */
-    declare public readonly costTypes: pulumi.Output<outputs.budgets.BudgetCostTypes>;
+    public readonly costTypes!: pulumi.Output<outputs.budgets.BudgetCostTypes>;
     /**
      * The amount of cost or usage being measured for a budget.
      */
-    declare public readonly limitAmount: pulumi.Output<string>;
+    public readonly limitAmount!: pulumi.Output<string>;
     /**
      * The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
      */
-    declare public readonly limitUnit: pulumi.Output<string>;
+    public readonly limitUnit!: pulumi.Output<string>;
     /**
      * The name of a budget. Unique within accounts.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The prefix of the name of a budget. Unique within accounts.
      */
-    declare public readonly namePrefix: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string>;
     /**
      * Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
      */
-    declare public readonly notifications: pulumi.Output<outputs.budgets.BudgetNotification[] | undefined>;
+    public readonly notifications!: pulumi.Output<outputs.budgets.BudgetNotification[] | undefined>;
     /**
      * Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
      */
-    declare public readonly plannedLimits: pulumi.Output<outputs.budgets.BudgetPlannedLimit[] | undefined>;
+    public readonly plannedLimits!: pulumi.Output<outputs.budgets.BudgetPlannedLimit[] | undefined>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      */
-    declare public readonly timePeriodEnd: pulumi.Output<string | undefined>;
+    public readonly timePeriodEnd!: pulumi.Output<string | undefined>;
     /**
      * The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
      *
      * For more detailed documentation about each argument, refer to the [AWS official
      * documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
      */
-    declare public readonly timePeriodStart: pulumi.Output<string>;
+    public readonly timePeriodStart!: pulumi.Output<string>;
     /**
      * The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
      *
      * The following arguments are optional:
      */
-    declare public readonly timeUnit: pulumi.Output<string>;
+    public readonly timeUnit!: pulumi.Output<string>;
 
     /**
      * Create a Budget resource with the given unique name, arguments, and options.
@@ -296,48 +296,48 @@ export class Budget extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BudgetState | undefined;
-            resourceInputs["accountId"] = state?.accountId;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["autoAdjustData"] = state?.autoAdjustData;
-            resourceInputs["billingViewArn"] = state?.billingViewArn;
-            resourceInputs["budgetType"] = state?.budgetType;
-            resourceInputs["costFilters"] = state?.costFilters;
-            resourceInputs["costTypes"] = state?.costTypes;
-            resourceInputs["limitAmount"] = state?.limitAmount;
-            resourceInputs["limitUnit"] = state?.limitUnit;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["namePrefix"] = state?.namePrefix;
-            resourceInputs["notifications"] = state?.notifications;
-            resourceInputs["plannedLimits"] = state?.plannedLimits;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timePeriodEnd"] = state?.timePeriodEnd;
-            resourceInputs["timePeriodStart"] = state?.timePeriodStart;
-            resourceInputs["timeUnit"] = state?.timeUnit;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["autoAdjustData"] = state ? state.autoAdjustData : undefined;
+            resourceInputs["billingViewArn"] = state ? state.billingViewArn : undefined;
+            resourceInputs["budgetType"] = state ? state.budgetType : undefined;
+            resourceInputs["costFilters"] = state ? state.costFilters : undefined;
+            resourceInputs["costTypes"] = state ? state.costTypes : undefined;
+            resourceInputs["limitAmount"] = state ? state.limitAmount : undefined;
+            resourceInputs["limitUnit"] = state ? state.limitUnit : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["notifications"] = state ? state.notifications : undefined;
+            resourceInputs["plannedLimits"] = state ? state.plannedLimits : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timePeriodEnd"] = state ? state.timePeriodEnd : undefined;
+            resourceInputs["timePeriodStart"] = state ? state.timePeriodStart : undefined;
+            resourceInputs["timeUnit"] = state ? state.timeUnit : undefined;
         } else {
             const args = argsOrState as BudgetArgs | undefined;
-            if (args?.budgetType === undefined && !opts.urn) {
+            if ((!args || args.budgetType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'budgetType'");
             }
-            if (args?.timeUnit === undefined && !opts.urn) {
+            if ((!args || args.timeUnit === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'timeUnit'");
             }
-            resourceInputs["accountId"] = args?.accountId;
-            resourceInputs["autoAdjustData"] = args?.autoAdjustData;
-            resourceInputs["billingViewArn"] = args?.billingViewArn;
-            resourceInputs["budgetType"] = args?.budgetType;
-            resourceInputs["costFilters"] = args?.costFilters;
-            resourceInputs["costTypes"] = args?.costTypes;
-            resourceInputs["limitAmount"] = args?.limitAmount;
-            resourceInputs["limitUnit"] = args?.limitUnit;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["namePrefix"] = args?.namePrefix;
-            resourceInputs["notifications"] = args?.notifications;
-            resourceInputs["plannedLimits"] = args?.plannedLimits;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timePeriodEnd"] = args?.timePeriodEnd;
-            resourceInputs["timePeriodStart"] = args?.timePeriodStart;
-            resourceInputs["timeUnit"] = args?.timeUnit;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["autoAdjustData"] = args ? args.autoAdjustData : undefined;
+            resourceInputs["billingViewArn"] = args ? args.billingViewArn : undefined;
+            resourceInputs["budgetType"] = args ? args.budgetType : undefined;
+            resourceInputs["costFilters"] = args ? args.costFilters : undefined;
+            resourceInputs["costTypes"] = args ? args.costTypes : undefined;
+            resourceInputs["limitAmount"] = args ? args.limitAmount : undefined;
+            resourceInputs["limitUnit"] = args ? args.limitUnit : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["notifications"] = args ? args.notifications : undefined;
+            resourceInputs["plannedLimits"] = args ? args.plannedLimits : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timePeriodEnd"] = args ? args.timePeriodEnd : undefined;
+            resourceInputs["timePeriodStart"] = args ? args.timePeriodStart : undefined;
+            resourceInputs["timeUnit"] = args ? args.timeUnit : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

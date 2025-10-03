@@ -82,15 +82,15 @@ export class VoiceConnectorTerminationCredentials extends pulumi.CustomResource 
     /**
      * List of termination SIP credentials.
      */
-    declare public readonly credentials: pulumi.Output<outputs.chime.VoiceConnectorTerminationCredentialsCredential[]>;
+    public readonly credentials!: pulumi.Output<outputs.chime.VoiceConnectorTerminationCredentialsCredential[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Amazon Chime Voice Connector ID.
      */
-    declare public readonly voiceConnectorId: pulumi.Output<string>;
+    public readonly voiceConnectorId!: pulumi.Output<string>;
 
     /**
      * Create a VoiceConnectorTerminationCredentials resource with the given unique name, arguments, and options.
@@ -105,20 +105,20 @@ export class VoiceConnectorTerminationCredentials extends pulumi.CustomResource 
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VoiceConnectorTerminationCredentialsState | undefined;
-            resourceInputs["credentials"] = state?.credentials;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["voiceConnectorId"] = state?.voiceConnectorId;
+            resourceInputs["credentials"] = state ? state.credentials : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["voiceConnectorId"] = state ? state.voiceConnectorId : undefined;
         } else {
             const args = argsOrState as VoiceConnectorTerminationCredentialsArgs | undefined;
-            if (args?.credentials === undefined && !opts.urn) {
+            if ((!args || args.credentials === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'credentials'");
             }
-            if (args?.voiceConnectorId === undefined && !opts.urn) {
+            if ((!args || args.voiceConnectorId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'voiceConnectorId'");
             }
-            resourceInputs["credentials"] = args?.credentials;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["voiceConnectorId"] = args?.voiceConnectorId;
+            resourceInputs["credentials"] = args ? args.credentials : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["voiceConnectorId"] = args ? args.voiceConnectorId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VoiceConnectorTerminationCredentials.__pulumiType, name, resourceInputs, opts);

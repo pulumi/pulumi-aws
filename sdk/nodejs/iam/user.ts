@@ -76,37 +76,37 @@ export class User extends pulumi.CustomResource {
     /**
      * The ARN assigned by AWS for this user.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * When destroying this user, destroy even if it
      * has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
      * a user with non-provider-managed access keys and login profile will fail to be destroyed.
      */
-    declare public readonly forceDestroy: pulumi.Output<boolean | undefined>;
+    public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
     /**
      * The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Path in which to create the user.
      */
-    declare public readonly path: pulumi.Output<string | undefined>;
+    public readonly path!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the policy that is used to set the permissions boundary for the user.
      */
-    declare public readonly permissionsBoundary: pulumi.Output<string | undefined>;
+    public readonly permissionsBoundary!: pulumi.Output<string | undefined>;
     /**
      * Key-value mapping of tags for the IAM user. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The [unique ID][1] assigned by AWS.
      */
-    declare public /*out*/ readonly uniqueId: pulumi.Output<string>;
+    public /*out*/ readonly uniqueId!: pulumi.Output<string>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -121,21 +121,21 @@ export class User extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["forceDestroy"] = state?.forceDestroy;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["path"] = state?.path;
-            resourceInputs["permissionsBoundary"] = state?.permissionsBoundary;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["uniqueId"] = state?.uniqueId;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["path"] = state ? state.path : undefined;
+            resourceInputs["permissionsBoundary"] = state ? state.permissionsBoundary : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["uniqueId"] = state ? state.uniqueId : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
-            resourceInputs["forceDestroy"] = args?.forceDestroy;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["path"] = args?.path;
-            resourceInputs["permissionsBoundary"] = args?.permissionsBoundary;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["path"] = args ? args.path : undefined;
+            resourceInputs["permissionsBoundary"] = args ? args.permissionsBoundary : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["uniqueId"] = undefined /*out*/;

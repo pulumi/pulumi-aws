@@ -98,76 +98,76 @@ export class LocationHdfs extends pulumi.CustomResource {
     /**
      * A list of DataSync Agent ARNs with which this location will be associated.
      */
-    declare public readonly agentArns: pulumi.Output<string[]>;
+    public readonly agentArns!: pulumi.Output<string[]>;
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The type of authentication used to determine the identity of the user. Valid values are `SIMPLE` and `KERBEROS`.
      */
-    declare public readonly authenticationType: pulumi.Output<string | undefined>;
+    public readonly authenticationType!: pulumi.Output<string | undefined>;
     /**
      * The size of data blocks to write into the HDFS cluster. The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).
      */
-    declare public readonly blockSize: pulumi.Output<number | undefined>;
+    public readonly blockSize!: pulumi.Output<number | undefined>;
     /**
      * The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberosKeytabBase64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKeytabBase64`) is required.
      */
-    declare public readonly kerberosKeytab: pulumi.Output<string | undefined>;
+    public readonly kerberosKeytab!: pulumi.Output<string | undefined>;
     /**
      * Use instead of `kerberosKeytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKeytab`) is required.
      */
-    declare public readonly kerberosKeytabBase64: pulumi.Output<string | undefined>;
+    public readonly kerberosKeytabBase64!: pulumi.Output<string | undefined>;
     /**
      * The krb5.conf file that contains the Kerberos configuration information. Use `kerberosKrb5ConfBase64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKrb5ConfBase64`) is required.
      */
-    declare public readonly kerberosKrb5Conf: pulumi.Output<string | undefined>;
+    public readonly kerberosKrb5Conf!: pulumi.Output<string | undefined>;
     /**
      * Use instead of `kerberosKrb5Conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKrb5Conf`) is required.
      */
-    declare public readonly kerberosKrb5ConfBase64: pulumi.Output<string | undefined>;
+    public readonly kerberosKrb5ConfBase64!: pulumi.Output<string | undefined>;
     /**
      * The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
      */
-    declare public readonly kerberosPrincipal: pulumi.Output<string | undefined>;
+    public readonly kerberosPrincipal!: pulumi.Output<string | undefined>;
     /**
      * The URI of the HDFS cluster's Key Management Server (KMS).
      */
-    declare public readonly kmsKeyProviderUri: pulumi.Output<string | undefined>;
+    public readonly kmsKeyProviderUri!: pulumi.Output<string | undefined>;
     /**
      * The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
      */
-    declare public readonly nameNodes: pulumi.Output<outputs.datasync.LocationHdfsNameNode[]>;
+    public readonly nameNodes!: pulumi.Output<outputs.datasync.LocationHdfsNameNode[]>;
     /**
      * The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qopConfiguration` isn't specified, `rpcProtection` and `dataTransferProtection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
      */
-    declare public readonly qopConfiguration: pulumi.Output<outputs.datasync.LocationHdfsQopConfiguration>;
+    public readonly qopConfiguration!: pulumi.Output<outputs.datasync.LocationHdfsQopConfiguration>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
      */
-    declare public readonly replicationFactor: pulumi.Output<number | undefined>;
+    public readonly replicationFactor!: pulumi.Output<number | undefined>;
     /**
      * The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authenticationType`, this parameter is required.
      */
-    declare public readonly simpleUser: pulumi.Output<string | undefined>;
+    public readonly simpleUser!: pulumi.Output<string | undefined>;
     /**
      * A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
      */
-    declare public readonly subdirectory: pulumi.Output<string | undefined>;
+    public readonly subdirectory!: pulumi.Output<string | undefined>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public /*out*/ readonly uri: pulumi.Output<string>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly uri!: pulumi.Output<string>;
 
     /**
      * Create a LocationHdfs resource with the given unique name, arguments, and options.
@@ -182,49 +182,49 @@ export class LocationHdfs extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LocationHdfsState | undefined;
-            resourceInputs["agentArns"] = state?.agentArns;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["authenticationType"] = state?.authenticationType;
-            resourceInputs["blockSize"] = state?.blockSize;
-            resourceInputs["kerberosKeytab"] = state?.kerberosKeytab;
-            resourceInputs["kerberosKeytabBase64"] = state?.kerberosKeytabBase64;
-            resourceInputs["kerberosKrb5Conf"] = state?.kerberosKrb5Conf;
-            resourceInputs["kerberosKrb5ConfBase64"] = state?.kerberosKrb5ConfBase64;
-            resourceInputs["kerberosPrincipal"] = state?.kerberosPrincipal;
-            resourceInputs["kmsKeyProviderUri"] = state?.kmsKeyProviderUri;
-            resourceInputs["nameNodes"] = state?.nameNodes;
-            resourceInputs["qopConfiguration"] = state?.qopConfiguration;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["replicationFactor"] = state?.replicationFactor;
-            resourceInputs["simpleUser"] = state?.simpleUser;
-            resourceInputs["subdirectory"] = state?.subdirectory;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["uri"] = state?.uri;
+            resourceInputs["agentArns"] = state ? state.agentArns : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["authenticationType"] = state ? state.authenticationType : undefined;
+            resourceInputs["blockSize"] = state ? state.blockSize : undefined;
+            resourceInputs["kerberosKeytab"] = state ? state.kerberosKeytab : undefined;
+            resourceInputs["kerberosKeytabBase64"] = state ? state.kerberosKeytabBase64 : undefined;
+            resourceInputs["kerberosKrb5Conf"] = state ? state.kerberosKrb5Conf : undefined;
+            resourceInputs["kerberosKrb5ConfBase64"] = state ? state.kerberosKrb5ConfBase64 : undefined;
+            resourceInputs["kerberosPrincipal"] = state ? state.kerberosPrincipal : undefined;
+            resourceInputs["kmsKeyProviderUri"] = state ? state.kmsKeyProviderUri : undefined;
+            resourceInputs["nameNodes"] = state ? state.nameNodes : undefined;
+            resourceInputs["qopConfiguration"] = state ? state.qopConfiguration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["replicationFactor"] = state ? state.replicationFactor : undefined;
+            resourceInputs["simpleUser"] = state ? state.simpleUser : undefined;
+            resourceInputs["subdirectory"] = state ? state.subdirectory : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["uri"] = state ? state.uri : undefined;
         } else {
             const args = argsOrState as LocationHdfsArgs | undefined;
-            if (args?.agentArns === undefined && !opts.urn) {
+            if ((!args || args.agentArns === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'agentArns'");
             }
-            if (args?.nameNodes === undefined && !opts.urn) {
+            if ((!args || args.nameNodes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'nameNodes'");
             }
-            resourceInputs["agentArns"] = args?.agentArns;
-            resourceInputs["authenticationType"] = args?.authenticationType;
-            resourceInputs["blockSize"] = args?.blockSize;
-            resourceInputs["kerberosKeytab"] = args?.kerberosKeytab;
-            resourceInputs["kerberosKeytabBase64"] = args?.kerberosKeytabBase64;
-            resourceInputs["kerberosKrb5Conf"] = args?.kerberosKrb5Conf;
-            resourceInputs["kerberosKrb5ConfBase64"] = args?.kerberosKrb5ConfBase64;
-            resourceInputs["kerberosPrincipal"] = args?.kerberosPrincipal;
-            resourceInputs["kmsKeyProviderUri"] = args?.kmsKeyProviderUri;
-            resourceInputs["nameNodes"] = args?.nameNodes;
-            resourceInputs["qopConfiguration"] = args?.qopConfiguration;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["replicationFactor"] = args?.replicationFactor;
-            resourceInputs["simpleUser"] = args?.simpleUser;
-            resourceInputs["subdirectory"] = args?.subdirectory;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["agentArns"] = args ? args.agentArns : undefined;
+            resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
+            resourceInputs["blockSize"] = args ? args.blockSize : undefined;
+            resourceInputs["kerberosKeytab"] = args ? args.kerberosKeytab : undefined;
+            resourceInputs["kerberosKeytabBase64"] = args ? args.kerberosKeytabBase64 : undefined;
+            resourceInputs["kerberosKrb5Conf"] = args ? args.kerberosKrb5Conf : undefined;
+            resourceInputs["kerberosKrb5ConfBase64"] = args ? args.kerberosKrb5ConfBase64 : undefined;
+            resourceInputs["kerberosPrincipal"] = args ? args.kerberosPrincipal : undefined;
+            resourceInputs["kmsKeyProviderUri"] = args ? args.kmsKeyProviderUri : undefined;
+            resourceInputs["nameNodes"] = args ? args.nameNodes : undefined;
+            resourceInputs["qopConfiguration"] = args ? args.qopConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["replicationFactor"] = args ? args.replicationFactor : undefined;
+            resourceInputs["simpleUser"] = args ? args.simpleUser : undefined;
+            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["uri"] = undefined /*out*/;

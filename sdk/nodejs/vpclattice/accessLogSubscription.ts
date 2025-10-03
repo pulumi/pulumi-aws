@@ -60,31 +60,31 @@ export class AccessLogSubscription extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the access log subscription.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the log destination.
      */
-    declare public readonly destinationArn: pulumi.Output<string>;
+    public readonly destinationArn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the service network or service.
      */
-    declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
+    public /*out*/ readonly resourceArn!: pulumi.Output<string>;
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
      *
      * The following arguments are optional:
      */
-    declare public readonly resourceIdentifier: pulumi.Output<string>;
+    public readonly resourceIdentifier!: pulumi.Output<string>;
     /**
      * Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
      */
-    declare public readonly serviceNetworkLogType: pulumi.Output<string>;
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public readonly serviceNetworkLogType!: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a AccessLogSubscription resource with the given unique name, arguments, and options.
@@ -99,27 +99,27 @@ export class AccessLogSubscription extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccessLogSubscriptionState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["destinationArn"] = state?.destinationArn;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceArn"] = state?.resourceArn;
-            resourceInputs["resourceIdentifier"] = state?.resourceIdentifier;
-            resourceInputs["serviceNetworkLogType"] = state?.serviceNetworkLogType;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["destinationArn"] = state ? state.destinationArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
+            resourceInputs["resourceIdentifier"] = state ? state.resourceIdentifier : undefined;
+            resourceInputs["serviceNetworkLogType"] = state ? state.serviceNetworkLogType : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as AccessLogSubscriptionArgs | undefined;
-            if (args?.destinationArn === undefined && !opts.urn) {
+            if ((!args || args.destinationArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destinationArn'");
             }
-            if (args?.resourceIdentifier === undefined && !opts.urn) {
+            if ((!args || args.resourceIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceIdentifier'");
             }
-            resourceInputs["destinationArn"] = args?.destinationArn;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resourceIdentifier"] = args?.resourceIdentifier;
-            resourceInputs["serviceNetworkLogType"] = args?.serviceNetworkLogType;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["destinationArn"] = args ? args.destinationArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourceIdentifier"] = args ? args.resourceIdentifier : undefined;
+            resourceInputs["serviceNetworkLogType"] = args ? args.serviceNetworkLogType : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

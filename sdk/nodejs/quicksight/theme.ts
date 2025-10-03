@@ -85,62 +85,62 @@ export class Theme extends pulumi.CustomResource {
     /**
      * ARN of the theme.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
-    declare public readonly awsAccountId: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public readonly awsAccountId!: pulumi.Output<string>;
     /**
      * The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
      */
-    declare public readonly baseThemeId: pulumi.Output<string>;
+    public readonly baseThemeId!: pulumi.Output<string>;
     /**
      * The theme configuration, which contains the theme display properties. See configuration.
      */
-    declare public readonly configuration: pulumi.Output<outputs.quicksight.ThemeConfiguration | undefined>;
+    public readonly configuration!: pulumi.Output<outputs.quicksight.ThemeConfiguration | undefined>;
     /**
      * The time that the theme was created.
      */
-    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
      * The time that the theme was last updated.
      */
-    declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
     /**
      * Display name of the theme.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A set of resource permissions on the theme. Maximum of 64 items. See permissions.
      */
-    declare public readonly permissions: pulumi.Output<outputs.quicksight.ThemePermission[] | undefined>;
+    public readonly permissions!: pulumi.Output<outputs.quicksight.ThemePermission[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The theme creation status.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Identifier of the theme.
      *
      * The following arguments are optional:
      */
-    declare public readonly themeId: pulumi.Output<string>;
+    public readonly themeId!: pulumi.Output<string>;
     /**
      * A description of the current theme version being created/updated.
      */
-    declare public readonly versionDescription: pulumi.Output<string | undefined>;
+    public readonly versionDescription!: pulumi.Output<string | undefined>;
     /**
      * The version number of the theme version.
      */
-    declare public /*out*/ readonly versionNumber: pulumi.Output<number>;
+    public /*out*/ readonly versionNumber!: pulumi.Output<number>;
 
     /**
      * Create a Theme resource with the given unique name, arguments, and options.
@@ -155,38 +155,38 @@ export class Theme extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ThemeState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["awsAccountId"] = state?.awsAccountId;
-            resourceInputs["baseThemeId"] = state?.baseThemeId;
-            resourceInputs["configuration"] = state?.configuration;
-            resourceInputs["createdTime"] = state?.createdTime;
-            resourceInputs["lastUpdatedTime"] = state?.lastUpdatedTime;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["permissions"] = state?.permissions;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["themeId"] = state?.themeId;
-            resourceInputs["versionDescription"] = state?.versionDescription;
-            resourceInputs["versionNumber"] = state?.versionNumber;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
+            resourceInputs["baseThemeId"] = state ? state.baseThemeId : undefined;
+            resourceInputs["configuration"] = state ? state.configuration : undefined;
+            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
+            resourceInputs["lastUpdatedTime"] = state ? state.lastUpdatedTime : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["permissions"] = state ? state.permissions : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["themeId"] = state ? state.themeId : undefined;
+            resourceInputs["versionDescription"] = state ? state.versionDescription : undefined;
+            resourceInputs["versionNumber"] = state ? state.versionNumber : undefined;
         } else {
             const args = argsOrState as ThemeArgs | undefined;
-            if (args?.baseThemeId === undefined && !opts.urn) {
+            if ((!args || args.baseThemeId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'baseThemeId'");
             }
-            if (args?.themeId === undefined && !opts.urn) {
+            if ((!args || args.themeId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'themeId'");
             }
-            resourceInputs["awsAccountId"] = args?.awsAccountId;
-            resourceInputs["baseThemeId"] = args?.baseThemeId;
-            resourceInputs["configuration"] = args?.configuration;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["permissions"] = args?.permissions;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["themeId"] = args?.themeId;
-            resourceInputs["versionDescription"] = args?.versionDescription;
+            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
+            resourceInputs["baseThemeId"] = args ? args.baseThemeId : undefined;
+            resourceInputs["configuration"] = args ? args.configuration : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["themeId"] = args ? args.themeId : undefined;
+            resourceInputs["versionDescription"] = args ? args.versionDescription : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;

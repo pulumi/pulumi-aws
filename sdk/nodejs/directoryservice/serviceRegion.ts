@@ -136,31 +136,31 @@ export class ServiceRegion extends pulumi.CustomResource {
     /**
      * The number of domain controllers desired in the replicated directory. Minimum value of `2`.
      */
-    declare public readonly desiredNumberOfDomainControllers: pulumi.Output<number>;
+    public readonly desiredNumberOfDomainControllers!: pulumi.Output<number>;
     /**
      * The identifier of the directory to which you want to add Region replication.
      */
-    declare public readonly directoryId: pulumi.Output<string>;
+    public readonly directoryId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The name of the Region where you want to add domain controllers for replication.
      */
-    declare public readonly regionName: pulumi.Output<string>;
+    public readonly regionName!: pulumi.Output<string>;
     /**
      * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * VPC information in the replicated Region. Detailed below.
      */
-    declare public readonly vpcSettings: pulumi.Output<outputs.directoryservice.ServiceRegionVpcSettings>;
+    public readonly vpcSettings!: pulumi.Output<outputs.directoryservice.ServiceRegionVpcSettings>;
 
     /**
      * Create a ServiceRegion resource with the given unique name, arguments, and options.
@@ -175,30 +175,30 @@ export class ServiceRegion extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceRegionState | undefined;
-            resourceInputs["desiredNumberOfDomainControllers"] = state?.desiredNumberOfDomainControllers;
-            resourceInputs["directoryId"] = state?.directoryId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["regionName"] = state?.regionName;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["vpcSettings"] = state?.vpcSettings;
+            resourceInputs["desiredNumberOfDomainControllers"] = state ? state.desiredNumberOfDomainControllers : undefined;
+            resourceInputs["directoryId"] = state ? state.directoryId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["regionName"] = state ? state.regionName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcSettings"] = state ? state.vpcSettings : undefined;
         } else {
             const args = argsOrState as ServiceRegionArgs | undefined;
-            if (args?.directoryId === undefined && !opts.urn) {
+            if ((!args || args.directoryId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'directoryId'");
             }
-            if (args?.regionName === undefined && !opts.urn) {
+            if ((!args || args.regionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'regionName'");
             }
-            if (args?.vpcSettings === undefined && !opts.urn) {
+            if ((!args || args.vpcSettings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcSettings'");
             }
-            resourceInputs["desiredNumberOfDomainControllers"] = args?.desiredNumberOfDomainControllers;
-            resourceInputs["directoryId"] = args?.directoryId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["regionName"] = args?.regionName;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["vpcSettings"] = args?.vpcSettings;
+            resourceInputs["desiredNumberOfDomainControllers"] = args ? args.desiredNumberOfDomainControllers : undefined;
+            resourceInputs["directoryId"] = args ? args.directoryId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["regionName"] = args ? args.regionName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcSettings"] = args ? args.vpcSettings : undefined;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

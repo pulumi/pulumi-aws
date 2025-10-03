@@ -95,72 +95,72 @@ export class Instance extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the instance.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Specifies whether auto resolve best voices is enabled. Defaults to `true`.
      */
-    declare public readonly autoResolveBestVoicesEnabled: pulumi.Output<boolean | undefined>;
+    public readonly autoResolveBestVoicesEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether contact flow logs are enabled. Defaults to `false`.
      */
-    declare public readonly contactFlowLogsEnabled: pulumi.Output<boolean | undefined>;
+    public readonly contactFlowLogsEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether contact lens is enabled. Defaults to `true`.
      */
-    declare public readonly contactLensEnabled: pulumi.Output<boolean | undefined>;
+    public readonly contactLensEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * When the instance was created.
      */
-    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
      * The identifier for the directory if identityManagementType is `EXISTING_DIRECTORY`.
      */
-    declare public readonly directoryId: pulumi.Output<string | undefined>;
+    public readonly directoryId!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.
      */
-    declare public readonly earlyMediaEnabled: pulumi.Output<boolean | undefined>;
+    public readonly earlyMediaEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
      */
-    declare public readonly identityManagementType: pulumi.Output<string>;
+    public readonly identityManagementType!: pulumi.Output<string>;
     /**
      * Specifies whether inbound calls are enabled.
      */
-    declare public readonly inboundCallsEnabled: pulumi.Output<boolean>;
+    public readonly inboundCallsEnabled!: pulumi.Output<boolean>;
     /**
      * Specifies the name of the instance. Required if `directoryId` not specified.
      */
-    declare public readonly instanceAlias: pulumi.Output<string | undefined>;
+    public readonly instanceAlias!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
      */
-    declare public readonly multiPartyConferenceEnabled: pulumi.Output<boolean | undefined>;
+    public readonly multiPartyConferenceEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether outbound calls are enabled.
      */
-    declare public readonly outboundCallsEnabled: pulumi.Output<boolean>;
+    public readonly outboundCallsEnabled!: pulumi.Output<boolean>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The service role of the instance.
      */
-    declare public /*out*/ readonly serviceRole: pulumi.Output<string>;
+    public /*out*/ readonly serviceRole!: pulumi.Output<string>;
     /**
      * The state of the instance.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Tags to apply to the Instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Instance resource with the given unique name, arguments, and options.
@@ -175,46 +175,46 @@ export class Instance extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InstanceState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["autoResolveBestVoicesEnabled"] = state?.autoResolveBestVoicesEnabled;
-            resourceInputs["contactFlowLogsEnabled"] = state?.contactFlowLogsEnabled;
-            resourceInputs["contactLensEnabled"] = state?.contactLensEnabled;
-            resourceInputs["createdTime"] = state?.createdTime;
-            resourceInputs["directoryId"] = state?.directoryId;
-            resourceInputs["earlyMediaEnabled"] = state?.earlyMediaEnabled;
-            resourceInputs["identityManagementType"] = state?.identityManagementType;
-            resourceInputs["inboundCallsEnabled"] = state?.inboundCallsEnabled;
-            resourceInputs["instanceAlias"] = state?.instanceAlias;
-            resourceInputs["multiPartyConferenceEnabled"] = state?.multiPartyConferenceEnabled;
-            resourceInputs["outboundCallsEnabled"] = state?.outboundCallsEnabled;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["serviceRole"] = state?.serviceRole;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["autoResolveBestVoicesEnabled"] = state ? state.autoResolveBestVoicesEnabled : undefined;
+            resourceInputs["contactFlowLogsEnabled"] = state ? state.contactFlowLogsEnabled : undefined;
+            resourceInputs["contactLensEnabled"] = state ? state.contactLensEnabled : undefined;
+            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
+            resourceInputs["directoryId"] = state ? state.directoryId : undefined;
+            resourceInputs["earlyMediaEnabled"] = state ? state.earlyMediaEnabled : undefined;
+            resourceInputs["identityManagementType"] = state ? state.identityManagementType : undefined;
+            resourceInputs["inboundCallsEnabled"] = state ? state.inboundCallsEnabled : undefined;
+            resourceInputs["instanceAlias"] = state ? state.instanceAlias : undefined;
+            resourceInputs["multiPartyConferenceEnabled"] = state ? state.multiPartyConferenceEnabled : undefined;
+            resourceInputs["outboundCallsEnabled"] = state ? state.outboundCallsEnabled : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["serviceRole"] = state ? state.serviceRole : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as InstanceArgs | undefined;
-            if (args?.identityManagementType === undefined && !opts.urn) {
+            if ((!args || args.identityManagementType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identityManagementType'");
             }
-            if (args?.inboundCallsEnabled === undefined && !opts.urn) {
+            if ((!args || args.inboundCallsEnabled === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'inboundCallsEnabled'");
             }
-            if (args?.outboundCallsEnabled === undefined && !opts.urn) {
+            if ((!args || args.outboundCallsEnabled === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'outboundCallsEnabled'");
             }
-            resourceInputs["autoResolveBestVoicesEnabled"] = args?.autoResolveBestVoicesEnabled;
-            resourceInputs["contactFlowLogsEnabled"] = args?.contactFlowLogsEnabled;
-            resourceInputs["contactLensEnabled"] = args?.contactLensEnabled;
-            resourceInputs["directoryId"] = args?.directoryId;
-            resourceInputs["earlyMediaEnabled"] = args?.earlyMediaEnabled;
-            resourceInputs["identityManagementType"] = args?.identityManagementType;
-            resourceInputs["inboundCallsEnabled"] = args?.inboundCallsEnabled;
-            resourceInputs["instanceAlias"] = args?.instanceAlias;
-            resourceInputs["multiPartyConferenceEnabled"] = args?.multiPartyConferenceEnabled;
-            resourceInputs["outboundCallsEnabled"] = args?.outboundCallsEnabled;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["autoResolveBestVoicesEnabled"] = args ? args.autoResolveBestVoicesEnabled : undefined;
+            resourceInputs["contactFlowLogsEnabled"] = args ? args.contactFlowLogsEnabled : undefined;
+            resourceInputs["contactLensEnabled"] = args ? args.contactLensEnabled : undefined;
+            resourceInputs["directoryId"] = args ? args.directoryId : undefined;
+            resourceInputs["earlyMediaEnabled"] = args ? args.earlyMediaEnabled : undefined;
+            resourceInputs["identityManagementType"] = args ? args.identityManagementType : undefined;
+            resourceInputs["inboundCallsEnabled"] = args ? args.inboundCallsEnabled : undefined;
+            resourceInputs["instanceAlias"] = args ? args.instanceAlias : undefined;
+            resourceInputs["multiPartyConferenceEnabled"] = args ? args.multiPartyConferenceEnabled : undefined;
+            resourceInputs["outboundCallsEnabled"] = args ? args.outboundCallsEnabled : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["serviceRole"] = undefined /*out*/;

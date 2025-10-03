@@ -113,15 +113,15 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The registry ID where the replication configuration was created.
      */
-    declare public /*out*/ readonly registryId: pulumi.Output<string>;
+    public /*out*/ readonly registryId!: pulumi.Output<string>;
     /**
      * Replication configuration for a registry. See Replication Configuration.
      */
-    declare public readonly replicationConfiguration: pulumi.Output<outputs.ecr.ReplicationConfigurationReplicationConfiguration | undefined>;
+    public readonly replicationConfiguration!: pulumi.Output<outputs.ecr.ReplicationConfigurationReplicationConfiguration | undefined>;
 
     /**
      * Create a ReplicationConfiguration resource with the given unique name, arguments, and options.
@@ -136,13 +136,13 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReplicationConfigurationState | undefined;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["registryId"] = state?.registryId;
-            resourceInputs["replicationConfiguration"] = state?.replicationConfiguration;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["registryId"] = state ? state.registryId : undefined;
+            resourceInputs["replicationConfiguration"] = state ? state.replicationConfiguration : undefined;
         } else {
             const args = argsOrState as ReplicationConfigurationArgs | undefined;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["replicationConfiguration"] = args?.replicationConfiguration;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["replicationConfiguration"] = args ? args.replicationConfiguration : undefined;
             resourceInputs["registryId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

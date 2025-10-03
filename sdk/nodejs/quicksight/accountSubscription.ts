@@ -62,77 +62,77 @@ export class AccountSubscription extends pulumi.CustomResource {
     /**
      * Name of your Amazon QuickSight account. This name is unique over all of AWS, and it appears only when users sign in.
      */
-    declare public readonly accountName: pulumi.Output<string>;
+    public readonly accountName!: pulumi.Output<string>;
     /**
      * Status of the Amazon QuickSight account's subscription.
      */
-    declare public /*out*/ readonly accountSubscriptionStatus: pulumi.Output<string>;
+    public /*out*/ readonly accountSubscriptionStatus!: pulumi.Output<string>;
     /**
      * Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
      */
-    declare public readonly activeDirectoryName: pulumi.Output<string | undefined>;
+    public readonly activeDirectoryName!: pulumi.Output<string | undefined>;
     /**
      * Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
      */
-    declare public readonly adminGroups: pulumi.Output<string[] | undefined>;
+    public readonly adminGroups!: pulumi.Output<string[] | undefined>;
     /**
      * Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
      */
-    declare public readonly authenticationMethod: pulumi.Output<string>;
+    public readonly authenticationMethod!: pulumi.Output<string>;
     /**
      * Author group associated with your Active Directory or IAM Identity Center account.
      */
-    declare public readonly authorGroups: pulumi.Output<string[] | undefined>;
+    public readonly authorGroups!: pulumi.Output<string[] | undefined>;
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
      */
-    declare public readonly awsAccountId: pulumi.Output<string>;
+    public readonly awsAccountId!: pulumi.Output<string>;
     /**
      * A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      */
-    declare public readonly contactNumber: pulumi.Output<string | undefined>;
+    public readonly contactNumber!: pulumi.Output<string | undefined>;
     /**
      * Active Directory ID that is associated with your Amazon QuickSight account.
      */
-    declare public readonly directoryId: pulumi.Output<string | undefined>;
+    public readonly directoryId!: pulumi.Output<string | undefined>;
     /**
      * Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
      */
-    declare public readonly edition: pulumi.Output<string>;
+    public readonly edition!: pulumi.Output<string>;
     /**
      * Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      */
-    declare public readonly emailAddress: pulumi.Output<string | undefined>;
+    public readonly emailAddress!: pulumi.Output<string | undefined>;
     /**
      * First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      */
-    declare public readonly firstName: pulumi.Output<string | undefined>;
+    public readonly firstName!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the IAM Identity Center instance.
      */
-    declare public readonly iamIdentityCenterInstanceArn: pulumi.Output<string | undefined>;
+    public readonly iamIdentityCenterInstanceArn!: pulumi.Output<string | undefined>;
     /**
      * Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      */
-    declare public readonly lastName: pulumi.Output<string | undefined>;
+    public readonly lastName!: pulumi.Output<string | undefined>;
     /**
      * Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
      *
      * The following arguments are optional:
      */
-    declare public readonly notificationEmail: pulumi.Output<string>;
+    public readonly notificationEmail!: pulumi.Output<string>;
     /**
      * Reader group associated with your Active Directory or IAM Identity Center account.
      */
-    declare public readonly readerGroups: pulumi.Output<string[] | undefined>;
+    public readonly readerGroups!: pulumi.Output<string[] | undefined>;
     /**
      * Realm of the Active Directory that is associated with your Amazon QuickSight account.
      */
-    declare public readonly realm: pulumi.Output<string | undefined>;
+    public readonly realm!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a AccountSubscription resource with the given unique name, arguments, and options.
@@ -147,55 +147,55 @@ export class AccountSubscription extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountSubscriptionState | undefined;
-            resourceInputs["accountName"] = state?.accountName;
-            resourceInputs["accountSubscriptionStatus"] = state?.accountSubscriptionStatus;
-            resourceInputs["activeDirectoryName"] = state?.activeDirectoryName;
-            resourceInputs["adminGroups"] = state?.adminGroups;
-            resourceInputs["authenticationMethod"] = state?.authenticationMethod;
-            resourceInputs["authorGroups"] = state?.authorGroups;
-            resourceInputs["awsAccountId"] = state?.awsAccountId;
-            resourceInputs["contactNumber"] = state?.contactNumber;
-            resourceInputs["directoryId"] = state?.directoryId;
-            resourceInputs["edition"] = state?.edition;
-            resourceInputs["emailAddress"] = state?.emailAddress;
-            resourceInputs["firstName"] = state?.firstName;
-            resourceInputs["iamIdentityCenterInstanceArn"] = state?.iamIdentityCenterInstanceArn;
-            resourceInputs["lastName"] = state?.lastName;
-            resourceInputs["notificationEmail"] = state?.notificationEmail;
-            resourceInputs["readerGroups"] = state?.readerGroups;
-            resourceInputs["realm"] = state?.realm;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["accountName"] = state ? state.accountName : undefined;
+            resourceInputs["accountSubscriptionStatus"] = state ? state.accountSubscriptionStatus : undefined;
+            resourceInputs["activeDirectoryName"] = state ? state.activeDirectoryName : undefined;
+            resourceInputs["adminGroups"] = state ? state.adminGroups : undefined;
+            resourceInputs["authenticationMethod"] = state ? state.authenticationMethod : undefined;
+            resourceInputs["authorGroups"] = state ? state.authorGroups : undefined;
+            resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
+            resourceInputs["contactNumber"] = state ? state.contactNumber : undefined;
+            resourceInputs["directoryId"] = state ? state.directoryId : undefined;
+            resourceInputs["edition"] = state ? state.edition : undefined;
+            resourceInputs["emailAddress"] = state ? state.emailAddress : undefined;
+            resourceInputs["firstName"] = state ? state.firstName : undefined;
+            resourceInputs["iamIdentityCenterInstanceArn"] = state ? state.iamIdentityCenterInstanceArn : undefined;
+            resourceInputs["lastName"] = state ? state.lastName : undefined;
+            resourceInputs["notificationEmail"] = state ? state.notificationEmail : undefined;
+            resourceInputs["readerGroups"] = state ? state.readerGroups : undefined;
+            resourceInputs["realm"] = state ? state.realm : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as AccountSubscriptionArgs | undefined;
-            if (args?.accountName === undefined && !opts.urn) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (args?.authenticationMethod === undefined && !opts.urn) {
+            if ((!args || args.authenticationMethod === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authenticationMethod'");
             }
-            if (args?.edition === undefined && !opts.urn) {
+            if ((!args || args.edition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'edition'");
             }
-            if (args?.notificationEmail === undefined && !opts.urn) {
+            if ((!args || args.notificationEmail === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'notificationEmail'");
             }
-            resourceInputs["accountName"] = args?.accountName;
-            resourceInputs["activeDirectoryName"] = args?.activeDirectoryName;
-            resourceInputs["adminGroups"] = args?.adminGroups;
-            resourceInputs["authenticationMethod"] = args?.authenticationMethod;
-            resourceInputs["authorGroups"] = args?.authorGroups;
-            resourceInputs["awsAccountId"] = args?.awsAccountId;
-            resourceInputs["contactNumber"] = args?.contactNumber;
-            resourceInputs["directoryId"] = args?.directoryId;
-            resourceInputs["edition"] = args?.edition;
-            resourceInputs["emailAddress"] = args?.emailAddress;
-            resourceInputs["firstName"] = args?.firstName;
-            resourceInputs["iamIdentityCenterInstanceArn"] = args?.iamIdentityCenterInstanceArn;
-            resourceInputs["lastName"] = args?.lastName;
-            resourceInputs["notificationEmail"] = args?.notificationEmail;
-            resourceInputs["readerGroups"] = args?.readerGroups;
-            resourceInputs["realm"] = args?.realm;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["activeDirectoryName"] = args ? args.activeDirectoryName : undefined;
+            resourceInputs["adminGroups"] = args ? args.adminGroups : undefined;
+            resourceInputs["authenticationMethod"] = args ? args.authenticationMethod : undefined;
+            resourceInputs["authorGroups"] = args ? args.authorGroups : undefined;
+            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
+            resourceInputs["contactNumber"] = args ? args.contactNumber : undefined;
+            resourceInputs["directoryId"] = args ? args.directoryId : undefined;
+            resourceInputs["edition"] = args ? args.edition : undefined;
+            resourceInputs["emailAddress"] = args ? args.emailAddress : undefined;
+            resourceInputs["firstName"] = args ? args.firstName : undefined;
+            resourceInputs["iamIdentityCenterInstanceArn"] = args ? args.iamIdentityCenterInstanceArn : undefined;
+            resourceInputs["lastName"] = args ? args.lastName : undefined;
+            resourceInputs["notificationEmail"] = args ? args.notificationEmail : undefined;
+            resourceInputs["readerGroups"] = args ? args.readerGroups : undefined;
+            resourceInputs["realm"] = args ? args.realm : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["accountSubscriptionStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -125,51 +125,51 @@ export class AgentKnowledgeBase extends pulumi.CustomResource {
     /**
      * ARN of the knowledge base.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Time at which the knowledge base was created.
      */
-    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
      * Description of the knowledge base.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
-    declare public /*out*/ readonly failureReasons: pulumi.Output<string[]>;
+    public readonly description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly failureReasons!: pulumi.Output<string[]>;
     /**
      * Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
      */
-    declare public readonly knowledgeBaseConfiguration: pulumi.Output<outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfiguration | undefined>;
+    public readonly knowledgeBaseConfiguration!: pulumi.Output<outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfiguration | undefined>;
     /**
      * Name of the knowledge base.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ARN of the IAM role with permissions to invoke API operations on the knowledge base.
      */
-    declare public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
      *
      * The following arguments are optional:
      */
-    declare public readonly storageConfiguration: pulumi.Output<outputs.bedrock.AgentKnowledgeBaseStorageConfiguration | undefined>;
+    public readonly storageConfiguration!: pulumi.Output<outputs.bedrock.AgentKnowledgeBaseStorageConfiguration | undefined>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public readonly timeouts: pulumi.Output<outputs.bedrock.AgentKnowledgeBaseTimeouts | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly timeouts!: pulumi.Output<outputs.bedrock.AgentKnowledgeBaseTimeouts | undefined>;
     /**
      * Time at which the knowledge base was last updated.
      */
-    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
+    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
     /**
      * Create a AgentKnowledgeBase resource with the given unique name, arguments, and options.
@@ -184,32 +184,32 @@ export class AgentKnowledgeBase extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AgentKnowledgeBaseState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["createdAt"] = state?.createdAt;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["failureReasons"] = state?.failureReasons;
-            resourceInputs["knowledgeBaseConfiguration"] = state?.knowledgeBaseConfiguration;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["roleArn"] = state?.roleArn;
-            resourceInputs["storageConfiguration"] = state?.storageConfiguration;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timeouts"] = state?.timeouts;
-            resourceInputs["updatedAt"] = state?.updatedAt;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["failureReasons"] = state ? state.failureReasons : undefined;
+            resourceInputs["knowledgeBaseConfiguration"] = state ? state.knowledgeBaseConfiguration : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["storageConfiguration"] = state ? state.storageConfiguration : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
         } else {
             const args = argsOrState as AgentKnowledgeBaseArgs | undefined;
-            if (args?.roleArn === undefined && !opts.urn) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["knowledgeBaseConfiguration"] = args?.knowledgeBaseConfiguration;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["roleArn"] = args?.roleArn;
-            resourceInputs["storageConfiguration"] = args?.storageConfiguration;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["knowledgeBaseConfiguration"] = args ? args.knowledgeBaseConfiguration : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["storageConfiguration"] = args ? args.storageConfiguration : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["failureReasons"] = undefined /*out*/;

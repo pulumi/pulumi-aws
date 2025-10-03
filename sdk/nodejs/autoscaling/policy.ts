@@ -226,61 +226,61 @@ export class Policy extends pulumi.CustomResource {
     /**
      * Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
      */
-    declare public readonly adjustmentType: pulumi.Output<string | undefined>;
+    public readonly adjustmentType!: pulumi.Output<string | undefined>;
     /**
      * ARN assigned by AWS to the scaling policy.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Name of the autoscaling group.
      */
-    declare public readonly autoscalingGroupName: pulumi.Output<string>;
+    public readonly autoscalingGroupName!: pulumi.Output<string>;
     /**
      * Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
      */
-    declare public readonly cooldown: pulumi.Output<number | undefined>;
+    public readonly cooldown!: pulumi.Output<number | undefined>;
     /**
      * Whether the scaling policy is enabled or disabled. Default: `true`.
      *
      * The following argument is only available to "SimpleScaling" and "StepScaling" type policies:
      */
-    declare public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
      */
-    declare public readonly estimatedInstanceWarmup: pulumi.Output<number | undefined>;
+    public readonly estimatedInstanceWarmup!: pulumi.Output<number | undefined>;
     /**
      * Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
      */
-    declare public readonly metricAggregationType: pulumi.Output<string>;
+    public readonly metricAggregationType!: pulumi.Output<string>;
     /**
      * Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
      *
      * The following arguments are only available to "SimpleScaling" type policies:
      */
-    declare public readonly minAdjustmentMagnitude: pulumi.Output<number | undefined>;
+    public readonly minAdjustmentMagnitude!: pulumi.Output<number | undefined>;
     /**
      * Name of the policy.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
      */
-    declare public readonly policyType: pulumi.Output<string | undefined>;
+    public readonly policyType!: pulumi.Output<string | undefined>;
     /**
      * Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
      */
-    declare public readonly predictiveScalingConfiguration: pulumi.Output<outputs.autoscaling.PolicyPredictiveScalingConfiguration | undefined>;
+    public readonly predictiveScalingConfiguration!: pulumi.Output<outputs.autoscaling.PolicyPredictiveScalingConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Number of members by which to
      * scale, when the adjustment bounds are breached. A positive value scales
      * up. A negative value scales down.
      */
-    declare public readonly scalingAdjustment: pulumi.Output<number | undefined>;
+    public readonly scalingAdjustment!: pulumi.Output<number | undefined>;
     /**
      * Set of adjustments that manage
      * group scaling. These have the following structure:
@@ -305,7 +305,7 @@ export class Policy extends pulumi.CustomResource {
      *
      * The following fields are available in step adjustments:
      */
-    declare public readonly stepAdjustments: pulumi.Output<outputs.autoscaling.PolicyStepAdjustment[] | undefined>;
+    public readonly stepAdjustments!: pulumi.Output<outputs.autoscaling.PolicyStepAdjustment[] | undefined>;
     /**
      * Target tracking policy. These have the following structure:
      *
@@ -323,7 +323,7 @@ export class Policy extends pulumi.CustomResource {
      *
      * The following fields are available in target tracking configuration:
      */
-    declare public readonly targetTrackingConfiguration: pulumi.Output<outputs.autoscaling.PolicyTargetTrackingConfiguration | undefined>;
+    public readonly targetTrackingConfiguration!: pulumi.Output<outputs.autoscaling.PolicyTargetTrackingConfiguration | undefined>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -338,40 +338,40 @@ export class Policy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyState | undefined;
-            resourceInputs["adjustmentType"] = state?.adjustmentType;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["autoscalingGroupName"] = state?.autoscalingGroupName;
-            resourceInputs["cooldown"] = state?.cooldown;
-            resourceInputs["enabled"] = state?.enabled;
-            resourceInputs["estimatedInstanceWarmup"] = state?.estimatedInstanceWarmup;
-            resourceInputs["metricAggregationType"] = state?.metricAggregationType;
-            resourceInputs["minAdjustmentMagnitude"] = state?.minAdjustmentMagnitude;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["policyType"] = state?.policyType;
-            resourceInputs["predictiveScalingConfiguration"] = state?.predictiveScalingConfiguration;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["scalingAdjustment"] = state?.scalingAdjustment;
-            resourceInputs["stepAdjustments"] = state?.stepAdjustments;
-            resourceInputs["targetTrackingConfiguration"] = state?.targetTrackingConfiguration;
+            resourceInputs["adjustmentType"] = state ? state.adjustmentType : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["autoscalingGroupName"] = state ? state.autoscalingGroupName : undefined;
+            resourceInputs["cooldown"] = state ? state.cooldown : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["estimatedInstanceWarmup"] = state ? state.estimatedInstanceWarmup : undefined;
+            resourceInputs["metricAggregationType"] = state ? state.metricAggregationType : undefined;
+            resourceInputs["minAdjustmentMagnitude"] = state ? state.minAdjustmentMagnitude : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["policyType"] = state ? state.policyType : undefined;
+            resourceInputs["predictiveScalingConfiguration"] = state ? state.predictiveScalingConfiguration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["scalingAdjustment"] = state ? state.scalingAdjustment : undefined;
+            resourceInputs["stepAdjustments"] = state ? state.stepAdjustments : undefined;
+            resourceInputs["targetTrackingConfiguration"] = state ? state.targetTrackingConfiguration : undefined;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
-            if (args?.autoscalingGroupName === undefined && !opts.urn) {
+            if ((!args || args.autoscalingGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'autoscalingGroupName'");
             }
-            resourceInputs["adjustmentType"] = args?.adjustmentType;
-            resourceInputs["autoscalingGroupName"] = args?.autoscalingGroupName;
-            resourceInputs["cooldown"] = args?.cooldown;
-            resourceInputs["enabled"] = args?.enabled;
-            resourceInputs["estimatedInstanceWarmup"] = args?.estimatedInstanceWarmup;
-            resourceInputs["metricAggregationType"] = args?.metricAggregationType;
-            resourceInputs["minAdjustmentMagnitude"] = args?.minAdjustmentMagnitude;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["policyType"] = args?.policyType;
-            resourceInputs["predictiveScalingConfiguration"] = args?.predictiveScalingConfiguration;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["scalingAdjustment"] = args?.scalingAdjustment;
-            resourceInputs["stepAdjustments"] = args?.stepAdjustments;
-            resourceInputs["targetTrackingConfiguration"] = args?.targetTrackingConfiguration;
+            resourceInputs["adjustmentType"] = args ? args.adjustmentType : undefined;
+            resourceInputs["autoscalingGroupName"] = args ? args.autoscalingGroupName : undefined;
+            resourceInputs["cooldown"] = args ? args.cooldown : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["estimatedInstanceWarmup"] = args ? args.estimatedInstanceWarmup : undefined;
+            resourceInputs["metricAggregationType"] = args ? args.metricAggregationType : undefined;
+            resourceInputs["minAdjustmentMagnitude"] = args ? args.minAdjustmentMagnitude : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["policyType"] = args ? args.policyType : undefined;
+            resourceInputs["predictiveScalingConfiguration"] = args ? args.predictiveScalingConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["scalingAdjustment"] = args ? args.scalingAdjustment : undefined;
+            resourceInputs["stepAdjustments"] = args ? args.stepAdjustments : undefined;
+            resourceInputs["targetTrackingConfiguration"] = args ? args.targetTrackingConfiguration : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

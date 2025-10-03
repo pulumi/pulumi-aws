@@ -66,15 +66,15 @@ export class VpcEndpointSubnetAssociation extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ID of the subnet to be associated with the VPC endpoint.
      */
-    declare public readonly subnetId: pulumi.Output<string>;
+    public readonly subnetId!: pulumi.Output<string>;
     /**
      * The ID of the VPC endpoint with which the subnet will be associated.
      */
-    declare public readonly vpcEndpointId: pulumi.Output<string>;
+    public readonly vpcEndpointId!: pulumi.Output<string>;
 
     /**
      * Create a VpcEndpointSubnetAssociation resource with the given unique name, arguments, and options.
@@ -89,20 +89,20 @@ export class VpcEndpointSubnetAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcEndpointSubnetAssociationState | undefined;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["subnetId"] = state?.subnetId;
-            resourceInputs["vpcEndpointId"] = state?.vpcEndpointId;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["vpcEndpointId"] = state ? state.vpcEndpointId : undefined;
         } else {
             const args = argsOrState as VpcEndpointSubnetAssociationArgs | undefined;
-            if (args?.subnetId === undefined && !opts.urn) {
+            if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            if (args?.vpcEndpointId === undefined && !opts.urn) {
+            if ((!args || args.vpcEndpointId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcEndpointId'");
             }
-            resourceInputs["region"] = args?.region;
-            resourceInputs["subnetId"] = args?.subnetId;
-            resourceInputs["vpcEndpointId"] = args?.vpcEndpointId;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VpcEndpointSubnetAssociation.__pulumiType, name, resourceInputs, opts);

@@ -74,23 +74,23 @@ export class GroupMembership extends pulumi.CustomResource {
     /**
      * The identifier for a group in the Identity Store.
      */
-    declare public readonly groupId: pulumi.Output<string>;
+    public readonly groupId!: pulumi.Output<string>;
     /**
      * Identity Store ID associated with the Single Sign-On Instance.
      */
-    declare public readonly identityStoreId: pulumi.Output<string>;
+    public readonly identityStoreId!: pulumi.Output<string>;
     /**
      * The identifier for a user in the Identity Store.
      */
-    declare public readonly memberId: pulumi.Output<string>;
+    public readonly memberId!: pulumi.Output<string>;
     /**
      * The identifier of the newly created group membership in the Identity Store.
      */
-    declare public /*out*/ readonly membershipId: pulumi.Output<string>;
+    public /*out*/ readonly membershipId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a GroupMembership resource with the given unique name, arguments, and options.
@@ -105,26 +105,26 @@ export class GroupMembership extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupMembershipState | undefined;
-            resourceInputs["groupId"] = state?.groupId;
-            resourceInputs["identityStoreId"] = state?.identityStoreId;
-            resourceInputs["memberId"] = state?.memberId;
-            resourceInputs["membershipId"] = state?.membershipId;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["groupId"] = state ? state.groupId : undefined;
+            resourceInputs["identityStoreId"] = state ? state.identityStoreId : undefined;
+            resourceInputs["memberId"] = state ? state.memberId : undefined;
+            resourceInputs["membershipId"] = state ? state.membershipId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as GroupMembershipArgs | undefined;
-            if (args?.groupId === undefined && !opts.urn) {
+            if ((!args || args.groupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groupId'");
             }
-            if (args?.identityStoreId === undefined && !opts.urn) {
+            if ((!args || args.identityStoreId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identityStoreId'");
             }
-            if (args?.memberId === undefined && !opts.urn) {
+            if ((!args || args.memberId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'memberId'");
             }
-            resourceInputs["groupId"] = args?.groupId;
-            resourceInputs["identityStoreId"] = args?.identityStoreId;
-            resourceInputs["memberId"] = args?.memberId;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["groupId"] = args ? args.groupId : undefined;
+            resourceInputs["identityStoreId"] = args ? args.identityStoreId : undefined;
+            resourceInputs["memberId"] = args ? args.memberId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["membershipId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

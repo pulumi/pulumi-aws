@@ -63,47 +63,47 @@ export class ConnectPeer extends pulumi.CustomResource {
     /**
      * EC2 Transit Gateway Connect Peer ARN
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The BGP ASN number assigned customer device. If not provided, it will use the same BGP ASN as is associated with Transit Gateway.
      */
-    declare public readonly bgpAsn: pulumi.Output<string>;
+    public readonly bgpAsn!: pulumi.Output<string>;
     /**
      * The IP address assigned to customer device, which is used as BGP IP address.
      */
-    declare public /*out*/ readonly bgpPeerAddress: pulumi.Output<string>;
+    public /*out*/ readonly bgpPeerAddress!: pulumi.Output<string>;
     /**
      * The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
      */
-    declare public /*out*/ readonly bgpTransitGatewayAddresses: pulumi.Output<string[]>;
+    public /*out*/ readonly bgpTransitGatewayAddresses!: pulumi.Output<string[]>;
     /**
      * The CIDR block that will be used for addressing within the tunnel. It must contain exactly one IPv4 CIDR block and up to one IPv6 CIDR block. The IPv4 CIDR block must be /29 size and must be within 169.254.0.0/16 range, with exception of: 169.254.0.0/29, 169.254.1.0/29, 169.254.2.0/29, 169.254.3.0/29, 169.254.4.0/29, 169.254.5.0/29, 169.254.169.248/29. The IPv6 CIDR block must be /125 size and must be within fd00::/8. The first IP from each CIDR block is assigned for customer gateway, the second and third is for Transit Gateway (An example: from range 169.254.100.0/29, .1 is assigned to customer gateway and .2 and .3 are assigned to Transit Gateway)
      */
-    declare public readonly insideCidrBlocks: pulumi.Output<string[]>;
+    public readonly insideCidrBlocks!: pulumi.Output<string[]>;
     /**
      * The IP addressed assigned to customer device, which will be used as tunnel endpoint. It can be IPv4 or IPv6 address, but must be the same address family as `transitGatewayAddress`
      */
-    declare public readonly peerAddress: pulumi.Output<string>;
+    public readonly peerAddress!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value tags for the EC2 Transit Gateway Connect Peer. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The IP address assigned to Transit Gateway, which will be used as tunnel endpoint. This address must be from associated Transit Gateway CIDR block. The address must be from the same address family as `peerAddress`. If not set explicitly, it will be selected from associated Transit Gateway CIDR blocks
      */
-    declare public readonly transitGatewayAddress: pulumi.Output<string>;
+    public readonly transitGatewayAddress!: pulumi.Output<string>;
     /**
      * The Transit Gateway Connect
      */
-    declare public readonly transitGatewayAttachmentId: pulumi.Output<string>;
+    public readonly transitGatewayAttachmentId!: pulumi.Output<string>;
 
     /**
      * Create a ConnectPeer resource with the given unique name, arguments, and options.
@@ -118,35 +118,35 @@ export class ConnectPeer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConnectPeerState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["bgpAsn"] = state?.bgpAsn;
-            resourceInputs["bgpPeerAddress"] = state?.bgpPeerAddress;
-            resourceInputs["bgpTransitGatewayAddresses"] = state?.bgpTransitGatewayAddresses;
-            resourceInputs["insideCidrBlocks"] = state?.insideCidrBlocks;
-            resourceInputs["peerAddress"] = state?.peerAddress;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["transitGatewayAddress"] = state?.transitGatewayAddress;
-            resourceInputs["transitGatewayAttachmentId"] = state?.transitGatewayAttachmentId;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["bgpAsn"] = state ? state.bgpAsn : undefined;
+            resourceInputs["bgpPeerAddress"] = state ? state.bgpPeerAddress : undefined;
+            resourceInputs["bgpTransitGatewayAddresses"] = state ? state.bgpTransitGatewayAddresses : undefined;
+            resourceInputs["insideCidrBlocks"] = state ? state.insideCidrBlocks : undefined;
+            resourceInputs["peerAddress"] = state ? state.peerAddress : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["transitGatewayAddress"] = state ? state.transitGatewayAddress : undefined;
+            resourceInputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;
         } else {
             const args = argsOrState as ConnectPeerArgs | undefined;
-            if (args?.insideCidrBlocks === undefined && !opts.urn) {
+            if ((!args || args.insideCidrBlocks === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'insideCidrBlocks'");
             }
-            if (args?.peerAddress === undefined && !opts.urn) {
+            if ((!args || args.peerAddress === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'peerAddress'");
             }
-            if (args?.transitGatewayAttachmentId === undefined && !opts.urn) {
+            if ((!args || args.transitGatewayAttachmentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayAttachmentId'");
             }
-            resourceInputs["bgpAsn"] = args?.bgpAsn;
-            resourceInputs["insideCidrBlocks"] = args?.insideCidrBlocks;
-            resourceInputs["peerAddress"] = args?.peerAddress;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["transitGatewayAddress"] = args?.transitGatewayAddress;
-            resourceInputs["transitGatewayAttachmentId"] = args?.transitGatewayAttachmentId;
+            resourceInputs["bgpAsn"] = args ? args.bgpAsn : undefined;
+            resourceInputs["insideCidrBlocks"] = args ? args.insideCidrBlocks : undefined;
+            resourceInputs["peerAddress"] = args ? args.peerAddress : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["transitGatewayAddress"] = args ? args.transitGatewayAddress : undefined;
+            resourceInputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["bgpPeerAddress"] = undefined /*out*/;
             resourceInputs["bgpTransitGatewayAddresses"] = undefined /*out*/;

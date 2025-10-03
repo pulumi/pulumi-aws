@@ -65,42 +65,42 @@ export class AssetType extends pulumi.CustomResource {
     /**
      * The timestamp when the custom asset type was created.
      */
-    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
      * The user who created the custom asset type.
      */
-    declare public /*out*/ readonly createdBy: pulumi.Output<string>;
+    public /*out*/ readonly createdBy!: pulumi.Output<string>;
     /**
      * The description of the custom asset type.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
      */
-    declare public readonly domainIdentifier: pulumi.Output<string>;
+    public readonly domainIdentifier!: pulumi.Output<string>;
     /**
      * The metadata forms that are to be attached to the custom asset type.
      */
-    declare public readonly formsInputs: pulumi.Output<outputs.datazone.AssetTypeFormsInput[] | undefined>;
+    public readonly formsInputs!: pulumi.Output<outputs.datazone.AssetTypeFormsInput[] | undefined>;
     /**
      * The name of the custom asset type.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The unique identifier of the Amazon DataZone project that owns the custom asset type.
      *
      * The following arguments are optional:
      */
-    declare public readonly owningProjectIdentifier: pulumi.Output<string>;
+    public readonly owningProjectIdentifier!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The revision of the asset type.
      */
-    declare public /*out*/ readonly revision: pulumi.Output<string>;
-    declare public readonly timeouts: pulumi.Output<outputs.datazone.AssetTypeTimeouts | undefined>;
+    public /*out*/ readonly revision!: pulumi.Output<string>;
+    public readonly timeouts!: pulumi.Output<outputs.datazone.AssetTypeTimeouts | undefined>;
 
     /**
      * Create a AssetType resource with the given unique name, arguments, and options.
@@ -115,31 +115,31 @@ export class AssetType extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AssetTypeState | undefined;
-            resourceInputs["createdAt"] = state?.createdAt;
-            resourceInputs["createdBy"] = state?.createdBy;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["domainIdentifier"] = state?.domainIdentifier;
-            resourceInputs["formsInputs"] = state?.formsInputs;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["owningProjectIdentifier"] = state?.owningProjectIdentifier;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["revision"] = state?.revision;
-            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["createdBy"] = state ? state.createdBy : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["domainIdentifier"] = state ? state.domainIdentifier : undefined;
+            resourceInputs["formsInputs"] = state ? state.formsInputs : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["owningProjectIdentifier"] = state ? state.owningProjectIdentifier : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["revision"] = state ? state.revision : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as AssetTypeArgs | undefined;
-            if (args?.domainIdentifier === undefined && !opts.urn) {
+            if ((!args || args.domainIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            if (args?.owningProjectIdentifier === undefined && !opts.urn) {
+            if ((!args || args.owningProjectIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'owningProjectIdentifier'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
-            resourceInputs["formsInputs"] = args?.formsInputs;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["owningProjectIdentifier"] = args?.owningProjectIdentifier;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
+            resourceInputs["formsInputs"] = args ? args.formsInputs : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["owningProjectIdentifier"] = args ? args.owningProjectIdentifier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["revision"] = undefined /*out*/;

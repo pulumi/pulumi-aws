@@ -59,7 +59,7 @@ export class ProductSubscription extends pulumi.CustomResource {
     /**
      * The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The ARN of the product that generates findings that you want to import into Security Hub - see below.
      *
@@ -101,11 +101,11 @@ export class ProductSubscription extends pulumi.CustomResource {
      * * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
      * * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
      */
-    declare public readonly productArn: pulumi.Output<string>;
+    public readonly productArn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ProductSubscription resource with the given unique name, arguments, and options.
@@ -120,16 +120,16 @@ export class ProductSubscription extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProductSubscriptionState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["productArn"] = state?.productArn;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["productArn"] = state ? state.productArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ProductSubscriptionArgs | undefined;
-            if (args?.productArn === undefined && !opts.urn) {
+            if ((!args || args.productArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'productArn'");
             }
-            resourceInputs["productArn"] = args?.productArn;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["productArn"] = args ? args.productArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

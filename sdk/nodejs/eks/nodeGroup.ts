@@ -147,105 +147,105 @@ export class NodeGroup extends pulumi.CustomResource {
     /**
      * Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
      */
-    declare public readonly amiType: pulumi.Output<string>;
+    public readonly amiType!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the EKS Node Group.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
      */
-    declare public readonly capacityType: pulumi.Output<string>;
+    public readonly capacityType!: pulumi.Output<string>;
     /**
      * Name of the EKS Cluster.
      */
-    declare public readonly clusterName: pulumi.Output<string>;
+    public readonly clusterName!: pulumi.Output<string>;
     /**
      * Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
      */
-    declare public readonly diskSize: pulumi.Output<number>;
+    public readonly diskSize!: pulumi.Output<number>;
     /**
      * Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
      */
-    declare public readonly forceUpdateVersion: pulumi.Output<boolean | undefined>;
+    public readonly forceUpdateVersion!: pulumi.Output<boolean | undefined>;
     /**
      * List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. The provider will only perform drift detection if a configuration value is provided.
      */
-    declare public readonly instanceTypes: pulumi.Output<string[]>;
+    public readonly instanceTypes!: pulumi.Output<string[]>;
     /**
      * Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
      */
-    declare public readonly labels: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly labels!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Configuration block with Launch Template settings. See `launchTemplate` below for details. Conflicts with `remoteAccess`.
      */
-    declare public readonly launchTemplate: pulumi.Output<outputs.eks.NodeGroupLaunchTemplate | undefined>;
+    public readonly launchTemplate!: pulumi.Output<outputs.eks.NodeGroupLaunchTemplate | undefined>;
     /**
      * Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
      */
-    declare public readonly nodeGroupName: pulumi.Output<string>;
+    public readonly nodeGroupName!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
      */
-    declare public readonly nodeGroupNamePrefix: pulumi.Output<string>;
+    public readonly nodeGroupNamePrefix!: pulumi.Output<string>;
     /**
      * The node auto repair configuration for the node group. See `nodeRepairConfig` below for details.
      */
-    declare public readonly nodeRepairConfig: pulumi.Output<outputs.eks.NodeGroupNodeRepairConfig>;
+    public readonly nodeRepairConfig!: pulumi.Output<outputs.eks.NodeGroupNodeRepairConfig>;
     /**
      * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
      */
-    declare public readonly nodeRoleArn: pulumi.Output<string>;
+    public readonly nodeRoleArn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
      */
-    declare public readonly releaseVersion: pulumi.Output<string>;
+    public readonly releaseVersion!: pulumi.Output<string>;
     /**
      * Configuration block with remote access settings. See `remoteAccess` below for details. Conflicts with `launchTemplate`.
      */
-    declare public readonly remoteAccess: pulumi.Output<outputs.eks.NodeGroupRemoteAccess | undefined>;
+    public readonly remoteAccess!: pulumi.Output<outputs.eks.NodeGroupRemoteAccess | undefined>;
     /**
      * List of objects containing information about underlying resources.
      */
-    declare public /*out*/ readonly resources: pulumi.Output<outputs.eks.NodeGroupResource[]>;
+    public /*out*/ readonly resources!: pulumi.Output<outputs.eks.NodeGroupResource[]>;
     /**
      * Configuration block with scaling settings. See `scalingConfig` below for details.
      */
-    declare public readonly scalingConfig: pulumi.Output<outputs.eks.NodeGroupScalingConfig>;
+    public readonly scalingConfig!: pulumi.Output<outputs.eks.NodeGroupScalingConfig>;
     /**
      * Status of the EKS Node Group.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Identifiers of EC2 Subnets to associate with the EKS Node Group.
      *
      * The following arguments are optional:
      */
-    declare public readonly subnetIds: pulumi.Output<string[]>;
+    public readonly subnetIds!: pulumi.Output<string[]>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
      */
-    declare public readonly taints: pulumi.Output<outputs.eks.NodeGroupTaint[] | undefined>;
+    public readonly taints!: pulumi.Output<outputs.eks.NodeGroupTaint[] | undefined>;
     /**
      * Configuration block with update settings. See `updateConfig` below for details.
      */
-    declare public readonly updateConfig: pulumi.Output<outputs.eks.NodeGroupUpdateConfig>;
+    public readonly updateConfig!: pulumi.Output<outputs.eks.NodeGroupUpdateConfig>;
     /**
      * Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
      */
-    declare public readonly version: pulumi.Output<string>;
+    public readonly version!: pulumi.Output<string>;
 
     /**
      * Create a NodeGroup resource with the given unique name, arguments, and options.
@@ -260,66 +260,66 @@ export class NodeGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NodeGroupState | undefined;
-            resourceInputs["amiType"] = state?.amiType;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["capacityType"] = state?.capacityType;
-            resourceInputs["clusterName"] = state?.clusterName;
-            resourceInputs["diskSize"] = state?.diskSize;
-            resourceInputs["forceUpdateVersion"] = state?.forceUpdateVersion;
-            resourceInputs["instanceTypes"] = state?.instanceTypes;
-            resourceInputs["labels"] = state?.labels;
-            resourceInputs["launchTemplate"] = state?.launchTemplate;
-            resourceInputs["nodeGroupName"] = state?.nodeGroupName;
-            resourceInputs["nodeGroupNamePrefix"] = state?.nodeGroupNamePrefix;
-            resourceInputs["nodeRepairConfig"] = state?.nodeRepairConfig;
-            resourceInputs["nodeRoleArn"] = state?.nodeRoleArn;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["releaseVersion"] = state?.releaseVersion;
-            resourceInputs["remoteAccess"] = state?.remoteAccess;
-            resourceInputs["resources"] = state?.resources;
-            resourceInputs["scalingConfig"] = state?.scalingConfig;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["subnetIds"] = state?.subnetIds;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["taints"] = state?.taints;
-            resourceInputs["updateConfig"] = state?.updateConfig;
-            resourceInputs["version"] = state?.version;
+            resourceInputs["amiType"] = state ? state.amiType : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["capacityType"] = state ? state.capacityType : undefined;
+            resourceInputs["clusterName"] = state ? state.clusterName : undefined;
+            resourceInputs["diskSize"] = state ? state.diskSize : undefined;
+            resourceInputs["forceUpdateVersion"] = state ? state.forceUpdateVersion : undefined;
+            resourceInputs["instanceTypes"] = state ? state.instanceTypes : undefined;
+            resourceInputs["labels"] = state ? state.labels : undefined;
+            resourceInputs["launchTemplate"] = state ? state.launchTemplate : undefined;
+            resourceInputs["nodeGroupName"] = state ? state.nodeGroupName : undefined;
+            resourceInputs["nodeGroupNamePrefix"] = state ? state.nodeGroupNamePrefix : undefined;
+            resourceInputs["nodeRepairConfig"] = state ? state.nodeRepairConfig : undefined;
+            resourceInputs["nodeRoleArn"] = state ? state.nodeRoleArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["releaseVersion"] = state ? state.releaseVersion : undefined;
+            resourceInputs["remoteAccess"] = state ? state.remoteAccess : undefined;
+            resourceInputs["resources"] = state ? state.resources : undefined;
+            resourceInputs["scalingConfig"] = state ? state.scalingConfig : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["taints"] = state ? state.taints : undefined;
+            resourceInputs["updateConfig"] = state ? state.updateConfig : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as NodeGroupArgs | undefined;
-            if (args?.clusterName === undefined && !opts.urn) {
+            if ((!args || args.clusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if (args?.nodeRoleArn === undefined && !opts.urn) {
+            if ((!args || args.nodeRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'nodeRoleArn'");
             }
-            if (args?.scalingConfig === undefined && !opts.urn) {
+            if ((!args || args.scalingConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scalingConfig'");
             }
-            if (args?.subnetIds === undefined && !opts.urn) {
+            if ((!args || args.subnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            resourceInputs["amiType"] = args?.amiType;
-            resourceInputs["capacityType"] = args?.capacityType;
-            resourceInputs["clusterName"] = args?.clusterName;
-            resourceInputs["diskSize"] = args?.diskSize;
-            resourceInputs["forceUpdateVersion"] = args?.forceUpdateVersion;
-            resourceInputs["instanceTypes"] = args?.instanceTypes;
-            resourceInputs["labels"] = args?.labels;
-            resourceInputs["launchTemplate"] = args?.launchTemplate;
-            resourceInputs["nodeGroupName"] = args?.nodeGroupName;
-            resourceInputs["nodeGroupNamePrefix"] = args?.nodeGroupNamePrefix;
-            resourceInputs["nodeRepairConfig"] = args?.nodeRepairConfig;
-            resourceInputs["nodeRoleArn"] = args?.nodeRoleArn;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["releaseVersion"] = args?.releaseVersion;
-            resourceInputs["remoteAccess"] = args?.remoteAccess;
-            resourceInputs["scalingConfig"] = args?.scalingConfig;
-            resourceInputs["subnetIds"] = args?.subnetIds;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["taints"] = args?.taints;
-            resourceInputs["updateConfig"] = args?.updateConfig;
-            resourceInputs["version"] = args?.version;
+            resourceInputs["amiType"] = args ? args.amiType : undefined;
+            resourceInputs["capacityType"] = args ? args.capacityType : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["diskSize"] = args ? args.diskSize : undefined;
+            resourceInputs["forceUpdateVersion"] = args ? args.forceUpdateVersion : undefined;
+            resourceInputs["instanceTypes"] = args ? args.instanceTypes : undefined;
+            resourceInputs["labels"] = args ? args.labels : undefined;
+            resourceInputs["launchTemplate"] = args ? args.launchTemplate : undefined;
+            resourceInputs["nodeGroupName"] = args ? args.nodeGroupName : undefined;
+            resourceInputs["nodeGroupNamePrefix"] = args ? args.nodeGroupNamePrefix : undefined;
+            resourceInputs["nodeRepairConfig"] = args ? args.nodeRepairConfig : undefined;
+            resourceInputs["nodeRoleArn"] = args ? args.nodeRoleArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["releaseVersion"] = args ? args.releaseVersion : undefined;
+            resourceInputs["remoteAccess"] = args ? args.remoteAccess : undefined;
+            resourceInputs["scalingConfig"] = args ? args.scalingConfig : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["taints"] = args ? args.taints : undefined;
+            resourceInputs["updateConfig"] = args ? args.updateConfig : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["resources"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

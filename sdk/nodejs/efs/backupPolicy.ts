@@ -65,15 +65,15 @@ export class BackupPolicy extends pulumi.CustomResource {
     /**
      * A backupPolicy object (documented below).
      */
-    declare public readonly backupPolicy: pulumi.Output<outputs.efs.BackupPolicyBackupPolicy>;
+    public readonly backupPolicy!: pulumi.Output<outputs.efs.BackupPolicyBackupPolicy>;
     /**
      * The ID of the EFS file system.
      */
-    declare public readonly fileSystemId: pulumi.Output<string>;
+    public readonly fileSystemId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a BackupPolicy resource with the given unique name, arguments, and options.
@@ -88,20 +88,20 @@ export class BackupPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BackupPolicyState | undefined;
-            resourceInputs["backupPolicy"] = state?.backupPolicy;
-            resourceInputs["fileSystemId"] = state?.fileSystemId;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["backupPolicy"] = state ? state.backupPolicy : undefined;
+            resourceInputs["fileSystemId"] = state ? state.fileSystemId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as BackupPolicyArgs | undefined;
-            if (args?.backupPolicy === undefined && !opts.urn) {
+            if ((!args || args.backupPolicy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'backupPolicy'");
             }
-            if (args?.fileSystemId === undefined && !opts.urn) {
+            if ((!args || args.fileSystemId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fileSystemId'");
             }
-            resourceInputs["backupPolicy"] = args?.backupPolicy;
-            resourceInputs["fileSystemId"] = args?.fileSystemId;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["backupPolicy"] = args ? args.backupPolicy : undefined;
+            resourceInputs["fileSystemId"] = args ? args.fileSystemId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BackupPolicy.__pulumiType, name, resourceInputs, opts);

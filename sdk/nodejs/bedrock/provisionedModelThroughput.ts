@@ -69,36 +69,36 @@ export class ProvisionedModelThroughput extends pulumi.CustomResource {
     /**
      * Commitment duration requested for the Provisioned Throughput. For custom models, you can purchase on-demand Provisioned Throughput by omitting this argument. Valid values: `OneMonth`, `SixMonths`.
      */
-    declare public readonly commitmentDuration: pulumi.Output<string | undefined>;
+    public readonly commitmentDuration!: pulumi.Output<string | undefined>;
     /**
      * ARN of the model to associate with this Provisioned Throughput.
      */
-    declare public readonly modelArn: pulumi.Output<string>;
+    public readonly modelArn!: pulumi.Output<string>;
     /**
      * Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
      */
-    declare public readonly modelUnits: pulumi.Output<number>;
+    public readonly modelUnits!: pulumi.Output<number>;
     /**
      * The ARN of the Provisioned Throughput.
      */
-    declare public /*out*/ readonly provisionedModelArn: pulumi.Output<string>;
+    public /*out*/ readonly provisionedModelArn!: pulumi.Output<string>;
     /**
      * Unique name for this Provisioned Throughput.
      */
-    declare public readonly provisionedModelName: pulumi.Output<string>;
+    public readonly provisionedModelName!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public readonly timeouts: pulumi.Output<outputs.bedrock.ProvisionedModelThroughputTimeouts | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly timeouts!: pulumi.Output<outputs.bedrock.ProvisionedModelThroughputTimeouts | undefined>;
 
     /**
      * Create a ProvisionedModelThroughput resource with the given unique name, arguments, and options.
@@ -113,33 +113,33 @@ export class ProvisionedModelThroughput extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProvisionedModelThroughputState | undefined;
-            resourceInputs["commitmentDuration"] = state?.commitmentDuration;
-            resourceInputs["modelArn"] = state?.modelArn;
-            resourceInputs["modelUnits"] = state?.modelUnits;
-            resourceInputs["provisionedModelArn"] = state?.provisionedModelArn;
-            resourceInputs["provisionedModelName"] = state?.provisionedModelName;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["commitmentDuration"] = state ? state.commitmentDuration : undefined;
+            resourceInputs["modelArn"] = state ? state.modelArn : undefined;
+            resourceInputs["modelUnits"] = state ? state.modelUnits : undefined;
+            resourceInputs["provisionedModelArn"] = state ? state.provisionedModelArn : undefined;
+            resourceInputs["provisionedModelName"] = state ? state.provisionedModelName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as ProvisionedModelThroughputArgs | undefined;
-            if (args?.modelArn === undefined && !opts.urn) {
+            if ((!args || args.modelArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'modelArn'");
             }
-            if (args?.modelUnits === undefined && !opts.urn) {
+            if ((!args || args.modelUnits === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'modelUnits'");
             }
-            if (args?.provisionedModelName === undefined && !opts.urn) {
+            if ((!args || args.provisionedModelName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'provisionedModelName'");
             }
-            resourceInputs["commitmentDuration"] = args?.commitmentDuration;
-            resourceInputs["modelArn"] = args?.modelArn;
-            resourceInputs["modelUnits"] = args?.modelUnits;
-            resourceInputs["provisionedModelName"] = args?.provisionedModelName;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["commitmentDuration"] = args ? args.commitmentDuration : undefined;
+            resourceInputs["modelArn"] = args ? args.modelArn : undefined;
+            resourceInputs["modelUnits"] = args ? args.modelUnits : undefined;
+            resourceInputs["provisionedModelName"] = args ? args.provisionedModelName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["provisionedModelArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

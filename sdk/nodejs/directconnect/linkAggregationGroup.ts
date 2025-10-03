@@ -62,55 +62,55 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
     /**
      * The ARN of the LAG.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The ID of an existing dedicated connection to migrate to the LAG.
      */
-    declare public readonly connectionId: pulumi.Output<string | undefined>;
+    public readonly connectionId!: pulumi.Output<string | undefined>;
     /**
      * The bandwidth of the individual dedicated connections bundled by the LAG. Valid values: 1Gbps, 10Gbps, 100Gbps, and 400Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Dedicated Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/dedicated_connection.html).
      */
-    declare public readonly connectionsBandwidth: pulumi.Output<string>;
+    public readonly connectionsBandwidth!: pulumi.Output<string>;
     /**
      * A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
      */
-    declare public readonly forceDestroy: pulumi.Output<boolean | undefined>;
+    public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
     /**
      * Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
      */
-    declare public /*out*/ readonly hasLogicalRedundancy: pulumi.Output<string>;
+    public /*out*/ readonly hasLogicalRedundancy!: pulumi.Output<string>;
     /**
      * Indicates whether jumbo frames (9001 MTU) are supported.
      */
-    declare public /*out*/ readonly jumboFrameCapable: pulumi.Output<boolean>;
+    public /*out*/ readonly jumboFrameCapable!: pulumi.Output<boolean>;
     /**
      * The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
      */
-    declare public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The name of the LAG.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The ID of the AWS account that owns the LAG.
      */
-    declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
+    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
     /**
      * The name of the service provider associated with the LAG.
      */
-    declare public readonly providerName: pulumi.Output<string>;
+    public readonly providerName!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a LinkAggregationGroup resource with the given unique name, arguments, and options.
@@ -125,35 +125,35 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinkAggregationGroupState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["connectionId"] = state?.connectionId;
-            resourceInputs["connectionsBandwidth"] = state?.connectionsBandwidth;
-            resourceInputs["forceDestroy"] = state?.forceDestroy;
-            resourceInputs["hasLogicalRedundancy"] = state?.hasLogicalRedundancy;
-            resourceInputs["jumboFrameCapable"] = state?.jumboFrameCapable;
-            resourceInputs["location"] = state?.location;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["ownerAccountId"] = state?.ownerAccountId;
-            resourceInputs["providerName"] = state?.providerName;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["connectionId"] = state ? state.connectionId : undefined;
+            resourceInputs["connectionsBandwidth"] = state ? state.connectionsBandwidth : undefined;
+            resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
+            resourceInputs["hasLogicalRedundancy"] = state ? state.hasLogicalRedundancy : undefined;
+            resourceInputs["jumboFrameCapable"] = state ? state.jumboFrameCapable : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
+            resourceInputs["providerName"] = state ? state.providerName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as LinkAggregationGroupArgs | undefined;
-            if (args?.connectionsBandwidth === undefined && !opts.urn) {
+            if ((!args || args.connectionsBandwidth === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectionsBandwidth'");
             }
-            if (args?.location === undefined && !opts.urn) {
+            if ((!args || args.location === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'location'");
             }
-            resourceInputs["connectionId"] = args?.connectionId;
-            resourceInputs["connectionsBandwidth"] = args?.connectionsBandwidth;
-            resourceInputs["forceDestroy"] = args?.forceDestroy;
-            resourceInputs["location"] = args?.location;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["providerName"] = args?.providerName;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["connectionId"] = args ? args.connectionId : undefined;
+            resourceInputs["connectionsBandwidth"] = args ? args.connectionsBandwidth : undefined;
+            resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["providerName"] = args ? args.providerName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["hasLogicalRedundancy"] = undefined /*out*/;
             resourceInputs["jumboFrameCapable"] = undefined /*out*/;

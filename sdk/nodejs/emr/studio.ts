@@ -65,74 +65,74 @@ export class Studio extends pulumi.CustomResource {
     /**
      * ARN of the studio.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO. Valid values are `SSO` or `IAM`.
      */
-    declare public readonly authMode: pulumi.Output<string>;
+    public readonly authMode!: pulumi.Output<string>;
     /**
      * The Amazon S3 location to back up Amazon EMR Studio Workspaces and notebook files.
      */
-    declare public readonly defaultS3Location: pulumi.Output<string>;
+    public readonly defaultS3Location!: pulumi.Output<string>;
     /**
      * A detailed description of the Amazon EMR Studio.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
      */
-    declare public readonly encryptionKeyArn: pulumi.Output<string | undefined>;
+    public readonly encryptionKeyArn!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpcId`.
      */
-    declare public readonly engineSecurityGroupId: pulumi.Output<string>;
+    public readonly engineSecurityGroupId!: pulumi.Output<string>;
     /**
      * The authentication endpoint of your identity provider (IdP). Specify this value when you use IAM authentication and want to let federated users log in to a Studio with the Studio URL and credentials from your IdP. Amazon EMR Studio redirects users to this endpoint to enter credentials.
      */
-    declare public readonly idpAuthUrl: pulumi.Output<string | undefined>;
+    public readonly idpAuthUrl!: pulumi.Output<string | undefined>;
     /**
      * The name that your identity provider (IdP) uses for its RelayState parameter. For example, RelayState or TargetSource. Specify this value when you use IAM authentication and want to let federated users log in to a Studio using the Studio URL. The RelayState parameter differs by IdP.
      */
-    declare public readonly idpRelayStateParameterName: pulumi.Output<string | undefined>;
+    public readonly idpRelayStateParameterName!: pulumi.Output<string | undefined>;
     /**
      * A descriptive name for the Amazon EMR Studio.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The IAM role that the Amazon EMR Studio assumes. The service role provides a way for Amazon EMR Studio to interoperate with other Amazon Web Services services.
      */
-    declare public readonly serviceRole: pulumi.Output<string>;
+    public readonly serviceRole!: pulumi.Output<string>;
     /**
      * A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpcId`. Studio users can create a Workspace in any of the specified subnets.
      */
-    declare public readonly subnetIds: pulumi.Output<string[]>;
+    public readonly subnetIds!: pulumi.Output<string[]>;
     /**
      * list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The unique access URL of the Amazon EMR Studio.
      */
-    declare public /*out*/ readonly url: pulumi.Output<string>;
+    public /*out*/ readonly url!: pulumi.Output<string>;
     /**
      * The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
      */
-    declare public readonly userRole: pulumi.Output<string | undefined>;
+    public readonly userRole!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
      */
-    declare public readonly vpcId: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string>;
     /**
      * The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpcId`.
      *
      * The following arguments are optional:
      */
-    declare public readonly workspaceSecurityGroupId: pulumi.Output<string>;
+    public readonly workspaceSecurityGroupId!: pulumi.Output<string>;
 
     /**
      * Create a Studio resource with the given unique name, arguments, and options.
@@ -147,62 +147,62 @@ export class Studio extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StudioState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["authMode"] = state?.authMode;
-            resourceInputs["defaultS3Location"] = state?.defaultS3Location;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["encryptionKeyArn"] = state?.encryptionKeyArn;
-            resourceInputs["engineSecurityGroupId"] = state?.engineSecurityGroupId;
-            resourceInputs["idpAuthUrl"] = state?.idpAuthUrl;
-            resourceInputs["idpRelayStateParameterName"] = state?.idpRelayStateParameterName;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["serviceRole"] = state?.serviceRole;
-            resourceInputs["subnetIds"] = state?.subnetIds;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["url"] = state?.url;
-            resourceInputs["userRole"] = state?.userRole;
-            resourceInputs["vpcId"] = state?.vpcId;
-            resourceInputs["workspaceSecurityGroupId"] = state?.workspaceSecurityGroupId;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["authMode"] = state ? state.authMode : undefined;
+            resourceInputs["defaultS3Location"] = state ? state.defaultS3Location : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["encryptionKeyArn"] = state ? state.encryptionKeyArn : undefined;
+            resourceInputs["engineSecurityGroupId"] = state ? state.engineSecurityGroupId : undefined;
+            resourceInputs["idpAuthUrl"] = state ? state.idpAuthUrl : undefined;
+            resourceInputs["idpRelayStateParameterName"] = state ? state.idpRelayStateParameterName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["serviceRole"] = state ? state.serviceRole : undefined;
+            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["userRole"] = state ? state.userRole : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["workspaceSecurityGroupId"] = state ? state.workspaceSecurityGroupId : undefined;
         } else {
             const args = argsOrState as StudioArgs | undefined;
-            if (args?.authMode === undefined && !opts.urn) {
+            if ((!args || args.authMode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authMode'");
             }
-            if (args?.defaultS3Location === undefined && !opts.urn) {
+            if ((!args || args.defaultS3Location === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'defaultS3Location'");
             }
-            if (args?.engineSecurityGroupId === undefined && !opts.urn) {
+            if ((!args || args.engineSecurityGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engineSecurityGroupId'");
             }
-            if (args?.serviceRole === undefined && !opts.urn) {
+            if ((!args || args.serviceRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceRole'");
             }
-            if (args?.subnetIds === undefined && !opts.urn) {
+            if ((!args || args.subnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            if (args?.vpcId === undefined && !opts.urn) {
+            if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            if (args?.workspaceSecurityGroupId === undefined && !opts.urn) {
+            if ((!args || args.workspaceSecurityGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceSecurityGroupId'");
             }
-            resourceInputs["authMode"] = args?.authMode;
-            resourceInputs["defaultS3Location"] = args?.defaultS3Location;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["encryptionKeyArn"] = args?.encryptionKeyArn;
-            resourceInputs["engineSecurityGroupId"] = args?.engineSecurityGroupId;
-            resourceInputs["idpAuthUrl"] = args?.idpAuthUrl;
-            resourceInputs["idpRelayStateParameterName"] = args?.idpRelayStateParameterName;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["serviceRole"] = args?.serviceRole;
-            resourceInputs["subnetIds"] = args?.subnetIds;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["userRole"] = args?.userRole;
-            resourceInputs["vpcId"] = args?.vpcId;
-            resourceInputs["workspaceSecurityGroupId"] = args?.workspaceSecurityGroupId;
+            resourceInputs["authMode"] = args ? args.authMode : undefined;
+            resourceInputs["defaultS3Location"] = args ? args.defaultS3Location : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["encryptionKeyArn"] = args ? args.encryptionKeyArn : undefined;
+            resourceInputs["engineSecurityGroupId"] = args ? args.engineSecurityGroupId : undefined;
+            resourceInputs["idpAuthUrl"] = args ? args.idpAuthUrl : undefined;
+            resourceInputs["idpRelayStateParameterName"] = args ? args.idpRelayStateParameterName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["serviceRole"] = args ? args.serviceRole : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userRole"] = args ? args.userRole : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["workspaceSecurityGroupId"] = args ? args.workspaceSecurityGroupId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;

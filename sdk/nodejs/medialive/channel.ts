@@ -123,70 +123,70 @@ export class Channel extends pulumi.CustomResource {
     /**
      * ARN of the Channel.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Specification of CDI inputs for this channel. See CDI Input Specification for more details.
      */
-    declare public readonly cdiInputSpecification: pulumi.Output<outputs.medialive.ChannelCdiInputSpecification | undefined>;
+    public readonly cdiInputSpecification!: pulumi.Output<outputs.medialive.ChannelCdiInputSpecification | undefined>;
     /**
      * Concise argument description.
      */
-    declare public readonly channelClass: pulumi.Output<string>;
+    public readonly channelClass!: pulumi.Output<string>;
     /**
      * ID of the Channel.
      */
-    declare public /*out*/ readonly channelId: pulumi.Output<string>;
+    public /*out*/ readonly channelId!: pulumi.Output<string>;
     /**
      * Destinations for channel. See Destinations for more details.
      */
-    declare public readonly destinations: pulumi.Output<outputs.medialive.ChannelDestination[]>;
+    public readonly destinations!: pulumi.Output<outputs.medialive.ChannelDestination[]>;
     /**
      * Encoder settings. See Encoder Settings for more details.
      */
-    declare public readonly encoderSettings: pulumi.Output<outputs.medialive.ChannelEncoderSettings>;
+    public readonly encoderSettings!: pulumi.Output<outputs.medialive.ChannelEncoderSettings>;
     /**
      * Input attachments for the channel. See Input Attachments for more details.
      */
-    declare public readonly inputAttachments: pulumi.Output<outputs.medialive.ChannelInputAttachment[]>;
+    public readonly inputAttachments!: pulumi.Output<outputs.medialive.ChannelInputAttachment[]>;
     /**
      * Specification of network and file inputs for the channel.
      */
-    declare public readonly inputSpecification: pulumi.Output<outputs.medialive.ChannelInputSpecification>;
+    public readonly inputSpecification!: pulumi.Output<outputs.medialive.ChannelInputSpecification>;
     /**
      * The log level to write to Cloudwatch logs.
      */
-    declare public readonly logLevel: pulumi.Output<string>;
+    public readonly logLevel!: pulumi.Output<string>;
     /**
      * Maintenance settings for this channel. See Maintenance for more details.
      */
-    declare public readonly maintenance: pulumi.Output<outputs.medialive.ChannelMaintenance>;
+    public readonly maintenance!: pulumi.Output<outputs.medialive.ChannelMaintenance>;
     /**
      * Name of the Channel.
      *
      * The following arguments are optional:
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Concise argument description.
      */
-    declare public readonly roleArn: pulumi.Output<string | undefined>;
+    public readonly roleArn!: pulumi.Output<string | undefined>;
     /**
      * Whether to start/stop channel. Default: `false`
      */
-    declare public readonly startChannel: pulumi.Output<boolean | undefined>;
+    public readonly startChannel!: pulumi.Output<boolean | undefined>;
     /**
      * A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Settings for the VPC outputs. See VPC for more details.
      */
-    declare public readonly vpc: pulumi.Output<outputs.medialive.ChannelVpc | undefined>;
+    public readonly vpc!: pulumi.Output<outputs.medialive.ChannelVpc | undefined>;
 
     /**
      * Create a Channel resource with the given unique name, arguments, and options.
@@ -201,54 +201,54 @@ export class Channel extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ChannelState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["cdiInputSpecification"] = state?.cdiInputSpecification;
-            resourceInputs["channelClass"] = state?.channelClass;
-            resourceInputs["channelId"] = state?.channelId;
-            resourceInputs["destinations"] = state?.destinations;
-            resourceInputs["encoderSettings"] = state?.encoderSettings;
-            resourceInputs["inputAttachments"] = state?.inputAttachments;
-            resourceInputs["inputSpecification"] = state?.inputSpecification;
-            resourceInputs["logLevel"] = state?.logLevel;
-            resourceInputs["maintenance"] = state?.maintenance;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["roleArn"] = state?.roleArn;
-            resourceInputs["startChannel"] = state?.startChannel;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["vpc"] = state?.vpc;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["cdiInputSpecification"] = state ? state.cdiInputSpecification : undefined;
+            resourceInputs["channelClass"] = state ? state.channelClass : undefined;
+            resourceInputs["channelId"] = state ? state.channelId : undefined;
+            resourceInputs["destinations"] = state ? state.destinations : undefined;
+            resourceInputs["encoderSettings"] = state ? state.encoderSettings : undefined;
+            resourceInputs["inputAttachments"] = state ? state.inputAttachments : undefined;
+            resourceInputs["inputSpecification"] = state ? state.inputSpecification : undefined;
+            resourceInputs["logLevel"] = state ? state.logLevel : undefined;
+            resourceInputs["maintenance"] = state ? state.maintenance : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["startChannel"] = state ? state.startChannel : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpc"] = state ? state.vpc : undefined;
         } else {
             const args = argsOrState as ChannelArgs | undefined;
-            if (args?.channelClass === undefined && !opts.urn) {
+            if ((!args || args.channelClass === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'channelClass'");
             }
-            if (args?.destinations === undefined && !opts.urn) {
+            if ((!args || args.destinations === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destinations'");
             }
-            if (args?.encoderSettings === undefined && !opts.urn) {
+            if ((!args || args.encoderSettings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'encoderSettings'");
             }
-            if (args?.inputAttachments === undefined && !opts.urn) {
+            if ((!args || args.inputAttachments === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'inputAttachments'");
             }
-            if (args?.inputSpecification === undefined && !opts.urn) {
+            if ((!args || args.inputSpecification === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'inputSpecification'");
             }
-            resourceInputs["cdiInputSpecification"] = args?.cdiInputSpecification;
-            resourceInputs["channelClass"] = args?.channelClass;
-            resourceInputs["destinations"] = args?.destinations;
-            resourceInputs["encoderSettings"] = args?.encoderSettings;
-            resourceInputs["inputAttachments"] = args?.inputAttachments;
-            resourceInputs["inputSpecification"] = args?.inputSpecification;
-            resourceInputs["logLevel"] = args?.logLevel;
-            resourceInputs["maintenance"] = args?.maintenance;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["roleArn"] = args?.roleArn;
-            resourceInputs["startChannel"] = args?.startChannel;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["vpc"] = args?.vpc;
+            resourceInputs["cdiInputSpecification"] = args ? args.cdiInputSpecification : undefined;
+            resourceInputs["channelClass"] = args ? args.channelClass : undefined;
+            resourceInputs["destinations"] = args ? args.destinations : undefined;
+            resourceInputs["encoderSettings"] = args ? args.encoderSettings : undefined;
+            resourceInputs["inputAttachments"] = args ? args.inputAttachments : undefined;
+            resourceInputs["inputSpecification"] = args ? args.inputSpecification : undefined;
+            resourceInputs["logLevel"] = args ? args.logLevel : undefined;
+            resourceInputs["maintenance"] = args ? args.maintenance : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["startChannel"] = args ? args.startChannel : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpc"] = args ? args.vpc : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["channelId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

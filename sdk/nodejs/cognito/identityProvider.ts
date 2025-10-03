@@ -72,31 +72,31 @@ export class IdentityProvider extends pulumi.CustomResource {
     /**
      * The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
      */
-    declare public readonly attributeMapping: pulumi.Output<{[key: string]: string}>;
+    public readonly attributeMapping!: pulumi.Output<{[key: string]: string}>;
     /**
      * The list of identity providers.
      */
-    declare public readonly idpIdentifiers: pulumi.Output<string[] | undefined>;
+    public readonly idpIdentifiers!: pulumi.Output<string[] | undefined>;
     /**
      * The map of identity details, such as access token
      */
-    declare public readonly providerDetails: pulumi.Output<{[key: string]: string}>;
+    public readonly providerDetails!: pulumi.Output<{[key: string]: string}>;
     /**
      * The provider name
      */
-    declare public readonly providerName: pulumi.Output<string>;
+    public readonly providerName!: pulumi.Output<string>;
     /**
      * The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
      */
-    declare public readonly providerType: pulumi.Output<string>;
+    public readonly providerType!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The user pool id
      */
-    declare public readonly userPoolId: pulumi.Output<string>;
+    public readonly userPoolId!: pulumi.Output<string>;
 
     /**
      * Create a IdentityProvider resource with the given unique name, arguments, and options.
@@ -111,34 +111,34 @@ export class IdentityProvider extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IdentityProviderState | undefined;
-            resourceInputs["attributeMapping"] = state?.attributeMapping;
-            resourceInputs["idpIdentifiers"] = state?.idpIdentifiers;
-            resourceInputs["providerDetails"] = state?.providerDetails;
-            resourceInputs["providerName"] = state?.providerName;
-            resourceInputs["providerType"] = state?.providerType;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["userPoolId"] = state?.userPoolId;
+            resourceInputs["attributeMapping"] = state ? state.attributeMapping : undefined;
+            resourceInputs["idpIdentifiers"] = state ? state.idpIdentifiers : undefined;
+            resourceInputs["providerDetails"] = state ? state.providerDetails : undefined;
+            resourceInputs["providerName"] = state ? state.providerName : undefined;
+            resourceInputs["providerType"] = state ? state.providerType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["userPoolId"] = state ? state.userPoolId : undefined;
         } else {
             const args = argsOrState as IdentityProviderArgs | undefined;
-            if (args?.providerDetails === undefined && !opts.urn) {
+            if ((!args || args.providerDetails === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'providerDetails'");
             }
-            if (args?.providerName === undefined && !opts.urn) {
+            if ((!args || args.providerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'providerName'");
             }
-            if (args?.providerType === undefined && !opts.urn) {
+            if ((!args || args.providerType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'providerType'");
             }
-            if (args?.userPoolId === undefined && !opts.urn) {
+            if ((!args || args.userPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            resourceInputs["attributeMapping"] = args?.attributeMapping;
-            resourceInputs["idpIdentifiers"] = args?.idpIdentifiers;
-            resourceInputs["providerDetails"] = args?.providerDetails;
-            resourceInputs["providerName"] = args?.providerName;
-            resourceInputs["providerType"] = args?.providerType;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["userPoolId"] = args?.userPoolId;
+            resourceInputs["attributeMapping"] = args ? args.attributeMapping : undefined;
+            resourceInputs["idpIdentifiers"] = args ? args.idpIdentifiers : undefined;
+            resourceInputs["providerDetails"] = args ? args.providerDetails : undefined;
+            resourceInputs["providerName"] = args ? args.providerName : undefined;
+            resourceInputs["providerType"] = args ? args.providerType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IdentityProvider.__pulumiType, name, resourceInputs, opts);

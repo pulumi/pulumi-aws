@@ -67,39 +67,39 @@ export class ApprovalRuleTemplate extends pulumi.CustomResource {
     /**
      * The ID of the approval rule template
      */
-    declare public /*out*/ readonly approvalRuleTemplateId: pulumi.Output<string>;
+    public /*out*/ readonly approvalRuleTemplateId!: pulumi.Output<string>;
     /**
      * The content of the approval rule template. Maximum of 3000 characters.
      */
-    declare public readonly content: pulumi.Output<string>;
+    public readonly content!: pulumi.Output<string>;
     /**
      * The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
-    declare public /*out*/ readonly creationDate: pulumi.Output<string>;
+    public /*out*/ readonly creationDate!: pulumi.Output<string>;
     /**
      * The description of the approval rule template. Maximum of 1000 characters.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
-    declare public /*out*/ readonly lastModifiedDate: pulumi.Output<string>;
+    public /*out*/ readonly lastModifiedDate!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
      */
-    declare public /*out*/ readonly lastModifiedUser: pulumi.Output<string>;
+    public /*out*/ readonly lastModifiedUser!: pulumi.Output<string>;
     /**
      * The name for the approval rule template. Maximum of 100 characters.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The SHA-256 hash signature for the content of the approval rule template.
      */
-    declare public /*out*/ readonly ruleContentSha256: pulumi.Output<string>;
+    public /*out*/ readonly ruleContentSha256!: pulumi.Output<string>;
 
     /**
      * Create a ApprovalRuleTemplate resource with the given unique name, arguments, and options.
@@ -114,24 +114,24 @@ export class ApprovalRuleTemplate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApprovalRuleTemplateState | undefined;
-            resourceInputs["approvalRuleTemplateId"] = state?.approvalRuleTemplateId;
-            resourceInputs["content"] = state?.content;
-            resourceInputs["creationDate"] = state?.creationDate;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["lastModifiedDate"] = state?.lastModifiedDate;
-            resourceInputs["lastModifiedUser"] = state?.lastModifiedUser;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["ruleContentSha256"] = state?.ruleContentSha256;
+            resourceInputs["approvalRuleTemplateId"] = state ? state.approvalRuleTemplateId : undefined;
+            resourceInputs["content"] = state ? state.content : undefined;
+            resourceInputs["creationDate"] = state ? state.creationDate : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["lastModifiedDate"] = state ? state.lastModifiedDate : undefined;
+            resourceInputs["lastModifiedUser"] = state ? state.lastModifiedUser : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["ruleContentSha256"] = state ? state.ruleContentSha256 : undefined;
         } else {
             const args = argsOrState as ApprovalRuleTemplateArgs | undefined;
-            if (args?.content === undefined && !opts.urn) {
+            if ((!args || args.content === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            resourceInputs["content"] = args?.content;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["content"] = args ? args.content : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["approvalRuleTemplateId"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["lastModifiedDate"] = undefined /*out*/;

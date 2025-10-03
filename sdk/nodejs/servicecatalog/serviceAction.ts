@@ -66,25 +66,25 @@ export class ServiceAction extends pulumi.CustomResource {
     /**
      * Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
      */
-    declare public readonly acceptLanguage: pulumi.Output<string | undefined>;
+    public readonly acceptLanguage!: pulumi.Output<string | undefined>;
     /**
      * Self-service action definition configuration block. Detailed below.
      */
-    declare public readonly definition: pulumi.Output<outputs.servicecatalog.ServiceActionDefinition>;
+    public readonly definition!: pulumi.Output<outputs.servicecatalog.ServiceActionDefinition>;
     /**
      * Self-service action description.
      */
-    declare public readonly description: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * Self-service action name.
      *
      * The following arguments are optional:
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ServiceAction resource with the given unique name, arguments, and options.
@@ -99,21 +99,21 @@ export class ServiceAction extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceActionState | undefined;
-            resourceInputs["acceptLanguage"] = state?.acceptLanguage;
-            resourceInputs["definition"] = state?.definition;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["acceptLanguage"] = state ? state.acceptLanguage : undefined;
+            resourceInputs["definition"] = state ? state.definition : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ServiceActionArgs | undefined;
-            if (args?.definition === undefined && !opts.urn) {
+            if ((!args || args.definition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'definition'");
             }
-            resourceInputs["acceptLanguage"] = args?.acceptLanguage;
-            resourceInputs["definition"] = args?.definition;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
+            resourceInputs["definition"] = args ? args.definition : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServiceAction.__pulumiType, name, resourceInputs, opts);

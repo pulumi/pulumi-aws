@@ -118,45 +118,45 @@ export class Domain extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Customer Profiles Domain.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
      */
-    declare public readonly deadLetterQueueUrl: pulumi.Output<string | undefined>;
+    public readonly deadLetterQueueUrl!: pulumi.Output<string | undefined>;
     /**
      * The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
      */
-    declare public readonly defaultEncryptionKey: pulumi.Output<string | undefined>;
+    public readonly defaultEncryptionKey!: pulumi.Output<string | undefined>;
     /**
      * The default number of days until the data within the domain expires.
      *
      * The following arguments are optional:
      */
-    declare public readonly defaultExpirationDays: pulumi.Output<number>;
+    public readonly defaultExpirationDays!: pulumi.Output<number>;
     /**
      * The name for your Customer Profile domain. It must be unique for your AWS account.
      */
-    declare public readonly domainName: pulumi.Output<string>;
+    public readonly domainName!: pulumi.Output<string>;
     /**
      * A block that specifies the process of matching duplicate profiles. Documented below.
      */
-    declare public readonly matching: pulumi.Output<outputs.customerprofiles.DomainMatching | undefined>;
+    public readonly matching!: pulumi.Output<outputs.customerprofiles.DomainMatching | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
      */
-    declare public readonly ruleBasedMatching: pulumi.Output<outputs.customerprofiles.DomainRuleBasedMatching | undefined>;
+    public readonly ruleBasedMatching!: pulumi.Output<outputs.customerprofiles.DomainRuleBasedMatching | undefined>;
     /**
      * Tags to apply to the domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -171,32 +171,32 @@ export class Domain extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["deadLetterQueueUrl"] = state?.deadLetterQueueUrl;
-            resourceInputs["defaultEncryptionKey"] = state?.defaultEncryptionKey;
-            resourceInputs["defaultExpirationDays"] = state?.defaultExpirationDays;
-            resourceInputs["domainName"] = state?.domainName;
-            resourceInputs["matching"] = state?.matching;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["ruleBasedMatching"] = state?.ruleBasedMatching;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["deadLetterQueueUrl"] = state ? state.deadLetterQueueUrl : undefined;
+            resourceInputs["defaultEncryptionKey"] = state ? state.defaultEncryptionKey : undefined;
+            resourceInputs["defaultExpirationDays"] = state ? state.defaultExpirationDays : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["matching"] = state ? state.matching : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["ruleBasedMatching"] = state ? state.ruleBasedMatching : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as DomainArgs | undefined;
-            if (args?.defaultExpirationDays === undefined && !opts.urn) {
+            if ((!args || args.defaultExpirationDays === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'defaultExpirationDays'");
             }
-            if (args?.domainName === undefined && !opts.urn) {
+            if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            resourceInputs["deadLetterQueueUrl"] = args?.deadLetterQueueUrl;
-            resourceInputs["defaultEncryptionKey"] = args?.defaultEncryptionKey;
-            resourceInputs["defaultExpirationDays"] = args?.defaultExpirationDays;
-            resourceInputs["domainName"] = args?.domainName;
-            resourceInputs["matching"] = args?.matching;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["ruleBasedMatching"] = args?.ruleBasedMatching;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["deadLetterQueueUrl"] = args ? args.deadLetterQueueUrl : undefined;
+            resourceInputs["defaultEncryptionKey"] = args ? args.defaultEncryptionKey : undefined;
+            resourceInputs["defaultExpirationDays"] = args ? args.defaultExpirationDays : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["matching"] = args ? args.matching : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["ruleBasedMatching"] = args ? args.ruleBasedMatching : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

@@ -156,23 +156,23 @@ export class HealthCheck extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Health Check.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
      */
-    declare public readonly childHealthThreshold: pulumi.Output<number | undefined>;
+    public readonly childHealthThreshold!: pulumi.Output<number | undefined>;
     /**
      * For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
      */
-    declare public readonly childHealthchecks: pulumi.Output<string[] | undefined>;
+    public readonly childHealthchecks!: pulumi.Output<string[] | undefined>;
     /**
      * The name of the CloudWatch alarm.
      */
-    declare public readonly cloudwatchAlarmName: pulumi.Output<string | undefined>;
+    public readonly cloudwatchAlarmName!: pulumi.Output<string | undefined>;
     /**
      * The region that the CloudWatch alarm was created in.
      */
-    declare public readonly cloudwatchAlarmRegion: pulumi.Output<string | undefined>;
+    public readonly cloudwatchAlarmRegion!: pulumi.Output<string | undefined>;
     /**
      * A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
      * * For health checks that check the health of endpoints, Route53 stops submitting requests to your application, server, or other resource.
@@ -181,80 +181,80 @@ export class HealthCheck extends pulumi.CustomResource {
      *
      * > **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invertHealthcheck`.
      */
-    declare public readonly disabled: pulumi.Output<boolean | undefined>;
+    public readonly disabled!: pulumi.Output<boolean | undefined>;
     /**
      * A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enableSni` defaults to `true`, when `type` is anything else `enableSni` defaults to `false`.
      */
-    declare public readonly enableSni: pulumi.Output<boolean>;
+    public readonly enableSni!: pulumi.Output<boolean>;
     /**
      * The number of consecutive health checks that an endpoint must pass or fail.
      */
-    declare public readonly failureThreshold: pulumi.Output<number>;
+    public readonly failureThreshold!: pulumi.Output<number>;
     /**
      * The fully qualified domain name of the endpoint to be checked. If a value is set for `ipAddress`, the value set for `fqdn` will be passed in the `Host` header.
      */
-    declare public readonly fqdn: pulumi.Output<string | undefined>;
+    public readonly fqdn!: pulumi.Output<string | undefined>;
     /**
      * The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
      */
-    declare public readonly insufficientDataHealthStatus: pulumi.Output<string | undefined>;
+    public readonly insufficientDataHealthStatus!: pulumi.Output<string | undefined>;
     /**
      * A boolean value that indicates whether the status of health check should be inverted. For example, if a health check is healthy but Inverted is True , then Route 53 considers the health check to be unhealthy.
      */
-    declare public readonly invertHealthcheck: pulumi.Output<boolean | undefined>;
+    public readonly invertHealthcheck!: pulumi.Output<boolean | undefined>;
     /**
      * The IP address of the endpoint to be checked.
      */
-    declare public readonly ipAddress: pulumi.Output<string | undefined>;
+    public readonly ipAddress!: pulumi.Output<string | undefined>;
     /**
      * A Boolean value that indicates whether you want Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint and to display CloudWatch latency graphs in the Route 53 console.
      */
-    declare public readonly measureLatency: pulumi.Output<boolean | undefined>;
+    public readonly measureLatency!: pulumi.Output<boolean | undefined>;
     /**
      * The port of the endpoint to be checked.
      */
-    declare public readonly port: pulumi.Output<number | undefined>;
+    public readonly port!: pulumi.Output<number | undefined>;
     /**
      * This is a reference name used in Caller Reference
      * (helpful for identifying single healthCheck set amongst others)
      */
-    declare public readonly referenceName: pulumi.Output<string | undefined>;
+    public readonly referenceName!: pulumi.Output<string | undefined>;
     /**
      * A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
      */
-    declare public readonly regions: pulumi.Output<string[] | undefined>;
+    public readonly regions!: pulumi.Output<string[] | undefined>;
     /**
      * The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
      */
-    declare public readonly requestInterval: pulumi.Output<number | undefined>;
+    public readonly requestInterval!: pulumi.Output<number | undefined>;
     /**
      * The path that you want Amazon Route 53 to request when performing health checks.
      */
-    declare public readonly resourcePath: pulumi.Output<string | undefined>;
+    public readonly resourcePath!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
      */
-    declare public readonly routingControlArn: pulumi.Output<string | undefined>;
+    public readonly routingControlArn!: pulumi.Output<string | undefined>;
     /**
      * String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
      */
-    declare public readonly searchString: pulumi.Output<string | undefined>;
+    public readonly searchString!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the health check. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Map of arbitrary keys and values that, when changed, will trigger an in-place update of the CloudWatch alarm arguments. Use this argument to synchronize the health check when an alarm is changed. See example above.
      */
-    declare public readonly triggers: pulumi.Output<{[key: string]: string}>;
+    public readonly triggers!: pulumi.Output<{[key: string]: string}>;
     /**
      * The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
      */
-    declare public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a HealthCheck resource with the given unique name, arguments, and options.
@@ -269,57 +269,57 @@ export class HealthCheck extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HealthCheckState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["childHealthThreshold"] = state?.childHealthThreshold;
-            resourceInputs["childHealthchecks"] = state?.childHealthchecks;
-            resourceInputs["cloudwatchAlarmName"] = state?.cloudwatchAlarmName;
-            resourceInputs["cloudwatchAlarmRegion"] = state?.cloudwatchAlarmRegion;
-            resourceInputs["disabled"] = state?.disabled;
-            resourceInputs["enableSni"] = state?.enableSni;
-            resourceInputs["failureThreshold"] = state?.failureThreshold;
-            resourceInputs["fqdn"] = state?.fqdn;
-            resourceInputs["insufficientDataHealthStatus"] = state?.insufficientDataHealthStatus;
-            resourceInputs["invertHealthcheck"] = state?.invertHealthcheck;
-            resourceInputs["ipAddress"] = state?.ipAddress;
-            resourceInputs["measureLatency"] = state?.measureLatency;
-            resourceInputs["port"] = state?.port;
-            resourceInputs["referenceName"] = state?.referenceName;
-            resourceInputs["regions"] = state?.regions;
-            resourceInputs["requestInterval"] = state?.requestInterval;
-            resourceInputs["resourcePath"] = state?.resourcePath;
-            resourceInputs["routingControlArn"] = state?.routingControlArn;
-            resourceInputs["searchString"] = state?.searchString;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["triggers"] = state?.triggers;
-            resourceInputs["type"] = state?.type;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["childHealthThreshold"] = state ? state.childHealthThreshold : undefined;
+            resourceInputs["childHealthchecks"] = state ? state.childHealthchecks : undefined;
+            resourceInputs["cloudwatchAlarmName"] = state ? state.cloudwatchAlarmName : undefined;
+            resourceInputs["cloudwatchAlarmRegion"] = state ? state.cloudwatchAlarmRegion : undefined;
+            resourceInputs["disabled"] = state ? state.disabled : undefined;
+            resourceInputs["enableSni"] = state ? state.enableSni : undefined;
+            resourceInputs["failureThreshold"] = state ? state.failureThreshold : undefined;
+            resourceInputs["fqdn"] = state ? state.fqdn : undefined;
+            resourceInputs["insufficientDataHealthStatus"] = state ? state.insufficientDataHealthStatus : undefined;
+            resourceInputs["invertHealthcheck"] = state ? state.invertHealthcheck : undefined;
+            resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
+            resourceInputs["measureLatency"] = state ? state.measureLatency : undefined;
+            resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["referenceName"] = state ? state.referenceName : undefined;
+            resourceInputs["regions"] = state ? state.regions : undefined;
+            resourceInputs["requestInterval"] = state ? state.requestInterval : undefined;
+            resourceInputs["resourcePath"] = state ? state.resourcePath : undefined;
+            resourceInputs["routingControlArn"] = state ? state.routingControlArn : undefined;
+            resourceInputs["searchString"] = state ? state.searchString : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["triggers"] = state ? state.triggers : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as HealthCheckArgs | undefined;
-            if (args?.type === undefined && !opts.urn) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["childHealthThreshold"] = args?.childHealthThreshold;
-            resourceInputs["childHealthchecks"] = args?.childHealthchecks;
-            resourceInputs["cloudwatchAlarmName"] = args?.cloudwatchAlarmName;
-            resourceInputs["cloudwatchAlarmRegion"] = args?.cloudwatchAlarmRegion;
-            resourceInputs["disabled"] = args?.disabled;
-            resourceInputs["enableSni"] = args?.enableSni;
-            resourceInputs["failureThreshold"] = args?.failureThreshold;
-            resourceInputs["fqdn"] = args?.fqdn;
-            resourceInputs["insufficientDataHealthStatus"] = args?.insufficientDataHealthStatus;
-            resourceInputs["invertHealthcheck"] = args?.invertHealthcheck;
-            resourceInputs["ipAddress"] = args?.ipAddress;
-            resourceInputs["measureLatency"] = args?.measureLatency;
-            resourceInputs["port"] = args?.port;
-            resourceInputs["referenceName"] = args?.referenceName;
-            resourceInputs["regions"] = args?.regions;
-            resourceInputs["requestInterval"] = args?.requestInterval;
-            resourceInputs["resourcePath"] = args?.resourcePath;
-            resourceInputs["routingControlArn"] = args?.routingControlArn;
-            resourceInputs["searchString"] = args?.searchString;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["triggers"] = args?.triggers;
-            resourceInputs["type"] = args?.type;
+            resourceInputs["childHealthThreshold"] = args ? args.childHealthThreshold : undefined;
+            resourceInputs["childHealthchecks"] = args ? args.childHealthchecks : undefined;
+            resourceInputs["cloudwatchAlarmName"] = args ? args.cloudwatchAlarmName : undefined;
+            resourceInputs["cloudwatchAlarmRegion"] = args ? args.cloudwatchAlarmRegion : undefined;
+            resourceInputs["disabled"] = args ? args.disabled : undefined;
+            resourceInputs["enableSni"] = args ? args.enableSni : undefined;
+            resourceInputs["failureThreshold"] = args ? args.failureThreshold : undefined;
+            resourceInputs["fqdn"] = args ? args.fqdn : undefined;
+            resourceInputs["insufficientDataHealthStatus"] = args ? args.insufficientDataHealthStatus : undefined;
+            resourceInputs["invertHealthcheck"] = args ? args.invertHealthcheck : undefined;
+            resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
+            resourceInputs["measureLatency"] = args ? args.measureLatency : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["referenceName"] = args ? args.referenceName : undefined;
+            resourceInputs["regions"] = args ? args.regions : undefined;
+            resourceInputs["requestInterval"] = args ? args.requestInterval : undefined;
+            resourceInputs["resourcePath"] = args ? args.resourcePath : undefined;
+            resourceInputs["routingControlArn"] = args ? args.routingControlArn : undefined;
+            resourceInputs["searchString"] = args ? args.searchString : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["triggers"] = args ? args.triggers : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

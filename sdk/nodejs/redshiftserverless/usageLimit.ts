@@ -63,31 +63,31 @@ export class UsageLimit extends pulumi.CustomResource {
     /**
      * The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
      */
-    declare public readonly amount: pulumi.Output<number>;
+    public readonly amount!: pulumi.Output<number>;
     /**
      * Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
      */
-    declare public readonly breachAction: pulumi.Output<string | undefined>;
+    public readonly breachAction!: pulumi.Output<string | undefined>;
     /**
      * The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
      */
-    declare public readonly period: pulumi.Output<string | undefined>;
+    public readonly period!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
      */
-    declare public readonly resourceArn: pulumi.Output<string>;
+    public readonly resourceArn!: pulumi.Output<string>;
     /**
      * The type of Amazon Redshift Serverless usage to create a usage limit for. Valid values are `serverless-compute` or `cross-region-datasharing`.
      */
-    declare public readonly usageType: pulumi.Output<string>;
+    public readonly usageType!: pulumi.Output<string>;
 
     /**
      * Create a UsageLimit resource with the given unique name, arguments, and options.
@@ -102,30 +102,30 @@ export class UsageLimit extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UsageLimitState | undefined;
-            resourceInputs["amount"] = state?.amount;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["breachAction"] = state?.breachAction;
-            resourceInputs["period"] = state?.period;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceArn"] = state?.resourceArn;
-            resourceInputs["usageType"] = state?.usageType;
+            resourceInputs["amount"] = state ? state.amount : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["breachAction"] = state ? state.breachAction : undefined;
+            resourceInputs["period"] = state ? state.period : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
+            resourceInputs["usageType"] = state ? state.usageType : undefined;
         } else {
             const args = argsOrState as UsageLimitArgs | undefined;
-            if (args?.amount === undefined && !opts.urn) {
+            if ((!args || args.amount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'amount'");
             }
-            if (args?.resourceArn === undefined && !opts.urn) {
+            if ((!args || args.resourceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            if (args?.usageType === undefined && !opts.urn) {
+            if ((!args || args.usageType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'usageType'");
             }
-            resourceInputs["amount"] = args?.amount;
-            resourceInputs["breachAction"] = args?.breachAction;
-            resourceInputs["period"] = args?.period;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resourceArn"] = args?.resourceArn;
-            resourceInputs["usageType"] = args?.usageType;
+            resourceInputs["amount"] = args ? args.amount : undefined;
+            resourceInputs["breachAction"] = args ? args.breachAction : undefined;
+            resourceInputs["period"] = args ? args.period : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
+            resourceInputs["usageType"] = args ? args.usageType : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

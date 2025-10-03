@@ -122,76 +122,76 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      */
-    declare public readonly applicationDomain: pulumi.Output<string | undefined>;
+    public readonly applicationDomain!: pulumi.Output<string | undefined>;
     /**
      * The type of attachment. Currently, only `vpc` is supported.
      */
-    declare public readonly attachmentType: pulumi.Output<string>;
+    public readonly attachmentType!: pulumi.Output<string>;
     /**
      * The CIDR block details. This parameter is required if the endpoint type is `cidr`.
      */
-    declare public readonly cidrOptions: pulumi.Output<outputs.verifiedaccess.EndpointCidrOptions | undefined>;
+    public readonly cidrOptions!: pulumi.Output<outputs.verifiedaccess.EndpointCidrOptions | undefined>;
     /**
      * A description for the Verified Access endpoint.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Returned if endpoint has a device trust provider attached.
      */
-    declare public /*out*/ readonly deviceValidationDomain: pulumi.Output<string>;
+    public /*out*/ readonly deviceValidationDomain!: pulumi.Output<string>;
     /**
      * The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      */
-    declare public readonly domainCertificateArn: pulumi.Output<string | undefined>;
+    public readonly domainCertificateArn!: pulumi.Output<string | undefined>;
     /**
      * A DNS name that is generated for the endpoint.
      */
-    declare public /*out*/ readonly endpointDomain: pulumi.Output<string>;
+    public /*out*/ readonly endpointDomain!: pulumi.Output<string>;
     /**
      * A custom identifier that is prepended to the DNS name that is generated for the endpoint.
      */
-    declare public readonly endpointDomainPrefix: pulumi.Output<string | undefined>;
+    public readonly endpointDomainPrefix!: pulumi.Output<string | undefined>;
     /**
      * The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
      */
-    declare public readonly endpointType: pulumi.Output<string>;
+    public readonly endpointType!: pulumi.Output<string>;
     /**
      * The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
      */
-    declare public readonly loadBalancerOptions: pulumi.Output<outputs.verifiedaccess.EndpointLoadBalancerOptions | undefined>;
+    public readonly loadBalancerOptions!: pulumi.Output<outputs.verifiedaccess.EndpointLoadBalancerOptions | undefined>;
     /**
      * The network interface details. This parameter is required if the endpoint type is `network-interface`.
      */
-    declare public readonly networkInterfaceOptions: pulumi.Output<outputs.verifiedaccess.EndpointNetworkInterfaceOptions | undefined>;
+    public readonly networkInterfaceOptions!: pulumi.Output<outputs.verifiedaccess.EndpointNetworkInterfaceOptions | undefined>;
     /**
      * The policy document that is associated with this resource.
      */
-    declare public readonly policyDocument: pulumi.Output<string | undefined>;
-    declare public readonly rdsOptions: pulumi.Output<outputs.verifiedaccess.EndpointRdsOptions | undefined>;
+    public readonly policyDocument!: pulumi.Output<string | undefined>;
+    public readonly rdsOptions!: pulumi.Output<outputs.verifiedaccess.EndpointRdsOptions | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * List of the the security groups IDs to associate with the Verified Access endpoint.
      */
-    declare public readonly securityGroupIds: pulumi.Output<string[] | undefined>;
+    public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     /**
      * The options in use for server side encryption.
      */
-    declare public readonly sseSpecification: pulumi.Output<outputs.verifiedaccess.EndpointSseSpecification>;
+    public readonly sseSpecification!: pulumi.Output<outputs.verifiedaccess.EndpointSseSpecification>;
     /**
      * Key-value tags for the Verified Access Endpoint. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the Verified Access group to associate the endpoint with.
      *
      * The following arguments are optional:
      */
-    declare public readonly verifiedAccessGroupId: pulumi.Output<string>;
-    declare public /*out*/ readonly verifiedAccessInstanceId: pulumi.Output<string>;
+    public readonly verifiedAccessGroupId!: pulumi.Output<string>;
+    public /*out*/ readonly verifiedAccessInstanceId!: pulumi.Output<string>;
 
     /**
      * Create a Endpoint resource with the given unique name, arguments, and options.
@@ -206,53 +206,53 @@ export class Endpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointState | undefined;
-            resourceInputs["applicationDomain"] = state?.applicationDomain;
-            resourceInputs["attachmentType"] = state?.attachmentType;
-            resourceInputs["cidrOptions"] = state?.cidrOptions;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["deviceValidationDomain"] = state?.deviceValidationDomain;
-            resourceInputs["domainCertificateArn"] = state?.domainCertificateArn;
-            resourceInputs["endpointDomain"] = state?.endpointDomain;
-            resourceInputs["endpointDomainPrefix"] = state?.endpointDomainPrefix;
-            resourceInputs["endpointType"] = state?.endpointType;
-            resourceInputs["loadBalancerOptions"] = state?.loadBalancerOptions;
-            resourceInputs["networkInterfaceOptions"] = state?.networkInterfaceOptions;
-            resourceInputs["policyDocument"] = state?.policyDocument;
-            resourceInputs["rdsOptions"] = state?.rdsOptions;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["securityGroupIds"] = state?.securityGroupIds;
-            resourceInputs["sseSpecification"] = state?.sseSpecification;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["verifiedAccessGroupId"] = state?.verifiedAccessGroupId;
-            resourceInputs["verifiedAccessInstanceId"] = state?.verifiedAccessInstanceId;
+            resourceInputs["applicationDomain"] = state ? state.applicationDomain : undefined;
+            resourceInputs["attachmentType"] = state ? state.attachmentType : undefined;
+            resourceInputs["cidrOptions"] = state ? state.cidrOptions : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["deviceValidationDomain"] = state ? state.deviceValidationDomain : undefined;
+            resourceInputs["domainCertificateArn"] = state ? state.domainCertificateArn : undefined;
+            resourceInputs["endpointDomain"] = state ? state.endpointDomain : undefined;
+            resourceInputs["endpointDomainPrefix"] = state ? state.endpointDomainPrefix : undefined;
+            resourceInputs["endpointType"] = state ? state.endpointType : undefined;
+            resourceInputs["loadBalancerOptions"] = state ? state.loadBalancerOptions : undefined;
+            resourceInputs["networkInterfaceOptions"] = state ? state.networkInterfaceOptions : undefined;
+            resourceInputs["policyDocument"] = state ? state.policyDocument : undefined;
+            resourceInputs["rdsOptions"] = state ? state.rdsOptions : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
+            resourceInputs["sseSpecification"] = state ? state.sseSpecification : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["verifiedAccessGroupId"] = state ? state.verifiedAccessGroupId : undefined;
+            resourceInputs["verifiedAccessInstanceId"] = state ? state.verifiedAccessInstanceId : undefined;
         } else {
             const args = argsOrState as EndpointArgs | undefined;
-            if (args?.attachmentType === undefined && !opts.urn) {
+            if ((!args || args.attachmentType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'attachmentType'");
             }
-            if (args?.endpointType === undefined && !opts.urn) {
+            if ((!args || args.endpointType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endpointType'");
             }
-            if (args?.verifiedAccessGroupId === undefined && !opts.urn) {
+            if ((!args || args.verifiedAccessGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'verifiedAccessGroupId'");
             }
-            resourceInputs["applicationDomain"] = args?.applicationDomain;
-            resourceInputs["attachmentType"] = args?.attachmentType;
-            resourceInputs["cidrOptions"] = args?.cidrOptions;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["domainCertificateArn"] = args?.domainCertificateArn;
-            resourceInputs["endpointDomainPrefix"] = args?.endpointDomainPrefix;
-            resourceInputs["endpointType"] = args?.endpointType;
-            resourceInputs["loadBalancerOptions"] = args?.loadBalancerOptions;
-            resourceInputs["networkInterfaceOptions"] = args?.networkInterfaceOptions;
-            resourceInputs["policyDocument"] = args?.policyDocument;
-            resourceInputs["rdsOptions"] = args?.rdsOptions;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
-            resourceInputs["sseSpecification"] = args?.sseSpecification;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["verifiedAccessGroupId"] = args?.verifiedAccessGroupId;
+            resourceInputs["applicationDomain"] = args ? args.applicationDomain : undefined;
+            resourceInputs["attachmentType"] = args ? args.attachmentType : undefined;
+            resourceInputs["cidrOptions"] = args ? args.cidrOptions : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["domainCertificateArn"] = args ? args.domainCertificateArn : undefined;
+            resourceInputs["endpointDomainPrefix"] = args ? args.endpointDomainPrefix : undefined;
+            resourceInputs["endpointType"] = args ? args.endpointType : undefined;
+            resourceInputs["loadBalancerOptions"] = args ? args.loadBalancerOptions : undefined;
+            resourceInputs["networkInterfaceOptions"] = args ? args.networkInterfaceOptions : undefined;
+            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
+            resourceInputs["rdsOptions"] = args ? args.rdsOptions : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
+            resourceInputs["sseSpecification"] = args ? args.sseSpecification : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["verifiedAccessGroupId"] = args ? args.verifiedAccessGroupId : undefined;
             resourceInputs["deviceValidationDomain"] = undefined /*out*/;
             resourceInputs["endpointDomain"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

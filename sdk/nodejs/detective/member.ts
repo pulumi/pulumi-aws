@@ -62,48 +62,48 @@ export class Member extends pulumi.CustomResource {
     /**
      * AWS account ID for the account.
      */
-    declare public readonly accountId: pulumi.Output<string>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * AWS account ID for the administrator account.
      */
-    declare public /*out*/ readonly administratorId: pulumi.Output<string>;
+    public /*out*/ readonly administratorId!: pulumi.Output<string>;
     /**
      * If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
      */
-    declare public readonly disableEmailNotification: pulumi.Output<boolean | undefined>;
-    declare public /*out*/ readonly disabledReason: pulumi.Output<string>;
+    public readonly disableEmailNotification!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly disabledReason!: pulumi.Output<string>;
     /**
      * Email address for the account.
      */
-    declare public readonly emailAddress: pulumi.Output<string>;
+    public readonly emailAddress!: pulumi.Output<string>;
     /**
      * ARN of the behavior graph to invite the member accounts to contribute their data to.
      */
-    declare public readonly graphArn: pulumi.Output<string>;
+    public readonly graphArn!: pulumi.Output<string>;
     /**
      * Date and time, in UTC and extended RFC 3339 format, when an Amazon Detective membership invitation was last sent to the account.
      */
-    declare public /*out*/ readonly invitedTime: pulumi.Output<string>;
+    public /*out*/ readonly invitedTime!: pulumi.Output<string>;
     /**
      * A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
      */
-    declare public readonly message: pulumi.Output<string | undefined>;
+    public readonly message!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Current membership status of the member account.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Date and time, in UTC and extended RFC 3339 format, of the most recent change to the member account's status.
      */
-    declare public /*out*/ readonly updatedTime: pulumi.Output<string>;
+    public /*out*/ readonly updatedTime!: pulumi.Output<string>;
     /**
      * Data volume in bytes per day for the member account.
      */
-    declare public /*out*/ readonly volumeUsageInBytes: pulumi.Output<string>;
+    public /*out*/ readonly volumeUsageInBytes!: pulumi.Output<string>;
 
     /**
      * Create a Member resource with the given unique name, arguments, and options.
@@ -118,35 +118,35 @@ export class Member extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MemberState | undefined;
-            resourceInputs["accountId"] = state?.accountId;
-            resourceInputs["administratorId"] = state?.administratorId;
-            resourceInputs["disableEmailNotification"] = state?.disableEmailNotification;
-            resourceInputs["disabledReason"] = state?.disabledReason;
-            resourceInputs["emailAddress"] = state?.emailAddress;
-            resourceInputs["graphArn"] = state?.graphArn;
-            resourceInputs["invitedTime"] = state?.invitedTime;
-            resourceInputs["message"] = state?.message;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["updatedTime"] = state?.updatedTime;
-            resourceInputs["volumeUsageInBytes"] = state?.volumeUsageInBytes;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["administratorId"] = state ? state.administratorId : undefined;
+            resourceInputs["disableEmailNotification"] = state ? state.disableEmailNotification : undefined;
+            resourceInputs["disabledReason"] = state ? state.disabledReason : undefined;
+            resourceInputs["emailAddress"] = state ? state.emailAddress : undefined;
+            resourceInputs["graphArn"] = state ? state.graphArn : undefined;
+            resourceInputs["invitedTime"] = state ? state.invitedTime : undefined;
+            resourceInputs["message"] = state ? state.message : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["updatedTime"] = state ? state.updatedTime : undefined;
+            resourceInputs["volumeUsageInBytes"] = state ? state.volumeUsageInBytes : undefined;
         } else {
             const args = argsOrState as MemberArgs | undefined;
-            if (args?.accountId === undefined && !opts.urn) {
+            if ((!args || args.accountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
             }
-            if (args?.emailAddress === undefined && !opts.urn) {
+            if ((!args || args.emailAddress === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'emailAddress'");
             }
-            if (args?.graphArn === undefined && !opts.urn) {
+            if ((!args || args.graphArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'graphArn'");
             }
-            resourceInputs["accountId"] = args?.accountId;
-            resourceInputs["disableEmailNotification"] = args?.disableEmailNotification;
-            resourceInputs["emailAddress"] = args?.emailAddress;
-            resourceInputs["graphArn"] = args?.graphArn;
-            resourceInputs["message"] = args?.message;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["disableEmailNotification"] = args ? args.disableEmailNotification : undefined;
+            resourceInputs["emailAddress"] = args ? args.emailAddress : undefined;
+            resourceInputs["graphArn"] = args ? args.graphArn : undefined;
+            resourceInputs["message"] = args ? args.message : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["administratorId"] = undefined /*out*/;
             resourceInputs["disabledReason"] = undefined /*out*/;
             resourceInputs["invitedTime"] = undefined /*out*/;

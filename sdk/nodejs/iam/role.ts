@@ -233,7 +233,7 @@ export class Role extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) specifying the role.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Policy that grants an entity permission to assume the role.
      *
@@ -241,59 +241,59 @@ export class Role extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    declare public readonly assumeRolePolicy: pulumi.Output<string>;
+    public readonly assumeRolePolicy!: pulumi.Output<string>;
     /**
      * Creation date of the IAM role.
      */
-    declare public /*out*/ readonly createDate: pulumi.Output<string>;
+    public /*out*/ readonly createDate!: pulumi.Output<string>;
     /**
      * Description of the role.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
      */
-    declare public readonly forceDetachPolicies: pulumi.Output<boolean | undefined>;
+    public readonly forceDetachPolicies!: pulumi.Output<boolean | undefined>;
     /**
      * Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, Pulumi will not manage any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause Pulumi to remove _all_ inline policies added out of band on `apply`.
      */
-    declare public readonly inlinePolicies: pulumi.Output<outputs.iam.RoleInlinePolicy[]>;
+    public readonly inlinePolicies!: pulumi.Output<outputs.iam.RoleInlinePolicy[]>;
     /**
      * Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, Pulumi will ignore policy attachments to this resource. When configured, Pulumi will align the role's managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managedPolicyArns = []`) will cause Pulumi to remove _all_ managed policy attachments.
      */
-    declare public readonly managedPolicyArns: pulumi.Output<string[]>;
+    public readonly managedPolicyArns!: pulumi.Output<string[]>;
     /**
      * Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
      */
-    declare public readonly maxSessionDuration: pulumi.Output<number | undefined>;
+    public readonly maxSessionDuration!: pulumi.Output<number | undefined>;
     /**
      * Friendly name of the role. If omitted, the provider will assign a random, unique name. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
      */
-    declare public readonly namePrefix: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string>;
     /**
      * Path to the role. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      */
-    declare public readonly path: pulumi.Output<string | undefined>;
+    public readonly path!: pulumi.Output<string | undefined>;
     /**
      * ARN of the policy that is used to set the permissions boundary for the role.
      */
-    declare public readonly permissionsBoundary: pulumi.Output<string | undefined>;
+    public readonly permissionsBoundary!: pulumi.Output<string | undefined>;
     /**
      * Key-value mapping of tags for the IAM role. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Stable and unique string identifying the role.
      */
-    declare public /*out*/ readonly uniqueId: pulumi.Output<string>;
+    public /*out*/ readonly uniqueId!: pulumi.Output<string>;
 
     /**
      * Create a Role resource with the given unique name, arguments, and options.
@@ -308,37 +308,37 @@ export class Role extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RoleState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["assumeRolePolicy"] = state?.assumeRolePolicy;
-            resourceInputs["createDate"] = state?.createDate;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["forceDetachPolicies"] = state?.forceDetachPolicies;
-            resourceInputs["inlinePolicies"] = state?.inlinePolicies;
-            resourceInputs["managedPolicyArns"] = state?.managedPolicyArns;
-            resourceInputs["maxSessionDuration"] = state?.maxSessionDuration;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["namePrefix"] = state?.namePrefix;
-            resourceInputs["path"] = state?.path;
-            resourceInputs["permissionsBoundary"] = state?.permissionsBoundary;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["uniqueId"] = state?.uniqueId;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["assumeRolePolicy"] = state ? state.assumeRolePolicy : undefined;
+            resourceInputs["createDate"] = state ? state.createDate : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["forceDetachPolicies"] = state ? state.forceDetachPolicies : undefined;
+            resourceInputs["inlinePolicies"] = state ? state.inlinePolicies : undefined;
+            resourceInputs["managedPolicyArns"] = state ? state.managedPolicyArns : undefined;
+            resourceInputs["maxSessionDuration"] = state ? state.maxSessionDuration : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["path"] = state ? state.path : undefined;
+            resourceInputs["permissionsBoundary"] = state ? state.permissionsBoundary : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["uniqueId"] = state ? state.uniqueId : undefined;
         } else {
             const args = argsOrState as RoleArgs | undefined;
-            if (args?.assumeRolePolicy === undefined && !opts.urn) {
+            if ((!args || args.assumeRolePolicy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'assumeRolePolicy'");
             }
-            resourceInputs["assumeRolePolicy"] = args?.assumeRolePolicy;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["forceDetachPolicies"] = args?.forceDetachPolicies;
-            resourceInputs["inlinePolicies"] = args?.inlinePolicies;
-            resourceInputs["managedPolicyArns"] = args?.managedPolicyArns;
-            resourceInputs["maxSessionDuration"] = args?.maxSessionDuration;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["namePrefix"] = args?.namePrefix;
-            resourceInputs["path"] = args?.path;
-            resourceInputs["permissionsBoundary"] = args?.permissionsBoundary;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["assumeRolePolicy"] = args ? args.assumeRolePolicy : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["forceDetachPolicies"] = args ? args.forceDetachPolicies : undefined;
+            resourceInputs["inlinePolicies"] = args ? args.inlinePolicies : undefined;
+            resourceInputs["managedPolicyArns"] = args ? args.managedPolicyArns : undefined;
+            resourceInputs["maxSessionDuration"] = args ? args.maxSessionDuration : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["path"] = args ? args.path : undefined;
+            resourceInputs["permissionsBoundary"] = args ? args.permissionsBoundary : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createDate"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

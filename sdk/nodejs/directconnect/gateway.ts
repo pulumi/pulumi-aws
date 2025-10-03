@@ -70,19 +70,19 @@ export class Gateway extends pulumi.CustomResource {
     /**
      * The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
      */
-    declare public readonly amazonSideAsn: pulumi.Output<string>;
+    public readonly amazonSideAsn!: pulumi.Output<string>;
     /**
      * The ARN of the gateway.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name of the connection.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * AWS Account ID of the gateway.
      */
-    declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
+    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
 
     /**
      * Create a Gateway resource with the given unique name, arguments, and options.
@@ -97,17 +97,17 @@ export class Gateway extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GatewayState | undefined;
-            resourceInputs["amazonSideAsn"] = state?.amazonSideAsn;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["ownerAccountId"] = state?.ownerAccountId;
+            resourceInputs["amazonSideAsn"] = state ? state.amazonSideAsn : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
         } else {
             const args = argsOrState as GatewayArgs | undefined;
-            if (args?.amazonSideAsn === undefined && !opts.urn) {
+            if ((!args || args.amazonSideAsn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'amazonSideAsn'");
             }
-            resourceInputs["amazonSideAsn"] = args?.amazonSideAsn;
-            resourceInputs["name"] = args?.name;
+            resourceInputs["amazonSideAsn"] = args ? args.amazonSideAsn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;
         }

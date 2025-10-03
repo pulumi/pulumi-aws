@@ -48,27 +48,27 @@ export class SnapshotCopyGrant extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of snapshot copy grant
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
      */
-    declare public readonly kmsKeyId: pulumi.Output<string>;
+    public readonly kmsKeyId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A friendly name for identifying the grant.
      */
-    declare public readonly snapshotCopyGrantName: pulumi.Output<string>;
+    public readonly snapshotCopyGrantName!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a SnapshotCopyGrant resource with the given unique name, arguments, and options.
@@ -83,21 +83,21 @@ export class SnapshotCopyGrant extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SnapshotCopyGrantState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["snapshotCopyGrantName"] = state?.snapshotCopyGrantName;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["snapshotCopyGrantName"] = state ? state.snapshotCopyGrantName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as SnapshotCopyGrantArgs | undefined;
-            if (args?.snapshotCopyGrantName === undefined && !opts.urn) {
+            if ((!args || args.snapshotCopyGrantName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'snapshotCopyGrantName'");
             }
-            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["snapshotCopyGrantName"] = args?.snapshotCopyGrantName;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["snapshotCopyGrantName"] = args ? args.snapshotCopyGrantName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

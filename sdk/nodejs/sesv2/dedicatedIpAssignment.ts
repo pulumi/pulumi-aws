@@ -62,15 +62,15 @@ export class DedicatedIpAssignment extends pulumi.CustomResource {
     /**
      * Dedicated IP address.
      */
-    declare public readonly destinationPoolName: pulumi.Output<string>;
+    public readonly destinationPoolName!: pulumi.Output<string>;
     /**
      * Dedicated IP address.
      */
-    declare public readonly ip: pulumi.Output<string>;
+    public readonly ip!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a DedicatedIpAssignment resource with the given unique name, arguments, and options.
@@ -85,20 +85,20 @@ export class DedicatedIpAssignment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DedicatedIpAssignmentState | undefined;
-            resourceInputs["destinationPoolName"] = state?.destinationPoolName;
-            resourceInputs["ip"] = state?.ip;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["destinationPoolName"] = state ? state.destinationPoolName : undefined;
+            resourceInputs["ip"] = state ? state.ip : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as DedicatedIpAssignmentArgs | undefined;
-            if (args?.destinationPoolName === undefined && !opts.urn) {
+            if ((!args || args.destinationPoolName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destinationPoolName'");
             }
-            if (args?.ip === undefined && !opts.urn) {
+            if ((!args || args.ip === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ip'");
             }
-            resourceInputs["destinationPoolName"] = args?.destinationPoolName;
-            resourceInputs["ip"] = args?.ip;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["destinationPoolName"] = args ? args.destinationPoolName : undefined;
+            resourceInputs["ip"] = args ? args.ip : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DedicatedIpAssignment.__pulumiType, name, resourceInputs, opts);

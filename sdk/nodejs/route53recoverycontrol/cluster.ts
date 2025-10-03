@@ -58,19 +58,19 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * ARN of the cluster
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
      */
-    declare public /*out*/ readonly clusterEndpoints: pulumi.Output<outputs.route53recoverycontrol.ClusterClusterEndpoint[]>;
+    public /*out*/ readonly clusterEndpoints!: pulumi.Output<outputs.route53recoverycontrol.ClusterClusterEndpoint[]>;
     /**
      * Unique name describing the cluster.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -85,13 +85,13 @@ export class Cluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["clusterEndpoints"] = state?.clusterEndpoints;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["status"] = state?.status;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["clusterEndpoints"] = state ? state.clusterEndpoints : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
-            resourceInputs["name"] = args?.name;
+            resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["clusterEndpoints"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

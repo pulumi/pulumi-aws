@@ -112,44 +112,44 @@ export class GlobalCluster extends pulumi.CustomResource {
     /**
      * Global Cluster ARN
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
      */
-    declare public readonly deletionProtection: pulumi.Output<boolean | undefined>;
+    public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
     /**
      * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `neptune`. Conflicts with `sourceDbClusterIdentifier`.
      */
-    declare public readonly engine: pulumi.Output<string>;
+    public readonly engine!: pulumi.Output<string>;
     /**
      * Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
      */
-    declare public readonly engineVersion: pulumi.Output<string>;
+    public readonly engineVersion!: pulumi.Output<string>;
     /**
      * Global cluster identifier.
      */
-    declare public readonly globalClusterIdentifier: pulumi.Output<string>;
+    public readonly globalClusterIdentifier!: pulumi.Output<string>;
     /**
      * Set of objects containing Global Cluster members.
      */
-    declare public /*out*/ readonly globalClusterMembers: pulumi.Output<outputs.neptune.GlobalClusterGlobalClusterMember[]>;
+    public /*out*/ readonly globalClusterMembers!: pulumi.Output<outputs.neptune.GlobalClusterGlobalClusterMember[]>;
     /**
      * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
      */
-    declare public /*out*/ readonly globalClusterResourceId: pulumi.Output<string>;
+    public /*out*/ readonly globalClusterResourceId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
      */
-    declare public readonly sourceDbClusterIdentifier: pulumi.Output<string>;
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public readonly sourceDbClusterIdentifier!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
      */
-    declare public readonly storageEncrypted: pulumi.Output<boolean>;
+    public readonly storageEncrypted!: pulumi.Output<boolean>;
 
     /**
      * Create a GlobalCluster resource with the given unique name, arguments, and options.
@@ -164,29 +164,29 @@ export class GlobalCluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GlobalClusterState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["deletionProtection"] = state?.deletionProtection;
-            resourceInputs["engine"] = state?.engine;
-            resourceInputs["engineVersion"] = state?.engineVersion;
-            resourceInputs["globalClusterIdentifier"] = state?.globalClusterIdentifier;
-            resourceInputs["globalClusterMembers"] = state?.globalClusterMembers;
-            resourceInputs["globalClusterResourceId"] = state?.globalClusterResourceId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["sourceDbClusterIdentifier"] = state?.sourceDbClusterIdentifier;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["storageEncrypted"] = state?.storageEncrypted;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["deletionProtection"] = state ? state.deletionProtection : undefined;
+            resourceInputs["engine"] = state ? state.engine : undefined;
+            resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
+            resourceInputs["globalClusterIdentifier"] = state ? state.globalClusterIdentifier : undefined;
+            resourceInputs["globalClusterMembers"] = state ? state.globalClusterMembers : undefined;
+            resourceInputs["globalClusterResourceId"] = state ? state.globalClusterResourceId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["sourceDbClusterIdentifier"] = state ? state.sourceDbClusterIdentifier : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
         } else {
             const args = argsOrState as GlobalClusterArgs | undefined;
-            if (args?.globalClusterIdentifier === undefined && !opts.urn) {
+            if ((!args || args.globalClusterIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'globalClusterIdentifier'");
             }
-            resourceInputs["deletionProtection"] = args?.deletionProtection;
-            resourceInputs["engine"] = args?.engine;
-            resourceInputs["engineVersion"] = args?.engineVersion;
-            resourceInputs["globalClusterIdentifier"] = args?.globalClusterIdentifier;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["sourceDbClusterIdentifier"] = args?.sourceDbClusterIdentifier;
-            resourceInputs["storageEncrypted"] = args?.storageEncrypted;
+            resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
+            resourceInputs["engine"] = args ? args.engine : undefined;
+            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
+            resourceInputs["globalClusterIdentifier"] = args ? args.globalClusterIdentifier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["sourceDbClusterIdentifier"] = args ? args.sourceDbClusterIdentifier : undefined;
+            resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["globalClusterMembers"] = undefined /*out*/;
             resourceInputs["globalClusterResourceId"] = undefined /*out*/;

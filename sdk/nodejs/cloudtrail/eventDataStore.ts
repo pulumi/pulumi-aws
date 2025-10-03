@@ -110,55 +110,55 @@ export class EventDataStore extends pulumi.CustomResource {
     /**
      * The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
      */
-    declare public readonly advancedEventSelectors: pulumi.Output<outputs.cloudtrail.EventDataStoreAdvancedEventSelector[]>;
+    public readonly advancedEventSelectors!: pulumi.Output<outputs.cloudtrail.EventDataStoreAdvancedEventSelector[]>;
     /**
      * ARN of the event data store.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
      */
-    declare public readonly billingMode: pulumi.Output<string | undefined>;
+    public readonly billingMode!: pulumi.Output<string | undefined>;
     /**
      * Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
      */
-    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
      */
-    declare public readonly multiRegionEnabled: pulumi.Output<boolean | undefined>;
+    public readonly multiRegionEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the event data store.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
      */
-    declare public readonly organizationEnabled: pulumi.Output<boolean | undefined>;
+    public readonly organizationEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
      */
-    declare public readonly retentionPeriod: pulumi.Output<number | undefined>;
+    public readonly retentionPeriod!: pulumi.Output<number | undefined>;
     /**
      * Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
      */
-    declare public readonly suspend: pulumi.Output<string | undefined>;
+    public readonly suspend!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
      */
-    declare public readonly terminationProtectionEnabled: pulumi.Output<boolean | undefined>;
+    public readonly terminationProtectionEnabled!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a EventDataStore resource with the given unique name, arguments, and options.
@@ -173,32 +173,32 @@ export class EventDataStore extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventDataStoreState | undefined;
-            resourceInputs["advancedEventSelectors"] = state?.advancedEventSelectors;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["billingMode"] = state?.billingMode;
-            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
-            resourceInputs["multiRegionEnabled"] = state?.multiRegionEnabled;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["organizationEnabled"] = state?.organizationEnabled;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["retentionPeriod"] = state?.retentionPeriod;
-            resourceInputs["suspend"] = state?.suspend;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["terminationProtectionEnabled"] = state?.terminationProtectionEnabled;
+            resourceInputs["advancedEventSelectors"] = state ? state.advancedEventSelectors : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["billingMode"] = state ? state.billingMode : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["multiRegionEnabled"] = state ? state.multiRegionEnabled : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["organizationEnabled"] = state ? state.organizationEnabled : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["retentionPeriod"] = state ? state.retentionPeriod : undefined;
+            resourceInputs["suspend"] = state ? state.suspend : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["terminationProtectionEnabled"] = state ? state.terminationProtectionEnabled : undefined;
         } else {
             const args = argsOrState as EventDataStoreArgs | undefined;
-            resourceInputs["advancedEventSelectors"] = args?.advancedEventSelectors;
-            resourceInputs["billingMode"] = args?.billingMode;
-            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
-            resourceInputs["multiRegionEnabled"] = args?.multiRegionEnabled;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["organizationEnabled"] = args?.organizationEnabled;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["retentionPeriod"] = args?.retentionPeriod;
-            resourceInputs["suspend"] = args?.suspend;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["terminationProtectionEnabled"] = args?.terminationProtectionEnabled;
+            resourceInputs["advancedEventSelectors"] = args ? args.advancedEventSelectors : undefined;
+            resourceInputs["billingMode"] = args ? args.billingMode : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["multiRegionEnabled"] = args ? args.multiRegionEnabled : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["organizationEnabled"] = args ? args.organizationEnabled : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
+            resourceInputs["suspend"] = args ? args.suspend : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["terminationProtectionEnabled"] = args ? args.terminationProtectionEnabled : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

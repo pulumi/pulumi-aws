@@ -69,41 +69,41 @@ export class PortfolioShare extends pulumi.CustomResource {
     /**
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      */
-    declare public readonly acceptLanguage: pulumi.Output<string | undefined>;
+    public readonly acceptLanguage!: pulumi.Output<string | undefined>;
     /**
      * Whether the shared portfolio is imported by the recipient account. If the recipient is organizational, the share is automatically imported, and the field is always set to true.
      */
-    declare public /*out*/ readonly accepted: pulumi.Output<boolean>;
+    public /*out*/ readonly accepted!: pulumi.Output<boolean>;
     /**
      * Portfolio identifier.
      */
-    declare public readonly portfolioId: pulumi.Output<string>;
+    public readonly portfolioId!: pulumi.Output<string>;
     /**
      * Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
      */
-    declare public readonly principalId: pulumi.Output<string>;
+    public readonly principalId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
      */
-    declare public readonly sharePrincipals: pulumi.Output<boolean | undefined>;
+    public readonly sharePrincipals!: pulumi.Output<boolean | undefined>;
     /**
      * Whether to enable sharing of `aws.servicecatalog.TagOption` resources when creating the portfolio share.
      */
-    declare public readonly shareTagOptions: pulumi.Output<boolean | undefined>;
+    public readonly shareTagOptions!: pulumi.Output<boolean | undefined>;
     /**
      * Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
      *
      * The following arguments are optional:
      */
-    declare public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
     /**
      * Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
      */
-    declare public readonly waitForAcceptance: pulumi.Output<boolean | undefined>;
+    public readonly waitForAcceptance!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a PortfolioShare resource with the given unique name, arguments, and options.
@@ -118,34 +118,34 @@ export class PortfolioShare extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PortfolioShareState | undefined;
-            resourceInputs["acceptLanguage"] = state?.acceptLanguage;
-            resourceInputs["accepted"] = state?.accepted;
-            resourceInputs["portfolioId"] = state?.portfolioId;
-            resourceInputs["principalId"] = state?.principalId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["sharePrincipals"] = state?.sharePrincipals;
-            resourceInputs["shareTagOptions"] = state?.shareTagOptions;
-            resourceInputs["type"] = state?.type;
-            resourceInputs["waitForAcceptance"] = state?.waitForAcceptance;
+            resourceInputs["acceptLanguage"] = state ? state.acceptLanguage : undefined;
+            resourceInputs["accepted"] = state ? state.accepted : undefined;
+            resourceInputs["portfolioId"] = state ? state.portfolioId : undefined;
+            resourceInputs["principalId"] = state ? state.principalId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["sharePrincipals"] = state ? state.sharePrincipals : undefined;
+            resourceInputs["shareTagOptions"] = state ? state.shareTagOptions : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["waitForAcceptance"] = state ? state.waitForAcceptance : undefined;
         } else {
             const args = argsOrState as PortfolioShareArgs | undefined;
-            if (args?.portfolioId === undefined && !opts.urn) {
+            if ((!args || args.portfolioId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'portfolioId'");
             }
-            if (args?.principalId === undefined && !opts.urn) {
+            if ((!args || args.principalId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principalId'");
             }
-            if (args?.type === undefined && !opts.urn) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["acceptLanguage"] = args?.acceptLanguage;
-            resourceInputs["portfolioId"] = args?.portfolioId;
-            resourceInputs["principalId"] = args?.principalId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["sharePrincipals"] = args?.sharePrincipals;
-            resourceInputs["shareTagOptions"] = args?.shareTagOptions;
-            resourceInputs["type"] = args?.type;
-            resourceInputs["waitForAcceptance"] = args?.waitForAcceptance;
+            resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
+            resourceInputs["portfolioId"] = args ? args.portfolioId : undefined;
+            resourceInputs["principalId"] = args ? args.principalId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["sharePrincipals"] = args ? args.sharePrincipals : undefined;
+            resourceInputs["shareTagOptions"] = args ? args.shareTagOptions : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["waitForAcceptance"] = args ? args.waitForAcceptance : undefined;
             resourceInputs["accepted"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

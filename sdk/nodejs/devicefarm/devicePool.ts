@@ -72,40 +72,40 @@ export class DevicePool extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name of this Device Pool
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The device pool's description.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The number of devices that Device Farm can add to your device pool.
      */
-    declare public readonly maxDevices: pulumi.Output<number | undefined>;
+    public readonly maxDevices!: pulumi.Output<number | undefined>;
     /**
      * The name of the Device Pool
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The ARN of the project for the device pool.
      */
-    declare public readonly projectArn: pulumi.Output<string>;
+    public readonly projectArn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The device pool's rules. See Rule.
      */
-    declare public readonly rules: pulumi.Output<outputs.devicefarm.DevicePoolRule[]>;
+    public readonly rules!: pulumi.Output<outputs.devicefarm.DevicePoolRule[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public /*out*/ readonly type: pulumi.Output<string>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
      * Create a DevicePool resource with the given unique name, arguments, and options.
@@ -120,31 +120,31 @@ export class DevicePool extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DevicePoolState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["maxDevices"] = state?.maxDevices;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["projectArn"] = state?.projectArn;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["rules"] = state?.rules;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["type"] = state?.type;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["maxDevices"] = state ? state.maxDevices : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["projectArn"] = state ? state.projectArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["rules"] = state ? state.rules : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as DevicePoolArgs | undefined;
-            if (args?.projectArn === undefined && !opts.urn) {
+            if ((!args || args.projectArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectArn'");
             }
-            if (args?.rules === undefined && !opts.urn) {
+            if ((!args || args.rules === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["maxDevices"] = args?.maxDevices;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["projectArn"] = args?.projectArn;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["rules"] = args?.rules;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["maxDevices"] = args ? args.maxDevices : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["projectArn"] = args ? args.projectArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

@@ -74,49 +74,49 @@ export class CustomRoutingAccelerator extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the custom accelerator.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The attributes of the accelerator. Fields documented below.
      */
-    declare public readonly attributes: pulumi.Output<outputs.globalaccelerator.CustomRoutingAcceleratorAttributes | undefined>;
+    public readonly attributes!: pulumi.Output<outputs.globalaccelerator.CustomRoutingAcceleratorAttributes | undefined>;
     /**
      * The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
      */
-    declare public /*out*/ readonly dnsName: pulumi.Output<string>;
+    public /*out*/ readonly dnsName!: pulumi.Output<string>;
     /**
      * Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
      */
-    declare public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * -  The Global Accelerator Route 53 zone ID that can be used to
      * route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
      * is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
      */
-    declare public /*out*/ readonly hostedZoneId: pulumi.Output<string>;
+    public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
     /**
      * The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `"IPV4"`.
      */
-    declare public readonly ipAddressType: pulumi.Output<string | undefined>;
+    public readonly ipAddressType!: pulumi.Output<string | undefined>;
     /**
      * The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
      */
-    declare public readonly ipAddresses: pulumi.Output<string[] | undefined>;
+    public readonly ipAddresses!: pulumi.Output<string[] | undefined>;
     /**
      * IP address set associated with the accelerator.
      */
-    declare public /*out*/ readonly ipSets: pulumi.Output<outputs.globalaccelerator.CustomRoutingAcceleratorIpSet[]>;
+    public /*out*/ readonly ipSets!: pulumi.Output<outputs.globalaccelerator.CustomRoutingAcceleratorIpSet[]>;
     /**
      * The name of a custom routing accelerator.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a CustomRoutingAccelerator resource with the given unique name, arguments, and options.
@@ -131,25 +131,25 @@ export class CustomRoutingAccelerator extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomRoutingAcceleratorState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["attributes"] = state?.attributes;
-            resourceInputs["dnsName"] = state?.dnsName;
-            resourceInputs["enabled"] = state?.enabled;
-            resourceInputs["hostedZoneId"] = state?.hostedZoneId;
-            resourceInputs["ipAddressType"] = state?.ipAddressType;
-            resourceInputs["ipAddresses"] = state?.ipAddresses;
-            resourceInputs["ipSets"] = state?.ipSets;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["attributes"] = state ? state.attributes : undefined;
+            resourceInputs["dnsName"] = state ? state.dnsName : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
+            resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
+            resourceInputs["ipAddresses"] = state ? state.ipAddresses : undefined;
+            resourceInputs["ipSets"] = state ? state.ipSets : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as CustomRoutingAcceleratorArgs | undefined;
-            resourceInputs["attributes"] = args?.attributes;
-            resourceInputs["enabled"] = args?.enabled;
-            resourceInputs["ipAddressType"] = args?.ipAddressType;
-            resourceInputs["ipAddresses"] = args?.ipAddresses;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["attributes"] = args ? args.attributes : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
+            resourceInputs["ipAddresses"] = args ? args.ipAddresses : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
             resourceInputs["hostedZoneId"] = undefined /*out*/;

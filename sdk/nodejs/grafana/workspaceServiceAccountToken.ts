@@ -57,39 +57,39 @@ export class WorkspaceServiceAccountToken extends pulumi.CustomResource {
     /**
      * Specifies when the service account token was created.
      */
-    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
      * Specifies when the service account token will expire.
      */
-    declare public /*out*/ readonly expiresAt: pulumi.Output<string>;
+    public /*out*/ readonly expiresAt!: pulumi.Output<string>;
     /**
      * The key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
      */
-    declare public /*out*/ readonly key: pulumi.Output<string>;
+    public /*out*/ readonly key!: pulumi.Output<string>;
     /**
      * A name for the token to create. The name must be unique within the workspace.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
      */
-    declare public readonly secondsToLive: pulumi.Output<number>;
+    public readonly secondsToLive!: pulumi.Output<number>;
     /**
      * The ID of the service account for which to create a token.
      */
-    declare public readonly serviceAccountId: pulumi.Output<string>;
+    public readonly serviceAccountId!: pulumi.Output<string>;
     /**
      * Identifier of the service account token in the given Grafana workspace.
      */
-    declare public /*out*/ readonly serviceAccountTokenId: pulumi.Output<string>;
+    public /*out*/ readonly serviceAccountTokenId!: pulumi.Output<string>;
     /**
      * The Grafana workspace with which the service account token is associated.
      */
-    declare public readonly workspaceId: pulumi.Output<string>;
+    public readonly workspaceId!: pulumi.Output<string>;
 
     /**
      * Create a WorkspaceServiceAccountToken resource with the given unique name, arguments, and options.
@@ -104,31 +104,31 @@ export class WorkspaceServiceAccountToken extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceServiceAccountTokenState | undefined;
-            resourceInputs["createdAt"] = state?.createdAt;
-            resourceInputs["expiresAt"] = state?.expiresAt;
-            resourceInputs["key"] = state?.key;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["secondsToLive"] = state?.secondsToLive;
-            resourceInputs["serviceAccountId"] = state?.serviceAccountId;
-            resourceInputs["serviceAccountTokenId"] = state?.serviceAccountTokenId;
-            resourceInputs["workspaceId"] = state?.workspaceId;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["expiresAt"] = state ? state.expiresAt : undefined;
+            resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["secondsToLive"] = state ? state.secondsToLive : undefined;
+            resourceInputs["serviceAccountId"] = state ? state.serviceAccountId : undefined;
+            resourceInputs["serviceAccountTokenId"] = state ? state.serviceAccountTokenId : undefined;
+            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
         } else {
             const args = argsOrState as WorkspaceServiceAccountTokenArgs | undefined;
-            if (args?.secondsToLive === undefined && !opts.urn) {
+            if ((!args || args.secondsToLive === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'secondsToLive'");
             }
-            if (args?.serviceAccountId === undefined && !opts.urn) {
+            if ((!args || args.serviceAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceAccountId'");
             }
-            if (args?.workspaceId === undefined && !opts.urn) {
+            if ((!args || args.workspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["secondsToLive"] = args?.secondsToLive;
-            resourceInputs["serviceAccountId"] = args?.serviceAccountId;
-            resourceInputs["workspaceId"] = args?.workspaceId;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["secondsToLive"] = args ? args.secondsToLive : undefined;
+            resourceInputs["serviceAccountId"] = args ? args.serviceAccountId : undefined;
+            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["expiresAt"] = undefined /*out*/;
             resourceInputs["key"] = undefined /*out*/;

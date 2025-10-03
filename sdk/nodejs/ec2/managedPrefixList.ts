@@ -89,43 +89,43 @@ export class ManagedPrefixList extends pulumi.CustomResource {
     /**
      * Address family (`IPv4` or `IPv6`) of this prefix list.
      */
-    declare public readonly addressFamily: pulumi.Output<string>;
+    public readonly addressFamily!: pulumi.Output<string>;
     /**
      * ARN of the prefix list.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
      */
-    declare public readonly entries: pulumi.Output<outputs.ec2.ManagedPrefixListEntry[]>;
+    public readonly entries!: pulumi.Output<outputs.ec2.ManagedPrefixListEntry[]>;
     /**
      * Maximum number of entries that this prefix list can contain.
      */
-    declare public readonly maxEntries: pulumi.Output<number>;
+    public readonly maxEntries!: pulumi.Output<number>;
     /**
      * Name of this resource. The name must not start with `com.amazonaws`.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * ID of the AWS account that owns this prefix list.
      */
-    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Latest version of this prefix list.
      */
-    declare public /*out*/ readonly version: pulumi.Output<number>;
+    public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
      * Create a ManagedPrefixList resource with the given unique name, arguments, and options.
@@ -140,30 +140,30 @@ export class ManagedPrefixList extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedPrefixListState | undefined;
-            resourceInputs["addressFamily"] = state?.addressFamily;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["entries"] = state?.entries;
-            resourceInputs["maxEntries"] = state?.maxEntries;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["ownerId"] = state?.ownerId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["version"] = state?.version;
+            resourceInputs["addressFamily"] = state ? state.addressFamily : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["entries"] = state ? state.entries : undefined;
+            resourceInputs["maxEntries"] = state ? state.maxEntries : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ManagedPrefixListArgs | undefined;
-            if (args?.addressFamily === undefined && !opts.urn) {
+            if ((!args || args.addressFamily === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'addressFamily'");
             }
-            if (args?.maxEntries === undefined && !opts.urn) {
+            if ((!args || args.maxEntries === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'maxEntries'");
             }
-            resourceInputs["addressFamily"] = args?.addressFamily;
-            resourceInputs["entries"] = args?.entries;
-            resourceInputs["maxEntries"] = args?.maxEntries;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["addressFamily"] = args ? args.addressFamily : undefined;
+            resourceInputs["entries"] = args ? args.entries : undefined;
+            resourceInputs["maxEntries"] = args ? args.maxEntries : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

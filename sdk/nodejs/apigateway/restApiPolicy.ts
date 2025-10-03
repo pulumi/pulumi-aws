@@ -79,15 +79,15 @@ export class RestApiPolicy extends pulumi.CustomResource {
     /**
      * JSON formatted policy document that controls access to the API Gateway.
      */
-    declare public readonly policy: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ID of the REST API.
      */
-    declare public readonly restApiId: pulumi.Output<string>;
+    public readonly restApiId!: pulumi.Output<string>;
 
     /**
      * Create a RestApiPolicy resource with the given unique name, arguments, and options.
@@ -102,20 +102,20 @@ export class RestApiPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RestApiPolicyState | undefined;
-            resourceInputs["policy"] = state?.policy;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["restApiId"] = state?.restApiId;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["restApiId"] = state ? state.restApiId : undefined;
         } else {
             const args = argsOrState as RestApiPolicyArgs | undefined;
-            if (args?.policy === undefined && !opts.urn) {
+            if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            if (args?.restApiId === undefined && !opts.urn) {
+            if ((!args || args.restApiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            resourceInputs["policy"] = args?.policy;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["restApiId"] = args?.restApiId;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RestApiPolicy.__pulumiType, name, resourceInputs, opts);

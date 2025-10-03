@@ -65,51 +65,51 @@ export class CustomDataIdentifier extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the custom data identifier.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
      */
-    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
      * A custom description of the custom data identifier. The description can contain as many as 512 characters.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4 - 90 characters. Ignore words are case sensitive.
      */
-    declare public readonly ignoreWords: pulumi.Output<string[] | undefined>;
+    public readonly ignoreWords!: pulumi.Output<string[] | undefined>;
     /**
      * An array that lists specific character sequences (keywords), one of which must be within proximity (`maximumMatchDistance`) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3 - 90 characters. Keywords aren't case sensitive.
      */
-    declare public readonly keywords: pulumi.Output<string[] | undefined>;
+    public readonly keywords!: pulumi.Output<string[] | undefined>;
     /**
      * The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.
      */
-    declare public readonly maximumMatchDistance: pulumi.Output<number>;
+    public readonly maximumMatchDistance!: pulumi.Output<number>;
     /**
      * A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    declare public readonly namePrefix: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string>;
     /**
      * The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
      */
-    declare public readonly regex: pulumi.Output<string | undefined>;
+    public readonly regex!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a CustomDataIdentifier resource with the given unique name, arguments, and options.
@@ -124,29 +124,29 @@ export class CustomDataIdentifier extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomDataIdentifierState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["createdAt"] = state?.createdAt;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["ignoreWords"] = state?.ignoreWords;
-            resourceInputs["keywords"] = state?.keywords;
-            resourceInputs["maximumMatchDistance"] = state?.maximumMatchDistance;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["namePrefix"] = state?.namePrefix;
-            resourceInputs["regex"] = state?.regex;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["ignoreWords"] = state ? state.ignoreWords : undefined;
+            resourceInputs["keywords"] = state ? state.keywords : undefined;
+            resourceInputs["maximumMatchDistance"] = state ? state.maximumMatchDistance : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["regex"] = state ? state.regex : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as CustomDataIdentifierArgs | undefined;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["ignoreWords"] = args?.ignoreWords;
-            resourceInputs["keywords"] = args?.keywords;
-            resourceInputs["maximumMatchDistance"] = args?.maximumMatchDistance;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["namePrefix"] = args?.namePrefix;
-            resourceInputs["regex"] = args?.regex;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["ignoreWords"] = args ? args.ignoreWords : undefined;
+            resourceInputs["keywords"] = args ? args.keywords : undefined;
+            resourceInputs["maximumMatchDistance"] = args ? args.maximumMatchDistance : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["regex"] = args ? args.regex : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

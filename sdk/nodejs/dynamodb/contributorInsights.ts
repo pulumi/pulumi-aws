@@ -55,19 +55,19 @@ export class ContributorInsights extends pulumi.CustomResource {
     /**
      * The global secondary index name
      */
-    declare public readonly indexName: pulumi.Output<string | undefined>;
+    public readonly indexName!: pulumi.Output<string | undefined>;
     /**
      * argument to specify the [CloudWatch contributor insights mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html#contributorinsights_HowItWorks.Modes)
      */
-    declare public readonly mode: pulumi.Output<string>;
+    public readonly mode!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The name of the table to enable contributor insights
      */
-    declare public readonly tableName: pulumi.Output<string>;
+    public readonly tableName!: pulumi.Output<string>;
 
     /**
      * Create a ContributorInsights resource with the given unique name, arguments, and options.
@@ -82,19 +82,19 @@ export class ContributorInsights extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ContributorInsightsState | undefined;
-            resourceInputs["indexName"] = state?.indexName;
-            resourceInputs["mode"] = state?.mode;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tableName"] = state?.tableName;
+            resourceInputs["indexName"] = state ? state.indexName : undefined;
+            resourceInputs["mode"] = state ? state.mode : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tableName"] = state ? state.tableName : undefined;
         } else {
             const args = argsOrState as ContributorInsightsArgs | undefined;
-            if (args?.tableName === undefined && !opts.urn) {
+            if ((!args || args.tableName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
-            resourceInputs["indexName"] = args?.indexName;
-            resourceInputs["mode"] = args?.mode;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tableName"] = args?.tableName;
+            resourceInputs["indexName"] = args ? args.indexName : undefined;
+            resourceInputs["mode"] = args ? args.mode : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tableName"] = args ? args.tableName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ContributorInsights.__pulumiType, name, resourceInputs, opts);

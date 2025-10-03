@@ -51,23 +51,23 @@ export class MultiRegionAccessPointPolicy extends pulumi.CustomResource {
     /**
      * The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      */
-    declare public readonly accountId: pulumi.Output<string>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
      */
-    declare public readonly details: pulumi.Output<outputs.s3control.MultiRegionAccessPointPolicyDetails>;
+    public readonly details!: pulumi.Output<outputs.s3control.MultiRegionAccessPointPolicyDetails>;
     /**
      * The last established policy for the Multi-Region Access Point.
      */
-    declare public /*out*/ readonly established: pulumi.Output<string>;
+    public /*out*/ readonly established!: pulumi.Output<string>;
     /**
      * The proposed policy for the Multi-Region Access Point.
      */
-    declare public /*out*/ readonly proposed: pulumi.Output<string>;
+    public /*out*/ readonly proposed!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a MultiRegionAccessPointPolicy resource with the given unique name, arguments, and options.
@@ -82,19 +82,19 @@ export class MultiRegionAccessPointPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MultiRegionAccessPointPolicyState | undefined;
-            resourceInputs["accountId"] = state?.accountId;
-            resourceInputs["details"] = state?.details;
-            resourceInputs["established"] = state?.established;
-            resourceInputs["proposed"] = state?.proposed;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["details"] = state ? state.details : undefined;
+            resourceInputs["established"] = state ? state.established : undefined;
+            resourceInputs["proposed"] = state ? state.proposed : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as MultiRegionAccessPointPolicyArgs | undefined;
-            if (args?.details === undefined && !opts.urn) {
+            if ((!args || args.details === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'details'");
             }
-            resourceInputs["accountId"] = args?.accountId;
-            resourceInputs["details"] = args?.details;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["details"] = args ? args.details : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["established"] = undefined /*out*/;
             resourceInputs["proposed"] = undefined /*out*/;
         }

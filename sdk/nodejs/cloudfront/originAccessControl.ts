@@ -65,31 +65,31 @@ export class OriginAccessControl extends pulumi.CustomResource {
     /**
      * The Origin Access Control ARN.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The current version of this Origin Access Control.
      */
-    declare public /*out*/ readonly etag: pulumi.Output<string>;
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * A name that identifies the Origin Access Control.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
      */
-    declare public readonly originAccessControlOriginType: pulumi.Output<string>;
+    public readonly originAccessControlOriginType!: pulumi.Output<string>;
     /**
      * Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
      */
-    declare public readonly signingBehavior: pulumi.Output<string>;
+    public readonly signingBehavior!: pulumi.Output<string>;
     /**
      * Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
      */
-    declare public readonly signingProtocol: pulumi.Output<string>;
+    public readonly signingProtocol!: pulumi.Output<string>;
 
     /**
      * Create a OriginAccessControl resource with the given unique name, arguments, and options.
@@ -104,29 +104,29 @@ export class OriginAccessControl extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OriginAccessControlState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["etag"] = state?.etag;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["originAccessControlOriginType"] = state?.originAccessControlOriginType;
-            resourceInputs["signingBehavior"] = state?.signingBehavior;
-            resourceInputs["signingProtocol"] = state?.signingProtocol;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["originAccessControlOriginType"] = state ? state.originAccessControlOriginType : undefined;
+            resourceInputs["signingBehavior"] = state ? state.signingBehavior : undefined;
+            resourceInputs["signingProtocol"] = state ? state.signingProtocol : undefined;
         } else {
             const args = argsOrState as OriginAccessControlArgs | undefined;
-            if (args?.originAccessControlOriginType === undefined && !opts.urn) {
+            if ((!args || args.originAccessControlOriginType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'originAccessControlOriginType'");
             }
-            if (args?.signingBehavior === undefined && !opts.urn) {
+            if ((!args || args.signingBehavior === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'signingBehavior'");
             }
-            if (args?.signingProtocol === undefined && !opts.urn) {
+            if ((!args || args.signingProtocol === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'signingProtocol'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["originAccessControlOriginType"] = args?.originAccessControlOriginType;
-            resourceInputs["signingBehavior"] = args?.signingBehavior;
-            resourceInputs["signingProtocol"] = args?.signingProtocol;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["originAccessControlOriginType"] = args ? args.originAccessControlOriginType : undefined;
+            resourceInputs["signingBehavior"] = args ? args.signingBehavior : undefined;
+            resourceInputs["signingProtocol"] = args ? args.signingProtocol : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
         }

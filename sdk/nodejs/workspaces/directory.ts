@@ -215,101 +215,101 @@ export class Directory extends pulumi.CustomResource {
     /**
      * Configuration for Active Directory integration when `workspaceType` is set to `POOLS`. Defined below.
      */
-    declare public readonly activeDirectoryConfig: pulumi.Output<outputs.workspaces.DirectoryActiveDirectoryConfig | undefined>;
+    public readonly activeDirectoryConfig!: pulumi.Output<outputs.workspaces.DirectoryActiveDirectoryConfig | undefined>;
     /**
      * The directory alias.
      */
-    declare public /*out*/ readonly alias: pulumi.Output<string>;
+    public /*out*/ readonly alias!: pulumi.Output<string>;
     /**
      * Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
      */
-    declare public readonly certificateBasedAuthProperties: pulumi.Output<outputs.workspaces.DirectoryCertificateBasedAuthProperties>;
+    public readonly certificateBasedAuthProperties!: pulumi.Output<outputs.workspaces.DirectoryCertificateBasedAuthProperties>;
     /**
      * The user name for the service account.
      */
-    declare public /*out*/ readonly customerUserName: pulumi.Output<string>;
+    public /*out*/ readonly customerUserName!: pulumi.Output<string>;
     /**
      * The directory identifier for registration in WorkSpaces service.
      */
-    declare public readonly directoryId: pulumi.Output<string>;
+    public readonly directoryId!: pulumi.Output<string>;
     /**
      * The name of the directory.
      */
-    declare public /*out*/ readonly directoryName: pulumi.Output<string>;
+    public /*out*/ readonly directoryName!: pulumi.Output<string>;
     /**
      * The directory type.
      */
-    declare public /*out*/ readonly directoryType: pulumi.Output<string>;
+    public /*out*/ readonly directoryType!: pulumi.Output<string>;
     /**
      * The IP addresses of the DNS servers for the directory.
      */
-    declare public /*out*/ readonly dnsIpAddresses: pulumi.Output<string[]>;
+    public /*out*/ readonly dnsIpAddresses!: pulumi.Output<string[]>;
     /**
      * The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
      */
-    declare public /*out*/ readonly iamRoleId: pulumi.Output<string>;
+    public /*out*/ readonly iamRoleId!: pulumi.Output<string>;
     /**
      * The identifiers of the IP access control groups associated with the directory.
      */
-    declare public readonly ipGroupIds: pulumi.Output<string[]>;
+    public readonly ipGroupIds!: pulumi.Output<string[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
      */
-    declare public /*out*/ readonly registrationCode: pulumi.Output<string>;
+    public /*out*/ readonly registrationCode!: pulumi.Output<string>;
     /**
      * Configuration of SAML authentication integration. Defined below.
      */
-    declare public readonly samlProperties: pulumi.Output<outputs.workspaces.DirectorySamlProperties>;
+    public readonly samlProperties!: pulumi.Output<outputs.workspaces.DirectorySamlProperties>;
     /**
      * Permissions to enable or disable self-service capabilities when `workspaceType` is set to `PERSONAL`.. Defined below.
      */
-    declare public readonly selfServicePermissions: pulumi.Output<outputs.workspaces.DirectorySelfServicePermissions>;
+    public readonly selfServicePermissions!: pulumi.Output<outputs.workspaces.DirectorySelfServicePermissions>;
     /**
      * The identifiers of the subnets where the directory resides.
      */
-    declare public readonly subnetIds: pulumi.Output<string[]>;
+    public readonly subnetIds!: pulumi.Output<string[]>;
     /**
      * A map of tags assigned to the WorkSpaces directory. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
      *
      * > **Note:** When `workspaceType` is set to `POOLS`, the `directoryId` is automatically generated and cannot be manually set.
      */
-    declare public readonly userIdentityType: pulumi.Output<string>;
+    public readonly userIdentityType!: pulumi.Output<string>;
     /**
      * Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
      */
-    declare public readonly workspaceAccessProperties: pulumi.Output<outputs.workspaces.DirectoryWorkspaceAccessProperties>;
+    public readonly workspaceAccessProperties!: pulumi.Output<outputs.workspaces.DirectoryWorkspaceAccessProperties>;
     /**
      * Default properties that are used for creating WorkSpaces. Defined below.
      */
-    declare public readonly workspaceCreationProperties: pulumi.Output<outputs.workspaces.DirectoryWorkspaceCreationProperties>;
+    public readonly workspaceCreationProperties!: pulumi.Output<outputs.workspaces.DirectoryWorkspaceCreationProperties>;
     /**
      * The description of the WorkSpaces directory when `workspaceType` is set to `POOLS`.
      */
-    declare public readonly workspaceDirectoryDescription: pulumi.Output<string | undefined>;
+    public readonly workspaceDirectoryDescription!: pulumi.Output<string | undefined>;
     /**
      * The name of the WorkSpaces directory when `workspaceType` is set to `POOLS`.
      */
-    declare public readonly workspaceDirectoryName: pulumi.Output<string | undefined>;
+    public readonly workspaceDirectoryName!: pulumi.Output<string | undefined>;
     /**
      * The identifier of the security group that is assigned to new WorkSpaces.
      */
-    declare public /*out*/ readonly workspaceSecurityGroupId: pulumi.Output<string>;
+    public /*out*/ readonly workspaceSecurityGroupId!: pulumi.Output<string>;
     /**
      * Specifies the type of WorkSpaces directory. Valid values are `PERSONAL` and `POOLS`. Default is `PERSONAL`.
      */
-    declare public readonly workspaceType: pulumi.Output<string | undefined>;
+    public readonly workspaceType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Directory resource with the given unique name, arguments, and options.
@@ -324,47 +324,47 @@ export class Directory extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DirectoryState | undefined;
-            resourceInputs["activeDirectoryConfig"] = state?.activeDirectoryConfig;
-            resourceInputs["alias"] = state?.alias;
-            resourceInputs["certificateBasedAuthProperties"] = state?.certificateBasedAuthProperties;
-            resourceInputs["customerUserName"] = state?.customerUserName;
-            resourceInputs["directoryId"] = state?.directoryId;
-            resourceInputs["directoryName"] = state?.directoryName;
-            resourceInputs["directoryType"] = state?.directoryType;
-            resourceInputs["dnsIpAddresses"] = state?.dnsIpAddresses;
-            resourceInputs["iamRoleId"] = state?.iamRoleId;
-            resourceInputs["ipGroupIds"] = state?.ipGroupIds;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["registrationCode"] = state?.registrationCode;
-            resourceInputs["samlProperties"] = state?.samlProperties;
-            resourceInputs["selfServicePermissions"] = state?.selfServicePermissions;
-            resourceInputs["subnetIds"] = state?.subnetIds;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["userIdentityType"] = state?.userIdentityType;
-            resourceInputs["workspaceAccessProperties"] = state?.workspaceAccessProperties;
-            resourceInputs["workspaceCreationProperties"] = state?.workspaceCreationProperties;
-            resourceInputs["workspaceDirectoryDescription"] = state?.workspaceDirectoryDescription;
-            resourceInputs["workspaceDirectoryName"] = state?.workspaceDirectoryName;
-            resourceInputs["workspaceSecurityGroupId"] = state?.workspaceSecurityGroupId;
-            resourceInputs["workspaceType"] = state?.workspaceType;
+            resourceInputs["activeDirectoryConfig"] = state ? state.activeDirectoryConfig : undefined;
+            resourceInputs["alias"] = state ? state.alias : undefined;
+            resourceInputs["certificateBasedAuthProperties"] = state ? state.certificateBasedAuthProperties : undefined;
+            resourceInputs["customerUserName"] = state ? state.customerUserName : undefined;
+            resourceInputs["directoryId"] = state ? state.directoryId : undefined;
+            resourceInputs["directoryName"] = state ? state.directoryName : undefined;
+            resourceInputs["directoryType"] = state ? state.directoryType : undefined;
+            resourceInputs["dnsIpAddresses"] = state ? state.dnsIpAddresses : undefined;
+            resourceInputs["iamRoleId"] = state ? state.iamRoleId : undefined;
+            resourceInputs["ipGroupIds"] = state ? state.ipGroupIds : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["registrationCode"] = state ? state.registrationCode : undefined;
+            resourceInputs["samlProperties"] = state ? state.samlProperties : undefined;
+            resourceInputs["selfServicePermissions"] = state ? state.selfServicePermissions : undefined;
+            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["userIdentityType"] = state ? state.userIdentityType : undefined;
+            resourceInputs["workspaceAccessProperties"] = state ? state.workspaceAccessProperties : undefined;
+            resourceInputs["workspaceCreationProperties"] = state ? state.workspaceCreationProperties : undefined;
+            resourceInputs["workspaceDirectoryDescription"] = state ? state.workspaceDirectoryDescription : undefined;
+            resourceInputs["workspaceDirectoryName"] = state ? state.workspaceDirectoryName : undefined;
+            resourceInputs["workspaceSecurityGroupId"] = state ? state.workspaceSecurityGroupId : undefined;
+            resourceInputs["workspaceType"] = state ? state.workspaceType : undefined;
         } else {
             const args = argsOrState as DirectoryArgs | undefined;
-            resourceInputs["activeDirectoryConfig"] = args?.activeDirectoryConfig;
-            resourceInputs["certificateBasedAuthProperties"] = args?.certificateBasedAuthProperties;
-            resourceInputs["directoryId"] = args?.directoryId;
-            resourceInputs["ipGroupIds"] = args?.ipGroupIds;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["samlProperties"] = args?.samlProperties;
-            resourceInputs["selfServicePermissions"] = args?.selfServicePermissions;
-            resourceInputs["subnetIds"] = args?.subnetIds;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["userIdentityType"] = args?.userIdentityType;
-            resourceInputs["workspaceAccessProperties"] = args?.workspaceAccessProperties;
-            resourceInputs["workspaceCreationProperties"] = args?.workspaceCreationProperties;
-            resourceInputs["workspaceDirectoryDescription"] = args?.workspaceDirectoryDescription;
-            resourceInputs["workspaceDirectoryName"] = args?.workspaceDirectoryName;
-            resourceInputs["workspaceType"] = args?.workspaceType;
+            resourceInputs["activeDirectoryConfig"] = args ? args.activeDirectoryConfig : undefined;
+            resourceInputs["certificateBasedAuthProperties"] = args ? args.certificateBasedAuthProperties : undefined;
+            resourceInputs["directoryId"] = args ? args.directoryId : undefined;
+            resourceInputs["ipGroupIds"] = args ? args.ipGroupIds : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["samlProperties"] = args ? args.samlProperties : undefined;
+            resourceInputs["selfServicePermissions"] = args ? args.selfServicePermissions : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userIdentityType"] = args ? args.userIdentityType : undefined;
+            resourceInputs["workspaceAccessProperties"] = args ? args.workspaceAccessProperties : undefined;
+            resourceInputs["workspaceCreationProperties"] = args ? args.workspaceCreationProperties : undefined;
+            resourceInputs["workspaceDirectoryDescription"] = args ? args.workspaceDirectoryDescription : undefined;
+            resourceInputs["workspaceDirectoryName"] = args ? args.workspaceDirectoryName : undefined;
+            resourceInputs["workspaceType"] = args ? args.workspaceType : undefined;
             resourceInputs["alias"] = undefined /*out*/;
             resourceInputs["customerUserName"] = undefined /*out*/;
             resourceInputs["directoryName"] = undefined /*out*/;

@@ -153,23 +153,23 @@ export class InstanceStorageConfig extends pulumi.CustomResource {
     /**
      * The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
      */
-    declare public /*out*/ readonly associationId: pulumi.Output<string>;
+    public /*out*/ readonly associationId!: pulumi.Output<string>;
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      */
-    declare public readonly instanceId: pulumi.Output<string>;
+    public readonly instanceId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `EMAIL_MESSAGES` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS` | `SCHEDULED_REPORTS` | `SCREEN_RECORDINGS`.
      */
-    declare public readonly resourceType: pulumi.Output<string>;
+    public readonly resourceType!: pulumi.Output<string>;
     /**
      * Specifies the storage configuration options for the Connect Instance. Documented below.
      */
-    declare public readonly storageConfig: pulumi.Output<outputs.connect.InstanceStorageConfigStorageConfig>;
+    public readonly storageConfig!: pulumi.Output<outputs.connect.InstanceStorageConfigStorageConfig>;
 
     /**
      * Create a InstanceStorageConfig resource with the given unique name, arguments, and options.
@@ -184,26 +184,26 @@ export class InstanceStorageConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InstanceStorageConfigState | undefined;
-            resourceInputs["associationId"] = state?.associationId;
-            resourceInputs["instanceId"] = state?.instanceId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceType"] = state?.resourceType;
-            resourceInputs["storageConfig"] = state?.storageConfig;
+            resourceInputs["associationId"] = state ? state.associationId : undefined;
+            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceType"] = state ? state.resourceType : undefined;
+            resourceInputs["storageConfig"] = state ? state.storageConfig : undefined;
         } else {
             const args = argsOrState as InstanceStorageConfigArgs | undefined;
-            if (args?.instanceId === undefined && !opts.urn) {
+            if ((!args || args.instanceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            if (args?.resourceType === undefined && !opts.urn) {
+            if ((!args || args.resourceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            if (args?.storageConfig === undefined && !opts.urn) {
+            if ((!args || args.storageConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageConfig'");
             }
-            resourceInputs["instanceId"] = args?.instanceId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resourceType"] = args?.resourceType;
-            resourceInputs["storageConfig"] = args?.storageConfig;
+            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
+            resourceInputs["storageConfig"] = args ? args.storageConfig : undefined;
             resourceInputs["associationId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

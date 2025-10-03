@@ -59,39 +59,39 @@ export class ScheduleGroup extends pulumi.CustomResource {
     /**
      * ARN of the schedule group.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Time at which the schedule group was created.
      */
-    declare public /*out*/ readonly creationDate: pulumi.Output<string>;
+    public /*out*/ readonly creationDate!: pulumi.Output<string>;
     /**
      * Time at which the schedule group was last modified.
      */
-    declare public /*out*/ readonly lastModificationDate: pulumi.Output<string>;
+    public /*out*/ readonly lastModificationDate!: pulumi.Output<string>;
     /**
      * Name of the schedule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    declare public readonly namePrefix: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * State of the schedule group. Can be `ACTIVE` or `DELETING`.
      */
-    declare public /*out*/ readonly state: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ScheduleGroup resource with the given unique name, arguments, and options.
@@ -106,21 +106,21 @@ export class ScheduleGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScheduleGroupState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["creationDate"] = state?.creationDate;
-            resourceInputs["lastModificationDate"] = state?.lastModificationDate;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["namePrefix"] = state?.namePrefix;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["state"] = state?.state;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["creationDate"] = state ? state.creationDate : undefined;
+            resourceInputs["lastModificationDate"] = state ? state.lastModificationDate : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ScheduleGroupArgs | undefined;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["namePrefix"] = args?.namePrefix;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["lastModificationDate"] = undefined /*out*/;

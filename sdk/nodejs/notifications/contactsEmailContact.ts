@@ -63,30 +63,30 @@ export class ContactsEmailContact extends pulumi.CustomResource {
     /**
      * ARN of the Email Contact.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Email address for the contact. Must be between 6 and 254 characters and match an email
      * pattern.
      */
-    declare public readonly emailAddress: pulumi.Output<string>;
+    public readonly emailAddress!: pulumi.Output<string>;
     /**
      * Name of the email contact. Must be between 1 and 64 characters and can contain alphanumeric
      * characters, underscores, tildes, periods, and hyphens.
      *
      * The following arguments are optional:
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Map of tags to assign to the resource. If configured with a provider 
      * `defaultTags` configuration block
      * present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider 
      * `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ContactsEmailContact resource with the given unique name, arguments, and options.
@@ -101,19 +101,19 @@ export class ContactsEmailContact extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ContactsEmailContactState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["emailAddress"] = state?.emailAddress;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["emailAddress"] = state ? state.emailAddress : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ContactsEmailContactArgs | undefined;
-            if (args?.emailAddress === undefined && !opts.urn) {
+            if ((!args || args.emailAddress === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'emailAddress'");
             }
-            resourceInputs["emailAddress"] = args?.emailAddress;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["emailAddress"] = args ? args.emailAddress : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

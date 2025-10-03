@@ -82,23 +82,23 @@ export class Listener extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of your accelerator.
      */
-    declare public readonly acceleratorArn: pulumi.Output<string>;
+    public readonly acceleratorArn!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the listener.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
      */
-    declare public readonly clientAffinity: pulumi.Output<string | undefined>;
+    public readonly clientAffinity!: pulumi.Output<string | undefined>;
     /**
      * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
      */
-    declare public readonly portRanges: pulumi.Output<outputs.globalaccelerator.ListenerPortRange[]>;
+    public readonly portRanges!: pulumi.Output<outputs.globalaccelerator.ListenerPortRange[]>;
     /**
      * The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
      */
-    declare public readonly protocol: pulumi.Output<string>;
+    public readonly protocol!: pulumi.Output<string>;
 
     /**
      * Create a Listener resource with the given unique name, arguments, and options.
@@ -113,26 +113,26 @@ export class Listener extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ListenerState | undefined;
-            resourceInputs["acceleratorArn"] = state?.acceleratorArn;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["clientAffinity"] = state?.clientAffinity;
-            resourceInputs["portRanges"] = state?.portRanges;
-            resourceInputs["protocol"] = state?.protocol;
+            resourceInputs["acceleratorArn"] = state ? state.acceleratorArn : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["clientAffinity"] = state ? state.clientAffinity : undefined;
+            resourceInputs["portRanges"] = state ? state.portRanges : undefined;
+            resourceInputs["protocol"] = state ? state.protocol : undefined;
         } else {
             const args = argsOrState as ListenerArgs | undefined;
-            if (args?.acceleratorArn === undefined && !opts.urn) {
+            if ((!args || args.acceleratorArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'acceleratorArn'");
             }
-            if (args?.portRanges === undefined && !opts.urn) {
+            if ((!args || args.portRanges === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'portRanges'");
             }
-            if (args?.protocol === undefined && !opts.urn) {
+            if ((!args || args.protocol === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            resourceInputs["acceleratorArn"] = args?.acceleratorArn;
-            resourceInputs["clientAffinity"] = args?.clientAffinity;
-            resourceInputs["portRanges"] = args?.portRanges;
-            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["acceleratorArn"] = args ? args.acceleratorArn : undefined;
+            resourceInputs["clientAffinity"] = args ? args.clientAffinity : undefined;
+            resourceInputs["portRanges"] = args ? args.portRanges : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

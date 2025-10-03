@@ -58,15 +58,15 @@ export class DelegatedAdminAccount extends pulumi.CustomResource {
     /**
      * Account to enable as delegated admin account.
      */
-    declare public readonly accountId: pulumi.Output<string>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Status of this delegated admin account.
      */
-    declare public /*out*/ readonly relationshipStatus: pulumi.Output<string>;
+    public /*out*/ readonly relationshipStatus!: pulumi.Output<string>;
 
     /**
      * Create a DelegatedAdminAccount resource with the given unique name, arguments, and options.
@@ -81,16 +81,16 @@ export class DelegatedAdminAccount extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DelegatedAdminAccountState | undefined;
-            resourceInputs["accountId"] = state?.accountId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["relationshipStatus"] = state?.relationshipStatus;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["relationshipStatus"] = state ? state.relationshipStatus : undefined;
         } else {
             const args = argsOrState as DelegatedAdminAccountArgs | undefined;
-            if (args?.accountId === undefined && !opts.urn) {
+            if ((!args || args.accountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
             }
-            resourceInputs["accountId"] = args?.accountId;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["relationshipStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

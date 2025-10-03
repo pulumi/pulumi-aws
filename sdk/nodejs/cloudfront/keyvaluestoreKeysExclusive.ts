@@ -49,20 +49,20 @@ export class KeyvaluestoreKeysExclusive extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    declare public readonly keyValueStoreArn: pulumi.Output<string>;
+    public readonly keyValueStoreArn!: pulumi.Output<string>;
     /**
      * Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
      */
-    declare public readonly maxBatchSize: pulumi.Output<number>;
+    public readonly maxBatchSize!: pulumi.Output<number>;
     /**
      * A list of all resource key value pairs associated with the KeyValueStore.
      * See `resourceKeyValuePair` below.
      */
-    declare public readonly resourceKeyValuePairs: pulumi.Output<outputs.cloudfront.KeyvaluestoreKeysExclusiveResourceKeyValuePair[] | undefined>;
+    public readonly resourceKeyValuePairs!: pulumi.Output<outputs.cloudfront.KeyvaluestoreKeysExclusiveResourceKeyValuePair[] | undefined>;
     /**
      * Total size of the Key Value Store in bytes.
      */
-    declare public /*out*/ readonly totalSizeInBytes: pulumi.Output<number>;
+    public /*out*/ readonly totalSizeInBytes!: pulumi.Output<number>;
 
     /**
      * Create a KeyvaluestoreKeysExclusive resource with the given unique name, arguments, and options.
@@ -77,18 +77,18 @@ export class KeyvaluestoreKeysExclusive extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KeyvaluestoreKeysExclusiveState | undefined;
-            resourceInputs["keyValueStoreArn"] = state?.keyValueStoreArn;
-            resourceInputs["maxBatchSize"] = state?.maxBatchSize;
-            resourceInputs["resourceKeyValuePairs"] = state?.resourceKeyValuePairs;
-            resourceInputs["totalSizeInBytes"] = state?.totalSizeInBytes;
+            resourceInputs["keyValueStoreArn"] = state ? state.keyValueStoreArn : undefined;
+            resourceInputs["maxBatchSize"] = state ? state.maxBatchSize : undefined;
+            resourceInputs["resourceKeyValuePairs"] = state ? state.resourceKeyValuePairs : undefined;
+            resourceInputs["totalSizeInBytes"] = state ? state.totalSizeInBytes : undefined;
         } else {
             const args = argsOrState as KeyvaluestoreKeysExclusiveArgs | undefined;
-            if (args?.keyValueStoreArn === undefined && !opts.urn) {
+            if ((!args || args.keyValueStoreArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyValueStoreArn'");
             }
-            resourceInputs["keyValueStoreArn"] = args?.keyValueStoreArn;
-            resourceInputs["maxBatchSize"] = args?.maxBatchSize;
-            resourceInputs["resourceKeyValuePairs"] = args?.resourceKeyValuePairs;
+            resourceInputs["keyValueStoreArn"] = args ? args.keyValueStoreArn : undefined;
+            resourceInputs["maxBatchSize"] = args ? args.maxBatchSize : undefined;
+            resourceInputs["resourceKeyValuePairs"] = args ? args.resourceKeyValuePairs : undefined;
             resourceInputs["totalSizeInBytes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

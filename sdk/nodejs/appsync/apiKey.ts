@@ -62,24 +62,24 @@ export class ApiKey extends pulumi.CustomResource {
     /**
      * ID of the associated AppSync API
      */
-    declare public readonly apiId: pulumi.Output<string>;
-    declare public /*out*/ readonly apiKeyId: pulumi.Output<string>;
+    public readonly apiId!: pulumi.Output<string>;
+    public /*out*/ readonly apiKeyId!: pulumi.Output<string>;
     /**
      * API key description. Defaults to "Managed by Pulumi".
      */
-    declare public readonly description: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
      */
-    declare public readonly expires: pulumi.Output<string | undefined>;
+    public readonly expires!: pulumi.Output<string | undefined>;
     /**
      * API key
      */
-    declare public /*out*/ readonly key: pulumi.Output<string>;
+    public /*out*/ readonly key!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ApiKey resource with the given unique name, arguments, and options.
@@ -94,21 +94,21 @@ export class ApiKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiKeyState | undefined;
-            resourceInputs["apiId"] = state?.apiId;
-            resourceInputs["apiKeyId"] = state?.apiKeyId;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["expires"] = state?.expires;
-            resourceInputs["key"] = state?.key;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["apiId"] = state ? state.apiId : undefined;
+            resourceInputs["apiKeyId"] = state ? state.apiKeyId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["expires"] = state ? state.expires : undefined;
+            resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ApiKeyArgs | undefined;
-            if (args?.apiId === undefined && !opts.urn) {
+            if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            resourceInputs["apiId"] = args?.apiId;
-            resourceInputs["description"] = (args?.description) ?? "Managed by Pulumi";
-            resourceInputs["expires"] = args?.expires;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
+            resourceInputs["expires"] = args ? args.expires : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["apiKeyId"] = undefined /*out*/;
             resourceInputs["key"] = undefined /*out*/;
         }

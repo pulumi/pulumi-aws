@@ -71,47 +71,47 @@ export class EndpointConfiguration extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Specifies configuration for how an endpoint performs asynchronous inference.
      */
-    declare public readonly asyncInferenceConfig: pulumi.Output<outputs.sagemaker.EndpointConfigurationAsyncInferenceConfig | undefined>;
+    public readonly asyncInferenceConfig!: pulumi.Output<outputs.sagemaker.EndpointConfigurationAsyncInferenceConfig | undefined>;
     /**
      * Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
      */
-    declare public readonly dataCaptureConfig: pulumi.Output<outputs.sagemaker.EndpointConfigurationDataCaptureConfig | undefined>;
+    public readonly dataCaptureConfig!: pulumi.Output<outputs.sagemaker.EndpointConfigurationDataCaptureConfig | undefined>;
     /**
      * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
      */
-    declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
+    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     /**
      * The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
      */
-    declare public readonly namePrefix: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string>;
     /**
      * An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
      */
-    declare public readonly productionVariants: pulumi.Output<outputs.sagemaker.EndpointConfigurationProductionVariant[]>;
+    public readonly productionVariants!: pulumi.Output<outputs.sagemaker.EndpointConfigurationProductionVariant[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
      */
-    declare public readonly shadowProductionVariants: pulumi.Output<outputs.sagemaker.EndpointConfigurationShadowProductionVariant[] | undefined>;
+    public readonly shadowProductionVariants!: pulumi.Output<outputs.sagemaker.EndpointConfigurationShadowProductionVariant[] | undefined>;
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a EndpointConfiguration resource with the given unique name, arguments, and options.
@@ -126,31 +126,31 @@ export class EndpointConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointConfigurationState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["asyncInferenceConfig"] = state?.asyncInferenceConfig;
-            resourceInputs["dataCaptureConfig"] = state?.dataCaptureConfig;
-            resourceInputs["kmsKeyArn"] = state?.kmsKeyArn;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["namePrefix"] = state?.namePrefix;
-            resourceInputs["productionVariants"] = state?.productionVariants;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["shadowProductionVariants"] = state?.shadowProductionVariants;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["asyncInferenceConfig"] = state ? state.asyncInferenceConfig : undefined;
+            resourceInputs["dataCaptureConfig"] = state ? state.dataCaptureConfig : undefined;
+            resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["productionVariants"] = state ? state.productionVariants : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["shadowProductionVariants"] = state ? state.shadowProductionVariants : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as EndpointConfigurationArgs | undefined;
-            if (args?.productionVariants === undefined && !opts.urn) {
+            if ((!args || args.productionVariants === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'productionVariants'");
             }
-            resourceInputs["asyncInferenceConfig"] = args?.asyncInferenceConfig;
-            resourceInputs["dataCaptureConfig"] = args?.dataCaptureConfig;
-            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["namePrefix"] = args?.namePrefix;
-            resourceInputs["productionVariants"] = args?.productionVariants;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["shadowProductionVariants"] = args?.shadowProductionVariants;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["asyncInferenceConfig"] = args ? args.asyncInferenceConfig : undefined;
+            resourceInputs["dataCaptureConfig"] = args ? args.dataCaptureConfig : undefined;
+            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["productionVariants"] = args ? args.productionVariants : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["shadowProductionVariants"] = args ? args.shadowProductionVariants : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

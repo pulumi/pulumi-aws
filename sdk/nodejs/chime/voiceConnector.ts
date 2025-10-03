@@ -59,37 +59,37 @@ export class VoiceConnector extends pulumi.CustomResource {
     /**
      * ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
      */
-    declare public readonly awsRegion: pulumi.Output<string>;
+    public readonly awsRegion!: pulumi.Output<string>;
     /**
      * The name of the Amazon Chime Voice Connector.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The outbound host name for the Amazon Chime Voice Connector.
      */
-    declare public /*out*/ readonly outboundHostName: pulumi.Output<string>;
+    public /*out*/ readonly outboundHostName!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * When enabled, requires encryption for the Amazon Chime Voice Connector.
      *
      * The following arguments are optional:
      */
-    declare public readonly requireEncryption: pulumi.Output<boolean>;
+    public readonly requireEncryption!: pulumi.Output<boolean>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a VoiceConnector resource with the given unique name, arguments, and options.
@@ -104,24 +104,24 @@ export class VoiceConnector extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VoiceConnectorState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["awsRegion"] = state?.awsRegion;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["outboundHostName"] = state?.outboundHostName;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["requireEncryption"] = state?.requireEncryption;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["awsRegion"] = state ? state.awsRegion : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["outboundHostName"] = state ? state.outboundHostName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["requireEncryption"] = state ? state.requireEncryption : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as VoiceConnectorArgs | undefined;
-            if (args?.requireEncryption === undefined && !opts.urn) {
+            if ((!args || args.requireEncryption === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'requireEncryption'");
             }
-            resourceInputs["awsRegion"] = args?.awsRegion;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["requireEncryption"] = args?.requireEncryption;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["awsRegion"] = args ? args.awsRegion : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["requireEncryption"] = args ? args.requireEncryption : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["outboundHostName"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

@@ -101,15 +101,15 @@ export class Policy extends pulumi.CustomResource {
     /**
      * JSON-formatted IAM policy to attach to the specified private CA resource.
      */
-    declare public readonly policy: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ARN of the private CA to associate with the policy.
      */
-    declare public readonly resourceArn: pulumi.Output<string>;
+    public readonly resourceArn!: pulumi.Output<string>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -124,20 +124,20 @@ export class Policy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyState | undefined;
-            resourceInputs["policy"] = state?.policy;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceArn"] = state?.resourceArn;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
-            if (args?.policy === undefined && !opts.urn) {
+            if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            if (args?.resourceArn === undefined && !opts.urn) {
+            if ((!args || args.resourceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            resourceInputs["policy"] = args?.policy;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resourceArn"] = args?.resourceArn;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Policy.__pulumiType, name, resourceInputs, opts);

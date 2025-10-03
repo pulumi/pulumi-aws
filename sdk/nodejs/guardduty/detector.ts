@@ -80,37 +80,37 @@ export class Detector extends pulumi.CustomResource {
     /**
      * The AWS account ID of the GuardDuty detector
      */
-    declare public /*out*/ readonly accountId: pulumi.Output<string>;
+    public /*out*/ readonly accountId!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the GuardDuty detector
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
      *
      * @deprecated datasources is deprecated. Use aws.guardduty.DetectorFeature resources instead.
      */
-    declare public readonly datasources: pulumi.Output<outputs.guardduty.DetectorDatasources>;
+    public readonly datasources!: pulumi.Output<outputs.guardduty.DetectorDatasources>;
     /**
      * Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
      */
-    declare public readonly enable: pulumi.Output<boolean | undefined>;
+    public readonly enable!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
      */
-    declare public readonly findingPublishingFrequency: pulumi.Output<string>;
+    public readonly findingPublishingFrequency!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Detector resource with the given unique name, arguments, and options.
@@ -125,21 +125,21 @@ export class Detector extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DetectorState | undefined;
-            resourceInputs["accountId"] = state?.accountId;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["datasources"] = state?.datasources;
-            resourceInputs["enable"] = state?.enable;
-            resourceInputs["findingPublishingFrequency"] = state?.findingPublishingFrequency;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["datasources"] = state ? state.datasources : undefined;
+            resourceInputs["enable"] = state ? state.enable : undefined;
+            resourceInputs["findingPublishingFrequency"] = state ? state.findingPublishingFrequency : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as DetectorArgs | undefined;
-            resourceInputs["datasources"] = args?.datasources;
-            resourceInputs["enable"] = args?.enable;
-            resourceInputs["findingPublishingFrequency"] = args?.findingPublishingFrequency;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["datasources"] = args ? args.datasources : undefined;
+            resourceInputs["enable"] = args ? args.enable : undefined;
+            resourceInputs["findingPublishingFrequency"] = args ? args.findingPublishingFrequency : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["accountId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

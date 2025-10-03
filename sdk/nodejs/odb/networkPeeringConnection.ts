@@ -62,51 +62,51 @@ export class NetworkPeeringConnection extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkPeeringConnection.__pulumiType;
     }
 
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Created time of the ODB network peering connection.
      */
-    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
-    declare public readonly displayName: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public readonly displayName!: pulumi.Output<string>;
     /**
      * ARN of the ODB network peering connection.
      */
-    declare public /*out*/ readonly odbNetworkArn: pulumi.Output<string>;
-    declare public readonly odbNetworkId: pulumi.Output<string>;
+    public /*out*/ readonly odbNetworkArn!: pulumi.Output<string>;
+    public readonly odbNetworkId!: pulumi.Output<string>;
     /**
      * Type of the ODB peering connection.
      */
-    declare public /*out*/ readonly odbPeeringConnectionType: pulumi.Output<string>;
+    public /*out*/ readonly odbPeeringConnectionType!: pulumi.Output<string>;
     /**
      * ARN of the peer network peering connection.
      */
-    declare public /*out*/ readonly peerNetworkArn: pulumi.Output<string>;
-    declare public readonly peerNetworkId: pulumi.Output<string>;
+    public /*out*/ readonly peerNetworkArn!: pulumi.Output<string>;
+    public readonly peerNetworkId!: pulumi.Output<string>;
     /**
      * Progress of the ODB network peering connection.
      */
-    declare public /*out*/ readonly percentProgress: pulumi.Output<number>;
+    public /*out*/ readonly percentProgress!: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Status of the ODB network peering connection.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * The reason for the current status of the ODB peering connection.
      */
-    declare public /*out*/ readonly statusReason: pulumi.Output<string>;
+    public /*out*/ readonly statusReason!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including inherited tags.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public readonly timeouts: pulumi.Output<outputs.odb.NetworkPeeringConnectionTimeouts | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly timeouts!: pulumi.Output<outputs.odb.NetworkPeeringConnectionTimeouts | undefined>;
 
     /**
      * Create a NetworkPeeringConnection resource with the given unique name, arguments, and options.
@@ -121,38 +121,38 @@ export class NetworkPeeringConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkPeeringConnectionState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["createdAt"] = state?.createdAt;
-            resourceInputs["displayName"] = state?.displayName;
-            resourceInputs["odbNetworkArn"] = state?.odbNetworkArn;
-            resourceInputs["odbNetworkId"] = state?.odbNetworkId;
-            resourceInputs["odbPeeringConnectionType"] = state?.odbPeeringConnectionType;
-            resourceInputs["peerNetworkArn"] = state?.peerNetworkArn;
-            resourceInputs["peerNetworkId"] = state?.peerNetworkId;
-            resourceInputs["percentProgress"] = state?.percentProgress;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["statusReason"] = state?.statusReason;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["odbNetworkArn"] = state ? state.odbNetworkArn : undefined;
+            resourceInputs["odbNetworkId"] = state ? state.odbNetworkId : undefined;
+            resourceInputs["odbPeeringConnectionType"] = state ? state.odbPeeringConnectionType : undefined;
+            resourceInputs["peerNetworkArn"] = state ? state.peerNetworkArn : undefined;
+            resourceInputs["peerNetworkId"] = state ? state.peerNetworkId : undefined;
+            resourceInputs["percentProgress"] = state ? state.percentProgress : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["statusReason"] = state ? state.statusReason : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as NetworkPeeringConnectionArgs | undefined;
-            if (args?.displayName === undefined && !opts.urn) {
+            if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if (args?.odbNetworkId === undefined && !opts.urn) {
+            if ((!args || args.odbNetworkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'odbNetworkId'");
             }
-            if (args?.peerNetworkId === undefined && !opts.urn) {
+            if ((!args || args.peerNetworkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'peerNetworkId'");
             }
-            resourceInputs["displayName"] = args?.displayName;
-            resourceInputs["odbNetworkId"] = args?.odbNetworkId;
-            resourceInputs["peerNetworkId"] = args?.peerNetworkId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["odbNetworkId"] = args ? args.odbNetworkId : undefined;
+            resourceInputs["peerNetworkId"] = args ? args.peerNetworkId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["odbNetworkArn"] = undefined /*out*/;

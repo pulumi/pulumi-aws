@@ -65,23 +65,23 @@ export class QueryDefinition extends pulumi.CustomResource {
     /**
      * Specific log groups to use with the query.
      */
-    declare public readonly logGroupNames: pulumi.Output<string[] | undefined>;
+    public readonly logGroupNames!: pulumi.Output<string[] | undefined>;
     /**
      * The name of the query.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The query definition ID.
      */
-    declare public /*out*/ readonly queryDefinitionId: pulumi.Output<string>;
+    public /*out*/ readonly queryDefinitionId!: pulumi.Output<string>;
     /**
      * The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
      */
-    declare public readonly queryString: pulumi.Output<string>;
+    public readonly queryString!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a QueryDefinition resource with the given unique name, arguments, and options.
@@ -96,20 +96,20 @@ export class QueryDefinition extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as QueryDefinitionState | undefined;
-            resourceInputs["logGroupNames"] = state?.logGroupNames;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["queryDefinitionId"] = state?.queryDefinitionId;
-            resourceInputs["queryString"] = state?.queryString;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["logGroupNames"] = state ? state.logGroupNames : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["queryDefinitionId"] = state ? state.queryDefinitionId : undefined;
+            resourceInputs["queryString"] = state ? state.queryString : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as QueryDefinitionArgs | undefined;
-            if (args?.queryString === undefined && !opts.urn) {
+            if ((!args || args.queryString === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'queryString'");
             }
-            resourceInputs["logGroupNames"] = args?.logGroupNames;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["queryString"] = args?.queryString;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["logGroupNames"] = args ? args.logGroupNames : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["queryString"] = args ? args.queryString : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["queryDefinitionId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

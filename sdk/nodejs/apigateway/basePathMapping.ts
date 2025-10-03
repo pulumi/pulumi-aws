@@ -66,27 +66,27 @@ export class BasePathMapping extends pulumi.CustomResource {
     /**
      * Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
      */
-    declare public readonly basePath: pulumi.Output<string | undefined>;
+    public readonly basePath!: pulumi.Output<string | undefined>;
     /**
      * Already-registered domain name to connect the API to.
      */
-    declare public readonly domainName: pulumi.Output<string>;
+    public readonly domainName!: pulumi.Output<string>;
     /**
      * The identifier for the domain name resource. Supported only for private custom domain names.
      */
-    declare public readonly domainNameId: pulumi.Output<string | undefined>;
+    public readonly domainNameId!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ID of the API to connect.
      */
-    declare public readonly restApi: pulumi.Output<string>;
+    public readonly restApi!: pulumi.Output<string>;
     /**
      * Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
      */
-    declare public readonly stageName: pulumi.Output<string | undefined>;
+    public readonly stageName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a BasePathMapping resource with the given unique name, arguments, and options.
@@ -101,26 +101,26 @@ export class BasePathMapping extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BasePathMappingState | undefined;
-            resourceInputs["basePath"] = state?.basePath;
-            resourceInputs["domainName"] = state?.domainName;
-            resourceInputs["domainNameId"] = state?.domainNameId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["restApi"] = state?.restApi;
-            resourceInputs["stageName"] = state?.stageName;
+            resourceInputs["basePath"] = state ? state.basePath : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["domainNameId"] = state ? state.domainNameId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["restApi"] = state ? state.restApi : undefined;
+            resourceInputs["stageName"] = state ? state.stageName : undefined;
         } else {
             const args = argsOrState as BasePathMappingArgs | undefined;
-            if (args?.domainName === undefined && !opts.urn) {
+            if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if (args?.restApi === undefined && !opts.urn) {
+            if ((!args || args.restApi === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApi'");
             }
-            resourceInputs["basePath"] = args?.basePath;
-            resourceInputs["domainName"] = args?.domainName;
-            resourceInputs["domainNameId"] = args?.domainNameId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["restApi"] = args?.restApi;
-            resourceInputs["stageName"] = args?.stageName;
+            resourceInputs["basePath"] = args ? args.basePath : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["domainNameId"] = args ? args.domainNameId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["restApi"] = args ? args.restApi : undefined;
+            resourceInputs["stageName"] = args ? args.stageName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BasePathMapping.__pulumiType, name, resourceInputs, opts);

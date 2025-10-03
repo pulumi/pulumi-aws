@@ -68,15 +68,15 @@ export class SnapshotScheduleAssociation extends pulumi.CustomResource {
     /**
      * The cluster identifier.
      */
-    declare public readonly clusterIdentifier: pulumi.Output<string>;
+    public readonly clusterIdentifier!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The snapshot schedule identifier.
      */
-    declare public readonly scheduleIdentifier: pulumi.Output<string>;
+    public readonly scheduleIdentifier!: pulumi.Output<string>;
 
     /**
      * Create a SnapshotScheduleAssociation resource with the given unique name, arguments, and options.
@@ -91,20 +91,20 @@ export class SnapshotScheduleAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SnapshotScheduleAssociationState | undefined;
-            resourceInputs["clusterIdentifier"] = state?.clusterIdentifier;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["scheduleIdentifier"] = state?.scheduleIdentifier;
+            resourceInputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["scheduleIdentifier"] = state ? state.scheduleIdentifier : undefined;
         } else {
             const args = argsOrState as SnapshotScheduleAssociationArgs | undefined;
-            if (args?.clusterIdentifier === undefined && !opts.urn) {
+            if ((!args || args.clusterIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterIdentifier'");
             }
-            if (args?.scheduleIdentifier === undefined && !opts.urn) {
+            if ((!args || args.scheduleIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scheduleIdentifier'");
             }
-            resourceInputs["clusterIdentifier"] = args?.clusterIdentifier;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["scheduleIdentifier"] = args?.scheduleIdentifier;
+            resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["scheduleIdentifier"] = args ? args.scheduleIdentifier : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SnapshotScheduleAssociation.__pulumiType, name, resourceInputs, opts);

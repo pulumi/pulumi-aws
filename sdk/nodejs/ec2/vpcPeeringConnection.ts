@@ -141,51 +141,51 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
     /**
      * The status of the VPC Peering Connection request.
      */
-    declare public /*out*/ readonly acceptStatus: pulumi.Output<string>;
+    public /*out*/ readonly acceptStatus!: pulumi.Output<string>;
     /**
      * An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
      * the peering connection (a maximum of one).
      */
-    declare public readonly accepter: pulumi.Output<outputs.ec2.VpcPeeringConnectionAccepter>;
+    public readonly accepter!: pulumi.Output<outputs.ec2.VpcPeeringConnectionAccepter>;
     /**
      * Accept the peering (both VPCs need to be in the same AWS account and region).
      */
-    declare public readonly autoAccept: pulumi.Output<boolean | undefined>;
+    public readonly autoAccept!: pulumi.Output<boolean | undefined>;
     /**
      * The AWS account ID of the target peer VPC.
      * Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
      */
-    declare public readonly peerOwnerId: pulumi.Output<string>;
+    public readonly peerOwnerId!: pulumi.Output<string>;
     /**
      * The region of the accepter VPC of the VPC Peering Connection. `autoAccept` must be `false`,
      * and use the `aws.ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
      */
-    declare public readonly peerRegion: pulumi.Output<string>;
+    public readonly peerRegion!: pulumi.Output<string>;
     /**
      * The ID of the target VPC with which you are creating the VPC Peering Connection.
      */
-    declare public readonly peerVpcId: pulumi.Output<string>;
+    public readonly peerVpcId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
      * the peering connection (a maximum of one).
      */
-    declare public readonly requester: pulumi.Output<outputs.ec2.VpcPeeringConnectionRequester>;
+    public readonly requester!: pulumi.Output<outputs.ec2.VpcPeeringConnectionRequester>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the requester VPC.
      */
-    declare public readonly vpcId: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a VpcPeeringConnection resource with the given unique name, arguments, and options.
@@ -200,34 +200,34 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcPeeringConnectionState | undefined;
-            resourceInputs["acceptStatus"] = state?.acceptStatus;
-            resourceInputs["accepter"] = state?.accepter;
-            resourceInputs["autoAccept"] = state?.autoAccept;
-            resourceInputs["peerOwnerId"] = state?.peerOwnerId;
-            resourceInputs["peerRegion"] = state?.peerRegion;
-            resourceInputs["peerVpcId"] = state?.peerVpcId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["requester"] = state?.requester;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["vpcId"] = state?.vpcId;
+            resourceInputs["acceptStatus"] = state ? state.acceptStatus : undefined;
+            resourceInputs["accepter"] = state ? state.accepter : undefined;
+            resourceInputs["autoAccept"] = state ? state.autoAccept : undefined;
+            resourceInputs["peerOwnerId"] = state ? state.peerOwnerId : undefined;
+            resourceInputs["peerRegion"] = state ? state.peerRegion : undefined;
+            resourceInputs["peerVpcId"] = state ? state.peerVpcId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["requester"] = state ? state.requester : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as VpcPeeringConnectionArgs | undefined;
-            if (args?.peerVpcId === undefined && !opts.urn) {
+            if ((!args || args.peerVpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'peerVpcId'");
             }
-            if (args?.vpcId === undefined && !opts.urn) {
+            if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["accepter"] = args?.accepter;
-            resourceInputs["autoAccept"] = args?.autoAccept;
-            resourceInputs["peerOwnerId"] = args?.peerOwnerId;
-            resourceInputs["peerRegion"] = args?.peerRegion;
-            resourceInputs["peerVpcId"] = args?.peerVpcId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["requester"] = args?.requester;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["vpcId"] = args?.vpcId;
+            resourceInputs["accepter"] = args ? args.accepter : undefined;
+            resourceInputs["autoAccept"] = args ? args.autoAccept : undefined;
+            resourceInputs["peerOwnerId"] = args ? args.peerOwnerId : undefined;
+            resourceInputs["peerRegion"] = args ? args.peerRegion : undefined;
+            resourceInputs["peerVpcId"] = args ? args.peerVpcId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["requester"] = args ? args.requester : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["acceptStatus"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

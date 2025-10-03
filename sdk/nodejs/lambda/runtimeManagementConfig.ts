@@ -79,29 +79,29 @@ export class RuntimeManagementConfig extends pulumi.CustomResource {
     /**
      * ARN of the function.
      */
-    declare public /*out*/ readonly functionArn: pulumi.Output<string>;
+    public /*out*/ readonly functionArn!: pulumi.Output<string>;
     /**
      * Name or ARN of the Lambda function.
      *
      * The following arguments are optional:
      */
-    declare public readonly functionName: pulumi.Output<string>;
+    public readonly functionName!: pulumi.Output<string>;
     /**
      * Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
      */
-    declare public readonly qualifier: pulumi.Output<string | undefined>;
+    public readonly qualifier!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ARN of the runtime version. Only required when `updateRuntimeOn` is `Manual`.
      */
-    declare public readonly runtimeVersionArn: pulumi.Output<string | undefined>;
+    public readonly runtimeVersionArn!: pulumi.Output<string | undefined>;
     /**
      * Runtime update mode. Valid values are `Auto`, `FunctionUpdate`, and `Manual`. When a function is created, the default mode is `Auto`.
      */
-    declare public readonly updateRuntimeOn: pulumi.Output<string | undefined>;
+    public readonly updateRuntimeOn!: pulumi.Output<string | undefined>;
 
     /**
      * Create a RuntimeManagementConfig resource with the given unique name, arguments, and options.
@@ -116,22 +116,22 @@ export class RuntimeManagementConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RuntimeManagementConfigState | undefined;
-            resourceInputs["functionArn"] = state?.functionArn;
-            resourceInputs["functionName"] = state?.functionName;
-            resourceInputs["qualifier"] = state?.qualifier;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["runtimeVersionArn"] = state?.runtimeVersionArn;
-            resourceInputs["updateRuntimeOn"] = state?.updateRuntimeOn;
+            resourceInputs["functionArn"] = state ? state.functionArn : undefined;
+            resourceInputs["functionName"] = state ? state.functionName : undefined;
+            resourceInputs["qualifier"] = state ? state.qualifier : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["runtimeVersionArn"] = state ? state.runtimeVersionArn : undefined;
+            resourceInputs["updateRuntimeOn"] = state ? state.updateRuntimeOn : undefined;
         } else {
             const args = argsOrState as RuntimeManagementConfigArgs | undefined;
-            if (args?.functionName === undefined && !opts.urn) {
+            if ((!args || args.functionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'functionName'");
             }
-            resourceInputs["functionName"] = args?.functionName;
-            resourceInputs["qualifier"] = args?.qualifier;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["runtimeVersionArn"] = args?.runtimeVersionArn;
-            resourceInputs["updateRuntimeOn"] = args?.updateRuntimeOn;
+            resourceInputs["functionName"] = args ? args.functionName : undefined;
+            resourceInputs["qualifier"] = args ? args.qualifier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["runtimeVersionArn"] = args ? args.runtimeVersionArn : undefined;
+            resourceInputs["updateRuntimeOn"] = args ? args.updateRuntimeOn : undefined;
             resourceInputs["functionArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -83,24 +83,24 @@ export class Collaboration extends pulumi.CustomResource {
     /**
      * Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
      */
-    declare public readonly analyticsEngine: pulumi.Output<string | undefined>;
+    public readonly analyticsEngine!: pulumi.Output<string | undefined>;
     /**
      * ARN of the collaboration.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Date and time the collaboration was created.
      * * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
      */
-    declare public /*out*/ readonly createTime: pulumi.Output<string>;
+    public /*out*/ readonly createTime!: pulumi.Output<string>;
     /**
      * The name for the member record for the collaboration creator.
      */
-    declare public readonly creatorDisplayName: pulumi.Output<string>;
+    public readonly creatorDisplayName!: pulumi.Output<string>;
     /**
      * The list of member abilities for the creator of the collaboration.  Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
      */
-    declare public readonly creatorMemberAbilities: pulumi.Output<string[]>;
+    public readonly creatorMemberAbilities!: pulumi.Output<string[]>;
     /**
      * a collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration.
      * * `data_encryption_metadata.allow_clear_text` - (Required - Forces new resource) - Indicates whether encrypted tables can contain cleartext data. This is a boolea
@@ -112,39 +112,39 @@ export class Collaboration extends pulumi.CustomResource {
      * * `data_encryption_metadata.preserve_nulls` - (Required - Forces new resource) - Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
      * or cryptographically processed (false).
      */
-    declare public readonly dataEncryptionMetadata: pulumi.Output<outputs.cleanrooms.CollaborationDataEncryptionMetadata | undefined>;
+    public readonly dataEncryptionMetadata!: pulumi.Output<outputs.cleanrooms.CollaborationDataEncryptionMetadata | undefined>;
     /**
      * A description for a collaboration.
      */
-    declare public readonly description: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * Additional members of the collaboration which will be invited to join the collaboration.
      * * `member.account_id` - (Required - Forces new resource) - The account id for the invited member.
      * * `member.display_name` - (Required - Forces new resource) - The display name for the invited member.
      * * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
      */
-    declare public readonly members: pulumi.Output<outputs.cleanrooms.CollaborationMember[] | undefined>;
+    public readonly members!: pulumi.Output<outputs.cleanrooms.CollaborationMember[] | undefined>;
     /**
      * The name of the collaboration.  Collaboration names do not need to be unique.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Determines if members of the collaboration can enable query logs within their own.
      * emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
      *
      * The following arguments are optional:
      */
-    declare public readonly queryLogStatus: pulumi.Output<string>;
+    public readonly queryLogStatus!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key value pairs which tag the collaboration.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public /*out*/ readonly updateTime: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
     /**
      * Create a Collaboration resource with the given unique name, arguments, and options.
@@ -159,44 +159,44 @@ export class Collaboration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CollaborationState | undefined;
-            resourceInputs["analyticsEngine"] = state?.analyticsEngine;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["createTime"] = state?.createTime;
-            resourceInputs["creatorDisplayName"] = state?.creatorDisplayName;
-            resourceInputs["creatorMemberAbilities"] = state?.creatorMemberAbilities;
-            resourceInputs["dataEncryptionMetadata"] = state?.dataEncryptionMetadata;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["members"] = state?.members;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["queryLogStatus"] = state?.queryLogStatus;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["updateTime"] = state?.updateTime;
+            resourceInputs["analyticsEngine"] = state ? state.analyticsEngine : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["createTime"] = state ? state.createTime : undefined;
+            resourceInputs["creatorDisplayName"] = state ? state.creatorDisplayName : undefined;
+            resourceInputs["creatorMemberAbilities"] = state ? state.creatorMemberAbilities : undefined;
+            resourceInputs["dataEncryptionMetadata"] = state ? state.dataEncryptionMetadata : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["members"] = state ? state.members : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["queryLogStatus"] = state ? state.queryLogStatus : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["updateTime"] = state ? state.updateTime : undefined;
         } else {
             const args = argsOrState as CollaborationArgs | undefined;
-            if (args?.creatorDisplayName === undefined && !opts.urn) {
+            if ((!args || args.creatorDisplayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'creatorDisplayName'");
             }
-            if (args?.creatorMemberAbilities === undefined && !opts.urn) {
+            if ((!args || args.creatorMemberAbilities === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'creatorMemberAbilities'");
             }
-            if (args?.description === undefined && !opts.urn) {
+            if ((!args || args.description === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if (args?.queryLogStatus === undefined && !opts.urn) {
+            if ((!args || args.queryLogStatus === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'queryLogStatus'");
             }
-            resourceInputs["analyticsEngine"] = args?.analyticsEngine;
-            resourceInputs["creatorDisplayName"] = args?.creatorDisplayName;
-            resourceInputs["creatorMemberAbilities"] = args?.creatorMemberAbilities;
-            resourceInputs["dataEncryptionMetadata"] = args?.dataEncryptionMetadata;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["members"] = args?.members;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["queryLogStatus"] = args?.queryLogStatus;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["analyticsEngine"] = args ? args.analyticsEngine : undefined;
+            resourceInputs["creatorDisplayName"] = args ? args.creatorDisplayName : undefined;
+            resourceInputs["creatorMemberAbilities"] = args ? args.creatorMemberAbilities : undefined;
+            resourceInputs["dataEncryptionMetadata"] = args ? args.dataEncryptionMetadata : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["members"] = args ? args.members : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["queryLogStatus"] = args ? args.queryLogStatus : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

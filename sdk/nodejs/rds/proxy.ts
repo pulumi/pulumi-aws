@@ -47,59 +47,59 @@ export class Proxy extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the proxy.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
      */
-    declare public readonly auths: pulumi.Output<outputs.rds.ProxyAuth[]>;
+    public readonly auths!: pulumi.Output<outputs.rds.ProxyAuth[]>;
     /**
      * Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
      */
-    declare public readonly debugLogging: pulumi.Output<boolean | undefined>;
+    public readonly debugLogging!: pulumi.Output<boolean | undefined>;
     /**
      * The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
      */
-    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
      * The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
      */
-    declare public readonly engineFamily: pulumi.Output<string>;
+    public readonly engineFamily!: pulumi.Output<string>;
     /**
      * The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
      */
-    declare public readonly idleClientTimeout: pulumi.Output<number>;
+    public readonly idleClientTimeout!: pulumi.Output<number>;
     /**
      * The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy. By enabling this setting, you can enforce encrypted TLS connections to the proxy.
      */
-    declare public readonly requireTls: pulumi.Output<boolean | undefined>;
+    public readonly requireTls!: pulumi.Output<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
      */
-    declare public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * One or more VPC security group IDs to associate with the new proxy.
      */
-    declare public readonly vpcSecurityGroupIds: pulumi.Output<string[]>;
+    public readonly vpcSecurityGroupIds!: pulumi.Output<string[]>;
     /**
      * One or more VPC subnet IDs to associate with the new proxy.
      */
-    declare public readonly vpcSubnetIds: pulumi.Output<string[]>;
+    public readonly vpcSubnetIds!: pulumi.Output<string[]>;
 
     /**
      * Create a Proxy resource with the given unique name, arguments, and options.
@@ -114,45 +114,45 @@ export class Proxy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProxyState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["auths"] = state?.auths;
-            resourceInputs["debugLogging"] = state?.debugLogging;
-            resourceInputs["endpoint"] = state?.endpoint;
-            resourceInputs["engineFamily"] = state?.engineFamily;
-            resourceInputs["idleClientTimeout"] = state?.idleClientTimeout;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["requireTls"] = state?.requireTls;
-            resourceInputs["roleArn"] = state?.roleArn;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["vpcSecurityGroupIds"] = state?.vpcSecurityGroupIds;
-            resourceInputs["vpcSubnetIds"] = state?.vpcSubnetIds;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["auths"] = state ? state.auths : undefined;
+            resourceInputs["debugLogging"] = state ? state.debugLogging : undefined;
+            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
+            resourceInputs["engineFamily"] = state ? state.engineFamily : undefined;
+            resourceInputs["idleClientTimeout"] = state ? state.idleClientTimeout : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["requireTls"] = state ? state.requireTls : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
+            resourceInputs["vpcSubnetIds"] = state ? state.vpcSubnetIds : undefined;
         } else {
             const args = argsOrState as ProxyArgs | undefined;
-            if (args?.auths === undefined && !opts.urn) {
+            if ((!args || args.auths === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'auths'");
             }
-            if (args?.engineFamily === undefined && !opts.urn) {
+            if ((!args || args.engineFamily === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engineFamily'");
             }
-            if (args?.roleArn === undefined && !opts.urn) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if (args?.vpcSubnetIds === undefined && !opts.urn) {
+            if ((!args || args.vpcSubnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcSubnetIds'");
             }
-            resourceInputs["auths"] = args?.auths;
-            resourceInputs["debugLogging"] = args?.debugLogging;
-            resourceInputs["engineFamily"] = args?.engineFamily;
-            resourceInputs["idleClientTimeout"] = args?.idleClientTimeout;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["requireTls"] = args?.requireTls;
-            resourceInputs["roleArn"] = args?.roleArn;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["vpcSecurityGroupIds"] = args?.vpcSecurityGroupIds;
-            resourceInputs["vpcSubnetIds"] = args?.vpcSubnetIds;
+            resourceInputs["auths"] = args ? args.auths : undefined;
+            resourceInputs["debugLogging"] = args ? args.debugLogging : undefined;
+            resourceInputs["engineFamily"] = args ? args.engineFamily : undefined;
+            resourceInputs["idleClientTimeout"] = args ? args.idleClientTimeout : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["requireTls"] = args ? args.requireTls : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            resourceInputs["vpcSubnetIds"] = args ? args.vpcSubnetIds : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

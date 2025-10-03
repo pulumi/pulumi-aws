@@ -56,31 +56,31 @@ export class SmsChannel extends pulumi.CustomResource {
     /**
      * ID of the application.
      */
-    declare public readonly applicationId: pulumi.Output<string>;
+    public readonly applicationId!: pulumi.Output<string>;
     /**
      * Whether the channel is enabled or disabled. By default, it is set to `true`.
      */
-    declare public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * Maximum number of promotional messages that can be sent per second.
      */
-    declare public /*out*/ readonly promotionalMessagesPerSecond: pulumi.Output<number>;
+    public /*out*/ readonly promotionalMessagesPerSecond!: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Identifier of the sender for your messages.
      */
-    declare public readonly senderId: pulumi.Output<string | undefined>;
+    public readonly senderId!: pulumi.Output<string | undefined>;
     /**
      * Short Code registered with the phone provider.
      */
-    declare public readonly shortCode: pulumi.Output<string | undefined>;
+    public readonly shortCode!: pulumi.Output<string | undefined>;
     /**
      * Maximum number of transactional messages per second that can be sent.
      */
-    declare public /*out*/ readonly transactionalMessagesPerSecond: pulumi.Output<number>;
+    public /*out*/ readonly transactionalMessagesPerSecond!: pulumi.Output<number>;
 
     /**
      * Create a SmsChannel resource with the given unique name, arguments, and options.
@@ -95,23 +95,23 @@ export class SmsChannel extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SmsChannelState | undefined;
-            resourceInputs["applicationId"] = state?.applicationId;
-            resourceInputs["enabled"] = state?.enabled;
-            resourceInputs["promotionalMessagesPerSecond"] = state?.promotionalMessagesPerSecond;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["senderId"] = state?.senderId;
-            resourceInputs["shortCode"] = state?.shortCode;
-            resourceInputs["transactionalMessagesPerSecond"] = state?.transactionalMessagesPerSecond;
+            resourceInputs["applicationId"] = state ? state.applicationId : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["promotionalMessagesPerSecond"] = state ? state.promotionalMessagesPerSecond : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["senderId"] = state ? state.senderId : undefined;
+            resourceInputs["shortCode"] = state ? state.shortCode : undefined;
+            resourceInputs["transactionalMessagesPerSecond"] = state ? state.transactionalMessagesPerSecond : undefined;
         } else {
             const args = argsOrState as SmsChannelArgs | undefined;
-            if (args?.applicationId === undefined && !opts.urn) {
+            if ((!args || args.applicationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            resourceInputs["applicationId"] = args?.applicationId;
-            resourceInputs["enabled"] = args?.enabled;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["senderId"] = args?.senderId;
-            resourceInputs["shortCode"] = args?.shortCode;
+            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["senderId"] = args ? args.senderId : undefined;
+            resourceInputs["shortCode"] = args ? args.shortCode : undefined;
             resourceInputs["promotionalMessagesPerSecond"] = undefined /*out*/;
             resourceInputs["transactionalMessagesPerSecond"] = undefined /*out*/;
         }

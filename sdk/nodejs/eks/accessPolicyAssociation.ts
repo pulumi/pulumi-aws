@@ -66,31 +66,31 @@ export class AccessPolicyAssociation extends pulumi.CustomResource {
     /**
      * The configuration block to determine the scope of the access. See `accessScope` Block below.
      */
-    declare public readonly accessScope: pulumi.Output<outputs.eks.AccessPolicyAssociationAccessScope>;
+    public readonly accessScope!: pulumi.Output<outputs.eks.AccessPolicyAssociationAccessScope>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was associated.
      */
-    declare public /*out*/ readonly associatedAt: pulumi.Output<string>;
+    public /*out*/ readonly associatedAt!: pulumi.Output<string>;
     /**
      * Name of the EKS Cluster.
      */
-    declare public readonly clusterName: pulumi.Output<string>;
+    public readonly clusterName!: pulumi.Output<string>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was updated.
      */
-    declare public /*out*/ readonly modifiedAt: pulumi.Output<string>;
+    public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
     /**
      * The ARN of the access policy that you're associating.
      */
-    declare public readonly policyArn: pulumi.Output<string>;
+    public readonly policyArn!: pulumi.Output<string>;
     /**
      * The IAM Principal ARN which requires Authentication access to the EKS cluster.
      */
-    declare public readonly principalArn: pulumi.Output<string>;
+    public readonly principalArn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a AccessPolicyAssociation resource with the given unique name, arguments, and options.
@@ -105,32 +105,32 @@ export class AccessPolicyAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccessPolicyAssociationState | undefined;
-            resourceInputs["accessScope"] = state?.accessScope;
-            resourceInputs["associatedAt"] = state?.associatedAt;
-            resourceInputs["clusterName"] = state?.clusterName;
-            resourceInputs["modifiedAt"] = state?.modifiedAt;
-            resourceInputs["policyArn"] = state?.policyArn;
-            resourceInputs["principalArn"] = state?.principalArn;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["accessScope"] = state ? state.accessScope : undefined;
+            resourceInputs["associatedAt"] = state ? state.associatedAt : undefined;
+            resourceInputs["clusterName"] = state ? state.clusterName : undefined;
+            resourceInputs["modifiedAt"] = state ? state.modifiedAt : undefined;
+            resourceInputs["policyArn"] = state ? state.policyArn : undefined;
+            resourceInputs["principalArn"] = state ? state.principalArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as AccessPolicyAssociationArgs | undefined;
-            if (args?.accessScope === undefined && !opts.urn) {
+            if ((!args || args.accessScope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accessScope'");
             }
-            if (args?.clusterName === undefined && !opts.urn) {
+            if ((!args || args.clusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if (args?.policyArn === undefined && !opts.urn) {
+            if ((!args || args.policyArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyArn'");
             }
-            if (args?.principalArn === undefined && !opts.urn) {
+            if ((!args || args.principalArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principalArn'");
             }
-            resourceInputs["accessScope"] = args?.accessScope;
-            resourceInputs["clusterName"] = args?.clusterName;
-            resourceInputs["policyArn"] = args?.policyArn;
-            resourceInputs["principalArn"] = args?.principalArn;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["accessScope"] = args ? args.accessScope : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["policyArn"] = args ? args.policyArn : undefined;
+            resourceInputs["principalArn"] = args ? args.principalArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["associatedAt"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;
         }

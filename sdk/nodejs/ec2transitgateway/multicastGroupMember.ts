@@ -52,19 +52,19 @@ export class MulticastGroupMember extends pulumi.CustomResource {
     /**
      * The IP address assigned to the transit gateway multicast group.
      */
-    declare public readonly groupIpAddress: pulumi.Output<string>;
+    public readonly groupIpAddress!: pulumi.Output<string>;
     /**
      * The group members' network interface ID to register with the transit gateway multicast group.
      */
-    declare public readonly networkInterfaceId: pulumi.Output<string>;
+    public readonly networkInterfaceId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ID of the transit gateway multicast domain.
      */
-    declare public readonly transitGatewayMulticastDomainId: pulumi.Output<string>;
+    public readonly transitGatewayMulticastDomainId!: pulumi.Output<string>;
 
     /**
      * Create a MulticastGroupMember resource with the given unique name, arguments, and options.
@@ -79,25 +79,25 @@ export class MulticastGroupMember extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MulticastGroupMemberState | undefined;
-            resourceInputs["groupIpAddress"] = state?.groupIpAddress;
-            resourceInputs["networkInterfaceId"] = state?.networkInterfaceId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["transitGatewayMulticastDomainId"] = state?.transitGatewayMulticastDomainId;
+            resourceInputs["groupIpAddress"] = state ? state.groupIpAddress : undefined;
+            resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["transitGatewayMulticastDomainId"] = state ? state.transitGatewayMulticastDomainId : undefined;
         } else {
             const args = argsOrState as MulticastGroupMemberArgs | undefined;
-            if (args?.groupIpAddress === undefined && !opts.urn) {
+            if ((!args || args.groupIpAddress === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groupIpAddress'");
             }
-            if (args?.networkInterfaceId === undefined && !opts.urn) {
+            if ((!args || args.networkInterfaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaceId'");
             }
-            if (args?.transitGatewayMulticastDomainId === undefined && !opts.urn) {
+            if ((!args || args.transitGatewayMulticastDomainId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayMulticastDomainId'");
             }
-            resourceInputs["groupIpAddress"] = args?.groupIpAddress;
-            resourceInputs["networkInterfaceId"] = args?.networkInterfaceId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["transitGatewayMulticastDomainId"] = args?.transitGatewayMulticastDomainId;
+            resourceInputs["groupIpAddress"] = args ? args.groupIpAddress : undefined;
+            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["transitGatewayMulticastDomainId"] = args ? args.transitGatewayMulticastDomainId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MulticastGroupMember.__pulumiType, name, resourceInputs, opts);

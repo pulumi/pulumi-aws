@@ -59,31 +59,31 @@ export class LogDestination extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) specifying the log destination.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A name for the log destination.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
      */
-    declare public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ARN of the target Amazon Kinesis stream resource for the destination.
      */
-    declare public readonly targetArn: pulumi.Output<string>;
+    public readonly targetArn!: pulumi.Output<string>;
 
     /**
      * Create a LogDestination resource with the given unique name, arguments, and options.
@@ -98,26 +98,26 @@ export class LogDestination extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogDestinationState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["roleArn"] = state?.roleArn;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["targetArn"] = state?.targetArn;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["targetArn"] = state ? state.targetArn : undefined;
         } else {
             const args = argsOrState as LogDestinationArgs | undefined;
-            if (args?.roleArn === undefined && !opts.urn) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if (args?.targetArn === undefined && !opts.urn) {
+            if ((!args || args.targetArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetArn'");
             }
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["roleArn"] = args?.roleArn;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["targetArn"] = args?.targetArn;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetArn"] = args ? args.targetArn : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

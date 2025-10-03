@@ -55,31 +55,31 @@ export class Revision extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name of this data set.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * An optional comment about the revision.
      */
-    declare public readonly comment: pulumi.Output<string | undefined>;
+    public readonly comment!: pulumi.Output<string | undefined>;
     /**
      * The dataset id.
      */
-    declare public readonly dataSetId: pulumi.Output<string>;
+    public readonly dataSetId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The Id of the revision.
      */
-    declare public /*out*/ readonly revisionId: pulumi.Output<string>;
+    public /*out*/ readonly revisionId!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Revision resource with the given unique name, arguments, and options.
@@ -94,22 +94,22 @@ export class Revision extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RevisionState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["comment"] = state?.comment;
-            resourceInputs["dataSetId"] = state?.dataSetId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["revisionId"] = state?.revisionId;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["dataSetId"] = state ? state.dataSetId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["revisionId"] = state ? state.revisionId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as RevisionArgs | undefined;
-            if (args?.dataSetId === undefined && !opts.urn) {
+            if ((!args || args.dataSetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataSetId'");
             }
-            resourceInputs["comment"] = args?.comment;
-            resourceInputs["dataSetId"] = args?.dataSetId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["dataSetId"] = args ? args.dataSetId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["revisionId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

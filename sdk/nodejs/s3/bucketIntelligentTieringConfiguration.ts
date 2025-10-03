@@ -101,27 +101,27 @@ export class BucketIntelligentTieringConfiguration extends pulumi.CustomResource
     /**
      * Name of the bucket this intelligent tiering configuration is associated with.
      */
-    declare public readonly bucket: pulumi.Output<string>;
+    public readonly bucket!: pulumi.Output<string>;
     /**
      * Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
      */
-    declare public readonly filter: pulumi.Output<outputs.s3.BucketIntelligentTieringConfigurationFilter | undefined>;
+    public readonly filter!: pulumi.Output<outputs.s3.BucketIntelligentTieringConfigurationFilter | undefined>;
     /**
      * Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
      */
-    declare public readonly status: pulumi.Output<string | undefined>;
+    public readonly status!: pulumi.Output<string | undefined>;
     /**
      * S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
      */
-    declare public readonly tierings: pulumi.Output<outputs.s3.BucketIntelligentTieringConfigurationTiering[]>;
+    public readonly tierings!: pulumi.Output<outputs.s3.BucketIntelligentTieringConfigurationTiering[]>;
 
     /**
      * Create a BucketIntelligentTieringConfiguration resource with the given unique name, arguments, and options.
@@ -136,26 +136,26 @@ export class BucketIntelligentTieringConfiguration extends pulumi.CustomResource
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketIntelligentTieringConfigurationState | undefined;
-            resourceInputs["bucket"] = state?.bucket;
-            resourceInputs["filter"] = state?.filter;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["tierings"] = state?.tierings;
+            resourceInputs["bucket"] = state ? state.bucket : undefined;
+            resourceInputs["filter"] = state ? state.filter : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tierings"] = state ? state.tierings : undefined;
         } else {
             const args = argsOrState as BucketIntelligentTieringConfigurationArgs | undefined;
-            if (args?.bucket === undefined && !opts.urn) {
+            if ((!args || args.bucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            if (args?.tierings === undefined && !opts.urn) {
+            if ((!args || args.tierings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tierings'");
             }
-            resourceInputs["bucket"] = args?.bucket;
-            resourceInputs["filter"] = args?.filter;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["status"] = args?.status;
-            resourceInputs["tierings"] = args?.tierings;
+            resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["filter"] = args ? args.filter : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["tierings"] = args ? args.tierings : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BucketIntelligentTieringConfiguration.__pulumiType, name, resourceInputs, opts);

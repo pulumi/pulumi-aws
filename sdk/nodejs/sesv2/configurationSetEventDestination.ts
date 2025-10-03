@@ -158,19 +158,19 @@ export class ConfigurationSetEventDestination extends pulumi.CustomResource {
     /**
      * The name of the configuration set.
      */
-    declare public readonly configurationSetName: pulumi.Output<string>;
+    public readonly configurationSetName!: pulumi.Output<string>;
     /**
      * A name that identifies the event destination within the configuration set.
      */
-    declare public readonly eventDestination: pulumi.Output<outputs.sesv2.ConfigurationSetEventDestinationEventDestination>;
+    public readonly eventDestination!: pulumi.Output<outputs.sesv2.ConfigurationSetEventDestinationEventDestination>;
     /**
      * An object that defines the event destination. See `eventDestination` Block for details.
      */
-    declare public readonly eventDestinationName: pulumi.Output<string>;
+    public readonly eventDestinationName!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ConfigurationSetEventDestination resource with the given unique name, arguments, and options.
@@ -185,25 +185,25 @@ export class ConfigurationSetEventDestination extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConfigurationSetEventDestinationState | undefined;
-            resourceInputs["configurationSetName"] = state?.configurationSetName;
-            resourceInputs["eventDestination"] = state?.eventDestination;
-            resourceInputs["eventDestinationName"] = state?.eventDestinationName;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["configurationSetName"] = state ? state.configurationSetName : undefined;
+            resourceInputs["eventDestination"] = state ? state.eventDestination : undefined;
+            resourceInputs["eventDestinationName"] = state ? state.eventDestinationName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ConfigurationSetEventDestinationArgs | undefined;
-            if (args?.configurationSetName === undefined && !opts.urn) {
+            if ((!args || args.configurationSetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'configurationSetName'");
             }
-            if (args?.eventDestination === undefined && !opts.urn) {
+            if ((!args || args.eventDestination === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventDestination'");
             }
-            if (args?.eventDestinationName === undefined && !opts.urn) {
+            if ((!args || args.eventDestinationName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventDestinationName'");
             }
-            resourceInputs["configurationSetName"] = args?.configurationSetName;
-            resourceInputs["eventDestination"] = args?.eventDestination;
-            resourceInputs["eventDestinationName"] = args?.eventDestinationName;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["configurationSetName"] = args ? args.configurationSetName : undefined;
+            resourceInputs["eventDestination"] = args ? args.eventDestination : undefined;
+            resourceInputs["eventDestinationName"] = args ? args.eventDestinationName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ConfigurationSetEventDestination.__pulumiType, name, resourceInputs, opts);

@@ -78,21 +78,21 @@ export class RouteTableAssociation extends pulumi.CustomResource {
     /**
      * The gateway ID to create an association. Conflicts with `subnetId`.
      */
-    declare public readonly gatewayId: pulumi.Output<string | undefined>;
+    public readonly gatewayId!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ID of the routing table to associate with.
      *
      * > **NOTE:** Please note that one of either `subnetId` or `gatewayId` is required.
      */
-    declare public readonly routeTableId: pulumi.Output<string>;
+    public readonly routeTableId!: pulumi.Output<string>;
     /**
      * The subnet ID to create an association. Conflicts with `gatewayId`.
      */
-    declare public readonly subnetId: pulumi.Output<string | undefined>;
+    public readonly subnetId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a RouteTableAssociation resource with the given unique name, arguments, and options.
@@ -107,19 +107,19 @@ export class RouteTableAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteTableAssociationState | undefined;
-            resourceInputs["gatewayId"] = state?.gatewayId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["routeTableId"] = state?.routeTableId;
-            resourceInputs["subnetId"] = state?.subnetId;
+            resourceInputs["gatewayId"] = state ? state.gatewayId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["routeTableId"] = state ? state.routeTableId : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
             const args = argsOrState as RouteTableAssociationArgs | undefined;
-            if (args?.routeTableId === undefined && !opts.urn) {
+            if ((!args || args.routeTableId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'routeTableId'");
             }
-            resourceInputs["gatewayId"] = args?.gatewayId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["routeTableId"] = args?.routeTableId;
-            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["gatewayId"] = args ? args.gatewayId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["routeTableId"] = args ? args.routeTableId : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RouteTableAssociation.__pulumiType, name, resourceInputs, opts);

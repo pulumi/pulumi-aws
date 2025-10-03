@@ -137,53 +137,53 @@ export class StackSetInstance extends pulumi.CustomResource {
     /**
      * Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
      */
-    declare public readonly accountId: pulumi.Output<string>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
      */
-    declare public readonly callAs: pulumi.Output<string | undefined>;
+    public readonly callAs!: pulumi.Output<string | undefined>;
     /**
      * AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
      */
-    declare public readonly deploymentTargets: pulumi.Output<outputs.cloudformation.StackSetInstanceDeploymentTargets | undefined>;
+    public readonly deploymentTargets!: pulumi.Output<outputs.cloudformation.StackSetInstanceDeploymentTargets | undefined>;
     /**
      * Preferences for how AWS CloudFormation performs a stack set operation.
      */
-    declare public readonly operationPreferences: pulumi.Output<outputs.cloudformation.StackSetInstanceOperationPreferences | undefined>;
+    public readonly operationPreferences!: pulumi.Output<outputs.cloudformation.StackSetInstanceOperationPreferences | undefined>;
     /**
      * Organizational unit ID in which the stack is deployed.
      */
-    declare public /*out*/ readonly organizationalUnitId: pulumi.Output<string>;
+    public /*out*/ readonly organizationalUnitId!: pulumi.Output<string>;
     /**
      * Key-value map of input parameters to override from the StackSet for this Instance.
      */
-    declare public readonly parameterOverrides: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly parameterOverrides!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stackSetInstanceRegion` instead.
      *
      * @deprecated region is deprecated. Use stackSetInstanceRegion instead.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
      */
-    declare public readonly retainStack: pulumi.Output<boolean | undefined>;
+    public readonly retainStack!: pulumi.Output<boolean | undefined>;
     /**
      * Stack identifier.
      */
-    declare public /*out*/ readonly stackId: pulumi.Output<string>;
+    public /*out*/ readonly stackId!: pulumi.Output<string>;
     /**
      * List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set. See `stackInstanceSummaries`.
      */
-    declare public /*out*/ readonly stackInstanceSummaries: pulumi.Output<outputs.cloudformation.StackSetInstanceStackInstanceSummary[]>;
+    public /*out*/ readonly stackInstanceSummaries!: pulumi.Output<outputs.cloudformation.StackSetInstanceStackInstanceSummary[]>;
     /**
      * Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
      */
-    declare public readonly stackSetInstanceRegion: pulumi.Output<string>;
+    public readonly stackSetInstanceRegion!: pulumi.Output<string>;
     /**
      * Name of the StackSet.
      */
-    declare public readonly stackSetName: pulumi.Output<string>;
+    public readonly stackSetName!: pulumi.Output<string>;
 
     /**
      * Create a StackSetInstance resource with the given unique name, arguments, and options.
@@ -198,32 +198,32 @@ export class StackSetInstance extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StackSetInstanceState | undefined;
-            resourceInputs["accountId"] = state?.accountId;
-            resourceInputs["callAs"] = state?.callAs;
-            resourceInputs["deploymentTargets"] = state?.deploymentTargets;
-            resourceInputs["operationPreferences"] = state?.operationPreferences;
-            resourceInputs["organizationalUnitId"] = state?.organizationalUnitId;
-            resourceInputs["parameterOverrides"] = state?.parameterOverrides;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["retainStack"] = state?.retainStack;
-            resourceInputs["stackId"] = state?.stackId;
-            resourceInputs["stackInstanceSummaries"] = state?.stackInstanceSummaries;
-            resourceInputs["stackSetInstanceRegion"] = state?.stackSetInstanceRegion;
-            resourceInputs["stackSetName"] = state?.stackSetName;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["callAs"] = state ? state.callAs : undefined;
+            resourceInputs["deploymentTargets"] = state ? state.deploymentTargets : undefined;
+            resourceInputs["operationPreferences"] = state ? state.operationPreferences : undefined;
+            resourceInputs["organizationalUnitId"] = state ? state.organizationalUnitId : undefined;
+            resourceInputs["parameterOverrides"] = state ? state.parameterOverrides : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["retainStack"] = state ? state.retainStack : undefined;
+            resourceInputs["stackId"] = state ? state.stackId : undefined;
+            resourceInputs["stackInstanceSummaries"] = state ? state.stackInstanceSummaries : undefined;
+            resourceInputs["stackSetInstanceRegion"] = state ? state.stackSetInstanceRegion : undefined;
+            resourceInputs["stackSetName"] = state ? state.stackSetName : undefined;
         } else {
             const args = argsOrState as StackSetInstanceArgs | undefined;
-            if (args?.stackSetName === undefined && !opts.urn) {
+            if ((!args || args.stackSetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stackSetName'");
             }
-            resourceInputs["accountId"] = args?.accountId;
-            resourceInputs["callAs"] = args?.callAs;
-            resourceInputs["deploymentTargets"] = args?.deploymentTargets;
-            resourceInputs["operationPreferences"] = args?.operationPreferences;
-            resourceInputs["parameterOverrides"] = args?.parameterOverrides;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["retainStack"] = args?.retainStack;
-            resourceInputs["stackSetInstanceRegion"] = args?.stackSetInstanceRegion;
-            resourceInputs["stackSetName"] = args?.stackSetName;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["callAs"] = args ? args.callAs : undefined;
+            resourceInputs["deploymentTargets"] = args ? args.deploymentTargets : undefined;
+            resourceInputs["operationPreferences"] = args ? args.operationPreferences : undefined;
+            resourceInputs["parameterOverrides"] = args ? args.parameterOverrides : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["retainStack"] = args ? args.retainStack : undefined;
+            resourceInputs["stackSetInstanceRegion"] = args ? args.stackSetInstanceRegion : undefined;
+            resourceInputs["stackSetName"] = args ? args.stackSetName : undefined;
             resourceInputs["organizationalUnitId"] = undefined /*out*/;
             resourceInputs["stackId"] = undefined /*out*/;
             resourceInputs["stackInstanceSummaries"] = undefined /*out*/;

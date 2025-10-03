@@ -82,7 +82,7 @@ export class DefaultPatchBaseline extends pulumi.CustomResource {
      * Can be an ID or an ARN.
      * When specifying an AWS-provided patch baseline, must be the ARN.
      */
-    declare public readonly baselineId: pulumi.Output<string>;
+    public readonly baselineId!: pulumi.Output<string>;
     /**
      * The operating system the patch baseline applies to.
      * Valid values are
@@ -100,11 +100,11 @@ export class DefaultPatchBaseline extends pulumi.CustomResource {
      * `UBUNTU`, and
      * `WINDOWS`.
      */
-    declare public readonly operatingSystem: pulumi.Output<string>;
+    public readonly operatingSystem!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a DefaultPatchBaseline resource with the given unique name, arguments, and options.
@@ -119,20 +119,20 @@ export class DefaultPatchBaseline extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DefaultPatchBaselineState | undefined;
-            resourceInputs["baselineId"] = state?.baselineId;
-            resourceInputs["operatingSystem"] = state?.operatingSystem;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["baselineId"] = state ? state.baselineId : undefined;
+            resourceInputs["operatingSystem"] = state ? state.operatingSystem : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as DefaultPatchBaselineArgs | undefined;
-            if (args?.baselineId === undefined && !opts.urn) {
+            if ((!args || args.baselineId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'baselineId'");
             }
-            if (args?.operatingSystem === undefined && !opts.urn) {
+            if ((!args || args.operatingSystem === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'operatingSystem'");
             }
-            resourceInputs["baselineId"] = args?.baselineId;
-            resourceInputs["operatingSystem"] = args?.operatingSystem;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["baselineId"] = args ? args.baselineId : undefined;
+            resourceInputs["operatingSystem"] = args ? args.operatingSystem : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DefaultPatchBaseline.__pulumiType, name, resourceInputs, opts);

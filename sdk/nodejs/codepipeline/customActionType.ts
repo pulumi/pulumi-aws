@@ -70,33 +70,33 @@ export class CustomActionType extends pulumi.CustomResource {
     /**
      * The action ARN.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
      */
-    declare public readonly category: pulumi.Output<string>;
+    public readonly category!: pulumi.Output<string>;
     /**
      * The configuration properties for the custom action. Max 10 items.
      */
-    declare public readonly configurationProperties: pulumi.Output<outputs.codepipeline.CustomActionTypeConfigurationProperty[] | undefined>;
-    declare public readonly inputArtifactDetails: pulumi.Output<outputs.codepipeline.CustomActionTypeInputArtifactDetails>;
-    declare public readonly outputArtifactDetails: pulumi.Output<outputs.codepipeline.CustomActionTypeOutputArtifactDetails>;
+    public readonly configurationProperties!: pulumi.Output<outputs.codepipeline.CustomActionTypeConfigurationProperty[] | undefined>;
+    public readonly inputArtifactDetails!: pulumi.Output<outputs.codepipeline.CustomActionTypeInputArtifactDetails>;
+    public readonly outputArtifactDetails!: pulumi.Output<outputs.codepipeline.CustomActionTypeOutputArtifactDetails>;
     /**
      * The creator of the action being called.
      */
-    declare public /*out*/ readonly owner: pulumi.Output<string>;
-    declare public readonly providerName: pulumi.Output<string>;
+    public /*out*/ readonly owner!: pulumi.Output<string>;
+    public readonly providerName!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
-    declare public readonly settings: pulumi.Output<outputs.codepipeline.CustomActionTypeSettings | undefined>;
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly region!: pulumi.Output<string>;
+    public readonly settings!: pulumi.Output<outputs.codepipeline.CustomActionTypeSettings | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public readonly version: pulumi.Output<string>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly version!: pulumi.Output<string>;
 
     /**
      * Create a CustomActionType resource with the given unique name, arguments, and options.
@@ -111,44 +111,44 @@ export class CustomActionType extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomActionTypeState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["category"] = state?.category;
-            resourceInputs["configurationProperties"] = state?.configurationProperties;
-            resourceInputs["inputArtifactDetails"] = state?.inputArtifactDetails;
-            resourceInputs["outputArtifactDetails"] = state?.outputArtifactDetails;
-            resourceInputs["owner"] = state?.owner;
-            resourceInputs["providerName"] = state?.providerName;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["settings"] = state?.settings;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["version"] = state?.version;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["category"] = state ? state.category : undefined;
+            resourceInputs["configurationProperties"] = state ? state.configurationProperties : undefined;
+            resourceInputs["inputArtifactDetails"] = state ? state.inputArtifactDetails : undefined;
+            resourceInputs["outputArtifactDetails"] = state ? state.outputArtifactDetails : undefined;
+            resourceInputs["owner"] = state ? state.owner : undefined;
+            resourceInputs["providerName"] = state ? state.providerName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["settings"] = state ? state.settings : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as CustomActionTypeArgs | undefined;
-            if (args?.category === undefined && !opts.urn) {
+            if ((!args || args.category === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'category'");
             }
-            if (args?.inputArtifactDetails === undefined && !opts.urn) {
+            if ((!args || args.inputArtifactDetails === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'inputArtifactDetails'");
             }
-            if (args?.outputArtifactDetails === undefined && !opts.urn) {
+            if ((!args || args.outputArtifactDetails === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'outputArtifactDetails'");
             }
-            if (args?.providerName === undefined && !opts.urn) {
+            if ((!args || args.providerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'providerName'");
             }
-            if (args?.version === undefined && !opts.urn) {
+            if ((!args || args.version === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            resourceInputs["category"] = args?.category;
-            resourceInputs["configurationProperties"] = args?.configurationProperties;
-            resourceInputs["inputArtifactDetails"] = args?.inputArtifactDetails;
-            resourceInputs["outputArtifactDetails"] = args?.outputArtifactDetails;
-            resourceInputs["providerName"] = args?.providerName;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["settings"] = args?.settings;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["version"] = args?.version;
+            resourceInputs["category"] = args ? args.category : undefined;
+            resourceInputs["configurationProperties"] = args ? args.configurationProperties : undefined;
+            resourceInputs["inputArtifactDetails"] = args ? args.inputArtifactDetails : undefined;
+            resourceInputs["outputArtifactDetails"] = args ? args.outputArtifactDetails : undefined;
+            resourceInputs["providerName"] = args ? args.providerName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["settings"] = args ? args.settings : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

@@ -55,35 +55,35 @@ export class ClientCertificate extends pulumi.CustomResource {
     /**
      * ARN
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Date when the client certificate was created.
      */
-    declare public /*out*/ readonly createdDate: pulumi.Output<string>;
+    public /*out*/ readonly createdDate!: pulumi.Output<string>;
     /**
      * Description of the client certificate.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Date when the client certificate will expire.
      */
-    declare public /*out*/ readonly expirationDate: pulumi.Output<string>;
+    public /*out*/ readonly expirationDate!: pulumi.Output<string>;
     /**
      * The PEM-encoded public key of the client certificate.
      */
-    declare public /*out*/ readonly pemEncodedCertificate: pulumi.Output<string>;
+    public /*out*/ readonly pemEncodedCertificate!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ClientCertificate resource with the given unique name, arguments, and options.
@@ -98,19 +98,19 @@ export class ClientCertificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClientCertificateState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["createdDate"] = state?.createdDate;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["expirationDate"] = state?.expirationDate;
-            resourceInputs["pemEncodedCertificate"] = state?.pemEncodedCertificate;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["createdDate"] = state ? state.createdDate : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["expirationDate"] = state ? state.expirationDate : undefined;
+            resourceInputs["pemEncodedCertificate"] = state ? state.pemEncodedCertificate : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ClientCertificateArgs | undefined;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["expirationDate"] = undefined /*out*/;

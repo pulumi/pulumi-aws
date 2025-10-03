@@ -64,41 +64,41 @@ export class DevEnvironment extends pulumi.CustomResource {
         return obj['__pulumiType'] === DevEnvironment.__pulumiType;
     }
 
-    declare public readonly alias: pulumi.Output<string | undefined>;
+    public readonly alias!: pulumi.Output<string | undefined>;
     /**
      * Information about the integrated development environment (IDE) configured for a Dev Environment.
      */
-    declare public readonly ides: pulumi.Output<outputs.codecatalyst.DevEnvironmentIdes>;
+    public readonly ides!: pulumi.Output<outputs.codecatalyst.DevEnvironmentIdes>;
     /**
      * The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
      */
-    declare public readonly inactivityTimeoutMinutes: pulumi.Output<number | undefined>;
+    public readonly inactivityTimeoutMinutes!: pulumi.Output<number | undefined>;
     /**
      * The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
      *
      * The following arguments are optional:
      */
-    declare public readonly instanceType: pulumi.Output<string>;
+    public readonly instanceType!: pulumi.Output<string>;
     /**
      * Information about the amount of storage allocated to the Dev Environment.
      */
-    declare public readonly persistentStorage: pulumi.Output<outputs.codecatalyst.DevEnvironmentPersistentStorage>;
+    public readonly persistentStorage!: pulumi.Output<outputs.codecatalyst.DevEnvironmentPersistentStorage>;
     /**
      * The name of the project in the space.
      */
-    declare public readonly projectName: pulumi.Output<string>;
+    public readonly projectName!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The source repository that contains the branch to clone into the Dev Environment.
      */
-    declare public readonly repositories: pulumi.Output<outputs.codecatalyst.DevEnvironmentRepository[] | undefined>;
+    public readonly repositories!: pulumi.Output<outputs.codecatalyst.DevEnvironmentRepository[] | undefined>;
     /**
      * The name of the space.
      */
-    declare public readonly spaceName: pulumi.Output<string>;
+    public readonly spaceName!: pulumi.Output<string>;
 
     /**
      * Create a DevEnvironment resource with the given unique name, arguments, and options.
@@ -113,41 +113,41 @@ export class DevEnvironment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DevEnvironmentState | undefined;
-            resourceInputs["alias"] = state?.alias;
-            resourceInputs["ides"] = state?.ides;
-            resourceInputs["inactivityTimeoutMinutes"] = state?.inactivityTimeoutMinutes;
-            resourceInputs["instanceType"] = state?.instanceType;
-            resourceInputs["persistentStorage"] = state?.persistentStorage;
-            resourceInputs["projectName"] = state?.projectName;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["repositories"] = state?.repositories;
-            resourceInputs["spaceName"] = state?.spaceName;
+            resourceInputs["alias"] = state ? state.alias : undefined;
+            resourceInputs["ides"] = state ? state.ides : undefined;
+            resourceInputs["inactivityTimeoutMinutes"] = state ? state.inactivityTimeoutMinutes : undefined;
+            resourceInputs["instanceType"] = state ? state.instanceType : undefined;
+            resourceInputs["persistentStorage"] = state ? state.persistentStorage : undefined;
+            resourceInputs["projectName"] = state ? state.projectName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["repositories"] = state ? state.repositories : undefined;
+            resourceInputs["spaceName"] = state ? state.spaceName : undefined;
         } else {
             const args = argsOrState as DevEnvironmentArgs | undefined;
-            if (args?.ides === undefined && !opts.urn) {
+            if ((!args || args.ides === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ides'");
             }
-            if (args?.instanceType === undefined && !opts.urn) {
+            if ((!args || args.instanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            if (args?.persistentStorage === undefined && !opts.urn) {
+            if ((!args || args.persistentStorage === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'persistentStorage'");
             }
-            if (args?.projectName === undefined && !opts.urn) {
+            if ((!args || args.projectName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
-            if (args?.spaceName === undefined && !opts.urn) {
+            if ((!args || args.spaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'spaceName'");
             }
-            resourceInputs["alias"] = args?.alias;
-            resourceInputs["ides"] = args?.ides;
-            resourceInputs["inactivityTimeoutMinutes"] = args?.inactivityTimeoutMinutes;
-            resourceInputs["instanceType"] = args?.instanceType;
-            resourceInputs["persistentStorage"] = args?.persistentStorage;
-            resourceInputs["projectName"] = args?.projectName;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["repositories"] = args?.repositories;
-            resourceInputs["spaceName"] = args?.spaceName;
+            resourceInputs["alias"] = args ? args.alias : undefined;
+            resourceInputs["ides"] = args ? args.ides : undefined;
+            resourceInputs["inactivityTimeoutMinutes"] = args ? args.inactivityTimeoutMinutes : undefined;
+            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
+            resourceInputs["persistentStorage"] = args ? args.persistentStorage : undefined;
+            resourceInputs["projectName"] = args ? args.projectName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["repositories"] = args ? args.repositories : undefined;
+            resourceInputs["spaceName"] = args ? args.spaceName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DevEnvironment.__pulumiType, name, resourceInputs, opts);

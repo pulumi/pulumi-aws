@@ -66,51 +66,51 @@ export class Secret extends pulumi.CustomResource {
     /**
      * ARN of the secret.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Description of the secret.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region.
      */
-    declare public readonly forceOverwriteReplicaSecret: pulumi.Output<boolean | undefined>;
+    public readonly forceOverwriteReplicaSecret!: pulumi.Output<boolean | undefined>;
     /**
      * ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you need to reference a CMK in a different account, you can use only the key ARN. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
      */
-    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `namePrefix`.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    declare public readonly namePrefix: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string>;
     /**
      * Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `aws.secretsmanager.SecretPolicy`. To delete the `policy`, set it to `"{}"` (an empty JSON document).
      */
-    declare public readonly policy: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string>;
     /**
      * Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
      */
-    declare public readonly recoveryWindowInDays: pulumi.Output<number | undefined>;
+    public readonly recoveryWindowInDays!: pulumi.Output<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Configuration block to support secret replication. See details below.
      */
-    declare public readonly replicas: pulumi.Output<outputs.secretsmanager.SecretReplica[]>;
+    public readonly replicas!: pulumi.Output<outputs.secretsmanager.SecretReplica[]>;
     /**
      * Key-value map of user-defined tags that are attached to the secret. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Secret resource with the given unique name, arguments, and options.
@@ -125,30 +125,30 @@ export class Secret extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecretState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["forceOverwriteReplicaSecret"] = state?.forceOverwriteReplicaSecret;
-            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["namePrefix"] = state?.namePrefix;
-            resourceInputs["policy"] = state?.policy;
-            resourceInputs["recoveryWindowInDays"] = state?.recoveryWindowInDays;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["replicas"] = state?.replicas;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["forceOverwriteReplicaSecret"] = state ? state.forceOverwriteReplicaSecret : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["recoveryWindowInDays"] = state ? state.recoveryWindowInDays : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["replicas"] = state ? state.replicas : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as SecretArgs | undefined;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["forceOverwriteReplicaSecret"] = args?.forceOverwriteReplicaSecret;
-            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["namePrefix"] = args?.namePrefix;
-            resourceInputs["policy"] = args?.policy;
-            resourceInputs["recoveryWindowInDays"] = args?.recoveryWindowInDays;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["replicas"] = args?.replicas;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["forceOverwriteReplicaSecret"] = args ? args.forceOverwriteReplicaSecret : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["recoveryWindowInDays"] = args ? args.recoveryWindowInDays : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["replicas"] = args ? args.replicas : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

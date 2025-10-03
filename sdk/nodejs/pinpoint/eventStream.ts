@@ -90,19 +90,19 @@ export class EventStream extends pulumi.CustomResource {
     /**
      * The application ID.
      */
-    declare public readonly applicationId: pulumi.Output<string>;
+    public readonly applicationId!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
      */
-    declare public readonly destinationStreamArn: pulumi.Output<string>;
+    public readonly destinationStreamArn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
      */
-    declare public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
 
     /**
      * Create a EventStream resource with the given unique name, arguments, and options.
@@ -117,25 +117,25 @@ export class EventStream extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventStreamState | undefined;
-            resourceInputs["applicationId"] = state?.applicationId;
-            resourceInputs["destinationStreamArn"] = state?.destinationStreamArn;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["roleArn"] = state?.roleArn;
+            resourceInputs["applicationId"] = state ? state.applicationId : undefined;
+            resourceInputs["destinationStreamArn"] = state ? state.destinationStreamArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
         } else {
             const args = argsOrState as EventStreamArgs | undefined;
-            if (args?.applicationId === undefined && !opts.urn) {
+            if ((!args || args.applicationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if (args?.destinationStreamArn === undefined && !opts.urn) {
+            if ((!args || args.destinationStreamArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destinationStreamArn'");
             }
-            if (args?.roleArn === undefined && !opts.urn) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["applicationId"] = args?.applicationId;
-            resourceInputs["destinationStreamArn"] = args?.destinationStreamArn;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["destinationStreamArn"] = args ? args.destinationStreamArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EventStream.__pulumiType, name, resourceInputs, opts);

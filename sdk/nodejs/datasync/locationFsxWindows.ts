@@ -60,51 +60,51 @@ export class LocationFsxWindows extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The time that the FSx for Windows location was created.
      */
-    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
     /**
      * The name of the Windows domain that the FSx for Windows server belongs to.
      */
-    declare public readonly domain: pulumi.Output<string | undefined>;
+    public readonly domain!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the FSx for Windows file system.
      */
-    declare public readonly fsxFilesystemArn: pulumi.Output<string>;
+    public readonly fsxFilesystemArn!: pulumi.Output<string>;
     /**
      * The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
      */
-    declare public readonly password: pulumi.Output<string>;
+    public readonly password!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
      */
-    declare public readonly securityGroupArns: pulumi.Output<string[]>;
+    public readonly securityGroupArns!: pulumi.Output<string[]>;
     /**
      * Subdirectory to perform actions as source or destination.
      */
-    declare public readonly subdirectory: pulumi.Output<string>;
+    public readonly subdirectory!: pulumi.Output<string>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The URL of the FSx for Windows location that was described.
      */
-    declare public /*out*/ readonly uri: pulumi.Output<string>;
+    public /*out*/ readonly uri!: pulumi.Output<string>;
     /**
      * The user who has the permissions to access files and folders in the FSx for Windows file system.
      */
-    declare public readonly user: pulumi.Output<string>;
+    public readonly user!: pulumi.Output<string>;
 
     /**
      * Create a LocationFsxWindows resource with the given unique name, arguments, and options.
@@ -119,40 +119,40 @@ export class LocationFsxWindows extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LocationFsxWindowsState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["creationTime"] = state?.creationTime;
-            resourceInputs["domain"] = state?.domain;
-            resourceInputs["fsxFilesystemArn"] = state?.fsxFilesystemArn;
-            resourceInputs["password"] = state?.password;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["securityGroupArns"] = state?.securityGroupArns;
-            resourceInputs["subdirectory"] = state?.subdirectory;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["uri"] = state?.uri;
-            resourceInputs["user"] = state?.user;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["creationTime"] = state ? state.creationTime : undefined;
+            resourceInputs["domain"] = state ? state.domain : undefined;
+            resourceInputs["fsxFilesystemArn"] = state ? state.fsxFilesystemArn : undefined;
+            resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["securityGroupArns"] = state ? state.securityGroupArns : undefined;
+            resourceInputs["subdirectory"] = state ? state.subdirectory : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["uri"] = state ? state.uri : undefined;
+            resourceInputs["user"] = state ? state.user : undefined;
         } else {
             const args = argsOrState as LocationFsxWindowsArgs | undefined;
-            if (args?.fsxFilesystemArn === undefined && !opts.urn) {
+            if ((!args || args.fsxFilesystemArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fsxFilesystemArn'");
             }
-            if (args?.password === undefined && !opts.urn) {
+            if ((!args || args.password === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'password'");
             }
-            if (args?.securityGroupArns === undefined && !opts.urn) {
+            if ((!args || args.securityGroupArns === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'securityGroupArns'");
             }
-            if (args?.user === undefined && !opts.urn) {
+            if ((!args || args.user === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'user'");
             }
-            resourceInputs["domain"] = args?.domain;
-            resourceInputs["fsxFilesystemArn"] = args?.fsxFilesystemArn;
+            resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["fsxFilesystemArn"] = args ? args.fsxFilesystemArn : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["securityGroupArns"] = args?.securityGroupArns;
-            resourceInputs["subdirectory"] = args?.subdirectory;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["user"] = args?.user;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["securityGroupArns"] = args ? args.securityGroupArns : undefined;
+            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["user"] = args ? args.user : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

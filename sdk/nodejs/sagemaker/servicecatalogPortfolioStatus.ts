@@ -57,11 +57,11 @@ export class ServicecatalogPortfolioStatus extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
      */
-    declare public readonly status: pulumi.Output<string>;
+    public readonly status!: pulumi.Output<string>;
 
     /**
      * Create a ServicecatalogPortfolioStatus resource with the given unique name, arguments, and options.
@@ -76,15 +76,15 @@ export class ServicecatalogPortfolioStatus extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServicecatalogPortfolioStatusState | undefined;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["status"] = state?.status;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as ServicecatalogPortfolioStatusArgs | undefined;
-            if (args?.status === undefined && !opts.urn) {
+            if ((!args || args.status === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            resourceInputs["region"] = args?.region;
-            resourceInputs["status"] = args?.status;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServicecatalogPortfolioStatus.__pulumiType, name, resourceInputs, opts);

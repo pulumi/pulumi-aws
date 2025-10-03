@@ -63,15 +63,15 @@ export class VpnConnectionRoute extends pulumi.CustomResource {
     /**
      * The CIDR block associated with the local subnet of the customer network.
      */
-    declare public readonly destinationCidrBlock: pulumi.Output<string>;
+    public readonly destinationCidrBlock!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ID of the VPN connection.
      */
-    declare public readonly vpnConnectionId: pulumi.Output<string>;
+    public readonly vpnConnectionId!: pulumi.Output<string>;
 
     /**
      * Create a VpnConnectionRoute resource with the given unique name, arguments, and options.
@@ -86,20 +86,20 @@ export class VpnConnectionRoute extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpnConnectionRouteState | undefined;
-            resourceInputs["destinationCidrBlock"] = state?.destinationCidrBlock;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["vpnConnectionId"] = state?.vpnConnectionId;
+            resourceInputs["destinationCidrBlock"] = state ? state.destinationCidrBlock : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["vpnConnectionId"] = state ? state.vpnConnectionId : undefined;
         } else {
             const args = argsOrState as VpnConnectionRouteArgs | undefined;
-            if (args?.destinationCidrBlock === undefined && !opts.urn) {
+            if ((!args || args.destinationCidrBlock === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destinationCidrBlock'");
             }
-            if (args?.vpnConnectionId === undefined && !opts.urn) {
+            if ((!args || args.vpnConnectionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpnConnectionId'");
             }
-            resourceInputs["destinationCidrBlock"] = args?.destinationCidrBlock;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["vpnConnectionId"] = args?.vpnConnectionId;
+            resourceInputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["vpnConnectionId"] = args ? args.vpnConnectionId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VpnConnectionRoute.__pulumiType, name, resourceInputs, opts);

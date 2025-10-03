@@ -79,54 +79,54 @@ export class ShardGroup extends pulumi.CustomResource {
     /**
      * ARN of the shard group.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
      */
-    declare public readonly computeRedundancy: pulumi.Output<number>;
+    public readonly computeRedundancy!: pulumi.Output<number>;
     /**
      * The name of the primary DB cluster for the DB shard group.
      */
-    declare public readonly dbClusterIdentifier: pulumi.Output<string>;
+    public readonly dbClusterIdentifier!: pulumi.Output<string>;
     /**
      * The name of the DB shard group.
      */
-    declare public readonly dbShardGroupIdentifier: pulumi.Output<string>;
+    public readonly dbShardGroupIdentifier!: pulumi.Output<string>;
     /**
      * The AWS Region-unique, immutable identifier for the DB shard group.
      */
-    declare public /*out*/ readonly dbShardGroupResourceId: pulumi.Output<string>;
+    public /*out*/ readonly dbShardGroupResourceId!: pulumi.Output<string>;
     /**
      * The connection endpoint for the DB shard group.
      */
-    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
      * The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
      */
-    declare public readonly maxAcu: pulumi.Output<number>;
+    public readonly maxAcu!: pulumi.Output<number>;
     /**
      * The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
      */
-    declare public readonly minAcu: pulumi.Output<number>;
+    public readonly minAcu!: pulumi.Output<number>;
     /**
      * Indicates whether the DB shard group is publicly accessible.
      */
-    declare public readonly publiclyAccessible: pulumi.Output<boolean>;
+    public readonly publiclyAccessible!: pulumi.Output<boolean>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public readonly timeouts: pulumi.Output<outputs.rds.ShardGroupTimeouts | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly timeouts!: pulumi.Output<outputs.rds.ShardGroupTimeouts | undefined>;
 
     /**
      * Create a ShardGroup resource with the given unique name, arguments, and options.
@@ -141,39 +141,39 @@ export class ShardGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ShardGroupState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["computeRedundancy"] = state?.computeRedundancy;
-            resourceInputs["dbClusterIdentifier"] = state?.dbClusterIdentifier;
-            resourceInputs["dbShardGroupIdentifier"] = state?.dbShardGroupIdentifier;
-            resourceInputs["dbShardGroupResourceId"] = state?.dbShardGroupResourceId;
-            resourceInputs["endpoint"] = state?.endpoint;
-            resourceInputs["maxAcu"] = state?.maxAcu;
-            resourceInputs["minAcu"] = state?.minAcu;
-            resourceInputs["publiclyAccessible"] = state?.publiclyAccessible;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["computeRedundancy"] = state ? state.computeRedundancy : undefined;
+            resourceInputs["dbClusterIdentifier"] = state ? state.dbClusterIdentifier : undefined;
+            resourceInputs["dbShardGroupIdentifier"] = state ? state.dbShardGroupIdentifier : undefined;
+            resourceInputs["dbShardGroupResourceId"] = state ? state.dbShardGroupResourceId : undefined;
+            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
+            resourceInputs["maxAcu"] = state ? state.maxAcu : undefined;
+            resourceInputs["minAcu"] = state ? state.minAcu : undefined;
+            resourceInputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as ShardGroupArgs | undefined;
-            if (args?.dbClusterIdentifier === undefined && !opts.urn) {
+            if ((!args || args.dbClusterIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dbClusterIdentifier'");
             }
-            if (args?.dbShardGroupIdentifier === undefined && !opts.urn) {
+            if ((!args || args.dbShardGroupIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dbShardGroupIdentifier'");
             }
-            if (args?.maxAcu === undefined && !opts.urn) {
+            if ((!args || args.maxAcu === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'maxAcu'");
             }
-            resourceInputs["computeRedundancy"] = args?.computeRedundancy;
-            resourceInputs["dbClusterIdentifier"] = args?.dbClusterIdentifier;
-            resourceInputs["dbShardGroupIdentifier"] = args?.dbShardGroupIdentifier;
-            resourceInputs["maxAcu"] = args?.maxAcu;
-            resourceInputs["minAcu"] = args?.minAcu;
-            resourceInputs["publiclyAccessible"] = args?.publiclyAccessible;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["computeRedundancy"] = args ? args.computeRedundancy : undefined;
+            resourceInputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
+            resourceInputs["dbShardGroupIdentifier"] = args ? args.dbShardGroupIdentifier : undefined;
+            resourceInputs["maxAcu"] = args ? args.maxAcu : undefined;
+            resourceInputs["minAcu"] = args ? args.minAcu : undefined;
+            resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dbShardGroupResourceId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;

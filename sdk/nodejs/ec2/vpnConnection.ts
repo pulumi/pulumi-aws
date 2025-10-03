@@ -139,303 +139,303 @@ export class VpnConnection extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the VPN Connection.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The ARN of the core network.
      */
-    declare public /*out*/ readonly coreNetworkArn: pulumi.Output<string>;
+    public /*out*/ readonly coreNetworkArn!: pulumi.Output<string>;
     /**
      * The ARN of the core network attachment.
      */
-    declare public /*out*/ readonly coreNetworkAttachmentArn: pulumi.Output<string>;
+    public /*out*/ readonly coreNetworkAttachmentArn!: pulumi.Output<string>;
     /**
      * The configuration information for the VPN connection's customer gateway (in the native XML format).
      */
-    declare public /*out*/ readonly customerGatewayConfiguration: pulumi.Output<string>;
+    public /*out*/ readonly customerGatewayConfiguration!: pulumi.Output<string>;
     /**
      * The ID of the customer gateway.
      */
-    declare public readonly customerGatewayId: pulumi.Output<string>;
+    public readonly customerGatewayId!: pulumi.Output<string>;
     /**
      * Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
      */
-    declare public readonly enableAcceleration: pulumi.Output<boolean>;
+    public readonly enableAcceleration!: pulumi.Output<boolean>;
     /**
      * The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
      */
-    declare public readonly localIpv4NetworkCidr: pulumi.Output<string>;
+    public readonly localIpv4NetworkCidr!: pulumi.Output<string>;
     /**
      * The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
      */
-    declare public readonly localIpv6NetworkCidr: pulumi.Output<string>;
+    public readonly localIpv6NetworkCidr!: pulumi.Output<string>;
     /**
      * Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
      */
-    declare public readonly outsideIpAddressType: pulumi.Output<string>;
+    public readonly outsideIpAddressType!: pulumi.Output<string>;
     /**
      * ARN of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection. Note that even if it returns a valid Secrets Manager ARN, the pre-shared key(s) will not be stored in Secrets Manager unless the `presharedKeyStorage` argument is set to `SecretsManager`.
      */
-    declare public /*out*/ readonly presharedKeyArn: pulumi.Output<string>;
+    public /*out*/ readonly presharedKeyArn!: pulumi.Output<string>;
     /**
      * Storage mode for the pre-shared key (PSK). Valid values are `Standard` (stored in the Site-to-Site VPN service) or `SecretsManager` (stored in AWS Secrets Manager).
      */
-    declare public readonly presharedKeyStorage: pulumi.Output<string>;
+    public readonly presharedKeyStorage!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The IPv4 CIDR on the AWS side of the VPN connection.
      */
-    declare public readonly remoteIpv4NetworkCidr: pulumi.Output<string>;
+    public readonly remoteIpv4NetworkCidr!: pulumi.Output<string>;
     /**
      * The IPv6 CIDR on the AWS side of the VPN connection.
      */
-    declare public readonly remoteIpv6NetworkCidr: pulumi.Output<string>;
+    public readonly remoteIpv6NetworkCidr!: pulumi.Output<string>;
     /**
      * The static routes associated with the VPN connection. Detailed below.
      */
-    declare public /*out*/ readonly routes: pulumi.Output<outputs.ec2.VpnConnectionRoute[]>;
+    public /*out*/ readonly routes!: pulumi.Output<outputs.ec2.VpnConnectionRoute[]>;
     /**
      * Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
      */
-    declare public readonly staticRoutesOnly: pulumi.Output<boolean>;
+    public readonly staticRoutesOnly!: pulumi.Output<boolean>;
     /**
      * Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID. See also the `aws.ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
      */
-    declare public /*out*/ readonly transitGatewayAttachmentId: pulumi.Output<string>;
+    public /*out*/ readonly transitGatewayAttachmentId!: pulumi.Output<string>;
     /**
      * The ID of the EC2 Transit Gateway.
      */
-    declare public readonly transitGatewayId: pulumi.Output<string | undefined>;
+    public readonly transitGatewayId!: pulumi.Output<string | undefined>;
     /**
      * . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
      */
-    declare public readonly transportTransitGatewayAttachmentId: pulumi.Output<string | undefined>;
+    public readonly transportTransitGatewayAttachmentId!: pulumi.Output<string | undefined>;
     /**
      * The public IP address of the first VPN tunnel.
      */
-    declare public /*out*/ readonly tunnel1Address: pulumi.Output<string>;
+    public /*out*/ readonly tunnel1Address!: pulumi.Output<string>;
     /**
      * The bgp asn number of the first VPN tunnel.
      */
-    declare public /*out*/ readonly tunnel1BgpAsn: pulumi.Output<string>;
+    public /*out*/ readonly tunnel1BgpAsn!: pulumi.Output<string>;
     /**
      * The bgp holdtime of the first VPN tunnel.
      */
-    declare public /*out*/ readonly tunnel1BgpHoldtime: pulumi.Output<number>;
+    public /*out*/ readonly tunnel1BgpHoldtime!: pulumi.Output<number>;
     /**
      * The RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
      */
-    declare public /*out*/ readonly tunnel1CgwInsideAddress: pulumi.Output<string>;
+    public /*out*/ readonly tunnel1CgwInsideAddress!: pulumi.Output<string>;
     /**
      * The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
      */
-    declare public readonly tunnel1DpdTimeoutAction: pulumi.Output<string | undefined>;
+    public readonly tunnel1DpdTimeoutAction!: pulumi.Output<string | undefined>;
     /**
      * The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
      */
-    declare public readonly tunnel1DpdTimeoutSeconds: pulumi.Output<number | undefined>;
+    public readonly tunnel1DpdTimeoutSeconds!: pulumi.Output<number | undefined>;
     /**
      * Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
      */
-    declare public readonly tunnel1EnableTunnelLifecycleControl: pulumi.Output<boolean | undefined>;
+    public readonly tunnel1EnableTunnelLifecycleControl!: pulumi.Output<boolean | undefined>;
     /**
      * The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
      */
-    declare public readonly tunnel1IkeVersions: pulumi.Output<string[] | undefined>;
+    public readonly tunnel1IkeVersions!: pulumi.Output<string[] | undefined>;
     /**
      * The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
      */
-    declare public readonly tunnel1InsideCidr: pulumi.Output<string>;
+    public readonly tunnel1InsideCidr!: pulumi.Output<string>;
     /**
      * The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
      */
-    declare public readonly tunnel1InsideIpv6Cidr: pulumi.Output<string>;
+    public readonly tunnel1InsideIpv6Cidr!: pulumi.Output<string>;
     /**
      * Options for logging VPN tunnel activity. See Log Options below for more details.
      */
-    declare public readonly tunnel1LogOptions: pulumi.Output<outputs.ec2.VpnConnectionTunnel1LogOptions>;
+    public readonly tunnel1LogOptions!: pulumi.Output<outputs.ec2.VpnConnectionTunnel1LogOptions>;
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
      */
-    declare public readonly tunnel1Phase1DhGroupNumbers: pulumi.Output<number[] | undefined>;
+    public readonly tunnel1Phase1DhGroupNumbers!: pulumi.Output<number[] | undefined>;
     /**
      * List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
      */
-    declare public readonly tunnel1Phase1EncryptionAlgorithms: pulumi.Output<string[] | undefined>;
+    public readonly tunnel1Phase1EncryptionAlgorithms!: pulumi.Output<string[] | undefined>;
     /**
      * One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
      */
-    declare public readonly tunnel1Phase1IntegrityAlgorithms: pulumi.Output<string[] | undefined>;
+    public readonly tunnel1Phase1IntegrityAlgorithms!: pulumi.Output<string[] | undefined>;
     /**
      * The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
      */
-    declare public readonly tunnel1Phase1LifetimeSeconds: pulumi.Output<number | undefined>;
+    public readonly tunnel1Phase1LifetimeSeconds!: pulumi.Output<number | undefined>;
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
      */
-    declare public readonly tunnel1Phase2DhGroupNumbers: pulumi.Output<number[] | undefined>;
+    public readonly tunnel1Phase2DhGroupNumbers!: pulumi.Output<number[] | undefined>;
     /**
      * List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
      */
-    declare public readonly tunnel1Phase2EncryptionAlgorithms: pulumi.Output<string[] | undefined>;
+    public readonly tunnel1Phase2EncryptionAlgorithms!: pulumi.Output<string[] | undefined>;
     /**
      * List of one or more integrity algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
      */
-    declare public readonly tunnel1Phase2IntegrityAlgorithms: pulumi.Output<string[] | undefined>;
+    public readonly tunnel1Phase2IntegrityAlgorithms!: pulumi.Output<string[] | undefined>;
     /**
      * The lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
      */
-    declare public readonly tunnel1Phase2LifetimeSeconds: pulumi.Output<number | undefined>;
+    public readonly tunnel1Phase2LifetimeSeconds!: pulumi.Output<number | undefined>;
     /**
      * The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
      */
-    declare public readonly tunnel1PresharedKey: pulumi.Output<string>;
+    public readonly tunnel1PresharedKey!: pulumi.Output<string>;
     /**
      * The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
      */
-    declare public readonly tunnel1RekeyFuzzPercentage: pulumi.Output<number | undefined>;
+    public readonly tunnel1RekeyFuzzPercentage!: pulumi.Output<number | undefined>;
     /**
      * The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel1Phase2LifetimeSeconds`.
      */
-    declare public readonly tunnel1RekeyMarginTimeSeconds: pulumi.Output<number | undefined>;
+    public readonly tunnel1RekeyMarginTimeSeconds!: pulumi.Output<number | undefined>;
     /**
      * The number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
      */
-    declare public readonly tunnel1ReplayWindowSize: pulumi.Output<number | undefined>;
+    public readonly tunnel1ReplayWindowSize!: pulumi.Output<number | undefined>;
     /**
      * The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
      */
-    declare public readonly tunnel1StartupAction: pulumi.Output<string | undefined>;
+    public readonly tunnel1StartupAction!: pulumi.Output<string | undefined>;
     /**
      * The RFC 6890 link-local address of the first VPN tunnel (VPN Gateway Side).
      */
-    declare public /*out*/ readonly tunnel1VgwInsideAddress: pulumi.Output<string>;
+    public /*out*/ readonly tunnel1VgwInsideAddress!: pulumi.Output<string>;
     /**
      * The public IP address of the second VPN tunnel.
      */
-    declare public /*out*/ readonly tunnel2Address: pulumi.Output<string>;
+    public /*out*/ readonly tunnel2Address!: pulumi.Output<string>;
     /**
      * The bgp asn number of the second VPN tunnel.
      */
-    declare public /*out*/ readonly tunnel2BgpAsn: pulumi.Output<string>;
+    public /*out*/ readonly tunnel2BgpAsn!: pulumi.Output<string>;
     /**
      * The bgp holdtime of the second VPN tunnel.
      */
-    declare public /*out*/ readonly tunnel2BgpHoldtime: pulumi.Output<number>;
+    public /*out*/ readonly tunnel2BgpHoldtime!: pulumi.Output<number>;
     /**
      * The RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
      */
-    declare public /*out*/ readonly tunnel2CgwInsideAddress: pulumi.Output<string>;
+    public /*out*/ readonly tunnel2CgwInsideAddress!: pulumi.Output<string>;
     /**
      * The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
      */
-    declare public readonly tunnel2DpdTimeoutAction: pulumi.Output<string | undefined>;
+    public readonly tunnel2DpdTimeoutAction!: pulumi.Output<string | undefined>;
     /**
      * The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
      */
-    declare public readonly tunnel2DpdTimeoutSeconds: pulumi.Output<number | undefined>;
+    public readonly tunnel2DpdTimeoutSeconds!: pulumi.Output<number | undefined>;
     /**
      * Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
      */
-    declare public readonly tunnel2EnableTunnelLifecycleControl: pulumi.Output<boolean | undefined>;
+    public readonly tunnel2EnableTunnelLifecycleControl!: pulumi.Output<boolean | undefined>;
     /**
      * The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
      */
-    declare public readonly tunnel2IkeVersions: pulumi.Output<string[] | undefined>;
+    public readonly tunnel2IkeVersions!: pulumi.Output<string[] | undefined>;
     /**
      * The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
      */
-    declare public readonly tunnel2InsideCidr: pulumi.Output<string>;
+    public readonly tunnel2InsideCidr!: pulumi.Output<string>;
     /**
      * The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
      */
-    declare public readonly tunnel2InsideIpv6Cidr: pulumi.Output<string>;
+    public readonly tunnel2InsideIpv6Cidr!: pulumi.Output<string>;
     /**
      * Options for logging VPN tunnel activity. See Log Options below for more details.
      */
-    declare public readonly tunnel2LogOptions: pulumi.Output<outputs.ec2.VpnConnectionTunnel2LogOptions>;
+    public readonly tunnel2LogOptions!: pulumi.Output<outputs.ec2.VpnConnectionTunnel2LogOptions>;
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
      */
-    declare public readonly tunnel2Phase1DhGroupNumbers: pulumi.Output<number[] | undefined>;
+    public readonly tunnel2Phase1DhGroupNumbers!: pulumi.Output<number[] | undefined>;
     /**
      * List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
      */
-    declare public readonly tunnel2Phase1EncryptionAlgorithms: pulumi.Output<string[] | undefined>;
+    public readonly tunnel2Phase1EncryptionAlgorithms!: pulumi.Output<string[] | undefined>;
     /**
      * One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
      */
-    declare public readonly tunnel2Phase1IntegrityAlgorithms: pulumi.Output<string[] | undefined>;
+    public readonly tunnel2Phase1IntegrityAlgorithms!: pulumi.Output<string[] | undefined>;
     /**
      * The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
      */
-    declare public readonly tunnel2Phase1LifetimeSeconds: pulumi.Output<number | undefined>;
+    public readonly tunnel2Phase1LifetimeSeconds!: pulumi.Output<number | undefined>;
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
      */
-    declare public readonly tunnel2Phase2DhGroupNumbers: pulumi.Output<number[] | undefined>;
+    public readonly tunnel2Phase2DhGroupNumbers!: pulumi.Output<number[] | undefined>;
     /**
      * List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
      */
-    declare public readonly tunnel2Phase2EncryptionAlgorithms: pulumi.Output<string[] | undefined>;
+    public readonly tunnel2Phase2EncryptionAlgorithms!: pulumi.Output<string[] | undefined>;
     /**
      * List of one or more integrity algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
      */
-    declare public readonly tunnel2Phase2IntegrityAlgorithms: pulumi.Output<string[] | undefined>;
+    public readonly tunnel2Phase2IntegrityAlgorithms!: pulumi.Output<string[] | undefined>;
     /**
      * The lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
      */
-    declare public readonly tunnel2Phase2LifetimeSeconds: pulumi.Output<number | undefined>;
+    public readonly tunnel2Phase2LifetimeSeconds!: pulumi.Output<number | undefined>;
     /**
      * The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
      */
-    declare public readonly tunnel2PresharedKey: pulumi.Output<string>;
+    public readonly tunnel2PresharedKey!: pulumi.Output<string>;
     /**
      * The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
      */
-    declare public readonly tunnel2RekeyFuzzPercentage: pulumi.Output<number | undefined>;
+    public readonly tunnel2RekeyFuzzPercentage!: pulumi.Output<number | undefined>;
     /**
      * The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel2Phase2LifetimeSeconds`.
      */
-    declare public readonly tunnel2RekeyMarginTimeSeconds: pulumi.Output<number | undefined>;
+    public readonly tunnel2RekeyMarginTimeSeconds!: pulumi.Output<number | undefined>;
     /**
      * The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
      */
-    declare public readonly tunnel2ReplayWindowSize: pulumi.Output<number | undefined>;
+    public readonly tunnel2ReplayWindowSize!: pulumi.Output<number | undefined>;
     /**
      * The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
      */
-    declare public readonly tunnel2StartupAction: pulumi.Output<string | undefined>;
+    public readonly tunnel2StartupAction!: pulumi.Output<string | undefined>;
     /**
      * The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
      */
-    declare public /*out*/ readonly tunnel2VgwInsideAddress: pulumi.Output<string>;
+    public /*out*/ readonly tunnel2VgwInsideAddress!: pulumi.Output<string>;
     /**
      * Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
      */
-    declare public readonly tunnelInsideIpVersion: pulumi.Output<string>;
+    public readonly tunnelInsideIpVersion!: pulumi.Output<string>;
     /**
      * The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
      */
-    declare public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
     /**
      * Telemetry for the VPN tunnels. Detailed below.
      */
-    declare public /*out*/ readonly vgwTelemetries: pulumi.Output<outputs.ec2.VpnConnectionVgwTelemetry[]>;
+    public /*out*/ readonly vgwTelemetries!: pulumi.Output<outputs.ec2.VpnConnectionVgwTelemetry[]>;
     /**
      * The ID of the Virtual Private Gateway.
      */
-    declare public readonly vpnGatewayId: pulumi.Output<string | undefined>;
+    public readonly vpnGatewayId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a VpnConnection resource with the given unique name, arguments, and options.
@@ -450,145 +450,145 @@ export class VpnConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpnConnectionState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["coreNetworkArn"] = state?.coreNetworkArn;
-            resourceInputs["coreNetworkAttachmentArn"] = state?.coreNetworkAttachmentArn;
-            resourceInputs["customerGatewayConfiguration"] = state?.customerGatewayConfiguration;
-            resourceInputs["customerGatewayId"] = state?.customerGatewayId;
-            resourceInputs["enableAcceleration"] = state?.enableAcceleration;
-            resourceInputs["localIpv4NetworkCidr"] = state?.localIpv4NetworkCidr;
-            resourceInputs["localIpv6NetworkCidr"] = state?.localIpv6NetworkCidr;
-            resourceInputs["outsideIpAddressType"] = state?.outsideIpAddressType;
-            resourceInputs["presharedKeyArn"] = state?.presharedKeyArn;
-            resourceInputs["presharedKeyStorage"] = state?.presharedKeyStorage;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["remoteIpv4NetworkCidr"] = state?.remoteIpv4NetworkCidr;
-            resourceInputs["remoteIpv6NetworkCidr"] = state?.remoteIpv6NetworkCidr;
-            resourceInputs["routes"] = state?.routes;
-            resourceInputs["staticRoutesOnly"] = state?.staticRoutesOnly;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["transitGatewayAttachmentId"] = state?.transitGatewayAttachmentId;
-            resourceInputs["transitGatewayId"] = state?.transitGatewayId;
-            resourceInputs["transportTransitGatewayAttachmentId"] = state?.transportTransitGatewayAttachmentId;
-            resourceInputs["tunnel1Address"] = state?.tunnel1Address;
-            resourceInputs["tunnel1BgpAsn"] = state?.tunnel1BgpAsn;
-            resourceInputs["tunnel1BgpHoldtime"] = state?.tunnel1BgpHoldtime;
-            resourceInputs["tunnel1CgwInsideAddress"] = state?.tunnel1CgwInsideAddress;
-            resourceInputs["tunnel1DpdTimeoutAction"] = state?.tunnel1DpdTimeoutAction;
-            resourceInputs["tunnel1DpdTimeoutSeconds"] = state?.tunnel1DpdTimeoutSeconds;
-            resourceInputs["tunnel1EnableTunnelLifecycleControl"] = state?.tunnel1EnableTunnelLifecycleControl;
-            resourceInputs["tunnel1IkeVersions"] = state?.tunnel1IkeVersions;
-            resourceInputs["tunnel1InsideCidr"] = state?.tunnel1InsideCidr;
-            resourceInputs["tunnel1InsideIpv6Cidr"] = state?.tunnel1InsideIpv6Cidr;
-            resourceInputs["tunnel1LogOptions"] = state?.tunnel1LogOptions;
-            resourceInputs["tunnel1Phase1DhGroupNumbers"] = state?.tunnel1Phase1DhGroupNumbers;
-            resourceInputs["tunnel1Phase1EncryptionAlgorithms"] = state?.tunnel1Phase1EncryptionAlgorithms;
-            resourceInputs["tunnel1Phase1IntegrityAlgorithms"] = state?.tunnel1Phase1IntegrityAlgorithms;
-            resourceInputs["tunnel1Phase1LifetimeSeconds"] = state?.tunnel1Phase1LifetimeSeconds;
-            resourceInputs["tunnel1Phase2DhGroupNumbers"] = state?.tunnel1Phase2DhGroupNumbers;
-            resourceInputs["tunnel1Phase2EncryptionAlgorithms"] = state?.tunnel1Phase2EncryptionAlgorithms;
-            resourceInputs["tunnel1Phase2IntegrityAlgorithms"] = state?.tunnel1Phase2IntegrityAlgorithms;
-            resourceInputs["tunnel1Phase2LifetimeSeconds"] = state?.tunnel1Phase2LifetimeSeconds;
-            resourceInputs["tunnel1PresharedKey"] = state?.tunnel1PresharedKey;
-            resourceInputs["tunnel1RekeyFuzzPercentage"] = state?.tunnel1RekeyFuzzPercentage;
-            resourceInputs["tunnel1RekeyMarginTimeSeconds"] = state?.tunnel1RekeyMarginTimeSeconds;
-            resourceInputs["tunnel1ReplayWindowSize"] = state?.tunnel1ReplayWindowSize;
-            resourceInputs["tunnel1StartupAction"] = state?.tunnel1StartupAction;
-            resourceInputs["tunnel1VgwInsideAddress"] = state?.tunnel1VgwInsideAddress;
-            resourceInputs["tunnel2Address"] = state?.tunnel2Address;
-            resourceInputs["tunnel2BgpAsn"] = state?.tunnel2BgpAsn;
-            resourceInputs["tunnel2BgpHoldtime"] = state?.tunnel2BgpHoldtime;
-            resourceInputs["tunnel2CgwInsideAddress"] = state?.tunnel2CgwInsideAddress;
-            resourceInputs["tunnel2DpdTimeoutAction"] = state?.tunnel2DpdTimeoutAction;
-            resourceInputs["tunnel2DpdTimeoutSeconds"] = state?.tunnel2DpdTimeoutSeconds;
-            resourceInputs["tunnel2EnableTunnelLifecycleControl"] = state?.tunnel2EnableTunnelLifecycleControl;
-            resourceInputs["tunnel2IkeVersions"] = state?.tunnel2IkeVersions;
-            resourceInputs["tunnel2InsideCidr"] = state?.tunnel2InsideCidr;
-            resourceInputs["tunnel2InsideIpv6Cidr"] = state?.tunnel2InsideIpv6Cidr;
-            resourceInputs["tunnel2LogOptions"] = state?.tunnel2LogOptions;
-            resourceInputs["tunnel2Phase1DhGroupNumbers"] = state?.tunnel2Phase1DhGroupNumbers;
-            resourceInputs["tunnel2Phase1EncryptionAlgorithms"] = state?.tunnel2Phase1EncryptionAlgorithms;
-            resourceInputs["tunnel2Phase1IntegrityAlgorithms"] = state?.tunnel2Phase1IntegrityAlgorithms;
-            resourceInputs["tunnel2Phase1LifetimeSeconds"] = state?.tunnel2Phase1LifetimeSeconds;
-            resourceInputs["tunnel2Phase2DhGroupNumbers"] = state?.tunnel2Phase2DhGroupNumbers;
-            resourceInputs["tunnel2Phase2EncryptionAlgorithms"] = state?.tunnel2Phase2EncryptionAlgorithms;
-            resourceInputs["tunnel2Phase2IntegrityAlgorithms"] = state?.tunnel2Phase2IntegrityAlgorithms;
-            resourceInputs["tunnel2Phase2LifetimeSeconds"] = state?.tunnel2Phase2LifetimeSeconds;
-            resourceInputs["tunnel2PresharedKey"] = state?.tunnel2PresharedKey;
-            resourceInputs["tunnel2RekeyFuzzPercentage"] = state?.tunnel2RekeyFuzzPercentage;
-            resourceInputs["tunnel2RekeyMarginTimeSeconds"] = state?.tunnel2RekeyMarginTimeSeconds;
-            resourceInputs["tunnel2ReplayWindowSize"] = state?.tunnel2ReplayWindowSize;
-            resourceInputs["tunnel2StartupAction"] = state?.tunnel2StartupAction;
-            resourceInputs["tunnel2VgwInsideAddress"] = state?.tunnel2VgwInsideAddress;
-            resourceInputs["tunnelInsideIpVersion"] = state?.tunnelInsideIpVersion;
-            resourceInputs["type"] = state?.type;
-            resourceInputs["vgwTelemetries"] = state?.vgwTelemetries;
-            resourceInputs["vpnGatewayId"] = state?.vpnGatewayId;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["coreNetworkArn"] = state ? state.coreNetworkArn : undefined;
+            resourceInputs["coreNetworkAttachmentArn"] = state ? state.coreNetworkAttachmentArn : undefined;
+            resourceInputs["customerGatewayConfiguration"] = state ? state.customerGatewayConfiguration : undefined;
+            resourceInputs["customerGatewayId"] = state ? state.customerGatewayId : undefined;
+            resourceInputs["enableAcceleration"] = state ? state.enableAcceleration : undefined;
+            resourceInputs["localIpv4NetworkCidr"] = state ? state.localIpv4NetworkCidr : undefined;
+            resourceInputs["localIpv6NetworkCidr"] = state ? state.localIpv6NetworkCidr : undefined;
+            resourceInputs["outsideIpAddressType"] = state ? state.outsideIpAddressType : undefined;
+            resourceInputs["presharedKeyArn"] = state ? state.presharedKeyArn : undefined;
+            resourceInputs["presharedKeyStorage"] = state ? state.presharedKeyStorage : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["remoteIpv4NetworkCidr"] = state ? state.remoteIpv4NetworkCidr : undefined;
+            resourceInputs["remoteIpv6NetworkCidr"] = state ? state.remoteIpv6NetworkCidr : undefined;
+            resourceInputs["routes"] = state ? state.routes : undefined;
+            resourceInputs["staticRoutesOnly"] = state ? state.staticRoutesOnly : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;
+            resourceInputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
+            resourceInputs["transportTransitGatewayAttachmentId"] = state ? state.transportTransitGatewayAttachmentId : undefined;
+            resourceInputs["tunnel1Address"] = state ? state.tunnel1Address : undefined;
+            resourceInputs["tunnel1BgpAsn"] = state ? state.tunnel1BgpAsn : undefined;
+            resourceInputs["tunnel1BgpHoldtime"] = state ? state.tunnel1BgpHoldtime : undefined;
+            resourceInputs["tunnel1CgwInsideAddress"] = state ? state.tunnel1CgwInsideAddress : undefined;
+            resourceInputs["tunnel1DpdTimeoutAction"] = state ? state.tunnel1DpdTimeoutAction : undefined;
+            resourceInputs["tunnel1DpdTimeoutSeconds"] = state ? state.tunnel1DpdTimeoutSeconds : undefined;
+            resourceInputs["tunnel1EnableTunnelLifecycleControl"] = state ? state.tunnel1EnableTunnelLifecycleControl : undefined;
+            resourceInputs["tunnel1IkeVersions"] = state ? state.tunnel1IkeVersions : undefined;
+            resourceInputs["tunnel1InsideCidr"] = state ? state.tunnel1InsideCidr : undefined;
+            resourceInputs["tunnel1InsideIpv6Cidr"] = state ? state.tunnel1InsideIpv6Cidr : undefined;
+            resourceInputs["tunnel1LogOptions"] = state ? state.tunnel1LogOptions : undefined;
+            resourceInputs["tunnel1Phase1DhGroupNumbers"] = state ? state.tunnel1Phase1DhGroupNumbers : undefined;
+            resourceInputs["tunnel1Phase1EncryptionAlgorithms"] = state ? state.tunnel1Phase1EncryptionAlgorithms : undefined;
+            resourceInputs["tunnel1Phase1IntegrityAlgorithms"] = state ? state.tunnel1Phase1IntegrityAlgorithms : undefined;
+            resourceInputs["tunnel1Phase1LifetimeSeconds"] = state ? state.tunnel1Phase1LifetimeSeconds : undefined;
+            resourceInputs["tunnel1Phase2DhGroupNumbers"] = state ? state.tunnel1Phase2DhGroupNumbers : undefined;
+            resourceInputs["tunnel1Phase2EncryptionAlgorithms"] = state ? state.tunnel1Phase2EncryptionAlgorithms : undefined;
+            resourceInputs["tunnel1Phase2IntegrityAlgorithms"] = state ? state.tunnel1Phase2IntegrityAlgorithms : undefined;
+            resourceInputs["tunnel1Phase2LifetimeSeconds"] = state ? state.tunnel1Phase2LifetimeSeconds : undefined;
+            resourceInputs["tunnel1PresharedKey"] = state ? state.tunnel1PresharedKey : undefined;
+            resourceInputs["tunnel1RekeyFuzzPercentage"] = state ? state.tunnel1RekeyFuzzPercentage : undefined;
+            resourceInputs["tunnel1RekeyMarginTimeSeconds"] = state ? state.tunnel1RekeyMarginTimeSeconds : undefined;
+            resourceInputs["tunnel1ReplayWindowSize"] = state ? state.tunnel1ReplayWindowSize : undefined;
+            resourceInputs["tunnel1StartupAction"] = state ? state.tunnel1StartupAction : undefined;
+            resourceInputs["tunnel1VgwInsideAddress"] = state ? state.tunnel1VgwInsideAddress : undefined;
+            resourceInputs["tunnel2Address"] = state ? state.tunnel2Address : undefined;
+            resourceInputs["tunnel2BgpAsn"] = state ? state.tunnel2BgpAsn : undefined;
+            resourceInputs["tunnel2BgpHoldtime"] = state ? state.tunnel2BgpHoldtime : undefined;
+            resourceInputs["tunnel2CgwInsideAddress"] = state ? state.tunnel2CgwInsideAddress : undefined;
+            resourceInputs["tunnel2DpdTimeoutAction"] = state ? state.tunnel2DpdTimeoutAction : undefined;
+            resourceInputs["tunnel2DpdTimeoutSeconds"] = state ? state.tunnel2DpdTimeoutSeconds : undefined;
+            resourceInputs["tunnel2EnableTunnelLifecycleControl"] = state ? state.tunnel2EnableTunnelLifecycleControl : undefined;
+            resourceInputs["tunnel2IkeVersions"] = state ? state.tunnel2IkeVersions : undefined;
+            resourceInputs["tunnel2InsideCidr"] = state ? state.tunnel2InsideCidr : undefined;
+            resourceInputs["tunnel2InsideIpv6Cidr"] = state ? state.tunnel2InsideIpv6Cidr : undefined;
+            resourceInputs["tunnel2LogOptions"] = state ? state.tunnel2LogOptions : undefined;
+            resourceInputs["tunnel2Phase1DhGroupNumbers"] = state ? state.tunnel2Phase1DhGroupNumbers : undefined;
+            resourceInputs["tunnel2Phase1EncryptionAlgorithms"] = state ? state.tunnel2Phase1EncryptionAlgorithms : undefined;
+            resourceInputs["tunnel2Phase1IntegrityAlgorithms"] = state ? state.tunnel2Phase1IntegrityAlgorithms : undefined;
+            resourceInputs["tunnel2Phase1LifetimeSeconds"] = state ? state.tunnel2Phase1LifetimeSeconds : undefined;
+            resourceInputs["tunnel2Phase2DhGroupNumbers"] = state ? state.tunnel2Phase2DhGroupNumbers : undefined;
+            resourceInputs["tunnel2Phase2EncryptionAlgorithms"] = state ? state.tunnel2Phase2EncryptionAlgorithms : undefined;
+            resourceInputs["tunnel2Phase2IntegrityAlgorithms"] = state ? state.tunnel2Phase2IntegrityAlgorithms : undefined;
+            resourceInputs["tunnel2Phase2LifetimeSeconds"] = state ? state.tunnel2Phase2LifetimeSeconds : undefined;
+            resourceInputs["tunnel2PresharedKey"] = state ? state.tunnel2PresharedKey : undefined;
+            resourceInputs["tunnel2RekeyFuzzPercentage"] = state ? state.tunnel2RekeyFuzzPercentage : undefined;
+            resourceInputs["tunnel2RekeyMarginTimeSeconds"] = state ? state.tunnel2RekeyMarginTimeSeconds : undefined;
+            resourceInputs["tunnel2ReplayWindowSize"] = state ? state.tunnel2ReplayWindowSize : undefined;
+            resourceInputs["tunnel2StartupAction"] = state ? state.tunnel2StartupAction : undefined;
+            resourceInputs["tunnel2VgwInsideAddress"] = state ? state.tunnel2VgwInsideAddress : undefined;
+            resourceInputs["tunnelInsideIpVersion"] = state ? state.tunnelInsideIpVersion : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["vgwTelemetries"] = state ? state.vgwTelemetries : undefined;
+            resourceInputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
         } else {
             const args = argsOrState as VpnConnectionArgs | undefined;
-            if (args?.customerGatewayId === undefined && !opts.urn) {
+            if ((!args || args.customerGatewayId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'customerGatewayId'");
             }
-            if (args?.type === undefined && !opts.urn) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["customerGatewayId"] = args?.customerGatewayId;
-            resourceInputs["enableAcceleration"] = args?.enableAcceleration;
-            resourceInputs["localIpv4NetworkCidr"] = args?.localIpv4NetworkCidr;
-            resourceInputs["localIpv6NetworkCidr"] = args?.localIpv6NetworkCidr;
-            resourceInputs["outsideIpAddressType"] = args?.outsideIpAddressType;
-            resourceInputs["presharedKeyStorage"] = args?.presharedKeyStorage;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["remoteIpv4NetworkCidr"] = args?.remoteIpv4NetworkCidr;
-            resourceInputs["remoteIpv6NetworkCidr"] = args?.remoteIpv6NetworkCidr;
-            resourceInputs["staticRoutesOnly"] = args?.staticRoutesOnly;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["transitGatewayId"] = args?.transitGatewayId;
-            resourceInputs["transportTransitGatewayAttachmentId"] = args?.transportTransitGatewayAttachmentId;
-            resourceInputs["tunnel1DpdTimeoutAction"] = args?.tunnel1DpdTimeoutAction;
-            resourceInputs["tunnel1DpdTimeoutSeconds"] = args?.tunnel1DpdTimeoutSeconds;
-            resourceInputs["tunnel1EnableTunnelLifecycleControl"] = args?.tunnel1EnableTunnelLifecycleControl;
-            resourceInputs["tunnel1IkeVersions"] = args?.tunnel1IkeVersions;
-            resourceInputs["tunnel1InsideCidr"] = args?.tunnel1InsideCidr;
-            resourceInputs["tunnel1InsideIpv6Cidr"] = args?.tunnel1InsideIpv6Cidr;
-            resourceInputs["tunnel1LogOptions"] = args?.tunnel1LogOptions;
-            resourceInputs["tunnel1Phase1DhGroupNumbers"] = args?.tunnel1Phase1DhGroupNumbers;
-            resourceInputs["tunnel1Phase1EncryptionAlgorithms"] = args?.tunnel1Phase1EncryptionAlgorithms;
-            resourceInputs["tunnel1Phase1IntegrityAlgorithms"] = args?.tunnel1Phase1IntegrityAlgorithms;
-            resourceInputs["tunnel1Phase1LifetimeSeconds"] = args?.tunnel1Phase1LifetimeSeconds;
-            resourceInputs["tunnel1Phase2DhGroupNumbers"] = args?.tunnel1Phase2DhGroupNumbers;
-            resourceInputs["tunnel1Phase2EncryptionAlgorithms"] = args?.tunnel1Phase2EncryptionAlgorithms;
-            resourceInputs["tunnel1Phase2IntegrityAlgorithms"] = args?.tunnel1Phase2IntegrityAlgorithms;
-            resourceInputs["tunnel1Phase2LifetimeSeconds"] = args?.tunnel1Phase2LifetimeSeconds;
+            resourceInputs["customerGatewayId"] = args ? args.customerGatewayId : undefined;
+            resourceInputs["enableAcceleration"] = args ? args.enableAcceleration : undefined;
+            resourceInputs["localIpv4NetworkCidr"] = args ? args.localIpv4NetworkCidr : undefined;
+            resourceInputs["localIpv6NetworkCidr"] = args ? args.localIpv6NetworkCidr : undefined;
+            resourceInputs["outsideIpAddressType"] = args ? args.outsideIpAddressType : undefined;
+            resourceInputs["presharedKeyStorage"] = args ? args.presharedKeyStorage : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["remoteIpv4NetworkCidr"] = args ? args.remoteIpv4NetworkCidr : undefined;
+            resourceInputs["remoteIpv6NetworkCidr"] = args ? args.remoteIpv6NetworkCidr : undefined;
+            resourceInputs["staticRoutesOnly"] = args ? args.staticRoutesOnly : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
+            resourceInputs["transportTransitGatewayAttachmentId"] = args ? args.transportTransitGatewayAttachmentId : undefined;
+            resourceInputs["tunnel1DpdTimeoutAction"] = args ? args.tunnel1DpdTimeoutAction : undefined;
+            resourceInputs["tunnel1DpdTimeoutSeconds"] = args ? args.tunnel1DpdTimeoutSeconds : undefined;
+            resourceInputs["tunnel1EnableTunnelLifecycleControl"] = args ? args.tunnel1EnableTunnelLifecycleControl : undefined;
+            resourceInputs["tunnel1IkeVersions"] = args ? args.tunnel1IkeVersions : undefined;
+            resourceInputs["tunnel1InsideCidr"] = args ? args.tunnel1InsideCidr : undefined;
+            resourceInputs["tunnel1InsideIpv6Cidr"] = args ? args.tunnel1InsideIpv6Cidr : undefined;
+            resourceInputs["tunnel1LogOptions"] = args ? args.tunnel1LogOptions : undefined;
+            resourceInputs["tunnel1Phase1DhGroupNumbers"] = args ? args.tunnel1Phase1DhGroupNumbers : undefined;
+            resourceInputs["tunnel1Phase1EncryptionAlgorithms"] = args ? args.tunnel1Phase1EncryptionAlgorithms : undefined;
+            resourceInputs["tunnel1Phase1IntegrityAlgorithms"] = args ? args.tunnel1Phase1IntegrityAlgorithms : undefined;
+            resourceInputs["tunnel1Phase1LifetimeSeconds"] = args ? args.tunnel1Phase1LifetimeSeconds : undefined;
+            resourceInputs["tunnel1Phase2DhGroupNumbers"] = args ? args.tunnel1Phase2DhGroupNumbers : undefined;
+            resourceInputs["tunnel1Phase2EncryptionAlgorithms"] = args ? args.tunnel1Phase2EncryptionAlgorithms : undefined;
+            resourceInputs["tunnel1Phase2IntegrityAlgorithms"] = args ? args.tunnel1Phase2IntegrityAlgorithms : undefined;
+            resourceInputs["tunnel1Phase2LifetimeSeconds"] = args ? args.tunnel1Phase2LifetimeSeconds : undefined;
             resourceInputs["tunnel1PresharedKey"] = args?.tunnel1PresharedKey ? pulumi.secret(args.tunnel1PresharedKey) : undefined;
-            resourceInputs["tunnel1RekeyFuzzPercentage"] = args?.tunnel1RekeyFuzzPercentage;
-            resourceInputs["tunnel1RekeyMarginTimeSeconds"] = args?.tunnel1RekeyMarginTimeSeconds;
-            resourceInputs["tunnel1ReplayWindowSize"] = args?.tunnel1ReplayWindowSize;
-            resourceInputs["tunnel1StartupAction"] = args?.tunnel1StartupAction;
-            resourceInputs["tunnel2DpdTimeoutAction"] = args?.tunnel2DpdTimeoutAction;
-            resourceInputs["tunnel2DpdTimeoutSeconds"] = args?.tunnel2DpdTimeoutSeconds;
-            resourceInputs["tunnel2EnableTunnelLifecycleControl"] = args?.tunnel2EnableTunnelLifecycleControl;
-            resourceInputs["tunnel2IkeVersions"] = args?.tunnel2IkeVersions;
-            resourceInputs["tunnel2InsideCidr"] = args?.tunnel2InsideCidr;
-            resourceInputs["tunnel2InsideIpv6Cidr"] = args?.tunnel2InsideIpv6Cidr;
-            resourceInputs["tunnel2LogOptions"] = args?.tunnel2LogOptions;
-            resourceInputs["tunnel2Phase1DhGroupNumbers"] = args?.tunnel2Phase1DhGroupNumbers;
-            resourceInputs["tunnel2Phase1EncryptionAlgorithms"] = args?.tunnel2Phase1EncryptionAlgorithms;
-            resourceInputs["tunnel2Phase1IntegrityAlgorithms"] = args?.tunnel2Phase1IntegrityAlgorithms;
-            resourceInputs["tunnel2Phase1LifetimeSeconds"] = args?.tunnel2Phase1LifetimeSeconds;
-            resourceInputs["tunnel2Phase2DhGroupNumbers"] = args?.tunnel2Phase2DhGroupNumbers;
-            resourceInputs["tunnel2Phase2EncryptionAlgorithms"] = args?.tunnel2Phase2EncryptionAlgorithms;
-            resourceInputs["tunnel2Phase2IntegrityAlgorithms"] = args?.tunnel2Phase2IntegrityAlgorithms;
-            resourceInputs["tunnel2Phase2LifetimeSeconds"] = args?.tunnel2Phase2LifetimeSeconds;
+            resourceInputs["tunnel1RekeyFuzzPercentage"] = args ? args.tunnel1RekeyFuzzPercentage : undefined;
+            resourceInputs["tunnel1RekeyMarginTimeSeconds"] = args ? args.tunnel1RekeyMarginTimeSeconds : undefined;
+            resourceInputs["tunnel1ReplayWindowSize"] = args ? args.tunnel1ReplayWindowSize : undefined;
+            resourceInputs["tunnel1StartupAction"] = args ? args.tunnel1StartupAction : undefined;
+            resourceInputs["tunnel2DpdTimeoutAction"] = args ? args.tunnel2DpdTimeoutAction : undefined;
+            resourceInputs["tunnel2DpdTimeoutSeconds"] = args ? args.tunnel2DpdTimeoutSeconds : undefined;
+            resourceInputs["tunnel2EnableTunnelLifecycleControl"] = args ? args.tunnel2EnableTunnelLifecycleControl : undefined;
+            resourceInputs["tunnel2IkeVersions"] = args ? args.tunnel2IkeVersions : undefined;
+            resourceInputs["tunnel2InsideCidr"] = args ? args.tunnel2InsideCidr : undefined;
+            resourceInputs["tunnel2InsideIpv6Cidr"] = args ? args.tunnel2InsideIpv6Cidr : undefined;
+            resourceInputs["tunnel2LogOptions"] = args ? args.tunnel2LogOptions : undefined;
+            resourceInputs["tunnel2Phase1DhGroupNumbers"] = args ? args.tunnel2Phase1DhGroupNumbers : undefined;
+            resourceInputs["tunnel2Phase1EncryptionAlgorithms"] = args ? args.tunnel2Phase1EncryptionAlgorithms : undefined;
+            resourceInputs["tunnel2Phase1IntegrityAlgorithms"] = args ? args.tunnel2Phase1IntegrityAlgorithms : undefined;
+            resourceInputs["tunnel2Phase1LifetimeSeconds"] = args ? args.tunnel2Phase1LifetimeSeconds : undefined;
+            resourceInputs["tunnel2Phase2DhGroupNumbers"] = args ? args.tunnel2Phase2DhGroupNumbers : undefined;
+            resourceInputs["tunnel2Phase2EncryptionAlgorithms"] = args ? args.tunnel2Phase2EncryptionAlgorithms : undefined;
+            resourceInputs["tunnel2Phase2IntegrityAlgorithms"] = args ? args.tunnel2Phase2IntegrityAlgorithms : undefined;
+            resourceInputs["tunnel2Phase2LifetimeSeconds"] = args ? args.tunnel2Phase2LifetimeSeconds : undefined;
             resourceInputs["tunnel2PresharedKey"] = args?.tunnel2PresharedKey ? pulumi.secret(args.tunnel2PresharedKey) : undefined;
-            resourceInputs["tunnel2RekeyFuzzPercentage"] = args?.tunnel2RekeyFuzzPercentage;
-            resourceInputs["tunnel2RekeyMarginTimeSeconds"] = args?.tunnel2RekeyMarginTimeSeconds;
-            resourceInputs["tunnel2ReplayWindowSize"] = args?.tunnel2ReplayWindowSize;
-            resourceInputs["tunnel2StartupAction"] = args?.tunnel2StartupAction;
-            resourceInputs["tunnelInsideIpVersion"] = args?.tunnelInsideIpVersion;
-            resourceInputs["type"] = args?.type;
-            resourceInputs["vpnGatewayId"] = args?.vpnGatewayId;
+            resourceInputs["tunnel2RekeyFuzzPercentage"] = args ? args.tunnel2RekeyFuzzPercentage : undefined;
+            resourceInputs["tunnel2RekeyMarginTimeSeconds"] = args ? args.tunnel2RekeyMarginTimeSeconds : undefined;
+            resourceInputs["tunnel2ReplayWindowSize"] = args ? args.tunnel2ReplayWindowSize : undefined;
+            resourceInputs["tunnel2StartupAction"] = args ? args.tunnel2StartupAction : undefined;
+            resourceInputs["tunnelInsideIpVersion"] = args ? args.tunnelInsideIpVersion : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["coreNetworkArn"] = undefined /*out*/;
             resourceInputs["coreNetworkAttachmentArn"] = undefined /*out*/;

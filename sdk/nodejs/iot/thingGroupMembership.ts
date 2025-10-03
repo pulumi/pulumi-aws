@@ -59,19 +59,19 @@ export class ThingGroupMembership extends pulumi.CustomResource {
     /**
      * Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
      */
-    declare public readonly overrideDynamicGroup: pulumi.Output<boolean | undefined>;
+    public readonly overrideDynamicGroup!: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The name of the group to which you are adding a thing.
      */
-    declare public readonly thingGroupName: pulumi.Output<string>;
+    public readonly thingGroupName!: pulumi.Output<string>;
     /**
      * The name of the thing to add to a group.
      */
-    declare public readonly thingName: pulumi.Output<string>;
+    public readonly thingName!: pulumi.Output<string>;
 
     /**
      * Create a ThingGroupMembership resource with the given unique name, arguments, and options.
@@ -86,22 +86,22 @@ export class ThingGroupMembership extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ThingGroupMembershipState | undefined;
-            resourceInputs["overrideDynamicGroup"] = state?.overrideDynamicGroup;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["thingGroupName"] = state?.thingGroupName;
-            resourceInputs["thingName"] = state?.thingName;
+            resourceInputs["overrideDynamicGroup"] = state ? state.overrideDynamicGroup : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["thingGroupName"] = state ? state.thingGroupName : undefined;
+            resourceInputs["thingName"] = state ? state.thingName : undefined;
         } else {
             const args = argsOrState as ThingGroupMembershipArgs | undefined;
-            if (args?.thingGroupName === undefined && !opts.urn) {
+            if ((!args || args.thingGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'thingGroupName'");
             }
-            if (args?.thingName === undefined && !opts.urn) {
+            if ((!args || args.thingName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'thingName'");
             }
-            resourceInputs["overrideDynamicGroup"] = args?.overrideDynamicGroup;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["thingGroupName"] = args?.thingGroupName;
-            resourceInputs["thingName"] = args?.thingName;
+            resourceInputs["overrideDynamicGroup"] = args ? args.overrideDynamicGroup : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["thingGroupName"] = args ? args.thingGroupName : undefined;
+            resourceInputs["thingName"] = args ? args.thingName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ThingGroupMembership.__pulumiType, name, resourceInputs, opts);

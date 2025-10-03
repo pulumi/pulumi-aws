@@ -106,54 +106,54 @@ export class Method extends pulumi.CustomResource {
     /**
      * Specify if the method requires an API key
      */
-    declare public readonly apiKeyRequired: pulumi.Output<boolean | undefined>;
+    public readonly apiKeyRequired!: pulumi.Output<boolean | undefined>;
     /**
      * Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
      */
-    declare public readonly authorization: pulumi.Output<string>;
+    public readonly authorization!: pulumi.Output<string>;
     /**
      * Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
      */
-    declare public readonly authorizationScopes: pulumi.Output<string[] | undefined>;
+    public readonly authorizationScopes!: pulumi.Output<string[] | undefined>;
     /**
      * Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
      */
-    declare public readonly authorizerId: pulumi.Output<string | undefined>;
+    public readonly authorizerId!: pulumi.Output<string | undefined>;
     /**
      * HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
      */
-    declare public readonly httpMethod: pulumi.Output<string>;
+    public readonly httpMethod!: pulumi.Output<string>;
     /**
      * Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
      */
-    declare public readonly operationName: pulumi.Output<string | undefined>;
+    public readonly operationName!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Map of the API models used for the request's content type
      * where key is the content type (e.g., `application/json`)
      * and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`'s `name`.
      */
-    declare public readonly requestModels: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly requestModels!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
      * For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
      */
-    declare public readonly requestParameters: pulumi.Output<{[key: string]: boolean} | undefined>;
+    public readonly requestParameters!: pulumi.Output<{[key: string]: boolean} | undefined>;
     /**
      * ID of a `aws.apigateway.RequestValidator`
      */
-    declare public readonly requestValidatorId: pulumi.Output<string | undefined>;
+    public readonly requestValidatorId!: pulumi.Output<string | undefined>;
     /**
      * API resource ID
      */
-    declare public readonly resourceId: pulumi.Output<string>;
+    public readonly resourceId!: pulumi.Output<string>;
     /**
      * ID of the associated REST API
      */
-    declare public readonly restApi: pulumi.Output<string>;
+    public readonly restApi!: pulumi.Output<string>;
 
     /**
      * Create a Method resource with the given unique name, arguments, and options.
@@ -168,44 +168,44 @@ export class Method extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MethodState | undefined;
-            resourceInputs["apiKeyRequired"] = state?.apiKeyRequired;
-            resourceInputs["authorization"] = state?.authorization;
-            resourceInputs["authorizationScopes"] = state?.authorizationScopes;
-            resourceInputs["authorizerId"] = state?.authorizerId;
-            resourceInputs["httpMethod"] = state?.httpMethod;
-            resourceInputs["operationName"] = state?.operationName;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["requestModels"] = state?.requestModels;
-            resourceInputs["requestParameters"] = state?.requestParameters;
-            resourceInputs["requestValidatorId"] = state?.requestValidatorId;
-            resourceInputs["resourceId"] = state?.resourceId;
-            resourceInputs["restApi"] = state?.restApi;
+            resourceInputs["apiKeyRequired"] = state ? state.apiKeyRequired : undefined;
+            resourceInputs["authorization"] = state ? state.authorization : undefined;
+            resourceInputs["authorizationScopes"] = state ? state.authorizationScopes : undefined;
+            resourceInputs["authorizerId"] = state ? state.authorizerId : undefined;
+            resourceInputs["httpMethod"] = state ? state.httpMethod : undefined;
+            resourceInputs["operationName"] = state ? state.operationName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["requestModels"] = state ? state.requestModels : undefined;
+            resourceInputs["requestParameters"] = state ? state.requestParameters : undefined;
+            resourceInputs["requestValidatorId"] = state ? state.requestValidatorId : undefined;
+            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
+            resourceInputs["restApi"] = state ? state.restApi : undefined;
         } else {
             const args = argsOrState as MethodArgs | undefined;
-            if (args?.authorization === undefined && !opts.urn) {
+            if ((!args || args.authorization === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authorization'");
             }
-            if (args?.httpMethod === undefined && !opts.urn) {
+            if ((!args || args.httpMethod === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'httpMethod'");
             }
-            if (args?.resourceId === undefined && !opts.urn) {
+            if ((!args || args.resourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if (args?.restApi === undefined && !opts.urn) {
+            if ((!args || args.restApi === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApi'");
             }
-            resourceInputs["apiKeyRequired"] = args?.apiKeyRequired;
-            resourceInputs["authorization"] = args?.authorization;
-            resourceInputs["authorizationScopes"] = args?.authorizationScopes;
-            resourceInputs["authorizerId"] = args?.authorizerId;
-            resourceInputs["httpMethod"] = args?.httpMethod;
-            resourceInputs["operationName"] = args?.operationName;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["requestModels"] = args?.requestModels;
-            resourceInputs["requestParameters"] = args?.requestParameters;
-            resourceInputs["requestValidatorId"] = args?.requestValidatorId;
-            resourceInputs["resourceId"] = args?.resourceId;
-            resourceInputs["restApi"] = args?.restApi;
+            resourceInputs["apiKeyRequired"] = args ? args.apiKeyRequired : undefined;
+            resourceInputs["authorization"] = args ? args.authorization : undefined;
+            resourceInputs["authorizationScopes"] = args ? args.authorizationScopes : undefined;
+            resourceInputs["authorizerId"] = args ? args.authorizerId : undefined;
+            resourceInputs["httpMethod"] = args ? args.httpMethod : undefined;
+            resourceInputs["operationName"] = args ? args.operationName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["requestModels"] = args ? args.requestModels : undefined;
+            resourceInputs["requestParameters"] = args ? args.requestParameters : undefined;
+            resourceInputs["requestValidatorId"] = args ? args.requestValidatorId : undefined;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["restApi"] = args ? args.restApi : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Method.__pulumiType, name, resourceInputs, opts);

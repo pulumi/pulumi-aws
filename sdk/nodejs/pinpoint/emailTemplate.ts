@@ -68,21 +68,21 @@ export class EmailTemplate extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the message template.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
      */
-    declare public readonly emailTemplates: pulumi.Output<outputs.pinpoint.EmailTemplateEmailTemplate[] | undefined>;
+    public readonly emailTemplates!: pulumi.Output<outputs.pinpoint.EmailTemplateEmailTemplate[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public readonly region!: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
      */
-    declare public readonly templateName: pulumi.Output<string>;
+    public readonly templateName!: pulumi.Output<string>;
 
     /**
      * Create a EmailTemplate resource with the given unique name, arguments, and options.
@@ -97,21 +97,21 @@ export class EmailTemplate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EmailTemplateState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["emailTemplates"] = state?.emailTemplates;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["templateName"] = state?.templateName;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["emailTemplates"] = state ? state.emailTemplates : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["templateName"] = state ? state.templateName : undefined;
         } else {
             const args = argsOrState as EmailTemplateArgs | undefined;
-            if (args?.templateName === undefined && !opts.urn) {
+            if ((!args || args.templateName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'templateName'");
             }
-            resourceInputs["emailTemplates"] = args?.emailTemplates;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["templateName"] = args?.templateName;
+            resourceInputs["emailTemplates"] = args ? args.emailTemplates : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["templateName"] = args ? args.templateName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

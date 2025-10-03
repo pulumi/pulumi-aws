@@ -69,49 +69,49 @@ export class AutoScalingConfigurationVersion extends pulumi.CustomResource {
     /**
      * ARN of this auto scaling configuration version.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Name of the auto scaling configuration.
      */
-    declare public readonly autoScalingConfigurationName: pulumi.Output<string>;
+    public readonly autoScalingConfigurationName!: pulumi.Output<string>;
     /**
      * The revision of this auto scaling configuration.
      */
-    declare public /*out*/ readonly autoScalingConfigurationRevision: pulumi.Output<number>;
-    declare public /*out*/ readonly hasAssociatedService: pulumi.Output<boolean>;
-    declare public /*out*/ readonly isDefault: pulumi.Output<boolean>;
+    public /*out*/ readonly autoScalingConfigurationRevision!: pulumi.Output<number>;
+    public /*out*/ readonly hasAssociatedService!: pulumi.Output<boolean>;
+    public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
     /**
      * Whether the auto scaling configuration has the highest `autoScalingConfigurationRevision` among all configurations that share the same `autoScalingConfigurationName`.
      */
-    declare public /*out*/ readonly latest: pulumi.Output<boolean>;
+    public /*out*/ readonly latest!: pulumi.Output<boolean>;
     /**
      * Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
      */
-    declare public readonly maxConcurrency: pulumi.Output<number | undefined>;
+    public readonly maxConcurrency!: pulumi.Output<number | undefined>;
     /**
      * Maximal number of instances that App Runner provisions for your service.
      */
-    declare public readonly maxSize: pulumi.Output<number | undefined>;
+    public readonly maxSize!: pulumi.Output<number | undefined>;
     /**
      * Minimal number of instances that App Runner provisions for your service.
      */
-    declare public readonly minSize: pulumi.Output<number | undefined>;
+    public readonly minSize!: pulumi.Output<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a AutoScalingConfigurationVersion resource with the given unique name, arguments, and options.
@@ -126,30 +126,30 @@ export class AutoScalingConfigurationVersion extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AutoScalingConfigurationVersionState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["autoScalingConfigurationName"] = state?.autoScalingConfigurationName;
-            resourceInputs["autoScalingConfigurationRevision"] = state?.autoScalingConfigurationRevision;
-            resourceInputs["hasAssociatedService"] = state?.hasAssociatedService;
-            resourceInputs["isDefault"] = state?.isDefault;
-            resourceInputs["latest"] = state?.latest;
-            resourceInputs["maxConcurrency"] = state?.maxConcurrency;
-            resourceInputs["maxSize"] = state?.maxSize;
-            resourceInputs["minSize"] = state?.minSize;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["autoScalingConfigurationName"] = state ? state.autoScalingConfigurationName : undefined;
+            resourceInputs["autoScalingConfigurationRevision"] = state ? state.autoScalingConfigurationRevision : undefined;
+            resourceInputs["hasAssociatedService"] = state ? state.hasAssociatedService : undefined;
+            resourceInputs["isDefault"] = state ? state.isDefault : undefined;
+            resourceInputs["latest"] = state ? state.latest : undefined;
+            resourceInputs["maxConcurrency"] = state ? state.maxConcurrency : undefined;
+            resourceInputs["maxSize"] = state ? state.maxSize : undefined;
+            resourceInputs["minSize"] = state ? state.minSize : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as AutoScalingConfigurationVersionArgs | undefined;
-            if (args?.autoScalingConfigurationName === undefined && !opts.urn) {
+            if ((!args || args.autoScalingConfigurationName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'autoScalingConfigurationName'");
             }
-            resourceInputs["autoScalingConfigurationName"] = args?.autoScalingConfigurationName;
-            resourceInputs["maxConcurrency"] = args?.maxConcurrency;
-            resourceInputs["maxSize"] = args?.maxSize;
-            resourceInputs["minSize"] = args?.minSize;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["autoScalingConfigurationName"] = args ? args.autoScalingConfigurationName : undefined;
+            resourceInputs["maxConcurrency"] = args ? args.maxConcurrency : undefined;
+            resourceInputs["maxSize"] = args ? args.maxSize : undefined;
+            resourceInputs["minSize"] = args ? args.minSize : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["autoScalingConfigurationRevision"] = undefined /*out*/;
             resourceInputs["hasAssociatedService"] = undefined /*out*/;

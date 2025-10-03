@@ -74,113 +74,113 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * ARN for the certificate.
      */
-    declare public readonly certificateArn: pulumi.Output<string>;
+    public readonly certificateArn!: pulumi.Output<string>;
     /**
      * Name of the endpoint database.
      */
-    declare public readonly databaseName: pulumi.Output<string | undefined>;
+    public readonly databaseName!: pulumi.Output<string | undefined>;
     /**
      * Configuration block for OpenSearch settings. See below.
      */
-    declare public readonly elasticsearchSettings: pulumi.Output<outputs.dms.EndpointElasticsearchSettings | undefined>;
+    public readonly elasticsearchSettings!: pulumi.Output<outputs.dms.EndpointElasticsearchSettings | undefined>;
     /**
      * ARN for the endpoint.
      */
-    declare public /*out*/ readonly endpointArn: pulumi.Output<string>;
+    public /*out*/ readonly endpointArn!: pulumi.Output<string>;
     /**
      * Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
      */
-    declare public readonly endpointId: pulumi.Output<string>;
+    public readonly endpointId!: pulumi.Output<string>;
     /**
      * Type of endpoint. Valid values are `source`, `target`.
      */
-    declare public readonly endpointType: pulumi.Output<string>;
+    public readonly endpointType!: pulumi.Output<string>;
     /**
      * Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `aurora-serverless`, `aurora-postgresql-serverless`,`azuredb`, `azure-sql-managed-instance`, `babelfish`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`,`redshift-serverless`, `s3`, `sqlserver`, `neptune` ,`sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
      */
-    declare public readonly engineName: pulumi.Output<string>;
+    public readonly engineName!: pulumi.Output<string>;
     /**
      * Additional attributes associated with the connection. For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html). For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
      */
-    declare public readonly extraConnectionAttributes: pulumi.Output<string>;
+    public readonly extraConnectionAttributes!: pulumi.Output<string>;
     /**
      * Configuration block for Kafka settings. See below.
      */
-    declare public readonly kafkaSettings: pulumi.Output<outputs.dms.EndpointKafkaSettings | undefined>;
+    public readonly kafkaSettings!: pulumi.Output<outputs.dms.EndpointKafkaSettings | undefined>;
     /**
      * Configuration block for Kinesis settings. See below.
      */
-    declare public readonly kinesisSettings: pulumi.Output<outputs.dms.EndpointKinesisSettings | undefined>;
+    public readonly kinesisSettings!: pulumi.Output<outputs.dms.EndpointKinesisSettings | undefined>;
     /**
      * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. When `engineName` is `redshift`, `kmsKeyArn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
      *
      * The following arguments are optional:
      */
-    declare public readonly kmsKeyArn: pulumi.Output<string>;
+    public readonly kmsKeyArn!: pulumi.Output<string>;
     /**
      * Configuration block for MongoDB settings. See below.
      */
-    declare public readonly mongodbSettings: pulumi.Output<outputs.dms.EndpointMongodbSettings | undefined>;
+    public readonly mongodbSettings!: pulumi.Output<outputs.dms.EndpointMongodbSettings | undefined>;
     /**
      * Configuration block for Oracle settings. See below.
      */
-    declare public readonly oracleSettings: pulumi.Output<outputs.dms.EndpointOracleSettings | undefined>;
+    public readonly oracleSettings!: pulumi.Output<outputs.dms.EndpointOracleSettings | undefined>;
     /**
      * Password to be used to login to the endpoint database.
      */
-    declare public readonly password: pulumi.Output<string | undefined>;
-    declare public readonly pauseReplicationTasks: pulumi.Output<boolean | undefined>;
+    public readonly password!: pulumi.Output<string | undefined>;
+    public readonly pauseReplicationTasks!: pulumi.Output<boolean | undefined>;
     /**
      * Port used by the endpoint database.
      */
-    declare public readonly port: pulumi.Output<number | undefined>;
+    public readonly port!: pulumi.Output<number | undefined>;
     /**
      * Configuration block for Postgres settings. See below.
      */
-    declare public readonly postgresSettings: pulumi.Output<outputs.dms.EndpointPostgresSettings | undefined>;
-    declare public readonly redisSettings: pulumi.Output<outputs.dms.EndpointRedisSettings | undefined>;
+    public readonly postgresSettings!: pulumi.Output<outputs.dms.EndpointPostgresSettings | undefined>;
+    public readonly redisSettings!: pulumi.Output<outputs.dms.EndpointRedisSettings | undefined>;
     /**
      * Configuration block for Redshift settings. See below.
      */
-    declare public readonly redshiftSettings: pulumi.Output<outputs.dms.EndpointRedshiftSettings>;
+    public readonly redshiftSettings!: pulumi.Output<outputs.dms.EndpointRedshiftSettings>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secretsManagerArn`. The role must allow the `iam:PassRole` action.
      *
      * > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secretsManagerArn`. Or you can specify clear-text values for `username`, `password` , `serverName`, and `port`. You can't specify both.
      */
-    declare public readonly secretsManagerAccessRoleArn: pulumi.Output<string | undefined>;
+    public readonly secretsManagerAccessRoleArn!: pulumi.Output<string | undefined>;
     /**
      * Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engineName` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
      */
-    declare public readonly secretsManagerArn: pulumi.Output<string | undefined>;
+    public readonly secretsManagerArn!: pulumi.Output<string | undefined>;
     /**
      * Host name of the server.
      */
-    declare public readonly serverName: pulumi.Output<string | undefined>;
+    public readonly serverName!: pulumi.Output<string | undefined>;
     /**
      * ARN used by the service access IAM role for dynamodb endpoints.
      */
-    declare public readonly serviceAccessRole: pulumi.Output<string | undefined>;
+    public readonly serviceAccessRole!: pulumi.Output<string | undefined>;
     /**
      * SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
      */
-    declare public readonly sslMode: pulumi.Output<string>;
+    public readonly sslMode!: pulumi.Output<string>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * User name to be used to login to the endpoint database.
      */
-    declare public readonly username: pulumi.Output<string | undefined>;
+    public readonly username!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Endpoint resource with the given unique name, arguments, and options.
@@ -195,71 +195,71 @@ export class Endpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointState | undefined;
-            resourceInputs["certificateArn"] = state?.certificateArn;
-            resourceInputs["databaseName"] = state?.databaseName;
-            resourceInputs["elasticsearchSettings"] = state?.elasticsearchSettings;
-            resourceInputs["endpointArn"] = state?.endpointArn;
-            resourceInputs["endpointId"] = state?.endpointId;
-            resourceInputs["endpointType"] = state?.endpointType;
-            resourceInputs["engineName"] = state?.engineName;
-            resourceInputs["extraConnectionAttributes"] = state?.extraConnectionAttributes;
-            resourceInputs["kafkaSettings"] = state?.kafkaSettings;
-            resourceInputs["kinesisSettings"] = state?.kinesisSettings;
-            resourceInputs["kmsKeyArn"] = state?.kmsKeyArn;
-            resourceInputs["mongodbSettings"] = state?.mongodbSettings;
-            resourceInputs["oracleSettings"] = state?.oracleSettings;
-            resourceInputs["password"] = state?.password;
-            resourceInputs["pauseReplicationTasks"] = state?.pauseReplicationTasks;
-            resourceInputs["port"] = state?.port;
-            resourceInputs["postgresSettings"] = state?.postgresSettings;
-            resourceInputs["redisSettings"] = state?.redisSettings;
-            resourceInputs["redshiftSettings"] = state?.redshiftSettings;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["secretsManagerAccessRoleArn"] = state?.secretsManagerAccessRoleArn;
-            resourceInputs["secretsManagerArn"] = state?.secretsManagerArn;
-            resourceInputs["serverName"] = state?.serverName;
-            resourceInputs["serviceAccessRole"] = state?.serviceAccessRole;
-            resourceInputs["sslMode"] = state?.sslMode;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["username"] = state?.username;
+            resourceInputs["certificateArn"] = state ? state.certificateArn : undefined;
+            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["elasticsearchSettings"] = state ? state.elasticsearchSettings : undefined;
+            resourceInputs["endpointArn"] = state ? state.endpointArn : undefined;
+            resourceInputs["endpointId"] = state ? state.endpointId : undefined;
+            resourceInputs["endpointType"] = state ? state.endpointType : undefined;
+            resourceInputs["engineName"] = state ? state.engineName : undefined;
+            resourceInputs["extraConnectionAttributes"] = state ? state.extraConnectionAttributes : undefined;
+            resourceInputs["kafkaSettings"] = state ? state.kafkaSettings : undefined;
+            resourceInputs["kinesisSettings"] = state ? state.kinesisSettings : undefined;
+            resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
+            resourceInputs["mongodbSettings"] = state ? state.mongodbSettings : undefined;
+            resourceInputs["oracleSettings"] = state ? state.oracleSettings : undefined;
+            resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["pauseReplicationTasks"] = state ? state.pauseReplicationTasks : undefined;
+            resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["postgresSettings"] = state ? state.postgresSettings : undefined;
+            resourceInputs["redisSettings"] = state ? state.redisSettings : undefined;
+            resourceInputs["redshiftSettings"] = state ? state.redshiftSettings : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["secretsManagerAccessRoleArn"] = state ? state.secretsManagerAccessRoleArn : undefined;
+            resourceInputs["secretsManagerArn"] = state ? state.secretsManagerArn : undefined;
+            resourceInputs["serverName"] = state ? state.serverName : undefined;
+            resourceInputs["serviceAccessRole"] = state ? state.serviceAccessRole : undefined;
+            resourceInputs["sslMode"] = state ? state.sslMode : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as EndpointArgs | undefined;
-            if (args?.endpointId === undefined && !opts.urn) {
+            if ((!args || args.endpointId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endpointId'");
             }
-            if (args?.endpointType === undefined && !opts.urn) {
+            if ((!args || args.endpointType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endpointType'");
             }
-            if (args?.engineName === undefined && !opts.urn) {
+            if ((!args || args.engineName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engineName'");
             }
-            resourceInputs["certificateArn"] = args?.certificateArn;
-            resourceInputs["databaseName"] = args?.databaseName;
-            resourceInputs["elasticsearchSettings"] = args?.elasticsearchSettings;
-            resourceInputs["endpointId"] = args?.endpointId;
-            resourceInputs["endpointType"] = args?.endpointType;
-            resourceInputs["engineName"] = args?.engineName;
-            resourceInputs["extraConnectionAttributes"] = args?.extraConnectionAttributes;
-            resourceInputs["kafkaSettings"] = args?.kafkaSettings;
-            resourceInputs["kinesisSettings"] = args?.kinesisSettings;
-            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
-            resourceInputs["mongodbSettings"] = args?.mongodbSettings;
-            resourceInputs["oracleSettings"] = args?.oracleSettings;
+            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["elasticsearchSettings"] = args ? args.elasticsearchSettings : undefined;
+            resourceInputs["endpointId"] = args ? args.endpointId : undefined;
+            resourceInputs["endpointType"] = args ? args.endpointType : undefined;
+            resourceInputs["engineName"] = args ? args.engineName : undefined;
+            resourceInputs["extraConnectionAttributes"] = args ? args.extraConnectionAttributes : undefined;
+            resourceInputs["kafkaSettings"] = args ? args.kafkaSettings : undefined;
+            resourceInputs["kinesisSettings"] = args ? args.kinesisSettings : undefined;
+            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
+            resourceInputs["mongodbSettings"] = args ? args.mongodbSettings : undefined;
+            resourceInputs["oracleSettings"] = args ? args.oracleSettings : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["pauseReplicationTasks"] = args?.pauseReplicationTasks;
-            resourceInputs["port"] = args?.port;
-            resourceInputs["postgresSettings"] = args?.postgresSettings;
-            resourceInputs["redisSettings"] = args?.redisSettings;
-            resourceInputs["redshiftSettings"] = args?.redshiftSettings;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["secretsManagerAccessRoleArn"] = args?.secretsManagerAccessRoleArn;
-            resourceInputs["secretsManagerArn"] = args?.secretsManagerArn;
-            resourceInputs["serverName"] = args?.serverName;
-            resourceInputs["serviceAccessRole"] = args?.serviceAccessRole;
-            resourceInputs["sslMode"] = args?.sslMode;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["username"] = args?.username;
+            resourceInputs["pauseReplicationTasks"] = args ? args.pauseReplicationTasks : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["postgresSettings"] = args ? args.postgresSettings : undefined;
+            resourceInputs["redisSettings"] = args ? args.redisSettings : undefined;
+            resourceInputs["redshiftSettings"] = args ? args.redshiftSettings : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["secretsManagerAccessRoleArn"] = args ? args.secretsManagerAccessRoleArn : undefined;
+            resourceInputs["secretsManagerArn"] = args ? args.secretsManagerArn : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["serviceAccessRole"] = args ? args.serviceAccessRole : undefined;
+            resourceInputs["sslMode"] = args ? args.sslMode : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
             resourceInputs["endpointArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

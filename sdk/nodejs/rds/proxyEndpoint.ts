@@ -60,48 +60,48 @@ export class ProxyEndpoint extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the proxy endpoint.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
      */
-    declare public readonly dbProxyEndpointName: pulumi.Output<string>;
+    public readonly dbProxyEndpointName!: pulumi.Output<string>;
     /**
      * The name of the DB proxy associated with the DB proxy endpoint that you create.
      */
-    declare public readonly dbProxyName: pulumi.Output<string>;
+    public readonly dbProxyName!: pulumi.Output<string>;
     /**
      * The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
      */
-    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
      * Indicates whether this endpoint is the default endpoint for the associated DB proxy.
      */
-    declare public /*out*/ readonly isDefault: pulumi.Output<boolean>;
+    public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
      */
-    declare public readonly targetRole: pulumi.Output<string | undefined>;
+    public readonly targetRole!: pulumi.Output<string | undefined>;
     /**
      * The VPC ID of the DB proxy endpoint.
      */
-    declare public /*out*/ readonly vpcId: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string>;
     /**
      * One or more VPC security group IDs to associate with the new proxy.
      */
-    declare public readonly vpcSecurityGroupIds: pulumi.Output<string[]>;
+    public readonly vpcSecurityGroupIds!: pulumi.Output<string[]>;
     /**
      * One or more VPC subnet IDs to associate with the new proxy.
      */
-    declare public readonly vpcSubnetIds: pulumi.Output<string[]>;
+    public readonly vpcSubnetIds!: pulumi.Output<string[]>;
 
     /**
      * Create a ProxyEndpoint resource with the given unique name, arguments, and options.
@@ -116,36 +116,36 @@ export class ProxyEndpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProxyEndpointState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["dbProxyEndpointName"] = state?.dbProxyEndpointName;
-            resourceInputs["dbProxyName"] = state?.dbProxyName;
-            resourceInputs["endpoint"] = state?.endpoint;
-            resourceInputs["isDefault"] = state?.isDefault;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["targetRole"] = state?.targetRole;
-            resourceInputs["vpcId"] = state?.vpcId;
-            resourceInputs["vpcSecurityGroupIds"] = state?.vpcSecurityGroupIds;
-            resourceInputs["vpcSubnetIds"] = state?.vpcSubnetIds;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["dbProxyEndpointName"] = state ? state.dbProxyEndpointName : undefined;
+            resourceInputs["dbProxyName"] = state ? state.dbProxyName : undefined;
+            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
+            resourceInputs["isDefault"] = state ? state.isDefault : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["targetRole"] = state ? state.targetRole : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
+            resourceInputs["vpcSubnetIds"] = state ? state.vpcSubnetIds : undefined;
         } else {
             const args = argsOrState as ProxyEndpointArgs | undefined;
-            if (args?.dbProxyEndpointName === undefined && !opts.urn) {
+            if ((!args || args.dbProxyEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dbProxyEndpointName'");
             }
-            if (args?.dbProxyName === undefined && !opts.urn) {
+            if ((!args || args.dbProxyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dbProxyName'");
             }
-            if (args?.vpcSubnetIds === undefined && !opts.urn) {
+            if ((!args || args.vpcSubnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcSubnetIds'");
             }
-            resourceInputs["dbProxyEndpointName"] = args?.dbProxyEndpointName;
-            resourceInputs["dbProxyName"] = args?.dbProxyName;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["targetRole"] = args?.targetRole;
-            resourceInputs["vpcSecurityGroupIds"] = args?.vpcSecurityGroupIds;
-            resourceInputs["vpcSubnetIds"] = args?.vpcSubnetIds;
+            resourceInputs["dbProxyEndpointName"] = args ? args.dbProxyEndpointName : undefined;
+            resourceInputs["dbProxyName"] = args ? args.dbProxyName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetRole"] = args ? args.targetRole : undefined;
+            resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            resourceInputs["vpcSubnetIds"] = args ? args.vpcSubnetIds : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["isDefault"] = undefined /*out*/;

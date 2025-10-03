@@ -72,41 +72,41 @@ export class LbCertificate extends pulumi.CustomResource {
     /**
      * ARN of the lightsail certificate.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Timestamp when the instance was created.
      */
-    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
      * Domain name (e.g., example.com) for your SSL/TLS certificate.
      */
-    declare public readonly domainName: pulumi.Output<string>;
+    public readonly domainName!: pulumi.Output<string>;
     /**
      * Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
      */
-    declare public /*out*/ readonly domainValidationRecords: pulumi.Output<outputs.lightsail.LbCertificateDomainValidationRecord[]>;
+    public /*out*/ readonly domainValidationRecords!: pulumi.Output<outputs.lightsail.LbCertificateDomainValidationRecord[]>;
     /**
      * Load balancer name where you want to create the SSL/TLS certificate.
      */
-    declare public readonly lbName: pulumi.Output<string>;
+    public readonly lbName!: pulumi.Output<string>;
     /**
      * SSL/TLS certificate name.
      *
      * The following arguments are optional:
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
      */
-    declare public readonly subjectAlternativeNames: pulumi.Output<string[]>;
+    public readonly subjectAlternativeNames!: pulumi.Output<string[]>;
     /**
      * Support code for the certificate.
      */
-    declare public /*out*/ readonly supportCode: pulumi.Output<string>;
+    public /*out*/ readonly supportCode!: pulumi.Output<string>;
 
     /**
      * Create a LbCertificate resource with the given unique name, arguments, and options.
@@ -121,25 +121,25 @@ export class LbCertificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LbCertificateState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["createdAt"] = state?.createdAt;
-            resourceInputs["domainName"] = state?.domainName;
-            resourceInputs["domainValidationRecords"] = state?.domainValidationRecords;
-            resourceInputs["lbName"] = state?.lbName;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["subjectAlternativeNames"] = state?.subjectAlternativeNames;
-            resourceInputs["supportCode"] = state?.supportCode;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["domainValidationRecords"] = state ? state.domainValidationRecords : undefined;
+            resourceInputs["lbName"] = state ? state.lbName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["subjectAlternativeNames"] = state ? state.subjectAlternativeNames : undefined;
+            resourceInputs["supportCode"] = state ? state.supportCode : undefined;
         } else {
             const args = argsOrState as LbCertificateArgs | undefined;
-            if (args?.lbName === undefined && !opts.urn) {
+            if ((!args || args.lbName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'lbName'");
             }
-            resourceInputs["domainName"] = args?.domainName;
-            resourceInputs["lbName"] = args?.lbName;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["subjectAlternativeNames"] = args?.subjectAlternativeNames;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["lbName"] = args ? args.lbName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["subjectAlternativeNames"] = args ? args.subjectAlternativeNames : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["domainValidationRecords"] = undefined /*out*/;

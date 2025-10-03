@@ -361,80 +361,80 @@ export class Key extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the key.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A flag to indicate whether to bypass the key policy lockout safety check.
      * Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
      * For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
      * The default value is `false`.
      */
-    declare public readonly bypassPolicyLockoutSafetyCheck: pulumi.Output<boolean | undefined>;
+    public readonly bypassPolicyLockoutSafetyCheck!: pulumi.Output<boolean | undefined>;
     /**
      * ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
      */
-    declare public readonly customKeyStoreId: pulumi.Output<string | undefined>;
+    public readonly customKeyStoreId!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
      * Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
      */
-    declare public readonly customerMasterKeySpec: pulumi.Output<string | undefined>;
+    public readonly customerMasterKeySpec!: pulumi.Output<string | undefined>;
     /**
      * The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
      * If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
      * If the KMS key is a multi-Region primary key with replicas, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.
      */
-    declare public readonly deletionWindowInDays: pulumi.Output<number | undefined>;
+    public readonly deletionWindowInDays!: pulumi.Output<number | undefined>;
     /**
      * The description of the key as viewed in AWS console.
      */
-    declare public readonly description: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
      */
-    declare public readonly enableKeyRotation: pulumi.Output<boolean | undefined>;
+    public readonly enableKeyRotation!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether the key is enabled. Defaults to `true`.
      */
-    declare public readonly isEnabled: pulumi.Output<boolean | undefined>;
+    public readonly isEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The globally unique identifier for the key.
      */
-    declare public /*out*/ readonly keyId: pulumi.Output<string>;
+    public /*out*/ readonly keyId!: pulumi.Output<string>;
     /**
      * Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
      * Defaults to `ENCRYPT_DECRYPT`.
      */
-    declare public readonly keyUsage: pulumi.Output<string | undefined>;
+    public readonly keyUsage!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
      */
-    declare public readonly multiRegion: pulumi.Output<boolean>;
+    public readonly multiRegion!: pulumi.Output<boolean>;
     /**
      * A valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws.iam.getPolicyDocument`, in the form that designates a principal, can be used.
      *
      * > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
      */
-    declare public readonly policy: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
      */
-    declare public readonly rotationPeriodInDays: pulumi.Output<number>;
+    public readonly rotationPeriodInDays!: pulumi.Output<number>;
     /**
      * A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Identifies the external key that serves as key material for the KMS key in an external key store.
      */
-    declare public readonly xksKeyId: pulumi.Output<string | undefined>;
+    public readonly xksKeyId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Key resource with the given unique name, arguments, and options.
@@ -449,39 +449,39 @@ export class Key extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KeyState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["bypassPolicyLockoutSafetyCheck"] = state?.bypassPolicyLockoutSafetyCheck;
-            resourceInputs["customKeyStoreId"] = state?.customKeyStoreId;
-            resourceInputs["customerMasterKeySpec"] = state?.customerMasterKeySpec;
-            resourceInputs["deletionWindowInDays"] = state?.deletionWindowInDays;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["enableKeyRotation"] = state?.enableKeyRotation;
-            resourceInputs["isEnabled"] = state?.isEnabled;
-            resourceInputs["keyId"] = state?.keyId;
-            resourceInputs["keyUsage"] = state?.keyUsage;
-            resourceInputs["multiRegion"] = state?.multiRegion;
-            resourceInputs["policy"] = state?.policy;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["rotationPeriodInDays"] = state?.rotationPeriodInDays;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["xksKeyId"] = state?.xksKeyId;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["bypassPolicyLockoutSafetyCheck"] = state ? state.bypassPolicyLockoutSafetyCheck : undefined;
+            resourceInputs["customKeyStoreId"] = state ? state.customKeyStoreId : undefined;
+            resourceInputs["customerMasterKeySpec"] = state ? state.customerMasterKeySpec : undefined;
+            resourceInputs["deletionWindowInDays"] = state ? state.deletionWindowInDays : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enableKeyRotation"] = state ? state.enableKeyRotation : undefined;
+            resourceInputs["isEnabled"] = state ? state.isEnabled : undefined;
+            resourceInputs["keyId"] = state ? state.keyId : undefined;
+            resourceInputs["keyUsage"] = state ? state.keyUsage : undefined;
+            resourceInputs["multiRegion"] = state ? state.multiRegion : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["rotationPeriodInDays"] = state ? state.rotationPeriodInDays : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["xksKeyId"] = state ? state.xksKeyId : undefined;
         } else {
             const args = argsOrState as KeyArgs | undefined;
-            resourceInputs["bypassPolicyLockoutSafetyCheck"] = args?.bypassPolicyLockoutSafetyCheck;
-            resourceInputs["customKeyStoreId"] = args?.customKeyStoreId;
-            resourceInputs["customerMasterKeySpec"] = args?.customerMasterKeySpec;
-            resourceInputs["deletionWindowInDays"] = args?.deletionWindowInDays;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["enableKeyRotation"] = args?.enableKeyRotation;
-            resourceInputs["isEnabled"] = args?.isEnabled;
-            resourceInputs["keyUsage"] = args?.keyUsage;
-            resourceInputs["multiRegion"] = args?.multiRegion;
-            resourceInputs["policy"] = args?.policy;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["rotationPeriodInDays"] = args?.rotationPeriodInDays;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["xksKeyId"] = args?.xksKeyId;
+            resourceInputs["bypassPolicyLockoutSafetyCheck"] = args ? args.bypassPolicyLockoutSafetyCheck : undefined;
+            resourceInputs["customKeyStoreId"] = args ? args.customKeyStoreId : undefined;
+            resourceInputs["customerMasterKeySpec"] = args ? args.customerMasterKeySpec : undefined;
+            resourceInputs["deletionWindowInDays"] = args ? args.deletionWindowInDays : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enableKeyRotation"] = args ? args.enableKeyRotation : undefined;
+            resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
+            resourceInputs["keyUsage"] = args ? args.keyUsage : undefined;
+            resourceInputs["multiRegion"] = args ? args.multiRegion : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["rotationPeriodInDays"] = args ? args.rotationPeriodInDays : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["xksKeyId"] = args ? args.xksKeyId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["keyId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

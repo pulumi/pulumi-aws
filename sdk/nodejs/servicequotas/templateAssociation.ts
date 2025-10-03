@@ -59,12 +59,12 @@ export class TemplateAssociation extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
-    declare public readonly skipDestroy: pulumi.Output<boolean | undefined>;
+    public readonly region!: pulumi.Output<string>;
+    public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
     /**
      * Association status. Creating this resource will result in an `ASSOCIATED` status, and quota increase requests in the template are automatically applied to new AWS accounts in the organization.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
 
     /**
      * Create a TemplateAssociation resource with the given unique name, arguments, and options.
@@ -79,13 +79,13 @@ export class TemplateAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TemplateAssociationState | undefined;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["skipDestroy"] = state?.skipDestroy;
-            resourceInputs["status"] = state?.status;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["skipDestroy"] = state ? state.skipDestroy : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as TemplateAssociationArgs | undefined;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["skipDestroy"] = args?.skipDestroy;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -58,49 +58,49 @@ export class Bucket extends pulumi.CustomResource {
     /**
      * ARN of the Lightsail bucket.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Availability Zone. Follows the format us-east-2a (case-sensitive).
      */
-    declare public /*out*/ readonly availabilityZone: pulumi.Output<string>;
+    public /*out*/ readonly availabilityZone!: pulumi.Output<string>;
     /**
      * Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
      */
-    declare public readonly bundleId: pulumi.Output<string>;
+    public readonly bundleId!: pulumi.Output<string>;
     /**
      * Date and time when the bucket was created.
      */
-    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
      * Whether to force delete non-empty buckets using `pulumi destroy`. AWS by default will not delete a bucket which is not empty, to prevent losing bucket data and affecting other resources in Lightsail. If `forceDelete` is set to `true` the bucket will be deleted even when not empty.
      */
-    declare public readonly forceDelete: pulumi.Output<boolean | undefined>;
+    public readonly forceDelete!: pulumi.Output<boolean | undefined>;
     /**
      * Name for the bucket.
      *
      * The following arguments are optional:
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
      */
-    declare public /*out*/ readonly supportCode: pulumi.Output<string>;
+    public /*out*/ readonly supportCode!: pulumi.Output<string>;
     /**
      * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * URL of the bucket.
      */
-    declare public /*out*/ readonly url: pulumi.Output<string>;
+    public /*out*/ readonly url!: pulumi.Output<string>;
 
     /**
      * Create a Bucket resource with the given unique name, arguments, and options.
@@ -115,27 +115,27 @@ export class Bucket extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["availabilityZone"] = state?.availabilityZone;
-            resourceInputs["bundleId"] = state?.bundleId;
-            resourceInputs["createdAt"] = state?.createdAt;
-            resourceInputs["forceDelete"] = state?.forceDelete;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["supportCode"] = state?.supportCode;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["url"] = state?.url;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            resourceInputs["bundleId"] = state ? state.bundleId : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["forceDelete"] = state ? state.forceDelete : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["supportCode"] = state ? state.supportCode : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as BucketArgs | undefined;
-            if (args?.bundleId === undefined && !opts.urn) {
+            if ((!args || args.bundleId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bundleId'");
             }
-            resourceInputs["bundleId"] = args?.bundleId;
-            resourceInputs["forceDelete"] = args?.forceDelete;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["bundleId"] = args ? args.bundleId : undefined;
+            resourceInputs["forceDelete"] = args ? args.forceDelete : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

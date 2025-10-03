@@ -58,15 +58,15 @@ export class ResolverQueryLogConfigAssociation extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
      */
-    declare public readonly resolverQueryLogConfigId: pulumi.Output<string>;
+    public readonly resolverQueryLogConfigId!: pulumi.Output<string>;
     /**
      * The ID of a VPC that you want this query logging configuration to log queries for.
      */
-    declare public readonly resourceId: pulumi.Output<string>;
+    public readonly resourceId!: pulumi.Output<string>;
 
     /**
      * Create a ResolverQueryLogConfigAssociation resource with the given unique name, arguments, and options.
@@ -81,20 +81,20 @@ export class ResolverQueryLogConfigAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResolverQueryLogConfigAssociationState | undefined;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resolverQueryLogConfigId"] = state?.resolverQueryLogConfigId;
-            resourceInputs["resourceId"] = state?.resourceId;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resolverQueryLogConfigId"] = state ? state.resolverQueryLogConfigId : undefined;
+            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
         } else {
             const args = argsOrState as ResolverQueryLogConfigAssociationArgs | undefined;
-            if (args?.resolverQueryLogConfigId === undefined && !opts.urn) {
+            if ((!args || args.resolverQueryLogConfigId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resolverQueryLogConfigId'");
             }
-            if (args?.resourceId === undefined && !opts.urn) {
+            if ((!args || args.resourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resolverQueryLogConfigId"] = args?.resolverQueryLogConfigId;
-            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resolverQueryLogConfigId"] = args ? args.resolverQueryLogConfigId : undefined;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResolverQueryLogConfigAssociation.__pulumiType, name, resourceInputs, opts);

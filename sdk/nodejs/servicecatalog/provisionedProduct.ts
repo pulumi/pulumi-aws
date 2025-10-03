@@ -79,113 +79,113 @@ export class ProvisionedProduct extends pulumi.CustomResource {
     /**
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      */
-    declare public readonly acceptLanguage: pulumi.Output<string | undefined>;
+    public readonly acceptLanguage!: pulumi.Output<string | undefined>;
     /**
      * ARN of the provisioned product.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Set of CloudWatch dashboards that were created when provisioning the product.
      */
-    declare public /*out*/ readonly cloudwatchDashboardNames: pulumi.Output<string[]>;
+    public /*out*/ readonly cloudwatchDashboardNames!: pulumi.Output<string[]>;
     /**
      * Time when the provisioned product was created.
      */
-    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
      * _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
      */
-    declare public readonly ignoreErrors: pulumi.Output<boolean | undefined>;
+    public readonly ignoreErrors!: pulumi.Output<boolean | undefined>;
     /**
      * Record identifier of the last request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
      */
-    declare public /*out*/ readonly lastProvisioningRecordId: pulumi.Output<string>;
+    public /*out*/ readonly lastProvisioningRecordId!: pulumi.Output<string>;
     /**
      * Record identifier of the last request performed on this provisioned product.
      */
-    declare public /*out*/ readonly lastRecordId: pulumi.Output<string>;
+    public /*out*/ readonly lastRecordId!: pulumi.Output<string>;
     /**
      * Record identifier of the last successful request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
      */
-    declare public /*out*/ readonly lastSuccessfulProvisioningRecordId: pulumi.Output<string>;
+    public /*out*/ readonly lastSuccessfulProvisioningRecordId!: pulumi.Output<string>;
     /**
      * ARN of the launch role associated with the provisioned product.
      */
-    declare public /*out*/ readonly launchRoleArn: pulumi.Output<string>;
+    public /*out*/ readonly launchRoleArn!: pulumi.Output<string>;
     /**
      * User-friendly name of the provisioned product.
      *
      * The following arguments are optional:
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
      */
-    declare public readonly notificationArns: pulumi.Output<string[] | undefined>;
+    public readonly notificationArns!: pulumi.Output<string[] | undefined>;
     /**
      * The set of outputs for the product created.
      */
-    declare public /*out*/ readonly outputs: pulumi.Output<outputs.servicecatalog.ProvisionedProductOutput[]>;
+    public /*out*/ readonly outputs!: pulumi.Output<outputs.servicecatalog.ProvisionedProductOutput[]>;
     /**
      * Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `pathId` or `pathName`, but not both.
      */
-    declare public readonly pathId: pulumi.Output<string>;
+    public readonly pathId!: pulumi.Output<string>;
     /**
      * Name of the path. You must provide `pathId` or `pathName`, but not both.
      */
-    declare public readonly pathName: pulumi.Output<string | undefined>;
+    public readonly pathName!: pulumi.Output<string | undefined>;
     /**
      * Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `productId` or `productName`, but not both.
      */
-    declare public readonly productId: pulumi.Output<string>;
+    public readonly productId!: pulumi.Output<string>;
     /**
      * Name of the product. You must provide `productId` or `productName`, but not both.
      */
-    declare public readonly productName: pulumi.Output<string | undefined>;
+    public readonly productName!: pulumi.Output<string | undefined>;
     /**
      * Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
      */
-    declare public readonly provisioningArtifactId: pulumi.Output<string>;
+    public readonly provisioningArtifactId!: pulumi.Output<string>;
     /**
      * Name of the provisioning artifact. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
      */
-    declare public readonly provisioningArtifactName: pulumi.Output<string | undefined>;
+    public readonly provisioningArtifactName!: pulumi.Output<string | undefined>;
     /**
      * Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioningParameters` Block for details.
      */
-    declare public readonly provisioningParameters: pulumi.Output<outputs.servicecatalog.ProvisionedProductProvisioningParameter[] | undefined>;
+    public readonly provisioningParameters!: pulumi.Output<outputs.servicecatalog.ProvisionedProductProvisioningParameter[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
      */
-    declare public readonly retainPhysicalResources: pulumi.Output<boolean | undefined>;
+    public readonly retainPhysicalResources!: pulumi.Output<boolean | undefined>;
     /**
      * Configuration block with information about the provisioning preferences for a stack set. See `stackSetProvisioningPreferences` Block for details.
      */
-    declare public readonly stackSetProvisioningPreferences: pulumi.Output<outputs.servicecatalog.ProvisionedProductStackSetProvisioningPreferences | undefined>;
+    public readonly stackSetProvisioningPreferences!: pulumi.Output<outputs.servicecatalog.ProvisionedProductStackSetProvisioningPreferences | undefined>;
     /**
      * Current status of the provisioned product. See meanings below.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Current status message of the provisioned product.
      */
-    declare public /*out*/ readonly statusMessage: pulumi.Output<string>;
+    public /*out*/ readonly statusMessage!: pulumi.Output<string>;
     /**
      * Tags to apply to the provisioned product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Type of provisioned product. Valid values are `CFN_STACK` and `CFN_STACKSET`.
      */
-    declare public /*out*/ readonly type: pulumi.Output<string>;
+    public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
      * Create a ProvisionedProduct resource with the given unique name, arguments, and options.
@@ -200,50 +200,50 @@ export class ProvisionedProduct extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProvisionedProductState | undefined;
-            resourceInputs["acceptLanguage"] = state?.acceptLanguage;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["cloudwatchDashboardNames"] = state?.cloudwatchDashboardNames;
-            resourceInputs["createdTime"] = state?.createdTime;
-            resourceInputs["ignoreErrors"] = state?.ignoreErrors;
-            resourceInputs["lastProvisioningRecordId"] = state?.lastProvisioningRecordId;
-            resourceInputs["lastRecordId"] = state?.lastRecordId;
-            resourceInputs["lastSuccessfulProvisioningRecordId"] = state?.lastSuccessfulProvisioningRecordId;
-            resourceInputs["launchRoleArn"] = state?.launchRoleArn;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["notificationArns"] = state?.notificationArns;
-            resourceInputs["outputs"] = state?.outputs;
-            resourceInputs["pathId"] = state?.pathId;
-            resourceInputs["pathName"] = state?.pathName;
-            resourceInputs["productId"] = state?.productId;
-            resourceInputs["productName"] = state?.productName;
-            resourceInputs["provisioningArtifactId"] = state?.provisioningArtifactId;
-            resourceInputs["provisioningArtifactName"] = state?.provisioningArtifactName;
-            resourceInputs["provisioningParameters"] = state?.provisioningParameters;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["retainPhysicalResources"] = state?.retainPhysicalResources;
-            resourceInputs["stackSetProvisioningPreferences"] = state?.stackSetProvisioningPreferences;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["statusMessage"] = state?.statusMessage;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["type"] = state?.type;
+            resourceInputs["acceptLanguage"] = state ? state.acceptLanguage : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["cloudwatchDashboardNames"] = state ? state.cloudwatchDashboardNames : undefined;
+            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
+            resourceInputs["ignoreErrors"] = state ? state.ignoreErrors : undefined;
+            resourceInputs["lastProvisioningRecordId"] = state ? state.lastProvisioningRecordId : undefined;
+            resourceInputs["lastRecordId"] = state ? state.lastRecordId : undefined;
+            resourceInputs["lastSuccessfulProvisioningRecordId"] = state ? state.lastSuccessfulProvisioningRecordId : undefined;
+            resourceInputs["launchRoleArn"] = state ? state.launchRoleArn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notificationArns"] = state ? state.notificationArns : undefined;
+            resourceInputs["outputs"] = state ? state.outputs : undefined;
+            resourceInputs["pathId"] = state ? state.pathId : undefined;
+            resourceInputs["pathName"] = state ? state.pathName : undefined;
+            resourceInputs["productId"] = state ? state.productId : undefined;
+            resourceInputs["productName"] = state ? state.productName : undefined;
+            resourceInputs["provisioningArtifactId"] = state ? state.provisioningArtifactId : undefined;
+            resourceInputs["provisioningArtifactName"] = state ? state.provisioningArtifactName : undefined;
+            resourceInputs["provisioningParameters"] = state ? state.provisioningParameters : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["retainPhysicalResources"] = state ? state.retainPhysicalResources : undefined;
+            resourceInputs["stackSetProvisioningPreferences"] = state ? state.stackSetProvisioningPreferences : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["statusMessage"] = state ? state.statusMessage : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ProvisionedProductArgs | undefined;
-            resourceInputs["acceptLanguage"] = args?.acceptLanguage;
-            resourceInputs["ignoreErrors"] = args?.ignoreErrors;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["notificationArns"] = args?.notificationArns;
-            resourceInputs["pathId"] = args?.pathId;
-            resourceInputs["pathName"] = args?.pathName;
-            resourceInputs["productId"] = args?.productId;
-            resourceInputs["productName"] = args?.productName;
-            resourceInputs["provisioningArtifactId"] = args?.provisioningArtifactId;
-            resourceInputs["provisioningArtifactName"] = args?.provisioningArtifactName;
-            resourceInputs["provisioningParameters"] = args?.provisioningParameters;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["retainPhysicalResources"] = args?.retainPhysicalResources;
-            resourceInputs["stackSetProvisioningPreferences"] = args?.stackSetProvisioningPreferences;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
+            resourceInputs["ignoreErrors"] = args ? args.ignoreErrors : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notificationArns"] = args ? args.notificationArns : undefined;
+            resourceInputs["pathId"] = args ? args.pathId : undefined;
+            resourceInputs["pathName"] = args ? args.pathName : undefined;
+            resourceInputs["productId"] = args ? args.productId : undefined;
+            resourceInputs["productName"] = args ? args.productName : undefined;
+            resourceInputs["provisioningArtifactId"] = args ? args.provisioningArtifactId : undefined;
+            resourceInputs["provisioningArtifactName"] = args ? args.provisioningArtifactName : undefined;
+            resourceInputs["provisioningParameters"] = args ? args.provisioningParameters : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["retainPhysicalResources"] = args ? args.retainPhysicalResources : undefined;
+            resourceInputs["stackSetProvisioningPreferences"] = args ? args.stackSetProvisioningPreferences : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["cloudwatchDashboardNames"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;

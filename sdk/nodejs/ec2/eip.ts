@@ -146,81 +146,81 @@ export class Eip extends pulumi.CustomResource {
     /**
      * IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
      */
-    declare public readonly address: pulumi.Output<string | undefined>;
+    public readonly address!: pulumi.Output<string | undefined>;
     /**
      * ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
      */
-    declare public /*out*/ readonly allocationId: pulumi.Output<string>;
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly allocationId!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
      */
-    declare public readonly associateWithPrivateIp: pulumi.Output<string | undefined>;
+    public readonly associateWithPrivateIp!: pulumi.Output<string | undefined>;
     /**
      * ID representing the association of the address with an instance in a VPC.
      */
-    declare public /*out*/ readonly associationId: pulumi.Output<string>;
+    public /*out*/ readonly associationId!: pulumi.Output<string>;
     /**
      * Carrier IP address.
      */
-    declare public /*out*/ readonly carrierIp: pulumi.Output<string>;
+    public /*out*/ readonly carrierIp!: pulumi.Output<string>;
     /**
      * Customer owned IP.
      */
-    declare public /*out*/ readonly customerOwnedIp: pulumi.Output<string>;
+    public /*out*/ readonly customerOwnedIp!: pulumi.Output<string>;
     /**
      * ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
      */
-    declare public readonly customerOwnedIpv4Pool: pulumi.Output<string | undefined>;
+    public readonly customerOwnedIpv4Pool!: pulumi.Output<string | undefined>;
     /**
      * Indicates if this EIP is for use in VPC (`vpc`).
      */
-    declare public readonly domain: pulumi.Output<string>;
+    public readonly domain!: pulumi.Output<string>;
     /**
      * EC2 instance ID.
      */
-    declare public readonly instance: pulumi.Output<string>;
+    public readonly instance!: pulumi.Output<string>;
     /**
      * The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
      */
-    declare public readonly ipamPoolId: pulumi.Output<string>;
+    public readonly ipamPoolId!: pulumi.Output<string>;
     /**
      * Location from which the IP address is advertised. Use this parameter to limit the address to this location.
      */
-    declare public readonly networkBorderGroup: pulumi.Output<string>;
+    public readonly networkBorderGroup!: pulumi.Output<string>;
     /**
      * Network interface ID to associate with.
      */
-    declare public readonly networkInterface: pulumi.Output<string>;
+    public readonly networkInterface!: pulumi.Output<string>;
     /**
      * The Private DNS associated with the Elastic IP address (if in VPC).
      */
-    declare public /*out*/ readonly privateDns: pulumi.Output<string>;
+    public /*out*/ readonly privateDns!: pulumi.Output<string>;
     /**
      * Contains the private IP address (if in VPC).
      */
-    declare public /*out*/ readonly privateIp: pulumi.Output<string>;
+    public /*out*/ readonly privateIp!: pulumi.Output<string>;
     /**
      * The DNS pointer (PTR) record for the IP address.
      */
-    declare public /*out*/ readonly ptrRecord: pulumi.Output<string>;
+    public /*out*/ readonly ptrRecord!: pulumi.Output<string>;
     /**
      * Public DNS associated with the Elastic IP address.
      */
-    declare public /*out*/ readonly publicDns: pulumi.Output<string>;
+    public /*out*/ readonly publicDns!: pulumi.Output<string>;
     /**
      * Contains the public IP address.
      */
-    declare public /*out*/ readonly publicIp: pulumi.Output<string>;
+    public /*out*/ readonly publicIp!: pulumi.Output<string>;
     /**
      * EC2 IPv4 address pool identifier or `amazon`.
      * This option is only available for VPC EIPs.
      */
-    declare public readonly publicIpv4Pool: pulumi.Output<string>;
+    public readonly publicIpv4Pool!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
@@ -230,11 +230,11 @@ export class Eip extends pulumi.CustomResource {
      *
      * > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Eip resource with the given unique name, arguments, and options.
@@ -249,41 +249,41 @@ export class Eip extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EipState | undefined;
-            resourceInputs["address"] = state?.address;
-            resourceInputs["allocationId"] = state?.allocationId;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["associateWithPrivateIp"] = state?.associateWithPrivateIp;
-            resourceInputs["associationId"] = state?.associationId;
-            resourceInputs["carrierIp"] = state?.carrierIp;
-            resourceInputs["customerOwnedIp"] = state?.customerOwnedIp;
-            resourceInputs["customerOwnedIpv4Pool"] = state?.customerOwnedIpv4Pool;
-            resourceInputs["domain"] = state?.domain;
-            resourceInputs["instance"] = state?.instance;
-            resourceInputs["ipamPoolId"] = state?.ipamPoolId;
-            resourceInputs["networkBorderGroup"] = state?.networkBorderGroup;
-            resourceInputs["networkInterface"] = state?.networkInterface;
-            resourceInputs["privateDns"] = state?.privateDns;
-            resourceInputs["privateIp"] = state?.privateIp;
-            resourceInputs["ptrRecord"] = state?.ptrRecord;
-            resourceInputs["publicDns"] = state?.publicDns;
-            resourceInputs["publicIp"] = state?.publicIp;
-            resourceInputs["publicIpv4Pool"] = state?.publicIpv4Pool;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["address"] = state ? state.address : undefined;
+            resourceInputs["allocationId"] = state ? state.allocationId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["associateWithPrivateIp"] = state ? state.associateWithPrivateIp : undefined;
+            resourceInputs["associationId"] = state ? state.associationId : undefined;
+            resourceInputs["carrierIp"] = state ? state.carrierIp : undefined;
+            resourceInputs["customerOwnedIp"] = state ? state.customerOwnedIp : undefined;
+            resourceInputs["customerOwnedIpv4Pool"] = state ? state.customerOwnedIpv4Pool : undefined;
+            resourceInputs["domain"] = state ? state.domain : undefined;
+            resourceInputs["instance"] = state ? state.instance : undefined;
+            resourceInputs["ipamPoolId"] = state ? state.ipamPoolId : undefined;
+            resourceInputs["networkBorderGroup"] = state ? state.networkBorderGroup : undefined;
+            resourceInputs["networkInterface"] = state ? state.networkInterface : undefined;
+            resourceInputs["privateDns"] = state ? state.privateDns : undefined;
+            resourceInputs["privateIp"] = state ? state.privateIp : undefined;
+            resourceInputs["ptrRecord"] = state ? state.ptrRecord : undefined;
+            resourceInputs["publicDns"] = state ? state.publicDns : undefined;
+            resourceInputs["publicIp"] = state ? state.publicIp : undefined;
+            resourceInputs["publicIpv4Pool"] = state ? state.publicIpv4Pool : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as EipArgs | undefined;
-            resourceInputs["address"] = args?.address;
-            resourceInputs["associateWithPrivateIp"] = args?.associateWithPrivateIp;
-            resourceInputs["customerOwnedIpv4Pool"] = args?.customerOwnedIpv4Pool;
-            resourceInputs["domain"] = args?.domain;
-            resourceInputs["instance"] = args?.instance;
-            resourceInputs["ipamPoolId"] = args?.ipamPoolId;
-            resourceInputs["networkBorderGroup"] = args?.networkBorderGroup;
-            resourceInputs["networkInterface"] = args?.networkInterface;
-            resourceInputs["publicIpv4Pool"] = args?.publicIpv4Pool;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["address"] = args ? args.address : undefined;
+            resourceInputs["associateWithPrivateIp"] = args ? args.associateWithPrivateIp : undefined;
+            resourceInputs["customerOwnedIpv4Pool"] = args ? args.customerOwnedIpv4Pool : undefined;
+            resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["instance"] = args ? args.instance : undefined;
+            resourceInputs["ipamPoolId"] = args ? args.ipamPoolId : undefined;
+            resourceInputs["networkBorderGroup"] = args ? args.networkBorderGroup : undefined;
+            resourceInputs["networkInterface"] = args ? args.networkInterface : undefined;
+            resourceInputs["publicIpv4Pool"] = args ? args.publicIpv4Pool : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["allocationId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associationId"] = undefined /*out*/;

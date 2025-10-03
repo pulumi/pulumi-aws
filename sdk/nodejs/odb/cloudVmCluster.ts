@@ -115,183 +115,183 @@ export class CloudVmCluster extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the cloud vm cluster.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
      */
-    declare public readonly cloudExadataInfrastructureId: pulumi.Output<string>;
+    public readonly cloudExadataInfrastructureId!: pulumi.Output<string>;
     /**
      * The name of the Grid Infrastructure (GI) cluster. Changing this will create a new resource.
      */
-    declare public readonly clusterName: pulumi.Output<string>;
+    public readonly clusterName!: pulumi.Output<string>;
     /**
      * The compute model used when the instance is created or cloned — either ECPU or OCPU. ECPU is a virtualized compute unit; OCPU is a physical processor core with hyper-threading.
      */
-    declare public /*out*/ readonly computeModel: pulumi.Output<string>;
+    public /*out*/ readonly computeModel!: pulumi.Output<string>;
     /**
      * The number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
      */
-    declare public readonly cpuCoreCount: pulumi.Output<number>;
+    public readonly cpuCoreCount!: pulumi.Output<number>;
     /**
      * The timestamp when the VM cluster was created.
      */
-    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
      * The set of preferences for the various diagnostic collection options for the VM cluster.
      *
      * The following arguments are optional:
      */
-    declare public readonly dataCollectionOptions: pulumi.Output<outputs.odb.CloudVmClusterDataCollectionOptions | undefined>;
+    public readonly dataCollectionOptions!: pulumi.Output<outputs.odb.CloudVmClusterDataCollectionOptions | undefined>;
     /**
      * The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
      */
-    declare public readonly dataStorageSizeInTbs: pulumi.Output<number>;
+    public readonly dataStorageSizeInTbs!: pulumi.Output<number>;
     /**
      * The amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
      */
-    declare public readonly dbNodeStorageSizeInGbs: pulumi.Output<number>;
+    public readonly dbNodeStorageSizeInGbs!: pulumi.Output<number>;
     /**
      * The list of database servers for the VM cluster. Changing this will create a new resource.
      */
-    declare public readonly dbServers: pulumi.Output<string[]>;
+    public readonly dbServers!: pulumi.Output<string[]>;
     /**
      * The type of redundancy for the VM cluster: NORMAL (2-way) or HIGH (3-way).
      * * `AttrDomain` - The domain name associated with the VM cluster.
      */
-    declare public /*out*/ readonly diskRedundancy: pulumi.Output<string>;
+    public /*out*/ readonly diskRedundancy!: pulumi.Output<string>;
     /**
      * A user-friendly name for the VM cluster. Changing this will create a new resource.
      */
-    declare public readonly displayName: pulumi.Output<string>;
+    public readonly displayName!: pulumi.Output<string>;
     /**
      * The domain name associated with the VM cluster.
      */
-    declare public /*out*/ readonly domain: pulumi.Output<string>;
+    public /*out*/ readonly domain!: pulumi.Output<string>;
     /**
      * A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
      */
-    declare public readonly giVersion: pulumi.Output<string>;
+    public readonly giVersion!: pulumi.Output<string>;
     /**
      * The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
      */
-    declare public readonly hostnamePrefix: pulumi.Output<string>;
+    public readonly hostnamePrefix!: pulumi.Output<string>;
     /**
      * The host name for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
      */
-    declare public /*out*/ readonly hostnamePrefixComputed: pulumi.Output<string>;
+    public /*out*/ readonly hostnamePrefixComputed!: pulumi.Output<string>;
     /**
      * The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
      */
-    declare public /*out*/ readonly iormConfigCaches: pulumi.Output<outputs.odb.CloudVmClusterIormConfigCach[]>;
+    public /*out*/ readonly iormConfigCaches!: pulumi.Output<outputs.odb.CloudVmClusterIormConfigCach[]>;
     /**
      * Specifies whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
      */
-    declare public readonly isLocalBackupEnabled: pulumi.Output<boolean>;
+    public readonly isLocalBackupEnabled!: pulumi.Output<boolean>;
     /**
      * Specifies whether to create a sparse disk group for the VM cluster. Changing this will create a new resource.
      */
-    declare public readonly isSparseDiskgroupEnabled: pulumi.Output<boolean>;
+    public readonly isSparseDiskgroupEnabled!: pulumi.Output<boolean>;
     /**
      * The OCID of the most recent maintenance update history entry.
      */
-    declare public /*out*/ readonly lastUpdateHistoryEntryId: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdateHistoryEntryId!: pulumi.Output<string>;
     /**
      * The Oracle license model to apply to the VM cluster. Default: LICENSE_INCLUDED. Changing this will create a new resource.
      */
-    declare public readonly licenseModel: pulumi.Output<string>;
+    public readonly licenseModel!: pulumi.Output<string>;
     /**
      * The listener port number configured on the VM cluster.
      */
-    declare public /*out*/ readonly listenerPort: pulumi.Output<number>;
+    public /*out*/ readonly listenerPort!: pulumi.Output<number>;
     /**
      * The amount of memory, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
      */
-    declare public readonly memorySizeInGbs: pulumi.Output<number>;
+    public readonly memorySizeInGbs!: pulumi.Output<number>;
     /**
      * The total number of nodes in the VM cluster.
      */
-    declare public /*out*/ readonly nodeCount: pulumi.Output<number>;
+    public /*out*/ readonly nodeCount!: pulumi.Output<number>;
     /**
      * The name of the OCI resource anchor associated with the VM cluster.
      */
-    declare public /*out*/ readonly ociResourceAnchorName: pulumi.Output<string>;
+    public /*out*/ readonly ociResourceAnchorName!: pulumi.Output<string>;
     /**
      * The HTTPS link to the VM cluster resource in OCI.
      */
-    declare public /*out*/ readonly ociUrl: pulumi.Output<string>;
+    public /*out*/ readonly ociUrl!: pulumi.Output<string>;
     /**
      * The OCID (Oracle Cloud Identifier) of the VM cluster.
      */
-    declare public /*out*/ readonly ocid: pulumi.Output<string>;
+    public /*out*/ readonly ocid!: pulumi.Output<string>;
     /**
      * The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource.
      */
-    declare public readonly odbNetworkId: pulumi.Output<string>;
+    public readonly odbNetworkId!: pulumi.Output<string>;
     /**
      * The percentage of progress made on the current operation for the VM cluster.
      */
-    declare public /*out*/ readonly percentProgress: pulumi.Output<number>;
+    public /*out*/ readonly percentProgress!: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The fully qualified domain name (FQDN) for the SCAN IP addresses associated with the VM cluster.
      */
-    declare public /*out*/ readonly scanDnsName: pulumi.Output<string>;
+    public /*out*/ readonly scanDnsName!: pulumi.Output<string>;
     /**
      * The OCID of the DNS record for the SCAN IPs linked to the VM cluster.
      */
-    declare public /*out*/ readonly scanDnsRecordId: pulumi.Output<string>;
+    public /*out*/ readonly scanDnsRecordId!: pulumi.Output<string>;
     /**
      * The list of OCIDs for SCAN IP addresses associated with the VM cluster.
      */
-    declare public /*out*/ readonly scanIpIds: pulumi.Output<string[]>;
+    public /*out*/ readonly scanIpIds!: pulumi.Output<string[]>;
     /**
      * The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999, except 2484, 6100, 6200, 7060, 7070, 7085, and 7879. Default: 1521. Changing this will create a new resource.
      */
-    declare public readonly scanListenerPortTcp: pulumi.Output<number>;
+    public readonly scanListenerPortTcp!: pulumi.Output<number>;
     /**
      * The hardware model name of the Exadata infrastructure running the VM cluster.
      */
-    declare public /*out*/ readonly shape: pulumi.Output<string>;
+    public /*out*/ readonly shape!: pulumi.Output<string>;
     /**
      * The public key portion of one or more key pairs used for SSH access to the VM cluster. Changing this will create a new resource.
      */
-    declare public readonly sshPublicKeys: pulumi.Output<string[]>;
+    public readonly sshPublicKeys!: pulumi.Output<string[]>;
     /**
      * The current lifecycle status of the VM cluster.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Additional information regarding the current status of the VM cluster.
      */
-    declare public /*out*/ readonly statusReason: pulumi.Output<string>;
+    public /*out*/ readonly statusReason!: pulumi.Output<string>;
     /**
      * The local node storage allocated to the VM cluster, in gigabytes (GB).
      */
-    declare public /*out*/ readonly storageSizeInGbs: pulumi.Output<number>;
+    public /*out*/ readonly storageSizeInGbs!: pulumi.Output<number>;
     /**
      * The operating system version of the image chosen for the VM cluster.
      */
-    declare public /*out*/ readonly systemVersion: pulumi.Output<string>;
+    public /*out*/ readonly systemVersion!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The combined set of user-defined and provider-defined tags.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public readonly timeouts: pulumi.Output<outputs.odb.CloudVmClusterTimeouts | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly timeouts!: pulumi.Output<outputs.odb.CloudVmClusterTimeouts | undefined>;
     /**
      * The configured time zone of the VM cluster. Changing this will create a new resource.
      */
-    declare public readonly timezone: pulumi.Output<string>;
+    public readonly timezone!: pulumi.Output<string>;
     /**
      * The virtual IP (VIP) addresses assigned to the VM cluster. CRS assigns one VIP per node for failover support.
      */
-    declare public /*out*/ readonly vipIds: pulumi.Output<string[]>;
+    public /*out*/ readonly vipIds!: pulumi.Output<string[]>;
 
     /**
      * Create a CloudVmCluster resource with the given unique name, arguments, and options.
@@ -306,98 +306,98 @@ export class CloudVmCluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CloudVmClusterState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["cloudExadataInfrastructureId"] = state?.cloudExadataInfrastructureId;
-            resourceInputs["clusterName"] = state?.clusterName;
-            resourceInputs["computeModel"] = state?.computeModel;
-            resourceInputs["cpuCoreCount"] = state?.cpuCoreCount;
-            resourceInputs["createdAt"] = state?.createdAt;
-            resourceInputs["dataCollectionOptions"] = state?.dataCollectionOptions;
-            resourceInputs["dataStorageSizeInTbs"] = state?.dataStorageSizeInTbs;
-            resourceInputs["dbNodeStorageSizeInGbs"] = state?.dbNodeStorageSizeInGbs;
-            resourceInputs["dbServers"] = state?.dbServers;
-            resourceInputs["diskRedundancy"] = state?.diskRedundancy;
-            resourceInputs["displayName"] = state?.displayName;
-            resourceInputs["domain"] = state?.domain;
-            resourceInputs["giVersion"] = state?.giVersion;
-            resourceInputs["hostnamePrefix"] = state?.hostnamePrefix;
-            resourceInputs["hostnamePrefixComputed"] = state?.hostnamePrefixComputed;
-            resourceInputs["iormConfigCaches"] = state?.iormConfigCaches;
-            resourceInputs["isLocalBackupEnabled"] = state?.isLocalBackupEnabled;
-            resourceInputs["isSparseDiskgroupEnabled"] = state?.isSparseDiskgroupEnabled;
-            resourceInputs["lastUpdateHistoryEntryId"] = state?.lastUpdateHistoryEntryId;
-            resourceInputs["licenseModel"] = state?.licenseModel;
-            resourceInputs["listenerPort"] = state?.listenerPort;
-            resourceInputs["memorySizeInGbs"] = state?.memorySizeInGbs;
-            resourceInputs["nodeCount"] = state?.nodeCount;
-            resourceInputs["ociResourceAnchorName"] = state?.ociResourceAnchorName;
-            resourceInputs["ociUrl"] = state?.ociUrl;
-            resourceInputs["ocid"] = state?.ocid;
-            resourceInputs["odbNetworkId"] = state?.odbNetworkId;
-            resourceInputs["percentProgress"] = state?.percentProgress;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["scanDnsName"] = state?.scanDnsName;
-            resourceInputs["scanDnsRecordId"] = state?.scanDnsRecordId;
-            resourceInputs["scanIpIds"] = state?.scanIpIds;
-            resourceInputs["scanListenerPortTcp"] = state?.scanListenerPortTcp;
-            resourceInputs["shape"] = state?.shape;
-            resourceInputs["sshPublicKeys"] = state?.sshPublicKeys;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["statusReason"] = state?.statusReason;
-            resourceInputs["storageSizeInGbs"] = state?.storageSizeInGbs;
-            resourceInputs["systemVersion"] = state?.systemVersion;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timeouts"] = state?.timeouts;
-            resourceInputs["timezone"] = state?.timezone;
-            resourceInputs["vipIds"] = state?.vipIds;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["cloudExadataInfrastructureId"] = state ? state.cloudExadataInfrastructureId : undefined;
+            resourceInputs["clusterName"] = state ? state.clusterName : undefined;
+            resourceInputs["computeModel"] = state ? state.computeModel : undefined;
+            resourceInputs["cpuCoreCount"] = state ? state.cpuCoreCount : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["dataCollectionOptions"] = state ? state.dataCollectionOptions : undefined;
+            resourceInputs["dataStorageSizeInTbs"] = state ? state.dataStorageSizeInTbs : undefined;
+            resourceInputs["dbNodeStorageSizeInGbs"] = state ? state.dbNodeStorageSizeInGbs : undefined;
+            resourceInputs["dbServers"] = state ? state.dbServers : undefined;
+            resourceInputs["diskRedundancy"] = state ? state.diskRedundancy : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["domain"] = state ? state.domain : undefined;
+            resourceInputs["giVersion"] = state ? state.giVersion : undefined;
+            resourceInputs["hostnamePrefix"] = state ? state.hostnamePrefix : undefined;
+            resourceInputs["hostnamePrefixComputed"] = state ? state.hostnamePrefixComputed : undefined;
+            resourceInputs["iormConfigCaches"] = state ? state.iormConfigCaches : undefined;
+            resourceInputs["isLocalBackupEnabled"] = state ? state.isLocalBackupEnabled : undefined;
+            resourceInputs["isSparseDiskgroupEnabled"] = state ? state.isSparseDiskgroupEnabled : undefined;
+            resourceInputs["lastUpdateHistoryEntryId"] = state ? state.lastUpdateHistoryEntryId : undefined;
+            resourceInputs["licenseModel"] = state ? state.licenseModel : undefined;
+            resourceInputs["listenerPort"] = state ? state.listenerPort : undefined;
+            resourceInputs["memorySizeInGbs"] = state ? state.memorySizeInGbs : undefined;
+            resourceInputs["nodeCount"] = state ? state.nodeCount : undefined;
+            resourceInputs["ociResourceAnchorName"] = state ? state.ociResourceAnchorName : undefined;
+            resourceInputs["ociUrl"] = state ? state.ociUrl : undefined;
+            resourceInputs["ocid"] = state ? state.ocid : undefined;
+            resourceInputs["odbNetworkId"] = state ? state.odbNetworkId : undefined;
+            resourceInputs["percentProgress"] = state ? state.percentProgress : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["scanDnsName"] = state ? state.scanDnsName : undefined;
+            resourceInputs["scanDnsRecordId"] = state ? state.scanDnsRecordId : undefined;
+            resourceInputs["scanIpIds"] = state ? state.scanIpIds : undefined;
+            resourceInputs["scanListenerPortTcp"] = state ? state.scanListenerPortTcp : undefined;
+            resourceInputs["shape"] = state ? state.shape : undefined;
+            resourceInputs["sshPublicKeys"] = state ? state.sshPublicKeys : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["statusReason"] = state ? state.statusReason : undefined;
+            resourceInputs["storageSizeInGbs"] = state ? state.storageSizeInGbs : undefined;
+            resourceInputs["systemVersion"] = state ? state.systemVersion : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["timezone"] = state ? state.timezone : undefined;
+            resourceInputs["vipIds"] = state ? state.vipIds : undefined;
         } else {
             const args = argsOrState as CloudVmClusterArgs | undefined;
-            if (args?.cloudExadataInfrastructureId === undefined && !opts.urn) {
+            if ((!args || args.cloudExadataInfrastructureId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cloudExadataInfrastructureId'");
             }
-            if (args?.cpuCoreCount === undefined && !opts.urn) {
+            if ((!args || args.cpuCoreCount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cpuCoreCount'");
             }
-            if (args?.dbServers === undefined && !opts.urn) {
+            if ((!args || args.dbServers === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dbServers'");
             }
-            if (args?.displayName === undefined && !opts.urn) {
+            if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if (args?.giVersion === undefined && !opts.urn) {
+            if ((!args || args.giVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'giVersion'");
             }
-            if (args?.hostnamePrefix === undefined && !opts.urn) {
+            if ((!args || args.hostnamePrefix === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hostnamePrefix'");
             }
-            if (args?.odbNetworkId === undefined && !opts.urn) {
+            if ((!args || args.odbNetworkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'odbNetworkId'");
             }
-            if (args?.sshPublicKeys === undefined && !opts.urn) {
+            if ((!args || args.sshPublicKeys === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sshPublicKeys'");
             }
-            resourceInputs["cloudExadataInfrastructureId"] = args?.cloudExadataInfrastructureId;
-            resourceInputs["clusterName"] = args?.clusterName;
-            resourceInputs["cpuCoreCount"] = args?.cpuCoreCount;
-            resourceInputs["dataCollectionOptions"] = args?.dataCollectionOptions;
-            resourceInputs["dataStorageSizeInTbs"] = args?.dataStorageSizeInTbs;
-            resourceInputs["dbNodeStorageSizeInGbs"] = args?.dbNodeStorageSizeInGbs;
-            resourceInputs["dbServers"] = args?.dbServers;
-            resourceInputs["displayName"] = args?.displayName;
-            resourceInputs["giVersion"] = args?.giVersion;
-            resourceInputs["hostnamePrefix"] = args?.hostnamePrefix;
-            resourceInputs["isLocalBackupEnabled"] = args?.isLocalBackupEnabled;
-            resourceInputs["isSparseDiskgroupEnabled"] = args?.isSparseDiskgroupEnabled;
-            resourceInputs["licenseModel"] = args?.licenseModel;
-            resourceInputs["memorySizeInGbs"] = args?.memorySizeInGbs;
-            resourceInputs["odbNetworkId"] = args?.odbNetworkId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["scanListenerPortTcp"] = args?.scanListenerPortTcp;
-            resourceInputs["sshPublicKeys"] = args?.sshPublicKeys;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timeouts"] = args?.timeouts;
-            resourceInputs["timezone"] = args?.timezone;
+            resourceInputs["cloudExadataInfrastructureId"] = args ? args.cloudExadataInfrastructureId : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["cpuCoreCount"] = args ? args.cpuCoreCount : undefined;
+            resourceInputs["dataCollectionOptions"] = args ? args.dataCollectionOptions : undefined;
+            resourceInputs["dataStorageSizeInTbs"] = args ? args.dataStorageSizeInTbs : undefined;
+            resourceInputs["dbNodeStorageSizeInGbs"] = args ? args.dbNodeStorageSizeInGbs : undefined;
+            resourceInputs["dbServers"] = args ? args.dbServers : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["giVersion"] = args ? args.giVersion : undefined;
+            resourceInputs["hostnamePrefix"] = args ? args.hostnamePrefix : undefined;
+            resourceInputs["isLocalBackupEnabled"] = args ? args.isLocalBackupEnabled : undefined;
+            resourceInputs["isSparseDiskgroupEnabled"] = args ? args.isSparseDiskgroupEnabled : undefined;
+            resourceInputs["licenseModel"] = args ? args.licenseModel : undefined;
+            resourceInputs["memorySizeInGbs"] = args ? args.memorySizeInGbs : undefined;
+            resourceInputs["odbNetworkId"] = args ? args.odbNetworkId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["scanListenerPortTcp"] = args ? args.scanListenerPortTcp : undefined;
+            resourceInputs["sshPublicKeys"] = args ? args.sshPublicKeys : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["timezone"] = args ? args.timezone : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["computeModel"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

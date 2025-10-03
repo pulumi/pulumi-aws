@@ -88,105 +88,105 @@ export class OntapVolume extends pulumi.CustomResource {
     /**
      * The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregateConfiguration` Block] for details.
      */
-    declare public readonly aggregateConfiguration: pulumi.Output<outputs.fsx.OntapVolumeAggregateConfiguration | undefined>;
+    public readonly aggregateConfiguration!: pulumi.Output<outputs.fsx.OntapVolumeAggregateConfiguration | undefined>;
     /**
      * Amazon Resource Name of the volune.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
      */
-    declare public readonly bypassSnaplockEnterpriseRetention: pulumi.Output<boolean | undefined>;
+    public readonly bypassSnaplockEnterpriseRetention!: pulumi.Output<boolean | undefined>;
     /**
      * A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
      */
-    declare public readonly copyTagsToBackups: pulumi.Output<boolean | undefined>;
+    public readonly copyTagsToBackups!: pulumi.Output<boolean | undefined>;
     /**
      * Describes the file system for the volume, e.g. `fs-12345679`
      */
-    declare public /*out*/ readonly fileSystemId: pulumi.Output<string>;
+    public /*out*/ readonly fileSystemId!: pulumi.Output<string>;
     /**
      * A map of tags to apply to the volume's final backup.
      */
-    declare public readonly finalBackupTags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly finalBackupTags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
      */
-    declare public /*out*/ readonly flexcacheEndpointType: pulumi.Output<string>;
+    public /*out*/ readonly flexcacheEndpointType!: pulumi.Output<string>;
     /**
      * Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
      */
-    declare public readonly junctionPath: pulumi.Output<string | undefined>;
+    public readonly junctionPath!: pulumi.Output<string | undefined>;
     /**
      * The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
      */
-    declare public readonly ontapVolumeType: pulumi.Output<string>;
+    public readonly ontapVolumeType!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
      */
-    declare public readonly securityStyle: pulumi.Output<string>;
+    public readonly securityStyle!: pulumi.Output<string>;
     /**
      * Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
      */
-    declare public readonly sizeInBytes: pulumi.Output<string>;
+    public readonly sizeInBytes!: pulumi.Output<string>;
     /**
      * Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
      */
-    declare public readonly sizeInMegabytes: pulumi.Output<number>;
+    public readonly sizeInMegabytes!: pulumi.Output<number>;
     /**
      * When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
      */
-    declare public readonly skipFinalBackup: pulumi.Output<boolean | undefined>;
+    public readonly skipFinalBackup!: pulumi.Output<boolean | undefined>;
     /**
      * The SnapLock configuration for an FSx for ONTAP volume. See `snaplockConfiguration` Block for details.
      */
-    declare public readonly snaplockConfiguration: pulumi.Output<outputs.fsx.OntapVolumeSnaplockConfiguration | undefined>;
+    public readonly snaplockConfiguration!: pulumi.Output<outputs.fsx.OntapVolumeSnaplockConfiguration | undefined>;
     /**
      * Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
      */
-    declare public readonly snapshotPolicy: pulumi.Output<string>;
+    public readonly snapshotPolicy!: pulumi.Output<string>;
     /**
      * Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
      */
-    declare public readonly storageEfficiencyEnabled: pulumi.Output<boolean | undefined>;
+    public readonly storageEfficiencyEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the storage virtual machine in which to create the volume.
      *
      * The following arguments are optional:
      */
-    declare public readonly storageVirtualMachineId: pulumi.Output<string>;
+    public readonly storageVirtualMachineId!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The data tiering policy for an FSx for ONTAP volume. See `tieringPolicy` Block for details.
      */
-    declare public readonly tieringPolicy: pulumi.Output<outputs.fsx.OntapVolumeTieringPolicy | undefined>;
+    public readonly tieringPolicy!: pulumi.Output<outputs.fsx.OntapVolumeTieringPolicy | undefined>;
     /**
      * The Volume's UUID (universally unique identifier).
      */
-    declare public /*out*/ readonly uuid: pulumi.Output<string>;
+    public /*out*/ readonly uuid!: pulumi.Output<string>;
     /**
      * Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
      */
-    declare public readonly volumeStyle: pulumi.Output<string>;
+    public readonly volumeStyle!: pulumi.Output<string>;
     /**
      * The type of volume, currently the only valid value is `ONTAP`.
      */
-    declare public readonly volumeType: pulumi.Output<string | undefined>;
+    public readonly volumeType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a OntapVolume resource with the given unique name, arguments, and options.
@@ -201,56 +201,56 @@ export class OntapVolume extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OntapVolumeState | undefined;
-            resourceInputs["aggregateConfiguration"] = state?.aggregateConfiguration;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["bypassSnaplockEnterpriseRetention"] = state?.bypassSnaplockEnterpriseRetention;
-            resourceInputs["copyTagsToBackups"] = state?.copyTagsToBackups;
-            resourceInputs["fileSystemId"] = state?.fileSystemId;
-            resourceInputs["finalBackupTags"] = state?.finalBackupTags;
-            resourceInputs["flexcacheEndpointType"] = state?.flexcacheEndpointType;
-            resourceInputs["junctionPath"] = state?.junctionPath;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["ontapVolumeType"] = state?.ontapVolumeType;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["securityStyle"] = state?.securityStyle;
-            resourceInputs["sizeInBytes"] = state?.sizeInBytes;
-            resourceInputs["sizeInMegabytes"] = state?.sizeInMegabytes;
-            resourceInputs["skipFinalBackup"] = state?.skipFinalBackup;
-            resourceInputs["snaplockConfiguration"] = state?.snaplockConfiguration;
-            resourceInputs["snapshotPolicy"] = state?.snapshotPolicy;
-            resourceInputs["storageEfficiencyEnabled"] = state?.storageEfficiencyEnabled;
-            resourceInputs["storageVirtualMachineId"] = state?.storageVirtualMachineId;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["tieringPolicy"] = state?.tieringPolicy;
-            resourceInputs["uuid"] = state?.uuid;
-            resourceInputs["volumeStyle"] = state?.volumeStyle;
-            resourceInputs["volumeType"] = state?.volumeType;
+            resourceInputs["aggregateConfiguration"] = state ? state.aggregateConfiguration : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["bypassSnaplockEnterpriseRetention"] = state ? state.bypassSnaplockEnterpriseRetention : undefined;
+            resourceInputs["copyTagsToBackups"] = state ? state.copyTagsToBackups : undefined;
+            resourceInputs["fileSystemId"] = state ? state.fileSystemId : undefined;
+            resourceInputs["finalBackupTags"] = state ? state.finalBackupTags : undefined;
+            resourceInputs["flexcacheEndpointType"] = state ? state.flexcacheEndpointType : undefined;
+            resourceInputs["junctionPath"] = state ? state.junctionPath : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ontapVolumeType"] = state ? state.ontapVolumeType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["securityStyle"] = state ? state.securityStyle : undefined;
+            resourceInputs["sizeInBytes"] = state ? state.sizeInBytes : undefined;
+            resourceInputs["sizeInMegabytes"] = state ? state.sizeInMegabytes : undefined;
+            resourceInputs["skipFinalBackup"] = state ? state.skipFinalBackup : undefined;
+            resourceInputs["snaplockConfiguration"] = state ? state.snaplockConfiguration : undefined;
+            resourceInputs["snapshotPolicy"] = state ? state.snapshotPolicy : undefined;
+            resourceInputs["storageEfficiencyEnabled"] = state ? state.storageEfficiencyEnabled : undefined;
+            resourceInputs["storageVirtualMachineId"] = state ? state.storageVirtualMachineId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["tieringPolicy"] = state ? state.tieringPolicy : undefined;
+            resourceInputs["uuid"] = state ? state.uuid : undefined;
+            resourceInputs["volumeStyle"] = state ? state.volumeStyle : undefined;
+            resourceInputs["volumeType"] = state ? state.volumeType : undefined;
         } else {
             const args = argsOrState as OntapVolumeArgs | undefined;
-            if (args?.storageVirtualMachineId === undefined && !opts.urn) {
+            if ((!args || args.storageVirtualMachineId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageVirtualMachineId'");
             }
-            resourceInputs["aggregateConfiguration"] = args?.aggregateConfiguration;
-            resourceInputs["bypassSnaplockEnterpriseRetention"] = args?.bypassSnaplockEnterpriseRetention;
-            resourceInputs["copyTagsToBackups"] = args?.copyTagsToBackups;
-            resourceInputs["finalBackupTags"] = args?.finalBackupTags;
-            resourceInputs["junctionPath"] = args?.junctionPath;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["ontapVolumeType"] = args?.ontapVolumeType;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["securityStyle"] = args?.securityStyle;
-            resourceInputs["sizeInBytes"] = args?.sizeInBytes;
-            resourceInputs["sizeInMegabytes"] = args?.sizeInMegabytes;
-            resourceInputs["skipFinalBackup"] = args?.skipFinalBackup;
-            resourceInputs["snaplockConfiguration"] = args?.snaplockConfiguration;
-            resourceInputs["snapshotPolicy"] = args?.snapshotPolicy;
-            resourceInputs["storageEfficiencyEnabled"] = args?.storageEfficiencyEnabled;
-            resourceInputs["storageVirtualMachineId"] = args?.storageVirtualMachineId;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["tieringPolicy"] = args?.tieringPolicy;
-            resourceInputs["volumeStyle"] = args?.volumeStyle;
-            resourceInputs["volumeType"] = args?.volumeType;
+            resourceInputs["aggregateConfiguration"] = args ? args.aggregateConfiguration : undefined;
+            resourceInputs["bypassSnaplockEnterpriseRetention"] = args ? args.bypassSnaplockEnterpriseRetention : undefined;
+            resourceInputs["copyTagsToBackups"] = args ? args.copyTagsToBackups : undefined;
+            resourceInputs["finalBackupTags"] = args ? args.finalBackupTags : undefined;
+            resourceInputs["junctionPath"] = args ? args.junctionPath : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ontapVolumeType"] = args ? args.ontapVolumeType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["securityStyle"] = args ? args.securityStyle : undefined;
+            resourceInputs["sizeInBytes"] = args ? args.sizeInBytes : undefined;
+            resourceInputs["sizeInMegabytes"] = args ? args.sizeInMegabytes : undefined;
+            resourceInputs["skipFinalBackup"] = args ? args.skipFinalBackup : undefined;
+            resourceInputs["snaplockConfiguration"] = args ? args.snaplockConfiguration : undefined;
+            resourceInputs["snapshotPolicy"] = args ? args.snapshotPolicy : undefined;
+            resourceInputs["storageEfficiencyEnabled"] = args ? args.storageEfficiencyEnabled : undefined;
+            resourceInputs["storageVirtualMachineId"] = args ? args.storageVirtualMachineId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tieringPolicy"] = args ? args.tieringPolicy : undefined;
+            resourceInputs["volumeStyle"] = args ? args.volumeStyle : undefined;
+            resourceInputs["volumeType"] = args ? args.volumeType : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["fileSystemId"] = undefined /*out*/;
             resourceInputs["flexcacheEndpointType"] = undefined /*out*/;

@@ -51,29 +51,29 @@ export class ServerlessSecurityConfig extends pulumi.CustomResource {
     /**
      * Version of the configuration.
      */
-    declare public /*out*/ readonly configVersion: pulumi.Output<string>;
+    public /*out*/ readonly configVersion!: pulumi.Output<string>;
     /**
      * Description of the security configuration.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Name of the policy.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Configuration block for SAML options.
      */
-    declare public readonly samlOptions: pulumi.Output<outputs.opensearch.ServerlessSecurityConfigSamlOptions | undefined>;
+    public readonly samlOptions!: pulumi.Output<outputs.opensearch.ServerlessSecurityConfigSamlOptions | undefined>;
     /**
      * Type of configuration. Must be `saml`.
      *
      * The following arguments are optional:
      */
-    declare public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a ServerlessSecurityConfig resource with the given unique name, arguments, and options.
@@ -88,22 +88,22 @@ export class ServerlessSecurityConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerlessSecurityConfigState | undefined;
-            resourceInputs["configVersion"] = state?.configVersion;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["samlOptions"] = state?.samlOptions;
-            resourceInputs["type"] = state?.type;
+            resourceInputs["configVersion"] = state ? state.configVersion : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["samlOptions"] = state ? state.samlOptions : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ServerlessSecurityConfigArgs | undefined;
-            if (args?.type === undefined && !opts.urn) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["samlOptions"] = args?.samlOptions;
-            resourceInputs["type"] = args?.type;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["samlOptions"] = args ? args.samlOptions : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["configVersion"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

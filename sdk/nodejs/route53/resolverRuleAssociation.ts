@@ -70,19 +70,19 @@ export class ResolverRuleAssociation extends pulumi.CustomResource {
     /**
      * A name for the association that you're creating between a resolver rule and a VPC.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ID of the resolver rule that you want to associate with the VPC.
      */
-    declare public readonly resolverRuleId: pulumi.Output<string>;
+    public readonly resolverRuleId!: pulumi.Output<string>;
     /**
      * The ID of the VPC that you want to associate the resolver rule with.
      */
-    declare public readonly vpcId: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a ResolverRuleAssociation resource with the given unique name, arguments, and options.
@@ -97,22 +97,22 @@ export class ResolverRuleAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResolverRuleAssociationState | undefined;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resolverRuleId"] = state?.resolverRuleId;
-            resourceInputs["vpcId"] = state?.vpcId;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resolverRuleId"] = state ? state.resolverRuleId : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as ResolverRuleAssociationArgs | undefined;
-            if (args?.resolverRuleId === undefined && !opts.urn) {
+            if ((!args || args.resolverRuleId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resolverRuleId'");
             }
-            if (args?.vpcId === undefined && !opts.urn) {
+            if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resolverRuleId"] = args?.resolverRuleId;
-            resourceInputs["vpcId"] = args?.vpcId;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resolverRuleId"] = args ? args.resolverRuleId : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResolverRuleAssociation.__pulumiType, name, resourceInputs, opts);

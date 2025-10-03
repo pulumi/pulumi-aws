@@ -168,109 +168,109 @@ export class VpcEndpoint extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the VPC endpoint.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
      */
-    declare public readonly autoAccept: pulumi.Output<boolean | undefined>;
+    public readonly autoAccept!: pulumi.Output<boolean | undefined>;
     /**
      * The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
      */
-    declare public /*out*/ readonly cidrBlocks: pulumi.Output<string[]>;
+    public /*out*/ readonly cidrBlocks!: pulumi.Output<string[]>;
     /**
      * The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
      */
-    declare public /*out*/ readonly dnsEntries: pulumi.Output<outputs.ec2.VpcEndpointDnsEntry[]>;
+    public /*out*/ readonly dnsEntries!: pulumi.Output<outputs.ec2.VpcEndpointDnsEntry[]>;
     /**
      * The DNS options for the endpoint. See dnsOptions below.
      */
-    declare public readonly dnsOptions: pulumi.Output<outputs.ec2.VpcEndpointDnsOptions>;
+    public readonly dnsOptions!: pulumi.Output<outputs.ec2.VpcEndpointDnsOptions>;
     /**
      * The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
      */
-    declare public readonly ipAddressType: pulumi.Output<string>;
+    public readonly ipAddressType!: pulumi.Output<string>;
     /**
      * One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
      */
-    declare public /*out*/ readonly networkInterfaceIds: pulumi.Output<string[]>;
+    public /*out*/ readonly networkInterfaceIds!: pulumi.Output<string[]>;
     /**
      * The ID of the AWS account that owns the VPC endpoint.
      */
-    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
      * A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
      */
-    declare public readonly policy: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string>;
     /**
      * The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
      */
-    declare public /*out*/ readonly prefixListId: pulumi.Output<string>;
+    public /*out*/ readonly prefixListId!: pulumi.Output<string>;
     /**
      * Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
      * Defaults to `false`.
      */
-    declare public readonly privateDnsEnabled: pulumi.Output<boolean>;
+    public readonly privateDnsEnabled!: pulumi.Output<boolean>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
      */
-    declare public /*out*/ readonly requesterManaged: pulumi.Output<boolean>;
+    public /*out*/ readonly requesterManaged!: pulumi.Output<boolean>;
     /**
      * The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
      */
-    declare public readonly resourceConfigurationArn: pulumi.Output<string | undefined>;
+    public readonly resourceConfigurationArn!: pulumi.Output<string | undefined>;
     /**
      * One or more route table IDs. Applicable for endpoints of type `Gateway`.
      */
-    declare public readonly routeTableIds: pulumi.Output<string[]>;
+    public readonly routeTableIds!: pulumi.Output<string[]>;
     /**
      * The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
      * If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
      */
-    declare public readonly securityGroupIds: pulumi.Output<string[]>;
+    public readonly securityGroupIds!: pulumi.Output<string[]>;
     /**
      * The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`). Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
      */
-    declare public readonly serviceName: pulumi.Output<string | undefined>;
+    public readonly serviceName!: pulumi.Output<string | undefined>;
     /**
      * The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
      */
-    declare public readonly serviceNetworkArn: pulumi.Output<string | undefined>;
+    public readonly serviceNetworkArn!: pulumi.Output<string | undefined>;
     /**
      * The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
      */
-    declare public readonly serviceRegion: pulumi.Output<string>;
+    public readonly serviceRegion!: pulumi.Output<string>;
     /**
      * The state of the VPC endpoint.
      */
-    declare public /*out*/ readonly state: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnetConfiguration below.
      */
-    declare public readonly subnetConfigurations: pulumi.Output<outputs.ec2.VpcEndpointSubnetConfiguration[]>;
+    public readonly subnetConfigurations!: pulumi.Output<outputs.ec2.VpcEndpointSubnetConfiguration[]>;
     /**
      * The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
      */
-    declare public readonly subnetIds: pulumi.Output<string[]>;
+    public readonly subnetIds!: pulumi.Output<string[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
      */
-    declare public readonly vpcEndpointType: pulumi.Output<string | undefined>;
+    public readonly vpcEndpointType!: pulumi.Output<string | undefined>;
     /**
      * The ID of the VPC in which the endpoint will be used.
      */
-    declare public readonly vpcId: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a VpcEndpoint resource with the given unique name, arguments, and options.
@@ -285,54 +285,54 @@ export class VpcEndpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcEndpointState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["autoAccept"] = state?.autoAccept;
-            resourceInputs["cidrBlocks"] = state?.cidrBlocks;
-            resourceInputs["dnsEntries"] = state?.dnsEntries;
-            resourceInputs["dnsOptions"] = state?.dnsOptions;
-            resourceInputs["ipAddressType"] = state?.ipAddressType;
-            resourceInputs["networkInterfaceIds"] = state?.networkInterfaceIds;
-            resourceInputs["ownerId"] = state?.ownerId;
-            resourceInputs["policy"] = state?.policy;
-            resourceInputs["prefixListId"] = state?.prefixListId;
-            resourceInputs["privateDnsEnabled"] = state?.privateDnsEnabled;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["requesterManaged"] = state?.requesterManaged;
-            resourceInputs["resourceConfigurationArn"] = state?.resourceConfigurationArn;
-            resourceInputs["routeTableIds"] = state?.routeTableIds;
-            resourceInputs["securityGroupIds"] = state?.securityGroupIds;
-            resourceInputs["serviceName"] = state?.serviceName;
-            resourceInputs["serviceNetworkArn"] = state?.serviceNetworkArn;
-            resourceInputs["serviceRegion"] = state?.serviceRegion;
-            resourceInputs["state"] = state?.state;
-            resourceInputs["subnetConfigurations"] = state?.subnetConfigurations;
-            resourceInputs["subnetIds"] = state?.subnetIds;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["vpcEndpointType"] = state?.vpcEndpointType;
-            resourceInputs["vpcId"] = state?.vpcId;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["autoAccept"] = state ? state.autoAccept : undefined;
+            resourceInputs["cidrBlocks"] = state ? state.cidrBlocks : undefined;
+            resourceInputs["dnsEntries"] = state ? state.dnsEntries : undefined;
+            resourceInputs["dnsOptions"] = state ? state.dnsOptions : undefined;
+            resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
+            resourceInputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["prefixListId"] = state ? state.prefixListId : undefined;
+            resourceInputs["privateDnsEnabled"] = state ? state.privateDnsEnabled : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["requesterManaged"] = state ? state.requesterManaged : undefined;
+            resourceInputs["resourceConfigurationArn"] = state ? state.resourceConfigurationArn : undefined;
+            resourceInputs["routeTableIds"] = state ? state.routeTableIds : undefined;
+            resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
+            resourceInputs["serviceName"] = state ? state.serviceName : undefined;
+            resourceInputs["serviceNetworkArn"] = state ? state.serviceNetworkArn : undefined;
+            resourceInputs["serviceRegion"] = state ? state.serviceRegion : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["subnetConfigurations"] = state ? state.subnetConfigurations : undefined;
+            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcEndpointType"] = state ? state.vpcEndpointType : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as VpcEndpointArgs | undefined;
-            if (args?.vpcId === undefined && !opts.urn) {
+            if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["autoAccept"] = args?.autoAccept;
-            resourceInputs["dnsOptions"] = args?.dnsOptions;
-            resourceInputs["ipAddressType"] = args?.ipAddressType;
-            resourceInputs["policy"] = args?.policy;
-            resourceInputs["privateDnsEnabled"] = args?.privateDnsEnabled;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resourceConfigurationArn"] = args?.resourceConfigurationArn;
-            resourceInputs["routeTableIds"] = args?.routeTableIds;
-            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
-            resourceInputs["serviceName"] = args?.serviceName;
-            resourceInputs["serviceNetworkArn"] = args?.serviceNetworkArn;
-            resourceInputs["serviceRegion"] = args?.serviceRegion;
-            resourceInputs["subnetConfigurations"] = args?.subnetConfigurations;
-            resourceInputs["subnetIds"] = args?.subnetIds;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["vpcEndpointType"] = args?.vpcEndpointType;
-            resourceInputs["vpcId"] = args?.vpcId;
+            resourceInputs["autoAccept"] = args ? args.autoAccept : undefined;
+            resourceInputs["dnsOptions"] = args ? args.dnsOptions : undefined;
+            resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["privateDnsEnabled"] = args ? args.privateDnsEnabled : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourceConfigurationArn"] = args ? args.resourceConfigurationArn : undefined;
+            resourceInputs["routeTableIds"] = args ? args.routeTableIds : undefined;
+            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["serviceNetworkArn"] = args ? args.serviceNetworkArn : undefined;
+            resourceInputs["serviceRegion"] = args ? args.serviceRegion : undefined;
+            resourceInputs["subnetConfigurations"] = args ? args.subnetConfigurations : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcEndpointType"] = args ? args.vpcEndpointType : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["cidrBlocks"] = undefined /*out*/;
             resourceInputs["dnsEntries"] = undefined /*out*/;

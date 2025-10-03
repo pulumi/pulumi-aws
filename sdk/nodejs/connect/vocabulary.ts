@@ -67,52 +67,52 @@ export class Vocabulary extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the vocabulary.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with Phrase, IPA, SoundsLike, and DisplayAs fields. Separate the fields with TAB characters. For more information, see [Create a custom vocabulary using a table](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table). Minimum length of `1`. Maximum length of `60000`.
      */
-    declare public readonly content: pulumi.Output<string>;
+    public readonly content!: pulumi.Output<string>;
     /**
      * The reason why the custom vocabulary was not created.
      */
-    declare public /*out*/ readonly failureReason: pulumi.Output<string>;
+    public /*out*/ readonly failureReason!: pulumi.Output<string>;
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      */
-    declare public readonly instanceId: pulumi.Output<string>;
+    public readonly instanceId!: pulumi.Output<string>;
     /**
      * The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see [What is Amazon Transcribe?](https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html). Valid Values are `ar-AE`, `de-CH`, `de-DE`, `en-AB`, `en-AU`, `en-GB`, `en-IE`, `en-IN`, `en-US`, `en-WL`, `es-ES`, `es-US`, `fr-CA`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `pt-PT`, `zh-CN`.
      */
-    declare public readonly languageCode: pulumi.Output<string>;
+    public readonly languageCode!: pulumi.Output<string>;
     /**
      * The timestamp when the custom vocabulary was last modified.
      */
-    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
+    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
     /**
      * A unique name of the custom vocabulary. Must not be more than 140 characters.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
      */
-    declare public /*out*/ readonly state: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * Tags to apply to the vocabulary. If configured with a provider
      * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The identifier of the custom vocabulary.
      */
-    declare public /*out*/ readonly vocabularyId: pulumi.Output<string>;
+    public /*out*/ readonly vocabularyId!: pulumi.Output<string>;
 
     /**
      * Create a Vocabulary resource with the given unique name, arguments, and options.
@@ -127,35 +127,35 @@ export class Vocabulary extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VocabularyState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["content"] = state?.content;
-            resourceInputs["failureReason"] = state?.failureReason;
-            resourceInputs["instanceId"] = state?.instanceId;
-            resourceInputs["languageCode"] = state?.languageCode;
-            resourceInputs["lastModifiedTime"] = state?.lastModifiedTime;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["state"] = state?.state;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["vocabularyId"] = state?.vocabularyId;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["content"] = state ? state.content : undefined;
+            resourceInputs["failureReason"] = state ? state.failureReason : undefined;
+            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
+            resourceInputs["languageCode"] = state ? state.languageCode : undefined;
+            resourceInputs["lastModifiedTime"] = state ? state.lastModifiedTime : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vocabularyId"] = state ? state.vocabularyId : undefined;
         } else {
             const args = argsOrState as VocabularyArgs | undefined;
-            if (args?.content === undefined && !opts.urn) {
+            if ((!args || args.content === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            if (args?.instanceId === undefined && !opts.urn) {
+            if ((!args || args.instanceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            if (args?.languageCode === undefined && !opts.urn) {
+            if ((!args || args.languageCode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'languageCode'");
             }
-            resourceInputs["content"] = args?.content;
-            resourceInputs["instanceId"] = args?.instanceId;
-            resourceInputs["languageCode"] = args?.languageCode;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["content"] = args ? args.content : undefined;
+            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["languageCode"] = args ? args.languageCode : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["failureReason"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;

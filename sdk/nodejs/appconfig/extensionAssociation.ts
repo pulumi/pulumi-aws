@@ -88,27 +88,27 @@ export class ExtensionAssociation extends pulumi.CustomResource {
     /**
      * ARN of the AppConfig Extension Association.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The ARN of the extension defined in the association.
      */
-    declare public readonly extensionArn: pulumi.Output<string>;
+    public readonly extensionArn!: pulumi.Output<string>;
     /**
      * The version number for the extension defined in the association.
      */
-    declare public /*out*/ readonly extensionVersion: pulumi.Output<number>;
+    public /*out*/ readonly extensionVersion!: pulumi.Output<number>;
     /**
      * The parameter names and values defined for the association.
      */
-    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ARN of the application, configuration profile, or environment to associate with the extension.
      */
-    declare public readonly resourceArn: pulumi.Output<string>;
+    public readonly resourceArn!: pulumi.Output<string>;
 
     /**
      * Create a ExtensionAssociation resource with the given unique name, arguments, and options.
@@ -123,24 +123,24 @@ export class ExtensionAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExtensionAssociationState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["extensionArn"] = state?.extensionArn;
-            resourceInputs["extensionVersion"] = state?.extensionVersion;
-            resourceInputs["parameters"] = state?.parameters;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceArn"] = state?.resourceArn;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["extensionArn"] = state ? state.extensionArn : undefined;
+            resourceInputs["extensionVersion"] = state ? state.extensionVersion : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
         } else {
             const args = argsOrState as ExtensionAssociationArgs | undefined;
-            if (args?.extensionArn === undefined && !opts.urn) {
+            if ((!args || args.extensionArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'extensionArn'");
             }
-            if (args?.resourceArn === undefined && !opts.urn) {
+            if ((!args || args.resourceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            resourceInputs["extensionArn"] = args?.extensionArn;
-            resourceInputs["parameters"] = args?.parameters;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resourceArn"] = args?.resourceArn;
+            resourceInputs["extensionArn"] = args ? args.extensionArn : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["extensionVersion"] = undefined /*out*/;
         }

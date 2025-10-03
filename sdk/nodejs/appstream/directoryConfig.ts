@@ -65,23 +65,23 @@ export class DirectoryConfig extends pulumi.CustomResource {
     /**
      * Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
      */
-    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
      * Fully qualified name of the directory.
      */
-    declare public readonly directoryName: pulumi.Output<string>;
+    public readonly directoryName!: pulumi.Output<string>;
     /**
      * Distinguished names of the organizational units for computer accounts.
      */
-    declare public readonly organizationalUnitDistinguishedNames: pulumi.Output<string[]>;
+    public readonly organizationalUnitDistinguishedNames!: pulumi.Output<string[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
      */
-    declare public readonly serviceAccountCredentials: pulumi.Output<outputs.appstream.DirectoryConfigServiceAccountCredentials>;
+    public readonly serviceAccountCredentials!: pulumi.Output<outputs.appstream.DirectoryConfigServiceAccountCredentials>;
 
     /**
      * Create a DirectoryConfig resource with the given unique name, arguments, and options.
@@ -96,26 +96,26 @@ export class DirectoryConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DirectoryConfigState | undefined;
-            resourceInputs["createdTime"] = state?.createdTime;
-            resourceInputs["directoryName"] = state?.directoryName;
-            resourceInputs["organizationalUnitDistinguishedNames"] = state?.organizationalUnitDistinguishedNames;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["serviceAccountCredentials"] = state?.serviceAccountCredentials;
+            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
+            resourceInputs["directoryName"] = state ? state.directoryName : undefined;
+            resourceInputs["organizationalUnitDistinguishedNames"] = state ? state.organizationalUnitDistinguishedNames : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["serviceAccountCredentials"] = state ? state.serviceAccountCredentials : undefined;
         } else {
             const args = argsOrState as DirectoryConfigArgs | undefined;
-            if (args?.directoryName === undefined && !opts.urn) {
+            if ((!args || args.directoryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'directoryName'");
             }
-            if (args?.organizationalUnitDistinguishedNames === undefined && !opts.urn) {
+            if ((!args || args.organizationalUnitDistinguishedNames === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'organizationalUnitDistinguishedNames'");
             }
-            if (args?.serviceAccountCredentials === undefined && !opts.urn) {
+            if ((!args || args.serviceAccountCredentials === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceAccountCredentials'");
             }
-            resourceInputs["directoryName"] = args?.directoryName;
-            resourceInputs["organizationalUnitDistinguishedNames"] = args?.organizationalUnitDistinguishedNames;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["serviceAccountCredentials"] = args?.serviceAccountCredentials;
+            resourceInputs["directoryName"] = args ? args.directoryName : undefined;
+            resourceInputs["organizationalUnitDistinguishedNames"] = args ? args.organizationalUnitDistinguishedNames : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["serviceAccountCredentials"] = args ? args.serviceAccountCredentials : undefined;
             resourceInputs["createdTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

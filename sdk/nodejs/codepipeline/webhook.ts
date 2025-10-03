@@ -41,47 +41,47 @@ export class Webhook extends pulumi.CustomResource {
     /**
      * The CodePipeline webhook's ARN.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
      */
-    declare public readonly authentication: pulumi.Output<string>;
+    public readonly authentication!: pulumi.Output<string>;
     /**
      * An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
      */
-    declare public readonly authenticationConfiguration: pulumi.Output<outputs.codepipeline.WebhookAuthenticationConfiguration | undefined>;
+    public readonly authenticationConfiguration!: pulumi.Output<outputs.codepipeline.WebhookAuthenticationConfiguration | undefined>;
     /**
      * One or more `filter` blocks. Filter blocks are documented below.
      */
-    declare public readonly filters: pulumi.Output<outputs.codepipeline.WebhookFilter[]>;
+    public readonly filters!: pulumi.Output<outputs.codepipeline.WebhookFilter[]>;
     /**
      * The name of the webhook.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
      */
-    declare public readonly targetAction: pulumi.Output<string>;
+    public readonly targetAction!: pulumi.Output<string>;
     /**
      * The name of the pipeline.
      */
-    declare public readonly targetPipeline: pulumi.Output<string>;
+    public readonly targetPipeline!: pulumi.Output<string>;
     /**
      * The CodePipeline webhook's URL. POST events to this endpoint to trigger the target.
      */
-    declare public /*out*/ readonly url: pulumi.Output<string>;
+    public /*out*/ readonly url!: pulumi.Output<string>;
 
     /**
      * Create a Webhook resource with the given unique name, arguments, and options.
@@ -96,39 +96,39 @@ export class Webhook extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebhookState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["authentication"] = state?.authentication;
-            resourceInputs["authenticationConfiguration"] = state?.authenticationConfiguration;
-            resourceInputs["filters"] = state?.filters;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["targetAction"] = state?.targetAction;
-            resourceInputs["targetPipeline"] = state?.targetPipeline;
-            resourceInputs["url"] = state?.url;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["authentication"] = state ? state.authentication : undefined;
+            resourceInputs["authenticationConfiguration"] = state ? state.authenticationConfiguration : undefined;
+            resourceInputs["filters"] = state ? state.filters : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["targetAction"] = state ? state.targetAction : undefined;
+            resourceInputs["targetPipeline"] = state ? state.targetPipeline : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as WebhookArgs | undefined;
-            if (args?.authentication === undefined && !opts.urn) {
+            if ((!args || args.authentication === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authentication'");
             }
-            if (args?.filters === undefined && !opts.urn) {
+            if ((!args || args.filters === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'filters'");
             }
-            if (args?.targetAction === undefined && !opts.urn) {
+            if ((!args || args.targetAction === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetAction'");
             }
-            if (args?.targetPipeline === undefined && !opts.urn) {
+            if ((!args || args.targetPipeline === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetPipeline'");
             }
-            resourceInputs["authentication"] = args?.authentication;
-            resourceInputs["authenticationConfiguration"] = args?.authenticationConfiguration;
-            resourceInputs["filters"] = args?.filters;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["targetAction"] = args?.targetAction;
-            resourceInputs["targetPipeline"] = args?.targetPipeline;
+            resourceInputs["authentication"] = args ? args.authentication : undefined;
+            resourceInputs["authenticationConfiguration"] = args ? args.authenticationConfiguration : undefined;
+            resourceInputs["filters"] = args ? args.filters : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetAction"] = args ? args.targetAction : undefined;
+            resourceInputs["targetPipeline"] = args ? args.targetPipeline : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;

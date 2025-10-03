@@ -64,33 +64,33 @@ export class AccessGrantsLocation extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the S3 Access Grants location.
      */
-    declare public /*out*/ readonly accessGrantsLocationArn: pulumi.Output<string>;
+    public /*out*/ readonly accessGrantsLocationArn!: pulumi.Output<string>;
     /**
      * Unique ID of the S3 Access Grants location.
      */
-    declare public /*out*/ readonly accessGrantsLocationId: pulumi.Output<string>;
-    declare public readonly accountId: pulumi.Output<string>;
+    public /*out*/ readonly accessGrantsLocationId!: pulumi.Output<string>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
      * requests to the location.
      */
-    declare public readonly iamRoleArn: pulumi.Output<string>;
+    public readonly iamRoleArn!: pulumi.Output<string>;
     /**
      * The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
      */
-    declare public readonly locationScope: pulumi.Output<string>;
+    public readonly locationScope!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a AccessGrantsLocation resource with the given unique name, arguments, and options.
@@ -105,27 +105,27 @@ export class AccessGrantsLocation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccessGrantsLocationState | undefined;
-            resourceInputs["accessGrantsLocationArn"] = state?.accessGrantsLocationArn;
-            resourceInputs["accessGrantsLocationId"] = state?.accessGrantsLocationId;
-            resourceInputs["accountId"] = state?.accountId;
-            resourceInputs["iamRoleArn"] = state?.iamRoleArn;
-            resourceInputs["locationScope"] = state?.locationScope;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["accessGrantsLocationArn"] = state ? state.accessGrantsLocationArn : undefined;
+            resourceInputs["accessGrantsLocationId"] = state ? state.accessGrantsLocationId : undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
+            resourceInputs["locationScope"] = state ? state.locationScope : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as AccessGrantsLocationArgs | undefined;
-            if (args?.iamRoleArn === undefined && !opts.urn) {
+            if ((!args || args.iamRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'iamRoleArn'");
             }
-            if (args?.locationScope === undefined && !opts.urn) {
+            if ((!args || args.locationScope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'locationScope'");
             }
-            resourceInputs["accountId"] = args?.accountId;
-            resourceInputs["iamRoleArn"] = args?.iamRoleArn;
-            resourceInputs["locationScope"] = args?.locationScope;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
+            resourceInputs["locationScope"] = args ? args.locationScope : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["accessGrantsLocationArn"] = undefined /*out*/;
             resourceInputs["accessGrantsLocationId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

@@ -71,27 +71,27 @@ export class VirtualCluster extends pulumi.CustomResource {
     /**
      * ARN of the cluster.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Configuration block for the container provider associated with your cluster.
      */
-    declare public readonly containerProvider: pulumi.Output<outputs.emrcontainers.VirtualClusterContainerProvider>;
+    public readonly containerProvider!: pulumi.Output<outputs.emrcontainers.VirtualClusterContainerProvider>;
     /**
      * Name of the virtual cluster.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a VirtualCluster resource with the given unique name, arguments, and options.
@@ -106,21 +106,21 @@ export class VirtualCluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualClusterState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["containerProvider"] = state?.containerProvider;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["containerProvider"] = state ? state.containerProvider : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as VirtualClusterArgs | undefined;
-            if (args?.containerProvider === undefined && !opts.urn) {
+            if ((!args || args.containerProvider === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'containerProvider'");
             }
-            resourceInputs["containerProvider"] = args?.containerProvider;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["containerProvider"] = args ? args.containerProvider : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

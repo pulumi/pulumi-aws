@@ -50,15 +50,15 @@ export class ResourceGroup extends pulumi.CustomResource {
     /**
      * The resource group ARN.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ResourceGroup resource with the given unique name, arguments, and options.
@@ -73,16 +73,16 @@ export class ResourceGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceGroupState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ResourceGroupArgs | undefined;
-            if (args?.tags === undefined && !opts.urn) {
+            if ((!args || args.tags === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tags'");
             }
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

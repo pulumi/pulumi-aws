@@ -69,83 +69,83 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * The ARN of the fleet
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Reserved.
      */
-    declare public readonly context: pulumi.Output<string | undefined>;
+    public readonly context!: pulumi.Output<string | undefined>;
     /**
      * Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
      */
-    declare public readonly excessCapacityTerminationPolicy: pulumi.Output<string | undefined>;
+    public readonly excessCapacityTerminationPolicy!: pulumi.Output<string | undefined>;
     /**
      * Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
      */
-    declare public readonly fleetInstanceSets: pulumi.Output<outputs.ec2.FleetFleetInstanceSet[]>;
+    public readonly fleetInstanceSets!: pulumi.Output<outputs.ec2.FleetFleetInstanceSet[]>;
     /**
      * The state of the EC2 Fleet.
      */
-    declare public readonly fleetState: pulumi.Output<string>;
+    public readonly fleetState!: pulumi.Output<string>;
     /**
      * The number of units fulfilled by this request compared to the set target capacity.
      */
-    declare public readonly fulfilledCapacity: pulumi.Output<number>;
+    public readonly fulfilledCapacity!: pulumi.Output<number>;
     /**
      * The number of units fulfilled by this request compared to the set target On-Demand capacity.
      */
-    declare public readonly fulfilledOnDemandCapacity: pulumi.Output<number>;
+    public readonly fulfilledOnDemandCapacity!: pulumi.Output<number>;
     /**
      * Nested argument containing EC2 Launch Template configurations. Defined below.
      */
-    declare public readonly launchTemplateConfigs: pulumi.Output<outputs.ec2.FleetLaunchTemplateConfig[]>;
+    public readonly launchTemplateConfigs!: pulumi.Output<outputs.ec2.FleetLaunchTemplateConfig[]>;
     /**
      * Nested argument containing On-Demand configurations. Defined below.
      */
-    declare public readonly onDemandOptions: pulumi.Output<outputs.ec2.FleetOnDemandOptions | undefined>;
+    public readonly onDemandOptions!: pulumi.Output<outputs.ec2.FleetOnDemandOptions | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
      */
-    declare public readonly replaceUnhealthyInstances: pulumi.Output<boolean | undefined>;
+    public readonly replaceUnhealthyInstances!: pulumi.Output<boolean | undefined>;
     /**
      * Nested argument containing Spot configurations. Defined below.
      */
-    declare public readonly spotOptions: pulumi.Output<outputs.ec2.FleetSpotOptions | undefined>;
+    public readonly spotOptions!: pulumi.Output<outputs.ec2.FleetSpotOptions | undefined>;
     /**
      * Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Nested argument containing target capacity configurations. Defined below.
      */
-    declare public readonly targetCapacitySpecification: pulumi.Output<outputs.ec2.FleetTargetCapacitySpecification>;
+    public readonly targetCapacitySpecification!: pulumi.Output<outputs.ec2.FleetTargetCapacitySpecification>;
     /**
      * Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
      */
-    declare public readonly terminateInstances: pulumi.Output<boolean | undefined>;
+    public readonly terminateInstances!: pulumi.Output<boolean | undefined>;
     /**
      * Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
      */
-    declare public readonly terminateInstancesWithExpiration: pulumi.Output<boolean | undefined>;
+    public readonly terminateInstancesWithExpiration!: pulumi.Output<boolean | undefined>;
     /**
      * The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
      */
-    declare public readonly type: pulumi.Output<string | undefined>;
+    public readonly type!: pulumi.Output<string | undefined>;
     /**
      * The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
      */
-    declare public readonly validFrom: pulumi.Output<string | undefined>;
+    public readonly validFrom!: pulumi.Output<string | undefined>;
     /**
      * The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
      */
-    declare public readonly validUntil: pulumi.Output<string | undefined>;
+    public readonly validUntil!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Fleet resource with the given unique name, arguments, and options.
@@ -160,52 +160,52 @@ export class Fleet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FleetState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["context"] = state?.context;
-            resourceInputs["excessCapacityTerminationPolicy"] = state?.excessCapacityTerminationPolicy;
-            resourceInputs["fleetInstanceSets"] = state?.fleetInstanceSets;
-            resourceInputs["fleetState"] = state?.fleetState;
-            resourceInputs["fulfilledCapacity"] = state?.fulfilledCapacity;
-            resourceInputs["fulfilledOnDemandCapacity"] = state?.fulfilledOnDemandCapacity;
-            resourceInputs["launchTemplateConfigs"] = state?.launchTemplateConfigs;
-            resourceInputs["onDemandOptions"] = state?.onDemandOptions;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["replaceUnhealthyInstances"] = state?.replaceUnhealthyInstances;
-            resourceInputs["spotOptions"] = state?.spotOptions;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["targetCapacitySpecification"] = state?.targetCapacitySpecification;
-            resourceInputs["terminateInstances"] = state?.terminateInstances;
-            resourceInputs["terminateInstancesWithExpiration"] = state?.terminateInstancesWithExpiration;
-            resourceInputs["type"] = state?.type;
-            resourceInputs["validFrom"] = state?.validFrom;
-            resourceInputs["validUntil"] = state?.validUntil;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["context"] = state ? state.context : undefined;
+            resourceInputs["excessCapacityTerminationPolicy"] = state ? state.excessCapacityTerminationPolicy : undefined;
+            resourceInputs["fleetInstanceSets"] = state ? state.fleetInstanceSets : undefined;
+            resourceInputs["fleetState"] = state ? state.fleetState : undefined;
+            resourceInputs["fulfilledCapacity"] = state ? state.fulfilledCapacity : undefined;
+            resourceInputs["fulfilledOnDemandCapacity"] = state ? state.fulfilledOnDemandCapacity : undefined;
+            resourceInputs["launchTemplateConfigs"] = state ? state.launchTemplateConfigs : undefined;
+            resourceInputs["onDemandOptions"] = state ? state.onDemandOptions : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["replaceUnhealthyInstances"] = state ? state.replaceUnhealthyInstances : undefined;
+            resourceInputs["spotOptions"] = state ? state.spotOptions : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["targetCapacitySpecification"] = state ? state.targetCapacitySpecification : undefined;
+            resourceInputs["terminateInstances"] = state ? state.terminateInstances : undefined;
+            resourceInputs["terminateInstancesWithExpiration"] = state ? state.terminateInstancesWithExpiration : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["validFrom"] = state ? state.validFrom : undefined;
+            resourceInputs["validUntil"] = state ? state.validUntil : undefined;
         } else {
             const args = argsOrState as FleetArgs | undefined;
-            if (args?.launchTemplateConfigs === undefined && !opts.urn) {
+            if ((!args || args.launchTemplateConfigs === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'launchTemplateConfigs'");
             }
-            if (args?.targetCapacitySpecification === undefined && !opts.urn) {
+            if ((!args || args.targetCapacitySpecification === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetCapacitySpecification'");
             }
-            resourceInputs["context"] = args?.context;
-            resourceInputs["excessCapacityTerminationPolicy"] = args?.excessCapacityTerminationPolicy;
-            resourceInputs["fleetInstanceSets"] = args?.fleetInstanceSets;
-            resourceInputs["fleetState"] = args?.fleetState;
-            resourceInputs["fulfilledCapacity"] = args?.fulfilledCapacity;
-            resourceInputs["fulfilledOnDemandCapacity"] = args?.fulfilledOnDemandCapacity;
-            resourceInputs["launchTemplateConfigs"] = args?.launchTemplateConfigs;
-            resourceInputs["onDemandOptions"] = args?.onDemandOptions;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["replaceUnhealthyInstances"] = args?.replaceUnhealthyInstances;
-            resourceInputs["spotOptions"] = args?.spotOptions;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["targetCapacitySpecification"] = args?.targetCapacitySpecification;
-            resourceInputs["terminateInstances"] = args?.terminateInstances;
-            resourceInputs["terminateInstancesWithExpiration"] = args?.terminateInstancesWithExpiration;
-            resourceInputs["type"] = args?.type;
-            resourceInputs["validFrom"] = args?.validFrom;
-            resourceInputs["validUntil"] = args?.validUntil;
+            resourceInputs["context"] = args ? args.context : undefined;
+            resourceInputs["excessCapacityTerminationPolicy"] = args ? args.excessCapacityTerminationPolicy : undefined;
+            resourceInputs["fleetInstanceSets"] = args ? args.fleetInstanceSets : undefined;
+            resourceInputs["fleetState"] = args ? args.fleetState : undefined;
+            resourceInputs["fulfilledCapacity"] = args ? args.fulfilledCapacity : undefined;
+            resourceInputs["fulfilledOnDemandCapacity"] = args ? args.fulfilledOnDemandCapacity : undefined;
+            resourceInputs["launchTemplateConfigs"] = args ? args.launchTemplateConfigs : undefined;
+            resourceInputs["onDemandOptions"] = args ? args.onDemandOptions : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["replaceUnhealthyInstances"] = args ? args.replaceUnhealthyInstances : undefined;
+            resourceInputs["spotOptions"] = args ? args.spotOptions : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetCapacitySpecification"] = args ? args.targetCapacitySpecification : undefined;
+            resourceInputs["terminateInstances"] = args ? args.terminateInstances : undefined;
+            resourceInputs["terminateInstancesWithExpiration"] = args ? args.terminateInstancesWithExpiration : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["validFrom"] = args ? args.validFrom : undefined;
+            resourceInputs["validUntil"] = args ? args.validUntil : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

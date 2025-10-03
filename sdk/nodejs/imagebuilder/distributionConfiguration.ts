@@ -81,41 +81,41 @@ export class DistributionConfiguration extends pulumi.CustomResource {
     /**
      * (Required) Amazon Resource Name (ARN) of the distribution configuration.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Date the distribution configuration was created.
      */
-    declare public /*out*/ readonly dateCreated: pulumi.Output<string>;
+    public /*out*/ readonly dateCreated!: pulumi.Output<string>;
     /**
      * Date the distribution configuration was updated.
      */
-    declare public /*out*/ readonly dateUpdated: pulumi.Output<string>;
+    public /*out*/ readonly dateUpdated!: pulumi.Output<string>;
     /**
      * Description of the distribution configuration.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * One or more configuration blocks with distribution settings. Detailed below.
      *
      * The following arguments are optional:
      */
-    declare public readonly distributions: pulumi.Output<outputs.imagebuilder.DistributionConfigurationDistribution[]>;
+    public readonly distributions!: pulumi.Output<outputs.imagebuilder.DistributionConfigurationDistribution[]>;
     /**
      * Name of the distribution configuration.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags for the distribution configuration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a DistributionConfiguration resource with the given unique name, arguments, and options.
@@ -130,25 +130,25 @@ export class DistributionConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DistributionConfigurationState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["dateCreated"] = state?.dateCreated;
-            resourceInputs["dateUpdated"] = state?.dateUpdated;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["distributions"] = state?.distributions;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["dateCreated"] = state ? state.dateCreated : undefined;
+            resourceInputs["dateUpdated"] = state ? state.dateUpdated : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["distributions"] = state ? state.distributions : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as DistributionConfigurationArgs | undefined;
-            if (args?.distributions === undefined && !opts.urn) {
+            if ((!args || args.distributions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'distributions'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["distributions"] = args?.distributions;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["distributions"] = args ? args.distributions : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dateCreated"] = undefined /*out*/;
             resourceInputs["dateUpdated"] = undefined /*out*/;

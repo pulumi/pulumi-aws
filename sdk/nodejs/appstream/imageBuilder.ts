@@ -71,77 +71,77 @@ export class ImageBuilder extends pulumi.CustomResource {
     /**
      * Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
      */
-    declare public readonly accessEndpoints: pulumi.Output<outputs.appstream.ImageBuilderAccessEndpoint[] | undefined>;
+    public readonly accessEndpoints!: pulumi.Output<outputs.appstream.ImageBuilderAccessEndpoint[] | undefined>;
     /**
      * Version of the AppStream 2.0 agent to use for this image builder.
      */
-    declare public readonly appstreamAgentVersion: pulumi.Output<string>;
+    public readonly appstreamAgentVersion!: pulumi.Output<string>;
     /**
      * ARN of the appstream image builder.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Date and time, in UTC and extended RFC 3339 format, when the image builder was created.
      */
-    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
      * Description to display.
      */
-    declare public readonly description: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * Human-readable friendly name for the AppStream image builder.
      */
-    declare public readonly displayName: pulumi.Output<string>;
+    public readonly displayName!: pulumi.Output<string>;
     /**
      * Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
      */
-    declare public readonly domainJoinInfo: pulumi.Output<outputs.appstream.ImageBuilderDomainJoinInfo>;
+    public readonly domainJoinInfo!: pulumi.Output<outputs.appstream.ImageBuilderDomainJoinInfo>;
     /**
      * Enables or disables default internet access for the image builder.
      */
-    declare public readonly enableDefaultInternetAccess: pulumi.Output<boolean>;
+    public readonly enableDefaultInternetAccess!: pulumi.Output<boolean>;
     /**
      * ARN of the IAM role to apply to the image builder.
      */
-    declare public readonly iamRoleArn: pulumi.Output<string>;
+    public readonly iamRoleArn!: pulumi.Output<string>;
     /**
      * ARN of the public, private, or shared image to use.
      */
-    declare public readonly imageArn: pulumi.Output<string>;
+    public readonly imageArn!: pulumi.Output<string>;
     /**
      * Name of the image used to create the image builder.
      */
-    declare public readonly imageName: pulumi.Output<string>;
+    public readonly imageName!: pulumi.Output<string>;
     /**
      * Instance type to use when launching the image builder.
      */
-    declare public readonly instanceType: pulumi.Output<string>;
+    public readonly instanceType!: pulumi.Output<string>;
     /**
      * Unique name for the image builder.
      *
      * The following arguments are optional:
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * State of the image builder. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_ImageBuilder.html#AppStream2-Type-ImageBuilder-State).
      */
-    declare public /*out*/ readonly state: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block for the VPC configuration for the image builder. See below.
      */
-    declare public readonly vpcConfig: pulumi.Output<outputs.appstream.ImageBuilderVpcConfig>;
+    public readonly vpcConfig!: pulumi.Output<outputs.appstream.ImageBuilderVpcConfig>;
 
     /**
      * Create a ImageBuilder resource with the given unique name, arguments, and options.
@@ -156,43 +156,43 @@ export class ImageBuilder extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ImageBuilderState | undefined;
-            resourceInputs["accessEndpoints"] = state?.accessEndpoints;
-            resourceInputs["appstreamAgentVersion"] = state?.appstreamAgentVersion;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["createdTime"] = state?.createdTime;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["displayName"] = state?.displayName;
-            resourceInputs["domainJoinInfo"] = state?.domainJoinInfo;
-            resourceInputs["enableDefaultInternetAccess"] = state?.enableDefaultInternetAccess;
-            resourceInputs["iamRoleArn"] = state?.iamRoleArn;
-            resourceInputs["imageArn"] = state?.imageArn;
-            resourceInputs["imageName"] = state?.imageName;
-            resourceInputs["instanceType"] = state?.instanceType;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["state"] = state?.state;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["vpcConfig"] = state?.vpcConfig;
+            resourceInputs["accessEndpoints"] = state ? state.accessEndpoints : undefined;
+            resourceInputs["appstreamAgentVersion"] = state ? state.appstreamAgentVersion : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["domainJoinInfo"] = state ? state.domainJoinInfo : undefined;
+            resourceInputs["enableDefaultInternetAccess"] = state ? state.enableDefaultInternetAccess : undefined;
+            resourceInputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
+            resourceInputs["imageArn"] = state ? state.imageArn : undefined;
+            resourceInputs["imageName"] = state ? state.imageName : undefined;
+            resourceInputs["instanceType"] = state ? state.instanceType : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcConfig"] = state ? state.vpcConfig : undefined;
         } else {
             const args = argsOrState as ImageBuilderArgs | undefined;
-            if (args?.instanceType === undefined && !opts.urn) {
+            if ((!args || args.instanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            resourceInputs["accessEndpoints"] = args?.accessEndpoints;
-            resourceInputs["appstreamAgentVersion"] = args?.appstreamAgentVersion;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["displayName"] = args?.displayName;
-            resourceInputs["domainJoinInfo"] = args?.domainJoinInfo;
-            resourceInputs["enableDefaultInternetAccess"] = args?.enableDefaultInternetAccess;
-            resourceInputs["iamRoleArn"] = args?.iamRoleArn;
-            resourceInputs["imageArn"] = args?.imageArn;
-            resourceInputs["imageName"] = args?.imageName;
-            resourceInputs["instanceType"] = args?.instanceType;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["vpcConfig"] = args?.vpcConfig;
+            resourceInputs["accessEndpoints"] = args ? args.accessEndpoints : undefined;
+            resourceInputs["appstreamAgentVersion"] = args ? args.appstreamAgentVersion : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["domainJoinInfo"] = args ? args.domainJoinInfo : undefined;
+            resourceInputs["enableDefaultInternetAccess"] = args ? args.enableDefaultInternetAccess : undefined;
+            resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
+            resourceInputs["imageArn"] = args ? args.imageArn : undefined;
+            resourceInputs["imageName"] = args ? args.imageName : undefined;
+            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;

@@ -257,197 +257,197 @@ export class Instance extends pulumi.CustomResource {
     /**
      * AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
      */
-    declare public readonly ami: pulumi.Output<string>;
+    public readonly ami!: pulumi.Output<string>;
     /**
      * ARN of the instance.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Whether to associate a public IP address with an instance in a VPC.
      */
-    declare public readonly associatePublicIpAddress: pulumi.Output<boolean>;
+    public readonly associatePublicIpAddress!: pulumi.Output<boolean>;
     /**
      * AZ to start the instance in.
      */
-    declare public readonly availabilityZone: pulumi.Output<string>;
+    public readonly availabilityZone!: pulumi.Output<string>;
     /**
      * Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
      */
-    declare public readonly capacityReservationSpecification: pulumi.Output<outputs.ec2.InstanceCapacityReservationSpecification>;
+    public readonly capacityReservationSpecification!: pulumi.Output<outputs.ec2.InstanceCapacityReservationSpecification>;
     /**
      * The CPU options for the instance. See CPU Options below for more details.
      */
-    declare public readonly cpuOptions: pulumi.Output<outputs.ec2.InstanceCpuOptions>;
+    public readonly cpuOptions!: pulumi.Output<outputs.ec2.InstanceCpuOptions>;
     /**
      * Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
      */
-    declare public readonly creditSpecification: pulumi.Output<outputs.ec2.InstanceCreditSpecification | undefined>;
+    public readonly creditSpecification!: pulumi.Output<outputs.ec2.InstanceCreditSpecification | undefined>;
     /**
      * If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
      */
-    declare public readonly disableApiStop: pulumi.Output<boolean>;
+    public readonly disableApiStop!: pulumi.Output<boolean>;
     /**
      * If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
      */
-    declare public readonly disableApiTermination: pulumi.Output<boolean>;
+    public readonly disableApiTermination!: pulumi.Output<boolean>;
     /**
      * One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
      */
-    declare public readonly ebsBlockDevices: pulumi.Output<outputs.ec2.InstanceEbsBlockDevice[]>;
+    public readonly ebsBlockDevices!: pulumi.Output<outputs.ec2.InstanceEbsBlockDevice[]>;
     /**
      * If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
      */
-    declare public readonly ebsOptimized: pulumi.Output<boolean>;
+    public readonly ebsOptimized!: pulumi.Output<boolean>;
     /**
      * Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enablePrimaryIpv6` after it has been enabled forces recreation of the instance.
      */
-    declare public readonly enablePrimaryIpv6: pulumi.Output<boolean>;
+    public readonly enablePrimaryIpv6!: pulumi.Output<boolean>;
     /**
      * Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
      */
-    declare public readonly enclaveOptions: pulumi.Output<outputs.ec2.InstanceEnclaveOptions>;
+    public readonly enclaveOptions!: pulumi.Output<outputs.ec2.InstanceEnclaveOptions>;
     /**
      * One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
      */
-    declare public readonly ephemeralBlockDevices: pulumi.Output<outputs.ec2.InstanceEphemeralBlockDevice[]>;
+    public readonly ephemeralBlockDevices!: pulumi.Output<outputs.ec2.InstanceEphemeralBlockDevice[]>;
     /**
      * Destroys instance even if `disableApiTermination` or `disableApiStop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
      */
-    declare public readonly forceDestroy: pulumi.Output<boolean | undefined>;
+    public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
     /**
      * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      */
-    declare public readonly getPasswordData: pulumi.Output<boolean | undefined>;
+    public readonly getPasswordData!: pulumi.Output<boolean | undefined>;
     /**
      * If true, the launched EC2 instance will support hibernation.
      */
-    declare public readonly hibernation: pulumi.Output<boolean | undefined>;
+    public readonly hibernation!: pulumi.Output<boolean | undefined>;
     /**
      * ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
      */
-    declare public readonly hostId: pulumi.Output<string>;
+    public readonly hostId!: pulumi.Output<string>;
     /**
      * ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
      */
-    declare public readonly hostResourceGroupArn: pulumi.Output<string>;
+    public readonly hostResourceGroupArn!: pulumi.Output<string>;
     /**
      * IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
      */
-    declare public readonly iamInstanceProfile: pulumi.Output<string>;
+    public readonly iamInstanceProfile!: pulumi.Output<string>;
     /**
      * Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
      */
-    declare public readonly instanceInitiatedShutdownBehavior: pulumi.Output<string>;
+    public readonly instanceInitiatedShutdownBehavior!: pulumi.Output<string>;
     /**
      * Indicates whether this is a Spot Instance or a Scheduled Instance.
      */
-    declare public /*out*/ readonly instanceLifecycle: pulumi.Output<string>;
+    public /*out*/ readonly instanceLifecycle!: pulumi.Output<string>;
     /**
      * Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
      */
-    declare public readonly instanceMarketOptions: pulumi.Output<outputs.ec2.InstanceInstanceMarketOptions>;
+    public readonly instanceMarketOptions!: pulumi.Output<outputs.ec2.InstanceInstanceMarketOptions>;
     /**
      * State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
      */
-    declare public /*out*/ readonly instanceState: pulumi.Output<string>;
+    public /*out*/ readonly instanceState!: pulumi.Output<string>;
     /**
      * Instance type to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
      */
-    declare public readonly instanceType: pulumi.Output<string>;
+    public readonly instanceType!: pulumi.Output<string>;
     /**
      * Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      */
-    declare public readonly ipv6AddressCount: pulumi.Output<number>;
+    public readonly ipv6AddressCount!: pulumi.Output<number>;
     /**
      * Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
      */
-    declare public readonly ipv6Addresses: pulumi.Output<string[]>;
+    public readonly ipv6Addresses!: pulumi.Output<string[]>;
     /**
      * Key name of the Key Pair to use for the instance; which can be managed using the `aws.ec2.KeyPair` resource.
      */
-    declare public readonly keyName: pulumi.Output<string>;
+    public readonly keyName!: pulumi.Output<string>;
     /**
      * Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
      */
-    declare public readonly launchTemplate: pulumi.Output<outputs.ec2.InstanceLaunchTemplate | undefined>;
+    public readonly launchTemplate!: pulumi.Output<outputs.ec2.InstanceLaunchTemplate | undefined>;
     /**
      * Maintenance and recovery options for the instance. See Maintenance Options below for more details.
      */
-    declare public readonly maintenanceOptions: pulumi.Output<outputs.ec2.InstanceMaintenanceOptions>;
+    public readonly maintenanceOptions!: pulumi.Output<outputs.ec2.InstanceMaintenanceOptions>;
     /**
      * Customize the metadata options of the instance. See Metadata Options below for more details.
      */
-    declare public readonly metadataOptions: pulumi.Output<outputs.ec2.InstanceMetadataOptions>;
+    public readonly metadataOptions!: pulumi.Output<outputs.ec2.InstanceMetadataOptions>;
     /**
      * If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
      */
-    declare public readonly monitoring: pulumi.Output<boolean>;
+    public readonly monitoring!: pulumi.Output<boolean>;
     /**
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      *
      * @deprecated network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
      */
-    declare public readonly networkInterfaces: pulumi.Output<outputs.ec2.InstanceNetworkInterface[]>;
+    public readonly networkInterfaces!: pulumi.Output<outputs.ec2.InstanceNetworkInterface[]>;
     /**
      * ARN of the Outpost the instance is assigned to.
      */
-    declare public /*out*/ readonly outpostArn: pulumi.Output<string>;
+    public /*out*/ readonly outpostArn!: pulumi.Output<string>;
     /**
      * Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `getPasswordData` is true. Note that this encrypted value will be stored in the state file, as with all exported attributes. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      */
-    declare public /*out*/ readonly passwordData: pulumi.Output<string>;
+    public /*out*/ readonly passwordData!: pulumi.Output<string>;
     /**
      * Placement Group to start the instance in. Conflicts with `placementGroupId`.
      */
-    declare public readonly placementGroup: pulumi.Output<string>;
+    public readonly placementGroup!: pulumi.Output<string>;
     /**
      * Placement Group ID to start the instance in. Conflicts with `placementGroup`.
      */
-    declare public readonly placementGroupId: pulumi.Output<string>;
+    public readonly placementGroupId!: pulumi.Output<string>;
     /**
      * Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
      */
-    declare public readonly placementPartitionNumber: pulumi.Output<number>;
+    public readonly placementPartitionNumber!: pulumi.Output<number>;
     /**
      * The primary network interface. See Primary Network Interface below.
      */
-    declare public readonly primaryNetworkInterface: pulumi.Output<outputs.ec2.InstancePrimaryNetworkInterface>;
+    public readonly primaryNetworkInterface!: pulumi.Output<outputs.ec2.InstancePrimaryNetworkInterface>;
     /**
      * ID of the instance's primary network interface.
      */
-    declare public /*out*/ readonly primaryNetworkInterfaceId: pulumi.Output<string>;
+    public /*out*/ readonly primaryNetworkInterfaceId!: pulumi.Output<string>;
     /**
      * Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
      */
-    declare public /*out*/ readonly privateDns: pulumi.Output<string>;
+    public /*out*/ readonly privateDns!: pulumi.Output<string>;
     /**
      * Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
      */
-    declare public readonly privateDnsNameOptions: pulumi.Output<outputs.ec2.InstancePrivateDnsNameOptions>;
+    public readonly privateDnsNameOptions!: pulumi.Output<outputs.ec2.InstancePrivateDnsNameOptions>;
     /**
      * Private IP address to associate with the instance in a VPC.
      */
-    declare public readonly privateIp: pulumi.Output<string>;
+    public readonly privateIp!: pulumi.Output<string>;
     /**
      * Public DNS name assigned to the instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
      */
-    declare public /*out*/ readonly publicDns: pulumi.Output<string>;
+    public /*out*/ readonly publicDns!: pulumi.Output<string>;
     /**
      * Public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `publicIp` as this field will change after the EIP is attached.
      */
-    declare public /*out*/ readonly publicIp: pulumi.Output<string>;
+    public /*out*/ readonly publicIp!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
      */
-    declare public readonly rootBlockDevice: pulumi.Output<outputs.ec2.InstanceRootBlockDevice>;
+    public readonly rootBlockDevice!: pulumi.Output<outputs.ec2.InstanceRootBlockDevice>;
     /**
      * List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
      */
-    declare public readonly secondaryPrivateIps: pulumi.Output<string[]>;
+    public readonly secondaryPrivateIps!: pulumi.Output<string[]>;
     /**
      * List of security group names to associate with.
      *
@@ -455,53 +455,53 @@ export class Instance extends pulumi.CustomResource {
      *
      * @deprecated Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
      */
-    declare public readonly securityGroups: pulumi.Output<string[]>;
+    public readonly securityGroups!: pulumi.Output<string[]>;
     /**
      * Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
      */
-    declare public readonly sourceDestCheck: pulumi.Output<boolean | undefined>;
+    public readonly sourceDestCheck!: pulumi.Output<boolean | undefined>;
     /**
      * If the request is a Spot Instance request, the ID of the request.
      */
-    declare public /*out*/ readonly spotInstanceRequestId: pulumi.Output<string>;
+    public /*out*/ readonly spotInstanceRequestId!: pulumi.Output<string>;
     /**
      * VPC Subnet ID to launch in.
      */
-    declare public readonly subnetId: pulumi.Output<string>;
+    public readonly subnetId!: pulumi.Output<string>;
     /**
      * Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
      */
-    declare public readonly tenancy: pulumi.Output<string>;
+    public readonly tenancy!: pulumi.Output<string>;
     /**
      * User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
      */
-    declare public readonly userData: pulumi.Output<string | undefined>;
+    public readonly userData!: pulumi.Output<string | undefined>;
     /**
      * Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
      */
-    declare public readonly userDataBase64: pulumi.Output<string>;
+    public readonly userDataBase64!: pulumi.Output<string>;
     /**
      * When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate of the EC2 instance when set to `true`. Defaults to `false` if not set.
      */
-    declare public readonly userDataReplaceOnChange: pulumi.Output<boolean | undefined>;
+    public readonly userDataReplaceOnChange!: pulumi.Output<boolean | undefined>;
     /**
      * Map of tags to assign, at instance-creation time, to root and EBS volumes.
      *
      * > **NOTE:** Do not use `volumeTags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
      */
-    declare public readonly volumeTags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly volumeTags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of security group IDs to associate with.
      */
-    declare public readonly vpcSecurityGroupIds: pulumi.Output<string[]>;
+    public readonly vpcSecurityGroupIds!: pulumi.Output<string[]>;
 
     /**
      * Create a Instance resource with the given unique name, arguments, and options.
@@ -516,117 +516,117 @@ export class Instance extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InstanceState | undefined;
-            resourceInputs["ami"] = state?.ami;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["associatePublicIpAddress"] = state?.associatePublicIpAddress;
-            resourceInputs["availabilityZone"] = state?.availabilityZone;
-            resourceInputs["capacityReservationSpecification"] = state?.capacityReservationSpecification;
-            resourceInputs["cpuOptions"] = state?.cpuOptions;
-            resourceInputs["creditSpecification"] = state?.creditSpecification;
-            resourceInputs["disableApiStop"] = state?.disableApiStop;
-            resourceInputs["disableApiTermination"] = state?.disableApiTermination;
-            resourceInputs["ebsBlockDevices"] = state?.ebsBlockDevices;
-            resourceInputs["ebsOptimized"] = state?.ebsOptimized;
-            resourceInputs["enablePrimaryIpv6"] = state?.enablePrimaryIpv6;
-            resourceInputs["enclaveOptions"] = state?.enclaveOptions;
-            resourceInputs["ephemeralBlockDevices"] = state?.ephemeralBlockDevices;
-            resourceInputs["forceDestroy"] = state?.forceDestroy;
-            resourceInputs["getPasswordData"] = state?.getPasswordData;
-            resourceInputs["hibernation"] = state?.hibernation;
-            resourceInputs["hostId"] = state?.hostId;
-            resourceInputs["hostResourceGroupArn"] = state?.hostResourceGroupArn;
-            resourceInputs["iamInstanceProfile"] = state?.iamInstanceProfile;
-            resourceInputs["instanceInitiatedShutdownBehavior"] = state?.instanceInitiatedShutdownBehavior;
-            resourceInputs["instanceLifecycle"] = state?.instanceLifecycle;
-            resourceInputs["instanceMarketOptions"] = state?.instanceMarketOptions;
-            resourceInputs["instanceState"] = state?.instanceState;
-            resourceInputs["instanceType"] = state?.instanceType;
-            resourceInputs["ipv6AddressCount"] = state?.ipv6AddressCount;
-            resourceInputs["ipv6Addresses"] = state?.ipv6Addresses;
-            resourceInputs["keyName"] = state?.keyName;
-            resourceInputs["launchTemplate"] = state?.launchTemplate;
-            resourceInputs["maintenanceOptions"] = state?.maintenanceOptions;
-            resourceInputs["metadataOptions"] = state?.metadataOptions;
-            resourceInputs["monitoring"] = state?.monitoring;
-            resourceInputs["networkInterfaces"] = state?.networkInterfaces;
-            resourceInputs["outpostArn"] = state?.outpostArn;
-            resourceInputs["passwordData"] = state?.passwordData;
-            resourceInputs["placementGroup"] = state?.placementGroup;
-            resourceInputs["placementGroupId"] = state?.placementGroupId;
-            resourceInputs["placementPartitionNumber"] = state?.placementPartitionNumber;
-            resourceInputs["primaryNetworkInterface"] = state?.primaryNetworkInterface;
-            resourceInputs["primaryNetworkInterfaceId"] = state?.primaryNetworkInterfaceId;
-            resourceInputs["privateDns"] = state?.privateDns;
-            resourceInputs["privateDnsNameOptions"] = state?.privateDnsNameOptions;
-            resourceInputs["privateIp"] = state?.privateIp;
-            resourceInputs["publicDns"] = state?.publicDns;
-            resourceInputs["publicIp"] = state?.publicIp;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["rootBlockDevice"] = state?.rootBlockDevice;
-            resourceInputs["secondaryPrivateIps"] = state?.secondaryPrivateIps;
-            resourceInputs["securityGroups"] = state?.securityGroups;
-            resourceInputs["sourceDestCheck"] = state?.sourceDestCheck;
-            resourceInputs["spotInstanceRequestId"] = state?.spotInstanceRequestId;
-            resourceInputs["subnetId"] = state?.subnetId;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["tenancy"] = state?.tenancy;
-            resourceInputs["userData"] = state?.userData;
-            resourceInputs["userDataBase64"] = state?.userDataBase64;
-            resourceInputs["userDataReplaceOnChange"] = state?.userDataReplaceOnChange;
-            resourceInputs["volumeTags"] = state?.volumeTags;
-            resourceInputs["vpcSecurityGroupIds"] = state?.vpcSecurityGroupIds;
+            resourceInputs["ami"] = state ? state.ami : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["associatePublicIpAddress"] = state ? state.associatePublicIpAddress : undefined;
+            resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            resourceInputs["capacityReservationSpecification"] = state ? state.capacityReservationSpecification : undefined;
+            resourceInputs["cpuOptions"] = state ? state.cpuOptions : undefined;
+            resourceInputs["creditSpecification"] = state ? state.creditSpecification : undefined;
+            resourceInputs["disableApiStop"] = state ? state.disableApiStop : undefined;
+            resourceInputs["disableApiTermination"] = state ? state.disableApiTermination : undefined;
+            resourceInputs["ebsBlockDevices"] = state ? state.ebsBlockDevices : undefined;
+            resourceInputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;
+            resourceInputs["enablePrimaryIpv6"] = state ? state.enablePrimaryIpv6 : undefined;
+            resourceInputs["enclaveOptions"] = state ? state.enclaveOptions : undefined;
+            resourceInputs["ephemeralBlockDevices"] = state ? state.ephemeralBlockDevices : undefined;
+            resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
+            resourceInputs["getPasswordData"] = state ? state.getPasswordData : undefined;
+            resourceInputs["hibernation"] = state ? state.hibernation : undefined;
+            resourceInputs["hostId"] = state ? state.hostId : undefined;
+            resourceInputs["hostResourceGroupArn"] = state ? state.hostResourceGroupArn : undefined;
+            resourceInputs["iamInstanceProfile"] = state ? state.iamInstanceProfile : undefined;
+            resourceInputs["instanceInitiatedShutdownBehavior"] = state ? state.instanceInitiatedShutdownBehavior : undefined;
+            resourceInputs["instanceLifecycle"] = state ? state.instanceLifecycle : undefined;
+            resourceInputs["instanceMarketOptions"] = state ? state.instanceMarketOptions : undefined;
+            resourceInputs["instanceState"] = state ? state.instanceState : undefined;
+            resourceInputs["instanceType"] = state ? state.instanceType : undefined;
+            resourceInputs["ipv6AddressCount"] = state ? state.ipv6AddressCount : undefined;
+            resourceInputs["ipv6Addresses"] = state ? state.ipv6Addresses : undefined;
+            resourceInputs["keyName"] = state ? state.keyName : undefined;
+            resourceInputs["launchTemplate"] = state ? state.launchTemplate : undefined;
+            resourceInputs["maintenanceOptions"] = state ? state.maintenanceOptions : undefined;
+            resourceInputs["metadataOptions"] = state ? state.metadataOptions : undefined;
+            resourceInputs["monitoring"] = state ? state.monitoring : undefined;
+            resourceInputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
+            resourceInputs["outpostArn"] = state ? state.outpostArn : undefined;
+            resourceInputs["passwordData"] = state ? state.passwordData : undefined;
+            resourceInputs["placementGroup"] = state ? state.placementGroup : undefined;
+            resourceInputs["placementGroupId"] = state ? state.placementGroupId : undefined;
+            resourceInputs["placementPartitionNumber"] = state ? state.placementPartitionNumber : undefined;
+            resourceInputs["primaryNetworkInterface"] = state ? state.primaryNetworkInterface : undefined;
+            resourceInputs["primaryNetworkInterfaceId"] = state ? state.primaryNetworkInterfaceId : undefined;
+            resourceInputs["privateDns"] = state ? state.privateDns : undefined;
+            resourceInputs["privateDnsNameOptions"] = state ? state.privateDnsNameOptions : undefined;
+            resourceInputs["privateIp"] = state ? state.privateIp : undefined;
+            resourceInputs["publicDns"] = state ? state.publicDns : undefined;
+            resourceInputs["publicIp"] = state ? state.publicIp : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["rootBlockDevice"] = state ? state.rootBlockDevice : undefined;
+            resourceInputs["secondaryPrivateIps"] = state ? state.secondaryPrivateIps : undefined;
+            resourceInputs["securityGroups"] = state ? state.securityGroups : undefined;
+            resourceInputs["sourceDestCheck"] = state ? state.sourceDestCheck : undefined;
+            resourceInputs["spotInstanceRequestId"] = state ? state.spotInstanceRequestId : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["tenancy"] = state ? state.tenancy : undefined;
+            resourceInputs["userData"] = state ? state.userData : undefined;
+            resourceInputs["userDataBase64"] = state ? state.userDataBase64 : undefined;
+            resourceInputs["userDataReplaceOnChange"] = state ? state.userDataReplaceOnChange : undefined;
+            resourceInputs["volumeTags"] = state ? state.volumeTags : undefined;
+            resourceInputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
         } else {
             const args = argsOrState as InstanceArgs | undefined;
-            resourceInputs["ami"] = args?.ami;
-            resourceInputs["associatePublicIpAddress"] = args?.associatePublicIpAddress;
-            resourceInputs["availabilityZone"] = args?.availabilityZone;
-            resourceInputs["capacityReservationSpecification"] = args?.capacityReservationSpecification;
-            resourceInputs["cpuOptions"] = args?.cpuOptions;
-            resourceInputs["creditSpecification"] = args?.creditSpecification;
-            resourceInputs["disableApiStop"] = args?.disableApiStop;
-            resourceInputs["disableApiTermination"] = args?.disableApiTermination;
-            resourceInputs["ebsBlockDevices"] = args?.ebsBlockDevices;
-            resourceInputs["ebsOptimized"] = args?.ebsOptimized;
-            resourceInputs["enablePrimaryIpv6"] = args?.enablePrimaryIpv6;
-            resourceInputs["enclaveOptions"] = args?.enclaveOptions;
-            resourceInputs["ephemeralBlockDevices"] = args?.ephemeralBlockDevices;
-            resourceInputs["forceDestroy"] = args?.forceDestroy;
-            resourceInputs["getPasswordData"] = args?.getPasswordData;
-            resourceInputs["hibernation"] = args?.hibernation;
-            resourceInputs["hostId"] = args?.hostId;
-            resourceInputs["hostResourceGroupArn"] = args?.hostResourceGroupArn;
-            resourceInputs["iamInstanceProfile"] = args?.iamInstanceProfile;
-            resourceInputs["instanceInitiatedShutdownBehavior"] = args?.instanceInitiatedShutdownBehavior;
-            resourceInputs["instanceMarketOptions"] = args?.instanceMarketOptions;
-            resourceInputs["instanceType"] = args?.instanceType;
-            resourceInputs["ipv6AddressCount"] = args?.ipv6AddressCount;
-            resourceInputs["ipv6Addresses"] = args?.ipv6Addresses;
-            resourceInputs["keyName"] = args?.keyName;
-            resourceInputs["launchTemplate"] = args?.launchTemplate;
-            resourceInputs["maintenanceOptions"] = args?.maintenanceOptions;
-            resourceInputs["metadataOptions"] = args?.metadataOptions;
-            resourceInputs["monitoring"] = args?.monitoring;
-            resourceInputs["networkInterfaces"] = args?.networkInterfaces;
-            resourceInputs["placementGroup"] = args?.placementGroup;
-            resourceInputs["placementGroupId"] = args?.placementGroupId;
-            resourceInputs["placementPartitionNumber"] = args?.placementPartitionNumber;
-            resourceInputs["primaryNetworkInterface"] = args?.primaryNetworkInterface;
-            resourceInputs["privateDnsNameOptions"] = args?.privateDnsNameOptions;
-            resourceInputs["privateIp"] = args?.privateIp;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["rootBlockDevice"] = args?.rootBlockDevice;
-            resourceInputs["secondaryPrivateIps"] = args?.secondaryPrivateIps;
-            resourceInputs["securityGroups"] = args?.securityGroups;
-            resourceInputs["sourceDestCheck"] = args?.sourceDestCheck;
-            resourceInputs["subnetId"] = args?.subnetId;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["tenancy"] = args?.tenancy;
-            resourceInputs["userData"] = args?.userData;
-            resourceInputs["userDataBase64"] = args?.userDataBase64;
-            resourceInputs["userDataReplaceOnChange"] = args?.userDataReplaceOnChange;
-            resourceInputs["volumeTags"] = args?.volumeTags;
-            resourceInputs["vpcSecurityGroupIds"] = args?.vpcSecurityGroupIds;
+            resourceInputs["ami"] = args ? args.ami : undefined;
+            resourceInputs["associatePublicIpAddress"] = args ? args.associatePublicIpAddress : undefined;
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["capacityReservationSpecification"] = args ? args.capacityReservationSpecification : undefined;
+            resourceInputs["cpuOptions"] = args ? args.cpuOptions : undefined;
+            resourceInputs["creditSpecification"] = args ? args.creditSpecification : undefined;
+            resourceInputs["disableApiStop"] = args ? args.disableApiStop : undefined;
+            resourceInputs["disableApiTermination"] = args ? args.disableApiTermination : undefined;
+            resourceInputs["ebsBlockDevices"] = args ? args.ebsBlockDevices : undefined;
+            resourceInputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
+            resourceInputs["enablePrimaryIpv6"] = args ? args.enablePrimaryIpv6 : undefined;
+            resourceInputs["enclaveOptions"] = args ? args.enclaveOptions : undefined;
+            resourceInputs["ephemeralBlockDevices"] = args ? args.ephemeralBlockDevices : undefined;
+            resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
+            resourceInputs["getPasswordData"] = args ? args.getPasswordData : undefined;
+            resourceInputs["hibernation"] = args ? args.hibernation : undefined;
+            resourceInputs["hostId"] = args ? args.hostId : undefined;
+            resourceInputs["hostResourceGroupArn"] = args ? args.hostResourceGroupArn : undefined;
+            resourceInputs["iamInstanceProfile"] = args ? args.iamInstanceProfile : undefined;
+            resourceInputs["instanceInitiatedShutdownBehavior"] = args ? args.instanceInitiatedShutdownBehavior : undefined;
+            resourceInputs["instanceMarketOptions"] = args ? args.instanceMarketOptions : undefined;
+            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
+            resourceInputs["ipv6AddressCount"] = args ? args.ipv6AddressCount : undefined;
+            resourceInputs["ipv6Addresses"] = args ? args.ipv6Addresses : undefined;
+            resourceInputs["keyName"] = args ? args.keyName : undefined;
+            resourceInputs["launchTemplate"] = args ? args.launchTemplate : undefined;
+            resourceInputs["maintenanceOptions"] = args ? args.maintenanceOptions : undefined;
+            resourceInputs["metadataOptions"] = args ? args.metadataOptions : undefined;
+            resourceInputs["monitoring"] = args ? args.monitoring : undefined;
+            resourceInputs["networkInterfaces"] = args ? args.networkInterfaces : undefined;
+            resourceInputs["placementGroup"] = args ? args.placementGroup : undefined;
+            resourceInputs["placementGroupId"] = args ? args.placementGroupId : undefined;
+            resourceInputs["placementPartitionNumber"] = args ? args.placementPartitionNumber : undefined;
+            resourceInputs["primaryNetworkInterface"] = args ? args.primaryNetworkInterface : undefined;
+            resourceInputs["privateDnsNameOptions"] = args ? args.privateDnsNameOptions : undefined;
+            resourceInputs["privateIp"] = args ? args.privateIp : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["rootBlockDevice"] = args ? args.rootBlockDevice : undefined;
+            resourceInputs["secondaryPrivateIps"] = args ? args.secondaryPrivateIps : undefined;
+            resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
+            resourceInputs["sourceDestCheck"] = args ? args.sourceDestCheck : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tenancy"] = args ? args.tenancy : undefined;
+            resourceInputs["userData"] = args ? args.userData : undefined;
+            resourceInputs["userDataBase64"] = args ? args.userDataBase64 : undefined;
+            resourceInputs["userDataReplaceOnChange"] = args ? args.userDataReplaceOnChange : undefined;
+            resourceInputs["volumeTags"] = args ? args.volumeTags : undefined;
+            resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["instanceLifecycle"] = undefined /*out*/;
             resourceInputs["instanceState"] = undefined /*out*/;

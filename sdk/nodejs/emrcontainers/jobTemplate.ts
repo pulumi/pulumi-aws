@@ -71,31 +71,31 @@ export class JobTemplate extends pulumi.CustomResource {
     /**
      * ARN of the job template.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The job template data which holds values of StartJobRun API request.
      */
-    declare public readonly jobTemplateData: pulumi.Output<outputs.emrcontainers.JobTemplateJobTemplateData>;
+    public readonly jobTemplateData!: pulumi.Output<outputs.emrcontainers.JobTemplateJobTemplateData>;
     /**
      * The KMS key ARN used to encrypt the job template.
      */
-    declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
+    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     /**
      * The specified name of the job template.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a JobTemplate resource with the given unique name, arguments, and options.
@@ -110,23 +110,23 @@ export class JobTemplate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as JobTemplateState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["jobTemplateData"] = state?.jobTemplateData;
-            resourceInputs["kmsKeyArn"] = state?.kmsKeyArn;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["jobTemplateData"] = state ? state.jobTemplateData : undefined;
+            resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as JobTemplateArgs | undefined;
-            if (args?.jobTemplateData === undefined && !opts.urn) {
+            if ((!args || args.jobTemplateData === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'jobTemplateData'");
             }
-            resourceInputs["jobTemplateData"] = args?.jobTemplateData;
-            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["jobTemplateData"] = args ? args.jobTemplateData : undefined;
+            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

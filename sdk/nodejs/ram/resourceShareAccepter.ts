@@ -71,39 +71,39 @@ export class ResourceShareAccepter extends pulumi.CustomResource {
     /**
      * The ARN of the resource share invitation.
      */
-    declare public /*out*/ readonly invitationArn: pulumi.Output<string>;
+    public /*out*/ readonly invitationArn!: pulumi.Output<string>;
     /**
      * The account ID of the receiver account which accepts the invitation.
      */
-    declare public /*out*/ readonly receiverAccountId: pulumi.Output<string>;
+    public /*out*/ readonly receiverAccountId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A list of the resource ARNs shared via the resource share.
      */
-    declare public /*out*/ readonly resources: pulumi.Output<string[]>;
+    public /*out*/ readonly resources!: pulumi.Output<string[]>;
     /**
      * The account ID of the sender account which submits the invitation.
      */
-    declare public /*out*/ readonly senderAccountId: pulumi.Output<string>;
+    public /*out*/ readonly senderAccountId!: pulumi.Output<string>;
     /**
      * The ARN of the resource share.
      */
-    declare public readonly shareArn: pulumi.Output<string>;
+    public readonly shareArn!: pulumi.Output<string>;
     /**
      * The ID of the resource share as displayed in the console.
      */
-    declare public /*out*/ readonly shareId: pulumi.Output<string>;
+    public /*out*/ readonly shareId!: pulumi.Output<string>;
     /**
      * The name of the resource share.
      */
-    declare public /*out*/ readonly shareName: pulumi.Output<string>;
+    public /*out*/ readonly shareName!: pulumi.Output<string>;
     /**
      * The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
 
     /**
      * Create a ResourceShareAccepter resource with the given unique name, arguments, and options.
@@ -118,22 +118,22 @@ export class ResourceShareAccepter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceShareAccepterState | undefined;
-            resourceInputs["invitationArn"] = state?.invitationArn;
-            resourceInputs["receiverAccountId"] = state?.receiverAccountId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resources"] = state?.resources;
-            resourceInputs["senderAccountId"] = state?.senderAccountId;
-            resourceInputs["shareArn"] = state?.shareArn;
-            resourceInputs["shareId"] = state?.shareId;
-            resourceInputs["shareName"] = state?.shareName;
-            resourceInputs["status"] = state?.status;
+            resourceInputs["invitationArn"] = state ? state.invitationArn : undefined;
+            resourceInputs["receiverAccountId"] = state ? state.receiverAccountId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resources"] = state ? state.resources : undefined;
+            resourceInputs["senderAccountId"] = state ? state.senderAccountId : undefined;
+            resourceInputs["shareArn"] = state ? state.shareArn : undefined;
+            resourceInputs["shareId"] = state ? state.shareId : undefined;
+            resourceInputs["shareName"] = state ? state.shareName : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as ResourceShareAccepterArgs | undefined;
-            if (args?.shareArn === undefined && !opts.urn) {
+            if ((!args || args.shareArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shareArn'");
             }
-            resourceInputs["region"] = args?.region;
-            resourceInputs["shareArn"] = args?.shareArn;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["shareArn"] = args ? args.shareArn : undefined;
             resourceInputs["invitationArn"] = undefined /*out*/;
             resourceInputs["receiverAccountId"] = undefined /*out*/;
             resourceInputs["resources"] = undefined /*out*/;

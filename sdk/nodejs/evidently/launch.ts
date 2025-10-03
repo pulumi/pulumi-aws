@@ -311,71 +311,71 @@ export class Launch extends pulumi.CustomResource {
     /**
      * The ARN of the launch.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The date and time that the launch is created.
      */
-    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
      * Specifies the description of the launch.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * A block that contains information about the start and end times of the launch. Detailed below
      */
-    declare public /*out*/ readonly executions: pulumi.Output<outputs.evidently.LaunchExecution[]>;
+    public /*out*/ readonly executions!: pulumi.Output<outputs.evidently.LaunchExecution[]>;
     /**
      * One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.
      */
-    declare public readonly groups: pulumi.Output<outputs.evidently.LaunchGroup[]>;
+    public readonly groups!: pulumi.Output<outputs.evidently.LaunchGroup[]>;
     /**
      * The date and time that the launch was most recently updated.
      */
-    declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
     /**
      * One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
      */
-    declare public readonly metricMonitors: pulumi.Output<outputs.evidently.LaunchMetricMonitor[] | undefined>;
+    public readonly metricMonitors!: pulumi.Output<outputs.evidently.LaunchMetricMonitor[] | undefined>;
     /**
      * The name for the new launch. Minimum length of `1`. Maximum length of `127`.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name or ARN of the project that is to contain the new launch.
      */
-    declare public readonly project: pulumi.Output<string>;
+    public readonly project!: pulumi.Output<string>;
     /**
      * When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
      */
-    declare public readonly randomizationSalt: pulumi.Output<string | undefined>;
+    public readonly randomizationSalt!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
      */
-    declare public readonly scheduledSplitsConfig: pulumi.Output<outputs.evidently.LaunchScheduledSplitsConfig | undefined>;
+    public readonly scheduledSplitsConfig!: pulumi.Output<outputs.evidently.LaunchScheduledSplitsConfig | undefined>;
     /**
      * The current state of the launch. Valid values are `CREATED`, `UPDATING`, `RUNNING`, `COMPLETED`, and `CANCELLED`.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * If the launch was stopped, this is the string that was entered by the person who stopped the launch, to explain why it was stopped.
      */
-    declare public /*out*/ readonly statusReason: pulumi.Output<string>;
+    public /*out*/ readonly statusReason!: pulumi.Output<string>;
     /**
      * Tags to apply to the launch. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The type of launch.
      */
-    declare public /*out*/ readonly type: pulumi.Output<string>;
+    public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
      * Create a Launch resource with the given unique name, arguments, and options.
@@ -390,40 +390,40 @@ export class Launch extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LaunchState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["createdTime"] = state?.createdTime;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["executions"] = state?.executions;
-            resourceInputs["groups"] = state?.groups;
-            resourceInputs["lastUpdatedTime"] = state?.lastUpdatedTime;
-            resourceInputs["metricMonitors"] = state?.metricMonitors;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["project"] = state?.project;
-            resourceInputs["randomizationSalt"] = state?.randomizationSalt;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["scheduledSplitsConfig"] = state?.scheduledSplitsConfig;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["statusReason"] = state?.statusReason;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["type"] = state?.type;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["executions"] = state ? state.executions : undefined;
+            resourceInputs["groups"] = state ? state.groups : undefined;
+            resourceInputs["lastUpdatedTime"] = state ? state.lastUpdatedTime : undefined;
+            resourceInputs["metricMonitors"] = state ? state.metricMonitors : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["project"] = state ? state.project : undefined;
+            resourceInputs["randomizationSalt"] = state ? state.randomizationSalt : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["scheduledSplitsConfig"] = state ? state.scheduledSplitsConfig : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["statusReason"] = state ? state.statusReason : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as LaunchArgs | undefined;
-            if (args?.groups === undefined && !opts.urn) {
+            if ((!args || args.groups === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groups'");
             }
-            if (args?.project === undefined && !opts.urn) {
+            if ((!args || args.project === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'project'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["groups"] = args?.groups;
-            resourceInputs["metricMonitors"] = args?.metricMonitors;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["project"] = args?.project;
-            resourceInputs["randomizationSalt"] = args?.randomizationSalt;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["scheduledSplitsConfig"] = args?.scheduledSplitsConfig;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["groups"] = args ? args.groups : undefined;
+            resourceInputs["metricMonitors"] = args ? args.metricMonitors : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["project"] = args ? args.project : undefined;
+            resourceInputs["randomizationSalt"] = args ? args.randomizationSalt : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["scheduledSplitsConfig"] = args ? args.scheduledSplitsConfig : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["executions"] = undefined /*out*/;

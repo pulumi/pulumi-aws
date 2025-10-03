@@ -99,45 +99,45 @@ export class CostCategory extends pulumi.CustomResource {
     /**
      * ARN of the cost category.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Default value for the cost category.
      */
-    declare public readonly defaultValue: pulumi.Output<string | undefined>;
+    public readonly defaultValue!: pulumi.Output<string | undefined>;
     /**
      * Effective end data of your Cost Category.
      */
-    declare public /*out*/ readonly effectiveEnd: pulumi.Output<string>;
+    public /*out*/ readonly effectiveEnd!: pulumi.Output<string>;
     /**
      * The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
      */
-    declare public readonly effectiveStart: pulumi.Output<string>;
+    public readonly effectiveStart!: pulumi.Output<string>;
     /**
      * Unique name for the Cost Category.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Rule schema version in this particular Cost Category.
      *
      * The following arguments are optional:
      */
-    declare public readonly ruleVersion: pulumi.Output<string>;
+    public readonly ruleVersion!: pulumi.Output<string>;
     /**
      * Configuration block for the Cost Category rules used to categorize costs. See below.
      */
-    declare public readonly rules: pulumi.Output<outputs.costexplorer.CostCategoryRule[]>;
+    public readonly rules!: pulumi.Output<outputs.costexplorer.CostCategoryRule[]>;
     /**
      * Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
      */
-    declare public readonly splitChargeRules: pulumi.Output<outputs.costexplorer.CostCategorySplitChargeRule[] | undefined>;
+    public readonly splitChargeRules!: pulumi.Output<outputs.costexplorer.CostCategorySplitChargeRule[] | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a CostCategory resource with the given unique name, arguments, and options.
@@ -152,31 +152,31 @@ export class CostCategory extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CostCategoryState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["defaultValue"] = state?.defaultValue;
-            resourceInputs["effectiveEnd"] = state?.effectiveEnd;
-            resourceInputs["effectiveStart"] = state?.effectiveStart;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["ruleVersion"] = state?.ruleVersion;
-            resourceInputs["rules"] = state?.rules;
-            resourceInputs["splitChargeRules"] = state?.splitChargeRules;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["defaultValue"] = state ? state.defaultValue : undefined;
+            resourceInputs["effectiveEnd"] = state ? state.effectiveEnd : undefined;
+            resourceInputs["effectiveStart"] = state ? state.effectiveStart : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ruleVersion"] = state ? state.ruleVersion : undefined;
+            resourceInputs["rules"] = state ? state.rules : undefined;
+            resourceInputs["splitChargeRules"] = state ? state.splitChargeRules : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as CostCategoryArgs | undefined;
-            if (args?.ruleVersion === undefined && !opts.urn) {
+            if ((!args || args.ruleVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleVersion'");
             }
-            if (args?.rules === undefined && !opts.urn) {
+            if ((!args || args.rules === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
-            resourceInputs["defaultValue"] = args?.defaultValue;
-            resourceInputs["effectiveStart"] = args?.effectiveStart;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["ruleVersion"] = args?.ruleVersion;
-            resourceInputs["rules"] = args?.rules;
-            resourceInputs["splitChargeRules"] = args?.splitChargeRules;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["defaultValue"] = args ? args.defaultValue : undefined;
+            resourceInputs["effectiveStart"] = args ? args.effectiveStart : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ruleVersion"] = args ? args.ruleVersion : undefined;
+            resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["splitChargeRules"] = args ? args.splitChargeRules : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["effectiveEnd"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

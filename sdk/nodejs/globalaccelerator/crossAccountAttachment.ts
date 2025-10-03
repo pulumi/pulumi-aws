@@ -82,37 +82,37 @@ export class CrossAccountAttachment extends pulumi.CustomResource {
     /**
      * ARN of the Cross Account Attachment.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Creation Time when the Cross Account Attachment.
      */
-    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
      * Last modified time of the Cross Account Attachment.
      */
-    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
+    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
     /**
      * Name of the Cross Account Attachment.
      *
      * The following arguments are optional:
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * List of AWS account IDs that are allowed to associate resources with the accelerator.
      */
-    declare public readonly principals: pulumi.Output<string[] | undefined>;
+    public readonly principals!: pulumi.Output<string[] | undefined>;
     /**
      * List of resources to be associated with the accelerator.
      */
-    declare public readonly resources: pulumi.Output<outputs.globalaccelerator.CrossAccountAttachmentResource[] | undefined>;
+    public readonly resources!: pulumi.Output<outputs.globalaccelerator.CrossAccountAttachmentResource[] | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a CrossAccountAttachment resource with the given unique name, arguments, and options.
@@ -127,20 +127,20 @@ export class CrossAccountAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CrossAccountAttachmentState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["createdTime"] = state?.createdTime;
-            resourceInputs["lastModifiedTime"] = state?.lastModifiedTime;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["principals"] = state?.principals;
-            resourceInputs["resources"] = state?.resources;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
+            resourceInputs["lastModifiedTime"] = state ? state.lastModifiedTime : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["principals"] = state ? state.principals : undefined;
+            resourceInputs["resources"] = state ? state.resources : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as CrossAccountAttachmentArgs | undefined;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["principals"] = args?.principals;
-            resourceInputs["resources"] = args?.resources;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["principals"] = args ? args.principals : undefined;
+            resourceInputs["resources"] = args ? args.resources : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;

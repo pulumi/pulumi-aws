@@ -111,32 +111,32 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
-    declare public /*out*/ readonly replicationSubnetGroupArn: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
+    public /*out*/ readonly replicationSubnetGroupArn!: pulumi.Output<string>;
     /**
      * Description for the subnet group.
      */
-    declare public readonly replicationSubnetGroupDescription: pulumi.Output<string>;
+    public readonly replicationSubnetGroupDescription!: pulumi.Output<string>;
     /**
      * Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
      */
-    declare public readonly replicationSubnetGroupId: pulumi.Output<string>;
+    public readonly replicationSubnetGroupId!: pulumi.Output<string>;
     /**
      * List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
      */
-    declare public readonly subnetIds: pulumi.Output<string[]>;
+    public readonly subnetIds!: pulumi.Output<string[]>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the VPC the subnet group is in.
      */
-    declare public /*out*/ readonly vpcId: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a ReplicationSubnetGroup resource with the given unique name, arguments, and options.
@@ -151,30 +151,30 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReplicationSubnetGroupState | undefined;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["replicationSubnetGroupArn"] = state?.replicationSubnetGroupArn;
-            resourceInputs["replicationSubnetGroupDescription"] = state?.replicationSubnetGroupDescription;
-            resourceInputs["replicationSubnetGroupId"] = state?.replicationSubnetGroupId;
-            resourceInputs["subnetIds"] = state?.subnetIds;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["vpcId"] = state?.vpcId;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["replicationSubnetGroupArn"] = state ? state.replicationSubnetGroupArn : undefined;
+            resourceInputs["replicationSubnetGroupDescription"] = state ? state.replicationSubnetGroupDescription : undefined;
+            resourceInputs["replicationSubnetGroupId"] = state ? state.replicationSubnetGroupId : undefined;
+            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as ReplicationSubnetGroupArgs | undefined;
-            if (args?.replicationSubnetGroupDescription === undefined && !opts.urn) {
+            if ((!args || args.replicationSubnetGroupDescription === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'replicationSubnetGroupDescription'");
             }
-            if (args?.replicationSubnetGroupId === undefined && !opts.urn) {
+            if ((!args || args.replicationSubnetGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'replicationSubnetGroupId'");
             }
-            if (args?.subnetIds === undefined && !opts.urn) {
+            if ((!args || args.subnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            resourceInputs["region"] = args?.region;
-            resourceInputs["replicationSubnetGroupDescription"] = args?.replicationSubnetGroupDescription;
-            resourceInputs["replicationSubnetGroupId"] = args?.replicationSubnetGroupId;
-            resourceInputs["subnetIds"] = args?.subnetIds;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["replicationSubnetGroupDescription"] = args ? args.replicationSubnetGroupDescription : undefined;
+            resourceInputs["replicationSubnetGroupId"] = args ? args.replicationSubnetGroupId : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["replicationSubnetGroupArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;

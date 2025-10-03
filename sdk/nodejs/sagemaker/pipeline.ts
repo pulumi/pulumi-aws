@@ -74,47 +74,47 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Pipeline.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
      */
-    declare public readonly parallelismConfiguration: pulumi.Output<outputs.sagemaker.PipelineParallelismConfiguration | undefined>;
+    public readonly parallelismConfiguration!: pulumi.Output<outputs.sagemaker.PipelineParallelismConfiguration | undefined>;
     /**
      * The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
      */
-    declare public readonly pipelineDefinition: pulumi.Output<string | undefined>;
+    public readonly pipelineDefinition!: pulumi.Output<string | undefined>;
     /**
      * The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
      */
-    declare public readonly pipelineDefinitionS3Location: pulumi.Output<outputs.sagemaker.PipelinePipelineDefinitionS3Location | undefined>;
+    public readonly pipelineDefinitionS3Location!: pulumi.Output<outputs.sagemaker.PipelinePipelineDefinitionS3Location | undefined>;
     /**
      * A description of the pipeline.
      */
-    declare public readonly pipelineDescription: pulumi.Output<string | undefined>;
+    public readonly pipelineDescription!: pulumi.Output<string | undefined>;
     /**
      * The display name of the pipeline.
      */
-    declare public readonly pipelineDisplayName: pulumi.Output<string>;
+    public readonly pipelineDisplayName!: pulumi.Output<string>;
     /**
      * The name of the pipeline.
      */
-    declare public readonly pipelineName: pulumi.Output<string>;
+    public readonly pipelineName!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ARN of the IAM role the pipeline will execute as.
      */
-    declare public readonly roleArn: pulumi.Output<string | undefined>;
+    public readonly roleArn!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Pipeline resource with the given unique name, arguments, and options.
@@ -129,34 +129,34 @@ export class Pipeline extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PipelineState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["parallelismConfiguration"] = state?.parallelismConfiguration;
-            resourceInputs["pipelineDefinition"] = state?.pipelineDefinition;
-            resourceInputs["pipelineDefinitionS3Location"] = state?.pipelineDefinitionS3Location;
-            resourceInputs["pipelineDescription"] = state?.pipelineDescription;
-            resourceInputs["pipelineDisplayName"] = state?.pipelineDisplayName;
-            resourceInputs["pipelineName"] = state?.pipelineName;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["roleArn"] = state?.roleArn;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["parallelismConfiguration"] = state ? state.parallelismConfiguration : undefined;
+            resourceInputs["pipelineDefinition"] = state ? state.pipelineDefinition : undefined;
+            resourceInputs["pipelineDefinitionS3Location"] = state ? state.pipelineDefinitionS3Location : undefined;
+            resourceInputs["pipelineDescription"] = state ? state.pipelineDescription : undefined;
+            resourceInputs["pipelineDisplayName"] = state ? state.pipelineDisplayName : undefined;
+            resourceInputs["pipelineName"] = state ? state.pipelineName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as PipelineArgs | undefined;
-            if (args?.pipelineDisplayName === undefined && !opts.urn) {
+            if ((!args || args.pipelineDisplayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'pipelineDisplayName'");
             }
-            if (args?.pipelineName === undefined && !opts.urn) {
+            if ((!args || args.pipelineName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'pipelineName'");
             }
-            resourceInputs["parallelismConfiguration"] = args?.parallelismConfiguration;
-            resourceInputs["pipelineDefinition"] = args?.pipelineDefinition;
-            resourceInputs["pipelineDefinitionS3Location"] = args?.pipelineDefinitionS3Location;
-            resourceInputs["pipelineDescription"] = args?.pipelineDescription;
-            resourceInputs["pipelineDisplayName"] = args?.pipelineDisplayName;
-            resourceInputs["pipelineName"] = args?.pipelineName;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["roleArn"] = args?.roleArn;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["parallelismConfiguration"] = args ? args.parallelismConfiguration : undefined;
+            resourceInputs["pipelineDefinition"] = args ? args.pipelineDefinition : undefined;
+            resourceInputs["pipelineDefinitionS3Location"] = args ? args.pipelineDefinitionS3Location : undefined;
+            resourceInputs["pipelineDescription"] = args ? args.pipelineDescription : undefined;
+            resourceInputs["pipelineDisplayName"] = args ? args.pipelineDisplayName : undefined;
+            resourceInputs["pipelineName"] = args ? args.pipelineName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

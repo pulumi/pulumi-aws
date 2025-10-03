@@ -58,19 +58,19 @@ export class MulticastDomainAssociation extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ID of the subnet to associate with the transit gateway multicast domain.
      */
-    declare public readonly subnetId: pulumi.Output<string>;
+    public readonly subnetId!: pulumi.Output<string>;
     /**
      * The ID of the transit gateway attachment.
      */
-    declare public readonly transitGatewayAttachmentId: pulumi.Output<string>;
+    public readonly transitGatewayAttachmentId!: pulumi.Output<string>;
     /**
      * The ID of the transit gateway multicast domain.
      */
-    declare public readonly transitGatewayMulticastDomainId: pulumi.Output<string>;
+    public readonly transitGatewayMulticastDomainId!: pulumi.Output<string>;
 
     /**
      * Create a MulticastDomainAssociation resource with the given unique name, arguments, and options.
@@ -85,25 +85,25 @@ export class MulticastDomainAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MulticastDomainAssociationState | undefined;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["subnetId"] = state?.subnetId;
-            resourceInputs["transitGatewayAttachmentId"] = state?.transitGatewayAttachmentId;
-            resourceInputs["transitGatewayMulticastDomainId"] = state?.transitGatewayMulticastDomainId;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;
+            resourceInputs["transitGatewayMulticastDomainId"] = state ? state.transitGatewayMulticastDomainId : undefined;
         } else {
             const args = argsOrState as MulticastDomainAssociationArgs | undefined;
-            if (args?.subnetId === undefined && !opts.urn) {
+            if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            if (args?.transitGatewayAttachmentId === undefined && !opts.urn) {
+            if ((!args || args.transitGatewayAttachmentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayAttachmentId'");
             }
-            if (args?.transitGatewayMulticastDomainId === undefined && !opts.urn) {
+            if ((!args || args.transitGatewayMulticastDomainId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayMulticastDomainId'");
             }
-            resourceInputs["region"] = args?.region;
-            resourceInputs["subnetId"] = args?.subnetId;
-            resourceInputs["transitGatewayAttachmentId"] = args?.transitGatewayAttachmentId;
-            resourceInputs["transitGatewayMulticastDomainId"] = args?.transitGatewayMulticastDomainId;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
+            resourceInputs["transitGatewayMulticastDomainId"] = args ? args.transitGatewayMulticastDomainId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MulticastDomainAssociation.__pulumiType, name, resourceInputs, opts);

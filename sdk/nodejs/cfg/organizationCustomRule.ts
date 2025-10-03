@@ -78,55 +78,55 @@ export class OrganizationCustomRule extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the rule
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Description of the rule
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * List of AWS account identifiers to exclude from the rule
      */
-    declare public readonly excludedAccounts: pulumi.Output<string[] | undefined>;
+    public readonly excludedAccounts!: pulumi.Output<string[] | undefined>;
     /**
      * A string in JSON format that is passed to the AWS Config Rule Lambda Function
      */
-    declare public readonly inputParameters: pulumi.Output<string | undefined>;
+    public readonly inputParameters!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the rule Lambda Function
      */
-    declare public readonly lambdaFunctionArn: pulumi.Output<string>;
+    public readonly lambdaFunctionArn!: pulumi.Output<string>;
     /**
      * The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
      */
-    declare public readonly maximumExecutionFrequency: pulumi.Output<string | undefined>;
+    public readonly maximumExecutionFrequency!: pulumi.Output<string | undefined>;
     /**
      * The name of the rule
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Identifier of the AWS resource to evaluate
      */
-    declare public readonly resourceIdScope: pulumi.Output<string | undefined>;
+    public readonly resourceIdScope!: pulumi.Output<string | undefined>;
     /**
      * List of types of AWS resources to evaluate
      */
-    declare public readonly resourceTypesScopes: pulumi.Output<string[] | undefined>;
+    public readonly resourceTypesScopes!: pulumi.Output<string[] | undefined>;
     /**
      * Tag key of AWS resources to evaluate
      */
-    declare public readonly tagKeyScope: pulumi.Output<string | undefined>;
+    public readonly tagKeyScope!: pulumi.Output<string | undefined>;
     /**
      * Tag value of AWS resources to evaluate
      */
-    declare public readonly tagValueScope: pulumi.Output<string | undefined>;
+    public readonly tagValueScope!: pulumi.Output<string | undefined>;
     /**
      * List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`, and `ScheduledNotification`
      */
-    declare public readonly triggerTypes: pulumi.Output<string[]>;
+    public readonly triggerTypes!: pulumi.Output<string[]>;
 
     /**
      * Create a OrganizationCustomRule resource with the given unique name, arguments, and options.
@@ -141,39 +141,39 @@ export class OrganizationCustomRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrganizationCustomRuleState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["excludedAccounts"] = state?.excludedAccounts;
-            resourceInputs["inputParameters"] = state?.inputParameters;
-            resourceInputs["lambdaFunctionArn"] = state?.lambdaFunctionArn;
-            resourceInputs["maximumExecutionFrequency"] = state?.maximumExecutionFrequency;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceIdScope"] = state?.resourceIdScope;
-            resourceInputs["resourceTypesScopes"] = state?.resourceTypesScopes;
-            resourceInputs["tagKeyScope"] = state?.tagKeyScope;
-            resourceInputs["tagValueScope"] = state?.tagValueScope;
-            resourceInputs["triggerTypes"] = state?.triggerTypes;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["excludedAccounts"] = state ? state.excludedAccounts : undefined;
+            resourceInputs["inputParameters"] = state ? state.inputParameters : undefined;
+            resourceInputs["lambdaFunctionArn"] = state ? state.lambdaFunctionArn : undefined;
+            resourceInputs["maximumExecutionFrequency"] = state ? state.maximumExecutionFrequency : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceIdScope"] = state ? state.resourceIdScope : undefined;
+            resourceInputs["resourceTypesScopes"] = state ? state.resourceTypesScopes : undefined;
+            resourceInputs["tagKeyScope"] = state ? state.tagKeyScope : undefined;
+            resourceInputs["tagValueScope"] = state ? state.tagValueScope : undefined;
+            resourceInputs["triggerTypes"] = state ? state.triggerTypes : undefined;
         } else {
             const args = argsOrState as OrganizationCustomRuleArgs | undefined;
-            if (args?.lambdaFunctionArn === undefined && !opts.urn) {
+            if ((!args || args.lambdaFunctionArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'lambdaFunctionArn'");
             }
-            if (args?.triggerTypes === undefined && !opts.urn) {
+            if ((!args || args.triggerTypes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'triggerTypes'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["excludedAccounts"] = args?.excludedAccounts;
-            resourceInputs["inputParameters"] = args?.inputParameters;
-            resourceInputs["lambdaFunctionArn"] = args?.lambdaFunctionArn;
-            resourceInputs["maximumExecutionFrequency"] = args?.maximumExecutionFrequency;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resourceIdScope"] = args?.resourceIdScope;
-            resourceInputs["resourceTypesScopes"] = args?.resourceTypesScopes;
-            resourceInputs["tagKeyScope"] = args?.tagKeyScope;
-            resourceInputs["tagValueScope"] = args?.tagValueScope;
-            resourceInputs["triggerTypes"] = args?.triggerTypes;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["excludedAccounts"] = args ? args.excludedAccounts : undefined;
+            resourceInputs["inputParameters"] = args ? args.inputParameters : undefined;
+            resourceInputs["lambdaFunctionArn"] = args ? args.lambdaFunctionArn : undefined;
+            resourceInputs["maximumExecutionFrequency"] = args ? args.maximumExecutionFrequency : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourceIdScope"] = args ? args.resourceIdScope : undefined;
+            resourceInputs["resourceTypesScopes"] = args ? args.resourceTypesScopes : undefined;
+            resourceInputs["tagKeyScope"] = args ? args.tagKeyScope : undefined;
+            resourceInputs["tagValueScope"] = args ? args.tagValueScope : undefined;
+            resourceInputs["triggerTypes"] = args ? args.triggerTypes : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -95,31 +95,31 @@ export class StorageLensConfiguration extends pulumi.CustomResource {
     /**
      * The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
      */
-    declare public readonly accountId: pulumi.Output<string>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The ID of the S3 Storage Lens configuration.
      */
-    declare public readonly configId: pulumi.Output<string>;
+    public readonly configId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
      */
-    declare public readonly storageLensConfiguration: pulumi.Output<outputs.s3control.StorageLensConfigurationStorageLensConfiguration>;
+    public readonly storageLensConfiguration!: pulumi.Output<outputs.s3control.StorageLensConfigurationStorageLensConfiguration>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a StorageLensConfiguration resource with the given unique name, arguments, and options.
@@ -134,26 +134,26 @@ export class StorageLensConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StorageLensConfigurationState | undefined;
-            resourceInputs["accountId"] = state?.accountId;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["configId"] = state?.configId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["storageLensConfiguration"] = state?.storageLensConfiguration;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["configId"] = state ? state.configId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["storageLensConfiguration"] = state ? state.storageLensConfiguration : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as StorageLensConfigurationArgs | undefined;
-            if (args?.configId === undefined && !opts.urn) {
+            if ((!args || args.configId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'configId'");
             }
-            if (args?.storageLensConfiguration === undefined && !opts.urn) {
+            if ((!args || args.storageLensConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageLensConfiguration'");
             }
-            resourceInputs["accountId"] = args?.accountId;
-            resourceInputs["configId"] = args?.configId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["storageLensConfiguration"] = args?.storageLensConfiguration;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["configId"] = args ? args.configId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["storageLensConfiguration"] = args ? args.storageLensConfiguration : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

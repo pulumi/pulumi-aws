@@ -62,41 +62,41 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * ARN of the certificate.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Date and time when the certificate was created.
      */
-    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
      * Domain name for which the certificate should be issued.
      */
-    declare public readonly domainName: pulumi.Output<string>;
+    public readonly domainName!: pulumi.Output<string>;
     /**
      * Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
      */
-    declare public /*out*/ readonly domainValidationOptions: pulumi.Output<outputs.lightsail.CertificateDomainValidationOption[]>;
+    public /*out*/ readonly domainValidationOptions!: pulumi.Output<outputs.lightsail.CertificateDomainValidationOption[]>;
     /**
      * Name of the certificate.
      *
      * The following arguments are optional:
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
      */
-    declare public readonly subjectAlternativeNames: pulumi.Output<string[]>;
+    public readonly subjectAlternativeNames!: pulumi.Output<string[]>;
     /**
      * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -111,22 +111,22 @@ export class Certificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["createdAt"] = state?.createdAt;
-            resourceInputs["domainName"] = state?.domainName;
-            resourceInputs["domainValidationOptions"] = state?.domainValidationOptions;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["subjectAlternativeNames"] = state?.subjectAlternativeNames;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["domainValidationOptions"] = state ? state.domainValidationOptions : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["subjectAlternativeNames"] = state ? state.subjectAlternativeNames : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
-            resourceInputs["domainName"] = args?.domainName;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["subjectAlternativeNames"] = args?.subjectAlternativeNames;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["subjectAlternativeNames"] = args ? args.subjectAlternativeNames : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["domainValidationOptions"] = undefined /*out*/;

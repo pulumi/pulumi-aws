@@ -81,21 +81,21 @@ export class InstanceState extends pulumi.CustomResource {
     /**
      * Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
      */
-    declare public readonly force: pulumi.Output<boolean | undefined>;
+    public readonly force!: pulumi.Output<boolean | undefined>;
     /**
      * ID of the instance.
      */
-    declare public readonly instanceId: pulumi.Output<string>;
+    public readonly instanceId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * State of the instance. Valid values are `stopped`, `running`.
      *
      * The following arguments are optional:
      */
-    declare public readonly state: pulumi.Output<string>;
+    public readonly state!: pulumi.Output<string>;
 
     /**
      * Create a InstanceState resource with the given unique name, arguments, and options.
@@ -110,22 +110,22 @@ export class InstanceState extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InstanceStateState | undefined;
-            resourceInputs["force"] = state?.force;
-            resourceInputs["instanceId"] = state?.instanceId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["state"] = state?.state;
+            resourceInputs["force"] = state ? state.force : undefined;
+            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
         } else {
             const args = argsOrState as InstanceStateArgs | undefined;
-            if (args?.instanceId === undefined && !opts.urn) {
+            if ((!args || args.instanceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            if (args?.state === undefined && !opts.urn) {
+            if ((!args || args.state === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
-            resourceInputs["force"] = args?.force;
-            resourceInputs["instanceId"] = args?.instanceId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["state"] = args?.state;
+            resourceInputs["force"] = args ? args.force : undefined;
+            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(InstanceState.__pulumiType, name, resourceInputs, opts);

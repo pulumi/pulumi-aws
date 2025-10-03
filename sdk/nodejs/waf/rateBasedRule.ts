@@ -77,35 +77,35 @@ export class RateBasedRule extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN)
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name or description for the Amazon CloudWatch metric of this rule.
      */
-    declare public readonly metricName: pulumi.Output<string>;
+    public readonly metricName!: pulumi.Output<string>;
     /**
      * The name or description of the rule.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The objects to include in a rule (documented below).
      */
-    declare public readonly predicates: pulumi.Output<outputs.waf.RateBasedRulePredicate[] | undefined>;
+    public readonly predicates!: pulumi.Output<outputs.waf.RateBasedRulePredicate[] | undefined>;
     /**
      * Valid value is IP.
      */
-    declare public readonly rateKey: pulumi.Output<string>;
+    public readonly rateKey!: pulumi.Output<string>;
     /**
      * The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
      */
-    declare public readonly rateLimit: pulumi.Output<number>;
+    public readonly rateLimit!: pulumi.Output<number>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a RateBasedRule resource with the given unique name, arguments, and options.
@@ -120,31 +120,31 @@ export class RateBasedRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RateBasedRuleState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["metricName"] = state?.metricName;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["predicates"] = state?.predicates;
-            resourceInputs["rateKey"] = state?.rateKey;
-            resourceInputs["rateLimit"] = state?.rateLimit;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["metricName"] = state ? state.metricName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["predicates"] = state ? state.predicates : undefined;
+            resourceInputs["rateKey"] = state ? state.rateKey : undefined;
+            resourceInputs["rateLimit"] = state ? state.rateLimit : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as RateBasedRuleArgs | undefined;
-            if (args?.metricName === undefined && !opts.urn) {
+            if ((!args || args.metricName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'metricName'");
             }
-            if (args?.rateKey === undefined && !opts.urn) {
+            if ((!args || args.rateKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rateKey'");
             }
-            if (args?.rateLimit === undefined && !opts.urn) {
+            if ((!args || args.rateLimit === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rateLimit'");
             }
-            resourceInputs["metricName"] = args?.metricName;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["predicates"] = args?.predicates;
-            resourceInputs["rateKey"] = args?.rateKey;
-            resourceInputs["rateLimit"] = args?.rateLimit;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["metricName"] = args ? args.metricName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["predicates"] = args ? args.predicates : undefined;
+            resourceInputs["rateKey"] = args ? args.rateKey : undefined;
+            resourceInputs["rateLimit"] = args ? args.rateLimit : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

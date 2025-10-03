@@ -52,20 +52,20 @@ export class DefaultRouteTableAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === DefaultRouteTableAssociation.__pulumiType;
     }
 
-    declare public /*out*/ readonly originalDefaultRouteTableId: pulumi.Output<string>;
+    public /*out*/ readonly originalDefaultRouteTableId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
-    declare public readonly timeouts: pulumi.Output<outputs.ec2transitgateway.DefaultRouteTableAssociationTimeouts | undefined>;
+    public readonly region!: pulumi.Output<string>;
+    public readonly timeouts!: pulumi.Output<outputs.ec2transitgateway.DefaultRouteTableAssociationTimeouts | undefined>;
     /**
      * ID of the Transit Gateway to change the default association route table on.
      */
-    declare public readonly transitGatewayId: pulumi.Output<string>;
+    public readonly transitGatewayId!: pulumi.Output<string>;
     /**
      * ID of the Transit Gateway Route Table to be made the default association route table.
      */
-    declare public readonly transitGatewayRouteTableId: pulumi.Output<string>;
+    public readonly transitGatewayRouteTableId!: pulumi.Output<string>;
 
     /**
      * Create a DefaultRouteTableAssociation resource with the given unique name, arguments, and options.
@@ -80,23 +80,23 @@ export class DefaultRouteTableAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DefaultRouteTableAssociationState | undefined;
-            resourceInputs["originalDefaultRouteTableId"] = state?.originalDefaultRouteTableId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["timeouts"] = state?.timeouts;
-            resourceInputs["transitGatewayId"] = state?.transitGatewayId;
-            resourceInputs["transitGatewayRouteTableId"] = state?.transitGatewayRouteTableId;
+            resourceInputs["originalDefaultRouteTableId"] = state ? state.originalDefaultRouteTableId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
+            resourceInputs["transitGatewayRouteTableId"] = state ? state.transitGatewayRouteTableId : undefined;
         } else {
             const args = argsOrState as DefaultRouteTableAssociationArgs | undefined;
-            if (args?.transitGatewayId === undefined && !opts.urn) {
+            if ((!args || args.transitGatewayId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayId'");
             }
-            if (args?.transitGatewayRouteTableId === undefined && !opts.urn) {
+            if ((!args || args.transitGatewayRouteTableId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayRouteTableId'");
             }
-            resourceInputs["region"] = args?.region;
-            resourceInputs["timeouts"] = args?.timeouts;
-            resourceInputs["transitGatewayId"] = args?.transitGatewayId;
-            resourceInputs["transitGatewayRouteTableId"] = args?.transitGatewayRouteTableId;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
+            resourceInputs["transitGatewayRouteTableId"] = args ? args.transitGatewayRouteTableId : undefined;
             resourceInputs["originalDefaultRouteTableId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

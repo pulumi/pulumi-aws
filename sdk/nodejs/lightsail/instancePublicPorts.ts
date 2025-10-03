@@ -82,17 +82,17 @@ export class InstancePublicPorts extends pulumi.CustomResource {
     /**
      * Name of the instance for which to open ports.
      */
-    declare public readonly instanceName: pulumi.Output<string>;
+    public readonly instanceName!: pulumi.Output<string>;
     /**
      * Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `portInfo` Block for details.
      *
      * The following arguments are optional:
      */
-    declare public readonly portInfos: pulumi.Output<outputs.lightsail.InstancePublicPortsPortInfo[]>;
+    public readonly portInfos!: pulumi.Output<outputs.lightsail.InstancePublicPortsPortInfo[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a InstancePublicPorts resource with the given unique name, arguments, and options.
@@ -107,20 +107,20 @@ export class InstancePublicPorts extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InstancePublicPortsState | undefined;
-            resourceInputs["instanceName"] = state?.instanceName;
-            resourceInputs["portInfos"] = state?.portInfos;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["instanceName"] = state ? state.instanceName : undefined;
+            resourceInputs["portInfos"] = state ? state.portInfos : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as InstancePublicPortsArgs | undefined;
-            if (args?.instanceName === undefined && !opts.urn) {
+            if ((!args || args.instanceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceName'");
             }
-            if (args?.portInfos === undefined && !opts.urn) {
+            if ((!args || args.portInfos === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'portInfos'");
             }
-            resourceInputs["instanceName"] = args?.instanceName;
-            resourceInputs["portInfos"] = args?.portInfos;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["instanceName"] = args ? args.instanceName : undefined;
+            resourceInputs["portInfos"] = args ? args.portInfos : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(InstancePublicPorts.__pulumiType, name, resourceInputs, opts);

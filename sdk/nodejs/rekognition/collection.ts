@@ -63,30 +63,30 @@ export class Collection extends pulumi.CustomResource {
     /**
      * ARN of the Collection.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name of the collection
      *
      * The following arguments are optional:
      */
-    declare public readonly collectionId: pulumi.Output<string>;
+    public readonly collectionId!: pulumi.Output<string>;
     /**
      * The Face Model Version that the collection was initialized with
      */
-    declare public /*out*/ readonly faceModelVersion: pulumi.Output<string>;
+    public /*out*/ readonly faceModelVersion!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public readonly timeouts: pulumi.Output<outputs.rekognition.CollectionTimeouts | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly timeouts!: pulumi.Output<outputs.rekognition.CollectionTimeouts | undefined>;
 
     /**
      * Create a Collection resource with the given unique name, arguments, and options.
@@ -101,22 +101,22 @@ export class Collection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CollectionState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["collectionId"] = state?.collectionId;
-            resourceInputs["faceModelVersion"] = state?.faceModelVersion;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["collectionId"] = state ? state.collectionId : undefined;
+            resourceInputs["faceModelVersion"] = state ? state.faceModelVersion : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as CollectionArgs | undefined;
-            if (args?.collectionId === undefined && !opts.urn) {
+            if ((!args || args.collectionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'collectionId'");
             }
-            resourceInputs["collectionId"] = args?.collectionId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["collectionId"] = args ? args.collectionId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["faceModelVersion"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

@@ -168,35 +168,35 @@ export class Selection extends pulumi.CustomResource {
     /**
      * Condition-based filters used to specify sets of resources for a backup plan. See below for details.
      */
-    declare public readonly conditions: pulumi.Output<outputs.backup.SelectionCondition[]>;
+    public readonly conditions!: pulumi.Output<outputs.backup.SelectionCondition[]>;
     /**
      * The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
      */
-    declare public readonly iamRoleArn: pulumi.Output<string>;
+    public readonly iamRoleArn!: pulumi.Output<string>;
     /**
      * The display name of a resource selection document.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
      */
-    declare public readonly notResources: pulumi.Output<string[]>;
+    public readonly notResources!: pulumi.Output<string[]>;
     /**
      * The backup plan ID to be associated with the selection of resources.
      */
-    declare public readonly planId: pulumi.Output<string>;
+    public readonly planId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
      */
-    declare public readonly resources: pulumi.Output<string[] | undefined>;
+    public readonly resources!: pulumi.Output<string[] | undefined>;
     /**
      * Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
      */
-    declare public readonly selectionTags: pulumi.Output<outputs.backup.SelectionSelectionTag[] | undefined>;
+    public readonly selectionTags!: pulumi.Output<outputs.backup.SelectionSelectionTag[] | undefined>;
 
     /**
      * Create a Selection resource with the given unique name, arguments, and options.
@@ -211,30 +211,30 @@ export class Selection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SelectionState | undefined;
-            resourceInputs["conditions"] = state?.conditions;
-            resourceInputs["iamRoleArn"] = state?.iamRoleArn;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["notResources"] = state?.notResources;
-            resourceInputs["planId"] = state?.planId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resources"] = state?.resources;
-            resourceInputs["selectionTags"] = state?.selectionTags;
+            resourceInputs["conditions"] = state ? state.conditions : undefined;
+            resourceInputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notResources"] = state ? state.notResources : undefined;
+            resourceInputs["planId"] = state ? state.planId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resources"] = state ? state.resources : undefined;
+            resourceInputs["selectionTags"] = state ? state.selectionTags : undefined;
         } else {
             const args = argsOrState as SelectionArgs | undefined;
-            if (args?.iamRoleArn === undefined && !opts.urn) {
+            if ((!args || args.iamRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'iamRoleArn'");
             }
-            if (args?.planId === undefined && !opts.urn) {
+            if ((!args || args.planId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'planId'");
             }
-            resourceInputs["conditions"] = args?.conditions;
-            resourceInputs["iamRoleArn"] = args?.iamRoleArn;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["notResources"] = args?.notResources;
-            resourceInputs["planId"] = args?.planId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resources"] = args?.resources;
-            resourceInputs["selectionTags"] = args?.selectionTags;
+            resourceInputs["conditions"] = args ? args.conditions : undefined;
+            resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notResources"] = args ? args.notResources : undefined;
+            resourceInputs["planId"] = args ? args.planId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resources"] = args ? args.resources : undefined;
+            resourceInputs["selectionTags"] = args ? args.selectionTags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Selection.__pulumiType, name, resourceInputs, opts);

@@ -139,45 +139,45 @@ export class LayerVersionPermission extends pulumi.CustomResource {
     /**
      * Action that will be allowed. `lambda:GetLayerVersion` is the standard value for layer access.
      */
-    declare public readonly action: pulumi.Output<string>;
+    public readonly action!: pulumi.Output<string>;
     /**
      * Name or ARN of the Lambda Layer.
      */
-    declare public readonly layerName: pulumi.Output<string>;
+    public readonly layerName!: pulumi.Output<string>;
     /**
      * AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organizationId` is provided.
      */
-    declare public readonly organizationId: pulumi.Output<string | undefined>;
+    public readonly organizationId!: pulumi.Output<string | undefined>;
     /**
      * Full Lambda Layer Permission policy.
      */
-    declare public /*out*/ readonly policy: pulumi.Output<string>;
+    public /*out*/ readonly policy!: pulumi.Output<string>;
     /**
      * AWS account ID that should be able to use your Lambda Layer. Use `*` to share with all AWS accounts.
      */
-    declare public readonly principal: pulumi.Output<string>;
+    public readonly principal!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Unique identifier for the current revision of the policy.
      */
-    declare public /*out*/ readonly revisionId: pulumi.Output<string>;
+    public /*out*/ readonly revisionId!: pulumi.Output<string>;
     /**
      * Whether to retain the permission when the resource is destroyed. Default is `false`.
      */
-    declare public readonly skipDestroy: pulumi.Output<boolean | undefined>;
+    public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
     /**
      * Unique identifier for the permission statement.
      */
-    declare public readonly statementId: pulumi.Output<string>;
+    public readonly statementId!: pulumi.Output<string>;
     /**
      * Version of Lambda Layer to grant access to. Note: permissions only apply to a single version of a layer.
      *
      * The following arguments are optional:
      */
-    declare public readonly versionNumber: pulumi.Output<number>;
+    public readonly versionNumber!: pulumi.Output<number>;
 
     /**
      * Create a LayerVersionPermission resource with the given unique name, arguments, and options.
@@ -192,41 +192,41 @@ export class LayerVersionPermission extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LayerVersionPermissionState | undefined;
-            resourceInputs["action"] = state?.action;
-            resourceInputs["layerName"] = state?.layerName;
-            resourceInputs["organizationId"] = state?.organizationId;
-            resourceInputs["policy"] = state?.policy;
-            resourceInputs["principal"] = state?.principal;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["revisionId"] = state?.revisionId;
-            resourceInputs["skipDestroy"] = state?.skipDestroy;
-            resourceInputs["statementId"] = state?.statementId;
-            resourceInputs["versionNumber"] = state?.versionNumber;
+            resourceInputs["action"] = state ? state.action : undefined;
+            resourceInputs["layerName"] = state ? state.layerName : undefined;
+            resourceInputs["organizationId"] = state ? state.organizationId : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["principal"] = state ? state.principal : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["revisionId"] = state ? state.revisionId : undefined;
+            resourceInputs["skipDestroy"] = state ? state.skipDestroy : undefined;
+            resourceInputs["statementId"] = state ? state.statementId : undefined;
+            resourceInputs["versionNumber"] = state ? state.versionNumber : undefined;
         } else {
             const args = argsOrState as LayerVersionPermissionArgs | undefined;
-            if (args?.action === undefined && !opts.urn) {
+            if ((!args || args.action === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'action'");
             }
-            if (args?.layerName === undefined && !opts.urn) {
+            if ((!args || args.layerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'layerName'");
             }
-            if (args?.principal === undefined && !opts.urn) {
+            if ((!args || args.principal === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            if (args?.statementId === undefined && !opts.urn) {
+            if ((!args || args.statementId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'statementId'");
             }
-            if (args?.versionNumber === undefined && !opts.urn) {
+            if ((!args || args.versionNumber === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'versionNumber'");
             }
-            resourceInputs["action"] = args?.action;
-            resourceInputs["layerName"] = args?.layerName;
-            resourceInputs["organizationId"] = args?.organizationId;
-            resourceInputs["principal"] = args?.principal;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["skipDestroy"] = args?.skipDestroy;
-            resourceInputs["statementId"] = args?.statementId;
-            resourceInputs["versionNumber"] = args?.versionNumber;
+            resourceInputs["action"] = args ? args.action : undefined;
+            resourceInputs["layerName"] = args ? args.layerName : undefined;
+            resourceInputs["organizationId"] = args ? args.organizationId : undefined;
+            resourceInputs["principal"] = args ? args.principal : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
+            resourceInputs["statementId"] = args ? args.statementId : undefined;
+            resourceInputs["versionNumber"] = args ? args.versionNumber : undefined;
             resourceInputs["policy"] = undefined /*out*/;
             resourceInputs["revisionId"] = undefined /*out*/;
         }

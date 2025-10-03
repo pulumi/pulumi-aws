@@ -58,49 +58,49 @@ export class InternetMonitor extends pulumi.CustomResource {
     /**
      * ARN of the Monitor.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
      */
-    declare public readonly healthEventsConfig: pulumi.Output<outputs.cloudwatch.InternetMonitorHealthEventsConfig | undefined>;
+    public readonly healthEventsConfig!: pulumi.Output<outputs.cloudwatch.InternetMonitorHealthEventsConfig | undefined>;
     /**
      * Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
      */
-    declare public readonly internetMeasurementsLogDelivery: pulumi.Output<outputs.cloudwatch.InternetMonitorInternetMeasurementsLogDelivery | undefined>;
+    public readonly internetMeasurementsLogDelivery!: pulumi.Output<outputs.cloudwatch.InternetMonitorInternetMeasurementsLogDelivery | undefined>;
     /**
      * The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
      */
-    declare public readonly maxCityNetworksToMonitor: pulumi.Output<number | undefined>;
+    public readonly maxCityNetworksToMonitor!: pulumi.Output<number | undefined>;
     /**
      * The name of the monitor.
      *
      * The following arguments are optional:
      */
-    declare public readonly monitorName: pulumi.Output<string>;
+    public readonly monitorName!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
      */
-    declare public readonly resources: pulumi.Output<string[] | undefined>;
+    public readonly resources!: pulumi.Output<string[] | undefined>;
     /**
      * The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
      */
-    declare public readonly status: pulumi.Output<string | undefined>;
+    public readonly status!: pulumi.Output<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The percentage of the internet-facing traffic for your application that you want to monitor with this monitor.
      */
-    declare public readonly trafficPercentageToMonitor: pulumi.Output<number | undefined>;
+    public readonly trafficPercentageToMonitor!: pulumi.Output<number | undefined>;
 
     /**
      * Create a InternetMonitor resource with the given unique name, arguments, and options.
@@ -115,31 +115,31 @@ export class InternetMonitor extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InternetMonitorState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["healthEventsConfig"] = state?.healthEventsConfig;
-            resourceInputs["internetMeasurementsLogDelivery"] = state?.internetMeasurementsLogDelivery;
-            resourceInputs["maxCityNetworksToMonitor"] = state?.maxCityNetworksToMonitor;
-            resourceInputs["monitorName"] = state?.monitorName;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resources"] = state?.resources;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["trafficPercentageToMonitor"] = state?.trafficPercentageToMonitor;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["healthEventsConfig"] = state ? state.healthEventsConfig : undefined;
+            resourceInputs["internetMeasurementsLogDelivery"] = state ? state.internetMeasurementsLogDelivery : undefined;
+            resourceInputs["maxCityNetworksToMonitor"] = state ? state.maxCityNetworksToMonitor : undefined;
+            resourceInputs["monitorName"] = state ? state.monitorName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resources"] = state ? state.resources : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["trafficPercentageToMonitor"] = state ? state.trafficPercentageToMonitor : undefined;
         } else {
             const args = argsOrState as InternetMonitorArgs | undefined;
-            if (args?.monitorName === undefined && !opts.urn) {
+            if ((!args || args.monitorName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'monitorName'");
             }
-            resourceInputs["healthEventsConfig"] = args?.healthEventsConfig;
-            resourceInputs["internetMeasurementsLogDelivery"] = args?.internetMeasurementsLogDelivery;
-            resourceInputs["maxCityNetworksToMonitor"] = args?.maxCityNetworksToMonitor;
-            resourceInputs["monitorName"] = args?.monitorName;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resources"] = args?.resources;
-            resourceInputs["status"] = args?.status;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["trafficPercentageToMonitor"] = args?.trafficPercentageToMonitor;
+            resourceInputs["healthEventsConfig"] = args ? args.healthEventsConfig : undefined;
+            resourceInputs["internetMeasurementsLogDelivery"] = args ? args.internetMeasurementsLogDelivery : undefined;
+            resourceInputs["maxCityNetworksToMonitor"] = args ? args.maxCityNetworksToMonitor : undefined;
+            resourceInputs["monitorName"] = args ? args.monitorName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resources"] = args ? args.resources : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["trafficPercentageToMonitor"] = args ? args.trafficPercentageToMonitor : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

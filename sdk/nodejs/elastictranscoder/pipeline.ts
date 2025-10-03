@@ -72,47 +72,47 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * The ARN of the Elastictranscoder pipeline.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
      */
-    declare public readonly awsKmsKeyArn: pulumi.Output<string | undefined>;
+    public readonly awsKmsKeyArn!: pulumi.Output<string | undefined>;
     /**
      * The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
      */
-    declare public readonly contentConfig: pulumi.Output<outputs.elastictranscoder.PipelineContentConfig>;
+    public readonly contentConfig!: pulumi.Output<outputs.elastictranscoder.PipelineContentConfig>;
     /**
      * The permissions for the `contentConfig` object. (documented below)
      */
-    declare public readonly contentConfigPermissions: pulumi.Output<outputs.elastictranscoder.PipelineContentConfigPermission[] | undefined>;
+    public readonly contentConfigPermissions!: pulumi.Output<outputs.elastictranscoder.PipelineContentConfigPermission[] | undefined>;
     /**
      * The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
      */
-    declare public readonly inputBucket: pulumi.Output<string>;
+    public readonly inputBucket!: pulumi.Output<string>;
     /**
      * The name of the pipeline. Maximum 40 characters
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
      */
-    declare public readonly notifications: pulumi.Output<outputs.elastictranscoder.PipelineNotifications | undefined>;
+    public readonly notifications!: pulumi.Output<outputs.elastictranscoder.PipelineNotifications | undefined>;
     /**
      * The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
      */
-    declare public readonly outputBucket: pulumi.Output<string>;
+    public readonly outputBucket!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
      */
-    declare public readonly role: pulumi.Output<string>;
+    public readonly role!: pulumi.Output<string>;
     /**
      * The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
      */
-    declare public readonly thumbnailConfig: pulumi.Output<outputs.elastictranscoder.PipelineThumbnailConfig>;
+    public readonly thumbnailConfig!: pulumi.Output<outputs.elastictranscoder.PipelineThumbnailConfig>;
     /**
      * The permissions for the `thumbnailConfig` object. (documented below)
      *
@@ -125,7 +125,7 @@ export class Pipeline extends pulumi.CustomResource {
      * `thumbnailConfig`. If you specify values for `contentConfig` and
      * `thumbnailConfig`, omit the `outputBucket` object.
      */
-    declare public readonly thumbnailConfigPermissions: pulumi.Output<outputs.elastictranscoder.PipelineThumbnailConfigPermission[] | undefined>;
+    public readonly thumbnailConfigPermissions!: pulumi.Output<outputs.elastictranscoder.PipelineThumbnailConfigPermission[] | undefined>;
 
     /**
      * Create a Pipeline resource with the given unique name, arguments, and options.
@@ -140,37 +140,37 @@ export class Pipeline extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PipelineState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["awsKmsKeyArn"] = state?.awsKmsKeyArn;
-            resourceInputs["contentConfig"] = state?.contentConfig;
-            resourceInputs["contentConfigPermissions"] = state?.contentConfigPermissions;
-            resourceInputs["inputBucket"] = state?.inputBucket;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["notifications"] = state?.notifications;
-            resourceInputs["outputBucket"] = state?.outputBucket;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["role"] = state?.role;
-            resourceInputs["thumbnailConfig"] = state?.thumbnailConfig;
-            resourceInputs["thumbnailConfigPermissions"] = state?.thumbnailConfigPermissions;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["awsKmsKeyArn"] = state ? state.awsKmsKeyArn : undefined;
+            resourceInputs["contentConfig"] = state ? state.contentConfig : undefined;
+            resourceInputs["contentConfigPermissions"] = state ? state.contentConfigPermissions : undefined;
+            resourceInputs["inputBucket"] = state ? state.inputBucket : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notifications"] = state ? state.notifications : undefined;
+            resourceInputs["outputBucket"] = state ? state.outputBucket : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["role"] = state ? state.role : undefined;
+            resourceInputs["thumbnailConfig"] = state ? state.thumbnailConfig : undefined;
+            resourceInputs["thumbnailConfigPermissions"] = state ? state.thumbnailConfigPermissions : undefined;
         } else {
             const args = argsOrState as PipelineArgs | undefined;
-            if (args?.inputBucket === undefined && !opts.urn) {
+            if ((!args || args.inputBucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'inputBucket'");
             }
-            if (args?.role === undefined && !opts.urn) {
+            if ((!args || args.role === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
-            resourceInputs["awsKmsKeyArn"] = args?.awsKmsKeyArn;
-            resourceInputs["contentConfig"] = args?.contentConfig;
-            resourceInputs["contentConfigPermissions"] = args?.contentConfigPermissions;
-            resourceInputs["inputBucket"] = args?.inputBucket;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["notifications"] = args?.notifications;
-            resourceInputs["outputBucket"] = args?.outputBucket;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["role"] = args?.role;
-            resourceInputs["thumbnailConfig"] = args?.thumbnailConfig;
-            resourceInputs["thumbnailConfigPermissions"] = args?.thumbnailConfigPermissions;
+            resourceInputs["awsKmsKeyArn"] = args ? args.awsKmsKeyArn : undefined;
+            resourceInputs["contentConfig"] = args ? args.contentConfig : undefined;
+            resourceInputs["contentConfigPermissions"] = args ? args.contentConfigPermissions : undefined;
+            resourceInputs["inputBucket"] = args ? args.inputBucket : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notifications"] = args ? args.notifications : undefined;
+            resourceInputs["outputBucket"] = args ? args.outputBucket : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["role"] = args ? args.role : undefined;
+            resourceInputs["thumbnailConfig"] = args ? args.thumbnailConfig : undefined;
+            resourceInputs["thumbnailConfigPermissions"] = args ? args.thumbnailConfigPermissions : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

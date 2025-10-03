@@ -77,33 +77,33 @@ export class CustomLogSource extends pulumi.CustomResource {
     /**
      * The attributes of a third-party custom source.
      */
-    declare public /*out*/ readonly attributes: pulumi.Output<outputs.securitylake.CustomLogSourceAttribute[]>;
+    public /*out*/ readonly attributes!: pulumi.Output<outputs.securitylake.CustomLogSourceAttribute[]>;
     /**
      * The configuration for the third-party custom source.
      */
-    declare public readonly configuration: pulumi.Output<outputs.securitylake.CustomLogSourceConfiguration | undefined>;
+    public readonly configuration!: pulumi.Output<outputs.securitylake.CustomLogSourceConfiguration | undefined>;
     /**
      * The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
      */
-    declare public readonly eventClasses: pulumi.Output<string[] | undefined>;
+    public readonly eventClasses!: pulumi.Output<string[] | undefined>;
     /**
      * The details of the log provider for a third-party custom source.
      */
-    declare public /*out*/ readonly providerDetails: pulumi.Output<outputs.securitylake.CustomLogSourceProviderDetail[]>;
+    public /*out*/ readonly providerDetails!: pulumi.Output<outputs.securitylake.CustomLogSourceProviderDetail[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Specify the name for a third-party custom source.
      * This must be a Regionally unique value.
      * Has a maximum length of 20.
      */
-    declare public readonly sourceName: pulumi.Output<string>;
+    public readonly sourceName!: pulumi.Output<string>;
     /**
      * Specify the source version for the third-party custom source, to limit log collection to a specific version of custom data source.
      */
-    declare public readonly sourceVersion: pulumi.Output<string>;
+    public readonly sourceVersion!: pulumi.Output<string>;
 
     /**
      * Create a CustomLogSource resource with the given unique name, arguments, and options.
@@ -118,23 +118,23 @@ export class CustomLogSource extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomLogSourceState | undefined;
-            resourceInputs["attributes"] = state?.attributes;
-            resourceInputs["configuration"] = state?.configuration;
-            resourceInputs["eventClasses"] = state?.eventClasses;
-            resourceInputs["providerDetails"] = state?.providerDetails;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["sourceName"] = state?.sourceName;
-            resourceInputs["sourceVersion"] = state?.sourceVersion;
+            resourceInputs["attributes"] = state ? state.attributes : undefined;
+            resourceInputs["configuration"] = state ? state.configuration : undefined;
+            resourceInputs["eventClasses"] = state ? state.eventClasses : undefined;
+            resourceInputs["providerDetails"] = state ? state.providerDetails : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["sourceName"] = state ? state.sourceName : undefined;
+            resourceInputs["sourceVersion"] = state ? state.sourceVersion : undefined;
         } else {
             const args = argsOrState as CustomLogSourceArgs | undefined;
-            if (args?.sourceName === undefined && !opts.urn) {
+            if ((!args || args.sourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceName'");
             }
-            resourceInputs["configuration"] = args?.configuration;
-            resourceInputs["eventClasses"] = args?.eventClasses;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["sourceName"] = args?.sourceName;
-            resourceInputs["sourceVersion"] = args?.sourceVersion;
+            resourceInputs["configuration"] = args ? args.configuration : undefined;
+            resourceInputs["eventClasses"] = args ? args.eventClasses : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["sourceName"] = args ? args.sourceName : undefined;
+            resourceInputs["sourceVersion"] = args ? args.sourceVersion : undefined;
             resourceInputs["attributes"] = undefined /*out*/;
             resourceInputs["providerDetails"] = undefined /*out*/;
         }

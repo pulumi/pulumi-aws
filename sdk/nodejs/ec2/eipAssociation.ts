@@ -72,37 +72,37 @@ export class EipAssociation extends pulumi.CustomResource {
      * ID of the associated Elastic IP.
      * This argument is required despite being optional at the resource level due to legacy support for EC2-Classic networking.
      */
-    declare public readonly allocationId: pulumi.Output<string>;
+    public readonly allocationId!: pulumi.Output<string>;
     /**
      * Whether to allow an Elastic IP address to be re-associated.
      * Defaults to `true`.
      */
-    declare public readonly allowReassociation: pulumi.Output<boolean | undefined>;
+    public readonly allowReassociation!: pulumi.Output<boolean | undefined>;
     /**
      * ID of the instance.
      * The instance must have exactly one attached network interface.
      * You can specify either the instance ID or the network interface ID, but not both.
      */
-    declare public readonly instanceId: pulumi.Output<string>;
+    public readonly instanceId!: pulumi.Output<string>;
     /**
      * ID of the network interface.
      * If the instance has more than one network interface, you must specify a network interface ID.
      * You can specify either the instance ID or the network interface ID, but not both.
      */
-    declare public readonly networkInterfaceId: pulumi.Output<string>;
+    public readonly networkInterfaceId!: pulumi.Output<string>;
     /**
      * Primary or secondary private IP address to associate with the Elastic IP address.
      * If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
      */
-    declare public readonly privateIpAddress: pulumi.Output<string>;
+    public readonly privateIpAddress!: pulumi.Output<string>;
     /**
      * ) Address of the associated Elastic IP.
      */
-    declare public readonly publicIp: pulumi.Output<string>;
+    public readonly publicIp!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a EipAssociation resource with the given unique name, arguments, and options.
@@ -117,22 +117,22 @@ export class EipAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EipAssociationState | undefined;
-            resourceInputs["allocationId"] = state?.allocationId;
-            resourceInputs["allowReassociation"] = state?.allowReassociation;
-            resourceInputs["instanceId"] = state?.instanceId;
-            resourceInputs["networkInterfaceId"] = state?.networkInterfaceId;
-            resourceInputs["privateIpAddress"] = state?.privateIpAddress;
-            resourceInputs["publicIp"] = state?.publicIp;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["allocationId"] = state ? state.allocationId : undefined;
+            resourceInputs["allowReassociation"] = state ? state.allowReassociation : undefined;
+            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
+            resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
+            resourceInputs["privateIpAddress"] = state ? state.privateIpAddress : undefined;
+            resourceInputs["publicIp"] = state ? state.publicIp : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as EipAssociationArgs | undefined;
-            resourceInputs["allocationId"] = args?.allocationId;
-            resourceInputs["allowReassociation"] = args?.allowReassociation;
-            resourceInputs["instanceId"] = args?.instanceId;
-            resourceInputs["networkInterfaceId"] = args?.networkInterfaceId;
-            resourceInputs["privateIpAddress"] = args?.privateIpAddress;
-            resourceInputs["publicIp"] = args?.publicIp;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["allocationId"] = args ? args.allocationId : undefined;
+            resourceInputs["allowReassociation"] = args ? args.allowReassociation : undefined;
+            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
+            resourceInputs["privateIpAddress"] = args ? args.privateIpAddress : undefined;
+            resourceInputs["publicIp"] = args ? args.publicIp : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EipAssociation.__pulumiType, name, resourceInputs, opts);

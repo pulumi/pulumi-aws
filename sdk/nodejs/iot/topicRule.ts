@@ -104,62 +104,62 @@ export class TopicRule extends pulumi.CustomResource {
     /**
      * The ARN of the topic rule
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
-    declare public readonly cloudwatchAlarms: pulumi.Output<outputs.iot.TopicRuleCloudwatchAlarm[] | undefined>;
-    declare public readonly cloudwatchLogs: pulumi.Output<outputs.iot.TopicRuleCloudwatchLog[] | undefined>;
-    declare public readonly cloudwatchMetrics: pulumi.Output<outputs.iot.TopicRuleCloudwatchMetric[] | undefined>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public readonly cloudwatchAlarms!: pulumi.Output<outputs.iot.TopicRuleCloudwatchAlarm[] | undefined>;
+    public readonly cloudwatchLogs!: pulumi.Output<outputs.iot.TopicRuleCloudwatchLog[] | undefined>;
+    public readonly cloudwatchMetrics!: pulumi.Output<outputs.iot.TopicRuleCloudwatchMetric[] | undefined>;
     /**
      * The description of the rule.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
-    declare public readonly dynamodbs: pulumi.Output<outputs.iot.TopicRuleDynamodb[] | undefined>;
-    declare public readonly dynamodbv2s: pulumi.Output<outputs.iot.TopicRuleDynamodbv2[] | undefined>;
-    declare public readonly elasticsearch: pulumi.Output<outputs.iot.TopicRuleElasticsearch[] | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
+    public readonly dynamodbs!: pulumi.Output<outputs.iot.TopicRuleDynamodb[] | undefined>;
+    public readonly dynamodbv2s!: pulumi.Output<outputs.iot.TopicRuleDynamodbv2[] | undefined>;
+    public readonly elasticsearch!: pulumi.Output<outputs.iot.TopicRuleElasticsearch[] | undefined>;
     /**
      * Specifies whether the rule is enabled.
      */
-    declare public readonly enabled: pulumi.Output<boolean>;
+    public readonly enabled!: pulumi.Output<boolean>;
     /**
      * Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iotAnalytics`, `iotEvents`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `stepFunctions`, `timestream` configuration blocks for further configuration details.
      */
-    declare public readonly errorAction: pulumi.Output<outputs.iot.TopicRuleErrorAction | undefined>;
-    declare public readonly firehoses: pulumi.Output<outputs.iot.TopicRuleFirehose[] | undefined>;
-    declare public readonly https: pulumi.Output<outputs.iot.TopicRuleHttp[] | undefined>;
-    declare public readonly iotAnalytics: pulumi.Output<outputs.iot.TopicRuleIotAnalytic[] | undefined>;
-    declare public readonly iotEvents: pulumi.Output<outputs.iot.TopicRuleIotEvent[] | undefined>;
-    declare public readonly kafkas: pulumi.Output<outputs.iot.TopicRuleKafka[] | undefined>;
-    declare public readonly kineses: pulumi.Output<outputs.iot.TopicRuleKinesis[] | undefined>;
-    declare public readonly lambdas: pulumi.Output<outputs.iot.TopicRuleLambda[] | undefined>;
+    public readonly errorAction!: pulumi.Output<outputs.iot.TopicRuleErrorAction | undefined>;
+    public readonly firehoses!: pulumi.Output<outputs.iot.TopicRuleFirehose[] | undefined>;
+    public readonly https!: pulumi.Output<outputs.iot.TopicRuleHttp[] | undefined>;
+    public readonly iotAnalytics!: pulumi.Output<outputs.iot.TopicRuleIotAnalytic[] | undefined>;
+    public readonly iotEvents!: pulumi.Output<outputs.iot.TopicRuleIotEvent[] | undefined>;
+    public readonly kafkas!: pulumi.Output<outputs.iot.TopicRuleKafka[] | undefined>;
+    public readonly kineses!: pulumi.Output<outputs.iot.TopicRuleKinesis[] | undefined>;
+    public readonly lambdas!: pulumi.Output<outputs.iot.TopicRuleLambda[] | undefined>;
     /**
      * The name of the rule.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
-    declare public readonly republishes: pulumi.Output<outputs.iot.TopicRuleRepublish[] | undefined>;
-    declare public readonly s3: pulumi.Output<outputs.iot.TopicRuleS3[] | undefined>;
-    declare public readonly sns: pulumi.Output<outputs.iot.TopicRuleSns[] | undefined>;
+    public readonly region!: pulumi.Output<string>;
+    public readonly republishes!: pulumi.Output<outputs.iot.TopicRuleRepublish[] | undefined>;
+    public readonly s3!: pulumi.Output<outputs.iot.TopicRuleS3[] | undefined>;
+    public readonly sns!: pulumi.Output<outputs.iot.TopicRuleSns[] | undefined>;
     /**
      * The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
      */
-    declare public readonly sql: pulumi.Output<string>;
+    public readonly sql!: pulumi.Output<string>;
     /**
      * The version of the SQL rules engine to use when evaluating the rule.
      */
-    declare public readonly sqlVersion: pulumi.Output<string>;
-    declare public readonly sqs: pulumi.Output<outputs.iot.TopicRuleSqs[] | undefined>;
-    declare public readonly stepFunctions: pulumi.Output<outputs.iot.TopicRuleStepFunction[] | undefined>;
+    public readonly sqlVersion!: pulumi.Output<string>;
+    public readonly sqs!: pulumi.Output<outputs.iot.TopicRuleSqs[] | undefined>;
+    public readonly stepFunctions!: pulumi.Output<outputs.iot.TopicRuleStepFunction[] | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public readonly timestreams: pulumi.Output<outputs.iot.TopicRuleTimestream[] | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly timestreams!: pulumi.Output<outputs.iot.TopicRuleTimestream[] | undefined>;
 
     /**
      * Create a TopicRule resource with the given unique name, arguments, and options.
@@ -174,73 +174,73 @@ export class TopicRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TopicRuleState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["cloudwatchAlarms"] = state?.cloudwatchAlarms;
-            resourceInputs["cloudwatchLogs"] = state?.cloudwatchLogs;
-            resourceInputs["cloudwatchMetrics"] = state?.cloudwatchMetrics;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["dynamodbs"] = state?.dynamodbs;
-            resourceInputs["dynamodbv2s"] = state?.dynamodbv2s;
-            resourceInputs["elasticsearch"] = state?.elasticsearch;
-            resourceInputs["enabled"] = state?.enabled;
-            resourceInputs["errorAction"] = state?.errorAction;
-            resourceInputs["firehoses"] = state?.firehoses;
-            resourceInputs["https"] = state?.https;
-            resourceInputs["iotAnalytics"] = state?.iotAnalytics;
-            resourceInputs["iotEvents"] = state?.iotEvents;
-            resourceInputs["kafkas"] = state?.kafkas;
-            resourceInputs["kineses"] = state?.kineses;
-            resourceInputs["lambdas"] = state?.lambdas;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["republishes"] = state?.republishes;
-            resourceInputs["s3"] = state?.s3;
-            resourceInputs["sns"] = state?.sns;
-            resourceInputs["sql"] = state?.sql;
-            resourceInputs["sqlVersion"] = state?.sqlVersion;
-            resourceInputs["sqs"] = state?.sqs;
-            resourceInputs["stepFunctions"] = state?.stepFunctions;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timestreams"] = state?.timestreams;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["cloudwatchAlarms"] = state ? state.cloudwatchAlarms : undefined;
+            resourceInputs["cloudwatchLogs"] = state ? state.cloudwatchLogs : undefined;
+            resourceInputs["cloudwatchMetrics"] = state ? state.cloudwatchMetrics : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["dynamodbs"] = state ? state.dynamodbs : undefined;
+            resourceInputs["dynamodbv2s"] = state ? state.dynamodbv2s : undefined;
+            resourceInputs["elasticsearch"] = state ? state.elasticsearch : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["errorAction"] = state ? state.errorAction : undefined;
+            resourceInputs["firehoses"] = state ? state.firehoses : undefined;
+            resourceInputs["https"] = state ? state.https : undefined;
+            resourceInputs["iotAnalytics"] = state ? state.iotAnalytics : undefined;
+            resourceInputs["iotEvents"] = state ? state.iotEvents : undefined;
+            resourceInputs["kafkas"] = state ? state.kafkas : undefined;
+            resourceInputs["kineses"] = state ? state.kineses : undefined;
+            resourceInputs["lambdas"] = state ? state.lambdas : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["republishes"] = state ? state.republishes : undefined;
+            resourceInputs["s3"] = state ? state.s3 : undefined;
+            resourceInputs["sns"] = state ? state.sns : undefined;
+            resourceInputs["sql"] = state ? state.sql : undefined;
+            resourceInputs["sqlVersion"] = state ? state.sqlVersion : undefined;
+            resourceInputs["sqs"] = state ? state.sqs : undefined;
+            resourceInputs["stepFunctions"] = state ? state.stepFunctions : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timestreams"] = state ? state.timestreams : undefined;
         } else {
             const args = argsOrState as TopicRuleArgs | undefined;
-            if (args?.enabled === undefined && !opts.urn) {
+            if ((!args || args.enabled === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if (args?.sql === undefined && !opts.urn) {
+            if ((!args || args.sql === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sql'");
             }
-            if (args?.sqlVersion === undefined && !opts.urn) {
+            if ((!args || args.sqlVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sqlVersion'");
             }
-            resourceInputs["cloudwatchAlarms"] = args?.cloudwatchAlarms;
-            resourceInputs["cloudwatchLogs"] = args?.cloudwatchLogs;
-            resourceInputs["cloudwatchMetrics"] = args?.cloudwatchMetrics;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["dynamodbs"] = args?.dynamodbs;
-            resourceInputs["dynamodbv2s"] = args?.dynamodbv2s;
-            resourceInputs["elasticsearch"] = args?.elasticsearch;
-            resourceInputs["enabled"] = args?.enabled;
-            resourceInputs["errorAction"] = args?.errorAction;
-            resourceInputs["firehoses"] = args?.firehoses;
-            resourceInputs["https"] = args?.https;
-            resourceInputs["iotAnalytics"] = args?.iotAnalytics;
-            resourceInputs["iotEvents"] = args?.iotEvents;
-            resourceInputs["kafkas"] = args?.kafkas;
-            resourceInputs["kineses"] = args?.kineses;
-            resourceInputs["lambdas"] = args?.lambdas;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["republishes"] = args?.republishes;
-            resourceInputs["s3"] = args?.s3;
-            resourceInputs["sns"] = args?.sns;
-            resourceInputs["sql"] = args?.sql;
-            resourceInputs["sqlVersion"] = args?.sqlVersion;
-            resourceInputs["sqs"] = args?.sqs;
-            resourceInputs["stepFunctions"] = args?.stepFunctions;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timestreams"] = args?.timestreams;
+            resourceInputs["cloudwatchAlarms"] = args ? args.cloudwatchAlarms : undefined;
+            resourceInputs["cloudwatchLogs"] = args ? args.cloudwatchLogs : undefined;
+            resourceInputs["cloudwatchMetrics"] = args ? args.cloudwatchMetrics : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["dynamodbs"] = args ? args.dynamodbs : undefined;
+            resourceInputs["dynamodbv2s"] = args ? args.dynamodbv2s : undefined;
+            resourceInputs["elasticsearch"] = args ? args.elasticsearch : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["errorAction"] = args ? args.errorAction : undefined;
+            resourceInputs["firehoses"] = args ? args.firehoses : undefined;
+            resourceInputs["https"] = args ? args.https : undefined;
+            resourceInputs["iotAnalytics"] = args ? args.iotAnalytics : undefined;
+            resourceInputs["iotEvents"] = args ? args.iotEvents : undefined;
+            resourceInputs["kafkas"] = args ? args.kafkas : undefined;
+            resourceInputs["kineses"] = args ? args.kineses : undefined;
+            resourceInputs["lambdas"] = args ? args.lambdas : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["republishes"] = args ? args.republishes : undefined;
+            resourceInputs["s3"] = args ? args.s3 : undefined;
+            resourceInputs["sns"] = args ? args.sns : undefined;
+            resourceInputs["sql"] = args ? args.sql : undefined;
+            resourceInputs["sqlVersion"] = args ? args.sqlVersion : undefined;
+            resourceInputs["sqs"] = args ? args.sqs : undefined;
+            resourceInputs["stepFunctions"] = args ? args.stepFunctions : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timestreams"] = args ? args.timestreams : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

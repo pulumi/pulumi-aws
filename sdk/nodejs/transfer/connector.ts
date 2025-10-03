@@ -89,44 +89,44 @@ export class Connector extends pulumi.CustomResource {
     /**
      * The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
      */
-    declare public readonly accessRole: pulumi.Output<string>;
+    public readonly accessRole!: pulumi.Output<string>;
     /**
      * The ARN of the connector.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
      */
-    declare public readonly as2Config: pulumi.Output<outputs.transfer.ConnectorAs2Config | undefined>;
+    public readonly as2Config!: pulumi.Output<outputs.transfer.ConnectorAs2Config | undefined>;
     /**
      * The unique identifier for the AS2 profile or SFTP Profile.
      */
-    declare public /*out*/ readonly connectorId: pulumi.Output<string>;
+    public /*out*/ readonly connectorId!: pulumi.Output<string>;
     /**
      * The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
      */
-    declare public readonly loggingRole: pulumi.Output<string | undefined>;
+    public readonly loggingRole!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Name of the security policy for the connector.
      */
-    declare public readonly securityPolicyName: pulumi.Output<string>;
+    public readonly securityPolicyName!: pulumi.Output<string>;
     /**
      * Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
      */
-    declare public readonly sftpConfig: pulumi.Output<outputs.transfer.ConnectorSftpConfig | undefined>;
+    public readonly sftpConfig!: pulumi.Output<outputs.transfer.ConnectorSftpConfig | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The URL of the partners AS2 endpoint or SFTP endpoint.
      */
-    declare public readonly url: pulumi.Output<string>;
+    public readonly url!: pulumi.Output<string>;
 
     /**
      * Create a Connector resource with the given unique name, arguments, and options.
@@ -141,33 +141,33 @@ export class Connector extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConnectorState | undefined;
-            resourceInputs["accessRole"] = state?.accessRole;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["as2Config"] = state?.as2Config;
-            resourceInputs["connectorId"] = state?.connectorId;
-            resourceInputs["loggingRole"] = state?.loggingRole;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["securityPolicyName"] = state?.securityPolicyName;
-            resourceInputs["sftpConfig"] = state?.sftpConfig;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["url"] = state?.url;
+            resourceInputs["accessRole"] = state ? state.accessRole : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["as2Config"] = state ? state.as2Config : undefined;
+            resourceInputs["connectorId"] = state ? state.connectorId : undefined;
+            resourceInputs["loggingRole"] = state ? state.loggingRole : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["securityPolicyName"] = state ? state.securityPolicyName : undefined;
+            resourceInputs["sftpConfig"] = state ? state.sftpConfig : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as ConnectorArgs | undefined;
-            if (args?.accessRole === undefined && !opts.urn) {
+            if ((!args || args.accessRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accessRole'");
             }
-            if (args?.url === undefined && !opts.urn) {
+            if ((!args || args.url === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
-            resourceInputs["accessRole"] = args?.accessRole;
-            resourceInputs["as2Config"] = args?.as2Config;
-            resourceInputs["loggingRole"] = args?.loggingRole;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["securityPolicyName"] = args?.securityPolicyName;
-            resourceInputs["sftpConfig"] = args?.sftpConfig;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["url"] = args?.url;
+            resourceInputs["accessRole"] = args ? args.accessRole : undefined;
+            resourceInputs["as2Config"] = args ? args.as2Config : undefined;
+            resourceInputs["loggingRole"] = args ? args.loggingRole : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["securityPolicyName"] = args ? args.securityPolicyName : undefined;
+            resourceInputs["sftpConfig"] = args ? args.sftpConfig : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["url"] = args ? args.url : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["connectorId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

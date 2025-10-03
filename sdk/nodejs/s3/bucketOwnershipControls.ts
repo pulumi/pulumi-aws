@@ -66,15 +66,15 @@ export class BucketOwnershipControls extends pulumi.CustomResource {
     /**
      * Name of the bucket that you want to associate this access point with.
      */
-    declare public readonly bucket: pulumi.Output<string>;
+    public readonly bucket!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Configuration block(s) with Ownership Controls rules. Detailed below.
      */
-    declare public readonly rule: pulumi.Output<outputs.s3.BucketOwnershipControlsRule>;
+    public readonly rule!: pulumi.Output<outputs.s3.BucketOwnershipControlsRule>;
 
     /**
      * Create a BucketOwnershipControls resource with the given unique name, arguments, and options.
@@ -89,20 +89,20 @@ export class BucketOwnershipControls extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketOwnershipControlsState | undefined;
-            resourceInputs["bucket"] = state?.bucket;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["rule"] = state?.rule;
+            resourceInputs["bucket"] = state ? state.bucket : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["rule"] = state ? state.rule : undefined;
         } else {
             const args = argsOrState as BucketOwnershipControlsArgs | undefined;
-            if (args?.bucket === undefined && !opts.urn) {
+            if ((!args || args.bucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            if (args?.rule === undefined && !opts.urn) {
+            if ((!args || args.rule === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rule'");
             }
-            resourceInputs["bucket"] = args?.bucket;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["rule"] = args?.rule;
+            resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["rule"] = args ? args.rule : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BucketOwnershipControls.__pulumiType, name, resourceInputs, opts);

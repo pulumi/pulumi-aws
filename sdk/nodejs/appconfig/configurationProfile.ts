@@ -70,55 +70,55 @@ export class ConfigurationProfile extends pulumi.CustomResource {
     /**
      * Application ID. Must be between 4 and 7 characters in length.
      */
-    declare public readonly applicationId: pulumi.Output<string>;
+    public readonly applicationId!: pulumi.Output<string>;
     /**
      * ARN of the AppConfig Configuration Profile.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The configuration profile ID.
      */
-    declare public /*out*/ readonly configurationProfileId: pulumi.Output<string>;
+    public /*out*/ readonly configurationProfileId!: pulumi.Output<string>;
     /**
      * Description of the configuration profile. Can be at most 1024 characters.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
      */
-    declare public readonly kmsKeyIdentifier: pulumi.Output<string | undefined>;
+    public readonly kmsKeyIdentifier!: pulumi.Output<string | undefined>;
     /**
      * URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
      */
-    declare public readonly locationUri: pulumi.Output<string>;
+    public readonly locationUri!: pulumi.Output<string>;
     /**
      * Name for the configuration profile. Must be between 1 and 128 characters in length.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ARN of an IAM role with permission to access the configuration at the specified `locationUri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
      */
-    declare public readonly retrievalRoleArn: pulumi.Output<string | undefined>;
+    public readonly retrievalRoleArn!: pulumi.Output<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
      */
-    declare public readonly type: pulumi.Output<string | undefined>;
+    public readonly type!: pulumi.Output<string | undefined>;
     /**
      * Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
      */
-    declare public readonly validators: pulumi.Output<outputs.appconfig.ConfigurationProfileValidator[] | undefined>;
+    public readonly validators!: pulumi.Output<outputs.appconfig.ConfigurationProfileValidator[] | undefined>;
 
     /**
      * Create a ConfigurationProfile resource with the given unique name, arguments, and options.
@@ -133,37 +133,37 @@ export class ConfigurationProfile extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConfigurationProfileState | undefined;
-            resourceInputs["applicationId"] = state?.applicationId;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["configurationProfileId"] = state?.configurationProfileId;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["kmsKeyIdentifier"] = state?.kmsKeyIdentifier;
-            resourceInputs["locationUri"] = state?.locationUri;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["retrievalRoleArn"] = state?.retrievalRoleArn;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["type"] = state?.type;
-            resourceInputs["validators"] = state?.validators;
+            resourceInputs["applicationId"] = state ? state.applicationId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["configurationProfileId"] = state ? state.configurationProfileId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["kmsKeyIdentifier"] = state ? state.kmsKeyIdentifier : undefined;
+            resourceInputs["locationUri"] = state ? state.locationUri : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["retrievalRoleArn"] = state ? state.retrievalRoleArn : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["validators"] = state ? state.validators : undefined;
         } else {
             const args = argsOrState as ConfigurationProfileArgs | undefined;
-            if (args?.applicationId === undefined && !opts.urn) {
+            if ((!args || args.applicationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if (args?.locationUri === undefined && !opts.urn) {
+            if ((!args || args.locationUri === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'locationUri'");
             }
-            resourceInputs["applicationId"] = args?.applicationId;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["kmsKeyIdentifier"] = args?.kmsKeyIdentifier;
-            resourceInputs["locationUri"] = args?.locationUri;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["retrievalRoleArn"] = args?.retrievalRoleArn;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["type"] = args?.type;
-            resourceInputs["validators"] = args?.validators;
+            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
+            resourceInputs["locationUri"] = args ? args.locationUri : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["retrievalRoleArn"] = args ? args.retrievalRoleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["validators"] = args ? args.validators : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["configurationProfileId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

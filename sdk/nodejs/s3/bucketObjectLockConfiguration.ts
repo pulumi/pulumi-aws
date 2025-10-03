@@ -86,28 +86,28 @@ export class BucketObjectLockConfiguration extends pulumi.CustomResource {
     /**
      * Name of the bucket.
      */
-    declare public readonly bucket: pulumi.Output<string>;
+    public readonly bucket!: pulumi.Output<string>;
     /**
      * Account ID of the expected bucket owner.
      */
-    declare public readonly expectedBucketOwner: pulumi.Output<string | undefined>;
+    public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
      */
-    declare public readonly objectLockEnabled: pulumi.Output<string | undefined>;
+    public readonly objectLockEnabled!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Configuration block for specifying the Object Lock rule for the specified object. See below.
      */
-    declare public readonly rule: pulumi.Output<outputs.s3.BucketObjectLockConfigurationRule | undefined>;
+    public readonly rule!: pulumi.Output<outputs.s3.BucketObjectLockConfigurationRule | undefined>;
     /**
      * This argument is deprecated and no longer needed to enable Object Lock.
      * To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioning` resource.
      */
-    declare public readonly token: pulumi.Output<string | undefined>;
+    public readonly token!: pulumi.Output<string | undefined>;
 
     /**
      * Create a BucketObjectLockConfiguration resource with the given unique name, arguments, and options.
@@ -122,22 +122,22 @@ export class BucketObjectLockConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketObjectLockConfigurationState | undefined;
-            resourceInputs["bucket"] = state?.bucket;
-            resourceInputs["expectedBucketOwner"] = state?.expectedBucketOwner;
-            resourceInputs["objectLockEnabled"] = state?.objectLockEnabled;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["rule"] = state?.rule;
-            resourceInputs["token"] = state?.token;
+            resourceInputs["bucket"] = state ? state.bucket : undefined;
+            resourceInputs["expectedBucketOwner"] = state ? state.expectedBucketOwner : undefined;
+            resourceInputs["objectLockEnabled"] = state ? state.objectLockEnabled : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["rule"] = state ? state.rule : undefined;
+            resourceInputs["token"] = state ? state.token : undefined;
         } else {
             const args = argsOrState as BucketObjectLockConfigurationArgs | undefined;
-            if (args?.bucket === undefined && !opts.urn) {
+            if ((!args || args.bucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            resourceInputs["bucket"] = args?.bucket;
-            resourceInputs["expectedBucketOwner"] = args?.expectedBucketOwner;
-            resourceInputs["objectLockEnabled"] = args?.objectLockEnabled;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["rule"] = args?.rule;
+            resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
+            resourceInputs["objectLockEnabled"] = args ? args.objectLockEnabled : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["rule"] = args ? args.rule : undefined;
             resourceInputs["token"] = args?.token ? pulumi.secret(args.token) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

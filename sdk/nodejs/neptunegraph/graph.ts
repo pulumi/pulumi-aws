@@ -77,15 +77,15 @@ export class Graph extends pulumi.CustomResource {
     /**
      * (String) Graph resource ARN
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Value that indicates whether the Graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
      */
-    declare public readonly deletionProtection: pulumi.Output<boolean>;
+    public readonly deletionProtection!: pulumi.Output<boolean>;
     /**
      * (String) The connection endpoint for the graph. For example: `g-12a3bcdef4.us-east-1.neptune-graph.amazonaws.com`
      */
-    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
      * The graph name. For example: my-graph-1.
      * 								The name must contain from 1 to 63 letters, numbers, or hyphens, 
@@ -93,46 +93,46 @@ export class Graph extends pulumi.CustomResource {
      * 								If you don't specify a graph name, a unique graph name is generated for you using the prefix graph-for, 
      * 								followed by a combination of Stack Name and a UUID.
      */
-    declare public readonly graphName: pulumi.Output<string>;
+    public readonly graphName!: pulumi.Output<string>;
     /**
      * Allows user to specify name prefix and have remainder of name automatically generated.
      */
-    declare public readonly graphNamePrefix: pulumi.Output<string | undefined>;
+    public readonly graphNamePrefix!: pulumi.Output<string | undefined>;
     /**
      * The ARN for the KMS encryption key. By Default, Neptune Analytics will use an AWS provided key ("AWS_OWNED_KEY"). This parameter is used if you want to encrypt the graph using a KMS Customer Managed Key (CMK).
      */
-    declare public readonly kmsKeyIdentifier: pulumi.Output<string>;
+    public readonly kmsKeyIdentifier!: pulumi.Output<string>;
     /**
      * The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
      *
      * The following arguments are optional:
      */
-    declare public readonly provisionedMemory: pulumi.Output<number>;
+    public readonly provisionedMemory!: pulumi.Output<number>;
     /**
      * Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
      */
-    declare public readonly publicConnectivity: pulumi.Output<boolean>;
+    public readonly publicConnectivity!: pulumi.Output<boolean>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
      */
-    declare public readonly replicaCount: pulumi.Output<number>;
+    public readonly replicaCount!: pulumi.Output<number>;
     /**
      * Key-value tags for the graph. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public readonly timeouts: pulumi.Output<outputs.neptunegraph.GraphTimeouts | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly timeouts!: pulumi.Output<outputs.neptunegraph.GraphTimeouts | undefined>;
     /**
      * Vector Search Configuration (see below for nested schema of vector_search_configuration)
      */
-    declare public readonly vectorSearchConfiguration: pulumi.Output<outputs.neptunegraph.GraphVectorSearchConfiguration | undefined>;
+    public readonly vectorSearchConfiguration!: pulumi.Output<outputs.neptunegraph.GraphVectorSearchConfiguration | undefined>;
 
     /**
      * Create a Graph resource with the given unique name, arguments, and options.
@@ -147,36 +147,36 @@ export class Graph extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GraphState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["deletionProtection"] = state?.deletionProtection;
-            resourceInputs["endpoint"] = state?.endpoint;
-            resourceInputs["graphName"] = state?.graphName;
-            resourceInputs["graphNamePrefix"] = state?.graphNamePrefix;
-            resourceInputs["kmsKeyIdentifier"] = state?.kmsKeyIdentifier;
-            resourceInputs["provisionedMemory"] = state?.provisionedMemory;
-            resourceInputs["publicConnectivity"] = state?.publicConnectivity;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["replicaCount"] = state?.replicaCount;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timeouts"] = state?.timeouts;
-            resourceInputs["vectorSearchConfiguration"] = state?.vectorSearchConfiguration;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["deletionProtection"] = state ? state.deletionProtection : undefined;
+            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
+            resourceInputs["graphName"] = state ? state.graphName : undefined;
+            resourceInputs["graphNamePrefix"] = state ? state.graphNamePrefix : undefined;
+            resourceInputs["kmsKeyIdentifier"] = state ? state.kmsKeyIdentifier : undefined;
+            resourceInputs["provisionedMemory"] = state ? state.provisionedMemory : undefined;
+            resourceInputs["publicConnectivity"] = state ? state.publicConnectivity : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["replicaCount"] = state ? state.replicaCount : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["vectorSearchConfiguration"] = state ? state.vectorSearchConfiguration : undefined;
         } else {
             const args = argsOrState as GraphArgs | undefined;
-            if (args?.provisionedMemory === undefined && !opts.urn) {
+            if ((!args || args.provisionedMemory === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'provisionedMemory'");
             }
-            resourceInputs["deletionProtection"] = args?.deletionProtection;
-            resourceInputs["graphName"] = args?.graphName;
-            resourceInputs["graphNamePrefix"] = args?.graphNamePrefix;
-            resourceInputs["kmsKeyIdentifier"] = args?.kmsKeyIdentifier;
-            resourceInputs["provisionedMemory"] = args?.provisionedMemory;
-            resourceInputs["publicConnectivity"] = args?.publicConnectivity;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["replicaCount"] = args?.replicaCount;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timeouts"] = args?.timeouts;
-            resourceInputs["vectorSearchConfiguration"] = args?.vectorSearchConfiguration;
+            resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
+            resourceInputs["graphName"] = args ? args.graphName : undefined;
+            resourceInputs["graphNamePrefix"] = args ? args.graphNamePrefix : undefined;
+            resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
+            resourceInputs["provisionedMemory"] = args ? args.provisionedMemory : undefined;
+            resourceInputs["publicConnectivity"] = args ? args.publicConnectivity : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["replicaCount"] = args ? args.replicaCount : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["vectorSearchConfiguration"] = args ? args.vectorSearchConfiguration : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

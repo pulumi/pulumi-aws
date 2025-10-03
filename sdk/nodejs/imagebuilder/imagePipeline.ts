@@ -43,93 +43,93 @@ export class ImagePipeline extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the image pipeline.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the container recipe.
      */
-    declare public readonly containerRecipeArn: pulumi.Output<string | undefined>;
+    public readonly containerRecipeArn!: pulumi.Output<string | undefined>;
     /**
      * Date the image pipeline was created.
      */
-    declare public /*out*/ readonly dateCreated: pulumi.Output<string>;
+    public /*out*/ readonly dateCreated!: pulumi.Output<string>;
     /**
      * Date the image pipeline was last run.
      */
-    declare public /*out*/ readonly dateLastRun: pulumi.Output<string>;
+    public /*out*/ readonly dateLastRun!: pulumi.Output<string>;
     /**
      * Date the image pipeline will run next.
      */
-    declare public /*out*/ readonly dateNextRun: pulumi.Output<string>;
+    public /*out*/ readonly dateNextRun!: pulumi.Output<string>;
     /**
      * Date the image pipeline was updated.
      */
-    declare public /*out*/ readonly dateUpdated: pulumi.Output<string>;
+    public /*out*/ readonly dateUpdated!: pulumi.Output<string>;
     /**
      * Description of the image pipeline.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
      */
-    declare public readonly distributionConfigurationArn: pulumi.Output<string | undefined>;
+    public readonly distributionConfigurationArn!: pulumi.Output<string | undefined>;
     /**
      * Whether additional information about the image being created is collected. Defaults to `true`.
      */
-    declare public readonly enhancedImageMetadataEnabled: pulumi.Output<boolean | undefined>;
+    public readonly enhancedImageMetadataEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
      */
-    declare public readonly executionRole: pulumi.Output<string | undefined>;
+    public readonly executionRole!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the image recipe.
      */
-    declare public readonly imageRecipeArn: pulumi.Output<string | undefined>;
+    public readonly imageRecipeArn!: pulumi.Output<string | undefined>;
     /**
      * Configuration block with image scanning configuration. Detailed below.
      */
-    declare public readonly imageScanningConfiguration: pulumi.Output<outputs.imagebuilder.ImagePipelineImageScanningConfiguration>;
+    public readonly imageScanningConfiguration!: pulumi.Output<outputs.imagebuilder.ImagePipelineImageScanningConfiguration>;
     /**
      * Configuration block with image tests configuration. Detailed below.
      */
-    declare public readonly imageTestsConfiguration: pulumi.Output<outputs.imagebuilder.ImagePipelineImageTestsConfiguration>;
+    public readonly imageTestsConfiguration!: pulumi.Output<outputs.imagebuilder.ImagePipelineImageTestsConfiguration>;
     /**
      * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
      */
-    declare public readonly infrastructureConfigurationArn: pulumi.Output<string>;
+    public readonly infrastructureConfigurationArn!: pulumi.Output<string>;
     /**
      * Name of the image pipeline.
      *
      * The following arguments are optional:
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Platform of the image pipeline.
      */
-    declare public /*out*/ readonly platform: pulumi.Output<string>;
+    public /*out*/ readonly platform!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Configuration block with schedule settings. Detailed below.
      */
-    declare public readonly schedule: pulumi.Output<outputs.imagebuilder.ImagePipelineSchedule | undefined>;
+    public readonly schedule!: pulumi.Output<outputs.imagebuilder.ImagePipelineSchedule | undefined>;
     /**
      * Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
      */
-    declare public readonly status: pulumi.Output<string | undefined>;
+    public readonly status!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags for the image pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block with the workflow configuration. Detailed below.
      */
-    declare public readonly workflows: pulumi.Output<outputs.imagebuilder.ImagePipelineWorkflow[]>;
+    public readonly workflows!: pulumi.Output<outputs.imagebuilder.ImagePipelineWorkflow[]>;
 
     /**
      * Create a ImagePipeline resource with the given unique name, arguments, and options.
@@ -144,48 +144,48 @@ export class ImagePipeline extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ImagePipelineState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["containerRecipeArn"] = state?.containerRecipeArn;
-            resourceInputs["dateCreated"] = state?.dateCreated;
-            resourceInputs["dateLastRun"] = state?.dateLastRun;
-            resourceInputs["dateNextRun"] = state?.dateNextRun;
-            resourceInputs["dateUpdated"] = state?.dateUpdated;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["distributionConfigurationArn"] = state?.distributionConfigurationArn;
-            resourceInputs["enhancedImageMetadataEnabled"] = state?.enhancedImageMetadataEnabled;
-            resourceInputs["executionRole"] = state?.executionRole;
-            resourceInputs["imageRecipeArn"] = state?.imageRecipeArn;
-            resourceInputs["imageScanningConfiguration"] = state?.imageScanningConfiguration;
-            resourceInputs["imageTestsConfiguration"] = state?.imageTestsConfiguration;
-            resourceInputs["infrastructureConfigurationArn"] = state?.infrastructureConfigurationArn;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["platform"] = state?.platform;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["schedule"] = state?.schedule;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["workflows"] = state?.workflows;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["containerRecipeArn"] = state ? state.containerRecipeArn : undefined;
+            resourceInputs["dateCreated"] = state ? state.dateCreated : undefined;
+            resourceInputs["dateLastRun"] = state ? state.dateLastRun : undefined;
+            resourceInputs["dateNextRun"] = state ? state.dateNextRun : undefined;
+            resourceInputs["dateUpdated"] = state ? state.dateUpdated : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["distributionConfigurationArn"] = state ? state.distributionConfigurationArn : undefined;
+            resourceInputs["enhancedImageMetadataEnabled"] = state ? state.enhancedImageMetadataEnabled : undefined;
+            resourceInputs["executionRole"] = state ? state.executionRole : undefined;
+            resourceInputs["imageRecipeArn"] = state ? state.imageRecipeArn : undefined;
+            resourceInputs["imageScanningConfiguration"] = state ? state.imageScanningConfiguration : undefined;
+            resourceInputs["imageTestsConfiguration"] = state ? state.imageTestsConfiguration : undefined;
+            resourceInputs["infrastructureConfigurationArn"] = state ? state.infrastructureConfigurationArn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["platform"] = state ? state.platform : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["schedule"] = state ? state.schedule : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["workflows"] = state ? state.workflows : undefined;
         } else {
             const args = argsOrState as ImagePipelineArgs | undefined;
-            if (args?.infrastructureConfigurationArn === undefined && !opts.urn) {
+            if ((!args || args.infrastructureConfigurationArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'infrastructureConfigurationArn'");
             }
-            resourceInputs["containerRecipeArn"] = args?.containerRecipeArn;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["distributionConfigurationArn"] = args?.distributionConfigurationArn;
-            resourceInputs["enhancedImageMetadataEnabled"] = args?.enhancedImageMetadataEnabled;
-            resourceInputs["executionRole"] = args?.executionRole;
-            resourceInputs["imageRecipeArn"] = args?.imageRecipeArn;
-            resourceInputs["imageScanningConfiguration"] = args?.imageScanningConfiguration;
-            resourceInputs["imageTestsConfiguration"] = args?.imageTestsConfiguration;
-            resourceInputs["infrastructureConfigurationArn"] = args?.infrastructureConfigurationArn;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["schedule"] = args?.schedule;
-            resourceInputs["status"] = args?.status;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["workflows"] = args?.workflows;
+            resourceInputs["containerRecipeArn"] = args ? args.containerRecipeArn : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["distributionConfigurationArn"] = args ? args.distributionConfigurationArn : undefined;
+            resourceInputs["enhancedImageMetadataEnabled"] = args ? args.enhancedImageMetadataEnabled : undefined;
+            resourceInputs["executionRole"] = args ? args.executionRole : undefined;
+            resourceInputs["imageRecipeArn"] = args ? args.imageRecipeArn : undefined;
+            resourceInputs["imageScanningConfiguration"] = args ? args.imageScanningConfiguration : undefined;
+            resourceInputs["imageTestsConfiguration"] = args ? args.imageTestsConfiguration : undefined;
+            resourceInputs["infrastructureConfigurationArn"] = args ? args.infrastructureConfigurationArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["schedule"] = args ? args.schedule : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["workflows"] = args ? args.workflows : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dateCreated"] = undefined /*out*/;
             resourceInputs["dateLastRun"] = undefined /*out*/;

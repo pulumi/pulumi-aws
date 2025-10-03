@@ -80,27 +80,27 @@ export class LicenseAssociation extends pulumi.CustomResource {
     /**
      * If `licenseType` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
      */
-    declare public /*out*/ readonly freeTrialExpiration: pulumi.Output<string>;
+    public /*out*/ readonly freeTrialExpiration!: pulumi.Output<string>;
     /**
      * A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
      */
-    declare public readonly grafanaToken: pulumi.Output<string | undefined>;
+    public readonly grafanaToken!: pulumi.Output<string | undefined>;
     /**
      * If `licenseType` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
      */
-    declare public /*out*/ readonly licenseExpiration: pulumi.Output<string>;
+    public /*out*/ readonly licenseExpiration!: pulumi.Output<string>;
     /**
      * The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
      */
-    declare public readonly licenseType: pulumi.Output<string>;
+    public readonly licenseType!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The workspace id.
      */
-    declare public readonly workspaceId: pulumi.Output<string>;
+    public readonly workspaceId!: pulumi.Output<string>;
 
     /**
      * Create a LicenseAssociation resource with the given unique name, arguments, and options.
@@ -115,24 +115,24 @@ export class LicenseAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LicenseAssociationState | undefined;
-            resourceInputs["freeTrialExpiration"] = state?.freeTrialExpiration;
-            resourceInputs["grafanaToken"] = state?.grafanaToken;
-            resourceInputs["licenseExpiration"] = state?.licenseExpiration;
-            resourceInputs["licenseType"] = state?.licenseType;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["workspaceId"] = state?.workspaceId;
+            resourceInputs["freeTrialExpiration"] = state ? state.freeTrialExpiration : undefined;
+            resourceInputs["grafanaToken"] = state ? state.grafanaToken : undefined;
+            resourceInputs["licenseExpiration"] = state ? state.licenseExpiration : undefined;
+            resourceInputs["licenseType"] = state ? state.licenseType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
         } else {
             const args = argsOrState as LicenseAssociationArgs | undefined;
-            if (args?.licenseType === undefined && !opts.urn) {
+            if ((!args || args.licenseType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'licenseType'");
             }
-            if (args?.workspaceId === undefined && !opts.urn) {
+            if ((!args || args.workspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["grafanaToken"] = args?.grafanaToken;
-            resourceInputs["licenseType"] = args?.licenseType;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["workspaceId"] = args?.workspaceId;
+            resourceInputs["grafanaToken"] = args ? args.grafanaToken : undefined;
+            resourceInputs["licenseType"] = args ? args.licenseType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
             resourceInputs["freeTrialExpiration"] = undefined /*out*/;
             resourceInputs["licenseExpiration"] = undefined /*out*/;
         }

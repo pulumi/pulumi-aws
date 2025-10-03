@@ -104,106 +104,106 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.
      */
-    declare public /*out*/ readonly abuseContactEmail: pulumi.Output<string>;
+    public /*out*/ readonly abuseContactEmail!: pulumi.Output<string>;
     /**
      * Phone number for reporting abuse.
      */
-    declare public /*out*/ readonly abuseContactPhone: pulumi.Output<string>;
+    public /*out*/ readonly abuseContactPhone!: pulumi.Output<string>;
     /**
      * Details about the domain administrative contact. See Contact Blocks for more details.
      */
-    declare public readonly adminContact: pulumi.Output<outputs.route53domains.DomainAdminContact | undefined>;
+    public readonly adminContact!: pulumi.Output<outputs.route53domains.DomainAdminContact | undefined>;
     /**
      * Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
      */
-    declare public readonly adminPrivacy: pulumi.Output<boolean>;
+    public readonly adminPrivacy!: pulumi.Output<boolean>;
     /**
      * Whether the domain registration is set to renew automatically. Default: `true`.
      */
-    declare public readonly autoRenew: pulumi.Output<boolean>;
+    public readonly autoRenew!: pulumi.Output<boolean>;
     /**
      * Details about the domain billing contact. See Contact Blocks for more details.
      */
-    declare public readonly billingContacts: pulumi.Output<outputs.route53domains.DomainBillingContact[]>;
+    public readonly billingContacts!: pulumi.Output<outputs.route53domains.DomainBillingContact[]>;
     /**
      * Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
      */
-    declare public readonly billingPrivacy: pulumi.Output<boolean>;
+    public readonly billingPrivacy!: pulumi.Output<boolean>;
     /**
      * The date when the domain was created as found in the response to a WHOIS query.
      */
-    declare public /*out*/ readonly creationDate: pulumi.Output<string>;
+    public /*out*/ readonly creationDate!: pulumi.Output<string>;
     /**
      * The name of the domain.
      */
-    declare public readonly domainName: pulumi.Output<string>;
+    public readonly domainName!: pulumi.Output<string>;
     /**
      * The number of years that you want to register the domain for. Domains are registered for a minimum of one year. Increasing the duration renews the domain.
      */
-    declare public readonly durationInYears: pulumi.Output<number>;
+    public readonly durationInYears!: pulumi.Output<number>;
     /**
      * The date when the registration for the domain is set to expire.
      */
-    declare public /*out*/ readonly expirationDate: pulumi.Output<string>;
+    public /*out*/ readonly expirationDate!: pulumi.Output<string>;
     /**
      * The ID of the public Route 53 hosted zone created for the domain. This hosted zone is deleted when the domain is deregistered.
      */
-    declare public /*out*/ readonly hostedZoneId: pulumi.Output<string>;
+    public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
     /**
      * The list of nameservers for the domain. See `nameServer` Blocks for more details.
      */
-    declare public readonly nameServers: pulumi.Output<outputs.route53domains.DomainNameServer[]>;
+    public readonly nameServers!: pulumi.Output<outputs.route53domains.DomainNameServer[]>;
     /**
      * Details about the domain registrant. See Contact Blocks for more details.
      */
-    declare public readonly registrantContact: pulumi.Output<outputs.route53domains.DomainRegistrantContact | undefined>;
+    public readonly registrantContact!: pulumi.Output<outputs.route53domains.DomainRegistrantContact | undefined>;
     /**
      * Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
      */
-    declare public readonly registrantPrivacy: pulumi.Output<boolean>;
+    public readonly registrantPrivacy!: pulumi.Output<boolean>;
     /**
      * Name of the registrar of the domain as identified in the registry.
      */
-    declare public /*out*/ readonly registrarName: pulumi.Output<string>;
+    public /*out*/ readonly registrarName!: pulumi.Output<string>;
     /**
      * Web address of the registrar.
      */
-    declare public /*out*/ readonly registrarUrl: pulumi.Output<string>;
+    public /*out*/ readonly registrarUrl!: pulumi.Output<string>;
     /**
      * List of [domain name status codes](https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en).
      */
-    declare public /*out*/ readonly statusLists: pulumi.Output<string[]>;
+    public /*out*/ readonly statusLists!: pulumi.Output<string[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Details about the domain technical contact. See Contact Blocks for more details.
      */
-    declare public readonly techContact: pulumi.Output<outputs.route53domains.DomainTechContact | undefined>;
+    public readonly techContact!: pulumi.Output<outputs.route53domains.DomainTechContact | undefined>;
     /**
      * Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
      */
-    declare public readonly techPrivacy: pulumi.Output<boolean>;
-    declare public readonly timeouts: pulumi.Output<outputs.route53domains.DomainTimeouts | undefined>;
+    public readonly techPrivacy!: pulumi.Output<boolean>;
+    public readonly timeouts!: pulumi.Output<outputs.route53domains.DomainTimeouts | undefined>;
     /**
      * Whether the domain is locked for transfer. Default: `true`.
      *
      * > **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
      */
-    declare public readonly transferLock: pulumi.Output<boolean>;
+    public readonly transferLock!: pulumi.Output<boolean>;
     /**
      * The last updated date of the domain as found in the response to a WHOIS query.
      */
-    declare public /*out*/ readonly updatedDate: pulumi.Output<string>;
+    public /*out*/ readonly updatedDate!: pulumi.Output<string>;
     /**
      * The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.
      */
-    declare public /*out*/ readonly whoisServer: pulumi.Output<string>;
+    public /*out*/ readonly whoisServer!: pulumi.Output<string>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -218,52 +218,52 @@ export class Domain extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainState | undefined;
-            resourceInputs["abuseContactEmail"] = state?.abuseContactEmail;
-            resourceInputs["abuseContactPhone"] = state?.abuseContactPhone;
-            resourceInputs["adminContact"] = state?.adminContact;
-            resourceInputs["adminPrivacy"] = state?.adminPrivacy;
-            resourceInputs["autoRenew"] = state?.autoRenew;
-            resourceInputs["billingContacts"] = state?.billingContacts;
-            resourceInputs["billingPrivacy"] = state?.billingPrivacy;
-            resourceInputs["creationDate"] = state?.creationDate;
-            resourceInputs["domainName"] = state?.domainName;
-            resourceInputs["durationInYears"] = state?.durationInYears;
-            resourceInputs["expirationDate"] = state?.expirationDate;
-            resourceInputs["hostedZoneId"] = state?.hostedZoneId;
-            resourceInputs["nameServers"] = state?.nameServers;
-            resourceInputs["registrantContact"] = state?.registrantContact;
-            resourceInputs["registrantPrivacy"] = state?.registrantPrivacy;
-            resourceInputs["registrarName"] = state?.registrarName;
-            resourceInputs["registrarUrl"] = state?.registrarUrl;
-            resourceInputs["statusLists"] = state?.statusLists;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["techContact"] = state?.techContact;
-            resourceInputs["techPrivacy"] = state?.techPrivacy;
-            resourceInputs["timeouts"] = state?.timeouts;
-            resourceInputs["transferLock"] = state?.transferLock;
-            resourceInputs["updatedDate"] = state?.updatedDate;
-            resourceInputs["whoisServer"] = state?.whoisServer;
+            resourceInputs["abuseContactEmail"] = state ? state.abuseContactEmail : undefined;
+            resourceInputs["abuseContactPhone"] = state ? state.abuseContactPhone : undefined;
+            resourceInputs["adminContact"] = state ? state.adminContact : undefined;
+            resourceInputs["adminPrivacy"] = state ? state.adminPrivacy : undefined;
+            resourceInputs["autoRenew"] = state ? state.autoRenew : undefined;
+            resourceInputs["billingContacts"] = state ? state.billingContacts : undefined;
+            resourceInputs["billingPrivacy"] = state ? state.billingPrivacy : undefined;
+            resourceInputs["creationDate"] = state ? state.creationDate : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["durationInYears"] = state ? state.durationInYears : undefined;
+            resourceInputs["expirationDate"] = state ? state.expirationDate : undefined;
+            resourceInputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
+            resourceInputs["nameServers"] = state ? state.nameServers : undefined;
+            resourceInputs["registrantContact"] = state ? state.registrantContact : undefined;
+            resourceInputs["registrantPrivacy"] = state ? state.registrantPrivacy : undefined;
+            resourceInputs["registrarName"] = state ? state.registrarName : undefined;
+            resourceInputs["registrarUrl"] = state ? state.registrarUrl : undefined;
+            resourceInputs["statusLists"] = state ? state.statusLists : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["techContact"] = state ? state.techContact : undefined;
+            resourceInputs["techPrivacy"] = state ? state.techPrivacy : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["transferLock"] = state ? state.transferLock : undefined;
+            resourceInputs["updatedDate"] = state ? state.updatedDate : undefined;
+            resourceInputs["whoisServer"] = state ? state.whoisServer : undefined;
         } else {
             const args = argsOrState as DomainArgs | undefined;
-            if (args?.domainName === undefined && !opts.urn) {
+            if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            resourceInputs["adminContact"] = args?.adminContact;
-            resourceInputs["adminPrivacy"] = args?.adminPrivacy;
-            resourceInputs["autoRenew"] = args?.autoRenew;
-            resourceInputs["billingContacts"] = args?.billingContacts;
-            resourceInputs["billingPrivacy"] = args?.billingPrivacy;
-            resourceInputs["domainName"] = args?.domainName;
-            resourceInputs["durationInYears"] = args?.durationInYears;
-            resourceInputs["nameServers"] = args?.nameServers;
-            resourceInputs["registrantContact"] = args?.registrantContact;
-            resourceInputs["registrantPrivacy"] = args?.registrantPrivacy;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["techContact"] = args?.techContact;
-            resourceInputs["techPrivacy"] = args?.techPrivacy;
-            resourceInputs["timeouts"] = args?.timeouts;
-            resourceInputs["transferLock"] = args?.transferLock;
+            resourceInputs["adminContact"] = args ? args.adminContact : undefined;
+            resourceInputs["adminPrivacy"] = args ? args.adminPrivacy : undefined;
+            resourceInputs["autoRenew"] = args ? args.autoRenew : undefined;
+            resourceInputs["billingContacts"] = args ? args.billingContacts : undefined;
+            resourceInputs["billingPrivacy"] = args ? args.billingPrivacy : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["durationInYears"] = args ? args.durationInYears : undefined;
+            resourceInputs["nameServers"] = args ? args.nameServers : undefined;
+            resourceInputs["registrantContact"] = args ? args.registrantContact : undefined;
+            resourceInputs["registrantPrivacy"] = args ? args.registrantPrivacy : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["techContact"] = args ? args.techContact : undefined;
+            resourceInputs["techPrivacy"] = args ? args.techPrivacy : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["transferLock"] = args ? args.transferLock : undefined;
             resourceInputs["abuseContactEmail"] = undefined /*out*/;
             resourceInputs["abuseContactPhone"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;

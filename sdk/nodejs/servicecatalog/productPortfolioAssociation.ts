@@ -60,25 +60,25 @@ export class ProductPortfolioAssociation extends pulumi.CustomResource {
     /**
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      */
-    declare public readonly acceptLanguage: pulumi.Output<string | undefined>;
+    public readonly acceptLanguage!: pulumi.Output<string | undefined>;
     /**
      * Portfolio identifier.
      */
-    declare public readonly portfolioId: pulumi.Output<string>;
+    public readonly portfolioId!: pulumi.Output<string>;
     /**
      * Product identifier.
      *
      * The following arguments are optional:
      */
-    declare public readonly productId: pulumi.Output<string>;
+    public readonly productId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Identifier of the source portfolio.
      */
-    declare public readonly sourcePortfolioId: pulumi.Output<string | undefined>;
+    public readonly sourcePortfolioId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ProductPortfolioAssociation resource with the given unique name, arguments, and options.
@@ -93,24 +93,24 @@ export class ProductPortfolioAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProductPortfolioAssociationState | undefined;
-            resourceInputs["acceptLanguage"] = state?.acceptLanguage;
-            resourceInputs["portfolioId"] = state?.portfolioId;
-            resourceInputs["productId"] = state?.productId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["sourcePortfolioId"] = state?.sourcePortfolioId;
+            resourceInputs["acceptLanguage"] = state ? state.acceptLanguage : undefined;
+            resourceInputs["portfolioId"] = state ? state.portfolioId : undefined;
+            resourceInputs["productId"] = state ? state.productId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["sourcePortfolioId"] = state ? state.sourcePortfolioId : undefined;
         } else {
             const args = argsOrState as ProductPortfolioAssociationArgs | undefined;
-            if (args?.portfolioId === undefined && !opts.urn) {
+            if ((!args || args.portfolioId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'portfolioId'");
             }
-            if (args?.productId === undefined && !opts.urn) {
+            if ((!args || args.productId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'productId'");
             }
-            resourceInputs["acceptLanguage"] = args?.acceptLanguage;
-            resourceInputs["portfolioId"] = args?.portfolioId;
-            resourceInputs["productId"] = args?.productId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["sourcePortfolioId"] = args?.sourcePortfolioId;
+            resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
+            resourceInputs["portfolioId"] = args ? args.portfolioId : undefined;
+            resourceInputs["productId"] = args ? args.productId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["sourcePortfolioId"] = args ? args.sourcePortfolioId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProductPortfolioAssociation.__pulumiType, name, resourceInputs, opts);

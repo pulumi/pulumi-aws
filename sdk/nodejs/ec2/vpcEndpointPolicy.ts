@@ -77,15 +77,15 @@ export class VpcEndpointPolicy extends pulumi.CustomResource {
     /**
      * A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
      */
-    declare public readonly policy: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The VPC Endpoint ID.
      */
-    declare public readonly vpcEndpointId: pulumi.Output<string>;
+    public readonly vpcEndpointId!: pulumi.Output<string>;
 
     /**
      * Create a VpcEndpointPolicy resource with the given unique name, arguments, and options.
@@ -100,17 +100,17 @@ export class VpcEndpointPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcEndpointPolicyState | undefined;
-            resourceInputs["policy"] = state?.policy;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["vpcEndpointId"] = state?.vpcEndpointId;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["vpcEndpointId"] = state ? state.vpcEndpointId : undefined;
         } else {
             const args = argsOrState as VpcEndpointPolicyArgs | undefined;
-            if (args?.vpcEndpointId === undefined && !opts.urn) {
+            if ((!args || args.vpcEndpointId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcEndpointId'");
             }
-            resourceInputs["policy"] = args?.policy;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["vpcEndpointId"] = args?.vpcEndpointId;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VpcEndpointPolicy.__pulumiType, name, resourceInputs, opts);

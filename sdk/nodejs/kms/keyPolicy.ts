@@ -73,21 +73,21 @@ export class KeyPolicy extends pulumi.CustomResource {
      * Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately. If this value is set, and the resource is destroyed, a warning will be shown, and the resource will be removed from state.
      * For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
      */
-    declare public readonly bypassPolicyLockoutSafetyCheck: pulumi.Output<boolean | undefined>;
+    public readonly bypassPolicyLockoutSafetyCheck!: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the KMS Key to attach the policy.
      */
-    declare public readonly keyId: pulumi.Output<string>;
+    public readonly keyId!: pulumi.Output<string>;
     /**
      * A valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws.iam.getPolicyDocument`, in the form that designates a principal, can be used. For more information about building policy documents, see the AWS IAM Policy Document Guide.
      *
      * > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, or this resource is destroyed, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
      */
-    declare public readonly policy: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a KeyPolicy resource with the given unique name, arguments, and options.
@@ -102,22 +102,22 @@ export class KeyPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KeyPolicyState | undefined;
-            resourceInputs["bypassPolicyLockoutSafetyCheck"] = state?.bypassPolicyLockoutSafetyCheck;
-            resourceInputs["keyId"] = state?.keyId;
-            resourceInputs["policy"] = state?.policy;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["bypassPolicyLockoutSafetyCheck"] = state ? state.bypassPolicyLockoutSafetyCheck : undefined;
+            resourceInputs["keyId"] = state ? state.keyId : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as KeyPolicyArgs | undefined;
-            if (args?.keyId === undefined && !opts.urn) {
+            if ((!args || args.keyId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyId'");
             }
-            if (args?.policy === undefined && !opts.urn) {
+            if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            resourceInputs["bypassPolicyLockoutSafetyCheck"] = args?.bypassPolicyLockoutSafetyCheck;
-            resourceInputs["keyId"] = args?.keyId;
-            resourceInputs["policy"] = args?.policy;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["bypassPolicyLockoutSafetyCheck"] = args ? args.bypassPolicyLockoutSafetyCheck : undefined;
+            resourceInputs["keyId"] = args ? args.keyId : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(KeyPolicy.__pulumiType, name, resourceInputs, opts);

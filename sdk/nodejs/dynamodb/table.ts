@@ -226,127 +226,127 @@ export class Table extends pulumi.CustomResource {
     /**
      * ARN of the table
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Set of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. See below.
      */
-    declare public readonly attributes: pulumi.Output<outputs.dynamodb.TableAttribute[]>;
+    public readonly attributes!: pulumi.Output<outputs.dynamodb.TableAttribute[]>;
     /**
      * Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
      */
-    declare public readonly billingMode: pulumi.Output<string | undefined>;
+    public readonly billingMode!: pulumi.Output<string | undefined>;
     /**
      * Enables deletion protection for table. Defaults to `false`.
      */
-    declare public readonly deletionProtectionEnabled: pulumi.Output<boolean | undefined>;
+    public readonly deletionProtectionEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
      */
-    declare public readonly globalSecondaryIndexes: pulumi.Output<outputs.dynamodb.TableGlobalSecondaryIndex[] | undefined>;
+    public readonly globalSecondaryIndexes!: pulumi.Output<outputs.dynamodb.TableGlobalSecondaryIndex[] | undefined>;
     /**
      * Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
      */
-    declare public readonly hashKey: pulumi.Output<string>;
+    public readonly hashKey!: pulumi.Output<string>;
     /**
      * Import Amazon S3 data into a new table. See below.
      */
-    declare public readonly importTable: pulumi.Output<outputs.dynamodb.TableImportTable | undefined>;
+    public readonly importTable!: pulumi.Output<outputs.dynamodb.TableImportTable | undefined>;
     /**
      * Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
      */
-    declare public readonly localSecondaryIndexes: pulumi.Output<outputs.dynamodb.TableLocalSecondaryIndex[] | undefined>;
+    public readonly localSecondaryIndexes!: pulumi.Output<outputs.dynamodb.TableLocalSecondaryIndex[] | undefined>;
     /**
      * Unique within a region name of the table.
      *
      * The following arguments are optional:
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Sets the maximum number of read and write units for the specified on-demand table. See below.
      */
-    declare public readonly onDemandThroughput: pulumi.Output<outputs.dynamodb.TableOnDemandThroughput | undefined>;
+    public readonly onDemandThroughput!: pulumi.Output<outputs.dynamodb.TableOnDemandThroughput | undefined>;
     /**
      * Enable point-in-time recovery options. See below.
      */
-    declare public readonly pointInTimeRecovery: pulumi.Output<outputs.dynamodb.TablePointInTimeRecovery>;
+    public readonly pointInTimeRecovery!: pulumi.Output<outputs.dynamodb.TablePointInTimeRecovery>;
     /**
      * Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
      */
-    declare public readonly rangeKey: pulumi.Output<string | undefined>;
+    public readonly rangeKey!: pulumi.Output<string | undefined>;
     /**
      * Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
      */
-    declare public readonly readCapacity: pulumi.Output<number>;
+    public readonly readCapacity!: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
      */
-    declare public readonly replicas: pulumi.Output<outputs.dynamodb.TableReplica[] | undefined>;
+    public readonly replicas!: pulumi.Output<outputs.dynamodb.TableReplica[] | undefined>;
     /**
      * Time of the point-in-time recovery point to restore.
      */
-    declare public readonly restoreDateTime: pulumi.Output<string | undefined>;
+    public readonly restoreDateTime!: pulumi.Output<string | undefined>;
     /**
      * Name of the table to restore. Must match the name of an existing table.
      */
-    declare public readonly restoreSourceName: pulumi.Output<string | undefined>;
+    public readonly restoreSourceName!: pulumi.Output<string | undefined>;
     /**
      * ARN of the source table to restore. Must be supplied for cross-region restores.
      */
-    declare public readonly restoreSourceTableArn: pulumi.Output<string | undefined>;
+    public readonly restoreSourceTableArn!: pulumi.Output<string | undefined>;
     /**
      * If set, restores table to the most recent point-in-time recovery point.
      */
-    declare public readonly restoreToLatestTime: pulumi.Output<boolean | undefined>;
+    public readonly restoreToLatestTime!: pulumi.Output<boolean | undefined>;
     /**
      * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. Must be supplied for cross-region restores. See below.
      */
-    declare public readonly serverSideEncryption: pulumi.Output<outputs.dynamodb.TableServerSideEncryption>;
+    public readonly serverSideEncryption!: pulumi.Output<outputs.dynamodb.TableServerSideEncryption>;
     /**
      * ARN of the Table Stream. Only available when `streamEnabled = true`
      */
-    declare public /*out*/ readonly streamArn: pulumi.Output<string>;
+    public /*out*/ readonly streamArn!: pulumi.Output<string>;
     /**
      * Whether Streams are enabled.
      */
-    declare public readonly streamEnabled: pulumi.Output<boolean | undefined>;
+    public readonly streamEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
      */
-    declare public /*out*/ readonly streamLabel: pulumi.Output<string>;
+    public /*out*/ readonly streamLabel!: pulumi.Output<string>;
     /**
      * When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
      */
-    declare public readonly streamViewType: pulumi.Output<string>;
+    public readonly streamViewType!: pulumi.Output<string>;
     /**
      * Storage class of the table.
      * Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
      * Default value is `STANDARD`.
      */
-    declare public readonly tableClass: pulumi.Output<string | undefined>;
+    public readonly tableClass!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block for TTL. See below.
      */
-    declare public readonly ttl: pulumi.Output<outputs.dynamodb.TableTtl>;
+    public readonly ttl!: pulumi.Output<outputs.dynamodb.TableTtl>;
     /**
      * Sets the number of warm read and write units for the specified table. See below.
      */
-    declare public readonly warmThroughput: pulumi.Output<outputs.dynamodb.TableWarmThroughput>;
+    public readonly warmThroughput!: pulumi.Output<outputs.dynamodb.TableWarmThroughput>;
     /**
      * Number of write units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
      */
-    declare public readonly writeCapacity: pulumi.Output<number>;
+    public readonly writeCapacity!: pulumi.Output<number>;
 
     /**
      * Create a Table resource with the given unique name, arguments, and options.
@@ -361,64 +361,64 @@ export class Table extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TableState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["attributes"] = state?.attributes;
-            resourceInputs["billingMode"] = state?.billingMode;
-            resourceInputs["deletionProtectionEnabled"] = state?.deletionProtectionEnabled;
-            resourceInputs["globalSecondaryIndexes"] = state?.globalSecondaryIndexes;
-            resourceInputs["hashKey"] = state?.hashKey;
-            resourceInputs["importTable"] = state?.importTable;
-            resourceInputs["localSecondaryIndexes"] = state?.localSecondaryIndexes;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["onDemandThroughput"] = state?.onDemandThroughput;
-            resourceInputs["pointInTimeRecovery"] = state?.pointInTimeRecovery;
-            resourceInputs["rangeKey"] = state?.rangeKey;
-            resourceInputs["readCapacity"] = state?.readCapacity;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["replicas"] = state?.replicas;
-            resourceInputs["restoreDateTime"] = state?.restoreDateTime;
-            resourceInputs["restoreSourceName"] = state?.restoreSourceName;
-            resourceInputs["restoreSourceTableArn"] = state?.restoreSourceTableArn;
-            resourceInputs["restoreToLatestTime"] = state?.restoreToLatestTime;
-            resourceInputs["serverSideEncryption"] = state?.serverSideEncryption;
-            resourceInputs["streamArn"] = state?.streamArn;
-            resourceInputs["streamEnabled"] = state?.streamEnabled;
-            resourceInputs["streamLabel"] = state?.streamLabel;
-            resourceInputs["streamViewType"] = state?.streamViewType;
-            resourceInputs["tableClass"] = state?.tableClass;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["ttl"] = state?.ttl;
-            resourceInputs["warmThroughput"] = state?.warmThroughput;
-            resourceInputs["writeCapacity"] = state?.writeCapacity;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["attributes"] = state ? state.attributes : undefined;
+            resourceInputs["billingMode"] = state ? state.billingMode : undefined;
+            resourceInputs["deletionProtectionEnabled"] = state ? state.deletionProtectionEnabled : undefined;
+            resourceInputs["globalSecondaryIndexes"] = state ? state.globalSecondaryIndexes : undefined;
+            resourceInputs["hashKey"] = state ? state.hashKey : undefined;
+            resourceInputs["importTable"] = state ? state.importTable : undefined;
+            resourceInputs["localSecondaryIndexes"] = state ? state.localSecondaryIndexes : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["onDemandThroughput"] = state ? state.onDemandThroughput : undefined;
+            resourceInputs["pointInTimeRecovery"] = state ? state.pointInTimeRecovery : undefined;
+            resourceInputs["rangeKey"] = state ? state.rangeKey : undefined;
+            resourceInputs["readCapacity"] = state ? state.readCapacity : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["replicas"] = state ? state.replicas : undefined;
+            resourceInputs["restoreDateTime"] = state ? state.restoreDateTime : undefined;
+            resourceInputs["restoreSourceName"] = state ? state.restoreSourceName : undefined;
+            resourceInputs["restoreSourceTableArn"] = state ? state.restoreSourceTableArn : undefined;
+            resourceInputs["restoreToLatestTime"] = state ? state.restoreToLatestTime : undefined;
+            resourceInputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
+            resourceInputs["streamArn"] = state ? state.streamArn : undefined;
+            resourceInputs["streamEnabled"] = state ? state.streamEnabled : undefined;
+            resourceInputs["streamLabel"] = state ? state.streamLabel : undefined;
+            resourceInputs["streamViewType"] = state ? state.streamViewType : undefined;
+            resourceInputs["tableClass"] = state ? state.tableClass : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["ttl"] = state ? state.ttl : undefined;
+            resourceInputs["warmThroughput"] = state ? state.warmThroughput : undefined;
+            resourceInputs["writeCapacity"] = state ? state.writeCapacity : undefined;
         } else {
             const args = argsOrState as TableArgs | undefined;
-            resourceInputs["attributes"] = args?.attributes;
-            resourceInputs["billingMode"] = args?.billingMode;
-            resourceInputs["deletionProtectionEnabled"] = args?.deletionProtectionEnabled;
-            resourceInputs["globalSecondaryIndexes"] = args?.globalSecondaryIndexes;
-            resourceInputs["hashKey"] = args?.hashKey;
-            resourceInputs["importTable"] = args?.importTable;
-            resourceInputs["localSecondaryIndexes"] = args?.localSecondaryIndexes;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["onDemandThroughput"] = args?.onDemandThroughput;
-            resourceInputs["pointInTimeRecovery"] = args?.pointInTimeRecovery;
-            resourceInputs["rangeKey"] = args?.rangeKey;
-            resourceInputs["readCapacity"] = args?.readCapacity;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["replicas"] = args?.replicas;
-            resourceInputs["restoreDateTime"] = args?.restoreDateTime;
-            resourceInputs["restoreSourceName"] = args?.restoreSourceName;
-            resourceInputs["restoreSourceTableArn"] = args?.restoreSourceTableArn;
-            resourceInputs["restoreToLatestTime"] = args?.restoreToLatestTime;
-            resourceInputs["serverSideEncryption"] = args?.serverSideEncryption;
-            resourceInputs["streamEnabled"] = args?.streamEnabled;
-            resourceInputs["streamViewType"] = args?.streamViewType;
-            resourceInputs["tableClass"] = args?.tableClass;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["ttl"] = args?.ttl;
-            resourceInputs["warmThroughput"] = args?.warmThroughput;
-            resourceInputs["writeCapacity"] = args?.writeCapacity;
+            resourceInputs["attributes"] = args ? args.attributes : undefined;
+            resourceInputs["billingMode"] = args ? args.billingMode : undefined;
+            resourceInputs["deletionProtectionEnabled"] = args ? args.deletionProtectionEnabled : undefined;
+            resourceInputs["globalSecondaryIndexes"] = args ? args.globalSecondaryIndexes : undefined;
+            resourceInputs["hashKey"] = args ? args.hashKey : undefined;
+            resourceInputs["importTable"] = args ? args.importTable : undefined;
+            resourceInputs["localSecondaryIndexes"] = args ? args.localSecondaryIndexes : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["onDemandThroughput"] = args ? args.onDemandThroughput : undefined;
+            resourceInputs["pointInTimeRecovery"] = args ? args.pointInTimeRecovery : undefined;
+            resourceInputs["rangeKey"] = args ? args.rangeKey : undefined;
+            resourceInputs["readCapacity"] = args ? args.readCapacity : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["replicas"] = args ? args.replicas : undefined;
+            resourceInputs["restoreDateTime"] = args ? args.restoreDateTime : undefined;
+            resourceInputs["restoreSourceName"] = args ? args.restoreSourceName : undefined;
+            resourceInputs["restoreSourceTableArn"] = args ? args.restoreSourceTableArn : undefined;
+            resourceInputs["restoreToLatestTime"] = args ? args.restoreToLatestTime : undefined;
+            resourceInputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
+            resourceInputs["streamEnabled"] = args ? args.streamEnabled : undefined;
+            resourceInputs["streamViewType"] = args ? args.streamViewType : undefined;
+            resourceInputs["tableClass"] = args ? args.tableClass : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["ttl"] = args ? args.ttl : undefined;
+            resourceInputs["warmThroughput"] = args ? args.warmThroughput : undefined;
+            resourceInputs["writeCapacity"] = args ? args.writeCapacity : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["streamArn"] = undefined /*out*/;
             resourceInputs["streamLabel"] = undefined /*out*/;

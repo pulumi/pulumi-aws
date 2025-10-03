@@ -58,39 +58,39 @@ export class LocationFsxLustre extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The time that the FSx for Lustre location was created.
      */
-    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) for the FSx for Lustre file system.
      */
-    declare public readonly fsxFilesystemArn: pulumi.Output<string>;
+    public readonly fsxFilesystemArn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
      */
-    declare public readonly securityGroupArns: pulumi.Output<string[]>;
+    public readonly securityGroupArns!: pulumi.Output<string[]>;
     /**
      * Subdirectory to perform actions as source or destination.
      */
-    declare public readonly subdirectory: pulumi.Output<string>;
+    public readonly subdirectory!: pulumi.Output<string>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The URL of the FSx for Lustre location that was described.
      */
-    declare public /*out*/ readonly uri: pulumi.Output<string>;
+    public /*out*/ readonly uri!: pulumi.Output<string>;
 
     /**
      * Create a LocationFsxLustre resource with the given unique name, arguments, and options.
@@ -105,28 +105,28 @@ export class LocationFsxLustre extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LocationFsxLustreState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["creationTime"] = state?.creationTime;
-            resourceInputs["fsxFilesystemArn"] = state?.fsxFilesystemArn;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["securityGroupArns"] = state?.securityGroupArns;
-            resourceInputs["subdirectory"] = state?.subdirectory;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["uri"] = state?.uri;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["creationTime"] = state ? state.creationTime : undefined;
+            resourceInputs["fsxFilesystemArn"] = state ? state.fsxFilesystemArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["securityGroupArns"] = state ? state.securityGroupArns : undefined;
+            resourceInputs["subdirectory"] = state ? state.subdirectory : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["uri"] = state ? state.uri : undefined;
         } else {
             const args = argsOrState as LocationFsxLustreArgs | undefined;
-            if (args?.fsxFilesystemArn === undefined && !opts.urn) {
+            if ((!args || args.fsxFilesystemArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fsxFilesystemArn'");
             }
-            if (args?.securityGroupArns === undefined && !opts.urn) {
+            if ((!args || args.securityGroupArns === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'securityGroupArns'");
             }
-            resourceInputs["fsxFilesystemArn"] = args?.fsxFilesystemArn;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["securityGroupArns"] = args?.securityGroupArns;
-            resourceInputs["subdirectory"] = args?.subdirectory;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["fsxFilesystemArn"] = args ? args.fsxFilesystemArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["securityGroupArns"] = args ? args.securityGroupArns : undefined;
+            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

@@ -60,41 +60,41 @@ export class User extends pulumi.CustomResource {
     /**
      * ARN of the appstream user.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
      */
-    declare public readonly authenticationType: pulumi.Output<string>;
+    public readonly authenticationType!: pulumi.Output<string>;
     /**
      * Date and time, in UTC and extended RFC 3339 format, when the user was created.
      */
-    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
      * Whether the user in the user pool is enabled.
      */
-    declare public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * First name, or given name, of the user.
      */
-    declare public readonly firstName: pulumi.Output<string | undefined>;
+    public readonly firstName!: pulumi.Output<string | undefined>;
     /**
      * Last name, or surname, of the user.
      */
-    declare public readonly lastName: pulumi.Output<string | undefined>;
+    public readonly lastName!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Send an email notification.
      */
-    declare public readonly sendEmailNotification: pulumi.Output<boolean | undefined>;
+    public readonly sendEmailNotification!: pulumi.Output<boolean | undefined>;
     /**
      * Email address of the user.
      *
      * The following arguments are optional:
      */
-    declare public readonly userName: pulumi.Output<string>;
+    public readonly userName!: pulumi.Output<string>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -109,30 +109,30 @@ export class User extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["authenticationType"] = state?.authenticationType;
-            resourceInputs["createdTime"] = state?.createdTime;
-            resourceInputs["enabled"] = state?.enabled;
-            resourceInputs["firstName"] = state?.firstName;
-            resourceInputs["lastName"] = state?.lastName;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["sendEmailNotification"] = state?.sendEmailNotification;
-            resourceInputs["userName"] = state?.userName;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["authenticationType"] = state ? state.authenticationType : undefined;
+            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["firstName"] = state ? state.firstName : undefined;
+            resourceInputs["lastName"] = state ? state.lastName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["sendEmailNotification"] = state ? state.sendEmailNotification : undefined;
+            resourceInputs["userName"] = state ? state.userName : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
-            if (args?.authenticationType === undefined && !opts.urn) {
+            if ((!args || args.authenticationType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authenticationType'");
             }
-            if (args?.userName === undefined && !opts.urn) {
+            if ((!args || args.userName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
-            resourceInputs["authenticationType"] = args?.authenticationType;
-            resourceInputs["enabled"] = args?.enabled;
-            resourceInputs["firstName"] = args?.firstName;
-            resourceInputs["lastName"] = args?.lastName;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["sendEmailNotification"] = args?.sendEmailNotification;
-            resourceInputs["userName"] = args?.userName;
+            resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["firstName"] = args ? args.firstName : undefined;
+            resourceInputs["lastName"] = args ? args.lastName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["sendEmailNotification"] = args ? args.sendEmailNotification : undefined;
+            resourceInputs["userName"] = args ? args.userName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
         }

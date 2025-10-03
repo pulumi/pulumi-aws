@@ -58,20 +58,20 @@ export class VpcIpamOrganizationAdminAccount extends pulumi.CustomResource {
     /**
      * The Organizations ARN for the delegate account.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
-    declare public readonly delegatedAdminAccountId: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public readonly delegatedAdminAccountId!: pulumi.Output<string>;
     /**
      * The Organizations email for the delegate account.
      */
-    declare public /*out*/ readonly email: pulumi.Output<string>;
+    public /*out*/ readonly email!: pulumi.Output<string>;
     /**
      * The Organizations name for the delegate account.
      */
-    declare public /*out*/ readonly name: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The AWS service principal.
      */
-    declare public /*out*/ readonly servicePrincipal: pulumi.Output<string>;
+    public /*out*/ readonly servicePrincipal!: pulumi.Output<string>;
 
     /**
      * Create a VpcIpamOrganizationAdminAccount resource with the given unique name, arguments, and options.
@@ -86,17 +86,17 @@ export class VpcIpamOrganizationAdminAccount extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcIpamOrganizationAdminAccountState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["delegatedAdminAccountId"] = state?.delegatedAdminAccountId;
-            resourceInputs["email"] = state?.email;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["servicePrincipal"] = state?.servicePrincipal;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["delegatedAdminAccountId"] = state ? state.delegatedAdminAccountId : undefined;
+            resourceInputs["email"] = state ? state.email : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["servicePrincipal"] = state ? state.servicePrincipal : undefined;
         } else {
             const args = argsOrState as VpcIpamOrganizationAdminAccountArgs | undefined;
-            if (args?.delegatedAdminAccountId === undefined && !opts.urn) {
+            if ((!args || args.delegatedAdminAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'delegatedAdminAccountId'");
             }
-            resourceInputs["delegatedAdminAccountId"] = args?.delegatedAdminAccountId;
+            resourceInputs["delegatedAdminAccountId"] = args ? args.delegatedAdminAccountId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["email"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -65,15 +65,15 @@ export class KeyRegistration extends pulumi.CustomResource {
         return obj['__pulumiType'] === KeyRegistration.__pulumiType;
     }
 
-    declare public readonly awsAccountId: pulumi.Output<string>;
+    public readonly awsAccountId!: pulumi.Output<string>;
     /**
      * Registered keys. See key_registration.
      */
-    declare public readonly keyRegistrations: pulumi.Output<outputs.quicksight.KeyRegistrationKeyRegistration[] | undefined>;
+    public readonly keyRegistrations!: pulumi.Output<outputs.quicksight.KeyRegistrationKeyRegistration[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a KeyRegistration resource with the given unique name, arguments, and options.
@@ -88,14 +88,14 @@ export class KeyRegistration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KeyRegistrationState | undefined;
-            resourceInputs["awsAccountId"] = state?.awsAccountId;
-            resourceInputs["keyRegistrations"] = state?.keyRegistrations;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
+            resourceInputs["keyRegistrations"] = state ? state.keyRegistrations : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as KeyRegistrationArgs | undefined;
-            resourceInputs["awsAccountId"] = args?.awsAccountId;
-            resourceInputs["keyRegistrations"] = args?.keyRegistrations;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
+            resourceInputs["keyRegistrations"] = args ? args.keyRegistrations : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(KeyRegistration.__pulumiType, name, resourceInputs, opts);

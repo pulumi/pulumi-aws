@@ -62,11 +62,11 @@ export class OrganizationAdminAccount extends pulumi.CustomResource {
     /**
      * AWS account identifier to designate as a delegated administrator for GuardDuty.
      */
-    declare public readonly adminAccountId: pulumi.Output<string>;
+    public readonly adminAccountId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a OrganizationAdminAccount resource with the given unique name, arguments, and options.
@@ -81,15 +81,15 @@ export class OrganizationAdminAccount extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrganizationAdminAccountState | undefined;
-            resourceInputs["adminAccountId"] = state?.adminAccountId;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["adminAccountId"] = state ? state.adminAccountId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as OrganizationAdminAccountArgs | undefined;
-            if (args?.adminAccountId === undefined && !opts.urn) {
+            if ((!args || args.adminAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'adminAccountId'");
             }
-            resourceInputs["adminAccountId"] = args?.adminAccountId;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["adminAccountId"] = args ? args.adminAccountId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(OrganizationAdminAccount.__pulumiType, name, resourceInputs, opts);

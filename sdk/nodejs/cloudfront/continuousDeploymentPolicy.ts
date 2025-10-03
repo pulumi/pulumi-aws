@@ -127,27 +127,27 @@ export class ContinuousDeploymentPolicy extends pulumi.CustomResource {
     /**
      * The continuous deployment policy ARN.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Whether this continuous deployment policy is enabled.
      */
-    declare public readonly enabled: pulumi.Output<boolean>;
+    public readonly enabled!: pulumi.Output<boolean>;
     /**
      * Current version of the continuous distribution policy.
      */
-    declare public /*out*/ readonly etag: pulumi.Output<string>;
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * Date and time the continuous deployment policy was last modified.
      */
-    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
+    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
     /**
      * CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
      */
-    declare public readonly stagingDistributionDnsNames: pulumi.Output<outputs.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNames | undefined>;
+    public readonly stagingDistributionDnsNames!: pulumi.Output<outputs.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNames | undefined>;
     /**
      * Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.
      */
-    declare public readonly trafficConfig: pulumi.Output<outputs.cloudfront.ContinuousDeploymentPolicyTrafficConfig | undefined>;
+    public readonly trafficConfig!: pulumi.Output<outputs.cloudfront.ContinuousDeploymentPolicyTrafficConfig | undefined>;
 
     /**
      * Create a ContinuousDeploymentPolicy resource with the given unique name, arguments, and options.
@@ -162,20 +162,20 @@ export class ContinuousDeploymentPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ContinuousDeploymentPolicyState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["enabled"] = state?.enabled;
-            resourceInputs["etag"] = state?.etag;
-            resourceInputs["lastModifiedTime"] = state?.lastModifiedTime;
-            resourceInputs["stagingDistributionDnsNames"] = state?.stagingDistributionDnsNames;
-            resourceInputs["trafficConfig"] = state?.trafficConfig;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["lastModifiedTime"] = state ? state.lastModifiedTime : undefined;
+            resourceInputs["stagingDistributionDnsNames"] = state ? state.stagingDistributionDnsNames : undefined;
+            resourceInputs["trafficConfig"] = state ? state.trafficConfig : undefined;
         } else {
             const args = argsOrState as ContinuousDeploymentPolicyArgs | undefined;
-            if (args?.enabled === undefined && !opts.urn) {
+            if ((!args || args.enabled === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            resourceInputs["enabled"] = args?.enabled;
-            resourceInputs["stagingDistributionDnsNames"] = args?.stagingDistributionDnsNames;
-            resourceInputs["trafficConfig"] = args?.trafficConfig;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["stagingDistributionDnsNames"] = args ? args.stagingDistributionDnsNames : undefined;
+            resourceInputs["trafficConfig"] = args ? args.trafficConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;

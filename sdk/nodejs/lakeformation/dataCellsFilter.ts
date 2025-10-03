@@ -69,12 +69,12 @@ export class DataCellsFilter extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Information about the data cells filter. See Table Data below for details.
      */
-    declare public readonly tableData: pulumi.Output<outputs.lakeformation.DataCellsFilterTableData | undefined>;
-    declare public readonly timeouts: pulumi.Output<outputs.lakeformation.DataCellsFilterTimeouts | undefined>;
+    public readonly tableData!: pulumi.Output<outputs.lakeformation.DataCellsFilterTableData | undefined>;
+    public readonly timeouts!: pulumi.Output<outputs.lakeformation.DataCellsFilterTimeouts | undefined>;
 
     /**
      * Create a DataCellsFilter resource with the given unique name, arguments, and options.
@@ -89,14 +89,14 @@ export class DataCellsFilter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataCellsFilterState | undefined;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tableData"] = state?.tableData;
-            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tableData"] = state ? state.tableData : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as DataCellsFilterArgs | undefined;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tableData"] = args?.tableData;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tableData"] = args ? args.tableData : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DataCellsFilter.__pulumiType, name, resourceInputs, opts);

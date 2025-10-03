@@ -62,27 +62,27 @@ export class IpRestriction extends pulumi.CustomResource {
         return obj['__pulumiType'] === IpRestriction.__pulumiType;
     }
 
-    declare public readonly awsAccountId: pulumi.Output<string>;
+    public readonly awsAccountId!: pulumi.Output<string>;
     /**
      * Whether IP rules are turned on.
      */
-    declare public readonly enabled: pulumi.Output<boolean>;
+    public readonly enabled!: pulumi.Output<boolean>;
     /**
      * Map of allowed IPv4 CIDR ranges and descriptions.
      */
-    declare public readonly ipRestrictionRuleMap: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly ipRestrictionRuleMap!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Map of allowed VPC endpoint IDs and descriptions.
      */
-    declare public readonly vpcEndpointIdRestrictionRuleMap: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly vpcEndpointIdRestrictionRuleMap!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of VPC IDs and descriptions. Traffic from all VPC endpoints that are present in the specified VPC is allowed.
      */
-    declare public readonly vpcIdRestrictionRuleMap: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly vpcIdRestrictionRuleMap!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a IpRestriction resource with the given unique name, arguments, and options.
@@ -97,23 +97,23 @@ export class IpRestriction extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IpRestrictionState | undefined;
-            resourceInputs["awsAccountId"] = state?.awsAccountId;
-            resourceInputs["enabled"] = state?.enabled;
-            resourceInputs["ipRestrictionRuleMap"] = state?.ipRestrictionRuleMap;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["vpcEndpointIdRestrictionRuleMap"] = state?.vpcEndpointIdRestrictionRuleMap;
-            resourceInputs["vpcIdRestrictionRuleMap"] = state?.vpcIdRestrictionRuleMap;
+            resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["ipRestrictionRuleMap"] = state ? state.ipRestrictionRuleMap : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["vpcEndpointIdRestrictionRuleMap"] = state ? state.vpcEndpointIdRestrictionRuleMap : undefined;
+            resourceInputs["vpcIdRestrictionRuleMap"] = state ? state.vpcIdRestrictionRuleMap : undefined;
         } else {
             const args = argsOrState as IpRestrictionArgs | undefined;
-            if (args?.enabled === undefined && !opts.urn) {
+            if ((!args || args.enabled === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            resourceInputs["awsAccountId"] = args?.awsAccountId;
-            resourceInputs["enabled"] = args?.enabled;
-            resourceInputs["ipRestrictionRuleMap"] = args?.ipRestrictionRuleMap;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["vpcEndpointIdRestrictionRuleMap"] = args?.vpcEndpointIdRestrictionRuleMap;
-            resourceInputs["vpcIdRestrictionRuleMap"] = args?.vpcIdRestrictionRuleMap;
+            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["ipRestrictionRuleMap"] = args ? args.ipRestrictionRuleMap : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["vpcEndpointIdRestrictionRuleMap"] = args ? args.vpcEndpointIdRestrictionRuleMap : undefined;
+            resourceInputs["vpcIdRestrictionRuleMap"] = args ? args.vpcIdRestrictionRuleMap : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IpRestriction.__pulumiType, name, resourceInputs, opts);

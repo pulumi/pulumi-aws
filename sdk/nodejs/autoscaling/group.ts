@@ -488,49 +488,49 @@ export class Group extends pulumi.CustomResource {
     /**
      * ARN for this Auto Scaling Group
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
      */
-    declare public readonly availabilityZoneDistribution: pulumi.Output<outputs.autoscaling.GroupAvailabilityZoneDistribution>;
+    public readonly availabilityZoneDistribution!: pulumi.Output<outputs.autoscaling.GroupAvailabilityZoneDistribution>;
     /**
      * A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpcZoneIdentifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpcZoneIdentifier`.
      */
-    declare public readonly availabilityZones: pulumi.Output<string[]>;
+    public readonly availabilityZones!: pulumi.Output<string[]>;
     /**
      * Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
      */
-    declare public readonly capacityRebalance: pulumi.Output<boolean | undefined>;
+    public readonly capacityRebalance!: pulumi.Output<boolean | undefined>;
     /**
      * The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
      */
-    declare public readonly capacityReservationSpecification: pulumi.Output<outputs.autoscaling.GroupCapacityReservationSpecification>;
+    public readonly capacityReservationSpecification!: pulumi.Output<outputs.autoscaling.GroupCapacityReservationSpecification>;
     /**
      * Reserved.
      */
-    declare public readonly context: pulumi.Output<string | undefined>;
+    public readonly context!: pulumi.Output<string | undefined>;
     /**
      * Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
      */
-    declare public readonly defaultCooldown: pulumi.Output<number>;
+    public readonly defaultCooldown!: pulumi.Output<number>;
     /**
      * Amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
      */
-    declare public readonly defaultInstanceWarmup: pulumi.Output<number | undefined>;
+    public readonly defaultInstanceWarmup!: pulumi.Output<number | undefined>;
     /**
      * Number of Amazon EC2 instances that
      * should be running in the group. (See also Waiting for
      * Capacity below.)
      */
-    declare public readonly desiredCapacity: pulumi.Output<number>;
+    public readonly desiredCapacity!: pulumi.Output<number>;
     /**
      * The unit of measurement for the value specified for `desiredCapacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
      */
-    declare public readonly desiredCapacityType: pulumi.Output<string | undefined>;
+    public readonly desiredCapacityType!: pulumi.Output<string | undefined>;
     /**
      * List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
      */
-    declare public readonly enabledMetrics: pulumi.Output<enums.autoscaling.Metric[] | undefined>;
+    public readonly enabledMetrics!: pulumi.Output<enums.autoscaling.Metric[] | undefined>;
     /**
      * Allows deleting the Auto Scaling Group without waiting
      * for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
@@ -538,23 +538,23 @@ export class Group extends pulumi.CustomResource {
      * drains all the instances before deleting the group. This bypasses that
      * behavior and potentially leaves resources dangling.
      */
-    declare public readonly forceDelete: pulumi.Output<boolean | undefined>;
+    public readonly forceDelete!: pulumi.Output<boolean | undefined>;
     /**
      * Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
      */
-    declare public readonly forceDeleteWarmPool: pulumi.Output<boolean | undefined>;
+    public readonly forceDeleteWarmPool!: pulumi.Output<boolean | undefined>;
     /**
      * Time (in seconds) after instance comes into service before checking health.
      */
-    declare public readonly healthCheckGracePeriod: pulumi.Output<number | undefined>;
+    public readonly healthCheckGracePeriod!: pulumi.Output<number | undefined>;
     /**
      * "EC2" or "ELB". Controls how health checking is done.
      */
-    declare public readonly healthCheckType: pulumi.Output<string>;
+    public readonly healthCheckType!: pulumi.Output<string>;
     /**
      * Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
      */
-    declare public readonly ignoreFailedScalingActivities: pulumi.Output<boolean | undefined>;
+    public readonly ignoreFailedScalingActivities!: pulumi.Output<boolean | undefined>;
     /**
      * One or more
      * [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
@@ -564,75 +564,75 @@ export class Group extends pulumi.CustomResource {
      * resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
      * a new Auto Scaling Group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
      */
-    declare public readonly initialLifecycleHooks: pulumi.Output<outputs.autoscaling.GroupInitialLifecycleHook[] | undefined>;
+    public readonly initialLifecycleHooks!: pulumi.Output<outputs.autoscaling.GroupInitialLifecycleHook[] | undefined>;
     /**
      * If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
      */
-    declare public readonly instanceMaintenancePolicy: pulumi.Output<outputs.autoscaling.GroupInstanceMaintenancePolicy | undefined>;
+    public readonly instanceMaintenancePolicy!: pulumi.Output<outputs.autoscaling.GroupInstanceMaintenancePolicy | undefined>;
     /**
      * If this block is configured, start an
      * [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
      * when this Auto Scaling Group is updated. Defined below.
      */
-    declare public readonly instanceRefresh: pulumi.Output<outputs.autoscaling.GroupInstanceRefresh | undefined>;
+    public readonly instanceRefresh!: pulumi.Output<outputs.autoscaling.GroupInstanceRefresh | undefined>;
     /**
      * Name of the launch configuration to use.
      */
-    declare public readonly launchConfiguration: pulumi.Output<string | undefined>;
+    public readonly launchConfiguration!: pulumi.Output<string | undefined>;
     /**
      * Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
      */
-    declare public readonly launchTemplate: pulumi.Output<outputs.autoscaling.GroupLaunchTemplate>;
+    public readonly launchTemplate!: pulumi.Output<outputs.autoscaling.GroupLaunchTemplate>;
     /**
      * List of elastic load balancer names to add to the autoscaling
      * group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead. To remove all load balancer attachments an empty list should be specified.
      */
-    declare public readonly loadBalancers: pulumi.Output<string[]>;
+    public readonly loadBalancers!: pulumi.Output<string[]>;
     /**
      * Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
      */
-    declare public readonly maxInstanceLifetime: pulumi.Output<number | undefined>;
+    public readonly maxInstanceLifetime!: pulumi.Output<number | undefined>;
     /**
      * Maximum size of the Auto Scaling Group.
      */
-    declare public readonly maxSize: pulumi.Output<number>;
+    public readonly maxSize!: pulumi.Output<number>;
     /**
      * Granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
      */
-    declare public readonly metricsGranularity: pulumi.Output<string | undefined>;
+    public readonly metricsGranularity!: pulumi.Output<string | undefined>;
     /**
      * Setting this causes Pulumi to wait for
      * this number of instances from this Auto Scaling Group to show up healthy in the
      * ELB only on creation. Updates will not wait on ELB instance number changes.
      * (See also Waiting for Capacity below.)
      */
-    declare public readonly minElbCapacity: pulumi.Output<number | undefined>;
+    public readonly minElbCapacity!: pulumi.Output<number | undefined>;
     /**
      * Minimum size of the Auto Scaling Group.
      * (See also Waiting for Capacity below.)
      */
-    declare public readonly minSize: pulumi.Output<number>;
+    public readonly minSize!: pulumi.Output<number>;
     /**
      * Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
      */
-    declare public readonly mixedInstancesPolicy: pulumi.Output<outputs.autoscaling.GroupMixedInstancesPolicy>;
+    public readonly mixedInstancesPolicy!: pulumi.Output<outputs.autoscaling.GroupMixedInstancesPolicy>;
     /**
      * Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `namePrefix`.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    declare public readonly namePrefix: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string>;
     /**
      * Name of the placement group into which you'll launch your instances, if any.
      */
-    declare public readonly placementGroup: pulumi.Output<string | undefined>;
+    public readonly placementGroup!: pulumi.Output<string | undefined>;
     /**
      * Predicted capacity of the group.
      */
-    declare public /*out*/ readonly predictedCapacity: pulumi.Output<number>;
+    public /*out*/ readonly predictedCapacity!: pulumi.Output<number>;
     /**
      * Whether newly launched instances
      * are automatically protected from termination by Amazon EC2 Auto Scaling when
@@ -640,40 +640,40 @@ export class Group extends pulumi.CustomResource {
      * on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
      * in the Amazon EC2 Auto Scaling User Guide.
      */
-    declare public readonly protectFromScaleIn: pulumi.Output<boolean | undefined>;
+    public readonly protectFromScaleIn!: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ARN of the service-linked role that the ASG will use to call other AWS services
      */
-    declare public readonly serviceLinkedRoleArn: pulumi.Output<string>;
+    public readonly serviceLinkedRoleArn!: pulumi.Output<string>;
     /**
      * List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
      * Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
      */
-    declare public readonly suspendedProcesses: pulumi.Output<string[] | undefined>;
+    public readonly suspendedProcesses!: pulumi.Output<string[] | undefined>;
     /**
      * Configuration block(s) containing resource tags. See Tag below for more details.
      */
-    declare public readonly tags: pulumi.Output<outputs.autoscaling.GroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.autoscaling.GroupTag[] | undefined>;
     /**
      * Set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
      */
-    declare public readonly targetGroupArns: pulumi.Output<string[]>;
+    public readonly targetGroupArns!: pulumi.Output<string[]>;
     /**
      * List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
      */
-    declare public readonly terminationPolicies: pulumi.Output<string[] | undefined>;
+    public readonly terminationPolicies!: pulumi.Output<string[] | undefined>;
     /**
      * Attaches one or more traffic sources to the specified Auto Scaling group.
      */
-    declare public readonly trafficSources: pulumi.Output<outputs.autoscaling.GroupTrafficSource[]>;
+    public readonly trafficSources!: pulumi.Output<outputs.autoscaling.GroupTrafficSource[]>;
     /**
      * List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availabilityZones`.
      */
-    declare public readonly vpcZoneIdentifiers: pulumi.Output<string[]>;
+    public readonly vpcZoneIdentifiers!: pulumi.Output<string[]>;
     /**
      * Maximum
      * [duration](https://golang.org/pkg/time/#ParseDuration) that the provider should
@@ -681,7 +681,7 @@ export class Group extends pulumi.CustomResource {
      * for Capacity below.) Setting this to "0" causes
      * the provider to skip all Capacity Waiting behavior.
      */
-    declare public readonly waitForCapacityTimeout: pulumi.Output<string | undefined>;
+    public readonly waitForCapacityTimeout!: pulumi.Output<string | undefined>;
     /**
      * Setting this will cause Pulumi to wait
      * for exactly this number of healthy instances from this Auto Scaling Group in
@@ -689,16 +689,16 @@ export class Group extends pulumi.CustomResource {
      * precedence over `minElbCapacity` behavior.)
      * (See also Waiting for Capacity below.)
      */
-    declare public readonly waitForElbCapacity: pulumi.Output<number | undefined>;
+    public readonly waitForElbCapacity!: pulumi.Output<number | undefined>;
     /**
      * If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
      * to the specified Auto Scaling group. Defined below
      */
-    declare public readonly warmPool: pulumi.Output<outputs.autoscaling.GroupWarmPool | undefined>;
+    public readonly warmPool!: pulumi.Output<outputs.autoscaling.GroupWarmPool | undefined>;
     /**
      * Current size of the warm pool.
      */
-    declare public /*out*/ readonly warmPoolSize: pulumi.Output<number>;
+    public /*out*/ readonly warmPoolSize!: pulumi.Output<number>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -713,101 +713,101 @@ export class Group extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["availabilityZoneDistribution"] = state?.availabilityZoneDistribution;
-            resourceInputs["availabilityZones"] = state?.availabilityZones;
-            resourceInputs["capacityRebalance"] = state?.capacityRebalance;
-            resourceInputs["capacityReservationSpecification"] = state?.capacityReservationSpecification;
-            resourceInputs["context"] = state?.context;
-            resourceInputs["defaultCooldown"] = state?.defaultCooldown;
-            resourceInputs["defaultInstanceWarmup"] = state?.defaultInstanceWarmup;
-            resourceInputs["desiredCapacity"] = state?.desiredCapacity;
-            resourceInputs["desiredCapacityType"] = state?.desiredCapacityType;
-            resourceInputs["enabledMetrics"] = state?.enabledMetrics;
-            resourceInputs["forceDelete"] = state?.forceDelete;
-            resourceInputs["forceDeleteWarmPool"] = state?.forceDeleteWarmPool;
-            resourceInputs["healthCheckGracePeriod"] = state?.healthCheckGracePeriod;
-            resourceInputs["healthCheckType"] = state?.healthCheckType;
-            resourceInputs["ignoreFailedScalingActivities"] = state?.ignoreFailedScalingActivities;
-            resourceInputs["initialLifecycleHooks"] = state?.initialLifecycleHooks;
-            resourceInputs["instanceMaintenancePolicy"] = state?.instanceMaintenancePolicy;
-            resourceInputs["instanceRefresh"] = state?.instanceRefresh;
-            resourceInputs["launchConfiguration"] = state?.launchConfiguration;
-            resourceInputs["launchTemplate"] = state?.launchTemplate;
-            resourceInputs["loadBalancers"] = state?.loadBalancers;
-            resourceInputs["maxInstanceLifetime"] = state?.maxInstanceLifetime;
-            resourceInputs["maxSize"] = state?.maxSize;
-            resourceInputs["metricsGranularity"] = state?.metricsGranularity;
-            resourceInputs["minElbCapacity"] = state?.minElbCapacity;
-            resourceInputs["minSize"] = state?.minSize;
-            resourceInputs["mixedInstancesPolicy"] = state?.mixedInstancesPolicy;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["namePrefix"] = state?.namePrefix;
-            resourceInputs["placementGroup"] = state?.placementGroup;
-            resourceInputs["predictedCapacity"] = state?.predictedCapacity;
-            resourceInputs["protectFromScaleIn"] = state?.protectFromScaleIn;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["serviceLinkedRoleArn"] = state?.serviceLinkedRoleArn;
-            resourceInputs["suspendedProcesses"] = state?.suspendedProcesses;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["targetGroupArns"] = state?.targetGroupArns;
-            resourceInputs["terminationPolicies"] = state?.terminationPolicies;
-            resourceInputs["trafficSources"] = state?.trafficSources;
-            resourceInputs["vpcZoneIdentifiers"] = state?.vpcZoneIdentifiers;
-            resourceInputs["waitForCapacityTimeout"] = state?.waitForCapacityTimeout;
-            resourceInputs["waitForElbCapacity"] = state?.waitForElbCapacity;
-            resourceInputs["warmPool"] = state?.warmPool;
-            resourceInputs["warmPoolSize"] = state?.warmPoolSize;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["availabilityZoneDistribution"] = state ? state.availabilityZoneDistribution : undefined;
+            resourceInputs["availabilityZones"] = state ? state.availabilityZones : undefined;
+            resourceInputs["capacityRebalance"] = state ? state.capacityRebalance : undefined;
+            resourceInputs["capacityReservationSpecification"] = state ? state.capacityReservationSpecification : undefined;
+            resourceInputs["context"] = state ? state.context : undefined;
+            resourceInputs["defaultCooldown"] = state ? state.defaultCooldown : undefined;
+            resourceInputs["defaultInstanceWarmup"] = state ? state.defaultInstanceWarmup : undefined;
+            resourceInputs["desiredCapacity"] = state ? state.desiredCapacity : undefined;
+            resourceInputs["desiredCapacityType"] = state ? state.desiredCapacityType : undefined;
+            resourceInputs["enabledMetrics"] = state ? state.enabledMetrics : undefined;
+            resourceInputs["forceDelete"] = state ? state.forceDelete : undefined;
+            resourceInputs["forceDeleteWarmPool"] = state ? state.forceDeleteWarmPool : undefined;
+            resourceInputs["healthCheckGracePeriod"] = state ? state.healthCheckGracePeriod : undefined;
+            resourceInputs["healthCheckType"] = state ? state.healthCheckType : undefined;
+            resourceInputs["ignoreFailedScalingActivities"] = state ? state.ignoreFailedScalingActivities : undefined;
+            resourceInputs["initialLifecycleHooks"] = state ? state.initialLifecycleHooks : undefined;
+            resourceInputs["instanceMaintenancePolicy"] = state ? state.instanceMaintenancePolicy : undefined;
+            resourceInputs["instanceRefresh"] = state ? state.instanceRefresh : undefined;
+            resourceInputs["launchConfiguration"] = state ? state.launchConfiguration : undefined;
+            resourceInputs["launchTemplate"] = state ? state.launchTemplate : undefined;
+            resourceInputs["loadBalancers"] = state ? state.loadBalancers : undefined;
+            resourceInputs["maxInstanceLifetime"] = state ? state.maxInstanceLifetime : undefined;
+            resourceInputs["maxSize"] = state ? state.maxSize : undefined;
+            resourceInputs["metricsGranularity"] = state ? state.metricsGranularity : undefined;
+            resourceInputs["minElbCapacity"] = state ? state.minElbCapacity : undefined;
+            resourceInputs["minSize"] = state ? state.minSize : undefined;
+            resourceInputs["mixedInstancesPolicy"] = state ? state.mixedInstancesPolicy : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["placementGroup"] = state ? state.placementGroup : undefined;
+            resourceInputs["predictedCapacity"] = state ? state.predictedCapacity : undefined;
+            resourceInputs["protectFromScaleIn"] = state ? state.protectFromScaleIn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["serviceLinkedRoleArn"] = state ? state.serviceLinkedRoleArn : undefined;
+            resourceInputs["suspendedProcesses"] = state ? state.suspendedProcesses : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["targetGroupArns"] = state ? state.targetGroupArns : undefined;
+            resourceInputs["terminationPolicies"] = state ? state.terminationPolicies : undefined;
+            resourceInputs["trafficSources"] = state ? state.trafficSources : undefined;
+            resourceInputs["vpcZoneIdentifiers"] = state ? state.vpcZoneIdentifiers : undefined;
+            resourceInputs["waitForCapacityTimeout"] = state ? state.waitForCapacityTimeout : undefined;
+            resourceInputs["waitForElbCapacity"] = state ? state.waitForElbCapacity : undefined;
+            resourceInputs["warmPool"] = state ? state.warmPool : undefined;
+            resourceInputs["warmPoolSize"] = state ? state.warmPoolSize : undefined;
         } else {
             const args = argsOrState as GroupArgs | undefined;
-            if (args?.maxSize === undefined && !opts.urn) {
+            if ((!args || args.maxSize === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'maxSize'");
             }
-            if (args?.minSize === undefined && !opts.urn) {
+            if ((!args || args.minSize === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'minSize'");
             }
-            resourceInputs["availabilityZoneDistribution"] = args?.availabilityZoneDistribution;
-            resourceInputs["availabilityZones"] = args?.availabilityZones;
-            resourceInputs["capacityRebalance"] = args?.capacityRebalance;
-            resourceInputs["capacityReservationSpecification"] = args?.capacityReservationSpecification;
-            resourceInputs["context"] = args?.context;
-            resourceInputs["defaultCooldown"] = args?.defaultCooldown;
-            resourceInputs["defaultInstanceWarmup"] = args?.defaultInstanceWarmup;
-            resourceInputs["desiredCapacity"] = args?.desiredCapacity;
-            resourceInputs["desiredCapacityType"] = args?.desiredCapacityType;
-            resourceInputs["enabledMetrics"] = args?.enabledMetrics;
-            resourceInputs["forceDelete"] = args?.forceDelete;
-            resourceInputs["forceDeleteWarmPool"] = args?.forceDeleteWarmPool;
-            resourceInputs["healthCheckGracePeriod"] = args?.healthCheckGracePeriod;
-            resourceInputs["healthCheckType"] = args?.healthCheckType;
-            resourceInputs["ignoreFailedScalingActivities"] = args?.ignoreFailedScalingActivities;
-            resourceInputs["initialLifecycleHooks"] = args?.initialLifecycleHooks;
-            resourceInputs["instanceMaintenancePolicy"] = args?.instanceMaintenancePolicy;
-            resourceInputs["instanceRefresh"] = args?.instanceRefresh;
-            resourceInputs["launchConfiguration"] = args?.launchConfiguration;
-            resourceInputs["launchTemplate"] = args?.launchTemplate;
-            resourceInputs["loadBalancers"] = args?.loadBalancers;
-            resourceInputs["maxInstanceLifetime"] = args?.maxInstanceLifetime;
-            resourceInputs["maxSize"] = args?.maxSize;
-            resourceInputs["metricsGranularity"] = args?.metricsGranularity;
-            resourceInputs["minElbCapacity"] = args?.minElbCapacity;
-            resourceInputs["minSize"] = args?.minSize;
-            resourceInputs["mixedInstancesPolicy"] = args?.mixedInstancesPolicy;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["namePrefix"] = args?.namePrefix;
-            resourceInputs["placementGroup"] = args?.placementGroup;
-            resourceInputs["protectFromScaleIn"] = args?.protectFromScaleIn;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["serviceLinkedRoleArn"] = args?.serviceLinkedRoleArn;
-            resourceInputs["suspendedProcesses"] = args?.suspendedProcesses;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["targetGroupArns"] = args?.targetGroupArns;
-            resourceInputs["terminationPolicies"] = args?.terminationPolicies;
-            resourceInputs["trafficSources"] = args?.trafficSources;
-            resourceInputs["vpcZoneIdentifiers"] = args?.vpcZoneIdentifiers;
-            resourceInputs["waitForCapacityTimeout"] = args?.waitForCapacityTimeout;
-            resourceInputs["waitForElbCapacity"] = args?.waitForElbCapacity;
-            resourceInputs["warmPool"] = args?.warmPool;
+            resourceInputs["availabilityZoneDistribution"] = args ? args.availabilityZoneDistribution : undefined;
+            resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
+            resourceInputs["capacityRebalance"] = args ? args.capacityRebalance : undefined;
+            resourceInputs["capacityReservationSpecification"] = args ? args.capacityReservationSpecification : undefined;
+            resourceInputs["context"] = args ? args.context : undefined;
+            resourceInputs["defaultCooldown"] = args ? args.defaultCooldown : undefined;
+            resourceInputs["defaultInstanceWarmup"] = args ? args.defaultInstanceWarmup : undefined;
+            resourceInputs["desiredCapacity"] = args ? args.desiredCapacity : undefined;
+            resourceInputs["desiredCapacityType"] = args ? args.desiredCapacityType : undefined;
+            resourceInputs["enabledMetrics"] = args ? args.enabledMetrics : undefined;
+            resourceInputs["forceDelete"] = args ? args.forceDelete : undefined;
+            resourceInputs["forceDeleteWarmPool"] = args ? args.forceDeleteWarmPool : undefined;
+            resourceInputs["healthCheckGracePeriod"] = args ? args.healthCheckGracePeriod : undefined;
+            resourceInputs["healthCheckType"] = args ? args.healthCheckType : undefined;
+            resourceInputs["ignoreFailedScalingActivities"] = args ? args.ignoreFailedScalingActivities : undefined;
+            resourceInputs["initialLifecycleHooks"] = args ? args.initialLifecycleHooks : undefined;
+            resourceInputs["instanceMaintenancePolicy"] = args ? args.instanceMaintenancePolicy : undefined;
+            resourceInputs["instanceRefresh"] = args ? args.instanceRefresh : undefined;
+            resourceInputs["launchConfiguration"] = args ? args.launchConfiguration : undefined;
+            resourceInputs["launchTemplate"] = args ? args.launchTemplate : undefined;
+            resourceInputs["loadBalancers"] = args ? args.loadBalancers : undefined;
+            resourceInputs["maxInstanceLifetime"] = args ? args.maxInstanceLifetime : undefined;
+            resourceInputs["maxSize"] = args ? args.maxSize : undefined;
+            resourceInputs["metricsGranularity"] = args ? args.metricsGranularity : undefined;
+            resourceInputs["minElbCapacity"] = args ? args.minElbCapacity : undefined;
+            resourceInputs["minSize"] = args ? args.minSize : undefined;
+            resourceInputs["mixedInstancesPolicy"] = args ? args.mixedInstancesPolicy : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["placementGroup"] = args ? args.placementGroup : undefined;
+            resourceInputs["protectFromScaleIn"] = args ? args.protectFromScaleIn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["serviceLinkedRoleArn"] = args ? args.serviceLinkedRoleArn : undefined;
+            resourceInputs["suspendedProcesses"] = args ? args.suspendedProcesses : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetGroupArns"] = args ? args.targetGroupArns : undefined;
+            resourceInputs["terminationPolicies"] = args ? args.terminationPolicies : undefined;
+            resourceInputs["trafficSources"] = args ? args.trafficSources : undefined;
+            resourceInputs["vpcZoneIdentifiers"] = args ? args.vpcZoneIdentifiers : undefined;
+            resourceInputs["waitForCapacityTimeout"] = args ? args.waitForCapacityTimeout : undefined;
+            resourceInputs["waitForElbCapacity"] = args ? args.waitForElbCapacity : undefined;
+            resourceInputs["warmPool"] = args ? args.warmPool : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["predictedCapacity"] = undefined /*out*/;
             resourceInputs["warmPoolSize"] = undefined /*out*/;

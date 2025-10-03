@@ -96,19 +96,19 @@ export class RegistryScanningConfiguration extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The registry ID the scanning configuration applies to.
      */
-    declare public /*out*/ readonly registryId: pulumi.Output<string>;
+    public /*out*/ readonly registryId!: pulumi.Output<string>;
     /**
      * One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
      */
-    declare public readonly rules: pulumi.Output<outputs.ecr.RegistryScanningConfigurationRule[] | undefined>;
+    public readonly rules!: pulumi.Output<outputs.ecr.RegistryScanningConfigurationRule[] | undefined>;
     /**
      * the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
      */
-    declare public readonly scanType: pulumi.Output<string>;
+    public readonly scanType!: pulumi.Output<string>;
 
     /**
      * Create a RegistryScanningConfiguration resource with the given unique name, arguments, and options.
@@ -123,18 +123,18 @@ export class RegistryScanningConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RegistryScanningConfigurationState | undefined;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["registryId"] = state?.registryId;
-            resourceInputs["rules"] = state?.rules;
-            resourceInputs["scanType"] = state?.scanType;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["registryId"] = state ? state.registryId : undefined;
+            resourceInputs["rules"] = state ? state.rules : undefined;
+            resourceInputs["scanType"] = state ? state.scanType : undefined;
         } else {
             const args = argsOrState as RegistryScanningConfigurationArgs | undefined;
-            if (args?.scanType === undefined && !opts.urn) {
+            if ((!args || args.scanType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scanType'");
             }
-            resourceInputs["region"] = args?.region;
-            resourceInputs["rules"] = args?.rules;
-            resourceInputs["scanType"] = args?.scanType;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["scanType"] = args ? args.scanType : undefined;
             resourceInputs["registryId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

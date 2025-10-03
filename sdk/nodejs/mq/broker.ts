@@ -148,109 +148,109 @@ export class Broker extends pulumi.CustomResource {
     /**
      * Whether to apply broker modifications immediately. Default is `false`.
      */
-    declare public readonly applyImmediately: pulumi.Output<boolean | undefined>;
+    public readonly applyImmediately!: pulumi.Output<boolean | undefined>;
     /**
      * ARN of the broker.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
      */
-    declare public readonly authenticationStrategy: pulumi.Output<string>;
+    public readonly authenticationStrategy!: pulumi.Output<string>;
     /**
      * Whether to automatically upgrade to new minor versions of brokers as Amazon MQ makes releases available.
      */
-    declare public readonly autoMinorVersionUpgrade: pulumi.Output<boolean | undefined>;
+    public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean | undefined>;
     /**
      * Name of the broker.
      */
-    declare public readonly brokerName: pulumi.Output<string>;
+    public readonly brokerName!: pulumi.Output<string>;
     /**
      * Configuration block for broker configuration. Applies to `engineType` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
      */
-    declare public readonly configuration: pulumi.Output<outputs.mq.BrokerConfiguration>;
+    public readonly configuration!: pulumi.Output<outputs.mq.BrokerConfiguration>;
     /**
      * Whether this broker is part of a data replication pair. Valid values are `CRDR` and `NONE`.
      */
-    declare public readonly dataReplicationMode: pulumi.Output<string>;
+    public readonly dataReplicationMode!: pulumi.Output<string>;
     /**
      * ARN of the primary broker used to replicate data in a data replication pair. Required when `dataReplicationMode` is `CRDR`.
      */
-    declare public readonly dataReplicationPrimaryBrokerArn: pulumi.Output<string | undefined>;
+    public readonly dataReplicationPrimaryBrokerArn!: pulumi.Output<string | undefined>;
     /**
      * Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
      */
-    declare public readonly deploymentMode: pulumi.Output<string | undefined>;
+    public readonly deploymentMode!: pulumi.Output<string | undefined>;
     /**
      * Configuration block containing encryption options. Detailed below.
      */
-    declare public readonly encryptionOptions: pulumi.Output<outputs.mq.BrokerEncryptionOptions | undefined>;
+    public readonly encryptionOptions!: pulumi.Output<outputs.mq.BrokerEncryptionOptions | undefined>;
     /**
      * Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
      */
-    declare public readonly engineType: pulumi.Output<string>;
+    public readonly engineType!: pulumi.Output<string>;
     /**
      * Version of the broker engine.
      */
-    declare public readonly engineVersion: pulumi.Output<string>;
+    public readonly engineVersion!: pulumi.Output<string>;
     /**
      * Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
      */
-    declare public readonly hostInstanceType: pulumi.Output<string>;
+    public readonly hostInstanceType!: pulumi.Output<string>;
     /**
      * List of information about allocated brokers (both active & standby).
      */
-    declare public /*out*/ readonly instances: pulumi.Output<outputs.mq.BrokerInstance[]>;
+    public /*out*/ readonly instances!: pulumi.Output<outputs.mq.BrokerInstance[]>;
     /**
      * Configuration block for the LDAP server used to authenticate and authorize connections. Not supported for `engineType` `RabbitMQ`. Detailed below.
      */
-    declare public readonly ldapServerMetadata: pulumi.Output<outputs.mq.BrokerLdapServerMetadata | undefined>;
+    public readonly ldapServerMetadata!: pulumi.Output<outputs.mq.BrokerLdapServerMetadata | undefined>;
     /**
      * Configuration block for the logging configuration. Detailed below.
      */
-    declare public readonly logs: pulumi.Output<outputs.mq.BrokerLogs | undefined>;
+    public readonly logs!: pulumi.Output<outputs.mq.BrokerLogs | undefined>;
     /**
      * Configuration block for the maintenance window start time. Detailed below.
      */
-    declare public readonly maintenanceWindowStartTime: pulumi.Output<outputs.mq.BrokerMaintenanceWindowStartTime>;
+    public readonly maintenanceWindowStartTime!: pulumi.Output<outputs.mq.BrokerMaintenanceWindowStartTime>;
     /**
      * Data replication mode that will be applied after reboot.
      */
-    declare public /*out*/ readonly pendingDataReplicationMode: pulumi.Output<string>;
+    public /*out*/ readonly pendingDataReplicationMode!: pulumi.Output<string>;
     /**
      * Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
      */
-    declare public readonly publiclyAccessible: pulumi.Output<boolean | undefined>;
+    public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * List of security group IDs assigned to the broker.
      */
-    declare public readonly securityGroups: pulumi.Output<string[] | undefined>;
+    public readonly securityGroups!: pulumi.Output<string[] | undefined>;
     /**
      * Storage type of the broker. For `engineType` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
      */
-    declare public readonly storageType: pulumi.Output<string>;
+    public readonly storageType!: pulumi.Output<string>;
     /**
      * List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
      */
-    declare public readonly subnetIds: pulumi.Output<string[]>;
+    public readonly subnetIds!: pulumi.Output<string[]>;
     /**
      * Map of tags to assign to the broker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
      *
      * The following arguments are optional:
      */
-    declare public readonly users: pulumi.Output<outputs.mq.BrokerUser[]>;
+    public readonly users!: pulumi.Output<outputs.mq.BrokerUser[]>;
 
     /**
      * Create a Broker resource with the given unique name, arguments, and options.
@@ -265,68 +265,68 @@ export class Broker extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BrokerState | undefined;
-            resourceInputs["applyImmediately"] = state?.applyImmediately;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["authenticationStrategy"] = state?.authenticationStrategy;
-            resourceInputs["autoMinorVersionUpgrade"] = state?.autoMinorVersionUpgrade;
-            resourceInputs["brokerName"] = state?.brokerName;
-            resourceInputs["configuration"] = state?.configuration;
-            resourceInputs["dataReplicationMode"] = state?.dataReplicationMode;
-            resourceInputs["dataReplicationPrimaryBrokerArn"] = state?.dataReplicationPrimaryBrokerArn;
-            resourceInputs["deploymentMode"] = state?.deploymentMode;
-            resourceInputs["encryptionOptions"] = state?.encryptionOptions;
-            resourceInputs["engineType"] = state?.engineType;
-            resourceInputs["engineVersion"] = state?.engineVersion;
-            resourceInputs["hostInstanceType"] = state?.hostInstanceType;
-            resourceInputs["instances"] = state?.instances;
-            resourceInputs["ldapServerMetadata"] = state?.ldapServerMetadata;
-            resourceInputs["logs"] = state?.logs;
-            resourceInputs["maintenanceWindowStartTime"] = state?.maintenanceWindowStartTime;
-            resourceInputs["pendingDataReplicationMode"] = state?.pendingDataReplicationMode;
-            resourceInputs["publiclyAccessible"] = state?.publiclyAccessible;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["securityGroups"] = state?.securityGroups;
-            resourceInputs["storageType"] = state?.storageType;
-            resourceInputs["subnetIds"] = state?.subnetIds;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["users"] = state?.users;
+            resourceInputs["applyImmediately"] = state ? state.applyImmediately : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["authenticationStrategy"] = state ? state.authenticationStrategy : undefined;
+            resourceInputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
+            resourceInputs["brokerName"] = state ? state.brokerName : undefined;
+            resourceInputs["configuration"] = state ? state.configuration : undefined;
+            resourceInputs["dataReplicationMode"] = state ? state.dataReplicationMode : undefined;
+            resourceInputs["dataReplicationPrimaryBrokerArn"] = state ? state.dataReplicationPrimaryBrokerArn : undefined;
+            resourceInputs["deploymentMode"] = state ? state.deploymentMode : undefined;
+            resourceInputs["encryptionOptions"] = state ? state.encryptionOptions : undefined;
+            resourceInputs["engineType"] = state ? state.engineType : undefined;
+            resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
+            resourceInputs["hostInstanceType"] = state ? state.hostInstanceType : undefined;
+            resourceInputs["instances"] = state ? state.instances : undefined;
+            resourceInputs["ldapServerMetadata"] = state ? state.ldapServerMetadata : undefined;
+            resourceInputs["logs"] = state ? state.logs : undefined;
+            resourceInputs["maintenanceWindowStartTime"] = state ? state.maintenanceWindowStartTime : undefined;
+            resourceInputs["pendingDataReplicationMode"] = state ? state.pendingDataReplicationMode : undefined;
+            resourceInputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["securityGroups"] = state ? state.securityGroups : undefined;
+            resourceInputs["storageType"] = state ? state.storageType : undefined;
+            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as BrokerArgs | undefined;
-            if (args?.engineType === undefined && !opts.urn) {
+            if ((!args || args.engineType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engineType'");
             }
-            if (args?.engineVersion === undefined && !opts.urn) {
+            if ((!args || args.engineVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engineVersion'");
             }
-            if (args?.hostInstanceType === undefined && !opts.urn) {
+            if ((!args || args.hostInstanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hostInstanceType'");
             }
-            if (args?.users === undefined && !opts.urn) {
+            if ((!args || args.users === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'users'");
             }
-            resourceInputs["applyImmediately"] = args?.applyImmediately;
-            resourceInputs["authenticationStrategy"] = args?.authenticationStrategy;
-            resourceInputs["autoMinorVersionUpgrade"] = args?.autoMinorVersionUpgrade;
-            resourceInputs["brokerName"] = args?.brokerName;
-            resourceInputs["configuration"] = args?.configuration;
-            resourceInputs["dataReplicationMode"] = args?.dataReplicationMode;
-            resourceInputs["dataReplicationPrimaryBrokerArn"] = args?.dataReplicationPrimaryBrokerArn;
-            resourceInputs["deploymentMode"] = args?.deploymentMode;
-            resourceInputs["encryptionOptions"] = args?.encryptionOptions;
-            resourceInputs["engineType"] = args?.engineType;
-            resourceInputs["engineVersion"] = args?.engineVersion;
-            resourceInputs["hostInstanceType"] = args?.hostInstanceType;
-            resourceInputs["ldapServerMetadata"] = args?.ldapServerMetadata;
-            resourceInputs["logs"] = args?.logs;
-            resourceInputs["maintenanceWindowStartTime"] = args?.maintenanceWindowStartTime;
-            resourceInputs["publiclyAccessible"] = args?.publiclyAccessible;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["securityGroups"] = args?.securityGroups;
-            resourceInputs["storageType"] = args?.storageType;
-            resourceInputs["subnetIds"] = args?.subnetIds;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["users"] = args?.users;
+            resourceInputs["applyImmediately"] = args ? args.applyImmediately : undefined;
+            resourceInputs["authenticationStrategy"] = args ? args.authenticationStrategy : undefined;
+            resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
+            resourceInputs["brokerName"] = args ? args.brokerName : undefined;
+            resourceInputs["configuration"] = args ? args.configuration : undefined;
+            resourceInputs["dataReplicationMode"] = args ? args.dataReplicationMode : undefined;
+            resourceInputs["dataReplicationPrimaryBrokerArn"] = args ? args.dataReplicationPrimaryBrokerArn : undefined;
+            resourceInputs["deploymentMode"] = args ? args.deploymentMode : undefined;
+            resourceInputs["encryptionOptions"] = args ? args.encryptionOptions : undefined;
+            resourceInputs["engineType"] = args ? args.engineType : undefined;
+            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
+            resourceInputs["hostInstanceType"] = args ? args.hostInstanceType : undefined;
+            resourceInputs["ldapServerMetadata"] = args ? args.ldapServerMetadata : undefined;
+            resourceInputs["logs"] = args ? args.logs : undefined;
+            resourceInputs["maintenanceWindowStartTime"] = args ? args.maintenanceWindowStartTime : undefined;
+            resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
+            resourceInputs["storageType"] = args ? args.storageType : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["users"] = args ? args.users : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["instances"] = undefined /*out*/;
             resourceInputs["pendingDataReplicationMode"] = undefined /*out*/;

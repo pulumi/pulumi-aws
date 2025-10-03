@@ -53,11 +53,11 @@ export class SnapshotBlockPublicAccess extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
      */
-    declare public readonly state: pulumi.Output<string>;
+    public readonly state!: pulumi.Output<string>;
 
     /**
      * Create a SnapshotBlockPublicAccess resource with the given unique name, arguments, and options.
@@ -72,15 +72,15 @@ export class SnapshotBlockPublicAccess extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SnapshotBlockPublicAccessState | undefined;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["state"] = state?.state;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
         } else {
             const args = argsOrState as SnapshotBlockPublicAccessArgs | undefined;
-            if (args?.state === undefined && !opts.urn) {
+            if ((!args || args.state === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
-            resourceInputs["region"] = args?.region;
-            resourceInputs["state"] = args?.state;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SnapshotBlockPublicAccess.__pulumiType, name, resourceInputs, opts);

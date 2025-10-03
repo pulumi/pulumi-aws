@@ -270,97 +270,97 @@ export class TaskDefinition extends pulumi.CustomResource {
     /**
      * Full ARN of the Task Definition (including both `family` and `revision`).
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
      */
-    declare public /*out*/ readonly arnWithoutRevision: pulumi.Output<string>;
+    public /*out*/ readonly arnWithoutRevision!: pulumi.Output<string>;
     /**
      * A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
      */
-    declare public readonly containerDefinitions: pulumi.Output<string>;
+    public readonly containerDefinitions!: pulumi.Output<string>;
     /**
      * Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
      */
-    declare public readonly cpu: pulumi.Output<string | undefined>;
+    public readonly cpu!: pulumi.Output<string | undefined>;
     /**
      * Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
      */
-    declare public readonly enableFaultInjection: pulumi.Output<boolean>;
+    public readonly enableFaultInjection!: pulumi.Output<boolean>;
     /**
      * The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
      */
-    declare public readonly ephemeralStorage: pulumi.Output<outputs.ecs.TaskDefinitionEphemeralStorage | undefined>;
+    public readonly ephemeralStorage!: pulumi.Output<outputs.ecs.TaskDefinitionEphemeralStorage | undefined>;
     /**
      * ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
      */
-    declare public readonly executionRoleArn: pulumi.Output<string | undefined>;
+    public readonly executionRoleArn!: pulumi.Output<string | undefined>;
     /**
      * A unique name for your task definition.
      *
      * The following arguments are optional:
      */
-    declare public readonly family: pulumi.Output<string>;
+    public readonly family!: pulumi.Output<string>;
     /**
      * IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
      */
-    declare public readonly ipcMode: pulumi.Output<string | undefined>;
+    public readonly ipcMode!: pulumi.Output<string | undefined>;
     /**
      * Amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
      */
-    declare public readonly memory: pulumi.Output<string | undefined>;
+    public readonly memory!: pulumi.Output<string | undefined>;
     /**
      * Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
      */
-    declare public readonly networkMode: pulumi.Output<string>;
+    public readonly networkMode!: pulumi.Output<string>;
     /**
      * Process namespace to use for the containers in the task. The valid values are `host` and `task`.
      */
-    declare public readonly pidMode: pulumi.Output<string | undefined>;
+    public readonly pidMode!: pulumi.Output<string | undefined>;
     /**
      * Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. Detailed below.
      */
-    declare public readonly placementConstraints: pulumi.Output<outputs.ecs.TaskDefinitionPlacementConstraint[] | undefined>;
+    public readonly placementConstraints!: pulumi.Output<outputs.ecs.TaskDefinitionPlacementConstraint[] | undefined>;
     /**
      * Configuration block for the App Mesh proxy. Detailed below.
      */
-    declare public readonly proxyConfiguration: pulumi.Output<outputs.ecs.TaskDefinitionProxyConfiguration | undefined>;
+    public readonly proxyConfiguration!: pulumi.Output<outputs.ecs.TaskDefinitionProxyConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
      */
-    declare public readonly requiresCompatibilities: pulumi.Output<string[] | undefined>;
+    public readonly requiresCompatibilities!: pulumi.Output<string[] | undefined>;
     /**
      * Revision of the task in a particular family.
      */
-    declare public /*out*/ readonly revision: pulumi.Output<number>;
+    public /*out*/ readonly revision!: pulumi.Output<number>;
     /**
      * Configuration block for runtimePlatform that containers in your task may use.
      */
-    declare public readonly runtimePlatform: pulumi.Output<outputs.ecs.TaskDefinitionRuntimePlatform | undefined>;
+    public readonly runtimePlatform!: pulumi.Output<outputs.ecs.TaskDefinitionRuntimePlatform | undefined>;
     /**
      * Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
      */
-    declare public readonly skipDestroy: pulumi.Output<boolean | undefined>;
+    public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
      */
-    declare public readonly taskRoleArn: pulumi.Output<string | undefined>;
+    public readonly taskRoleArn!: pulumi.Output<string | undefined>;
     /**
      * Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
      */
-    declare public readonly trackLatest: pulumi.Output<boolean | undefined>;
+    public readonly trackLatest!: pulumi.Output<boolean | undefined>;
     /**
      * Configuration block for volumes that containers in your task may use. Detailed below.
      *
@@ -368,7 +368,7 @@ export class TaskDefinition extends pulumi.CustomResource {
      *
      * > **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
      */
-    declare public readonly volumes: pulumi.Output<outputs.ecs.TaskDefinitionVolume[] | undefined>;
+    public readonly volumes!: pulumi.Output<outputs.ecs.TaskDefinitionVolume[] | undefined>;
 
     /**
      * Create a TaskDefinition resource with the given unique name, arguments, and options.
@@ -383,58 +383,58 @@ export class TaskDefinition extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TaskDefinitionState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["arnWithoutRevision"] = state?.arnWithoutRevision;
-            resourceInputs["containerDefinitions"] = state?.containerDefinitions;
-            resourceInputs["cpu"] = state?.cpu;
-            resourceInputs["enableFaultInjection"] = state?.enableFaultInjection;
-            resourceInputs["ephemeralStorage"] = state?.ephemeralStorage;
-            resourceInputs["executionRoleArn"] = state?.executionRoleArn;
-            resourceInputs["family"] = state?.family;
-            resourceInputs["ipcMode"] = state?.ipcMode;
-            resourceInputs["memory"] = state?.memory;
-            resourceInputs["networkMode"] = state?.networkMode;
-            resourceInputs["pidMode"] = state?.pidMode;
-            resourceInputs["placementConstraints"] = state?.placementConstraints;
-            resourceInputs["proxyConfiguration"] = state?.proxyConfiguration;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["requiresCompatibilities"] = state?.requiresCompatibilities;
-            resourceInputs["revision"] = state?.revision;
-            resourceInputs["runtimePlatform"] = state?.runtimePlatform;
-            resourceInputs["skipDestroy"] = state?.skipDestroy;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["taskRoleArn"] = state?.taskRoleArn;
-            resourceInputs["trackLatest"] = state?.trackLatest;
-            resourceInputs["volumes"] = state?.volumes;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["arnWithoutRevision"] = state ? state.arnWithoutRevision : undefined;
+            resourceInputs["containerDefinitions"] = state ? state.containerDefinitions : undefined;
+            resourceInputs["cpu"] = state ? state.cpu : undefined;
+            resourceInputs["enableFaultInjection"] = state ? state.enableFaultInjection : undefined;
+            resourceInputs["ephemeralStorage"] = state ? state.ephemeralStorage : undefined;
+            resourceInputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
+            resourceInputs["family"] = state ? state.family : undefined;
+            resourceInputs["ipcMode"] = state ? state.ipcMode : undefined;
+            resourceInputs["memory"] = state ? state.memory : undefined;
+            resourceInputs["networkMode"] = state ? state.networkMode : undefined;
+            resourceInputs["pidMode"] = state ? state.pidMode : undefined;
+            resourceInputs["placementConstraints"] = state ? state.placementConstraints : undefined;
+            resourceInputs["proxyConfiguration"] = state ? state.proxyConfiguration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["requiresCompatibilities"] = state ? state.requiresCompatibilities : undefined;
+            resourceInputs["revision"] = state ? state.revision : undefined;
+            resourceInputs["runtimePlatform"] = state ? state.runtimePlatform : undefined;
+            resourceInputs["skipDestroy"] = state ? state.skipDestroy : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["taskRoleArn"] = state ? state.taskRoleArn : undefined;
+            resourceInputs["trackLatest"] = state ? state.trackLatest : undefined;
+            resourceInputs["volumes"] = state ? state.volumes : undefined;
         } else {
             const args = argsOrState as TaskDefinitionArgs | undefined;
-            if (args?.containerDefinitions === undefined && !opts.urn) {
+            if ((!args || args.containerDefinitions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'containerDefinitions'");
             }
-            if (args?.family === undefined && !opts.urn) {
+            if ((!args || args.family === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'family'");
             }
-            resourceInputs["containerDefinitions"] = args?.containerDefinitions;
-            resourceInputs["cpu"] = args?.cpu;
-            resourceInputs["enableFaultInjection"] = args?.enableFaultInjection;
-            resourceInputs["ephemeralStorage"] = args?.ephemeralStorage;
-            resourceInputs["executionRoleArn"] = args?.executionRoleArn;
-            resourceInputs["family"] = args?.family;
-            resourceInputs["ipcMode"] = args?.ipcMode;
-            resourceInputs["memory"] = args?.memory;
-            resourceInputs["networkMode"] = args?.networkMode;
-            resourceInputs["pidMode"] = args?.pidMode;
-            resourceInputs["placementConstraints"] = args?.placementConstraints;
-            resourceInputs["proxyConfiguration"] = args?.proxyConfiguration;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["requiresCompatibilities"] = args?.requiresCompatibilities;
-            resourceInputs["runtimePlatform"] = args?.runtimePlatform;
-            resourceInputs["skipDestroy"] = args?.skipDestroy;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["taskRoleArn"] = args?.taskRoleArn;
-            resourceInputs["trackLatest"] = args?.trackLatest;
-            resourceInputs["volumes"] = args?.volumes;
+            resourceInputs["containerDefinitions"] = args ? args.containerDefinitions : undefined;
+            resourceInputs["cpu"] = args ? args.cpu : undefined;
+            resourceInputs["enableFaultInjection"] = args ? args.enableFaultInjection : undefined;
+            resourceInputs["ephemeralStorage"] = args ? args.ephemeralStorage : undefined;
+            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
+            resourceInputs["family"] = args ? args.family : undefined;
+            resourceInputs["ipcMode"] = args ? args.ipcMode : undefined;
+            resourceInputs["memory"] = args ? args.memory : undefined;
+            resourceInputs["networkMode"] = args ? args.networkMode : undefined;
+            resourceInputs["pidMode"] = args ? args.pidMode : undefined;
+            resourceInputs["placementConstraints"] = args ? args.placementConstraints : undefined;
+            resourceInputs["proxyConfiguration"] = args ? args.proxyConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["requiresCompatibilities"] = args ? args.requiresCompatibilities : undefined;
+            resourceInputs["runtimePlatform"] = args ? args.runtimePlatform : undefined;
+            resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["taskRoleArn"] = args ? args.taskRoleArn : undefined;
+            resourceInputs["trackLatest"] = args ? args.trackLatest : undefined;
+            resourceInputs["volumes"] = args ? args.volumes : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["arnWithoutRevision"] = undefined /*out*/;
             resourceInputs["revision"] = undefined /*out*/;

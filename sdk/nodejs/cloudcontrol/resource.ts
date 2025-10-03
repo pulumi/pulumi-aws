@@ -56,33 +56,33 @@ export class Resource extends pulumi.CustomResource {
     /**
      * JSON string matching the CloudFormation resource type schema with desired configuration.
      */
-    declare public readonly desiredState: pulumi.Output<string>;
+    public readonly desiredState!: pulumi.Output<string>;
     /**
      * JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)["example"]`.
      */
-    declare public /*out*/ readonly properties: pulumi.Output<string>;
+    public /*out*/ readonly properties!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the IAM Role to assume for operations.
      */
-    declare public readonly roleArn: pulumi.Output<string | undefined>;
+    public readonly roleArn!: pulumi.Output<string | undefined>;
     /**
      * JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `aws.cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
      */
-    declare public readonly schema: pulumi.Output<string>;
+    public readonly schema!: pulumi.Output<string>;
     /**
      * CloudFormation resource type name. For example, `AWS::EC2::VPC`.
      *
      * The following arguments are optional:
      */
-    declare public readonly typeName: pulumi.Output<string>;
+    public readonly typeName!: pulumi.Output<string>;
     /**
      * Identifier of the CloudFormation resource type version.
      */
-    declare public readonly typeVersionId: pulumi.Output<string | undefined>;
+    public readonly typeVersionId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Resource resource with the given unique name, arguments, and options.
@@ -97,27 +97,27 @@ export class Resource extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceState | undefined;
-            resourceInputs["desiredState"] = state?.desiredState;
-            resourceInputs["properties"] = state?.properties;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["roleArn"] = state?.roleArn;
-            resourceInputs["schema"] = state?.schema;
-            resourceInputs["typeName"] = state?.typeName;
-            resourceInputs["typeVersionId"] = state?.typeVersionId;
+            resourceInputs["desiredState"] = state ? state.desiredState : undefined;
+            resourceInputs["properties"] = state ? state.properties : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["schema"] = state ? state.schema : undefined;
+            resourceInputs["typeName"] = state ? state.typeName : undefined;
+            resourceInputs["typeVersionId"] = state ? state.typeVersionId : undefined;
         } else {
             const args = argsOrState as ResourceArgs | undefined;
-            if (args?.desiredState === undefined && !opts.urn) {
+            if ((!args || args.desiredState === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'desiredState'");
             }
-            if (args?.typeName === undefined && !opts.urn) {
+            if ((!args || args.typeName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'typeName'");
             }
-            resourceInputs["desiredState"] = args?.desiredState;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["desiredState"] = args ? args.desiredState : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["schema"] = args?.schema ? pulumi.secret(args.schema) : undefined;
-            resourceInputs["typeName"] = args?.typeName;
-            resourceInputs["typeVersionId"] = args?.typeVersionId;
+            resourceInputs["typeName"] = args ? args.typeName : undefined;
+            resourceInputs["typeVersionId"] = args ? args.typeVersionId : undefined;
             resourceInputs["properties"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -68,19 +68,19 @@ export class Tag extends pulumi.CustomResource {
     /**
      * Tag name.
      */
-    declare public readonly key: pulumi.Output<string>;
+    public readonly key!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the ECS resource to tag.
      */
-    declare public readonly resourceArn: pulumi.Output<string>;
+    public readonly resourceArn!: pulumi.Output<string>;
     /**
      * Tag value.
      */
-    declare public readonly value: pulumi.Output<string>;
+    public readonly value!: pulumi.Output<string>;
 
     /**
      * Create a Tag resource with the given unique name, arguments, and options.
@@ -95,25 +95,25 @@ export class Tag extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TagState | undefined;
-            resourceInputs["key"] = state?.key;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceArn"] = state?.resourceArn;
-            resourceInputs["value"] = state?.value;
+            resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
+            resourceInputs["value"] = state ? state.value : undefined;
         } else {
             const args = argsOrState as TagArgs | undefined;
-            if (args?.key === undefined && !opts.urn) {
+            if ((!args || args.key === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            if (args?.resourceArn === undefined && !opts.urn) {
+            if ((!args || args.resourceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            if (args?.value === undefined && !opts.urn) {
+            if ((!args || args.value === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            resourceInputs["key"] = args?.key;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resourceArn"] = args?.resourceArn;
-            resourceInputs["value"] = args?.value;
+            resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
+            resourceInputs["value"] = args ? args.value : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Tag.__pulumiType, name, resourceInputs, opts);

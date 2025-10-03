@@ -52,44 +52,44 @@ export class Room extends pulumi.CustomResource {
     /**
      * ARN of the Room.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * List of Logging Configuration
      * ARNs to attach to the room.
      */
-    declare public readonly loggingConfigurationIdentifiers: pulumi.Output<string[] | undefined>;
+    public readonly loggingConfigurationIdentifiers!: pulumi.Output<string[] | undefined>;
     /**
      * Maximum number of characters in a single
      * message. Messages are expected to be UTF-8 encoded and this limit applies
      * specifically to rune/code-point count, not number of bytes.
      */
-    declare public readonly maximumMessageLength: pulumi.Output<number>;
+    public readonly maximumMessageLength!: pulumi.Output<number>;
     /**
      * Maximum number of messages per
      * second that can be sent to the room (by all clients).
      */
-    declare public readonly maximumMessageRatePerSecond: pulumi.Output<number>;
+    public readonly maximumMessageRatePerSecond!: pulumi.Output<number>;
     /**
      * Configuration information for optional
      * review of messages.
      */
-    declare public readonly messageReviewHandler: pulumi.Output<outputs.ivschat.RoomMessageReviewHandler | undefined>;
+    public readonly messageReviewHandler!: pulumi.Output<outputs.ivschat.RoomMessageReviewHandler | undefined>;
     /**
      * Room name.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Room resource with the given unique name, arguments, and options.
@@ -104,24 +104,24 @@ export class Room extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RoomState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["loggingConfigurationIdentifiers"] = state?.loggingConfigurationIdentifiers;
-            resourceInputs["maximumMessageLength"] = state?.maximumMessageLength;
-            resourceInputs["maximumMessageRatePerSecond"] = state?.maximumMessageRatePerSecond;
-            resourceInputs["messageReviewHandler"] = state?.messageReviewHandler;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["loggingConfigurationIdentifiers"] = state ? state.loggingConfigurationIdentifiers : undefined;
+            resourceInputs["maximumMessageLength"] = state ? state.maximumMessageLength : undefined;
+            resourceInputs["maximumMessageRatePerSecond"] = state ? state.maximumMessageRatePerSecond : undefined;
+            resourceInputs["messageReviewHandler"] = state ? state.messageReviewHandler : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as RoomArgs | undefined;
-            resourceInputs["loggingConfigurationIdentifiers"] = args?.loggingConfigurationIdentifiers;
-            resourceInputs["maximumMessageLength"] = args?.maximumMessageLength;
-            resourceInputs["maximumMessageRatePerSecond"] = args?.maximumMessageRatePerSecond;
-            resourceInputs["messageReviewHandler"] = args?.messageReviewHandler;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["loggingConfigurationIdentifiers"] = args ? args.loggingConfigurationIdentifiers : undefined;
+            resourceInputs["maximumMessageLength"] = args ? args.maximumMessageLength : undefined;
+            resourceInputs["maximumMessageRatePerSecond"] = args ? args.maximumMessageRatePerSecond : undefined;
+            resourceInputs["messageReviewHandler"] = args ? args.messageReviewHandler : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

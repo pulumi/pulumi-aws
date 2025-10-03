@@ -108,15 +108,15 @@ export class ScramSecretAssociation extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the MSK cluster.
      */
-    declare public readonly clusterArn: pulumi.Output<string>;
+    public readonly clusterArn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * List of AWS Secrets Manager secret ARNs.
      */
-    declare public readonly secretArnLists: pulumi.Output<string[]>;
+    public readonly secretArnLists!: pulumi.Output<string[]>;
 
     /**
      * Create a ScramSecretAssociation resource with the given unique name, arguments, and options.
@@ -131,20 +131,20 @@ export class ScramSecretAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScramSecretAssociationState | undefined;
-            resourceInputs["clusterArn"] = state?.clusterArn;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["secretArnLists"] = state?.secretArnLists;
+            resourceInputs["clusterArn"] = state ? state.clusterArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["secretArnLists"] = state ? state.secretArnLists : undefined;
         } else {
             const args = argsOrState as ScramSecretAssociationArgs | undefined;
-            if (args?.clusterArn === undefined && !opts.urn) {
+            if ((!args || args.clusterArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterArn'");
             }
-            if (args?.secretArnLists === undefined && !opts.urn) {
+            if ((!args || args.secretArnLists === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'secretArnLists'");
             }
-            resourceInputs["clusterArn"] = args?.clusterArn;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["secretArnLists"] = args?.secretArnLists;
+            resourceInputs["clusterArn"] = args ? args.clusterArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["secretArnLists"] = args ? args.secretArnLists : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ScramSecretAssociation.__pulumiType, name, resourceInputs, opts);

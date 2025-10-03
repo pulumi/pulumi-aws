@@ -59,19 +59,19 @@ export class LogStream extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) specifying the log stream.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name of the log group under which the log stream is to be created.
      */
-    declare public readonly logGroupName: pulumi.Output<string>;
+    public readonly logGroupName!: pulumi.Output<string>;
     /**
      * The name of the log stream. Must not be longer than 512 characters and must not contain `:`
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a LogStream resource with the given unique name, arguments, and options.
@@ -86,18 +86,18 @@ export class LogStream extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogStreamState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["logGroupName"] = state?.logGroupName;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["logGroupName"] = state ? state.logGroupName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as LogStreamArgs | undefined;
-            if (args?.logGroupName === undefined && !opts.urn) {
+            if ((!args || args.logGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logGroupName'");
             }
-            resourceInputs["logGroupName"] = args?.logGroupName;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

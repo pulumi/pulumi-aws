@@ -73,19 +73,19 @@ export class BucketAccelerateConfigurationV2 extends pulumi.CustomResource {
     /**
      * Name of the bucket.
      */
-    declare public readonly bucket: pulumi.Output<string>;
+    public readonly bucket!: pulumi.Output<string>;
     /**
      * Account ID of the expected bucket owner.
      */
-    declare public readonly expectedBucketOwner: pulumi.Output<string | undefined>;
+    public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
      */
-    declare public readonly status: pulumi.Output<string>;
+    public readonly status!: pulumi.Output<string>;
 
     /**
      * Create a BucketAccelerateConfigurationV2 resource with the given unique name, arguments, and options.
@@ -103,22 +103,22 @@ export class BucketAccelerateConfigurationV2 extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketAccelerateConfigurationV2State | undefined;
-            resourceInputs["bucket"] = state?.bucket;
-            resourceInputs["expectedBucketOwner"] = state?.expectedBucketOwner;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["status"] = state?.status;
+            resourceInputs["bucket"] = state ? state.bucket : undefined;
+            resourceInputs["expectedBucketOwner"] = state ? state.expectedBucketOwner : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as BucketAccelerateConfigurationV2Args | undefined;
-            if (args?.bucket === undefined && !opts.urn) {
+            if ((!args || args.bucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            if (args?.status === undefined && !opts.urn) {
+            if ((!args || args.status === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            resourceInputs["bucket"] = args?.bucket;
-            resourceInputs["expectedBucketOwner"] = args?.expectedBucketOwner;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["status"] = args?.status;
+            resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2" }] };

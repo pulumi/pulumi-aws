@@ -103,19 +103,19 @@ export class PermissionsBoundaryAttachment extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
      */
-    declare public readonly instanceArn: pulumi.Output<string>;
+    public readonly instanceArn!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the Permission Set.
      */
-    declare public readonly permissionSetArn: pulumi.Output<string>;
+    public readonly permissionSetArn!: pulumi.Output<string>;
     /**
      * The permissions boundary policy. See below.
      */
-    declare public readonly permissionsBoundary: pulumi.Output<outputs.ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundary>;
+    public readonly permissionsBoundary!: pulumi.Output<outputs.ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundary>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a PermissionsBoundaryAttachment resource with the given unique name, arguments, and options.
@@ -130,25 +130,25 @@ export class PermissionsBoundaryAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PermissionsBoundaryAttachmentState | undefined;
-            resourceInputs["instanceArn"] = state?.instanceArn;
-            resourceInputs["permissionSetArn"] = state?.permissionSetArn;
-            resourceInputs["permissionsBoundary"] = state?.permissionsBoundary;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["instanceArn"] = state ? state.instanceArn : undefined;
+            resourceInputs["permissionSetArn"] = state ? state.permissionSetArn : undefined;
+            resourceInputs["permissionsBoundary"] = state ? state.permissionsBoundary : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as PermissionsBoundaryAttachmentArgs | undefined;
-            if (args?.instanceArn === undefined && !opts.urn) {
+            if ((!args || args.instanceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            if (args?.permissionSetArn === undefined && !opts.urn) {
+            if ((!args || args.permissionSetArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'permissionSetArn'");
             }
-            if (args?.permissionsBoundary === undefined && !opts.urn) {
+            if ((!args || args.permissionsBoundary === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'permissionsBoundary'");
             }
-            resourceInputs["instanceArn"] = args?.instanceArn;
-            resourceInputs["permissionSetArn"] = args?.permissionSetArn;
-            resourceInputs["permissionsBoundary"] = args?.permissionsBoundary;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
+            resourceInputs["permissionSetArn"] = args ? args.permissionSetArn : undefined;
+            resourceInputs["permissionsBoundary"] = args ? args.permissionsBoundary : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PermissionsBoundaryAttachment.__pulumiType, name, resourceInputs, opts);

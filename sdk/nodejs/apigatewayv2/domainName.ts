@@ -97,35 +97,35 @@ export class DomainName extends pulumi.CustomResource {
     /**
      * [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
      */
-    declare public /*out*/ readonly apiMappingSelectionExpression: pulumi.Output<string>;
+    public /*out*/ readonly apiMappingSelectionExpression!: pulumi.Output<string>;
     /**
      * ARN of the domain name.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Domain name. Must be between 1 and 512 characters in length.
      */
-    declare public readonly domainName: pulumi.Output<string>;
+    public readonly domainName!: pulumi.Output<string>;
     /**
      * Domain name configuration. See below.
      */
-    declare public readonly domainNameConfiguration: pulumi.Output<outputs.apigatewayv2.DomainNameDomainNameConfiguration>;
+    public readonly domainNameConfiguration!: pulumi.Output<outputs.apigatewayv2.DomainNameDomainNameConfiguration>;
     /**
      * Mutual TLS authentication configuration for the domain name.
      */
-    declare public readonly mutualTlsAuthentication: pulumi.Output<outputs.apigatewayv2.DomainNameMutualTlsAuthentication | undefined>;
+    public readonly mutualTlsAuthentication!: pulumi.Output<outputs.apigatewayv2.DomainNameMutualTlsAuthentication | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Map of tags to assign to the domain name. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a DomainName resource with the given unique name, arguments, and options.
@@ -140,27 +140,27 @@ export class DomainName extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainNameState | undefined;
-            resourceInputs["apiMappingSelectionExpression"] = state?.apiMappingSelectionExpression;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["domainName"] = state?.domainName;
-            resourceInputs["domainNameConfiguration"] = state?.domainNameConfiguration;
-            resourceInputs["mutualTlsAuthentication"] = state?.mutualTlsAuthentication;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["apiMappingSelectionExpression"] = state ? state.apiMappingSelectionExpression : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["domainNameConfiguration"] = state ? state.domainNameConfiguration : undefined;
+            resourceInputs["mutualTlsAuthentication"] = state ? state.mutualTlsAuthentication : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as DomainNameArgs | undefined;
-            if (args?.domainName === undefined && !opts.urn) {
+            if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if (args?.domainNameConfiguration === undefined && !opts.urn) {
+            if ((!args || args.domainNameConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainNameConfiguration'");
             }
-            resourceInputs["domainName"] = args?.domainName;
-            resourceInputs["domainNameConfiguration"] = args?.domainNameConfiguration;
-            resourceInputs["mutualTlsAuthentication"] = args?.mutualTlsAuthentication;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["domainNameConfiguration"] = args ? args.domainNameConfiguration : undefined;
+            resourceInputs["mutualTlsAuthentication"] = args ? args.mutualTlsAuthentication : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["apiMappingSelectionExpression"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

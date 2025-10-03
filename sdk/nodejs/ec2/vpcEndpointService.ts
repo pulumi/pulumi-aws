@@ -82,75 +82,75 @@ export class VpcEndpointService extends pulumi.CustomResource {
     /**
      * Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
      */
-    declare public readonly acceptanceRequired: pulumi.Output<boolean>;
+    public readonly acceptanceRequired!: pulumi.Output<boolean>;
     /**
      * The ARNs of one or more principals allowed to discover the endpoint service.
      */
-    declare public readonly allowedPrincipals: pulumi.Output<string[]>;
+    public readonly allowedPrincipals!: pulumi.Output<string[]>;
     /**
      * The Amazon Resource Name (ARN) of the VPC endpoint service.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A set of Availability Zones in which the service is available.
      */
-    declare public /*out*/ readonly availabilityZones: pulumi.Output<string[]>;
+    public /*out*/ readonly availabilityZones!: pulumi.Output<string[]>;
     /**
      * A set of DNS names for the service.
      */
-    declare public /*out*/ readonly baseEndpointDnsNames: pulumi.Output<string[]>;
+    public /*out*/ readonly baseEndpointDnsNames!: pulumi.Output<string[]>;
     /**
      * Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
      */
-    declare public readonly gatewayLoadBalancerArns: pulumi.Output<string[] | undefined>;
+    public readonly gatewayLoadBalancerArns!: pulumi.Output<string[] | undefined>;
     /**
      * Whether or not the service manages its VPC endpoints - `true` or `false`.
      */
-    declare public /*out*/ readonly managesVpcEndpoints: pulumi.Output<boolean>;
+    public /*out*/ readonly managesVpcEndpoints!: pulumi.Output<boolean>;
     /**
      * Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
      */
-    declare public readonly networkLoadBalancerArns: pulumi.Output<string[] | undefined>;
+    public readonly networkLoadBalancerArns!: pulumi.Output<string[] | undefined>;
     /**
      * The private DNS name for the service.
      */
-    declare public readonly privateDnsName: pulumi.Output<string>;
+    public readonly privateDnsName!: pulumi.Output<string>;
     /**
      * List of objects containing information about the endpoint service private DNS name configuration.
      */
-    declare public /*out*/ readonly privateDnsNameConfigurations: pulumi.Output<outputs.ec2.VpcEndpointServicePrivateDnsNameConfiguration[]>;
+    public /*out*/ readonly privateDnsNameConfigurations!: pulumi.Output<outputs.ec2.VpcEndpointServicePrivateDnsNameConfiguration[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The service name.
      */
-    declare public /*out*/ readonly serviceName: pulumi.Output<string>;
+    public /*out*/ readonly serviceName!: pulumi.Output<string>;
     /**
      * The service type, `Gateway` or `Interface`.
      */
-    declare public /*out*/ readonly serviceType: pulumi.Output<string>;
+    public /*out*/ readonly serviceType!: pulumi.Output<string>;
     /**
      * Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
      */
-    declare public /*out*/ readonly state: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * The supported IP address types. The possible values are `ipv4` and `ipv6`.
      */
-    declare public readonly supportedIpAddressTypes: pulumi.Output<string[]>;
+    public readonly supportedIpAddressTypes!: pulumi.Output<string[]>;
     /**
      * The set of regions from which service consumers can access the service.
      */
-    declare public readonly supportedRegions: pulumi.Output<string[]>;
+    public readonly supportedRegions!: pulumi.Output<string[]>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a VpcEndpointService resource with the given unique name, arguments, and options.
@@ -165,38 +165,38 @@ export class VpcEndpointService extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcEndpointServiceState | undefined;
-            resourceInputs["acceptanceRequired"] = state?.acceptanceRequired;
-            resourceInputs["allowedPrincipals"] = state?.allowedPrincipals;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["availabilityZones"] = state?.availabilityZones;
-            resourceInputs["baseEndpointDnsNames"] = state?.baseEndpointDnsNames;
-            resourceInputs["gatewayLoadBalancerArns"] = state?.gatewayLoadBalancerArns;
-            resourceInputs["managesVpcEndpoints"] = state?.managesVpcEndpoints;
-            resourceInputs["networkLoadBalancerArns"] = state?.networkLoadBalancerArns;
-            resourceInputs["privateDnsName"] = state?.privateDnsName;
-            resourceInputs["privateDnsNameConfigurations"] = state?.privateDnsNameConfigurations;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["serviceName"] = state?.serviceName;
-            resourceInputs["serviceType"] = state?.serviceType;
-            resourceInputs["state"] = state?.state;
-            resourceInputs["supportedIpAddressTypes"] = state?.supportedIpAddressTypes;
-            resourceInputs["supportedRegions"] = state?.supportedRegions;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["acceptanceRequired"] = state ? state.acceptanceRequired : undefined;
+            resourceInputs["allowedPrincipals"] = state ? state.allowedPrincipals : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["availabilityZones"] = state ? state.availabilityZones : undefined;
+            resourceInputs["baseEndpointDnsNames"] = state ? state.baseEndpointDnsNames : undefined;
+            resourceInputs["gatewayLoadBalancerArns"] = state ? state.gatewayLoadBalancerArns : undefined;
+            resourceInputs["managesVpcEndpoints"] = state ? state.managesVpcEndpoints : undefined;
+            resourceInputs["networkLoadBalancerArns"] = state ? state.networkLoadBalancerArns : undefined;
+            resourceInputs["privateDnsName"] = state ? state.privateDnsName : undefined;
+            resourceInputs["privateDnsNameConfigurations"] = state ? state.privateDnsNameConfigurations : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["serviceName"] = state ? state.serviceName : undefined;
+            resourceInputs["serviceType"] = state ? state.serviceType : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["supportedIpAddressTypes"] = state ? state.supportedIpAddressTypes : undefined;
+            resourceInputs["supportedRegions"] = state ? state.supportedRegions : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as VpcEndpointServiceArgs | undefined;
-            if (args?.acceptanceRequired === undefined && !opts.urn) {
+            if ((!args || args.acceptanceRequired === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'acceptanceRequired'");
             }
-            resourceInputs["acceptanceRequired"] = args?.acceptanceRequired;
-            resourceInputs["allowedPrincipals"] = args?.allowedPrincipals;
-            resourceInputs["gatewayLoadBalancerArns"] = args?.gatewayLoadBalancerArns;
-            resourceInputs["networkLoadBalancerArns"] = args?.networkLoadBalancerArns;
-            resourceInputs["privateDnsName"] = args?.privateDnsName;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["supportedIpAddressTypes"] = args?.supportedIpAddressTypes;
-            resourceInputs["supportedRegions"] = args?.supportedRegions;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["acceptanceRequired"] = args ? args.acceptanceRequired : undefined;
+            resourceInputs["allowedPrincipals"] = args ? args.allowedPrincipals : undefined;
+            resourceInputs["gatewayLoadBalancerArns"] = args ? args.gatewayLoadBalancerArns : undefined;
+            resourceInputs["networkLoadBalancerArns"] = args ? args.networkLoadBalancerArns : undefined;
+            resourceInputs["privateDnsName"] = args ? args.privateDnsName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["supportedIpAddressTypes"] = args ? args.supportedIpAddressTypes : undefined;
+            resourceInputs["supportedRegions"] = args ? args.supportedRegions : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["availabilityZones"] = undefined /*out*/;
             resourceInputs["baseEndpointDnsNames"] = undefined /*out*/;

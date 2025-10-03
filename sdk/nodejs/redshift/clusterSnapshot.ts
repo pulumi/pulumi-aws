@@ -46,39 +46,39 @@ export class ClusterSnapshot extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the snapshot.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The cluster identifier for which you want a snapshot.
      */
-    declare public readonly clusterIdentifier: pulumi.Output<string>;
+    public readonly clusterIdentifier!: pulumi.Output<string>;
     /**
      * The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
      */
-    declare public /*out*/ readonly kmsKeyId: pulumi.Output<string>;
+    public /*out*/ readonly kmsKeyId!: pulumi.Output<string>;
     /**
      * The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
      */
-    declare public readonly manualSnapshotRetentionPeriod: pulumi.Output<number | undefined>;
+    public readonly manualSnapshotRetentionPeriod!: pulumi.Output<number | undefined>;
     /**
      * For manual snapshots, the Amazon Web Services account used to create or copy the snapshot. For automatic snapshots, the owner of the cluster. The owner can perform all snapshot actions, such as sharing a manual snapshot.
      */
-    declare public /*out*/ readonly ownerAccount: pulumi.Output<string>;
+    public /*out*/ readonly ownerAccount!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.
      */
-    declare public readonly snapshotIdentifier: pulumi.Output<string>;
+    public readonly snapshotIdentifier!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ClusterSnapshot resource with the given unique name, arguments, and options.
@@ -93,28 +93,28 @@ export class ClusterSnapshot extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterSnapshotState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["clusterIdentifier"] = state?.clusterIdentifier;
-            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
-            resourceInputs["manualSnapshotRetentionPeriod"] = state?.manualSnapshotRetentionPeriod;
-            resourceInputs["ownerAccount"] = state?.ownerAccount;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["snapshotIdentifier"] = state?.snapshotIdentifier;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["manualSnapshotRetentionPeriod"] = state ? state.manualSnapshotRetentionPeriod : undefined;
+            resourceInputs["ownerAccount"] = state ? state.ownerAccount : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["snapshotIdentifier"] = state ? state.snapshotIdentifier : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ClusterSnapshotArgs | undefined;
-            if (args?.clusterIdentifier === undefined && !opts.urn) {
+            if ((!args || args.clusterIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterIdentifier'");
             }
-            if (args?.snapshotIdentifier === undefined && !opts.urn) {
+            if ((!args || args.snapshotIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'snapshotIdentifier'");
             }
-            resourceInputs["clusterIdentifier"] = args?.clusterIdentifier;
-            resourceInputs["manualSnapshotRetentionPeriod"] = args?.manualSnapshotRetentionPeriod;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["snapshotIdentifier"] = args?.snapshotIdentifier;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
+            resourceInputs["manualSnapshotRetentionPeriod"] = args ? args.manualSnapshotRetentionPeriod : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["ownerAccount"] = undefined /*out*/;

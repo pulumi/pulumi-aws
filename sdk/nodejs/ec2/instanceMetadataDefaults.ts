@@ -55,23 +55,23 @@ export class InstanceMetadataDefaults extends pulumi.CustomResource {
     /**
      * Whether the metadata service is available. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
      */
-    declare public readonly httpEndpoint: pulumi.Output<string>;
+    public readonly httpEndpoint!: pulumi.Output<string>;
     /**
      * The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`, or `-1` to indicate no preference. Default: `-1`.
      */
-    declare public readonly httpPutResponseHopLimit: pulumi.Output<number>;
+    public readonly httpPutResponseHopLimit!: pulumi.Output<number>;
     /**
      * Whether the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"`, `"required"`, or `"no-preference"`. Default: `"no-preference"`.
      */
-    declare public readonly httpTokens: pulumi.Output<string>;
+    public readonly httpTokens!: pulumi.Output<string>;
     /**
      * Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
      */
-    declare public readonly instanceMetadataTags: pulumi.Output<string>;
+    public readonly instanceMetadataTags!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a InstanceMetadataDefaults resource with the given unique name, arguments, and options.
@@ -86,18 +86,18 @@ export class InstanceMetadataDefaults extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InstanceMetadataDefaultsState | undefined;
-            resourceInputs["httpEndpoint"] = state?.httpEndpoint;
-            resourceInputs["httpPutResponseHopLimit"] = state?.httpPutResponseHopLimit;
-            resourceInputs["httpTokens"] = state?.httpTokens;
-            resourceInputs["instanceMetadataTags"] = state?.instanceMetadataTags;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["httpEndpoint"] = state ? state.httpEndpoint : undefined;
+            resourceInputs["httpPutResponseHopLimit"] = state ? state.httpPutResponseHopLimit : undefined;
+            resourceInputs["httpTokens"] = state ? state.httpTokens : undefined;
+            resourceInputs["instanceMetadataTags"] = state ? state.instanceMetadataTags : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as InstanceMetadataDefaultsArgs | undefined;
-            resourceInputs["httpEndpoint"] = args?.httpEndpoint;
-            resourceInputs["httpPutResponseHopLimit"] = args?.httpPutResponseHopLimit;
-            resourceInputs["httpTokens"] = args?.httpTokens;
-            resourceInputs["instanceMetadataTags"] = args?.instanceMetadataTags;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["httpEndpoint"] = args ? args.httpEndpoint : undefined;
+            resourceInputs["httpPutResponseHopLimit"] = args ? args.httpPutResponseHopLimit : undefined;
+            resourceInputs["httpTokens"] = args ? args.httpTokens : undefined;
+            resourceInputs["instanceMetadataTags"] = args ? args.instanceMetadataTags : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(InstanceMetadataDefaults.__pulumiType, name, resourceInputs, opts);

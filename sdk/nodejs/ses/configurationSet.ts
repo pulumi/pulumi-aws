@@ -88,37 +88,37 @@ export class ConfigurationSet extends pulumi.CustomResource {
     /**
      * SES configuration set ARN.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Whether messages that use the configuration set are required to use TLS. See below.
      */
-    declare public readonly deliveryOptions: pulumi.Output<outputs.ses.ConfigurationSetDeliveryOptions | undefined>;
+    public readonly deliveryOptions!: pulumi.Output<outputs.ses.ConfigurationSetDeliveryOptions | undefined>;
     /**
      * Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
      */
-    declare public /*out*/ readonly lastFreshStart: pulumi.Output<string>;
+    public /*out*/ readonly lastFreshStart!: pulumi.Output<string>;
     /**
      * Name of the configuration set.
      *
      * The following arguments are optional:
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
      */
-    declare public readonly reputationMetricsEnabled: pulumi.Output<boolean | undefined>;
+    public readonly reputationMetricsEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
      */
-    declare public readonly sendingEnabled: pulumi.Output<boolean | undefined>;
+    public readonly sendingEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
      */
-    declare public readonly trackingOptions: pulumi.Output<outputs.ses.ConfigurationSetTrackingOptions | undefined>;
+    public readonly trackingOptions!: pulumi.Output<outputs.ses.ConfigurationSetTrackingOptions | undefined>;
 
     /**
      * Create a ConfigurationSet resource with the given unique name, arguments, and options.
@@ -133,22 +133,22 @@ export class ConfigurationSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConfigurationSetState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["deliveryOptions"] = state?.deliveryOptions;
-            resourceInputs["lastFreshStart"] = state?.lastFreshStart;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["reputationMetricsEnabled"] = state?.reputationMetricsEnabled;
-            resourceInputs["sendingEnabled"] = state?.sendingEnabled;
-            resourceInputs["trackingOptions"] = state?.trackingOptions;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["deliveryOptions"] = state ? state.deliveryOptions : undefined;
+            resourceInputs["lastFreshStart"] = state ? state.lastFreshStart : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["reputationMetricsEnabled"] = state ? state.reputationMetricsEnabled : undefined;
+            resourceInputs["sendingEnabled"] = state ? state.sendingEnabled : undefined;
+            resourceInputs["trackingOptions"] = state ? state.trackingOptions : undefined;
         } else {
             const args = argsOrState as ConfigurationSetArgs | undefined;
-            resourceInputs["deliveryOptions"] = args?.deliveryOptions;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["reputationMetricsEnabled"] = args?.reputationMetricsEnabled;
-            resourceInputs["sendingEnabled"] = args?.sendingEnabled;
-            resourceInputs["trackingOptions"] = args?.trackingOptions;
+            resourceInputs["deliveryOptions"] = args ? args.deliveryOptions : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["reputationMetricsEnabled"] = args ? args.reputationMetricsEnabled : undefined;
+            resourceInputs["sendingEnabled"] = args ? args.sendingEnabled : undefined;
+            resourceInputs["trackingOptions"] = args ? args.trackingOptions : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["lastFreshStart"] = undefined /*out*/;
         }

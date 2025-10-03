@@ -62,44 +62,44 @@ export class CustomerGateway extends pulumi.CustomResource {
     /**
      * The ARN of the customer gateway.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgpAsnExtended`.
      */
-    declare public readonly bgpAsn: pulumi.Output<string | undefined>;
+    public readonly bgpAsn!: pulumi.Output<string | undefined>;
     /**
      * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgpAsn`.
      */
-    declare public readonly bgpAsnExtended: pulumi.Output<string | undefined>;
+    public readonly bgpAsnExtended!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the customer gateway certificate.
      */
-    declare public readonly certificateArn: pulumi.Output<string | undefined>;
+    public readonly certificateArn!: pulumi.Output<string | undefined>;
     /**
      * A name for the customer gateway device.
      */
-    declare public readonly deviceName: pulumi.Output<string | undefined>;
+    public readonly deviceName!: pulumi.Output<string | undefined>;
     /**
      * The IPv4 address for the customer gateway device's outside interface.
      */
-    declare public readonly ipAddress: pulumi.Output<string | undefined>;
+    public readonly ipAddress!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Tags to apply to the gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The type of customer gateway. The only type AWS
      * supports at this time is "ipsec.1".
      */
-    declare public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a CustomerGateway resource with the given unique name, arguments, and options.
@@ -114,29 +114,29 @@ export class CustomerGateway extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomerGatewayState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["bgpAsn"] = state?.bgpAsn;
-            resourceInputs["bgpAsnExtended"] = state?.bgpAsnExtended;
-            resourceInputs["certificateArn"] = state?.certificateArn;
-            resourceInputs["deviceName"] = state?.deviceName;
-            resourceInputs["ipAddress"] = state?.ipAddress;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["type"] = state?.type;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["bgpAsn"] = state ? state.bgpAsn : undefined;
+            resourceInputs["bgpAsnExtended"] = state ? state.bgpAsnExtended : undefined;
+            resourceInputs["certificateArn"] = state ? state.certificateArn : undefined;
+            resourceInputs["deviceName"] = state ? state.deviceName : undefined;
+            resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as CustomerGatewayArgs | undefined;
-            if (args?.type === undefined && !opts.urn) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["bgpAsn"] = args?.bgpAsn;
-            resourceInputs["bgpAsnExtended"] = args?.bgpAsnExtended;
-            resourceInputs["certificateArn"] = args?.certificateArn;
-            resourceInputs["deviceName"] = args?.deviceName;
-            resourceInputs["ipAddress"] = args?.ipAddress;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["type"] = args?.type;
+            resourceInputs["bgpAsn"] = args ? args.bgpAsn : undefined;
+            resourceInputs["bgpAsnExtended"] = args ? args.bgpAsnExtended : undefined;
+            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
+            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

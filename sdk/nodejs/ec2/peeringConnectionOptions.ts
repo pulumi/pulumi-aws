@@ -130,19 +130,19 @@ export class PeeringConnectionOptions extends pulumi.CustomResource {
     /**
      * An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts the peering connection (a maximum of one).
      */
-    declare public readonly accepter: pulumi.Output<outputs.ec2.PeeringConnectionOptionsAccepter>;
+    public readonly accepter!: pulumi.Output<outputs.ec2.PeeringConnectionOptionsAccepter>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests the peering connection (a maximum of one).
      */
-    declare public readonly requester: pulumi.Output<outputs.ec2.PeeringConnectionOptionsRequester>;
+    public readonly requester!: pulumi.Output<outputs.ec2.PeeringConnectionOptionsRequester>;
     /**
      * The ID of the requester VPC peering connection.
      */
-    declare public readonly vpcPeeringConnectionId: pulumi.Output<string>;
+    public readonly vpcPeeringConnectionId!: pulumi.Output<string>;
 
     /**
      * Create a PeeringConnectionOptions resource with the given unique name, arguments, and options.
@@ -157,19 +157,19 @@ export class PeeringConnectionOptions extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PeeringConnectionOptionsState | undefined;
-            resourceInputs["accepter"] = state?.accepter;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["requester"] = state?.requester;
-            resourceInputs["vpcPeeringConnectionId"] = state?.vpcPeeringConnectionId;
+            resourceInputs["accepter"] = state ? state.accepter : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["requester"] = state ? state.requester : undefined;
+            resourceInputs["vpcPeeringConnectionId"] = state ? state.vpcPeeringConnectionId : undefined;
         } else {
             const args = argsOrState as PeeringConnectionOptionsArgs | undefined;
-            if (args?.vpcPeeringConnectionId === undefined && !opts.urn) {
+            if ((!args || args.vpcPeeringConnectionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcPeeringConnectionId'");
             }
-            resourceInputs["accepter"] = args?.accepter;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["requester"] = args?.requester;
-            resourceInputs["vpcPeeringConnectionId"] = args?.vpcPeeringConnectionId;
+            resourceInputs["accepter"] = args ? args.accepter : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["requester"] = args ? args.requester : undefined;
+            resourceInputs["vpcPeeringConnectionId"] = args ? args.vpcPeeringConnectionId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PeeringConnectionOptions.__pulumiType, name, resourceInputs, opts);

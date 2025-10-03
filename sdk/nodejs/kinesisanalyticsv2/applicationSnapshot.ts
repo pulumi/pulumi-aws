@@ -59,23 +59,23 @@ export class ApplicationSnapshot extends pulumi.CustomResource {
     /**
      * The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
      */
-    declare public readonly applicationName: pulumi.Output<string>;
+    public readonly applicationName!: pulumi.Output<string>;
     /**
      * The current application version ID when the snapshot was created.
      */
-    declare public /*out*/ readonly applicationVersionId: pulumi.Output<number>;
+    public /*out*/ readonly applicationVersionId!: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The timestamp of the application snapshot.
      */
-    declare public /*out*/ readonly snapshotCreationTimestamp: pulumi.Output<string>;
+    public /*out*/ readonly snapshotCreationTimestamp!: pulumi.Output<string>;
     /**
      * The name of the application snapshot.
      */
-    declare public readonly snapshotName: pulumi.Output<string>;
+    public readonly snapshotName!: pulumi.Output<string>;
 
     /**
      * Create a ApplicationSnapshot resource with the given unique name, arguments, and options.
@@ -90,22 +90,22 @@ export class ApplicationSnapshot extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationSnapshotState | undefined;
-            resourceInputs["applicationName"] = state?.applicationName;
-            resourceInputs["applicationVersionId"] = state?.applicationVersionId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["snapshotCreationTimestamp"] = state?.snapshotCreationTimestamp;
-            resourceInputs["snapshotName"] = state?.snapshotName;
+            resourceInputs["applicationName"] = state ? state.applicationName : undefined;
+            resourceInputs["applicationVersionId"] = state ? state.applicationVersionId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["snapshotCreationTimestamp"] = state ? state.snapshotCreationTimestamp : undefined;
+            resourceInputs["snapshotName"] = state ? state.snapshotName : undefined;
         } else {
             const args = argsOrState as ApplicationSnapshotArgs | undefined;
-            if (args?.applicationName === undefined && !opts.urn) {
+            if ((!args || args.applicationName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationName'");
             }
-            if (args?.snapshotName === undefined && !opts.urn) {
+            if ((!args || args.snapshotName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'snapshotName'");
             }
-            resourceInputs["applicationName"] = args?.applicationName;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["snapshotName"] = args?.snapshotName;
+            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["snapshotName"] = args ? args.snapshotName : undefined;
             resourceInputs["applicationVersionId"] = undefined /*out*/;
             resourceInputs["snapshotCreationTimestamp"] = undefined /*out*/;
         }

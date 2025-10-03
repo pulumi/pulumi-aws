@@ -83,33 +83,33 @@ export class KxUser extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) identifier of the KX user.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Unique identifier for the KX environment.
      */
-    declare public readonly environmentId: pulumi.Output<string>;
+    public readonly environmentId!: pulumi.Output<string>;
     /**
      * IAM role ARN to be associated with the user.
      *
      * The following arguments are optional:
      */
-    declare public readonly iamRole: pulumi.Output<string>;
+    public readonly iamRole!: pulumi.Output<string>;
     /**
      * A unique identifier for the user.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a KxUser resource with the given unique name, arguments, and options.
@@ -124,26 +124,26 @@ export class KxUser extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KxUserState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["environmentId"] = state?.environmentId;
-            resourceInputs["iamRole"] = state?.iamRole;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["environmentId"] = state ? state.environmentId : undefined;
+            resourceInputs["iamRole"] = state ? state.iamRole : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as KxUserArgs | undefined;
-            if (args?.environmentId === undefined && !opts.urn) {
+            if ((!args || args.environmentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'environmentId'");
             }
-            if (args?.iamRole === undefined && !opts.urn) {
+            if ((!args || args.iamRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'iamRole'");
             }
-            resourceInputs["environmentId"] = args?.environmentId;
-            resourceInputs["iamRole"] = args?.iamRole;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
+            resourceInputs["iamRole"] = args ? args.iamRole : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

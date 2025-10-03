@@ -324,55 +324,55 @@ export class Connection extends pulumi.CustomResource {
     /**
      * ARN of the Glue Connection.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Map of key-value pairs used as connection properties specific to the Athena compute environment.
      */
-    declare public readonly athenaProperties: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly athenaProperties!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
      */
-    declare public readonly catalogId: pulumi.Output<string>;
+    public readonly catalogId!: pulumi.Output<string>;
     /**
      * Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
      *
      * **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
      */
-    declare public readonly connectionProperties: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly connectionProperties!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
      */
-    declare public readonly connectionType: pulumi.Output<string | undefined>;
+    public readonly connectionType!: pulumi.Output<string | undefined>;
     /**
      * Description of the connection.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * List of criteria that can be used in selecting this connection.
      */
-    declare public readonly matchCriterias: pulumi.Output<string[] | undefined>;
+    public readonly matchCriterias!: pulumi.Output<string[] | undefined>;
     /**
      * Name of the connection.
      *
      * The following arguments are optional:
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
      */
-    declare public readonly physicalConnectionRequirements: pulumi.Output<outputs.glue.ConnectionPhysicalConnectionRequirements | undefined>;
+    public readonly physicalConnectionRequirements!: pulumi.Output<outputs.glue.ConnectionPhysicalConnectionRequirements | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Connection resource with the given unique name, arguments, and options.
@@ -387,30 +387,30 @@ export class Connection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConnectionState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["athenaProperties"] = state?.athenaProperties;
-            resourceInputs["catalogId"] = state?.catalogId;
-            resourceInputs["connectionProperties"] = state?.connectionProperties;
-            resourceInputs["connectionType"] = state?.connectionType;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["matchCriterias"] = state?.matchCriterias;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["physicalConnectionRequirements"] = state?.physicalConnectionRequirements;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["athenaProperties"] = state ? state.athenaProperties : undefined;
+            resourceInputs["catalogId"] = state ? state.catalogId : undefined;
+            resourceInputs["connectionProperties"] = state ? state.connectionProperties : undefined;
+            resourceInputs["connectionType"] = state ? state.connectionType : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["matchCriterias"] = state ? state.matchCriterias : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["physicalConnectionRequirements"] = state ? state.physicalConnectionRequirements : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ConnectionArgs | undefined;
             resourceInputs["athenaProperties"] = args?.athenaProperties ? pulumi.secret(args.athenaProperties) : undefined;
-            resourceInputs["catalogId"] = args?.catalogId;
+            resourceInputs["catalogId"] = args ? args.catalogId : undefined;
             resourceInputs["connectionProperties"] = args?.connectionProperties ? pulumi.secret(args.connectionProperties) : undefined;
-            resourceInputs["connectionType"] = args?.connectionType;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["matchCriterias"] = args?.matchCriterias;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["physicalConnectionRequirements"] = args?.physicalConnectionRequirements;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["connectionType"] = args ? args.connectionType : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["matchCriterias"] = args ? args.matchCriterias : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["physicalConnectionRequirements"] = args ? args.physicalConnectionRequirements : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

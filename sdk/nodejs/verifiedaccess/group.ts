@@ -67,54 +67,54 @@ export class Group extends pulumi.CustomResource {
     /**
      * Timestamp when the access group was created.
      */
-    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
     /**
      * Timestamp when the access group was deleted.
      */
-    declare public /*out*/ readonly deletionTime: pulumi.Output<string>;
+    public /*out*/ readonly deletionTime!: pulumi.Output<string>;
     /**
      * Description of the verified access group.
      */
-    declare public readonly description: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * Timestamp when the access group was last updated.
      */
-    declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
     /**
      * AWS account number owning this resource.
      */
-    declare public /*out*/ readonly owner: pulumi.Output<string>;
+    public /*out*/ readonly owner!: pulumi.Output<string>;
     /**
      * The policy document that is associated with this resource.
      */
-    declare public readonly policyDocument: pulumi.Output<string | undefined>;
+    public readonly policyDocument!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Configuration block to use KMS keys for server-side encryption.
      */
-    declare public readonly sseConfiguration: pulumi.Output<outputs.verifiedaccess.GroupSseConfiguration>;
+    public readonly sseConfiguration!: pulumi.Output<outputs.verifiedaccess.GroupSseConfiguration>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * ARN of this verified acess group.
      */
-    declare public /*out*/ readonly verifiedaccessGroupArn: pulumi.Output<string>;
+    public /*out*/ readonly verifiedaccessGroupArn!: pulumi.Output<string>;
     /**
      * ID of this verified access group.
      */
-    declare public /*out*/ readonly verifiedaccessGroupId: pulumi.Output<string>;
+    public /*out*/ readonly verifiedaccessGroupId!: pulumi.Output<string>;
     /**
      * The id of the verified access instance this group is associated with.
      *
      * The following arguments are optional:
      */
-    declare public readonly verifiedaccessInstanceId: pulumi.Output<string>;
+    public readonly verifiedaccessInstanceId!: pulumi.Output<string>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -129,30 +129,30 @@ export class Group extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupState | undefined;
-            resourceInputs["creationTime"] = state?.creationTime;
-            resourceInputs["deletionTime"] = state?.deletionTime;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["lastUpdatedTime"] = state?.lastUpdatedTime;
-            resourceInputs["owner"] = state?.owner;
-            resourceInputs["policyDocument"] = state?.policyDocument;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["sseConfiguration"] = state?.sseConfiguration;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["verifiedaccessGroupArn"] = state?.verifiedaccessGroupArn;
-            resourceInputs["verifiedaccessGroupId"] = state?.verifiedaccessGroupId;
-            resourceInputs["verifiedaccessInstanceId"] = state?.verifiedaccessInstanceId;
+            resourceInputs["creationTime"] = state ? state.creationTime : undefined;
+            resourceInputs["deletionTime"] = state ? state.deletionTime : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["lastUpdatedTime"] = state ? state.lastUpdatedTime : undefined;
+            resourceInputs["owner"] = state ? state.owner : undefined;
+            resourceInputs["policyDocument"] = state ? state.policyDocument : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["sseConfiguration"] = state ? state.sseConfiguration : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["verifiedaccessGroupArn"] = state ? state.verifiedaccessGroupArn : undefined;
+            resourceInputs["verifiedaccessGroupId"] = state ? state.verifiedaccessGroupId : undefined;
+            resourceInputs["verifiedaccessInstanceId"] = state ? state.verifiedaccessInstanceId : undefined;
         } else {
             const args = argsOrState as GroupArgs | undefined;
-            if (args?.verifiedaccessInstanceId === undefined && !opts.urn) {
+            if ((!args || args.verifiedaccessInstanceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'verifiedaccessInstanceId'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["policyDocument"] = args?.policyDocument;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["sseConfiguration"] = args?.sseConfiguration;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["verifiedaccessInstanceId"] = args?.verifiedaccessInstanceId;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["sseConfiguration"] = args ? args.sseConfiguration : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["verifiedaccessInstanceId"] = args ? args.verifiedaccessInstanceId : undefined;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["deletionTime"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;

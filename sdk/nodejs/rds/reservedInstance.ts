@@ -73,81 +73,81 @@ export class ReservedInstance extends pulumi.CustomResource {
     /**
      * ARN for the reserved DB instance.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Currency code for the reserved DB instance.
      */
-    declare public /*out*/ readonly currencyCode: pulumi.Output<string>;
+    public /*out*/ readonly currencyCode!: pulumi.Output<string>;
     /**
      * DB instance class for the reserved DB instance.
      */
-    declare public /*out*/ readonly dbInstanceClass: pulumi.Output<string>;
+    public /*out*/ readonly dbInstanceClass!: pulumi.Output<string>;
     /**
      * Duration of the reservation in seconds.
      */
-    declare public /*out*/ readonly duration: pulumi.Output<number>;
+    public /*out*/ readonly duration!: pulumi.Output<number>;
     /**
      * Fixed price charged for this reserved DB instance.
      */
-    declare public /*out*/ readonly fixedPrice: pulumi.Output<number>;
+    public /*out*/ readonly fixedPrice!: pulumi.Output<number>;
     /**
      * Number of instances to reserve. Default value is `1`.
      */
-    declare public readonly instanceCount: pulumi.Output<number | undefined>;
+    public readonly instanceCount!: pulumi.Output<number | undefined>;
     /**
      * Unique identifier for the lease associated with the reserved DB instance. Amazon Web Services Support might request the lease ID for an issue related to a reserved DB instance.
      */
-    declare public /*out*/ readonly leaseId: pulumi.Output<string>;
+    public /*out*/ readonly leaseId!: pulumi.Output<string>;
     /**
      * Whether the reservation applies to Multi-AZ deployments.
      */
-    declare public /*out*/ readonly multiAz: pulumi.Output<boolean>;
+    public /*out*/ readonly multiAz!: pulumi.Output<boolean>;
     /**
      * ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `aws.rds.getReservedInstanceOffering` data source.
      *
      * The following arguments are optional:
      */
-    declare public readonly offeringId: pulumi.Output<string>;
+    public readonly offeringId!: pulumi.Output<string>;
     /**
      * Offering type of this reserved DB instance.
      */
-    declare public /*out*/ readonly offeringType: pulumi.Output<string>;
+    public /*out*/ readonly offeringType!: pulumi.Output<string>;
     /**
      * Description of the reserved DB instance.
      */
-    declare public /*out*/ readonly productDescription: pulumi.Output<string>;
+    public /*out*/ readonly productDescription!: pulumi.Output<string>;
     /**
      * Recurring price charged to run this reserved DB instance.
      */
-    declare public /*out*/ readonly recurringCharges: pulumi.Output<outputs.rds.ReservedInstanceRecurringCharge[]>;
+    public /*out*/ readonly recurringCharges!: pulumi.Output<outputs.rds.ReservedInstanceRecurringCharge[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Customer-specified identifier to track this reservation.
      */
-    declare public readonly reservationId: pulumi.Output<string | undefined>;
+    public readonly reservationId!: pulumi.Output<string | undefined>;
     /**
      * Time the reservation started.
      */
-    declare public /*out*/ readonly startTime: pulumi.Output<string>;
+    public /*out*/ readonly startTime!: pulumi.Output<string>;
     /**
      * State of the reserved DB instance.
      */
-    declare public /*out*/ readonly state: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Hourly price charged for this reserved DB instance.
      */
-    declare public /*out*/ readonly usagePrice: pulumi.Output<number>;
+    public /*out*/ readonly usagePrice!: pulumi.Output<number>;
 
     /**
      * Create a ReservedInstance resource with the given unique name, arguments, and options.
@@ -162,35 +162,35 @@ export class ReservedInstance extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReservedInstanceState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["currencyCode"] = state?.currencyCode;
-            resourceInputs["dbInstanceClass"] = state?.dbInstanceClass;
-            resourceInputs["duration"] = state?.duration;
-            resourceInputs["fixedPrice"] = state?.fixedPrice;
-            resourceInputs["instanceCount"] = state?.instanceCount;
-            resourceInputs["leaseId"] = state?.leaseId;
-            resourceInputs["multiAz"] = state?.multiAz;
-            resourceInputs["offeringId"] = state?.offeringId;
-            resourceInputs["offeringType"] = state?.offeringType;
-            resourceInputs["productDescription"] = state?.productDescription;
-            resourceInputs["recurringCharges"] = state?.recurringCharges;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["reservationId"] = state?.reservationId;
-            resourceInputs["startTime"] = state?.startTime;
-            resourceInputs["state"] = state?.state;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["usagePrice"] = state?.usagePrice;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["currencyCode"] = state ? state.currencyCode : undefined;
+            resourceInputs["dbInstanceClass"] = state ? state.dbInstanceClass : undefined;
+            resourceInputs["duration"] = state ? state.duration : undefined;
+            resourceInputs["fixedPrice"] = state ? state.fixedPrice : undefined;
+            resourceInputs["instanceCount"] = state ? state.instanceCount : undefined;
+            resourceInputs["leaseId"] = state ? state.leaseId : undefined;
+            resourceInputs["multiAz"] = state ? state.multiAz : undefined;
+            resourceInputs["offeringId"] = state ? state.offeringId : undefined;
+            resourceInputs["offeringType"] = state ? state.offeringType : undefined;
+            resourceInputs["productDescription"] = state ? state.productDescription : undefined;
+            resourceInputs["recurringCharges"] = state ? state.recurringCharges : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["reservationId"] = state ? state.reservationId : undefined;
+            resourceInputs["startTime"] = state ? state.startTime : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["usagePrice"] = state ? state.usagePrice : undefined;
         } else {
             const args = argsOrState as ReservedInstanceArgs | undefined;
-            if (args?.offeringId === undefined && !opts.urn) {
+            if ((!args || args.offeringId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'offeringId'");
             }
-            resourceInputs["instanceCount"] = args?.instanceCount;
-            resourceInputs["offeringId"] = args?.offeringId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["reservationId"] = args?.reservationId;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["instanceCount"] = args ? args.instanceCount : undefined;
+            resourceInputs["offeringId"] = args ? args.offeringId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["reservationId"] = args ? args.reservationId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["currencyCode"] = undefined /*out*/;
             resourceInputs["dbInstanceClass"] = undefined /*out*/;

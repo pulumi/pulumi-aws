@@ -75,51 +75,51 @@ export class CatalogDatabase extends pulumi.CustomResource {
     /**
      * ARN of the Glue Catalog Database.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
      */
-    declare public readonly catalogId: pulumi.Output<string>;
+    public readonly catalogId!: pulumi.Output<string>;
     /**
      * Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
      */
-    declare public readonly createTableDefaultPermissions: pulumi.Output<outputs.glue.CatalogDatabaseCreateTableDefaultPermission[]>;
+    public readonly createTableDefaultPermissions!: pulumi.Output<outputs.glue.CatalogDatabaseCreateTableDefaultPermission[]>;
     /**
      * Description of the database.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
      */
-    declare public readonly federatedDatabase: pulumi.Output<outputs.glue.CatalogDatabaseFederatedDatabase | undefined>;
+    public readonly federatedDatabase!: pulumi.Output<outputs.glue.CatalogDatabaseFederatedDatabase | undefined>;
     /**
      * Location of the database (for example, an HDFS path).
      */
-    declare public readonly locationUri: pulumi.Output<string>;
+    public readonly locationUri!: pulumi.Output<string>;
     /**
      * Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * List of key-value pairs that define parameters and properties of the database.
      */
-    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block for a target database for resource linking. See `targetDatabase` below.
      */
-    declare public readonly targetDatabase: pulumi.Output<outputs.glue.CatalogDatabaseTargetDatabase | undefined>;
+    public readonly targetDatabase!: pulumi.Output<outputs.glue.CatalogDatabaseTargetDatabase | undefined>;
 
     /**
      * Create a CatalogDatabase resource with the given unique name, arguments, and options.
@@ -134,30 +134,30 @@ export class CatalogDatabase extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CatalogDatabaseState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["catalogId"] = state?.catalogId;
-            resourceInputs["createTableDefaultPermissions"] = state?.createTableDefaultPermissions;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["federatedDatabase"] = state?.federatedDatabase;
-            resourceInputs["locationUri"] = state?.locationUri;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["parameters"] = state?.parameters;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["targetDatabase"] = state?.targetDatabase;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["catalogId"] = state ? state.catalogId : undefined;
+            resourceInputs["createTableDefaultPermissions"] = state ? state.createTableDefaultPermissions : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["federatedDatabase"] = state ? state.federatedDatabase : undefined;
+            resourceInputs["locationUri"] = state ? state.locationUri : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["targetDatabase"] = state ? state.targetDatabase : undefined;
         } else {
             const args = argsOrState as CatalogDatabaseArgs | undefined;
-            resourceInputs["catalogId"] = args?.catalogId;
-            resourceInputs["createTableDefaultPermissions"] = args?.createTableDefaultPermissions;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["federatedDatabase"] = args?.federatedDatabase;
-            resourceInputs["locationUri"] = args?.locationUri;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["parameters"] = args?.parameters;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["targetDatabase"] = args?.targetDatabase;
+            resourceInputs["catalogId"] = args ? args.catalogId : undefined;
+            resourceInputs["createTableDefaultPermissions"] = args ? args.createTableDefaultPermissions : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["federatedDatabase"] = args ? args.federatedDatabase : undefined;
+            resourceInputs["locationUri"] = args ? args.locationUri : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetDatabase"] = args ? args.targetDatabase : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

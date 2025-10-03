@@ -146,50 +146,50 @@ export class Listener extends pulumi.CustomResource {
     /**
      * ARN of the listener.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Date and time that the listener was created, specified in ISO-8601 format.
      */
-    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
      * Default action block for the default listener rule. Default action blocks are defined below.
      */
-    declare public readonly defaultAction: pulumi.Output<outputs.vpclattice.ListenerDefaultAction>;
-    declare public /*out*/ readonly lastUpdatedAt: pulumi.Output<string>;
+    public readonly defaultAction!: pulumi.Output<outputs.vpclattice.ListenerDefaultAction>;
+    public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
     /**
      * Standalone ID of the listener, e.g. `listener-0a1b2c3d4e5f6g`.
      */
-    declare public /*out*/ readonly listenerId: pulumi.Output<string>;
+    public /*out*/ readonly listenerId!: pulumi.Output<string>;
     /**
      * Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
      */
-    declare public readonly port: pulumi.Output<number>;
+    public readonly port!: pulumi.Output<number>;
     /**
      * Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
      */
-    declare public readonly protocol: pulumi.Output<string>;
+    public readonly protocol!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
      */
-    declare public readonly serviceArn: pulumi.Output<string>;
+    public readonly serviceArn!: pulumi.Output<string>;
     /**
      * ID of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
      * > **NOTE:** You must specify one of the following arguments: `serviceArn` or `serviceIdentifier`.
      */
-    declare public readonly serviceIdentifier: pulumi.Output<string>;
+    public readonly serviceIdentifier!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Listener resource with the given unique name, arguments, and options.
@@ -204,35 +204,35 @@ export class Listener extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ListenerState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["createdAt"] = state?.createdAt;
-            resourceInputs["defaultAction"] = state?.defaultAction;
-            resourceInputs["lastUpdatedAt"] = state?.lastUpdatedAt;
-            resourceInputs["listenerId"] = state?.listenerId;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["port"] = state?.port;
-            resourceInputs["protocol"] = state?.protocol;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["serviceArn"] = state?.serviceArn;
-            resourceInputs["serviceIdentifier"] = state?.serviceIdentifier;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["defaultAction"] = state ? state.defaultAction : undefined;
+            resourceInputs["lastUpdatedAt"] = state ? state.lastUpdatedAt : undefined;
+            resourceInputs["listenerId"] = state ? state.listenerId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["protocol"] = state ? state.protocol : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["serviceArn"] = state ? state.serviceArn : undefined;
+            resourceInputs["serviceIdentifier"] = state ? state.serviceIdentifier : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ListenerArgs | undefined;
-            if (args?.defaultAction === undefined && !opts.urn) {
+            if ((!args || args.defaultAction === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'defaultAction'");
             }
-            if (args?.protocol === undefined && !opts.urn) {
+            if ((!args || args.protocol === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            resourceInputs["defaultAction"] = args?.defaultAction;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["port"] = args?.port;
-            resourceInputs["protocol"] = args?.protocol;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["serviceArn"] = args?.serviceArn;
-            resourceInputs["serviceIdentifier"] = args?.serviceIdentifier;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["defaultAction"] = args ? args.defaultAction : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["serviceArn"] = args ? args.serviceArn : undefined;
+            resourceInputs["serviceIdentifier"] = args ? args.serviceIdentifier : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;

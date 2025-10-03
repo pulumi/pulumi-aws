@@ -189,46 +189,46 @@ export class ExperimentTemplate extends pulumi.CustomResource {
     /**
      * Action to be performed during an experiment. See below.
      */
-    declare public readonly actions: pulumi.Output<outputs.fis.ExperimentTemplateAction[]>;
+    public readonly actions!: pulumi.Output<outputs.fis.ExperimentTemplateAction[]>;
     /**
      * Description for the experiment template.
      */
-    declare public readonly description: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * The experiment options for the experiment template. See experimentOptions below for more details!
      */
-    declare public readonly experimentOptions: pulumi.Output<outputs.fis.ExperimentTemplateExperimentOptions>;
+    public readonly experimentOptions!: pulumi.Output<outputs.fis.ExperimentTemplateExperimentOptions>;
     /**
      * The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
      */
-    declare public readonly experimentReportConfiguration: pulumi.Output<outputs.fis.ExperimentTemplateExperimentReportConfiguration | undefined>;
+    public readonly experimentReportConfiguration!: pulumi.Output<outputs.fis.ExperimentTemplateExperimentReportConfiguration | undefined>;
     /**
      * The configuration for experiment logging. See below.
      */
-    declare public readonly logConfiguration: pulumi.Output<outputs.fis.ExperimentTemplateLogConfiguration | undefined>;
+    public readonly logConfiguration!: pulumi.Output<outputs.fis.ExperimentTemplateLogConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
      */
-    declare public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * When an ongoing experiment should be stopped. See below.
      *
      * The following arguments are optional:
      */
-    declare public readonly stopConditions: pulumi.Output<outputs.fis.ExperimentTemplateStopCondition[]>;
+    public readonly stopConditions!: pulumi.Output<outputs.fis.ExperimentTemplateStopCondition[]>;
     /**
      * Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Target of an action. See below.
      */
-    declare public readonly targets: pulumi.Output<outputs.fis.ExperimentTemplateTarget[] | undefined>;
+    public readonly targets!: pulumi.Output<outputs.fis.ExperimentTemplateTarget[] | undefined>;
 
     /**
      * Create a ExperimentTemplate resource with the given unique name, arguments, and options.
@@ -243,41 +243,41 @@ export class ExperimentTemplate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExperimentTemplateState | undefined;
-            resourceInputs["actions"] = state?.actions;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["experimentOptions"] = state?.experimentOptions;
-            resourceInputs["experimentReportConfiguration"] = state?.experimentReportConfiguration;
-            resourceInputs["logConfiguration"] = state?.logConfiguration;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["roleArn"] = state?.roleArn;
-            resourceInputs["stopConditions"] = state?.stopConditions;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["targets"] = state?.targets;
+            resourceInputs["actions"] = state ? state.actions : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["experimentOptions"] = state ? state.experimentOptions : undefined;
+            resourceInputs["experimentReportConfiguration"] = state ? state.experimentReportConfiguration : undefined;
+            resourceInputs["logConfiguration"] = state ? state.logConfiguration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["stopConditions"] = state ? state.stopConditions : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["targets"] = state ? state.targets : undefined;
         } else {
             const args = argsOrState as ExperimentTemplateArgs | undefined;
-            if (args?.actions === undefined && !opts.urn) {
+            if ((!args || args.actions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            if (args?.description === undefined && !opts.urn) {
+            if ((!args || args.description === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if (args?.roleArn === undefined && !opts.urn) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if (args?.stopConditions === undefined && !opts.urn) {
+            if ((!args || args.stopConditions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stopConditions'");
             }
-            resourceInputs["actions"] = args?.actions;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["experimentOptions"] = args?.experimentOptions;
-            resourceInputs["experimentReportConfiguration"] = args?.experimentReportConfiguration;
-            resourceInputs["logConfiguration"] = args?.logConfiguration;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["roleArn"] = args?.roleArn;
-            resourceInputs["stopConditions"] = args?.stopConditions;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["targets"] = args?.targets;
+            resourceInputs["actions"] = args ? args.actions : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["experimentOptions"] = args ? args.experimentOptions : undefined;
+            resourceInputs["experimentReportConfiguration"] = args ? args.experimentReportConfiguration : undefined;
+            resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["stopConditions"] = args ? args.stopConditions : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targets"] = args ? args.targets : undefined;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

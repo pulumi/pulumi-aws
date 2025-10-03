@@ -100,35 +100,35 @@ export class ProtectionGroup extends pulumi.CustomResource {
     /**
      * Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
      */
-    declare public readonly aggregation: pulumi.Output<string>;
+    public readonly aggregation!: pulumi.Output<string>;
     /**
      * The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
      */
-    declare public readonly members: pulumi.Output<string[] | undefined>;
+    public readonly members!: pulumi.Output<string[] | undefined>;
     /**
      * The criteria to use to choose the protected resources for inclusion in the group.
      */
-    declare public readonly pattern: pulumi.Output<string>;
+    public readonly pattern!: pulumi.Output<string>;
     /**
      * The ARN (Amazon Resource Name) of the protection group.
      */
-    declare public /*out*/ readonly protectionGroupArn: pulumi.Output<string>;
+    public /*out*/ readonly protectionGroupArn!: pulumi.Output<string>;
     /**
      * The name of the protection group.
      */
-    declare public readonly protectionGroupId: pulumi.Output<string>;
+    public readonly protectionGroupId!: pulumi.Output<string>;
     /**
      * The resource type to include in the protection group. You must set this when you set `pattern` to BY_RESOURCE_TYPE and you must not set it for any other `pattern` setting.
      */
-    declare public readonly resourceType: pulumi.Output<string | undefined>;
+    public readonly resourceType!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ProtectionGroup resource with the given unique name, arguments, and options.
@@ -143,31 +143,31 @@ export class ProtectionGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProtectionGroupState | undefined;
-            resourceInputs["aggregation"] = state?.aggregation;
-            resourceInputs["members"] = state?.members;
-            resourceInputs["pattern"] = state?.pattern;
-            resourceInputs["protectionGroupArn"] = state?.protectionGroupArn;
-            resourceInputs["protectionGroupId"] = state?.protectionGroupId;
-            resourceInputs["resourceType"] = state?.resourceType;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["aggregation"] = state ? state.aggregation : undefined;
+            resourceInputs["members"] = state ? state.members : undefined;
+            resourceInputs["pattern"] = state ? state.pattern : undefined;
+            resourceInputs["protectionGroupArn"] = state ? state.protectionGroupArn : undefined;
+            resourceInputs["protectionGroupId"] = state ? state.protectionGroupId : undefined;
+            resourceInputs["resourceType"] = state ? state.resourceType : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ProtectionGroupArgs | undefined;
-            if (args?.aggregation === undefined && !opts.urn) {
+            if ((!args || args.aggregation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'aggregation'");
             }
-            if (args?.pattern === undefined && !opts.urn) {
+            if ((!args || args.pattern === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'pattern'");
             }
-            if (args?.protectionGroupId === undefined && !opts.urn) {
+            if ((!args || args.protectionGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'protectionGroupId'");
             }
-            resourceInputs["aggregation"] = args?.aggregation;
-            resourceInputs["members"] = args?.members;
-            resourceInputs["pattern"] = args?.pattern;
-            resourceInputs["protectionGroupId"] = args?.protectionGroupId;
-            resourceInputs["resourceType"] = args?.resourceType;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["aggregation"] = args ? args.aggregation : undefined;
+            resourceInputs["members"] = args ? args.members : undefined;
+            resourceInputs["pattern"] = args ? args.pattern : undefined;
+            resourceInputs["protectionGroupId"] = args ? args.protectionGroupId : undefined;
+            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["protectionGroupArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

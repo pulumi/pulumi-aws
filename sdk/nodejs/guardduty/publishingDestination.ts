@@ -127,25 +127,25 @@ export class PublishingDestination extends pulumi.CustomResource {
     /**
      * The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
      */
-    declare public readonly destinationArn: pulumi.Output<string>;
+    public readonly destinationArn!: pulumi.Output<string>;
     /**
      * Currently there is only "S3" available as destination type which is also the default value
      *
      * > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
      */
-    declare public readonly destinationType: pulumi.Output<string | undefined>;
+    public readonly destinationType!: pulumi.Output<string | undefined>;
     /**
      * The detector ID of the GuardDuty.
      */
-    declare public readonly detectorId: pulumi.Output<string>;
+    public readonly detectorId!: pulumi.Output<string>;
     /**
      * The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
      */
-    declare public readonly kmsKeyArn: pulumi.Output<string>;
+    public readonly kmsKeyArn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a PublishingDestination resource with the given unique name, arguments, and options.
@@ -160,27 +160,27 @@ export class PublishingDestination extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PublishingDestinationState | undefined;
-            resourceInputs["destinationArn"] = state?.destinationArn;
-            resourceInputs["destinationType"] = state?.destinationType;
-            resourceInputs["detectorId"] = state?.detectorId;
-            resourceInputs["kmsKeyArn"] = state?.kmsKeyArn;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["destinationArn"] = state ? state.destinationArn : undefined;
+            resourceInputs["destinationType"] = state ? state.destinationType : undefined;
+            resourceInputs["detectorId"] = state ? state.detectorId : undefined;
+            resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as PublishingDestinationArgs | undefined;
-            if (args?.destinationArn === undefined && !opts.urn) {
+            if ((!args || args.destinationArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destinationArn'");
             }
-            if (args?.detectorId === undefined && !opts.urn) {
+            if ((!args || args.detectorId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'detectorId'");
             }
-            if (args?.kmsKeyArn === undefined && !opts.urn) {
+            if ((!args || args.kmsKeyArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kmsKeyArn'");
             }
-            resourceInputs["destinationArn"] = args?.destinationArn;
-            resourceInputs["destinationType"] = args?.destinationType;
-            resourceInputs["detectorId"] = args?.detectorId;
-            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["destinationArn"] = args ? args.destinationArn : undefined;
+            resourceInputs["destinationType"] = args ? args.destinationType : undefined;
+            resourceInputs["detectorId"] = args ? args.detectorId : undefined;
+            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PublishingDestination.__pulumiType, name, resourceInputs, opts);

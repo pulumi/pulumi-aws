@@ -71,35 +71,35 @@ export class QuerySuggestionsBlockList extends pulumi.CustomResource {
     /**
      * ARN of the block list.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Identifier of the index for a block list.
      */
-    declare public readonly indexId: pulumi.Output<string>;
+    public readonly indexId!: pulumi.Output<string>;
     /**
      * Name for the block list.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Unique identifier of the block list.
      */
-    declare public /*out*/ readonly querySuggestionsBlockListId: pulumi.Output<string>;
-    declare public readonly region: pulumi.Output<string>;
+    public /*out*/ readonly querySuggestionsBlockListId!: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * IAM (Identity and Access Management) role used to access the block list text file in S3.
      */
-    declare public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * S3 path where your block list text file is located. See details below.
      */
-    declare public readonly sourceS3Path: pulumi.Output<outputs.kendra.QuerySuggestionsBlockListSourceS3Path>;
-    declare public /*out*/ readonly status: pulumi.Output<string>;
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly sourceS3Path!: pulumi.Output<outputs.kendra.QuerySuggestionsBlockListSourceS3Path>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider's defaultTags configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a QuerySuggestionsBlockList resource with the given unique name, arguments, and options.
@@ -114,35 +114,35 @@ export class QuerySuggestionsBlockList extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as QuerySuggestionsBlockListState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["indexId"] = state?.indexId;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["querySuggestionsBlockListId"] = state?.querySuggestionsBlockListId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["roleArn"] = state?.roleArn;
-            resourceInputs["sourceS3Path"] = state?.sourceS3Path;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["indexId"] = state ? state.indexId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["querySuggestionsBlockListId"] = state ? state.querySuggestionsBlockListId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["sourceS3Path"] = state ? state.sourceS3Path : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as QuerySuggestionsBlockListArgs | undefined;
-            if (args?.indexId === undefined && !opts.urn) {
+            if ((!args || args.indexId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'indexId'");
             }
-            if (args?.roleArn === undefined && !opts.urn) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if (args?.sourceS3Path === undefined && !opts.urn) {
+            if ((!args || args.sourceS3Path === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceS3Path'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["indexId"] = args?.indexId;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["roleArn"] = args?.roleArn;
-            resourceInputs["sourceS3Path"] = args?.sourceS3Path;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["indexId"] = args ? args.indexId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["sourceS3Path"] = args ? args.sourceS3Path : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["querySuggestionsBlockListId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

@@ -55,24 +55,24 @@ export class Group extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of group
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
-    declare public readonly awsAccountId: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public readonly awsAccountId!: pulumi.Output<string>;
     /**
      * A description for the group.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * A name for the group.
      */
-    declare public readonly groupName: pulumi.Output<string>;
+    public readonly groupName!: pulumi.Output<string>;
     /**
      * The namespace. Currently, you should set this to `default`.
      */
-    declare public readonly namespace: pulumi.Output<string | undefined>;
+    public readonly namespace!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -87,22 +87,22 @@ export class Group extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["awsAccountId"] = state?.awsAccountId;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["groupName"] = state?.groupName;
-            resourceInputs["namespace"] = state?.namespace;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["groupName"] = state ? state.groupName : undefined;
+            resourceInputs["namespace"] = state ? state.namespace : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as GroupArgs | undefined;
-            if (args?.groupName === undefined && !opts.urn) {
+            if ((!args || args.groupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
-            resourceInputs["awsAccountId"] = args?.awsAccountId;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["groupName"] = args?.groupName;
-            resourceInputs["namespace"] = args?.namespace;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["groupName"] = args ? args.groupName : undefined;
+            resourceInputs["namespace"] = args ? args.namespace : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -85,26 +85,26 @@ export class VpcOrigin extends pulumi.CustomResource {
     /**
      * The VPC origin ARN.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The current version of the origin.
      */
-    declare public /*out*/ readonly etag: pulumi.Output<string>;
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public readonly timeouts: pulumi.Output<outputs.cloudfront.VpcOriginTimeouts | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly timeouts!: pulumi.Output<outputs.cloudfront.VpcOriginTimeouts | undefined>;
     /**
      * The VPC origin endpoint configuration.
      *
      * The following arguments are optional:
      */
-    declare public readonly vpcOriginEndpointConfig: pulumi.Output<outputs.cloudfront.VpcOriginVpcOriginEndpointConfig | undefined>;
+    public readonly vpcOriginEndpointConfig!: pulumi.Output<outputs.cloudfront.VpcOriginVpcOriginEndpointConfig | undefined>;
 
     /**
      * Create a VpcOrigin resource with the given unique name, arguments, and options.
@@ -119,17 +119,17 @@ export class VpcOrigin extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcOriginState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["etag"] = state?.etag;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timeouts"] = state?.timeouts;
-            resourceInputs["vpcOriginEndpointConfig"] = state?.vpcOriginEndpointConfig;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["vpcOriginEndpointConfig"] = state ? state.vpcOriginEndpointConfig : undefined;
         } else {
             const args = argsOrState as VpcOriginArgs | undefined;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timeouts"] = args?.timeouts;
-            resourceInputs["vpcOriginEndpointConfig"] = args?.vpcOriginEndpointConfig;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["vpcOriginEndpointConfig"] = args ? args.vpcOriginEndpointConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

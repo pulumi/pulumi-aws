@@ -61,38 +61,38 @@ export class ResolverQueryLogConfig extends pulumi.CustomResource {
     /**
      * The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The ARN of the resource that you want Route 53 Resolver to send query logs.
      * You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
      */
-    declare public readonly destinationArn: pulumi.Output<string>;
+    public readonly destinationArn!: pulumi.Output<string>;
     /**
      * The name of the Route 53 Resolver query logging configuration.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The AWS account ID of the account that created the query logging configuration.
      */
-    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.
      * Sharing is configured through AWS Resource Access Manager (AWS RAM).
      * Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
      */
-    declare public /*out*/ readonly shareStatus: pulumi.Output<string>;
+    public /*out*/ readonly shareStatus!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ResolverQueryLogConfig resource with the given unique name, arguments, and options.
@@ -107,23 +107,23 @@ export class ResolverQueryLogConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResolverQueryLogConfigState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["destinationArn"] = state?.destinationArn;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["ownerId"] = state?.ownerId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["shareStatus"] = state?.shareStatus;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["destinationArn"] = state ? state.destinationArn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["shareStatus"] = state ? state.shareStatus : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ResolverQueryLogConfigArgs | undefined;
-            if (args?.destinationArn === undefined && !opts.urn) {
+            if ((!args || args.destinationArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destinationArn'");
             }
-            resourceInputs["destinationArn"] = args?.destinationArn;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["destinationArn"] = args ? args.destinationArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["shareStatus"] = undefined /*out*/;

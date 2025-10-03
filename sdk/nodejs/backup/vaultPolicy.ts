@@ -80,19 +80,19 @@ export class VaultPolicy extends pulumi.CustomResource {
     /**
      * The ARN of the vault.
      */
-    declare public /*out*/ readonly backupVaultArn: pulumi.Output<string>;
+    public /*out*/ readonly backupVaultArn!: pulumi.Output<string>;
     /**
      * Name of the backup vault to add policy for.
      */
-    declare public readonly backupVaultName: pulumi.Output<string>;
+    public readonly backupVaultName!: pulumi.Output<string>;
     /**
      * The backup vault access policy document in JSON format.
      */
-    declare public readonly policy: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a VaultPolicy resource with the given unique name, arguments, and options.
@@ -107,21 +107,21 @@ export class VaultPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VaultPolicyState | undefined;
-            resourceInputs["backupVaultArn"] = state?.backupVaultArn;
-            resourceInputs["backupVaultName"] = state?.backupVaultName;
-            resourceInputs["policy"] = state?.policy;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["backupVaultArn"] = state ? state.backupVaultArn : undefined;
+            resourceInputs["backupVaultName"] = state ? state.backupVaultName : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as VaultPolicyArgs | undefined;
-            if (args?.backupVaultName === undefined && !opts.urn) {
+            if ((!args || args.backupVaultName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'backupVaultName'");
             }
-            if (args?.policy === undefined && !opts.urn) {
+            if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            resourceInputs["backupVaultName"] = args?.backupVaultName;
-            resourceInputs["policy"] = args?.policy;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["backupVaultName"] = args ? args.backupVaultName : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["backupVaultArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

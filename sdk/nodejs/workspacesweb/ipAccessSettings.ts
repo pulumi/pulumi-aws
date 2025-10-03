@@ -120,45 +120,45 @@ export class IpAccessSettings extends pulumi.CustomResource {
     /**
      * Additional encryption context for the IP access settings.
      */
-    declare public readonly additionalEncryptionContext: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly additionalEncryptionContext!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of web portal ARNs that this IP access settings resource is associated with.
      */
-    declare public /*out*/ readonly associatedPortalArns: pulumi.Output<string[]>;
+    public /*out*/ readonly associatedPortalArns!: pulumi.Output<string[]>;
     /**
      * ARN of the customer managed KMS key.
      */
-    declare public readonly customerManagedKey: pulumi.Output<string | undefined>;
+    public readonly customerManagedKey!: pulumi.Output<string | undefined>;
     /**
      * The description of the IP access settings.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The display name of the IP access settings.
      */
-    declare public readonly displayName: pulumi.Output<string>;
+    public readonly displayName!: pulumi.Output<string>;
     /**
      * ARN of the IP access settings resource.
      */
-    declare public /*out*/ readonly ipAccessSettingsArn: pulumi.Output<string>;
+    public /*out*/ readonly ipAccessSettingsArn!: pulumi.Output<string>;
     /**
      * The IP rules of the IP access settings. See IP Rule below.
      *
      * The following arguments are optional:
      */
-    declare public readonly ipRules: pulumi.Output<outputs.workspacesweb.IpAccessSettingsIpRule[] | undefined>;
+    public readonly ipRules!: pulumi.Output<outputs.workspacesweb.IpAccessSettingsIpRule[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a IpAccessSettings resource with the given unique name, arguments, and options.
@@ -173,28 +173,28 @@ export class IpAccessSettings extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IpAccessSettingsState | undefined;
-            resourceInputs["additionalEncryptionContext"] = state?.additionalEncryptionContext;
-            resourceInputs["associatedPortalArns"] = state?.associatedPortalArns;
-            resourceInputs["customerManagedKey"] = state?.customerManagedKey;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["displayName"] = state?.displayName;
-            resourceInputs["ipAccessSettingsArn"] = state?.ipAccessSettingsArn;
-            resourceInputs["ipRules"] = state?.ipRules;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["additionalEncryptionContext"] = state ? state.additionalEncryptionContext : undefined;
+            resourceInputs["associatedPortalArns"] = state ? state.associatedPortalArns : undefined;
+            resourceInputs["customerManagedKey"] = state ? state.customerManagedKey : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["ipAccessSettingsArn"] = state ? state.ipAccessSettingsArn : undefined;
+            resourceInputs["ipRules"] = state ? state.ipRules : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as IpAccessSettingsArgs | undefined;
-            if (args?.displayName === undefined && !opts.urn) {
+            if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            resourceInputs["additionalEncryptionContext"] = args?.additionalEncryptionContext;
-            resourceInputs["customerManagedKey"] = args?.customerManagedKey;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["displayName"] = args?.displayName;
-            resourceInputs["ipRules"] = args?.ipRules;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["additionalEncryptionContext"] = args ? args.additionalEncryptionContext : undefined;
+            resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["ipRules"] = args ? args.ipRules : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["associatedPortalArns"] = undefined /*out*/;
             resourceInputs["ipAccessSettingsArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

@@ -65,43 +65,43 @@ export class App extends pulumi.CustomResource {
     /**
      * The name of the app.
      */
-    declare public readonly appName: pulumi.Output<string>;
+    public readonly appName!: pulumi.Output<string>;
     /**
      * The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
      */
-    declare public readonly appType: pulumi.Output<string>;
+    public readonly appType!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the app.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The domain ID.
      */
-    declare public readonly domainId: pulumi.Output<string>;
+    public readonly domainId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
      */
-    declare public readonly resourceSpec: pulumi.Output<outputs.sagemaker.AppResourceSpec>;
+    public readonly resourceSpec!: pulumi.Output<outputs.sagemaker.AppResourceSpec>;
     /**
      * The name of the space. At least one of `userProfileName` or `spaceName` required.
      */
-    declare public readonly spaceName: pulumi.Output<string | undefined>;
+    public readonly spaceName!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The user profile name. At least one of `userProfileName` or `spaceName` required.
      */
-    declare public readonly userProfileName: pulumi.Output<string | undefined>;
+    public readonly userProfileName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a App resource with the given unique name, arguments, and options.
@@ -116,35 +116,35 @@ export class App extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppState | undefined;
-            resourceInputs["appName"] = state?.appName;
-            resourceInputs["appType"] = state?.appType;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["domainId"] = state?.domainId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceSpec"] = state?.resourceSpec;
-            resourceInputs["spaceName"] = state?.spaceName;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["userProfileName"] = state?.userProfileName;
+            resourceInputs["appName"] = state ? state.appName : undefined;
+            resourceInputs["appType"] = state ? state.appType : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["domainId"] = state ? state.domainId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceSpec"] = state ? state.resourceSpec : undefined;
+            resourceInputs["spaceName"] = state ? state.spaceName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["userProfileName"] = state ? state.userProfileName : undefined;
         } else {
             const args = argsOrState as AppArgs | undefined;
-            if (args?.appName === undefined && !opts.urn) {
+            if ((!args || args.appName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'appName'");
             }
-            if (args?.appType === undefined && !opts.urn) {
+            if ((!args || args.appType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'appType'");
             }
-            if (args?.domainId === undefined && !opts.urn) {
+            if ((!args || args.domainId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainId'");
             }
-            resourceInputs["appName"] = args?.appName;
-            resourceInputs["appType"] = args?.appType;
-            resourceInputs["domainId"] = args?.domainId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resourceSpec"] = args?.resourceSpec;
-            resourceInputs["spaceName"] = args?.spaceName;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["userProfileName"] = args?.userProfileName;
+            resourceInputs["appName"] = args ? args.appName : undefined;
+            resourceInputs["appType"] = args ? args.appType : undefined;
+            resourceInputs["domainId"] = args ? args.domainId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourceSpec"] = args ? args.resourceSpec : undefined;
+            resourceInputs["spaceName"] = args ? args.spaceName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userProfileName"] = args ? args.userProfileName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

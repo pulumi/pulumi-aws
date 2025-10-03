@@ -64,7 +64,7 @@ export class OrganizationsFeatures extends pulumi.CustomResource {
     /**
      * List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
      */
-    declare public readonly enabledFeatures: pulumi.Output<string[]>;
+    public readonly enabledFeatures!: pulumi.Output<string[]>;
 
     /**
      * Create a OrganizationsFeatures resource with the given unique name, arguments, and options.
@@ -79,13 +79,13 @@ export class OrganizationsFeatures extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrganizationsFeaturesState | undefined;
-            resourceInputs["enabledFeatures"] = state?.enabledFeatures;
+            resourceInputs["enabledFeatures"] = state ? state.enabledFeatures : undefined;
         } else {
             const args = argsOrState as OrganizationsFeaturesArgs | undefined;
-            if (args?.enabledFeatures === undefined && !opts.urn) {
+            if ((!args || args.enabledFeatures === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'enabledFeatures'");
             }
-            resourceInputs["enabledFeatures"] = args?.enabledFeatures;
+            resourceInputs["enabledFeatures"] = args ? args.enabledFeatures : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(OrganizationsFeatures.__pulumiType, name, resourceInputs, opts);

@@ -161,31 +161,31 @@ export class Analyzer extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    declare public readonly analyzerName: pulumi.Output<string>;
+    public readonly analyzerName!: pulumi.Output<string>;
     /**
      * ARN of the Analyzer.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A block that specifies the configuration of the analyzer. See `configuration` Block for details.
      */
-    declare public readonly configuration: pulumi.Output<outputs.accessanalyzer.AnalyzerConfiguration | undefined>;
+    public readonly configuration!: pulumi.Output<outputs.accessanalyzer.AnalyzerConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Type that represents the zone of trust or scope for the analyzer. Valid values are `ACCOUNT`, `ACCOUNT_INTERNAL_ACCESS`, `ACCOUNT_UNUSED_ACCESS`, `ORGANIZATION`, `ORGANIZATION_INTERNAL_ACCESS`, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
      */
-    declare public readonly type: pulumi.Output<string | undefined>;
+    public readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Analyzer resource with the given unique name, arguments, and options.
@@ -200,23 +200,23 @@ export class Analyzer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AnalyzerState | undefined;
-            resourceInputs["analyzerName"] = state?.analyzerName;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["configuration"] = state?.configuration;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["type"] = state?.type;
+            resourceInputs["analyzerName"] = state ? state.analyzerName : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["configuration"] = state ? state.configuration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as AnalyzerArgs | undefined;
-            if (args?.analyzerName === undefined && !opts.urn) {
+            if ((!args || args.analyzerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'analyzerName'");
             }
-            resourceInputs["analyzerName"] = args?.analyzerName;
-            resourceInputs["configuration"] = args?.configuration;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["type"] = args?.type;
+            resourceInputs["analyzerName"] = args ? args.analyzerName : undefined;
+            resourceInputs["configuration"] = args ? args.configuration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

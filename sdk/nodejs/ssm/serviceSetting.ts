@@ -58,23 +58,23 @@ export class ServiceSetting extends pulumi.CustomResource {
     /**
      * ARN of the service setting.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
      */
-    declare public readonly settingId: pulumi.Output<string>;
+    public readonly settingId!: pulumi.Output<string>;
     /**
      * Value of the service setting.
      */
-    declare public readonly settingValue: pulumi.Output<string>;
+    public readonly settingValue!: pulumi.Output<string>;
     /**
      * Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
 
     /**
      * Create a ServiceSetting resource with the given unique name, arguments, and options.
@@ -89,22 +89,22 @@ export class ServiceSetting extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceSettingState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["settingId"] = state?.settingId;
-            resourceInputs["settingValue"] = state?.settingValue;
-            resourceInputs["status"] = state?.status;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["settingId"] = state ? state.settingId : undefined;
+            resourceInputs["settingValue"] = state ? state.settingValue : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as ServiceSettingArgs | undefined;
-            if (args?.settingId === undefined && !opts.urn) {
+            if ((!args || args.settingId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'settingId'");
             }
-            if (args?.settingValue === undefined && !opts.urn) {
+            if ((!args || args.settingValue === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'settingValue'");
             }
-            resourceInputs["region"] = args?.region;
-            resourceInputs["settingId"] = args?.settingId;
-            resourceInputs["settingValue"] = args?.settingValue;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["settingId"] = args ? args.settingId : undefined;
+            resourceInputs["settingValue"] = args ? args.settingValue : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         }

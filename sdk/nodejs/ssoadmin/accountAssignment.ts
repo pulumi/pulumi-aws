@@ -113,31 +113,31 @@ export class AccountAssignment extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance.
      */
-    declare public readonly instanceArn: pulumi.Output<string>;
+    public readonly instanceArn!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
      */
-    declare public readonly permissionSetArn: pulumi.Output<string>;
+    public readonly permissionSetArn!: pulumi.Output<string>;
     /**
      * An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
      */
-    declare public readonly principalId: pulumi.Output<string>;
+    public readonly principalId!: pulumi.Output<string>;
     /**
      * The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
      */
-    declare public readonly principalType: pulumi.Output<string>;
+    public readonly principalType!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * An AWS account identifier, typically a 10-12 digit string.
      */
-    declare public readonly targetId: pulumi.Output<string>;
+    public readonly targetId!: pulumi.Output<string>;
     /**
      * The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
      */
-    declare public readonly targetType: pulumi.Output<string | undefined>;
+    public readonly targetType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a AccountAssignment resource with the given unique name, arguments, and options.
@@ -152,37 +152,37 @@ export class AccountAssignment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountAssignmentState | undefined;
-            resourceInputs["instanceArn"] = state?.instanceArn;
-            resourceInputs["permissionSetArn"] = state?.permissionSetArn;
-            resourceInputs["principalId"] = state?.principalId;
-            resourceInputs["principalType"] = state?.principalType;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["targetId"] = state?.targetId;
-            resourceInputs["targetType"] = state?.targetType;
+            resourceInputs["instanceArn"] = state ? state.instanceArn : undefined;
+            resourceInputs["permissionSetArn"] = state ? state.permissionSetArn : undefined;
+            resourceInputs["principalId"] = state ? state.principalId : undefined;
+            resourceInputs["principalType"] = state ? state.principalType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["targetId"] = state ? state.targetId : undefined;
+            resourceInputs["targetType"] = state ? state.targetType : undefined;
         } else {
             const args = argsOrState as AccountAssignmentArgs | undefined;
-            if (args?.instanceArn === undefined && !opts.urn) {
+            if ((!args || args.instanceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            if (args?.permissionSetArn === undefined && !opts.urn) {
+            if ((!args || args.permissionSetArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'permissionSetArn'");
             }
-            if (args?.principalId === undefined && !opts.urn) {
+            if ((!args || args.principalId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principalId'");
             }
-            if (args?.principalType === undefined && !opts.urn) {
+            if ((!args || args.principalType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principalType'");
             }
-            if (args?.targetId === undefined && !opts.urn) {
+            if ((!args || args.targetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetId'");
             }
-            resourceInputs["instanceArn"] = args?.instanceArn;
-            resourceInputs["permissionSetArn"] = args?.permissionSetArn;
-            resourceInputs["principalId"] = args?.principalId;
-            resourceInputs["principalType"] = args?.principalType;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["targetId"] = args?.targetId;
-            resourceInputs["targetType"] = args?.targetType;
+            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
+            resourceInputs["permissionSetArn"] = args ? args.permissionSetArn : undefined;
+            resourceInputs["principalId"] = args ? args.principalId : undefined;
+            resourceInputs["principalType"] = args ? args.principalType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["targetId"] = args ? args.targetId : undefined;
+            resourceInputs["targetType"] = args ? args.targetType : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AccountAssignment.__pulumiType, name, resourceInputs, opts);

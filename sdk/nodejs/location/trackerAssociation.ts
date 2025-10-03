@@ -60,15 +60,15 @@ export class TrackerAssociation extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
      */
-    declare public readonly consumerArn: pulumi.Output<string>;
+    public readonly consumerArn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The name of the tracker resource to be associated with a geofence collection.
      */
-    declare public readonly trackerName: pulumi.Output<string>;
+    public readonly trackerName!: pulumi.Output<string>;
 
     /**
      * Create a TrackerAssociation resource with the given unique name, arguments, and options.
@@ -83,20 +83,20 @@ export class TrackerAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TrackerAssociationState | undefined;
-            resourceInputs["consumerArn"] = state?.consumerArn;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["trackerName"] = state?.trackerName;
+            resourceInputs["consumerArn"] = state ? state.consumerArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["trackerName"] = state ? state.trackerName : undefined;
         } else {
             const args = argsOrState as TrackerAssociationArgs | undefined;
-            if (args?.consumerArn === undefined && !opts.urn) {
+            if ((!args || args.consumerArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'consumerArn'");
             }
-            if (args?.trackerName === undefined && !opts.urn) {
+            if ((!args || args.trackerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'trackerName'");
             }
-            resourceInputs["consumerArn"] = args?.consumerArn;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["trackerName"] = args?.trackerName;
+            resourceInputs["consumerArn"] = args ? args.consumerArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["trackerName"] = args ? args.trackerName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TrackerAssociation.__pulumiType, name, resourceInputs, opts);

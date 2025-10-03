@@ -147,99 +147,99 @@ export class Document extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the document.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * One or more configuration blocks describing attachments sources to a version of a document. See `attachmentsSource` block below for details.
      */
-    declare public readonly attachmentsSources: pulumi.Output<outputs.ssm.DocumentAttachmentsSource[] | undefined>;
+    public readonly attachmentsSources!: pulumi.Output<outputs.ssm.DocumentAttachmentsSource[] | undefined>;
     /**
      * The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
      */
-    declare public readonly content: pulumi.Output<string>;
+    public readonly content!: pulumi.Output<string>;
     /**
      * The date the document was created.
      */
-    declare public /*out*/ readonly createdDate: pulumi.Output<string>;
+    public /*out*/ readonly createdDate!: pulumi.Output<string>;
     /**
      * The default version of the document.
      */
-    declare public /*out*/ readonly defaultVersion: pulumi.Output<string>;
+    public /*out*/ readonly defaultVersion!: pulumi.Output<string>;
     /**
      * A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
      */
-    declare public /*out*/ readonly description: pulumi.Output<string>;
+    public /*out*/ readonly description!: pulumi.Output<string>;
     /**
      * The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
      */
-    declare public readonly documentFormat: pulumi.Output<string | undefined>;
+    public readonly documentFormat!: pulumi.Output<string | undefined>;
     /**
      * The type of the document. For a list of valid values, see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html#systemsmanager-CreateDocument-request-DocumentType).
      */
-    declare public readonly documentType: pulumi.Output<string>;
+    public readonly documentType!: pulumi.Output<string>;
     /**
      * The document version.
      */
-    declare public /*out*/ readonly documentVersion: pulumi.Output<string>;
+    public /*out*/ readonly documentVersion!: pulumi.Output<string>;
     /**
      * The Sha256 or Sha1 hash created by the system when the document was created.
      */
-    declare public /*out*/ readonly hash: pulumi.Output<string>;
+    public /*out*/ readonly hash!: pulumi.Output<string>;
     /**
      * The hash type of the document. Valid values: `Sha256`, `Sha1`.
      */
-    declare public /*out*/ readonly hashType: pulumi.Output<string>;
+    public /*out*/ readonly hashType!: pulumi.Output<string>;
     /**
      * The latest version of the document.
      */
-    declare public /*out*/ readonly latestVersion: pulumi.Output<string>;
+    public /*out*/ readonly latestVersion!: pulumi.Output<string>;
     /**
      * The name of the document.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The Amazon Web Services user that created the document.
      */
-    declare public /*out*/ readonly owner: pulumi.Output<string>;
+    public /*out*/ readonly owner!: pulumi.Output<string>;
     /**
      * One or more configuration blocks describing the parameters for the document. See `parameter` block below for details.
      */
-    declare public /*out*/ readonly parameters: pulumi.Output<outputs.ssm.DocumentParameter[]>;
+    public /*out*/ readonly parameters!: pulumi.Output<outputs.ssm.DocumentParameter[]>;
     /**
      * Additional permissions to attach to the document. See Permissions below for details.
      */
-    declare public readonly permissions: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly permissions!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The list of operating system (OS) platforms compatible with this SSM document. Valid values: `Windows`, `Linux`, `MacOS`.
      */
-    declare public /*out*/ readonly platformTypes: pulumi.Output<string[]>;
+    public /*out*/ readonly platformTypes!: pulumi.Output<string[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The schema version of the document.
      */
-    declare public /*out*/ readonly schemaVersion: pulumi.Output<string>;
+    public /*out*/ readonly schemaVersion!: pulumi.Output<string>;
     /**
      * The status of the SSM document. Valid values: `Creating`, `Active`, `Updating`, `Deleting`, `Failed`.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
      */
-    declare public readonly targetType: pulumi.Output<string | undefined>;
+    public readonly targetType!: pulumi.Output<string | undefined>;
     /**
      * The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can't be changed.
      */
-    declare public readonly versionName: pulumi.Output<string | undefined>;
+    public readonly versionName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Document resource with the given unique name, arguments, and options.
@@ -254,48 +254,48 @@ export class Document extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DocumentState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["attachmentsSources"] = state?.attachmentsSources;
-            resourceInputs["content"] = state?.content;
-            resourceInputs["createdDate"] = state?.createdDate;
-            resourceInputs["defaultVersion"] = state?.defaultVersion;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["documentFormat"] = state?.documentFormat;
-            resourceInputs["documentType"] = state?.documentType;
-            resourceInputs["documentVersion"] = state?.documentVersion;
-            resourceInputs["hash"] = state?.hash;
-            resourceInputs["hashType"] = state?.hashType;
-            resourceInputs["latestVersion"] = state?.latestVersion;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["owner"] = state?.owner;
-            resourceInputs["parameters"] = state?.parameters;
-            resourceInputs["permissions"] = state?.permissions;
-            resourceInputs["platformTypes"] = state?.platformTypes;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["schemaVersion"] = state?.schemaVersion;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["targetType"] = state?.targetType;
-            resourceInputs["versionName"] = state?.versionName;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["attachmentsSources"] = state ? state.attachmentsSources : undefined;
+            resourceInputs["content"] = state ? state.content : undefined;
+            resourceInputs["createdDate"] = state ? state.createdDate : undefined;
+            resourceInputs["defaultVersion"] = state ? state.defaultVersion : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["documentFormat"] = state ? state.documentFormat : undefined;
+            resourceInputs["documentType"] = state ? state.documentType : undefined;
+            resourceInputs["documentVersion"] = state ? state.documentVersion : undefined;
+            resourceInputs["hash"] = state ? state.hash : undefined;
+            resourceInputs["hashType"] = state ? state.hashType : undefined;
+            resourceInputs["latestVersion"] = state ? state.latestVersion : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["owner"] = state ? state.owner : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["permissions"] = state ? state.permissions : undefined;
+            resourceInputs["platformTypes"] = state ? state.platformTypes : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["schemaVersion"] = state ? state.schemaVersion : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["targetType"] = state ? state.targetType : undefined;
+            resourceInputs["versionName"] = state ? state.versionName : undefined;
         } else {
             const args = argsOrState as DocumentArgs | undefined;
-            if (args?.content === undefined && !opts.urn) {
+            if ((!args || args.content === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            if (args?.documentType === undefined && !opts.urn) {
+            if ((!args || args.documentType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'documentType'");
             }
-            resourceInputs["attachmentsSources"] = args?.attachmentsSources;
-            resourceInputs["content"] = args?.content;
-            resourceInputs["documentFormat"] = args?.documentFormat;
-            resourceInputs["documentType"] = args?.documentType;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["permissions"] = args?.permissions;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["targetType"] = args?.targetType;
-            resourceInputs["versionName"] = args?.versionName;
+            resourceInputs["attachmentsSources"] = args ? args.attachmentsSources : undefined;
+            resourceInputs["content"] = args ? args.content : undefined;
+            resourceInputs["documentFormat"] = args ? args.documentFormat : undefined;
+            resourceInputs["documentType"] = args ? args.documentType : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetType"] = args ? args.targetType : undefined;
+            resourceInputs["versionName"] = args ? args.versionName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["defaultVersion"] = undefined /*out*/;

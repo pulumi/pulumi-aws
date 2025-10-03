@@ -70,27 +70,27 @@ export class AlternativeContact extends pulumi.CustomResource {
     /**
      * ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
      */
-    declare public readonly accountId: pulumi.Output<string | undefined>;
+    public readonly accountId!: pulumi.Output<string | undefined>;
     /**
      * Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
      */
-    declare public readonly alternateContactType: pulumi.Output<string>;
+    public readonly alternateContactType!: pulumi.Output<string>;
     /**
      * An email address for the alternate contact.
      */
-    declare public readonly emailAddress: pulumi.Output<string>;
+    public readonly emailAddress!: pulumi.Output<string>;
     /**
      * Name of the alternate contact.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Phone number for the alternate contact.
      */
-    declare public readonly phoneNumber: pulumi.Output<string>;
+    public readonly phoneNumber!: pulumi.Output<string>;
     /**
      * Title for the alternate contact.
      */
-    declare public readonly title: pulumi.Output<string>;
+    public readonly title!: pulumi.Output<string>;
 
     /**
      * Create a AlternativeContact resource with the given unique name, arguments, and options.
@@ -105,32 +105,32 @@ export class AlternativeContact extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlternativeContactState | undefined;
-            resourceInputs["accountId"] = state?.accountId;
-            resourceInputs["alternateContactType"] = state?.alternateContactType;
-            resourceInputs["emailAddress"] = state?.emailAddress;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["phoneNumber"] = state?.phoneNumber;
-            resourceInputs["title"] = state?.title;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["alternateContactType"] = state ? state.alternateContactType : undefined;
+            resourceInputs["emailAddress"] = state ? state.emailAddress : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["phoneNumber"] = state ? state.phoneNumber : undefined;
+            resourceInputs["title"] = state ? state.title : undefined;
         } else {
             const args = argsOrState as AlternativeContactArgs | undefined;
-            if (args?.alternateContactType === undefined && !opts.urn) {
+            if ((!args || args.alternateContactType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'alternateContactType'");
             }
-            if (args?.emailAddress === undefined && !opts.urn) {
+            if ((!args || args.emailAddress === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'emailAddress'");
             }
-            if (args?.phoneNumber === undefined && !opts.urn) {
+            if ((!args || args.phoneNumber === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'phoneNumber'");
             }
-            if (args?.title === undefined && !opts.urn) {
+            if ((!args || args.title === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
-            resourceInputs["accountId"] = args?.accountId;
-            resourceInputs["alternateContactType"] = args?.alternateContactType;
-            resourceInputs["emailAddress"] = args?.emailAddress;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["phoneNumber"] = args?.phoneNumber;
-            resourceInputs["title"] = args?.title;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["alternateContactType"] = args ? args.alternateContactType : undefined;
+            resourceInputs["emailAddress"] = args ? args.emailAddress : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["phoneNumber"] = args ? args.phoneNumber : undefined;
+            resourceInputs["title"] = args ? args.title : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AlternativeContact.__pulumiType, name, resourceInputs, opts);

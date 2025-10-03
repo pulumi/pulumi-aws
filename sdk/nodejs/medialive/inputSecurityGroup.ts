@@ -67,26 +67,26 @@ export class InputSecurityGroup extends pulumi.CustomResource {
     /**
      * ARN of the InputSecurityGroup.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The list of inputs currently using this InputSecurityGroup.
      */
-    declare public /*out*/ readonly inputs: pulumi.Output<string[]>;
+    public /*out*/ readonly inputs!: pulumi.Output<string[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Whitelist rules. See Whitelist Rules for more details.
      *
      * The following arguments are optional:
      */
-    declare public readonly whitelistRules: pulumi.Output<outputs.medialive.InputSecurityGroupWhitelistRule[]>;
+    public readonly whitelistRules!: pulumi.Output<outputs.medialive.InputSecurityGroupWhitelistRule[]>;
 
     /**
      * Create a InputSecurityGroup resource with the given unique name, arguments, and options.
@@ -101,20 +101,20 @@ export class InputSecurityGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InputSecurityGroupState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["inputs"] = state?.inputs;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["whitelistRules"] = state?.whitelistRules;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["inputs"] = state ? state.inputs : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["whitelistRules"] = state ? state.whitelistRules : undefined;
         } else {
             const args = argsOrState as InputSecurityGroupArgs | undefined;
-            if (args?.whitelistRules === undefined && !opts.urn) {
+            if ((!args || args.whitelistRules === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'whitelistRules'");
             }
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["whitelistRules"] = args?.whitelistRules;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["whitelistRules"] = args ? args.whitelistRules : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["inputs"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

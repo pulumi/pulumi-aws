@@ -51,99 +51,99 @@ export class KxCluster extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) identifier of the KX cluster.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
      */
-    declare public readonly autoScalingConfiguration: pulumi.Output<outputs.finspace.KxClusterAutoScalingConfiguration | undefined>;
+    public readonly autoScalingConfiguration!: pulumi.Output<outputs.finspace.KxClusterAutoScalingConfiguration | undefined>;
     /**
      * The availability zone identifiers for the requested regions. Required when `azMode` is set to SINGLE.
      */
-    declare public readonly availabilityZoneId: pulumi.Output<string | undefined>;
+    public readonly availabilityZoneId!: pulumi.Output<string | undefined>;
     /**
      * The number of availability zones you want to assign per cluster. This can be one of the following:
      * * SINGLE - Assigns one availability zone per cluster.
      * * MULTI - Assigns all the availability zones per cluster.
      */
-    declare public readonly azMode: pulumi.Output<string>;
+    public readonly azMode!: pulumi.Output<string>;
     /**
      * Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
      */
-    declare public readonly cacheStorageConfigurations: pulumi.Output<outputs.finspace.KxClusterCacheStorageConfiguration[] | undefined>;
+    public readonly cacheStorageConfigurations!: pulumi.Output<outputs.finspace.KxClusterCacheStorageConfiguration[] | undefined>;
     /**
      * Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
      */
-    declare public readonly capacityConfiguration: pulumi.Output<outputs.finspace.KxClusterCapacityConfiguration | undefined>;
+    public readonly capacityConfiguration!: pulumi.Output<outputs.finspace.KxClusterCapacityConfiguration | undefined>;
     /**
      * Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
      */
-    declare public readonly code: pulumi.Output<outputs.finspace.KxClusterCode | undefined>;
+    public readonly code!: pulumi.Output<outputs.finspace.KxClusterCode | undefined>;
     /**
      * List of key-value pairs to make available inside the cluster.
      */
-    declare public readonly commandLineArguments: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly commandLineArguments!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Timestamp at which the cluster is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      */
-    declare public /*out*/ readonly createdTimestamp: pulumi.Output<string>;
+    public /*out*/ readonly createdTimestamp!: pulumi.Output<string>;
     /**
      * KX database that will be available for querying. Defined below.
      */
-    declare public readonly databases: pulumi.Output<outputs.finspace.KxClusterDatabase[] | undefined>;
+    public readonly databases!: pulumi.Output<outputs.finspace.KxClusterDatabase[] | undefined>;
     /**
      * Description of the cluster.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Unique identifier for the KX environment.
      */
-    declare public readonly environmentId: pulumi.Output<string>;
+    public readonly environmentId!: pulumi.Output<string>;
     /**
      * An IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
      */
-    declare public readonly executionRole: pulumi.Output<string | undefined>;
+    public readonly executionRole!: pulumi.Output<string | undefined>;
     /**
      * Path to Q program that will be run at launch of a cluster. This is a relative path within .zip file that contains the custom code, which will be loaded on the cluster. It must include the file name itself. For example, somedir/init.q.
      */
-    declare public readonly initializationScript: pulumi.Output<string | undefined>;
+    public readonly initializationScript!: pulumi.Output<string | undefined>;
     /**
      * Last timestamp at which the cluster was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      */
-    declare public /*out*/ readonly lastModifiedTimestamp: pulumi.Output<string>;
+    public /*out*/ readonly lastModifiedTimestamp!: pulumi.Output<string>;
     /**
      * Unique name for the cluster that you want to create.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Version of FinSpace Managed kdb to run.
      */
-    declare public readonly releaseLabel: pulumi.Output<string>;
+    public readonly releaseLabel!: pulumi.Output<string>;
     /**
      * Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
      */
-    declare public readonly savedownStorageConfiguration: pulumi.Output<outputs.finspace.KxClusterSavedownStorageConfiguration | undefined>;
+    public readonly savedownStorageConfiguration!: pulumi.Output<outputs.finspace.KxClusterSavedownStorageConfiguration | undefined>;
     /**
      * The structure that stores the configuration details of a scaling group.
      */
-    declare public readonly scalingGroupConfiguration: pulumi.Output<outputs.finspace.KxClusterScalingGroupConfiguration | undefined>;
-    declare public /*out*/ readonly status: pulumi.Output<string>;
-    declare public /*out*/ readonly statusReason: pulumi.Output<string>;
+    public readonly scalingGroupConfiguration!: pulumi.Output<outputs.finspace.KxClusterScalingGroupConfiguration | undefined>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly statusReason!: pulumi.Output<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
      */
-    declare public readonly tickerplantLogConfigurations: pulumi.Output<outputs.finspace.KxClusterTickerplantLogConfiguration[] | undefined>;
+    public readonly tickerplantLogConfigurations!: pulumi.Output<outputs.finspace.KxClusterTickerplantLogConfiguration[] | undefined>;
     /**
      * Type of KDB database. The following types are available:
      * * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
@@ -152,13 +152,13 @@ export class KxCluster extends pulumi.CustomResource {
      * * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
      * * Tickerplant - A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
      */
-    declare public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
     /**
      * Configuration details about the network where the Privatelink endpoint of the cluster resides. See vpc_configuration.
      *
      * The following arguments are optional:
      */
-    declare public readonly vpcConfiguration: pulumi.Output<outputs.finspace.KxClusterVpcConfiguration>;
+    public readonly vpcConfiguration!: pulumi.Output<outputs.finspace.KxClusterVpcConfiguration>;
 
     /**
      * Create a KxCluster resource with the given unique name, arguments, and options.
@@ -173,71 +173,71 @@ export class KxCluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KxClusterState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["autoScalingConfiguration"] = state?.autoScalingConfiguration;
-            resourceInputs["availabilityZoneId"] = state?.availabilityZoneId;
-            resourceInputs["azMode"] = state?.azMode;
-            resourceInputs["cacheStorageConfigurations"] = state?.cacheStorageConfigurations;
-            resourceInputs["capacityConfiguration"] = state?.capacityConfiguration;
-            resourceInputs["code"] = state?.code;
-            resourceInputs["commandLineArguments"] = state?.commandLineArguments;
-            resourceInputs["createdTimestamp"] = state?.createdTimestamp;
-            resourceInputs["databases"] = state?.databases;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["environmentId"] = state?.environmentId;
-            resourceInputs["executionRole"] = state?.executionRole;
-            resourceInputs["initializationScript"] = state?.initializationScript;
-            resourceInputs["lastModifiedTimestamp"] = state?.lastModifiedTimestamp;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["releaseLabel"] = state?.releaseLabel;
-            resourceInputs["savedownStorageConfiguration"] = state?.savedownStorageConfiguration;
-            resourceInputs["scalingGroupConfiguration"] = state?.scalingGroupConfiguration;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["statusReason"] = state?.statusReason;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["tickerplantLogConfigurations"] = state?.tickerplantLogConfigurations;
-            resourceInputs["type"] = state?.type;
-            resourceInputs["vpcConfiguration"] = state?.vpcConfiguration;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["autoScalingConfiguration"] = state ? state.autoScalingConfiguration : undefined;
+            resourceInputs["availabilityZoneId"] = state ? state.availabilityZoneId : undefined;
+            resourceInputs["azMode"] = state ? state.azMode : undefined;
+            resourceInputs["cacheStorageConfigurations"] = state ? state.cacheStorageConfigurations : undefined;
+            resourceInputs["capacityConfiguration"] = state ? state.capacityConfiguration : undefined;
+            resourceInputs["code"] = state ? state.code : undefined;
+            resourceInputs["commandLineArguments"] = state ? state.commandLineArguments : undefined;
+            resourceInputs["createdTimestamp"] = state ? state.createdTimestamp : undefined;
+            resourceInputs["databases"] = state ? state.databases : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["environmentId"] = state ? state.environmentId : undefined;
+            resourceInputs["executionRole"] = state ? state.executionRole : undefined;
+            resourceInputs["initializationScript"] = state ? state.initializationScript : undefined;
+            resourceInputs["lastModifiedTimestamp"] = state ? state.lastModifiedTimestamp : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["releaseLabel"] = state ? state.releaseLabel : undefined;
+            resourceInputs["savedownStorageConfiguration"] = state ? state.savedownStorageConfiguration : undefined;
+            resourceInputs["scalingGroupConfiguration"] = state ? state.scalingGroupConfiguration : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["statusReason"] = state ? state.statusReason : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["tickerplantLogConfigurations"] = state ? state.tickerplantLogConfigurations : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["vpcConfiguration"] = state ? state.vpcConfiguration : undefined;
         } else {
             const args = argsOrState as KxClusterArgs | undefined;
-            if (args?.azMode === undefined && !opts.urn) {
+            if ((!args || args.azMode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'azMode'");
             }
-            if (args?.environmentId === undefined && !opts.urn) {
+            if ((!args || args.environmentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'environmentId'");
             }
-            if (args?.releaseLabel === undefined && !opts.urn) {
+            if ((!args || args.releaseLabel === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'releaseLabel'");
             }
-            if (args?.type === undefined && !opts.urn) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            if (args?.vpcConfiguration === undefined && !opts.urn) {
+            if ((!args || args.vpcConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcConfiguration'");
             }
-            resourceInputs["autoScalingConfiguration"] = args?.autoScalingConfiguration;
-            resourceInputs["availabilityZoneId"] = args?.availabilityZoneId;
-            resourceInputs["azMode"] = args?.azMode;
-            resourceInputs["cacheStorageConfigurations"] = args?.cacheStorageConfigurations;
-            resourceInputs["capacityConfiguration"] = args?.capacityConfiguration;
-            resourceInputs["code"] = args?.code;
-            resourceInputs["commandLineArguments"] = args?.commandLineArguments;
-            resourceInputs["databases"] = args?.databases;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["environmentId"] = args?.environmentId;
-            resourceInputs["executionRole"] = args?.executionRole;
-            resourceInputs["initializationScript"] = args?.initializationScript;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["releaseLabel"] = args?.releaseLabel;
-            resourceInputs["savedownStorageConfiguration"] = args?.savedownStorageConfiguration;
-            resourceInputs["scalingGroupConfiguration"] = args?.scalingGroupConfiguration;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["tickerplantLogConfigurations"] = args?.tickerplantLogConfigurations;
-            resourceInputs["type"] = args?.type;
-            resourceInputs["vpcConfiguration"] = args?.vpcConfiguration;
+            resourceInputs["autoScalingConfiguration"] = args ? args.autoScalingConfiguration : undefined;
+            resourceInputs["availabilityZoneId"] = args ? args.availabilityZoneId : undefined;
+            resourceInputs["azMode"] = args ? args.azMode : undefined;
+            resourceInputs["cacheStorageConfigurations"] = args ? args.cacheStorageConfigurations : undefined;
+            resourceInputs["capacityConfiguration"] = args ? args.capacityConfiguration : undefined;
+            resourceInputs["code"] = args ? args.code : undefined;
+            resourceInputs["commandLineArguments"] = args ? args.commandLineArguments : undefined;
+            resourceInputs["databases"] = args ? args.databases : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
+            resourceInputs["executionRole"] = args ? args.executionRole : undefined;
+            resourceInputs["initializationScript"] = args ? args.initializationScript : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["releaseLabel"] = args ? args.releaseLabel : undefined;
+            resourceInputs["savedownStorageConfiguration"] = args ? args.savedownStorageConfiguration : undefined;
+            resourceInputs["scalingGroupConfiguration"] = args ? args.scalingGroupConfiguration : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tickerplantLogConfigurations"] = args ? args.tickerplantLogConfigurations : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["lastModifiedTimestamp"] = undefined /*out*/;

@@ -63,16 +63,16 @@ export class DefaultCreditSpecification extends pulumi.CustomResource {
     /**
      * Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
      */
-    declare public readonly cpuCredits: pulumi.Output<string>;
+    public readonly cpuCredits!: pulumi.Output<string>;
     /**
      * Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
      */
-    declare public readonly instanceFamily: pulumi.Output<string>;
+    public readonly instanceFamily!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
-    declare public readonly timeouts: pulumi.Output<outputs.ec2.DefaultCreditSpecificationTimeouts | undefined>;
+    public readonly region!: pulumi.Output<string>;
+    public readonly timeouts!: pulumi.Output<outputs.ec2.DefaultCreditSpecificationTimeouts | undefined>;
 
     /**
      * Create a DefaultCreditSpecification resource with the given unique name, arguments, and options.
@@ -87,22 +87,22 @@ export class DefaultCreditSpecification extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DefaultCreditSpecificationState | undefined;
-            resourceInputs["cpuCredits"] = state?.cpuCredits;
-            resourceInputs["instanceFamily"] = state?.instanceFamily;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["cpuCredits"] = state ? state.cpuCredits : undefined;
+            resourceInputs["instanceFamily"] = state ? state.instanceFamily : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as DefaultCreditSpecificationArgs | undefined;
-            if (args?.cpuCredits === undefined && !opts.urn) {
+            if ((!args || args.cpuCredits === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cpuCredits'");
             }
-            if (args?.instanceFamily === undefined && !opts.urn) {
+            if ((!args || args.instanceFamily === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceFamily'");
             }
-            resourceInputs["cpuCredits"] = args?.cpuCredits;
-            resourceInputs["instanceFamily"] = args?.instanceFamily;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["cpuCredits"] = args ? args.cpuCredits : undefined;
+            resourceInputs["instanceFamily"] = args ? args.instanceFamily : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DefaultCreditSpecification.__pulumiType, name, resourceInputs, opts);

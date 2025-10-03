@@ -85,31 +85,31 @@ export class Rule extends pulumi.CustomResource {
     /**
      * The ARN of the WAF Regional Rule.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name or description for the Amazon CloudWatch metric of this rule.
      */
-    declare public readonly metricName: pulumi.Output<string>;
+    public readonly metricName!: pulumi.Output<string>;
     /**
      * The name or description of the rule.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The objects to include in a rule (documented below).
      */
-    declare public readonly predicates: pulumi.Output<outputs.wafregional.RulePredicate[] | undefined>;
+    public readonly predicates!: pulumi.Output<outputs.wafregional.RulePredicate[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Rule resource with the given unique name, arguments, and options.
@@ -124,23 +124,23 @@ export class Rule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RuleState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["metricName"] = state?.metricName;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["predicates"] = state?.predicates;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["metricName"] = state ? state.metricName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["predicates"] = state ? state.predicates : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as RuleArgs | undefined;
-            if (args?.metricName === undefined && !opts.urn) {
+            if ((!args || args.metricName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'metricName'");
             }
-            resourceInputs["metricName"] = args?.metricName;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["predicates"] = args?.predicates;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["metricName"] = args ? args.metricName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["predicates"] = args ? args.predicates : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

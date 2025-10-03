@@ -72,44 +72,44 @@ export class EfsLocation extends pulumi.CustomResource {
     /**
      * Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
      */
-    declare public readonly accessPointArn: pulumi.Output<string | undefined>;
+    public readonly accessPointArn!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Configuration block containing EC2 configurations for connecting to the EFS File System.
      */
-    declare public readonly ec2Config: pulumi.Output<outputs.datasync.EfsLocationEc2Config>;
+    public readonly ec2Config!: pulumi.Output<outputs.datasync.EfsLocationEc2Config>;
     /**
      * Amazon Resource Name (ARN) of EFS File System.
      */
-    declare public readonly efsFileSystemArn: pulumi.Output<string>;
+    public readonly efsFileSystemArn!: pulumi.Output<string>;
     /**
      * Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
      */
-    declare public readonly fileSystemAccessRoleArn: pulumi.Output<string | undefined>;
+    public readonly fileSystemAccessRoleArn!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
      */
-    declare public readonly inTransitEncryption: pulumi.Output<string | undefined>;
+    public readonly inTransitEncryption!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Subdirectory to perform actions as source or destination. Default `/`.
      */
-    declare public readonly subdirectory: pulumi.Output<string | undefined>;
+    public readonly subdirectory!: pulumi.Output<string | undefined>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public /*out*/ readonly uri: pulumi.Output<string>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly uri!: pulumi.Output<string>;
 
     /**
      * Create a EfsLocation resource with the given unique name, arguments, and options.
@@ -124,33 +124,33 @@ export class EfsLocation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EfsLocationState | undefined;
-            resourceInputs["accessPointArn"] = state?.accessPointArn;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["ec2Config"] = state?.ec2Config;
-            resourceInputs["efsFileSystemArn"] = state?.efsFileSystemArn;
-            resourceInputs["fileSystemAccessRoleArn"] = state?.fileSystemAccessRoleArn;
-            resourceInputs["inTransitEncryption"] = state?.inTransitEncryption;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["subdirectory"] = state?.subdirectory;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["uri"] = state?.uri;
+            resourceInputs["accessPointArn"] = state ? state.accessPointArn : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["ec2Config"] = state ? state.ec2Config : undefined;
+            resourceInputs["efsFileSystemArn"] = state ? state.efsFileSystemArn : undefined;
+            resourceInputs["fileSystemAccessRoleArn"] = state ? state.fileSystemAccessRoleArn : undefined;
+            resourceInputs["inTransitEncryption"] = state ? state.inTransitEncryption : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["subdirectory"] = state ? state.subdirectory : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["uri"] = state ? state.uri : undefined;
         } else {
             const args = argsOrState as EfsLocationArgs | undefined;
-            if (args?.ec2Config === undefined && !opts.urn) {
+            if ((!args || args.ec2Config === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ec2Config'");
             }
-            if (args?.efsFileSystemArn === undefined && !opts.urn) {
+            if ((!args || args.efsFileSystemArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'efsFileSystemArn'");
             }
-            resourceInputs["accessPointArn"] = args?.accessPointArn;
-            resourceInputs["ec2Config"] = args?.ec2Config;
-            resourceInputs["efsFileSystemArn"] = args?.efsFileSystemArn;
-            resourceInputs["fileSystemAccessRoleArn"] = args?.fileSystemAccessRoleArn;
-            resourceInputs["inTransitEncryption"] = args?.inTransitEncryption;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["subdirectory"] = args?.subdirectory;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["accessPointArn"] = args ? args.accessPointArn : undefined;
+            resourceInputs["ec2Config"] = args ? args.ec2Config : undefined;
+            resourceInputs["efsFileSystemArn"] = args ? args.efsFileSystemArn : undefined;
+            resourceInputs["fileSystemAccessRoleArn"] = args ? args.fileSystemAccessRoleArn : undefined;
+            resourceInputs["inTransitEncryption"] = args ? args.inTransitEncryption : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["uri"] = undefined /*out*/;

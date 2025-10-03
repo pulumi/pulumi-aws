@@ -63,31 +63,31 @@ export class Connection extends pulumi.CustomResource {
     /**
      * ARN of the connection.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Name of the connection.
      */
-    declare public readonly connectionName: pulumi.Output<string>;
+    public readonly connectionName!: pulumi.Output<string>;
     /**
      * Source repository provider. Valid values: `GITHUB`.
      */
-    declare public readonly providerType: pulumi.Output<string>;
+    public readonly providerType!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Current state of the App Runner connection. When the state is `AVAILABLE`, you can use the connection to create an `aws.apprunner.Service` resource.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Connection resource with the given unique name, arguments, and options.
@@ -102,25 +102,25 @@ export class Connection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConnectionState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["connectionName"] = state?.connectionName;
-            resourceInputs["providerType"] = state?.providerType;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["connectionName"] = state ? state.connectionName : undefined;
+            resourceInputs["providerType"] = state ? state.providerType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ConnectionArgs | undefined;
-            if (args?.connectionName === undefined && !opts.urn) {
+            if ((!args || args.connectionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectionName'");
             }
-            if (args?.providerType === undefined && !opts.urn) {
+            if ((!args || args.providerType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'providerType'");
             }
-            resourceInputs["connectionName"] = args?.connectionName;
-            resourceInputs["providerType"] = args?.providerType;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["connectionName"] = args ? args.connectionName : undefined;
+            resourceInputs["providerType"] = args ? args.providerType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

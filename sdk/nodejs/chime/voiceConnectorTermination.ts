@@ -68,31 +68,31 @@ export class VoiceConnectorTermination extends pulumi.CustomResource {
     /**
      * The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
      */
-    declare public readonly callingRegions: pulumi.Output<string[]>;
+    public readonly callingRegions!: pulumi.Output<string[]>;
     /**
      * The IP addresses allowed to make calls, in CIDR format.
      */
-    declare public readonly cidrAllowLists: pulumi.Output<string[]>;
+    public readonly cidrAllowLists!: pulumi.Output<string[]>;
     /**
      * The limit on calls per second. Max value based on account service quota. Default value of `1`.
      */
-    declare public readonly cpsLimit: pulumi.Output<number | undefined>;
+    public readonly cpsLimit!: pulumi.Output<number | undefined>;
     /**
      * The default caller ID phone number.
      */
-    declare public readonly defaultPhoneNumber: pulumi.Output<string | undefined>;
+    public readonly defaultPhoneNumber!: pulumi.Output<string | undefined>;
     /**
      * When termination settings are disabled, outbound calls can not be made.
      */
-    declare public readonly disabled: pulumi.Output<boolean | undefined>;
+    public readonly disabled!: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The Amazon Chime Voice Connector ID.
      */
-    declare public readonly voiceConnectorId: pulumi.Output<string>;
+    public readonly voiceConnectorId!: pulumi.Output<string>;
 
     /**
      * Create a VoiceConnectorTermination resource with the given unique name, arguments, and options.
@@ -107,31 +107,31 @@ export class VoiceConnectorTermination extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VoiceConnectorTerminationState | undefined;
-            resourceInputs["callingRegions"] = state?.callingRegions;
-            resourceInputs["cidrAllowLists"] = state?.cidrAllowLists;
-            resourceInputs["cpsLimit"] = state?.cpsLimit;
-            resourceInputs["defaultPhoneNumber"] = state?.defaultPhoneNumber;
-            resourceInputs["disabled"] = state?.disabled;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["voiceConnectorId"] = state?.voiceConnectorId;
+            resourceInputs["callingRegions"] = state ? state.callingRegions : undefined;
+            resourceInputs["cidrAllowLists"] = state ? state.cidrAllowLists : undefined;
+            resourceInputs["cpsLimit"] = state ? state.cpsLimit : undefined;
+            resourceInputs["defaultPhoneNumber"] = state ? state.defaultPhoneNumber : undefined;
+            resourceInputs["disabled"] = state ? state.disabled : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["voiceConnectorId"] = state ? state.voiceConnectorId : undefined;
         } else {
             const args = argsOrState as VoiceConnectorTerminationArgs | undefined;
-            if (args?.callingRegions === undefined && !opts.urn) {
+            if ((!args || args.callingRegions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'callingRegions'");
             }
-            if (args?.cidrAllowLists === undefined && !opts.urn) {
+            if ((!args || args.cidrAllowLists === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cidrAllowLists'");
             }
-            if (args?.voiceConnectorId === undefined && !opts.urn) {
+            if ((!args || args.voiceConnectorId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'voiceConnectorId'");
             }
-            resourceInputs["callingRegions"] = args?.callingRegions;
-            resourceInputs["cidrAllowLists"] = args?.cidrAllowLists;
-            resourceInputs["cpsLimit"] = args?.cpsLimit;
-            resourceInputs["defaultPhoneNumber"] = args?.defaultPhoneNumber;
-            resourceInputs["disabled"] = args?.disabled;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["voiceConnectorId"] = args?.voiceConnectorId;
+            resourceInputs["callingRegions"] = args ? args.callingRegions : undefined;
+            resourceInputs["cidrAllowLists"] = args ? args.cidrAllowLists : undefined;
+            resourceInputs["cpsLimit"] = args ? args.cpsLimit : undefined;
+            resourceInputs["defaultPhoneNumber"] = args ? args.defaultPhoneNumber : undefined;
+            resourceInputs["disabled"] = args ? args.disabled : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["voiceConnectorId"] = args ? args.voiceConnectorId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VoiceConnectorTermination.__pulumiType, name, resourceInputs, opts);

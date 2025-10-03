@@ -69,109 +69,109 @@ export class ManagedUserPoolClient extends pulumi.CustomResource {
     /**
      * Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.access_token`.
      */
-    declare public readonly accessTokenValidity: pulumi.Output<number>;
+    public readonly accessTokenValidity!: pulumi.Output<number>;
     /**
      * List of allowed OAuth flows, including `code`, `implicit`, and `clientCredentials`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
      */
-    declare public readonly allowedOauthFlows: pulumi.Output<string[]>;
+    public readonly allowedOauthFlows!: pulumi.Output<string[]>;
     /**
      * Whether the client is allowed to use OAuth 2.0 features. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure the following arguments: `callbackUrls`, `logoutUrls`, `allowedOauthScopes` and `allowedOauthFlows`.
      */
-    declare public readonly allowedOauthFlowsUserPoolClient: pulumi.Output<boolean>;
+    public readonly allowedOauthFlowsUserPoolClient!: pulumi.Output<boolean>;
     /**
      * List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
      */
-    declare public readonly allowedOauthScopes: pulumi.Output<string[]>;
+    public readonly allowedOauthScopes!: pulumi.Output<string[]>;
     /**
      * Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
      */
-    declare public readonly analyticsConfiguration: pulumi.Output<outputs.cognito.ManagedUserPoolClientAnalyticsConfiguration | undefined>;
+    public readonly analyticsConfiguration!: pulumi.Output<outputs.cognito.ManagedUserPoolClientAnalyticsConfiguration | undefined>;
     /**
      * Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `authSessionValidity` are between `3` and `15`, with a default value of `3`.
      */
-    declare public readonly authSessionValidity: pulumi.Output<number>;
+    public readonly authSessionValidity!: pulumi.Output<number>;
     /**
      * List of allowed callback URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
      */
-    declare public readonly callbackUrls: pulumi.Output<string[]>;
+    public readonly callbackUrls!: pulumi.Output<string[]>;
     /**
      * Client secret of the user pool client.
      */
-    declare public /*out*/ readonly clientSecret: pulumi.Output<string>;
+    public /*out*/ readonly clientSecret!: pulumi.Output<string>;
     /**
      * Default redirect URI and must be included in the list of callback URLs.
      */
-    declare public readonly defaultRedirectUri: pulumi.Output<string>;
+    public readonly defaultRedirectUri!: pulumi.Output<string>;
     /**
      * Enables the propagation of additional user context data.
      */
-    declare public readonly enablePropagateAdditionalUserContextData: pulumi.Output<boolean>;
+    public readonly enablePropagateAdditionalUserContextData!: pulumi.Output<boolean>;
     /**
      * Enables or disables token revocation.
      */
-    declare public readonly enableTokenRevocation: pulumi.Output<boolean>;
+    public readonly enableTokenRevocation!: pulumi.Output<boolean>;
     /**
      * List of authentication flows. The available options include ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, and ALLOW_REFRESH_TOKEN_AUTH.
      */
-    declare public readonly explicitAuthFlows: pulumi.Output<string[]>;
+    public readonly explicitAuthFlows!: pulumi.Output<string[]>;
     /**
      * Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
      */
-    declare public readonly idTokenValidity: pulumi.Output<number>;
+    public readonly idTokenValidity!: pulumi.Output<number>;
     /**
      * List of allowed logout URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
      */
-    declare public readonly logoutUrls: pulumi.Output<string[]>;
+    public readonly logoutUrls!: pulumi.Output<string[]>;
     /**
      * Name of the user pool client.
      */
-    declare public /*out*/ readonly name: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Regular expression that matches the name of the existing User Pool Client to be managed. It must only match one User Pool Client.
      */
-    declare public readonly namePattern: pulumi.Output<string | undefined>;
+    public readonly namePattern!: pulumi.Output<string | undefined>;
     /**
      * String that matches the beginning of the name of the  existing User Pool Client to be managed. It must match only one User Pool Client.
      *
      * The following arguments are optional:
      */
-    declare public readonly namePrefix: pulumi.Output<string | undefined>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
      */
-    declare public readonly preventUserExistenceErrors: pulumi.Output<string>;
+    public readonly preventUserExistenceErrors!: pulumi.Output<string>;
     /**
      * List of user pool attributes that the application client can read from.
      */
-    declare public readonly readAttributes: pulumi.Output<string[]>;
+    public readonly readAttributes!: pulumi.Output<string[]>;
     /**
      * A block that specifies the configuration of refresh token rotation. Detailed below.
      */
-    declare public readonly refreshTokenRotation: pulumi.Output<outputs.cognito.ManagedUserPoolClientRefreshTokenRotation | undefined>;
+    public readonly refreshTokenRotation!: pulumi.Output<outputs.cognito.ManagedUserPoolClientRefreshTokenRotation | undefined>;
     /**
      * Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
      */
-    declare public readonly refreshTokenValidity: pulumi.Output<number>;
+    public readonly refreshTokenValidity!: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * List of provider names for the identity providers that are supported on this client. It uses the `providerName` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
      */
-    declare public readonly supportedIdentityProviders: pulumi.Output<string[]>;
+    public readonly supportedIdentityProviders!: pulumi.Output<string[]>;
     /**
      * Configuration block for representing the validity times in units. See details below. Detailed below.
      */
-    declare public readonly tokenValidityUnits: pulumi.Output<outputs.cognito.ManagedUserPoolClientTokenValidityUnits | undefined>;
+    public readonly tokenValidityUnits!: pulumi.Output<outputs.cognito.ManagedUserPoolClientTokenValidityUnits | undefined>;
     /**
      * User pool that the client belongs to.
      */
-    declare public readonly userPoolId: pulumi.Output<string>;
+    public readonly userPoolId!: pulumi.Output<string>;
     /**
      * List of user pool attributes that the application client can write to.
      */
-    declare public readonly writeAttributes: pulumi.Output<string[]>;
+    public readonly writeAttributes!: pulumi.Output<string[]>;
 
     /**
      * Create a ManagedUserPoolClient resource with the given unique name, arguments, and options.
@@ -186,61 +186,61 @@ export class ManagedUserPoolClient extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedUserPoolClientState | undefined;
-            resourceInputs["accessTokenValidity"] = state?.accessTokenValidity;
-            resourceInputs["allowedOauthFlows"] = state?.allowedOauthFlows;
-            resourceInputs["allowedOauthFlowsUserPoolClient"] = state?.allowedOauthFlowsUserPoolClient;
-            resourceInputs["allowedOauthScopes"] = state?.allowedOauthScopes;
-            resourceInputs["analyticsConfiguration"] = state?.analyticsConfiguration;
-            resourceInputs["authSessionValidity"] = state?.authSessionValidity;
-            resourceInputs["callbackUrls"] = state?.callbackUrls;
-            resourceInputs["clientSecret"] = state?.clientSecret;
-            resourceInputs["defaultRedirectUri"] = state?.defaultRedirectUri;
-            resourceInputs["enablePropagateAdditionalUserContextData"] = state?.enablePropagateAdditionalUserContextData;
-            resourceInputs["enableTokenRevocation"] = state?.enableTokenRevocation;
-            resourceInputs["explicitAuthFlows"] = state?.explicitAuthFlows;
-            resourceInputs["idTokenValidity"] = state?.idTokenValidity;
-            resourceInputs["logoutUrls"] = state?.logoutUrls;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["namePattern"] = state?.namePattern;
-            resourceInputs["namePrefix"] = state?.namePrefix;
-            resourceInputs["preventUserExistenceErrors"] = state?.preventUserExistenceErrors;
-            resourceInputs["readAttributes"] = state?.readAttributes;
-            resourceInputs["refreshTokenRotation"] = state?.refreshTokenRotation;
-            resourceInputs["refreshTokenValidity"] = state?.refreshTokenValidity;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["supportedIdentityProviders"] = state?.supportedIdentityProviders;
-            resourceInputs["tokenValidityUnits"] = state?.tokenValidityUnits;
-            resourceInputs["userPoolId"] = state?.userPoolId;
-            resourceInputs["writeAttributes"] = state?.writeAttributes;
+            resourceInputs["accessTokenValidity"] = state ? state.accessTokenValidity : undefined;
+            resourceInputs["allowedOauthFlows"] = state ? state.allowedOauthFlows : undefined;
+            resourceInputs["allowedOauthFlowsUserPoolClient"] = state ? state.allowedOauthFlowsUserPoolClient : undefined;
+            resourceInputs["allowedOauthScopes"] = state ? state.allowedOauthScopes : undefined;
+            resourceInputs["analyticsConfiguration"] = state ? state.analyticsConfiguration : undefined;
+            resourceInputs["authSessionValidity"] = state ? state.authSessionValidity : undefined;
+            resourceInputs["callbackUrls"] = state ? state.callbackUrls : undefined;
+            resourceInputs["clientSecret"] = state ? state.clientSecret : undefined;
+            resourceInputs["defaultRedirectUri"] = state ? state.defaultRedirectUri : undefined;
+            resourceInputs["enablePropagateAdditionalUserContextData"] = state ? state.enablePropagateAdditionalUserContextData : undefined;
+            resourceInputs["enableTokenRevocation"] = state ? state.enableTokenRevocation : undefined;
+            resourceInputs["explicitAuthFlows"] = state ? state.explicitAuthFlows : undefined;
+            resourceInputs["idTokenValidity"] = state ? state.idTokenValidity : undefined;
+            resourceInputs["logoutUrls"] = state ? state.logoutUrls : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePattern"] = state ? state.namePattern : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["preventUserExistenceErrors"] = state ? state.preventUserExistenceErrors : undefined;
+            resourceInputs["readAttributes"] = state ? state.readAttributes : undefined;
+            resourceInputs["refreshTokenRotation"] = state ? state.refreshTokenRotation : undefined;
+            resourceInputs["refreshTokenValidity"] = state ? state.refreshTokenValidity : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["supportedIdentityProviders"] = state ? state.supportedIdentityProviders : undefined;
+            resourceInputs["tokenValidityUnits"] = state ? state.tokenValidityUnits : undefined;
+            resourceInputs["userPoolId"] = state ? state.userPoolId : undefined;
+            resourceInputs["writeAttributes"] = state ? state.writeAttributes : undefined;
         } else {
             const args = argsOrState as ManagedUserPoolClientArgs | undefined;
-            if (args?.userPoolId === undefined && !opts.urn) {
+            if ((!args || args.userPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            resourceInputs["accessTokenValidity"] = args?.accessTokenValidity;
-            resourceInputs["allowedOauthFlows"] = args?.allowedOauthFlows;
-            resourceInputs["allowedOauthFlowsUserPoolClient"] = args?.allowedOauthFlowsUserPoolClient;
-            resourceInputs["allowedOauthScopes"] = args?.allowedOauthScopes;
-            resourceInputs["analyticsConfiguration"] = args?.analyticsConfiguration;
-            resourceInputs["authSessionValidity"] = args?.authSessionValidity;
-            resourceInputs["callbackUrls"] = args?.callbackUrls;
-            resourceInputs["defaultRedirectUri"] = args?.defaultRedirectUri;
-            resourceInputs["enablePropagateAdditionalUserContextData"] = args?.enablePropagateAdditionalUserContextData;
-            resourceInputs["enableTokenRevocation"] = args?.enableTokenRevocation;
-            resourceInputs["explicitAuthFlows"] = args?.explicitAuthFlows;
-            resourceInputs["idTokenValidity"] = args?.idTokenValidity;
-            resourceInputs["logoutUrls"] = args?.logoutUrls;
-            resourceInputs["namePattern"] = args?.namePattern;
-            resourceInputs["namePrefix"] = args?.namePrefix;
-            resourceInputs["preventUserExistenceErrors"] = args?.preventUserExistenceErrors;
-            resourceInputs["readAttributes"] = args?.readAttributes;
-            resourceInputs["refreshTokenRotation"] = args?.refreshTokenRotation;
-            resourceInputs["refreshTokenValidity"] = args?.refreshTokenValidity;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["supportedIdentityProviders"] = args?.supportedIdentityProviders;
-            resourceInputs["tokenValidityUnits"] = args?.tokenValidityUnits;
-            resourceInputs["userPoolId"] = args?.userPoolId;
-            resourceInputs["writeAttributes"] = args?.writeAttributes;
+            resourceInputs["accessTokenValidity"] = args ? args.accessTokenValidity : undefined;
+            resourceInputs["allowedOauthFlows"] = args ? args.allowedOauthFlows : undefined;
+            resourceInputs["allowedOauthFlowsUserPoolClient"] = args ? args.allowedOauthFlowsUserPoolClient : undefined;
+            resourceInputs["allowedOauthScopes"] = args ? args.allowedOauthScopes : undefined;
+            resourceInputs["analyticsConfiguration"] = args ? args.analyticsConfiguration : undefined;
+            resourceInputs["authSessionValidity"] = args ? args.authSessionValidity : undefined;
+            resourceInputs["callbackUrls"] = args ? args.callbackUrls : undefined;
+            resourceInputs["defaultRedirectUri"] = args ? args.defaultRedirectUri : undefined;
+            resourceInputs["enablePropagateAdditionalUserContextData"] = args ? args.enablePropagateAdditionalUserContextData : undefined;
+            resourceInputs["enableTokenRevocation"] = args ? args.enableTokenRevocation : undefined;
+            resourceInputs["explicitAuthFlows"] = args ? args.explicitAuthFlows : undefined;
+            resourceInputs["idTokenValidity"] = args ? args.idTokenValidity : undefined;
+            resourceInputs["logoutUrls"] = args ? args.logoutUrls : undefined;
+            resourceInputs["namePattern"] = args ? args.namePattern : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["preventUserExistenceErrors"] = args ? args.preventUserExistenceErrors : undefined;
+            resourceInputs["readAttributes"] = args ? args.readAttributes : undefined;
+            resourceInputs["refreshTokenRotation"] = args ? args.refreshTokenRotation : undefined;
+            resourceInputs["refreshTokenValidity"] = args ? args.refreshTokenValidity : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["supportedIdentityProviders"] = args ? args.supportedIdentityProviders : undefined;
+            resourceInputs["tokenValidityUnits"] = args ? args.tokenValidityUnits : undefined;
+            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
+            resourceInputs["writeAttributes"] = args ? args.writeAttributes : undefined;
             resourceInputs["clientSecret"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         }

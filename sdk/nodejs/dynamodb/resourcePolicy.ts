@@ -66,25 +66,25 @@ export class ResourcePolicy extends pulumi.CustomResource {
     /**
      * Set this parameter to true to confirm that you want to remove your permissions to change the policy of this resource in the future.
      */
-    declare public readonly confirmRemoveSelfResourceAccess: pulumi.Output<boolean>;
+    public readonly confirmRemoveSelfResourceAccess!: pulumi.Output<boolean>;
     /**
      * n Amazon Web Services resource-based policy document in JSON format. The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that you should keep in mind while attaching a resource-based policy, see Resource-based policy considerations.
      *
      * The following arguments are optional:
      */
-    declare public readonly policy: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams. You can control index permissions using the base table's policy. To specify the same permission level for your table and its indexes, you can provide both the table and index Amazon Resource Name (ARN)s in the Resource field of a given Statement in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple Statement fields in your policy document.
      */
-    declare public readonly resourceArn: pulumi.Output<string>;
+    public readonly resourceArn!: pulumi.Output<string>;
     /**
      * A unique string that represents the revision ID of the policy. If you are comparing revision IDs, make sure to always use string comparison logic.
      */
-    declare public /*out*/ readonly revisionId: pulumi.Output<string>;
+    public /*out*/ readonly revisionId!: pulumi.Output<string>;
 
     /**
      * Create a ResourcePolicy resource with the given unique name, arguments, and options.
@@ -99,23 +99,23 @@ export class ResourcePolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourcePolicyState | undefined;
-            resourceInputs["confirmRemoveSelfResourceAccess"] = state?.confirmRemoveSelfResourceAccess;
-            resourceInputs["policy"] = state?.policy;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceArn"] = state?.resourceArn;
-            resourceInputs["revisionId"] = state?.revisionId;
+            resourceInputs["confirmRemoveSelfResourceAccess"] = state ? state.confirmRemoveSelfResourceAccess : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
+            resourceInputs["revisionId"] = state ? state.revisionId : undefined;
         } else {
             const args = argsOrState as ResourcePolicyArgs | undefined;
-            if (args?.policy === undefined && !opts.urn) {
+            if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            if (args?.resourceArn === undefined && !opts.urn) {
+            if ((!args || args.resourceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            resourceInputs["confirmRemoveSelfResourceAccess"] = args?.confirmRemoveSelfResourceAccess;
-            resourceInputs["policy"] = args?.policy;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resourceArn"] = args?.resourceArn;
+            resourceInputs["confirmRemoveSelfResourceAccess"] = args ? args.confirmRemoveSelfResourceAccess : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
             resourceInputs["revisionId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

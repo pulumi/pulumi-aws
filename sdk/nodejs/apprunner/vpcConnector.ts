@@ -71,39 +71,39 @@ export class VpcConnector extends pulumi.CustomResource {
     /**
      * ARN of VPC connector.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
      */
-    declare public readonly securityGroups: pulumi.Output<string[]>;
+    public readonly securityGroups!: pulumi.Output<string[]>;
     /**
      * Current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can't be used. Inactive connector revisions are permanently removed some time after they are deleted.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
      */
-    declare public readonly subnets: pulumi.Output<string[]>;
+    public readonly subnets!: pulumi.Output<string[]>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Name for the VPC connector.
      */
-    declare public readonly vpcConnectorName: pulumi.Output<string>;
+    public readonly vpcConnectorName!: pulumi.Output<string>;
     /**
      * The revision of VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
      */
-    declare public /*out*/ readonly vpcConnectorRevision: pulumi.Output<number>;
+    public /*out*/ readonly vpcConnectorRevision!: pulumi.Output<number>;
 
     /**
      * Create a VpcConnector resource with the given unique name, arguments, and options.
@@ -118,31 +118,31 @@ export class VpcConnector extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcConnectorState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["securityGroups"] = state?.securityGroups;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["subnets"] = state?.subnets;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["vpcConnectorName"] = state?.vpcConnectorName;
-            resourceInputs["vpcConnectorRevision"] = state?.vpcConnectorRevision;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["securityGroups"] = state ? state.securityGroups : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["subnets"] = state ? state.subnets : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcConnectorName"] = state ? state.vpcConnectorName : undefined;
+            resourceInputs["vpcConnectorRevision"] = state ? state.vpcConnectorRevision : undefined;
         } else {
             const args = argsOrState as VpcConnectorArgs | undefined;
-            if (args?.securityGroups === undefined && !opts.urn) {
+            if ((!args || args.securityGroups === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'securityGroups'");
             }
-            if (args?.subnets === undefined && !opts.urn) {
+            if ((!args || args.subnets === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnets'");
             }
-            if (args?.vpcConnectorName === undefined && !opts.urn) {
+            if ((!args || args.vpcConnectorName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcConnectorName'");
             }
-            resourceInputs["region"] = args?.region;
-            resourceInputs["securityGroups"] = args?.securityGroups;
-            resourceInputs["subnets"] = args?.subnets;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["vpcConnectorName"] = args?.vpcConnectorName;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
+            resourceInputs["subnets"] = args ? args.subnets : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcConnectorName"] = args ? args.vpcConnectorName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

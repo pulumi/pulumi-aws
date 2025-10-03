@@ -85,23 +85,23 @@ export class VaultLock extends pulumi.CustomResource {
     /**
      * Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
      */
-    declare public readonly completeLock: pulumi.Output<boolean>;
+    public readonly completeLock!: pulumi.Output<boolean>;
     /**
      * Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `completeLock` being set to `true`.
      */
-    declare public readonly ignoreDeletionError: pulumi.Output<boolean | undefined>;
+    public readonly ignoreDeletionError!: pulumi.Output<boolean | undefined>;
     /**
      * JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
      */
-    declare public readonly policy: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The name of the Glacier Vault.
      */
-    declare public readonly vaultName: pulumi.Output<string>;
+    public readonly vaultName!: pulumi.Output<string>;
 
     /**
      * Create a VaultLock resource with the given unique name, arguments, and options.
@@ -116,27 +116,27 @@ export class VaultLock extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VaultLockState | undefined;
-            resourceInputs["completeLock"] = state?.completeLock;
-            resourceInputs["ignoreDeletionError"] = state?.ignoreDeletionError;
-            resourceInputs["policy"] = state?.policy;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["vaultName"] = state?.vaultName;
+            resourceInputs["completeLock"] = state ? state.completeLock : undefined;
+            resourceInputs["ignoreDeletionError"] = state ? state.ignoreDeletionError : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["vaultName"] = state ? state.vaultName : undefined;
         } else {
             const args = argsOrState as VaultLockArgs | undefined;
-            if (args?.completeLock === undefined && !opts.urn) {
+            if ((!args || args.completeLock === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'completeLock'");
             }
-            if (args?.policy === undefined && !opts.urn) {
+            if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            if (args?.vaultName === undefined && !opts.urn) {
+            if ((!args || args.vaultName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vaultName'");
             }
-            resourceInputs["completeLock"] = args?.completeLock;
-            resourceInputs["ignoreDeletionError"] = args?.ignoreDeletionError;
-            resourceInputs["policy"] = args?.policy;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["vaultName"] = args?.vaultName;
+            resourceInputs["completeLock"] = args ? args.completeLock : undefined;
+            resourceInputs["ignoreDeletionError"] = args ? args.ignoreDeletionError : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["vaultName"] = args ? args.vaultName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VaultLock.__pulumiType, name, resourceInputs, opts);

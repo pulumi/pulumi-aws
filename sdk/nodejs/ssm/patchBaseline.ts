@@ -230,73 +230,73 @@ export class PatchBaseline extends pulumi.CustomResource {
     /**
      * Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approvalRule` below.
      */
-    declare public readonly approvalRules: pulumi.Output<outputs.ssm.PatchBaselineApprovalRule[] | undefined>;
+    public readonly approvalRules!: pulumi.Output<outputs.ssm.PatchBaselineApprovalRule[] | undefined>;
     /**
      * List of explicitly approved patches for the baseline. Cannot be specified with `approvalRule`.
      */
-    declare public readonly approvedPatches: pulumi.Output<string[] | undefined>;
+    public readonly approvedPatches!: pulumi.Output<string[] | undefined>;
     /**
      * Compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
      */
-    declare public readonly approvedPatchesComplianceLevel: pulumi.Output<string | undefined>;
+    public readonly approvedPatchesComplianceLevel!: pulumi.Output<string | undefined>;
     /**
      * Whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
      */
-    declare public readonly approvedPatchesEnableNonSecurity: pulumi.Output<boolean | undefined>;
+    public readonly approvedPatchesEnableNonSecurity!: pulumi.Output<boolean | undefined>;
     /**
      * ARN of the baseline.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only. Valid values are `COMPLIANT`, `NON_COMPLIANT`.
      */
-    declare public readonly availableSecurityUpdatesComplianceStatus: pulumi.Output<string>;
+    public readonly availableSecurityUpdatesComplianceStatus!: pulumi.Output<string>;
     /**
      * Description of the patch baseline.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
      */
-    declare public readonly globalFilters: pulumi.Output<outputs.ssm.PatchBaselineGlobalFilter[] | undefined>;
+    public readonly globalFilters!: pulumi.Output<outputs.ssm.PatchBaselineGlobalFilter[] | undefined>;
     /**
      * JSON definition of the baseline.
      */
-    declare public /*out*/ readonly json: pulumi.Output<string>;
+    public /*out*/ readonly json!: pulumi.Output<string>;
     /**
      * Name of the patch baseline.
      *
      * The following arguments are optional:
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Operating system the patch baseline applies to. Valid values are `ALMA_LINUX`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `AMAZON_LINUX_2022`, `AMAZON_LINUX_2023`, `CENTOS`, `DEBIAN`, `MACOS`, `ORACLE_LINUX`, `RASPBIAN`, `REDHAT_ENTERPRISE_LINUX`, `ROCKY_LINUX`, `SUSE`, `UBUNTU`, and `WINDOWS`. The default value is `WINDOWS`.
      */
-    declare public readonly operatingSystem: pulumi.Output<string | undefined>;
+    public readonly operatingSystem!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * List of rejected patches.
      */
-    declare public readonly rejectedPatches: pulumi.Output<string[] | undefined>;
+    public readonly rejectedPatches!: pulumi.Output<string[] | undefined>;
     /**
      * Action for Patch Manager to take on patches included in the `rejectedPatches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
      */
-    declare public readonly rejectedPatchesAction: pulumi.Output<string>;
+    public readonly rejectedPatchesAction!: pulumi.Output<string>;
     /**
      * Configuration block with alternate sources for patches. Applies to Linux instances only. See `source` below.
      */
-    declare public readonly sources: pulumi.Output<outputs.ssm.PatchBaselineSource[] | undefined>;
+    public readonly sources!: pulumi.Output<outputs.ssm.PatchBaselineSource[] | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a PatchBaseline resource with the given unique name, arguments, and options.
@@ -311,39 +311,39 @@ export class PatchBaseline extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PatchBaselineState | undefined;
-            resourceInputs["approvalRules"] = state?.approvalRules;
-            resourceInputs["approvedPatches"] = state?.approvedPatches;
-            resourceInputs["approvedPatchesComplianceLevel"] = state?.approvedPatchesComplianceLevel;
-            resourceInputs["approvedPatchesEnableNonSecurity"] = state?.approvedPatchesEnableNonSecurity;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["availableSecurityUpdatesComplianceStatus"] = state?.availableSecurityUpdatesComplianceStatus;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["globalFilters"] = state?.globalFilters;
-            resourceInputs["json"] = state?.json;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["operatingSystem"] = state?.operatingSystem;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["rejectedPatches"] = state?.rejectedPatches;
-            resourceInputs["rejectedPatchesAction"] = state?.rejectedPatchesAction;
-            resourceInputs["sources"] = state?.sources;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["approvalRules"] = state ? state.approvalRules : undefined;
+            resourceInputs["approvedPatches"] = state ? state.approvedPatches : undefined;
+            resourceInputs["approvedPatchesComplianceLevel"] = state ? state.approvedPatchesComplianceLevel : undefined;
+            resourceInputs["approvedPatchesEnableNonSecurity"] = state ? state.approvedPatchesEnableNonSecurity : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["availableSecurityUpdatesComplianceStatus"] = state ? state.availableSecurityUpdatesComplianceStatus : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["globalFilters"] = state ? state.globalFilters : undefined;
+            resourceInputs["json"] = state ? state.json : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["operatingSystem"] = state ? state.operatingSystem : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["rejectedPatches"] = state ? state.rejectedPatches : undefined;
+            resourceInputs["rejectedPatchesAction"] = state ? state.rejectedPatchesAction : undefined;
+            resourceInputs["sources"] = state ? state.sources : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as PatchBaselineArgs | undefined;
-            resourceInputs["approvalRules"] = args?.approvalRules;
-            resourceInputs["approvedPatches"] = args?.approvedPatches;
-            resourceInputs["approvedPatchesComplianceLevel"] = args?.approvedPatchesComplianceLevel;
-            resourceInputs["approvedPatchesEnableNonSecurity"] = args?.approvedPatchesEnableNonSecurity;
-            resourceInputs["availableSecurityUpdatesComplianceStatus"] = args?.availableSecurityUpdatesComplianceStatus;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["globalFilters"] = args?.globalFilters;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["operatingSystem"] = args?.operatingSystem;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["rejectedPatches"] = args?.rejectedPatches;
-            resourceInputs["rejectedPatchesAction"] = args?.rejectedPatchesAction;
-            resourceInputs["sources"] = args?.sources;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["approvalRules"] = args ? args.approvalRules : undefined;
+            resourceInputs["approvedPatches"] = args ? args.approvedPatches : undefined;
+            resourceInputs["approvedPatchesComplianceLevel"] = args ? args.approvedPatchesComplianceLevel : undefined;
+            resourceInputs["approvedPatchesEnableNonSecurity"] = args ? args.approvedPatchesEnableNonSecurity : undefined;
+            resourceInputs["availableSecurityUpdatesComplianceStatus"] = args ? args.availableSecurityUpdatesComplianceStatus : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["globalFilters"] = args ? args.globalFilters : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["operatingSystem"] = args ? args.operatingSystem : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["rejectedPatches"] = args ? args.rejectedPatches : undefined;
+            resourceInputs["rejectedPatchesAction"] = args ? args.rejectedPatchesAction : undefined;
+            resourceInputs["sources"] = args ? args.sources : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["json"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

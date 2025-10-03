@@ -117,59 +117,59 @@ export class BudgetAction extends pulumi.CustomResource {
     /**
      * The ID of the target account for budget. Will use current user's accountId by default if omitted.
      */
-    declare public readonly accountId: pulumi.Output<string>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * The id of the budget action.
      */
-    declare public /*out*/ readonly actionId: pulumi.Output<string>;
+    public /*out*/ readonly actionId!: pulumi.Output<string>;
     /**
      * The trigger threshold of the action. See Action Threshold.
      */
-    declare public readonly actionThreshold: pulumi.Output<outputs.budgets.BudgetActionActionThreshold>;
+    public readonly actionThreshold!: pulumi.Output<outputs.budgets.BudgetActionActionThreshold>;
     /**
      * The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
      */
-    declare public readonly actionType: pulumi.Output<string>;
+    public readonly actionType!: pulumi.Output<string>;
     /**
      * This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
      */
-    declare public readonly approvalModel: pulumi.Output<string>;
+    public readonly approvalModel!: pulumi.Output<string>;
     /**
      * The ARN of the budget action.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name of a budget.
      */
-    declare public readonly budgetName: pulumi.Output<string>;
+    public readonly budgetName!: pulumi.Output<string>;
     /**
      * Specifies all of the type-specific parameters. See Definition.
      */
-    declare public readonly definition: pulumi.Output<outputs.budgets.BudgetActionDefinition>;
+    public readonly definition!: pulumi.Output<outputs.budgets.BudgetActionDefinition>;
     /**
      * The role passed for action execution and reversion. Roles and actions must be in the same account.
      */
-    declare public readonly executionRoleArn: pulumi.Output<string>;
+    public readonly executionRoleArn!: pulumi.Output<string>;
     /**
      * The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
      */
-    declare public readonly notificationType: pulumi.Output<string>;
+    public readonly notificationType!: pulumi.Output<string>;
     /**
      * The status of the budget action.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * A list of subscribers. See Subscriber.
      */
-    declare public readonly subscribers: pulumi.Output<outputs.budgets.BudgetActionSubscriber[]>;
+    public readonly subscribers!: pulumi.Output<outputs.budgets.BudgetActionSubscriber[]>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a BudgetAction resource with the given unique name, arguments, and options.
@@ -184,56 +184,56 @@ export class BudgetAction extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BudgetActionState | undefined;
-            resourceInputs["accountId"] = state?.accountId;
-            resourceInputs["actionId"] = state?.actionId;
-            resourceInputs["actionThreshold"] = state?.actionThreshold;
-            resourceInputs["actionType"] = state?.actionType;
-            resourceInputs["approvalModel"] = state?.approvalModel;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["budgetName"] = state?.budgetName;
-            resourceInputs["definition"] = state?.definition;
-            resourceInputs["executionRoleArn"] = state?.executionRoleArn;
-            resourceInputs["notificationType"] = state?.notificationType;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["subscribers"] = state?.subscribers;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["actionId"] = state ? state.actionId : undefined;
+            resourceInputs["actionThreshold"] = state ? state.actionThreshold : undefined;
+            resourceInputs["actionType"] = state ? state.actionType : undefined;
+            resourceInputs["approvalModel"] = state ? state.approvalModel : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["budgetName"] = state ? state.budgetName : undefined;
+            resourceInputs["definition"] = state ? state.definition : undefined;
+            resourceInputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
+            resourceInputs["notificationType"] = state ? state.notificationType : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["subscribers"] = state ? state.subscribers : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as BudgetActionArgs | undefined;
-            if (args?.actionThreshold === undefined && !opts.urn) {
+            if ((!args || args.actionThreshold === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'actionThreshold'");
             }
-            if (args?.actionType === undefined && !opts.urn) {
+            if ((!args || args.actionType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'actionType'");
             }
-            if (args?.approvalModel === undefined && !opts.urn) {
+            if ((!args || args.approvalModel === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'approvalModel'");
             }
-            if (args?.budgetName === undefined && !opts.urn) {
+            if ((!args || args.budgetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'budgetName'");
             }
-            if (args?.definition === undefined && !opts.urn) {
+            if ((!args || args.definition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'definition'");
             }
-            if (args?.executionRoleArn === undefined && !opts.urn) {
+            if ((!args || args.executionRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'executionRoleArn'");
             }
-            if (args?.notificationType === undefined && !opts.urn) {
+            if ((!args || args.notificationType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'notificationType'");
             }
-            if (args?.subscribers === undefined && !opts.urn) {
+            if ((!args || args.subscribers === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subscribers'");
             }
-            resourceInputs["accountId"] = args?.accountId;
-            resourceInputs["actionThreshold"] = args?.actionThreshold;
-            resourceInputs["actionType"] = args?.actionType;
-            resourceInputs["approvalModel"] = args?.approvalModel;
-            resourceInputs["budgetName"] = args?.budgetName;
-            resourceInputs["definition"] = args?.definition;
-            resourceInputs["executionRoleArn"] = args?.executionRoleArn;
-            resourceInputs["notificationType"] = args?.notificationType;
-            resourceInputs["subscribers"] = args?.subscribers;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["actionThreshold"] = args ? args.actionThreshold : undefined;
+            resourceInputs["actionType"] = args ? args.actionType : undefined;
+            resourceInputs["approvalModel"] = args ? args.approvalModel : undefined;
+            resourceInputs["budgetName"] = args ? args.budgetName : undefined;
+            resourceInputs["definition"] = args ? args.definition : undefined;
+            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
+            resourceInputs["notificationType"] = args ? args.notificationType : undefined;
+            resourceInputs["subscribers"] = args ? args.subscribers : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["actionId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

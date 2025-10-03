@@ -99,97 +99,97 @@ export class Vpc extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of VPC
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`
      */
-    declare public readonly assignGeneratedIpv6CidrBlock: pulumi.Output<boolean | undefined>;
+    public readonly assignGeneratedIpv6CidrBlock!: pulumi.Output<boolean | undefined>;
     /**
      * The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4NetmaskLength`.
      */
-    declare public readonly cidrBlock: pulumi.Output<string>;
+    public readonly cidrBlock!: pulumi.Output<string>;
     /**
      * The ID of the network ACL created by default on VPC creation
      */
-    declare public /*out*/ readonly defaultNetworkAclId: pulumi.Output<string>;
+    public /*out*/ readonly defaultNetworkAclId!: pulumi.Output<string>;
     /**
      * The ID of the route table created by default on VPC creation
      */
-    declare public /*out*/ readonly defaultRouteTableId: pulumi.Output<string>;
+    public /*out*/ readonly defaultRouteTableId!: pulumi.Output<string>;
     /**
      * The ID of the security group created by default on VPC creation
      */
-    declare public /*out*/ readonly defaultSecurityGroupId: pulumi.Output<string>;
+    public /*out*/ readonly defaultSecurityGroupId!: pulumi.Output<string>;
     /**
      * DHCP options id of the desired VPC.
      */
-    declare public /*out*/ readonly dhcpOptionsId: pulumi.Output<string>;
+    public /*out*/ readonly dhcpOptionsId!: pulumi.Output<string>;
     /**
      * A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
      */
-    declare public readonly enableDnsHostnames: pulumi.Output<boolean>;
+    public readonly enableDnsHostnames!: pulumi.Output<boolean>;
     /**
      * A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
      */
-    declare public readonly enableDnsSupport: pulumi.Output<boolean | undefined>;
+    public readonly enableDnsSupport!: pulumi.Output<boolean | undefined>;
     /**
      * Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
      */
-    declare public readonly enableNetworkAddressUsageMetrics: pulumi.Output<boolean>;
+    public readonly enableNetworkAddressUsageMetrics!: pulumi.Output<boolean>;
     /**
      * A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
      */
-    declare public readonly instanceTenancy: pulumi.Output<string | undefined>;
+    public readonly instanceTenancy!: pulumi.Output<string | undefined>;
     /**
      * The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
      */
-    declare public readonly ipv4IpamPoolId: pulumi.Output<string | undefined>;
+    public readonly ipv4IpamPoolId!: pulumi.Output<string | undefined>;
     /**
      * The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
      */
-    declare public readonly ipv4NetmaskLength: pulumi.Output<number | undefined>;
+    public readonly ipv4NetmaskLength!: pulumi.Output<number | undefined>;
     /**
      * The association ID for the IPv6 CIDR block.
      */
-    declare public /*out*/ readonly ipv6AssociationId: pulumi.Output<string>;
+    public /*out*/ readonly ipv6AssociationId!: pulumi.Output<string>;
     /**
      * IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6NetmaskLength`.
      */
-    declare public readonly ipv6CidrBlock: pulumi.Output<string>;
+    public readonly ipv6CidrBlock!: pulumi.Output<string>;
     /**
      * By default when an IPv6 CIDR is assigned to a VPC a default ipv6CidrBlockNetworkBorderGroup will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
      */
-    declare public readonly ipv6CidrBlockNetworkBorderGroup: pulumi.Output<string>;
+    public readonly ipv6CidrBlockNetworkBorderGroup!: pulumi.Output<string>;
     /**
      * IPAM Pool ID for a IPv6 pool. Conflicts with `assignGeneratedIpv6CidrBlock`.
      */
-    declare public readonly ipv6IpamPoolId: pulumi.Output<string | undefined>;
+    public readonly ipv6IpamPoolId!: pulumi.Output<string | undefined>;
     /**
      * Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values are from `44` to `60` in increments of 4.
      */
-    declare public readonly ipv6NetmaskLength: pulumi.Output<number | undefined>;
+    public readonly ipv6NetmaskLength!: pulumi.Output<number | undefined>;
     /**
      * The ID of the main route table associated with
      * this VPC. Note that you can change a VPC's main route table by using an
      * `aws.ec2.MainRouteTableAssociation`.
      */
-    declare public /*out*/ readonly mainRouteTableId: pulumi.Output<string>;
+    public /*out*/ readonly mainRouteTableId!: pulumi.Output<string>;
     /**
      * The ID of the AWS account that owns the VPC.
      */
-    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Vpc resource with the given unique name, arguments, and options.
@@ -204,45 +204,45 @@ export class Vpc extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["assignGeneratedIpv6CidrBlock"] = state?.assignGeneratedIpv6CidrBlock;
-            resourceInputs["cidrBlock"] = state?.cidrBlock;
-            resourceInputs["defaultNetworkAclId"] = state?.defaultNetworkAclId;
-            resourceInputs["defaultRouteTableId"] = state?.defaultRouteTableId;
-            resourceInputs["defaultSecurityGroupId"] = state?.defaultSecurityGroupId;
-            resourceInputs["dhcpOptionsId"] = state?.dhcpOptionsId;
-            resourceInputs["enableDnsHostnames"] = state?.enableDnsHostnames;
-            resourceInputs["enableDnsSupport"] = state?.enableDnsSupport;
-            resourceInputs["enableNetworkAddressUsageMetrics"] = state?.enableNetworkAddressUsageMetrics;
-            resourceInputs["instanceTenancy"] = state?.instanceTenancy;
-            resourceInputs["ipv4IpamPoolId"] = state?.ipv4IpamPoolId;
-            resourceInputs["ipv4NetmaskLength"] = state?.ipv4NetmaskLength;
-            resourceInputs["ipv6AssociationId"] = state?.ipv6AssociationId;
-            resourceInputs["ipv6CidrBlock"] = state?.ipv6CidrBlock;
-            resourceInputs["ipv6CidrBlockNetworkBorderGroup"] = state?.ipv6CidrBlockNetworkBorderGroup;
-            resourceInputs["ipv6IpamPoolId"] = state?.ipv6IpamPoolId;
-            resourceInputs["ipv6NetmaskLength"] = state?.ipv6NetmaskLength;
-            resourceInputs["mainRouteTableId"] = state?.mainRouteTableId;
-            resourceInputs["ownerId"] = state?.ownerId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["assignGeneratedIpv6CidrBlock"] = state ? state.assignGeneratedIpv6CidrBlock : undefined;
+            resourceInputs["cidrBlock"] = state ? state.cidrBlock : undefined;
+            resourceInputs["defaultNetworkAclId"] = state ? state.defaultNetworkAclId : undefined;
+            resourceInputs["defaultRouteTableId"] = state ? state.defaultRouteTableId : undefined;
+            resourceInputs["defaultSecurityGroupId"] = state ? state.defaultSecurityGroupId : undefined;
+            resourceInputs["dhcpOptionsId"] = state ? state.dhcpOptionsId : undefined;
+            resourceInputs["enableDnsHostnames"] = state ? state.enableDnsHostnames : undefined;
+            resourceInputs["enableDnsSupport"] = state ? state.enableDnsSupport : undefined;
+            resourceInputs["enableNetworkAddressUsageMetrics"] = state ? state.enableNetworkAddressUsageMetrics : undefined;
+            resourceInputs["instanceTenancy"] = state ? state.instanceTenancy : undefined;
+            resourceInputs["ipv4IpamPoolId"] = state ? state.ipv4IpamPoolId : undefined;
+            resourceInputs["ipv4NetmaskLength"] = state ? state.ipv4NetmaskLength : undefined;
+            resourceInputs["ipv6AssociationId"] = state ? state.ipv6AssociationId : undefined;
+            resourceInputs["ipv6CidrBlock"] = state ? state.ipv6CidrBlock : undefined;
+            resourceInputs["ipv6CidrBlockNetworkBorderGroup"] = state ? state.ipv6CidrBlockNetworkBorderGroup : undefined;
+            resourceInputs["ipv6IpamPoolId"] = state ? state.ipv6IpamPoolId : undefined;
+            resourceInputs["ipv6NetmaskLength"] = state ? state.ipv6NetmaskLength : undefined;
+            resourceInputs["mainRouteTableId"] = state ? state.mainRouteTableId : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as VpcArgs | undefined;
-            resourceInputs["assignGeneratedIpv6CidrBlock"] = args?.assignGeneratedIpv6CidrBlock;
-            resourceInputs["cidrBlock"] = args?.cidrBlock;
-            resourceInputs["enableDnsHostnames"] = args?.enableDnsHostnames;
-            resourceInputs["enableDnsSupport"] = args?.enableDnsSupport;
-            resourceInputs["enableNetworkAddressUsageMetrics"] = args?.enableNetworkAddressUsageMetrics;
-            resourceInputs["instanceTenancy"] = args?.instanceTenancy;
-            resourceInputs["ipv4IpamPoolId"] = args?.ipv4IpamPoolId;
-            resourceInputs["ipv4NetmaskLength"] = args?.ipv4NetmaskLength;
-            resourceInputs["ipv6CidrBlock"] = args?.ipv6CidrBlock;
-            resourceInputs["ipv6CidrBlockNetworkBorderGroup"] = args?.ipv6CidrBlockNetworkBorderGroup;
-            resourceInputs["ipv6IpamPoolId"] = args?.ipv6IpamPoolId;
-            resourceInputs["ipv6NetmaskLength"] = args?.ipv6NetmaskLength;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["assignGeneratedIpv6CidrBlock"] = args ? args.assignGeneratedIpv6CidrBlock : undefined;
+            resourceInputs["cidrBlock"] = args ? args.cidrBlock : undefined;
+            resourceInputs["enableDnsHostnames"] = args ? args.enableDnsHostnames : undefined;
+            resourceInputs["enableDnsSupport"] = args ? args.enableDnsSupport : undefined;
+            resourceInputs["enableNetworkAddressUsageMetrics"] = args ? args.enableNetworkAddressUsageMetrics : undefined;
+            resourceInputs["instanceTenancy"] = args ? args.instanceTenancy : undefined;
+            resourceInputs["ipv4IpamPoolId"] = args ? args.ipv4IpamPoolId : undefined;
+            resourceInputs["ipv4NetmaskLength"] = args ? args.ipv4NetmaskLength : undefined;
+            resourceInputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
+            resourceInputs["ipv6CidrBlockNetworkBorderGroup"] = args ? args.ipv6CidrBlockNetworkBorderGroup : undefined;
+            resourceInputs["ipv6IpamPoolId"] = args ? args.ipv6IpamPoolId : undefined;
+            resourceInputs["ipv6NetmaskLength"] = args ? args.ipv6NetmaskLength : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["defaultNetworkAclId"] = undefined /*out*/;
             resourceInputs["defaultRouteTableId"] = undefined /*out*/;

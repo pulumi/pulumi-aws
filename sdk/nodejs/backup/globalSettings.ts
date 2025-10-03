@@ -57,7 +57,7 @@ export class GlobalSettings extends pulumi.CustomResource {
     /**
      * A list of resources along with the opt-in preferences for the account.
      */
-    declare public readonly globalSettings: pulumi.Output<{[key: string]: string}>;
+    public readonly globalSettings!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a GlobalSettings resource with the given unique name, arguments, and options.
@@ -72,13 +72,13 @@ export class GlobalSettings extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GlobalSettingsState | undefined;
-            resourceInputs["globalSettings"] = state?.globalSettings;
+            resourceInputs["globalSettings"] = state ? state.globalSettings : undefined;
         } else {
             const args = argsOrState as GlobalSettingsArgs | undefined;
-            if (args?.globalSettings === undefined && !opts.urn) {
+            if ((!args || args.globalSettings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'globalSettings'");
             }
-            resourceInputs["globalSettings"] = args?.globalSettings;
+            resourceInputs["globalSettings"] = args ? args.globalSettings : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GlobalSettings.__pulumiType, name, resourceInputs, opts);

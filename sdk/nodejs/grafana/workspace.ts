@@ -105,86 +105,86 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
      */
-    declare public readonly accountAccessType: pulumi.Output<string>;
+    public readonly accountAccessType!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the Grafana workspace.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
      */
-    declare public readonly authenticationProviders: pulumi.Output<string[]>;
+    public readonly authenticationProviders!: pulumi.Output<string[]>;
     /**
      * The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
      */
-    declare public readonly configuration: pulumi.Output<string>;
+    public readonly configuration!: pulumi.Output<string>;
     /**
      * The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
      */
-    declare public readonly dataSources: pulumi.Output<string[] | undefined>;
+    public readonly dataSources!: pulumi.Output<string[] | undefined>;
     /**
      * The workspace description.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The endpoint of the Grafana workspace.
      */
-    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
      * Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
      */
-    declare public readonly grafanaVersion: pulumi.Output<string>;
+    public readonly grafanaVersion!: pulumi.Output<string>;
     /**
      * The Grafana workspace name.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Configuration for network access to your workspace.See Network Access Control below.
      */
-    declare public readonly networkAccessControl: pulumi.Output<outputs.grafana.WorkspaceNetworkAccessControl | undefined>;
+    public readonly networkAccessControl!: pulumi.Output<outputs.grafana.WorkspaceNetworkAccessControl | undefined>;
     /**
      * The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
      */
-    declare public readonly notificationDestinations: pulumi.Output<string[] | undefined>;
+    public readonly notificationDestinations!: pulumi.Output<string[] | undefined>;
     /**
      * The role name that the workspace uses to access resources through Amazon Organizations.
      */
-    declare public readonly organizationRoleName: pulumi.Output<string | undefined>;
+    public readonly organizationRoleName!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
      */
-    declare public readonly organizationalUnits: pulumi.Output<string[] | undefined>;
+    public readonly organizationalUnits!: pulumi.Output<string[] | undefined>;
     /**
      * The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
      *
      * The following arguments are optional:
      */
-    declare public readonly permissionType: pulumi.Output<string>;
+    public readonly permissionType!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The IAM role ARN that the workspace assumes.
      */
-    declare public readonly roleArn: pulumi.Output<string | undefined>;
-    declare public /*out*/ readonly samlConfigurationStatus: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly samlConfigurationStatus!: pulumi.Output<string>;
     /**
      * The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
      */
-    declare public readonly stackSetName: pulumi.Output<string | undefined>;
+    public readonly stackSetName!: pulumi.Output<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
      */
-    declare public readonly vpcConfiguration: pulumi.Output<outputs.grafana.WorkspaceVpcConfiguration | undefined>;
+    public readonly vpcConfiguration!: pulumi.Output<outputs.grafana.WorkspaceVpcConfiguration | undefined>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.
@@ -199,55 +199,55 @@ export class Workspace extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceState | undefined;
-            resourceInputs["accountAccessType"] = state?.accountAccessType;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["authenticationProviders"] = state?.authenticationProviders;
-            resourceInputs["configuration"] = state?.configuration;
-            resourceInputs["dataSources"] = state?.dataSources;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["endpoint"] = state?.endpoint;
-            resourceInputs["grafanaVersion"] = state?.grafanaVersion;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["networkAccessControl"] = state?.networkAccessControl;
-            resourceInputs["notificationDestinations"] = state?.notificationDestinations;
-            resourceInputs["organizationRoleName"] = state?.organizationRoleName;
-            resourceInputs["organizationalUnits"] = state?.organizationalUnits;
-            resourceInputs["permissionType"] = state?.permissionType;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["roleArn"] = state?.roleArn;
-            resourceInputs["samlConfigurationStatus"] = state?.samlConfigurationStatus;
-            resourceInputs["stackSetName"] = state?.stackSetName;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["vpcConfiguration"] = state?.vpcConfiguration;
+            resourceInputs["accountAccessType"] = state ? state.accountAccessType : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["authenticationProviders"] = state ? state.authenticationProviders : undefined;
+            resourceInputs["configuration"] = state ? state.configuration : undefined;
+            resourceInputs["dataSources"] = state ? state.dataSources : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
+            resourceInputs["grafanaVersion"] = state ? state.grafanaVersion : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkAccessControl"] = state ? state.networkAccessControl : undefined;
+            resourceInputs["notificationDestinations"] = state ? state.notificationDestinations : undefined;
+            resourceInputs["organizationRoleName"] = state ? state.organizationRoleName : undefined;
+            resourceInputs["organizationalUnits"] = state ? state.organizationalUnits : undefined;
+            resourceInputs["permissionType"] = state ? state.permissionType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["samlConfigurationStatus"] = state ? state.samlConfigurationStatus : undefined;
+            resourceInputs["stackSetName"] = state ? state.stackSetName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcConfiguration"] = state ? state.vpcConfiguration : undefined;
         } else {
             const args = argsOrState as WorkspaceArgs | undefined;
-            if (args?.accountAccessType === undefined && !opts.urn) {
+            if ((!args || args.accountAccessType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountAccessType'");
             }
-            if (args?.authenticationProviders === undefined && !opts.urn) {
+            if ((!args || args.authenticationProviders === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authenticationProviders'");
             }
-            if (args?.permissionType === undefined && !opts.urn) {
+            if ((!args || args.permissionType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'permissionType'");
             }
-            resourceInputs["accountAccessType"] = args?.accountAccessType;
-            resourceInputs["authenticationProviders"] = args?.authenticationProviders;
-            resourceInputs["configuration"] = args?.configuration;
-            resourceInputs["dataSources"] = args?.dataSources;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["grafanaVersion"] = args?.grafanaVersion;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["networkAccessControl"] = args?.networkAccessControl;
-            resourceInputs["notificationDestinations"] = args?.notificationDestinations;
-            resourceInputs["organizationRoleName"] = args?.organizationRoleName;
-            resourceInputs["organizationalUnits"] = args?.organizationalUnits;
-            resourceInputs["permissionType"] = args?.permissionType;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["roleArn"] = args?.roleArn;
-            resourceInputs["stackSetName"] = args?.stackSetName;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["vpcConfiguration"] = args?.vpcConfiguration;
+            resourceInputs["accountAccessType"] = args ? args.accountAccessType : undefined;
+            resourceInputs["authenticationProviders"] = args ? args.authenticationProviders : undefined;
+            resourceInputs["configuration"] = args ? args.configuration : undefined;
+            resourceInputs["dataSources"] = args ? args.dataSources : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["grafanaVersion"] = args ? args.grafanaVersion : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkAccessControl"] = args ? args.networkAccessControl : undefined;
+            resourceInputs["notificationDestinations"] = args ? args.notificationDestinations : undefined;
+            resourceInputs["organizationRoleName"] = args ? args.organizationRoleName : undefined;
+            resourceInputs["organizationalUnits"] = args ? args.organizationalUnits : undefined;
+            resourceInputs["permissionType"] = args ? args.permissionType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["stackSetName"] = args ? args.stackSetName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["samlConfigurationStatus"] = undefined /*out*/;

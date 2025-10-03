@@ -74,33 +74,33 @@ export class ThingGroup extends pulumi.CustomResource {
     /**
      * The ARN of the Thing Group.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
-    declare public /*out*/ readonly metadatas: pulumi.Output<outputs.iot.ThingGroupMetadata[]>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly metadatas!: pulumi.Output<outputs.iot.ThingGroupMetadata[]>;
     /**
      * The name of the Thing Group.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the parent Thing Group.
      */
-    declare public readonly parentGroupName: pulumi.Output<string | undefined>;
+    public readonly parentGroupName!: pulumi.Output<string | undefined>;
     /**
      * The Thing Group properties. Defined below.
      */
-    declare public readonly properties: pulumi.Output<outputs.iot.ThingGroupProperties | undefined>;
+    public readonly properties!: pulumi.Output<outputs.iot.ThingGroupProperties | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value mapping of resource tags
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The current version of the Thing Group record in the registry.
      */
-    declare public /*out*/ readonly version: pulumi.Output<number>;
+    public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
      * Create a ThingGroup resource with the given unique name, arguments, and options.
@@ -115,22 +115,22 @@ export class ThingGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ThingGroupState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["metadatas"] = state?.metadatas;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["parentGroupName"] = state?.parentGroupName;
-            resourceInputs["properties"] = state?.properties;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["version"] = state?.version;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["metadatas"] = state ? state.metadatas : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parentGroupName"] = state ? state.parentGroupName : undefined;
+            resourceInputs["properties"] = state ? state.properties : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ThingGroupArgs | undefined;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["parentGroupName"] = args?.parentGroupName;
-            resourceInputs["properties"] = args?.properties;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parentGroupName"] = args ? args.parentGroupName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["metadatas"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

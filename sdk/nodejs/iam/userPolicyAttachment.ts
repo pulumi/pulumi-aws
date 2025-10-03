@@ -68,11 +68,11 @@ export class UserPolicyAttachment extends pulumi.CustomResource {
     /**
      * The ARN of the policy you want to apply
      */
-    declare public readonly policyArn: pulumi.Output<string>;
+    public readonly policyArn!: pulumi.Output<string>;
     /**
      * The user the policy should be applied to
      */
-    declare public readonly user: pulumi.Output<string>;
+    public readonly user!: pulumi.Output<string>;
 
     /**
      * Create a UserPolicyAttachment resource with the given unique name, arguments, and options.
@@ -87,18 +87,18 @@ export class UserPolicyAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserPolicyAttachmentState | undefined;
-            resourceInputs["policyArn"] = state?.policyArn;
-            resourceInputs["user"] = state?.user;
+            resourceInputs["policyArn"] = state ? state.policyArn : undefined;
+            resourceInputs["user"] = state ? state.user : undefined;
         } else {
             const args = argsOrState as UserPolicyAttachmentArgs | undefined;
-            if (args?.policyArn === undefined && !opts.urn) {
+            if ((!args || args.policyArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyArn'");
             }
-            if (args?.user === undefined && !opts.urn) {
+            if ((!args || args.user === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'user'");
             }
-            resourceInputs["policyArn"] = args?.policyArn;
-            resourceInputs["user"] = args?.user;
+            resourceInputs["policyArn"] = args ? args.policyArn : undefined;
+            resourceInputs["user"] = args ? args.user : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(UserPolicyAttachment.__pulumiType, name, resourceInputs, opts);

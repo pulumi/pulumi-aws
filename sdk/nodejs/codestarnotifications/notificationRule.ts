@@ -88,44 +88,44 @@ export class NotificationRule extends pulumi.CustomResource {
     /**
      * The codestar notification rule ARN.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.
      */
-    declare public readonly detailType: pulumi.Output<string>;
+    public readonly detailType!: pulumi.Output<string>;
     /**
      * A list of event types associated with this notification rule.
      * For list of allowed events see [here](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api).
      */
-    declare public readonly eventTypeIds: pulumi.Output<string[]>;
+    public readonly eventTypeIds!: pulumi.Output<string[]>;
     /**
      * The name of notification rule.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ARN of the resource to associate with the notification rule.
      */
-    declare public readonly resource: pulumi.Output<string>;
+    public readonly resource!: pulumi.Output<string>;
     /**
      * The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
      */
-    declare public readonly status: pulumi.Output<string | undefined>;
+    public readonly status!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
      */
-    declare public readonly targets: pulumi.Output<outputs.codestarnotifications.NotificationRuleTarget[] | undefined>;
+    public readonly targets!: pulumi.Output<outputs.codestarnotifications.NotificationRuleTarget[] | undefined>;
 
     /**
      * Create a NotificationRule resource with the given unique name, arguments, and options.
@@ -140,35 +140,35 @@ export class NotificationRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NotificationRuleState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["detailType"] = state?.detailType;
-            resourceInputs["eventTypeIds"] = state?.eventTypeIds;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resource"] = state?.resource;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["targets"] = state?.targets;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["detailType"] = state ? state.detailType : undefined;
+            resourceInputs["eventTypeIds"] = state ? state.eventTypeIds : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resource"] = state ? state.resource : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["targets"] = state ? state.targets : undefined;
         } else {
             const args = argsOrState as NotificationRuleArgs | undefined;
-            if (args?.detailType === undefined && !opts.urn) {
+            if ((!args || args.detailType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'detailType'");
             }
-            if (args?.eventTypeIds === undefined && !opts.urn) {
+            if ((!args || args.eventTypeIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventTypeIds'");
             }
-            if (args?.resource === undefined && !opts.urn) {
+            if ((!args || args.resource === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resource'");
             }
-            resourceInputs["detailType"] = args?.detailType;
-            resourceInputs["eventTypeIds"] = args?.eventTypeIds;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resource"] = args?.resource;
-            resourceInputs["status"] = args?.status;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["targets"] = args?.targets;
+            resourceInputs["detailType"] = args ? args.detailType : undefined;
+            resourceInputs["eventTypeIds"] = args ? args.eventTypeIds : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resource"] = args ? args.resource : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targets"] = args ? args.targets : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

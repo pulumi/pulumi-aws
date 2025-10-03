@@ -59,27 +59,27 @@ export class BucketAccessKey extends pulumi.CustomResource {
     /**
      * Access key ID.
      */
-    declare public /*out*/ readonly accessKeyId: pulumi.Output<string>;
+    public /*out*/ readonly accessKeyId!: pulumi.Output<string>;
     /**
      * Name of the bucket that the access key will belong to and grant access to.
      */
-    declare public readonly bucketName: pulumi.Output<string>;
+    public readonly bucketName!: pulumi.Output<string>;
     /**
      * Date and time when the access key was created.
      */
-    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
      */
-    declare public /*out*/ readonly secretAccessKey: pulumi.Output<string>;
+    public /*out*/ readonly secretAccessKey!: pulumi.Output<string>;
     /**
      * Status of the access key.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
 
     /**
      * Create a BucketAccessKey resource with the given unique name, arguments, and options.
@@ -94,19 +94,19 @@ export class BucketAccessKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketAccessKeyState | undefined;
-            resourceInputs["accessKeyId"] = state?.accessKeyId;
-            resourceInputs["bucketName"] = state?.bucketName;
-            resourceInputs["createdAt"] = state?.createdAt;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["secretAccessKey"] = state?.secretAccessKey;
-            resourceInputs["status"] = state?.status;
+            resourceInputs["accessKeyId"] = state ? state.accessKeyId : undefined;
+            resourceInputs["bucketName"] = state ? state.bucketName : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["secretAccessKey"] = state ? state.secretAccessKey : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as BucketAccessKeyArgs | undefined;
-            if (args?.bucketName === undefined && !opts.urn) {
+            if ((!args || args.bucketName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucketName'");
             }
-            resourceInputs["bucketName"] = args?.bucketName;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["bucketName"] = args ? args.bucketName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["accessKeyId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["secretAccessKey"] = undefined /*out*/;

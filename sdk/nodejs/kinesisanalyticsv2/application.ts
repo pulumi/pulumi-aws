@@ -261,71 +261,71 @@ export class Application extends pulumi.CustomResource {
     /**
      * The application's configuration
      */
-    declare public readonly applicationConfiguration: pulumi.Output<outputs.kinesisanalyticsv2.ApplicationApplicationConfiguration>;
+    public readonly applicationConfiguration!: pulumi.Output<outputs.kinesisanalyticsv2.ApplicationApplicationConfiguration>;
     /**
      * The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
      */
-    declare public readonly applicationMode: pulumi.Output<string>;
+    public readonly applicationMode!: pulumi.Output<string>;
     /**
      * The ARN of the application.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A CloudWatch log stream to monitor application configuration errors.
      */
-    declare public readonly cloudwatchLoggingOptions: pulumi.Output<outputs.kinesisanalyticsv2.ApplicationCloudwatchLoggingOptions | undefined>;
+    public readonly cloudwatchLoggingOptions!: pulumi.Output<outputs.kinesisanalyticsv2.ApplicationCloudwatchLoggingOptions | undefined>;
     /**
      * The current timestamp when the application was created.
      */
-    declare public /*out*/ readonly createTimestamp: pulumi.Output<string>;
+    public /*out*/ readonly createTimestamp!: pulumi.Output<string>;
     /**
      * A summary description of the application.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Whether to force stop an unresponsive Flink-based application.
      */
-    declare public readonly forceStop: pulumi.Output<boolean | undefined>;
+    public readonly forceStop!: pulumi.Output<boolean | undefined>;
     /**
      * The current timestamp when the application was last updated.
      */
-    declare public /*out*/ readonly lastUpdateTimestamp: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdateTimestamp!: pulumi.Output<string>;
     /**
      * The name of the application.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`.
      */
-    declare public readonly runtimeEnvironment: pulumi.Output<string>;
+    public readonly runtimeEnvironment!: pulumi.Output<string>;
     /**
      * The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
      */
-    declare public readonly serviceExecutionRole: pulumi.Output<string>;
+    public readonly serviceExecutionRole!: pulumi.Output<string>;
     /**
      * Whether to start or stop the application.
      */
-    declare public readonly startApplication: pulumi.Output<boolean | undefined>;
+    public readonly startApplication!: pulumi.Output<boolean | undefined>;
     /**
      * The status of the application.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
      */
-    declare public /*out*/ readonly versionId: pulumi.Output<number>;
+    public /*out*/ readonly versionId!: pulumi.Output<number>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -340,42 +340,42 @@ export class Application extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationState | undefined;
-            resourceInputs["applicationConfiguration"] = state?.applicationConfiguration;
-            resourceInputs["applicationMode"] = state?.applicationMode;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["cloudwatchLoggingOptions"] = state?.cloudwatchLoggingOptions;
-            resourceInputs["createTimestamp"] = state?.createTimestamp;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["forceStop"] = state?.forceStop;
-            resourceInputs["lastUpdateTimestamp"] = state?.lastUpdateTimestamp;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["runtimeEnvironment"] = state?.runtimeEnvironment;
-            resourceInputs["serviceExecutionRole"] = state?.serviceExecutionRole;
-            resourceInputs["startApplication"] = state?.startApplication;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["versionId"] = state?.versionId;
+            resourceInputs["applicationConfiguration"] = state ? state.applicationConfiguration : undefined;
+            resourceInputs["applicationMode"] = state ? state.applicationMode : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["cloudwatchLoggingOptions"] = state ? state.cloudwatchLoggingOptions : undefined;
+            resourceInputs["createTimestamp"] = state ? state.createTimestamp : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["forceStop"] = state ? state.forceStop : undefined;
+            resourceInputs["lastUpdateTimestamp"] = state ? state.lastUpdateTimestamp : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["runtimeEnvironment"] = state ? state.runtimeEnvironment : undefined;
+            resourceInputs["serviceExecutionRole"] = state ? state.serviceExecutionRole : undefined;
+            resourceInputs["startApplication"] = state ? state.startApplication : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["versionId"] = state ? state.versionId : undefined;
         } else {
             const args = argsOrState as ApplicationArgs | undefined;
-            if (args?.runtimeEnvironment === undefined && !opts.urn) {
+            if ((!args || args.runtimeEnvironment === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'runtimeEnvironment'");
             }
-            if (args?.serviceExecutionRole === undefined && !opts.urn) {
+            if ((!args || args.serviceExecutionRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceExecutionRole'");
             }
-            resourceInputs["applicationConfiguration"] = args?.applicationConfiguration;
-            resourceInputs["applicationMode"] = args?.applicationMode;
-            resourceInputs["cloudwatchLoggingOptions"] = args?.cloudwatchLoggingOptions;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["forceStop"] = args?.forceStop;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["runtimeEnvironment"] = args?.runtimeEnvironment;
-            resourceInputs["serviceExecutionRole"] = args?.serviceExecutionRole;
-            resourceInputs["startApplication"] = args?.startApplication;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["applicationConfiguration"] = args ? args.applicationConfiguration : undefined;
+            resourceInputs["applicationMode"] = args ? args.applicationMode : undefined;
+            resourceInputs["cloudwatchLoggingOptions"] = args ? args.cloudwatchLoggingOptions : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["forceStop"] = args ? args.forceStop : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["runtimeEnvironment"] = args ? args.runtimeEnvironment : undefined;
+            resourceInputs["serviceExecutionRole"] = args ? args.serviceExecutionRole : undefined;
+            resourceInputs["startApplication"] = args ? args.startApplication : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createTimestamp"] = undefined /*out*/;
             resourceInputs["lastUpdateTimestamp"] = undefined /*out*/;

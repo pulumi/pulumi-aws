@@ -86,37 +86,37 @@ export class ManagedLoginBranding extends pulumi.CustomResource {
     /**
      * Image files to apply to roles like backgrounds, logos, and icons. See details below.
      */
-    declare public readonly assets: pulumi.Output<outputs.cognito.ManagedLoginBrandingAsset[] | undefined>;
+    public readonly assets!: pulumi.Output<outputs.cognito.ManagedLoginBrandingAsset[] | undefined>;
     /**
      * App client that the branding style is for.
      */
-    declare public readonly clientId: pulumi.Output<string>;
+    public readonly clientId!: pulumi.Output<string>;
     /**
      * ID of the managed login branding style.
      */
-    declare public /*out*/ readonly managedLoginBrandingId: pulumi.Output<string>;
+    public /*out*/ readonly managedLoginBrandingId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * JSON document with the the settings to apply to the style.
      */
-    declare public readonly settings: pulumi.Output<string | undefined>;
+    public readonly settings!: pulumi.Output<string | undefined>;
     /**
      * Settings including Amazon Cognito defaults.
      */
-    declare public /*out*/ readonly settingsAll: pulumi.Output<string>;
+    public /*out*/ readonly settingsAll!: pulumi.Output<string>;
     /**
      * When `true`, applies the default branding style options.
      */
-    declare public readonly useCognitoProvidedValues: pulumi.Output<boolean>;
+    public readonly useCognitoProvidedValues!: pulumi.Output<boolean>;
     /**
      * User pool the client belongs to.
      *
      * The following arguments are optional:
      */
-    declare public readonly userPoolId: pulumi.Output<string>;
+    public readonly userPoolId!: pulumi.Output<string>;
 
     /**
      * Create a ManagedLoginBranding resource with the given unique name, arguments, and options.
@@ -131,28 +131,28 @@ export class ManagedLoginBranding extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedLoginBrandingState | undefined;
-            resourceInputs["assets"] = state?.assets;
-            resourceInputs["clientId"] = state?.clientId;
-            resourceInputs["managedLoginBrandingId"] = state?.managedLoginBrandingId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["settings"] = state?.settings;
-            resourceInputs["settingsAll"] = state?.settingsAll;
-            resourceInputs["useCognitoProvidedValues"] = state?.useCognitoProvidedValues;
-            resourceInputs["userPoolId"] = state?.userPoolId;
+            resourceInputs["assets"] = state ? state.assets : undefined;
+            resourceInputs["clientId"] = state ? state.clientId : undefined;
+            resourceInputs["managedLoginBrandingId"] = state ? state.managedLoginBrandingId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["settings"] = state ? state.settings : undefined;
+            resourceInputs["settingsAll"] = state ? state.settingsAll : undefined;
+            resourceInputs["useCognitoProvidedValues"] = state ? state.useCognitoProvidedValues : undefined;
+            resourceInputs["userPoolId"] = state ? state.userPoolId : undefined;
         } else {
             const args = argsOrState as ManagedLoginBrandingArgs | undefined;
-            if (args?.clientId === undefined && !opts.urn) {
+            if ((!args || args.clientId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if (args?.userPoolId === undefined && !opts.urn) {
+            if ((!args || args.userPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            resourceInputs["assets"] = args?.assets;
-            resourceInputs["clientId"] = args?.clientId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["settings"] = args?.settings;
-            resourceInputs["useCognitoProvidedValues"] = args?.useCognitoProvidedValues;
-            resourceInputs["userPoolId"] = args?.userPoolId;
+            resourceInputs["assets"] = args ? args.assets : undefined;
+            resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["settings"] = args ? args.settings : undefined;
+            resourceInputs["useCognitoProvidedValues"] = args ? args.useCognitoProvidedValues : undefined;
+            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
             resourceInputs["managedLoginBrandingId"] = undefined /*out*/;
             resourceInputs["settingsAll"] = undefined /*out*/;
         }

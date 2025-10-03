@@ -63,47 +63,47 @@ export class Channel extends pulumi.CustomResource {
     /**
      * ARN of the Channel.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * If `true`, channel is private (enabled for playback authorization).
      */
-    declare public readonly authorized: pulumi.Output<boolean>;
+    public readonly authorized!: pulumi.Output<boolean>;
     /**
      * Channel ingest endpoint, part of the definition of an ingest server, used when setting up streaming software.
      */
-    declare public /*out*/ readonly ingestEndpoint: pulumi.Output<string>;
+    public /*out*/ readonly ingestEndpoint!: pulumi.Output<string>;
     /**
      * Channel latency mode. Valid values: `NORMAL`, `LOW`.
      */
-    declare public readonly latencyMode: pulumi.Output<string>;
+    public readonly latencyMode!: pulumi.Output<string>;
     /**
      * Channel name.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Channel playback URL.
      */
-    declare public /*out*/ readonly playbackUrl: pulumi.Output<string>;
+    public /*out*/ readonly playbackUrl!: pulumi.Output<string>;
     /**
      * Recording configuration ARN.
      */
-    declare public readonly recordingConfigurationArn: pulumi.Output<string>;
+    public readonly recordingConfigurationArn!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
      */
-    declare public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a Channel resource with the given unique name, arguments, and options.
@@ -118,26 +118,26 @@ export class Channel extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ChannelState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["authorized"] = state?.authorized;
-            resourceInputs["ingestEndpoint"] = state?.ingestEndpoint;
-            resourceInputs["latencyMode"] = state?.latencyMode;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["playbackUrl"] = state?.playbackUrl;
-            resourceInputs["recordingConfigurationArn"] = state?.recordingConfigurationArn;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["type"] = state?.type;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["authorized"] = state ? state.authorized : undefined;
+            resourceInputs["ingestEndpoint"] = state ? state.ingestEndpoint : undefined;
+            resourceInputs["latencyMode"] = state ? state.latencyMode : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["playbackUrl"] = state ? state.playbackUrl : undefined;
+            resourceInputs["recordingConfigurationArn"] = state ? state.recordingConfigurationArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ChannelArgs | undefined;
-            resourceInputs["authorized"] = args?.authorized;
-            resourceInputs["latencyMode"] = args?.latencyMode;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["recordingConfigurationArn"] = args?.recordingConfigurationArn;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["type"] = args?.type;
+            resourceInputs["authorized"] = args ? args.authorized : undefined;
+            resourceInputs["latencyMode"] = args ? args.latencyMode : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["recordingConfigurationArn"] = args ? args.recordingConfigurationArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ingestEndpoint"] = undefined /*out*/;
             resourceInputs["playbackUrl"] = undefined /*out*/;

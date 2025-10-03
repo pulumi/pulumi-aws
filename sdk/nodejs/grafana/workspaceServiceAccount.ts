@@ -59,23 +59,23 @@ export class WorkspaceServiceAccount extends pulumi.CustomResource {
     /**
      * The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
      */
-    declare public readonly grafanaRole: pulumi.Output<string>;
+    public readonly grafanaRole!: pulumi.Output<string>;
     /**
      * A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Identifier of the service account in the given Grafana workspace
      */
-    declare public /*out*/ readonly serviceAccountId: pulumi.Output<string>;
+    public /*out*/ readonly serviceAccountId!: pulumi.Output<string>;
     /**
      * The Grafana workspace with which the service account is associated.
      */
-    declare public readonly workspaceId: pulumi.Output<string>;
+    public readonly workspaceId!: pulumi.Output<string>;
 
     /**
      * Create a WorkspaceServiceAccount resource with the given unique name, arguments, and options.
@@ -90,23 +90,23 @@ export class WorkspaceServiceAccount extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceServiceAccountState | undefined;
-            resourceInputs["grafanaRole"] = state?.grafanaRole;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["serviceAccountId"] = state?.serviceAccountId;
-            resourceInputs["workspaceId"] = state?.workspaceId;
+            resourceInputs["grafanaRole"] = state ? state.grafanaRole : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["serviceAccountId"] = state ? state.serviceAccountId : undefined;
+            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
         } else {
             const args = argsOrState as WorkspaceServiceAccountArgs | undefined;
-            if (args?.grafanaRole === undefined && !opts.urn) {
+            if ((!args || args.grafanaRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'grafanaRole'");
             }
-            if (args?.workspaceId === undefined && !opts.urn) {
+            if ((!args || args.workspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["grafanaRole"] = args?.grafanaRole;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["workspaceId"] = args?.workspaceId;
+            resourceInputs["grafanaRole"] = args ? args.grafanaRole : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
             resourceInputs["serviceAccountId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -85,55 +85,55 @@ export class DataQualityJobDefinition extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Specifies the container that runs the monitoring job. Fields are documented below.
      */
-    declare public readonly dataQualityAppSpecification: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionDataQualityAppSpecification>;
+    public readonly dataQualityAppSpecification!: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionDataQualityAppSpecification>;
     /**
      * Configures the constraints and baselines for the monitoring job. Fields are documented below.
      */
-    declare public readonly dataQualityBaselineConfig: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionDataQualityBaselineConfig | undefined>;
+    public readonly dataQualityBaselineConfig!: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionDataQualityBaselineConfig | undefined>;
     /**
      * A list of inputs for the monitoring job. Fields are documented below.
      */
-    declare public readonly dataQualityJobInput: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionDataQualityJobInput>;
+    public readonly dataQualityJobInput!: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionDataQualityJobInput>;
     /**
      * The output configuration for monitoring jobs. Fields are documented below.
      */
-    declare public readonly dataQualityJobOutputConfig: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfig>;
+    public readonly dataQualityJobOutputConfig!: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfig>;
     /**
      * Identifies the resources to deploy for a monitoring job. Fields are documented below.
      */
-    declare public readonly jobResources: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionJobResources>;
+    public readonly jobResources!: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionJobResources>;
     /**
      * The name of the data quality job definition. If omitted, the provider will assign a random, unique name.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies networking configuration for the monitoring job. Fields are documented below.
      */
-    declare public readonly networkConfig: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionNetworkConfig | undefined>;
+    public readonly networkConfig!: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionNetworkConfig | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
      */
-    declare public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
      */
-    declare public readonly stoppingCondition: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionStoppingCondition>;
+    public readonly stoppingCondition!: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionStoppingCondition>;
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a DataQualityJobDefinition resource with the given unique name, arguments, and options.
@@ -148,47 +148,47 @@ export class DataQualityJobDefinition extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataQualityJobDefinitionState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["dataQualityAppSpecification"] = state?.dataQualityAppSpecification;
-            resourceInputs["dataQualityBaselineConfig"] = state?.dataQualityBaselineConfig;
-            resourceInputs["dataQualityJobInput"] = state?.dataQualityJobInput;
-            resourceInputs["dataQualityJobOutputConfig"] = state?.dataQualityJobOutputConfig;
-            resourceInputs["jobResources"] = state?.jobResources;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["networkConfig"] = state?.networkConfig;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["roleArn"] = state?.roleArn;
-            resourceInputs["stoppingCondition"] = state?.stoppingCondition;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["dataQualityAppSpecification"] = state ? state.dataQualityAppSpecification : undefined;
+            resourceInputs["dataQualityBaselineConfig"] = state ? state.dataQualityBaselineConfig : undefined;
+            resourceInputs["dataQualityJobInput"] = state ? state.dataQualityJobInput : undefined;
+            resourceInputs["dataQualityJobOutputConfig"] = state ? state.dataQualityJobOutputConfig : undefined;
+            resourceInputs["jobResources"] = state ? state.jobResources : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkConfig"] = state ? state.networkConfig : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["stoppingCondition"] = state ? state.stoppingCondition : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as DataQualityJobDefinitionArgs | undefined;
-            if (args?.dataQualityAppSpecification === undefined && !opts.urn) {
+            if ((!args || args.dataQualityAppSpecification === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataQualityAppSpecification'");
             }
-            if (args?.dataQualityJobInput === undefined && !opts.urn) {
+            if ((!args || args.dataQualityJobInput === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataQualityJobInput'");
             }
-            if (args?.dataQualityJobOutputConfig === undefined && !opts.urn) {
+            if ((!args || args.dataQualityJobOutputConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataQualityJobOutputConfig'");
             }
-            if (args?.jobResources === undefined && !opts.urn) {
+            if ((!args || args.jobResources === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'jobResources'");
             }
-            if (args?.roleArn === undefined && !opts.urn) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["dataQualityAppSpecification"] = args?.dataQualityAppSpecification;
-            resourceInputs["dataQualityBaselineConfig"] = args?.dataQualityBaselineConfig;
-            resourceInputs["dataQualityJobInput"] = args?.dataQualityJobInput;
-            resourceInputs["dataQualityJobOutputConfig"] = args?.dataQualityJobOutputConfig;
-            resourceInputs["jobResources"] = args?.jobResources;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["networkConfig"] = args?.networkConfig;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["roleArn"] = args?.roleArn;
-            resourceInputs["stoppingCondition"] = args?.stoppingCondition;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["dataQualityAppSpecification"] = args ? args.dataQualityAppSpecification : undefined;
+            resourceInputs["dataQualityBaselineConfig"] = args ? args.dataQualityBaselineConfig : undefined;
+            resourceInputs["dataQualityJobInput"] = args ? args.dataQualityJobInput : undefined;
+            resourceInputs["dataQualityJobOutputConfig"] = args ? args.dataQualityJobOutputConfig : undefined;
+            resourceInputs["jobResources"] = args ? args.jobResources : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkConfig"] = args ? args.networkConfig : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["stoppingCondition"] = args ? args.stoppingCondition : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

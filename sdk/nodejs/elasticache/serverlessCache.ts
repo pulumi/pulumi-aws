@@ -133,88 +133,88 @@ export class ServerlessCache extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the serverless cache.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
      */
-    declare public readonly cacheUsageLimits: pulumi.Output<outputs.elasticache.ServerlessCacheCacheUsageLimits | undefined>;
+    public readonly cacheUsageLimits!: pulumi.Output<outputs.elasticache.ServerlessCacheCacheUsageLimits | undefined>;
     /**
      * Timestamp of when the serverless cache was created.
      */
-    declare public /*out*/ readonly createTime: pulumi.Output<string>;
+    public /*out*/ readonly createTime!: pulumi.Output<string>;
     /**
      * The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
      */
-    declare public readonly dailySnapshotTime: pulumi.Output<string>;
+    public readonly dailySnapshotTime!: pulumi.Output<string>;
     /**
      * User-provided description for the serverless cache. The default is NULL.
      */
-    declare public readonly description: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
      */
-    declare public /*out*/ readonly endpoints: pulumi.Output<outputs.elasticache.ServerlessCacheEndpoint[]>;
+    public /*out*/ readonly endpoints!: pulumi.Output<outputs.elasticache.ServerlessCacheEndpoint[]>;
     /**
      * Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
      */
-    declare public readonly engine: pulumi.Output<string>;
+    public readonly engine!: pulumi.Output<string>;
     /**
      * The name and version number of the engine the serverless cache is compatible with.
      */
-    declare public /*out*/ readonly fullEngineVersion: pulumi.Output<string>;
+    public /*out*/ readonly fullEngineVersion!: pulumi.Output<string>;
     /**
      * ARN of the customer managed key for encrypting the data at rest. If no KMS key is provided, a default service key is used.
      */
-    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * The version of the cache engine that will be used to create the serverless cache.
      * See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
      */
-    declare public readonly majorEngineVersion: pulumi.Output<string>;
+    public readonly majorEngineVersion!: pulumi.Output<string>;
     /**
      * The Cluster name which serves as a unique identifier to the serverless cache
      *
      * The following arguments are optional:
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Represents the information required for client programs to connect to a cache node. See `readerEndpoint` Block for details.
      */
-    declare public /*out*/ readonly readerEndpoints: pulumi.Output<outputs.elasticache.ServerlessCacheReaderEndpoint[]>;
+    public /*out*/ readonly readerEndpoints!: pulumi.Output<outputs.elasticache.ServerlessCacheReaderEndpoint[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
      */
-    declare public readonly securityGroupIds: pulumi.Output<string[]>;
+    public readonly securityGroupIds!: pulumi.Output<string[]>;
     /**
      * The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
      */
-    declare public readonly snapshotArnsToRestores: pulumi.Output<string[] | undefined>;
+    public readonly snapshotArnsToRestores!: pulumi.Output<string[] | undefined>;
     /**
      * The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
      */
-    declare public readonly snapshotRetentionLimit: pulumi.Output<number>;
+    public readonly snapshotRetentionLimit!: pulumi.Output<number>;
     /**
      * The current status of the serverless cache. The allowed values are CREATING, AVAILABLE, DELETING, CREATE-FAILED and MODIFYING.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
      */
-    declare public readonly subnetIds: pulumi.Output<string[]>;
+    public readonly subnetIds!: pulumi.Output<string[]>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public readonly timeouts: pulumi.Output<outputs.elasticache.ServerlessCacheTimeouts | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly timeouts!: pulumi.Output<outputs.elasticache.ServerlessCacheTimeouts | undefined>;
     /**
      * The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
      */
-    declare public readonly userGroupId: pulumi.Output<string | undefined>;
+    public readonly userGroupId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ServerlessCache resource with the given unique name, arguments, and options.
@@ -229,48 +229,48 @@ export class ServerlessCache extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerlessCacheState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["cacheUsageLimits"] = state?.cacheUsageLimits;
-            resourceInputs["createTime"] = state?.createTime;
-            resourceInputs["dailySnapshotTime"] = state?.dailySnapshotTime;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["endpoints"] = state?.endpoints;
-            resourceInputs["engine"] = state?.engine;
-            resourceInputs["fullEngineVersion"] = state?.fullEngineVersion;
-            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
-            resourceInputs["majorEngineVersion"] = state?.majorEngineVersion;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["readerEndpoints"] = state?.readerEndpoints;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["securityGroupIds"] = state?.securityGroupIds;
-            resourceInputs["snapshotArnsToRestores"] = state?.snapshotArnsToRestores;
-            resourceInputs["snapshotRetentionLimit"] = state?.snapshotRetentionLimit;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["subnetIds"] = state?.subnetIds;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timeouts"] = state?.timeouts;
-            resourceInputs["userGroupId"] = state?.userGroupId;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["cacheUsageLimits"] = state ? state.cacheUsageLimits : undefined;
+            resourceInputs["createTime"] = state ? state.createTime : undefined;
+            resourceInputs["dailySnapshotTime"] = state ? state.dailySnapshotTime : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["endpoints"] = state ? state.endpoints : undefined;
+            resourceInputs["engine"] = state ? state.engine : undefined;
+            resourceInputs["fullEngineVersion"] = state ? state.fullEngineVersion : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["majorEngineVersion"] = state ? state.majorEngineVersion : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["readerEndpoints"] = state ? state.readerEndpoints : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
+            resourceInputs["snapshotArnsToRestores"] = state ? state.snapshotArnsToRestores : undefined;
+            resourceInputs["snapshotRetentionLimit"] = state ? state.snapshotRetentionLimit : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["userGroupId"] = state ? state.userGroupId : undefined;
         } else {
             const args = argsOrState as ServerlessCacheArgs | undefined;
-            if (args?.engine === undefined && !opts.urn) {
+            if ((!args || args.engine === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engine'");
             }
-            resourceInputs["cacheUsageLimits"] = args?.cacheUsageLimits;
-            resourceInputs["dailySnapshotTime"] = args?.dailySnapshotTime;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["engine"] = args?.engine;
-            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
-            resourceInputs["majorEngineVersion"] = args?.majorEngineVersion;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
-            resourceInputs["snapshotArnsToRestores"] = args?.snapshotArnsToRestores;
-            resourceInputs["snapshotRetentionLimit"] = args?.snapshotRetentionLimit;
-            resourceInputs["subnetIds"] = args?.subnetIds;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timeouts"] = args?.timeouts;
-            resourceInputs["userGroupId"] = args?.userGroupId;
+            resourceInputs["cacheUsageLimits"] = args ? args.cacheUsageLimits : undefined;
+            resourceInputs["dailySnapshotTime"] = args ? args.dailySnapshotTime : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["engine"] = args ? args.engine : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["majorEngineVersion"] = args ? args.majorEngineVersion : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
+            resourceInputs["snapshotArnsToRestores"] = args ? args.snapshotArnsToRestores : undefined;
+            resourceInputs["snapshotRetentionLimit"] = args ? args.snapshotRetentionLimit : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["userGroupId"] = args ? args.userGroupId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["endpoints"] = undefined /*out*/;

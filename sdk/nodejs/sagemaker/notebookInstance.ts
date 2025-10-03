@@ -91,83 +91,83 @@ export class NotebookInstance extends pulumi.CustomResource {
      * An array of up to three Git repositories to associate with the notebook instance.
      * These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
      */
-    declare public readonly additionalCodeRepositories: pulumi.Output<string[] | undefined>;
+    public readonly additionalCodeRepositories!: pulumi.Output<string[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository.
      */
-    declare public readonly defaultCodeRepository: pulumi.Output<string | undefined>;
+    public readonly defaultCodeRepository!: pulumi.Output<string | undefined>;
     /**
      * Set to `Disabled` to disable internet access to notebook. Requires `securityGroups` and `subnetId` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker AI training and endpoint services unless your configure a NAT Gateway in your VPC.
      */
-    declare public readonly directInternetAccess: pulumi.Output<string | undefined>;
+    public readonly directInternetAccess!: pulumi.Output<string | undefined>;
     /**
      * Information on the IMDS configuration of the notebook instance. Conflicts with `instanceMetadataServiceConfiguration`. see details below.
      */
-    declare public readonly instanceMetadataServiceConfiguration: pulumi.Output<outputs.sagemaker.NotebookInstanceInstanceMetadataServiceConfiguration | undefined>;
+    public readonly instanceMetadataServiceConfiguration!: pulumi.Output<outputs.sagemaker.NotebookInstanceInstanceMetadataServiceConfiguration | undefined>;
     /**
      * The name of ML compute instance type.
      */
-    declare public readonly instanceType: pulumi.Output<string>;
+    public readonly instanceType!: pulumi.Output<string>;
     /**
      * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
      */
-    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * The name of a lifecycle configuration to associate with the notebook instance.
      */
-    declare public readonly lifecycleConfigName: pulumi.Output<string | undefined>;
+    public readonly lifecycleConfigName!: pulumi.Output<string | undefined>;
     /**
      * The name of the notebook instance (must be unique).
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The network interface ID that Amazon SageMaker AI created at the time of creating the instance. Only available when setting `subnetId`.
      */
-    declare public /*out*/ readonly networkInterfaceId: pulumi.Output<string>;
+    public /*out*/ readonly networkInterfaceId!: pulumi.Output<string>;
     /**
      * The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, `notebook-al2-v2`, or `notebook-al2-v3`, depending on which version of Amazon Linux you require.
      */
-    declare public readonly platformIdentifier: pulumi.Output<string>;
+    public readonly platformIdentifier!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
      */
-    declare public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
      */
-    declare public readonly rootAccess: pulumi.Output<string | undefined>;
+    public readonly rootAccess!: pulumi.Output<string | undefined>;
     /**
      * The associated security groups.
      */
-    declare public readonly securityGroups: pulumi.Output<string[]>;
+    public readonly securityGroups!: pulumi.Output<string[]>;
     /**
      * The VPC subnet ID.
      */
-    declare public readonly subnetId: pulumi.Output<string | undefined>;
+    public readonly subnetId!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
      */
-    declare public /*out*/ readonly url: pulumi.Output<string>;
+    public /*out*/ readonly url!: pulumi.Output<string>;
     /**
      * The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
      */
-    declare public readonly volumeSize: pulumi.Output<number | undefined>;
+    public readonly volumeSize!: pulumi.Output<number | undefined>;
 
     /**
      * Create a NotebookInstance resource with the given unique name, arguments, and options.
@@ -182,50 +182,50 @@ export class NotebookInstance extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NotebookInstanceState | undefined;
-            resourceInputs["additionalCodeRepositories"] = state?.additionalCodeRepositories;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["defaultCodeRepository"] = state?.defaultCodeRepository;
-            resourceInputs["directInternetAccess"] = state?.directInternetAccess;
-            resourceInputs["instanceMetadataServiceConfiguration"] = state?.instanceMetadataServiceConfiguration;
-            resourceInputs["instanceType"] = state?.instanceType;
-            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
-            resourceInputs["lifecycleConfigName"] = state?.lifecycleConfigName;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["networkInterfaceId"] = state?.networkInterfaceId;
-            resourceInputs["platformIdentifier"] = state?.platformIdentifier;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["roleArn"] = state?.roleArn;
-            resourceInputs["rootAccess"] = state?.rootAccess;
-            resourceInputs["securityGroups"] = state?.securityGroups;
-            resourceInputs["subnetId"] = state?.subnetId;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["url"] = state?.url;
-            resourceInputs["volumeSize"] = state?.volumeSize;
+            resourceInputs["additionalCodeRepositories"] = state ? state.additionalCodeRepositories : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["defaultCodeRepository"] = state ? state.defaultCodeRepository : undefined;
+            resourceInputs["directInternetAccess"] = state ? state.directInternetAccess : undefined;
+            resourceInputs["instanceMetadataServiceConfiguration"] = state ? state.instanceMetadataServiceConfiguration : undefined;
+            resourceInputs["instanceType"] = state ? state.instanceType : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["lifecycleConfigName"] = state ? state.lifecycleConfigName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
+            resourceInputs["platformIdentifier"] = state ? state.platformIdentifier : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["rootAccess"] = state ? state.rootAccess : undefined;
+            resourceInputs["securityGroups"] = state ? state.securityGroups : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["volumeSize"] = state ? state.volumeSize : undefined;
         } else {
             const args = argsOrState as NotebookInstanceArgs | undefined;
-            if (args?.instanceType === undefined && !opts.urn) {
+            if ((!args || args.instanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            if (args?.roleArn === undefined && !opts.urn) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["additionalCodeRepositories"] = args?.additionalCodeRepositories;
-            resourceInputs["defaultCodeRepository"] = args?.defaultCodeRepository;
-            resourceInputs["directInternetAccess"] = args?.directInternetAccess;
-            resourceInputs["instanceMetadataServiceConfiguration"] = args?.instanceMetadataServiceConfiguration;
-            resourceInputs["instanceType"] = args?.instanceType;
-            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
-            resourceInputs["lifecycleConfigName"] = args?.lifecycleConfigName;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["platformIdentifier"] = args?.platformIdentifier;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["roleArn"] = args?.roleArn;
-            resourceInputs["rootAccess"] = args?.rootAccess;
-            resourceInputs["securityGroups"] = args?.securityGroups;
-            resourceInputs["subnetId"] = args?.subnetId;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["volumeSize"] = args?.volumeSize;
+            resourceInputs["additionalCodeRepositories"] = args ? args.additionalCodeRepositories : undefined;
+            resourceInputs["defaultCodeRepository"] = args ? args.defaultCodeRepository : undefined;
+            resourceInputs["directInternetAccess"] = args ? args.directInternetAccess : undefined;
+            resourceInputs["instanceMetadataServiceConfiguration"] = args ? args.instanceMetadataServiceConfiguration : undefined;
+            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["lifecycleConfigName"] = args ? args.lifecycleConfigName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["platformIdentifier"] = args ? args.platformIdentifier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["rootAccess"] = args ? args.rootAccess : undefined;
+            resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["volumeSize"] = args ? args.volumeSize : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["networkInterfaceId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

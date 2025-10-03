@@ -63,43 +63,43 @@ export class Snapshot extends pulumi.CustomResource {
     /**
      * The ARN of the snapshot.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The configuration of the cluster from which the snapshot was taken.
      */
-    declare public /*out*/ readonly clusterConfigurations: pulumi.Output<outputs.memorydb.SnapshotClusterConfiguration[]>;
+    public /*out*/ readonly clusterConfigurations!: pulumi.Output<outputs.memorydb.SnapshotClusterConfiguration[]>;
     /**
      * Name of the MemoryDB cluster to take a snapshot of.
      */
-    declare public readonly clusterName: pulumi.Output<string>;
+    public readonly clusterName!: pulumi.Output<string>;
     /**
      * ARN of the KMS key used to encrypt the snapshot at rest.
      */
-    declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
+    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     /**
      * Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    declare public readonly namePrefix: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
      */
-    declare public /*out*/ readonly source: pulumi.Output<string>;
+    public /*out*/ readonly source!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Snapshot resource with the given unique name, arguments, and options.
@@ -114,27 +114,27 @@ export class Snapshot extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SnapshotState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["clusterConfigurations"] = state?.clusterConfigurations;
-            resourceInputs["clusterName"] = state?.clusterName;
-            resourceInputs["kmsKeyArn"] = state?.kmsKeyArn;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["namePrefix"] = state?.namePrefix;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["source"] = state?.source;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["clusterConfigurations"] = state ? state.clusterConfigurations : undefined;
+            resourceInputs["clusterName"] = state ? state.clusterName : undefined;
+            resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["source"] = state ? state.source : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as SnapshotArgs | undefined;
-            if (args?.clusterName === undefined && !opts.urn) {
+            if ((!args || args.clusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            resourceInputs["clusterName"] = args?.clusterName;
-            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["namePrefix"] = args?.namePrefix;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["clusterConfigurations"] = undefined /*out*/;
             resourceInputs["source"] = undefined /*out*/;

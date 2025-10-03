@@ -59,27 +59,27 @@ export class SubnetCidrReservation extends pulumi.CustomResource {
     /**
      * The CIDR block for the reservation.
      */
-    declare public readonly cidrBlock: pulumi.Output<string>;
+    public readonly cidrBlock!: pulumi.Output<string>;
     /**
      * A brief description of the reservation.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * ID of the AWS account that owns this CIDR reservation.
      */
-    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The type of reservation to create. Valid values: `explicit`, `prefix`
      */
-    declare public readonly reservationType: pulumi.Output<string>;
+    public readonly reservationType!: pulumi.Output<string>;
     /**
      * The ID of the subnet to create the reservation for.
      */
-    declare public readonly subnetId: pulumi.Output<string>;
+    public readonly subnetId!: pulumi.Output<string>;
 
     /**
      * Create a SubnetCidrReservation resource with the given unique name, arguments, and options.
@@ -94,28 +94,28 @@ export class SubnetCidrReservation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SubnetCidrReservationState | undefined;
-            resourceInputs["cidrBlock"] = state?.cidrBlock;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["ownerId"] = state?.ownerId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["reservationType"] = state?.reservationType;
-            resourceInputs["subnetId"] = state?.subnetId;
+            resourceInputs["cidrBlock"] = state ? state.cidrBlock : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["reservationType"] = state ? state.reservationType : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
             const args = argsOrState as SubnetCidrReservationArgs | undefined;
-            if (args?.cidrBlock === undefined && !opts.urn) {
+            if ((!args || args.cidrBlock === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cidrBlock'");
             }
-            if (args?.reservationType === undefined && !opts.urn) {
+            if ((!args || args.reservationType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'reservationType'");
             }
-            if (args?.subnetId === undefined && !opts.urn) {
+            if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["cidrBlock"] = args?.cidrBlock;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["reservationType"] = args?.reservationType;
-            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["cidrBlock"] = args ? args.cidrBlock : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["reservationType"] = args ? args.reservationType : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["ownerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

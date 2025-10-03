@@ -61,77 +61,77 @@ export class PrivateVirtualInterface extends pulumi.CustomResource {
     /**
      * The address family for the BGP peer. `ipv4 ` or `ipv6`.
      */
-    declare public readonly addressFamily: pulumi.Output<string>;
+    public readonly addressFamily!: pulumi.Output<string>;
     /**
      * The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
      */
-    declare public readonly amazonAddress: pulumi.Output<string>;
-    declare public /*out*/ readonly amazonSideAsn: pulumi.Output<string>;
+    public readonly amazonAddress!: pulumi.Output<string>;
+    public /*out*/ readonly amazonSideAsn!: pulumi.Output<string>;
     /**
      * The ARN of the virtual interface.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The Direct Connect endpoint on which the virtual interface terminates.
      */
-    declare public /*out*/ readonly awsDevice: pulumi.Output<string>;
+    public /*out*/ readonly awsDevice!: pulumi.Output<string>;
     /**
      * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
      */
-    declare public readonly bgpAsn: pulumi.Output<number>;
+    public readonly bgpAsn!: pulumi.Output<number>;
     /**
      * The authentication key for BGP configuration.
      */
-    declare public readonly bgpAuthKey: pulumi.Output<string>;
+    public readonly bgpAuthKey!: pulumi.Output<string>;
     /**
      * The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
      */
-    declare public readonly connectionId: pulumi.Output<string>;
+    public readonly connectionId!: pulumi.Output<string>;
     /**
      * The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
      */
-    declare public readonly customerAddress: pulumi.Output<string>;
+    public readonly customerAddress!: pulumi.Output<string>;
     /**
      * The ID of the Direct Connect gateway to which to connect the virtual interface.
      */
-    declare public readonly dxGatewayId: pulumi.Output<string | undefined>;
+    public readonly dxGatewayId!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether jumbo frames (9001 MTU) are supported.
      */
-    declare public /*out*/ readonly jumboFrameCapable: pulumi.Output<boolean>;
+    public /*out*/ readonly jumboFrameCapable!: pulumi.Output<boolean>;
     /**
      * The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
      * The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
      */
-    declare public readonly mtu: pulumi.Output<number | undefined>;
+    public readonly mtu!: pulumi.Output<number | undefined>;
     /**
      * The name for the virtual interface.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Indicates whether to enable or disable SiteLink.
      */
-    declare public readonly sitelinkEnabled: pulumi.Output<boolean | undefined>;
+    public readonly sitelinkEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The VLAN ID.
      */
-    declare public readonly vlan: pulumi.Output<number>;
+    public readonly vlan!: pulumi.Output<number>;
     /**
      * The ID of the virtual private gateway to which to connect the virtual interface.
      */
-    declare public readonly vpnGatewayId: pulumi.Output<string | undefined>;
+    public readonly vpnGatewayId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a PrivateVirtualInterface resource with the given unique name, arguments, and options.
@@ -146,53 +146,53 @@ export class PrivateVirtualInterface extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PrivateVirtualInterfaceState | undefined;
-            resourceInputs["addressFamily"] = state?.addressFamily;
-            resourceInputs["amazonAddress"] = state?.amazonAddress;
-            resourceInputs["amazonSideAsn"] = state?.amazonSideAsn;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["awsDevice"] = state?.awsDevice;
-            resourceInputs["bgpAsn"] = state?.bgpAsn;
-            resourceInputs["bgpAuthKey"] = state?.bgpAuthKey;
-            resourceInputs["connectionId"] = state?.connectionId;
-            resourceInputs["customerAddress"] = state?.customerAddress;
-            resourceInputs["dxGatewayId"] = state?.dxGatewayId;
-            resourceInputs["jumboFrameCapable"] = state?.jumboFrameCapable;
-            resourceInputs["mtu"] = state?.mtu;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["sitelinkEnabled"] = state?.sitelinkEnabled;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["vlan"] = state?.vlan;
-            resourceInputs["vpnGatewayId"] = state?.vpnGatewayId;
+            resourceInputs["addressFamily"] = state ? state.addressFamily : undefined;
+            resourceInputs["amazonAddress"] = state ? state.amazonAddress : undefined;
+            resourceInputs["amazonSideAsn"] = state ? state.amazonSideAsn : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["awsDevice"] = state ? state.awsDevice : undefined;
+            resourceInputs["bgpAsn"] = state ? state.bgpAsn : undefined;
+            resourceInputs["bgpAuthKey"] = state ? state.bgpAuthKey : undefined;
+            resourceInputs["connectionId"] = state ? state.connectionId : undefined;
+            resourceInputs["customerAddress"] = state ? state.customerAddress : undefined;
+            resourceInputs["dxGatewayId"] = state ? state.dxGatewayId : undefined;
+            resourceInputs["jumboFrameCapable"] = state ? state.jumboFrameCapable : undefined;
+            resourceInputs["mtu"] = state ? state.mtu : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["sitelinkEnabled"] = state ? state.sitelinkEnabled : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vlan"] = state ? state.vlan : undefined;
+            resourceInputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
         } else {
             const args = argsOrState as PrivateVirtualInterfaceArgs | undefined;
-            if (args?.addressFamily === undefined && !opts.urn) {
+            if ((!args || args.addressFamily === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'addressFamily'");
             }
-            if (args?.bgpAsn === undefined && !opts.urn) {
+            if ((!args || args.bgpAsn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bgpAsn'");
             }
-            if (args?.connectionId === undefined && !opts.urn) {
+            if ((!args || args.connectionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectionId'");
             }
-            if (args?.vlan === undefined && !opts.urn) {
+            if ((!args || args.vlan === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vlan'");
             }
-            resourceInputs["addressFamily"] = args?.addressFamily;
-            resourceInputs["amazonAddress"] = args?.amazonAddress;
-            resourceInputs["bgpAsn"] = args?.bgpAsn;
-            resourceInputs["bgpAuthKey"] = args?.bgpAuthKey;
-            resourceInputs["connectionId"] = args?.connectionId;
-            resourceInputs["customerAddress"] = args?.customerAddress;
-            resourceInputs["dxGatewayId"] = args?.dxGatewayId;
-            resourceInputs["mtu"] = args?.mtu;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["sitelinkEnabled"] = args?.sitelinkEnabled;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["vlan"] = args?.vlan;
-            resourceInputs["vpnGatewayId"] = args?.vpnGatewayId;
+            resourceInputs["addressFamily"] = args ? args.addressFamily : undefined;
+            resourceInputs["amazonAddress"] = args ? args.amazonAddress : undefined;
+            resourceInputs["bgpAsn"] = args ? args.bgpAsn : undefined;
+            resourceInputs["bgpAuthKey"] = args ? args.bgpAuthKey : undefined;
+            resourceInputs["connectionId"] = args ? args.connectionId : undefined;
+            resourceInputs["customerAddress"] = args ? args.customerAddress : undefined;
+            resourceInputs["dxGatewayId"] = args ? args.dxGatewayId : undefined;
+            resourceInputs["mtu"] = args ? args.mtu : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["sitelinkEnabled"] = args ? args.sitelinkEnabled : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vlan"] = args ? args.vlan : undefined;
+            resourceInputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
             resourceInputs["amazonSideAsn"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsDevice"] = undefined /*out*/;

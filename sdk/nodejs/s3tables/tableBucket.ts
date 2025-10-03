@@ -60,25 +60,25 @@ export class TableBucket extends pulumi.CustomResource {
     /**
      * ARN of the table bucket.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Date and time when the bucket was created.
      */
-    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
      * A single table bucket encryption configuration object.
      * See `encryptionConfiguration` below.
      */
-    declare public readonly encryptionConfiguration: pulumi.Output<outputs.s3tables.TableBucketEncryptionConfiguration | undefined>;
+    public readonly encryptionConfiguration!: pulumi.Output<outputs.s3tables.TableBucketEncryptionConfiguration | undefined>;
     /**
      * Whether all tables and namespaces within the table bucket should be deleted *when the table bucket is destroyed* so that the table bucket can be destroyed without error. These tables and namespaces are *not* recoverable. This only deletes tables and namespaces when the table bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the table bucket or destroying the table bucket, this flag will not work. Additionally when importing a table bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
      */
-    declare public readonly forceDestroy: pulumi.Output<boolean>;
+    public readonly forceDestroy!: pulumi.Output<boolean>;
     /**
      * A single table bucket maintenance configuration object.
      * See `maintenanceConfiguration` below.
      */
-    declare public readonly maintenanceConfiguration: pulumi.Output<outputs.s3tables.TableBucketMaintenanceConfiguration>;
+    public readonly maintenanceConfiguration!: pulumi.Output<outputs.s3tables.TableBucketMaintenanceConfiguration>;
     /**
      * Name of the table bucket.
      * Must be between 3 and 63 characters in length.
@@ -87,15 +87,15 @@ export class TableBucket extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Account ID of the account that owns the table bucket.
      */
-    declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
+    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a TableBucket resource with the given unique name, arguments, and options.
@@ -110,21 +110,21 @@ export class TableBucket extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TableBucketState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["createdAt"] = state?.createdAt;
-            resourceInputs["encryptionConfiguration"] = state?.encryptionConfiguration;
-            resourceInputs["forceDestroy"] = state?.forceDestroy;
-            resourceInputs["maintenanceConfiguration"] = state?.maintenanceConfiguration;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["ownerAccountId"] = state?.ownerAccountId;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["encryptionConfiguration"] = state ? state.encryptionConfiguration : undefined;
+            resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
+            resourceInputs["maintenanceConfiguration"] = state ? state.maintenanceConfiguration : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as TableBucketArgs | undefined;
-            resourceInputs["encryptionConfiguration"] = args?.encryptionConfiguration;
-            resourceInputs["forceDestroy"] = args?.forceDestroy;
-            resourceInputs["maintenanceConfiguration"] = args?.maintenanceConfiguration;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
+            resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
+            resourceInputs["maintenanceConfiguration"] = args ? args.maintenanceConfiguration : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;

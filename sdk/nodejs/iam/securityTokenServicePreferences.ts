@@ -47,7 +47,7 @@ export class SecurityTokenServicePreferences extends pulumi.CustomResource {
     /**
      * The version of the STS global endpoint token. Valid values: `v1Token`, `v2Token`.
      */
-    declare public readonly globalEndpointTokenVersion: pulumi.Output<string>;
+    public readonly globalEndpointTokenVersion!: pulumi.Output<string>;
 
     /**
      * Create a SecurityTokenServicePreferences resource with the given unique name, arguments, and options.
@@ -62,13 +62,13 @@ export class SecurityTokenServicePreferences extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecurityTokenServicePreferencesState | undefined;
-            resourceInputs["globalEndpointTokenVersion"] = state?.globalEndpointTokenVersion;
+            resourceInputs["globalEndpointTokenVersion"] = state ? state.globalEndpointTokenVersion : undefined;
         } else {
             const args = argsOrState as SecurityTokenServicePreferencesArgs | undefined;
-            if (args?.globalEndpointTokenVersion === undefined && !opts.urn) {
+            if ((!args || args.globalEndpointTokenVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'globalEndpointTokenVersion'");
             }
-            resourceInputs["globalEndpointTokenVersion"] = args?.globalEndpointTokenVersion;
+            resourceInputs["globalEndpointTokenVersion"] = args ? args.globalEndpointTokenVersion : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SecurityTokenServicePreferences.__pulumiType, name, resourceInputs, opts);

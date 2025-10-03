@@ -217,111 +217,111 @@ export class App extends pulumi.CustomResource {
     /**
      * Personal access token for a third-party source control system for an Amplify app. This token must have write access to the relevant repo to create a webhook and a read-only deploy key for the Amplify project. The token is not stored, so after applying this attribute can be removed and the setup token deleted.
      */
-    declare public readonly accessToken: pulumi.Output<string | undefined>;
+    public readonly accessToken!: pulumi.Output<string | undefined>;
     /**
      * ARN of the Amplify app.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Automated branch creation configuration for an Amplify app. See `autoBranchCreationConfig` Block for details.
      */
-    declare public readonly autoBranchCreationConfig: pulumi.Output<outputs.amplify.AppAutoBranchCreationConfig>;
+    public readonly autoBranchCreationConfig!: pulumi.Output<outputs.amplify.AppAutoBranchCreationConfig>;
     /**
      * Automated branch creation glob patterns for an Amplify app.
      */
-    declare public readonly autoBranchCreationPatterns: pulumi.Output<string[] | undefined>;
+    public readonly autoBranchCreationPatterns!: pulumi.Output<string[] | undefined>;
     /**
      * Credentials for basic authorization for an Amplify app.
      */
-    declare public readonly basicAuthCredentials: pulumi.Output<string | undefined>;
+    public readonly basicAuthCredentials!: pulumi.Output<string | undefined>;
     /**
      * The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
      */
-    declare public readonly buildSpec: pulumi.Output<string>;
+    public readonly buildSpec!: pulumi.Output<string>;
     /**
      * Cache configuration for the Amplify app. See `cacheConfig` Block for details.
      */
-    declare public readonly cacheConfig: pulumi.Output<outputs.amplify.AppCacheConfig>;
+    public readonly cacheConfig!: pulumi.Output<outputs.amplify.AppCacheConfig>;
     /**
      * AWS Identity and Access Management (IAM) SSR compute role for an Amplify app.
      */
-    declare public readonly computeRoleArn: pulumi.Output<string | undefined>;
+    public readonly computeRoleArn!: pulumi.Output<string | undefined>;
     /**
      * The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
      */
-    declare public readonly customHeaders: pulumi.Output<string>;
+    public readonly customHeaders!: pulumi.Output<string>;
     /**
      * Custom rewrite and redirect rules for an Amplify app. See `customRule` Block for details.
      */
-    declare public readonly customRules: pulumi.Output<outputs.amplify.AppCustomRule[] | undefined>;
+    public readonly customRules!: pulumi.Output<outputs.amplify.AppCustomRule[] | undefined>;
     /**
      * Default domain for the Amplify app.
      */
-    declare public /*out*/ readonly defaultDomain: pulumi.Output<string>;
+    public /*out*/ readonly defaultDomain!: pulumi.Output<string>;
     /**
      * Description for an Amplify app.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Enables automated branch creation for an Amplify app.
      */
-    declare public readonly enableAutoBranchCreation: pulumi.Output<boolean | undefined>;
+    public readonly enableAutoBranchCreation!: pulumi.Output<boolean | undefined>;
     /**
      * Enables basic authorization for an Amplify app. This will apply to all branches that are part of this app.
      */
-    declare public readonly enableBasicAuth: pulumi.Output<boolean | undefined>;
+    public readonly enableBasicAuth!: pulumi.Output<boolean | undefined>;
     /**
      * Enables auto-building of branches for the Amplify App.
      */
-    declare public readonly enableBranchAutoBuild: pulumi.Output<boolean | undefined>;
+    public readonly enableBranchAutoBuild!: pulumi.Output<boolean | undefined>;
     /**
      * Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.
      */
-    declare public readonly enableBranchAutoDeletion: pulumi.Output<boolean | undefined>;
+    public readonly enableBranchAutoDeletion!: pulumi.Output<boolean | undefined>;
     /**
      * Environment variables map for an Amplify app.
      */
-    declare public readonly environmentVariables: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly environmentVariables!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * AWS Identity and Access Management (IAM) service role for an Amplify app.
      */
-    declare public readonly iamServiceRoleArn: pulumi.Output<string | undefined>;
+    public readonly iamServiceRoleArn!: pulumi.Output<string | undefined>;
     /**
      * Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `jobConfig` Block for details.
      */
-    declare public readonly jobConfig: pulumi.Output<outputs.amplify.AppJobConfig>;
+    public readonly jobConfig!: pulumi.Output<outputs.amplify.AppJobConfig>;
     /**
      * Name for an Amplify app.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
      */
-    declare public readonly oauthToken: pulumi.Output<string | undefined>;
+    public readonly oauthToken!: pulumi.Output<string | undefined>;
     /**
      * Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
      */
-    declare public readonly platform: pulumi.Output<string | undefined>;
+    public readonly platform!: pulumi.Output<string | undefined>;
     /**
      * Describes the information about a production branch for an Amplify app. A `productionBranch` block is documented below.
      */
-    declare public /*out*/ readonly productionBranches: pulumi.Output<outputs.amplify.AppProductionBranch[]>;
+    public /*out*/ readonly productionBranches!: pulumi.Output<outputs.amplify.AppProductionBranch[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Repository for an Amplify app.
      */
-    declare public readonly repository: pulumi.Output<string | undefined>;
+    public readonly repository!: pulumi.Output<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a App resource with the given unique name, arguments, and options.
@@ -336,58 +336,58 @@ export class App extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppState | undefined;
-            resourceInputs["accessToken"] = state?.accessToken;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["autoBranchCreationConfig"] = state?.autoBranchCreationConfig;
-            resourceInputs["autoBranchCreationPatterns"] = state?.autoBranchCreationPatterns;
-            resourceInputs["basicAuthCredentials"] = state?.basicAuthCredentials;
-            resourceInputs["buildSpec"] = state?.buildSpec;
-            resourceInputs["cacheConfig"] = state?.cacheConfig;
-            resourceInputs["computeRoleArn"] = state?.computeRoleArn;
-            resourceInputs["customHeaders"] = state?.customHeaders;
-            resourceInputs["customRules"] = state?.customRules;
-            resourceInputs["defaultDomain"] = state?.defaultDomain;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["enableAutoBranchCreation"] = state?.enableAutoBranchCreation;
-            resourceInputs["enableBasicAuth"] = state?.enableBasicAuth;
-            resourceInputs["enableBranchAutoBuild"] = state?.enableBranchAutoBuild;
-            resourceInputs["enableBranchAutoDeletion"] = state?.enableBranchAutoDeletion;
-            resourceInputs["environmentVariables"] = state?.environmentVariables;
-            resourceInputs["iamServiceRoleArn"] = state?.iamServiceRoleArn;
-            resourceInputs["jobConfig"] = state?.jobConfig;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["oauthToken"] = state?.oauthToken;
-            resourceInputs["platform"] = state?.platform;
-            resourceInputs["productionBranches"] = state?.productionBranches;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["repository"] = state?.repository;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["accessToken"] = state ? state.accessToken : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["autoBranchCreationConfig"] = state ? state.autoBranchCreationConfig : undefined;
+            resourceInputs["autoBranchCreationPatterns"] = state ? state.autoBranchCreationPatterns : undefined;
+            resourceInputs["basicAuthCredentials"] = state ? state.basicAuthCredentials : undefined;
+            resourceInputs["buildSpec"] = state ? state.buildSpec : undefined;
+            resourceInputs["cacheConfig"] = state ? state.cacheConfig : undefined;
+            resourceInputs["computeRoleArn"] = state ? state.computeRoleArn : undefined;
+            resourceInputs["customHeaders"] = state ? state.customHeaders : undefined;
+            resourceInputs["customRules"] = state ? state.customRules : undefined;
+            resourceInputs["defaultDomain"] = state ? state.defaultDomain : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enableAutoBranchCreation"] = state ? state.enableAutoBranchCreation : undefined;
+            resourceInputs["enableBasicAuth"] = state ? state.enableBasicAuth : undefined;
+            resourceInputs["enableBranchAutoBuild"] = state ? state.enableBranchAutoBuild : undefined;
+            resourceInputs["enableBranchAutoDeletion"] = state ? state.enableBranchAutoDeletion : undefined;
+            resourceInputs["environmentVariables"] = state ? state.environmentVariables : undefined;
+            resourceInputs["iamServiceRoleArn"] = state ? state.iamServiceRoleArn : undefined;
+            resourceInputs["jobConfig"] = state ? state.jobConfig : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["oauthToken"] = state ? state.oauthToken : undefined;
+            resourceInputs["platform"] = state ? state.platform : undefined;
+            resourceInputs["productionBranches"] = state ? state.productionBranches : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["repository"] = state ? state.repository : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as AppArgs | undefined;
             resourceInputs["accessToken"] = args?.accessToken ? pulumi.secret(args.accessToken) : undefined;
-            resourceInputs["autoBranchCreationConfig"] = args?.autoBranchCreationConfig;
-            resourceInputs["autoBranchCreationPatterns"] = args?.autoBranchCreationPatterns;
+            resourceInputs["autoBranchCreationConfig"] = args ? args.autoBranchCreationConfig : undefined;
+            resourceInputs["autoBranchCreationPatterns"] = args ? args.autoBranchCreationPatterns : undefined;
             resourceInputs["basicAuthCredentials"] = args?.basicAuthCredentials ? pulumi.secret(args.basicAuthCredentials) : undefined;
-            resourceInputs["buildSpec"] = args?.buildSpec;
-            resourceInputs["cacheConfig"] = args?.cacheConfig;
-            resourceInputs["computeRoleArn"] = args?.computeRoleArn;
-            resourceInputs["customHeaders"] = args?.customHeaders;
-            resourceInputs["customRules"] = args?.customRules;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["enableAutoBranchCreation"] = args?.enableAutoBranchCreation;
-            resourceInputs["enableBasicAuth"] = args?.enableBasicAuth;
-            resourceInputs["enableBranchAutoBuild"] = args?.enableBranchAutoBuild;
-            resourceInputs["enableBranchAutoDeletion"] = args?.enableBranchAutoDeletion;
-            resourceInputs["environmentVariables"] = args?.environmentVariables;
-            resourceInputs["iamServiceRoleArn"] = args?.iamServiceRoleArn;
-            resourceInputs["jobConfig"] = args?.jobConfig;
-            resourceInputs["name"] = args?.name;
+            resourceInputs["buildSpec"] = args ? args.buildSpec : undefined;
+            resourceInputs["cacheConfig"] = args ? args.cacheConfig : undefined;
+            resourceInputs["computeRoleArn"] = args ? args.computeRoleArn : undefined;
+            resourceInputs["customHeaders"] = args ? args.customHeaders : undefined;
+            resourceInputs["customRules"] = args ? args.customRules : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enableAutoBranchCreation"] = args ? args.enableAutoBranchCreation : undefined;
+            resourceInputs["enableBasicAuth"] = args ? args.enableBasicAuth : undefined;
+            resourceInputs["enableBranchAutoBuild"] = args ? args.enableBranchAutoBuild : undefined;
+            resourceInputs["enableBranchAutoDeletion"] = args ? args.enableBranchAutoDeletion : undefined;
+            resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
+            resourceInputs["iamServiceRoleArn"] = args ? args.iamServiceRoleArn : undefined;
+            resourceInputs["jobConfig"] = args ? args.jobConfig : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["oauthToken"] = args?.oauthToken ? pulumi.secret(args.oauthToken) : undefined;
-            resourceInputs["platform"] = args?.platform;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["repository"] = args?.repository;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["platform"] = args ? args.platform : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["defaultDomain"] = undefined /*out*/;
             resourceInputs["productionBranches"] = undefined /*out*/;

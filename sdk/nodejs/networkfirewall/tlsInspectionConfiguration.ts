@@ -230,52 +230,52 @@ export class TlsInspectionConfiguration extends pulumi.CustomResource {
     /**
      * ARN of the TLS Inspection Configuration.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Certificate Manager certificate block. See Certificate Authority below for details.
      */
-    declare public /*out*/ readonly certificateAuthorities: pulumi.Output<outputs.networkfirewall.TlsInspectionConfigurationCertificateAuthority[]>;
+    public /*out*/ readonly certificateAuthorities!: pulumi.Output<outputs.networkfirewall.TlsInspectionConfigurationCertificateAuthority[]>;
     /**
      * List of certificate blocks describing certificates associated with the TLS inspection configuration. See Certificates below for details.
      */
-    declare public /*out*/ readonly certificates: pulumi.Output<outputs.networkfirewall.TlsInspectionConfigurationCertificate[]>;
+    public /*out*/ readonly certificates!: pulumi.Output<outputs.networkfirewall.TlsInspectionConfigurationCertificate[]>;
     /**
      * Description of the TLS inspection configuration.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Encryption configuration block. Detailed below.
      */
-    declare public readonly encryptionConfigurations: pulumi.Output<outputs.networkfirewall.TlsInspectionConfigurationEncryptionConfiguration[]>;
+    public readonly encryptionConfigurations!: pulumi.Output<outputs.networkfirewall.TlsInspectionConfigurationEncryptionConfiguration[]>;
     /**
      * Descriptive name of the TLS inspection configuration.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Number of firewall policies that use this TLS inspection configuration.
      */
-    declare public /*out*/ readonly numberOfAssociations: pulumi.Output<number>;
+    public /*out*/ readonly numberOfAssociations!: pulumi.Output<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public readonly timeouts: pulumi.Output<outputs.networkfirewall.TlsInspectionConfigurationTimeouts | undefined>;
+    public readonly region!: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly timeouts!: pulumi.Output<outputs.networkfirewall.TlsInspectionConfigurationTimeouts | undefined>;
     /**
      * TLS inspection configuration block. Detailed below.
      *
      * The following arguments are optional:
      */
-    declare public readonly tlsInspectionConfiguration: pulumi.Output<outputs.networkfirewall.TlsInspectionConfigurationTlsInspectionConfiguration | undefined>;
+    public readonly tlsInspectionConfiguration!: pulumi.Output<outputs.networkfirewall.TlsInspectionConfigurationTlsInspectionConfiguration | undefined>;
     /**
      * A unique identifier for the TLS inspection configuration.
      */
-    declare public /*out*/ readonly tlsInspectionConfigurationId: pulumi.Output<string>;
+    public /*out*/ readonly tlsInspectionConfigurationId!: pulumi.Output<string>;
     /**
      * String token used when updating the rule group.
      */
-    declare public /*out*/ readonly updateToken: pulumi.Output<string>;
+    public /*out*/ readonly updateToken!: pulumi.Output<string>;
 
     /**
      * Create a TlsInspectionConfiguration resource with the given unique name, arguments, and options.
@@ -290,29 +290,29 @@ export class TlsInspectionConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TlsInspectionConfigurationState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["certificateAuthorities"] = state?.certificateAuthorities;
-            resourceInputs["certificates"] = state?.certificates;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["encryptionConfigurations"] = state?.encryptionConfigurations;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["numberOfAssociations"] = state?.numberOfAssociations;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timeouts"] = state?.timeouts;
-            resourceInputs["tlsInspectionConfiguration"] = state?.tlsInspectionConfiguration;
-            resourceInputs["tlsInspectionConfigurationId"] = state?.tlsInspectionConfigurationId;
-            resourceInputs["updateToken"] = state?.updateToken;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["certificateAuthorities"] = state ? state.certificateAuthorities : undefined;
+            resourceInputs["certificates"] = state ? state.certificates : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["encryptionConfigurations"] = state ? state.encryptionConfigurations : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["numberOfAssociations"] = state ? state.numberOfAssociations : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["tlsInspectionConfiguration"] = state ? state.tlsInspectionConfiguration : undefined;
+            resourceInputs["tlsInspectionConfigurationId"] = state ? state.tlsInspectionConfigurationId : undefined;
+            resourceInputs["updateToken"] = state ? state.updateToken : undefined;
         } else {
             const args = argsOrState as TlsInspectionConfigurationArgs | undefined;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["encryptionConfigurations"] = args?.encryptionConfigurations;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timeouts"] = args?.timeouts;
-            resourceInputs["tlsInspectionConfiguration"] = args?.tlsInspectionConfiguration;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["encryptionConfigurations"] = args ? args.encryptionConfigurations : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["tlsInspectionConfiguration"] = args ? args.tlsInspectionConfiguration : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["certificateAuthorities"] = undefined /*out*/;
             resourceInputs["certificates"] = undefined /*out*/;

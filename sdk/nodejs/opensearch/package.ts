@@ -77,32 +77,32 @@ export class Package extends pulumi.CustomResource {
     /**
      * The current version of the package.
      */
-    declare public /*out*/ readonly availablePackageVersion: pulumi.Output<string>;
+    public /*out*/ readonly availablePackageVersion!: pulumi.Output<string>;
     /**
      * Engine version that the package is compatible with. This argument is required and only valid when `packageType` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
      */
-    declare public readonly engineVersion: pulumi.Output<string | undefined>;
+    public readonly engineVersion!: pulumi.Output<string | undefined>;
     /**
      * Description of the package.
      */
-    declare public readonly packageDescription: pulumi.Output<string | undefined>;
-    declare public /*out*/ readonly packageId: pulumi.Output<string>;
+    public readonly packageDescription!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly packageId!: pulumi.Output<string>;
     /**
      * Unique name for the package.
      */
-    declare public readonly packageName: pulumi.Output<string>;
+    public readonly packageName!: pulumi.Output<string>;
     /**
      * Configuration block for the package source options.
      */
-    declare public readonly packageSource: pulumi.Output<outputs.opensearch.PackagePackageSource>;
+    public readonly packageSource!: pulumi.Output<outputs.opensearch.PackagePackageSource>;
     /**
      * The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
      */
-    declare public readonly packageType: pulumi.Output<string>;
+    public readonly packageType!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a Package resource with the given unique name, arguments, and options.
@@ -117,31 +117,31 @@ export class Package extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PackageState | undefined;
-            resourceInputs["availablePackageVersion"] = state?.availablePackageVersion;
-            resourceInputs["engineVersion"] = state?.engineVersion;
-            resourceInputs["packageDescription"] = state?.packageDescription;
-            resourceInputs["packageId"] = state?.packageId;
-            resourceInputs["packageName"] = state?.packageName;
-            resourceInputs["packageSource"] = state?.packageSource;
-            resourceInputs["packageType"] = state?.packageType;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["availablePackageVersion"] = state ? state.availablePackageVersion : undefined;
+            resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
+            resourceInputs["packageDescription"] = state ? state.packageDescription : undefined;
+            resourceInputs["packageId"] = state ? state.packageId : undefined;
+            resourceInputs["packageName"] = state ? state.packageName : undefined;
+            resourceInputs["packageSource"] = state ? state.packageSource : undefined;
+            resourceInputs["packageType"] = state ? state.packageType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as PackageArgs | undefined;
-            if (args?.packageName === undefined && !opts.urn) {
+            if ((!args || args.packageName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'packageName'");
             }
-            if (args?.packageSource === undefined && !opts.urn) {
+            if ((!args || args.packageSource === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'packageSource'");
             }
-            if (args?.packageType === undefined && !opts.urn) {
+            if ((!args || args.packageType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'packageType'");
             }
-            resourceInputs["engineVersion"] = args?.engineVersion;
-            resourceInputs["packageDescription"] = args?.packageDescription;
-            resourceInputs["packageName"] = args?.packageName;
-            resourceInputs["packageSource"] = args?.packageSource;
-            resourceInputs["packageType"] = args?.packageType;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
+            resourceInputs["packageDescription"] = args ? args.packageDescription : undefined;
+            resourceInputs["packageName"] = args ? args.packageName : undefined;
+            resourceInputs["packageSource"] = args ? args.packageSource : undefined;
+            resourceInputs["packageType"] = args ? args.packageType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["availablePackageVersion"] = undefined /*out*/;
             resourceInputs["packageId"] = undefined /*out*/;
         }

@@ -77,15 +77,15 @@ export class ManagedScalingPolicy extends pulumi.CustomResource {
     /**
      * ID of the EMR cluster
      */
-    declare public readonly clusterId: pulumi.Output<string>;
+    public readonly clusterId!: pulumi.Output<string>;
     /**
      * Configuration block with compute limit settings. Described below.
      */
-    declare public readonly computeLimits: pulumi.Output<outputs.emr.ManagedScalingPolicyComputeLimit[]>;
+    public readonly computeLimits!: pulumi.Output<outputs.emr.ManagedScalingPolicyComputeLimit[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ManagedScalingPolicy resource with the given unique name, arguments, and options.
@@ -100,20 +100,20 @@ export class ManagedScalingPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedScalingPolicyState | undefined;
-            resourceInputs["clusterId"] = state?.clusterId;
-            resourceInputs["computeLimits"] = state?.computeLimits;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["clusterId"] = state ? state.clusterId : undefined;
+            resourceInputs["computeLimits"] = state ? state.computeLimits : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ManagedScalingPolicyArgs | undefined;
-            if (args?.clusterId === undefined && !opts.urn) {
+            if ((!args || args.clusterId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterId'");
             }
-            if (args?.computeLimits === undefined && !opts.urn) {
+            if ((!args || args.computeLimits === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'computeLimits'");
             }
-            resourceInputs["clusterId"] = args?.clusterId;
-            resourceInputs["computeLimits"] = args?.computeLimits;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["clusterId"] = args ? args.clusterId : undefined;
+            resourceInputs["computeLimits"] = args ? args.computeLimits : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ManagedScalingPolicy.__pulumiType, name, resourceInputs, opts);

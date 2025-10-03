@@ -96,37 +96,37 @@ export class AppImageConfig extends pulumi.CustomResource {
     /**
      * The name of the App Image Config.
      */
-    declare public readonly appImageConfigName: pulumi.Output<string>;
+    public readonly appImageConfigName!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
      */
-    declare public readonly codeEditorAppImageConfig: pulumi.Output<outputs.sagemaker.AppImageConfigCodeEditorAppImageConfig | undefined>;
+    public readonly codeEditorAppImageConfig!: pulumi.Output<outputs.sagemaker.AppImageConfigCodeEditorAppImageConfig | undefined>;
     /**
      * The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
      */
-    declare public readonly jupyterLabImageConfig: pulumi.Output<outputs.sagemaker.AppImageConfigJupyterLabImageConfig | undefined>;
+    public readonly jupyterLabImageConfig!: pulumi.Output<outputs.sagemaker.AppImageConfigJupyterLabImageConfig | undefined>;
     /**
      * The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
      */
-    declare public readonly kernelGatewayImageConfig: pulumi.Output<outputs.sagemaker.AppImageConfigKernelGatewayImageConfig | undefined>;
+    public readonly kernelGatewayImageConfig!: pulumi.Output<outputs.sagemaker.AppImageConfigKernelGatewayImageConfig | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * > **NOTE:** Exactly one of `codeEditorAppImageConfig`, `jupyterLabImageConfig`, or `kernelGatewayImageConfig` must be configured. Empty blocks (e.g., `codeEditorAppImageConfig {}`) are valid configurations.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a AppImageConfig resource with the given unique name, arguments, and options.
@@ -141,25 +141,25 @@ export class AppImageConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppImageConfigState | undefined;
-            resourceInputs["appImageConfigName"] = state?.appImageConfigName;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["codeEditorAppImageConfig"] = state?.codeEditorAppImageConfig;
-            resourceInputs["jupyterLabImageConfig"] = state?.jupyterLabImageConfig;
-            resourceInputs["kernelGatewayImageConfig"] = state?.kernelGatewayImageConfig;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["appImageConfigName"] = state ? state.appImageConfigName : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["codeEditorAppImageConfig"] = state ? state.codeEditorAppImageConfig : undefined;
+            resourceInputs["jupyterLabImageConfig"] = state ? state.jupyterLabImageConfig : undefined;
+            resourceInputs["kernelGatewayImageConfig"] = state ? state.kernelGatewayImageConfig : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as AppImageConfigArgs | undefined;
-            if (args?.appImageConfigName === undefined && !opts.urn) {
+            if ((!args || args.appImageConfigName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'appImageConfigName'");
             }
-            resourceInputs["appImageConfigName"] = args?.appImageConfigName;
-            resourceInputs["codeEditorAppImageConfig"] = args?.codeEditorAppImageConfig;
-            resourceInputs["jupyterLabImageConfig"] = args?.jupyterLabImageConfig;
-            resourceInputs["kernelGatewayImageConfig"] = args?.kernelGatewayImageConfig;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["appImageConfigName"] = args ? args.appImageConfigName : undefined;
+            resourceInputs["codeEditorAppImageConfig"] = args ? args.codeEditorAppImageConfig : undefined;
+            resourceInputs["jupyterLabImageConfig"] = args ? args.jupyterLabImageConfig : undefined;
+            resourceInputs["kernelGatewayImageConfig"] = args ? args.kernelGatewayImageConfig : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

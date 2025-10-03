@@ -79,15 +79,15 @@ export class UserGroupAssociation extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ID of the user group.
      */
-    declare public readonly userGroupId: pulumi.Output<string>;
+    public readonly userGroupId!: pulumi.Output<string>;
     /**
      * ID of the user to associated with the user group.
      */
-    declare public readonly userId: pulumi.Output<string>;
+    public readonly userId!: pulumi.Output<string>;
 
     /**
      * Create a UserGroupAssociation resource with the given unique name, arguments, and options.
@@ -102,20 +102,20 @@ export class UserGroupAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserGroupAssociationState | undefined;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["userGroupId"] = state?.userGroupId;
-            resourceInputs["userId"] = state?.userId;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["userGroupId"] = state ? state.userGroupId : undefined;
+            resourceInputs["userId"] = state ? state.userId : undefined;
         } else {
             const args = argsOrState as UserGroupAssociationArgs | undefined;
-            if (args?.userGroupId === undefined && !opts.urn) {
+            if ((!args || args.userGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userGroupId'");
             }
-            if (args?.userId === undefined && !opts.urn) {
+            if ((!args || args.userId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
-            resourceInputs["region"] = args?.region;
-            resourceInputs["userGroupId"] = args?.userGroupId;
-            resourceInputs["userId"] = args?.userId;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["userGroupId"] = args ? args.userGroupId : undefined;
+            resourceInputs["userId"] = args ? args.userId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(UserGroupAssociation.__pulumiType, name, resourceInputs, opts);

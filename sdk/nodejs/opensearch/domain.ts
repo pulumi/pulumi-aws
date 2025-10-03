@@ -308,119 +308,119 @@ export class Domain extends pulumi.CustomResource {
     /**
      * IAM policy document specifying the access policies for the domain.
      */
-    declare public readonly accessPolicies: pulumi.Output<string>;
+    public readonly accessPolicies!: pulumi.Output<string>;
     /**
      * Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
      */
-    declare public readonly advancedOptions: pulumi.Output<{[key: string]: string}>;
+    public readonly advancedOptions!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
      */
-    declare public readonly advancedSecurityOptions: pulumi.Output<outputs.opensearch.DomainAdvancedSecurityOptions>;
+    public readonly advancedSecurityOptions!: pulumi.Output<outputs.opensearch.DomainAdvancedSecurityOptions>;
     /**
      * ARN of the domain.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Configuration block for the Auto-Tune options of the domain. Detailed below.
      */
-    declare public readonly autoTuneOptions: pulumi.Output<outputs.opensearch.DomainAutoTuneOptions>;
+    public readonly autoTuneOptions!: pulumi.Output<outputs.opensearch.DomainAutoTuneOptions>;
     /**
      * Configuration block for the cluster of the domain. Detailed below.
      */
-    declare public readonly clusterConfig: pulumi.Output<outputs.opensearch.DomainClusterConfig>;
+    public readonly clusterConfig!: pulumi.Output<outputs.opensearch.DomainClusterConfig>;
     /**
      * Configuration block for authenticating dashboard with Cognito. Detailed below.
      */
-    declare public readonly cognitoOptions: pulumi.Output<outputs.opensearch.DomainCognitoOptions | undefined>;
+    public readonly cognitoOptions!: pulumi.Output<outputs.opensearch.DomainCognitoOptions | undefined>;
     /**
      * Domain-specific endpoint for Dashboard without https scheme.
      */
-    declare public /*out*/ readonly dashboardEndpoint: pulumi.Output<string>;
+    public /*out*/ readonly dashboardEndpoint!: pulumi.Output<string>;
     /**
      * V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
      */
-    declare public /*out*/ readonly dashboardEndpointV2: pulumi.Output<string>;
+    public /*out*/ readonly dashboardEndpointV2!: pulumi.Output<string>;
     /**
      * Configuration block for domain endpoint HTTP(S) related options. Detailed below.
      */
-    declare public readonly domainEndpointOptions: pulumi.Output<outputs.opensearch.DomainDomainEndpointOptions>;
+    public readonly domainEndpointOptions!: pulumi.Output<outputs.opensearch.DomainDomainEndpointOptions>;
     /**
      * Dual stack hosted zone ID for the domain.
      */
-    declare public /*out*/ readonly domainEndpointV2HostedZoneId: pulumi.Output<string>;
+    public /*out*/ readonly domainEndpointV2HostedZoneId!: pulumi.Output<string>;
     /**
      * Unique identifier for the domain.
      */
-    declare public /*out*/ readonly domainId: pulumi.Output<string>;
+    public /*out*/ readonly domainId!: pulumi.Output<string>;
     /**
      * Name of the domain.
      *
      * The following arguments are optional:
      */
-    declare public readonly domainName: pulumi.Output<string>;
+    public readonly domainName!: pulumi.Output<string>;
     /**
      * Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
      */
-    declare public readonly ebsOptions: pulumi.Output<outputs.opensearch.DomainEbsOptions>;
+    public readonly ebsOptions!: pulumi.Output<outputs.opensearch.DomainEbsOptions>;
     /**
      * Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
      */
-    declare public readonly encryptAtRest: pulumi.Output<outputs.opensearch.DomainEncryptAtRest>;
+    public readonly encryptAtRest!: pulumi.Output<outputs.opensearch.DomainEncryptAtRest>;
     /**
      * Domain-specific endpoint used to submit index, search, and data upload requests.
      */
-    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
      * V2 domain endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
      */
-    declare public /*out*/ readonly endpointV2: pulumi.Output<string>;
+    public /*out*/ readonly endpointV2!: pulumi.Output<string>;
     /**
      * Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
      * See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
      * Defaults to the lastest version of OpenSearch.
      */
-    declare public readonly engineVersion: pulumi.Output<string>;
+    public readonly engineVersion!: pulumi.Output<string>;
     /**
      * The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
      */
-    declare public readonly ipAddressType: pulumi.Output<string>;
+    public readonly ipAddressType!: pulumi.Output<string>;
     /**
      * Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
      */
-    declare public readonly logPublishingOptions: pulumi.Output<outputs.opensearch.DomainLogPublishingOption[] | undefined>;
+    public readonly logPublishingOptions!: pulumi.Output<outputs.opensearch.DomainLogPublishingOption[] | undefined>;
     /**
      * Configuration block for node-to-node encryption options. Detailed below.
      */
-    declare public readonly nodeToNodeEncryption: pulumi.Output<outputs.opensearch.DomainNodeToNodeEncryption>;
+    public readonly nodeToNodeEncryption!: pulumi.Output<outputs.opensearch.DomainNodeToNodeEncryption>;
     /**
      * Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
      */
-    declare public readonly offPeakWindowOptions: pulumi.Output<outputs.opensearch.DomainOffPeakWindowOptions>;
+    public readonly offPeakWindowOptions!: pulumi.Output<outputs.opensearch.DomainOffPeakWindowOptions>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
      */
-    declare public readonly snapshotOptions: pulumi.Output<outputs.opensearch.DomainSnapshotOptions | undefined>;
+    public readonly snapshotOptions!: pulumi.Output<outputs.opensearch.DomainSnapshotOptions | undefined>;
     /**
      * Software update options for the domain. Detailed below.
      */
-    declare public readonly softwareUpdateOptions: pulumi.Output<outputs.opensearch.DomainSoftwareUpdateOptions>;
+    public readonly softwareUpdateOptions!: pulumi.Output<outputs.opensearch.DomainSoftwareUpdateOptions>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
      */
-    declare public readonly vpcOptions: pulumi.Output<outputs.opensearch.DomainVpcOptions | undefined>;
+    public readonly vpcOptions!: pulumi.Output<outputs.opensearch.DomainVpcOptions | undefined>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -435,56 +435,56 @@ export class Domain extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainState | undefined;
-            resourceInputs["accessPolicies"] = state?.accessPolicies;
-            resourceInputs["advancedOptions"] = state?.advancedOptions;
-            resourceInputs["advancedSecurityOptions"] = state?.advancedSecurityOptions;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["autoTuneOptions"] = state?.autoTuneOptions;
-            resourceInputs["clusterConfig"] = state?.clusterConfig;
-            resourceInputs["cognitoOptions"] = state?.cognitoOptions;
-            resourceInputs["dashboardEndpoint"] = state?.dashboardEndpoint;
-            resourceInputs["dashboardEndpointV2"] = state?.dashboardEndpointV2;
-            resourceInputs["domainEndpointOptions"] = state?.domainEndpointOptions;
-            resourceInputs["domainEndpointV2HostedZoneId"] = state?.domainEndpointV2HostedZoneId;
-            resourceInputs["domainId"] = state?.domainId;
-            resourceInputs["domainName"] = state?.domainName;
-            resourceInputs["ebsOptions"] = state?.ebsOptions;
-            resourceInputs["encryptAtRest"] = state?.encryptAtRest;
-            resourceInputs["endpoint"] = state?.endpoint;
-            resourceInputs["endpointV2"] = state?.endpointV2;
-            resourceInputs["engineVersion"] = state?.engineVersion;
-            resourceInputs["ipAddressType"] = state?.ipAddressType;
-            resourceInputs["logPublishingOptions"] = state?.logPublishingOptions;
-            resourceInputs["nodeToNodeEncryption"] = state?.nodeToNodeEncryption;
-            resourceInputs["offPeakWindowOptions"] = state?.offPeakWindowOptions;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["snapshotOptions"] = state?.snapshotOptions;
-            resourceInputs["softwareUpdateOptions"] = state?.softwareUpdateOptions;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["vpcOptions"] = state?.vpcOptions;
+            resourceInputs["accessPolicies"] = state ? state.accessPolicies : undefined;
+            resourceInputs["advancedOptions"] = state ? state.advancedOptions : undefined;
+            resourceInputs["advancedSecurityOptions"] = state ? state.advancedSecurityOptions : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["autoTuneOptions"] = state ? state.autoTuneOptions : undefined;
+            resourceInputs["clusterConfig"] = state ? state.clusterConfig : undefined;
+            resourceInputs["cognitoOptions"] = state ? state.cognitoOptions : undefined;
+            resourceInputs["dashboardEndpoint"] = state ? state.dashboardEndpoint : undefined;
+            resourceInputs["dashboardEndpointV2"] = state ? state.dashboardEndpointV2 : undefined;
+            resourceInputs["domainEndpointOptions"] = state ? state.domainEndpointOptions : undefined;
+            resourceInputs["domainEndpointV2HostedZoneId"] = state ? state.domainEndpointV2HostedZoneId : undefined;
+            resourceInputs["domainId"] = state ? state.domainId : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["ebsOptions"] = state ? state.ebsOptions : undefined;
+            resourceInputs["encryptAtRest"] = state ? state.encryptAtRest : undefined;
+            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
+            resourceInputs["endpointV2"] = state ? state.endpointV2 : undefined;
+            resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
+            resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
+            resourceInputs["logPublishingOptions"] = state ? state.logPublishingOptions : undefined;
+            resourceInputs["nodeToNodeEncryption"] = state ? state.nodeToNodeEncryption : undefined;
+            resourceInputs["offPeakWindowOptions"] = state ? state.offPeakWindowOptions : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["snapshotOptions"] = state ? state.snapshotOptions : undefined;
+            resourceInputs["softwareUpdateOptions"] = state ? state.softwareUpdateOptions : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcOptions"] = state ? state.vpcOptions : undefined;
         } else {
             const args = argsOrState as DomainArgs | undefined;
-            resourceInputs["accessPolicies"] = args?.accessPolicies;
-            resourceInputs["advancedOptions"] = args?.advancedOptions;
-            resourceInputs["advancedSecurityOptions"] = args?.advancedSecurityOptions;
-            resourceInputs["autoTuneOptions"] = args?.autoTuneOptions;
-            resourceInputs["clusterConfig"] = args?.clusterConfig;
-            resourceInputs["cognitoOptions"] = args?.cognitoOptions;
-            resourceInputs["domainEndpointOptions"] = args?.domainEndpointOptions;
-            resourceInputs["domainName"] = args?.domainName;
-            resourceInputs["ebsOptions"] = args?.ebsOptions;
-            resourceInputs["encryptAtRest"] = args?.encryptAtRest;
-            resourceInputs["engineVersion"] = args?.engineVersion;
-            resourceInputs["ipAddressType"] = args?.ipAddressType;
-            resourceInputs["logPublishingOptions"] = args?.logPublishingOptions;
-            resourceInputs["nodeToNodeEncryption"] = args?.nodeToNodeEncryption;
-            resourceInputs["offPeakWindowOptions"] = args?.offPeakWindowOptions;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["snapshotOptions"] = args?.snapshotOptions;
-            resourceInputs["softwareUpdateOptions"] = args?.softwareUpdateOptions;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["vpcOptions"] = args?.vpcOptions;
+            resourceInputs["accessPolicies"] = args ? args.accessPolicies : undefined;
+            resourceInputs["advancedOptions"] = args ? args.advancedOptions : undefined;
+            resourceInputs["advancedSecurityOptions"] = args ? args.advancedSecurityOptions : undefined;
+            resourceInputs["autoTuneOptions"] = args ? args.autoTuneOptions : undefined;
+            resourceInputs["clusterConfig"] = args ? args.clusterConfig : undefined;
+            resourceInputs["cognitoOptions"] = args ? args.cognitoOptions : undefined;
+            resourceInputs["domainEndpointOptions"] = args ? args.domainEndpointOptions : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["ebsOptions"] = args ? args.ebsOptions : undefined;
+            resourceInputs["encryptAtRest"] = args ? args.encryptAtRest : undefined;
+            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
+            resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
+            resourceInputs["logPublishingOptions"] = args ? args.logPublishingOptions : undefined;
+            resourceInputs["nodeToNodeEncryption"] = args ? args.nodeToNodeEncryption : undefined;
+            resourceInputs["offPeakWindowOptions"] = args ? args.offPeakWindowOptions : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["snapshotOptions"] = args ? args.snapshotOptions : undefined;
+            resourceInputs["softwareUpdateOptions"] = args ? args.softwareUpdateOptions : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcOptions"] = args ? args.vpcOptions : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dashboardEndpoint"] = undefined /*out*/;
             resourceInputs["dashboardEndpointV2"] = undefined /*out*/;

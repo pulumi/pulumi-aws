@@ -114,54 +114,54 @@ export class Addon extends pulumi.CustomResource {
      * Name of the EKS add-on. The name must match one of
      * the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
      */
-    declare public readonly addonName: pulumi.Output<string>;
+    public readonly addonName!: pulumi.Output<string>;
     /**
      * The version of the EKS add-on. The version must
      * match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
      */
-    declare public readonly addonVersion: pulumi.Output<string>;
+    public readonly addonVersion!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the EKS add-on.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Name of the EKS Cluster.
      *
      * The following arguments are optional:
      */
-    declare public readonly clusterName: pulumi.Output<string>;
+    public readonly clusterName!: pulumi.Output<string>;
     /**
      * custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
      */
-    declare public readonly configurationValues: pulumi.Output<string>;
+    public readonly configurationValues!: pulumi.Output<string>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
      */
-    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
      */
-    declare public /*out*/ readonly modifiedAt: pulumi.Output<string>;
+    public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
     /**
      * Configuration block with EKS Pod Identity association settings. See `podIdentityAssociation` below for details.
      */
-    declare public readonly podIdentityAssociations: pulumi.Output<outputs.eks.AddonPodIdentityAssociation[] | undefined>;
+    public readonly podIdentityAssociations!: pulumi.Output<outputs.eks.AddonPodIdentityAssociation[] | undefined>;
     /**
      * Indicates if you want to preserve the created resources when deleting the EKS add-on.
      */
-    declare public readonly preserve: pulumi.Output<boolean | undefined>;
+    public readonly preserve!: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Documentation.
      */
-    declare public readonly resolveConflictsOnCreate: pulumi.Output<string | undefined>;
+    public readonly resolveConflictsOnCreate!: pulumi.Output<string | undefined>;
     /**
      * How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Documentation.
      */
-    declare public readonly resolveConflictsOnUpdate: pulumi.Output<string | undefined>;
+    public readonly resolveConflictsOnUpdate!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an
      * existing IAM role to bind to the add-on's service account. The role must be
@@ -175,15 +175,15 @@ export class Addon extends pulumi.CustomResource {
      * for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
      * in the Amazon EKS User Guide.
      */
-    declare public readonly serviceAccountRoleArn: pulumi.Output<string | undefined>;
+    public readonly serviceAccountRoleArn!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Addon resource with the given unique name, arguments, and options.
@@ -198,40 +198,40 @@ export class Addon extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AddonState | undefined;
-            resourceInputs["addonName"] = state?.addonName;
-            resourceInputs["addonVersion"] = state?.addonVersion;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["clusterName"] = state?.clusterName;
-            resourceInputs["configurationValues"] = state?.configurationValues;
-            resourceInputs["createdAt"] = state?.createdAt;
-            resourceInputs["modifiedAt"] = state?.modifiedAt;
-            resourceInputs["podIdentityAssociations"] = state?.podIdentityAssociations;
-            resourceInputs["preserve"] = state?.preserve;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resolveConflictsOnCreate"] = state?.resolveConflictsOnCreate;
-            resourceInputs["resolveConflictsOnUpdate"] = state?.resolveConflictsOnUpdate;
-            resourceInputs["serviceAccountRoleArn"] = state?.serviceAccountRoleArn;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["addonName"] = state ? state.addonName : undefined;
+            resourceInputs["addonVersion"] = state ? state.addonVersion : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["clusterName"] = state ? state.clusterName : undefined;
+            resourceInputs["configurationValues"] = state ? state.configurationValues : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["modifiedAt"] = state ? state.modifiedAt : undefined;
+            resourceInputs["podIdentityAssociations"] = state ? state.podIdentityAssociations : undefined;
+            resourceInputs["preserve"] = state ? state.preserve : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resolveConflictsOnCreate"] = state ? state.resolveConflictsOnCreate : undefined;
+            resourceInputs["resolveConflictsOnUpdate"] = state ? state.resolveConflictsOnUpdate : undefined;
+            resourceInputs["serviceAccountRoleArn"] = state ? state.serviceAccountRoleArn : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as AddonArgs | undefined;
-            if (args?.addonName === undefined && !opts.urn) {
+            if ((!args || args.addonName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'addonName'");
             }
-            if (args?.clusterName === undefined && !opts.urn) {
+            if ((!args || args.clusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            resourceInputs["addonName"] = args?.addonName;
-            resourceInputs["addonVersion"] = args?.addonVersion;
-            resourceInputs["clusterName"] = args?.clusterName;
-            resourceInputs["configurationValues"] = args?.configurationValues;
-            resourceInputs["podIdentityAssociations"] = args?.podIdentityAssociations;
-            resourceInputs["preserve"] = args?.preserve;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resolveConflictsOnCreate"] = args?.resolveConflictsOnCreate;
-            resourceInputs["resolveConflictsOnUpdate"] = args?.resolveConflictsOnUpdate;
-            resourceInputs["serviceAccountRoleArn"] = args?.serviceAccountRoleArn;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["addonName"] = args ? args.addonName : undefined;
+            resourceInputs["addonVersion"] = args ? args.addonVersion : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["configurationValues"] = args ? args.configurationValues : undefined;
+            resourceInputs["podIdentityAssociations"] = args ? args.podIdentityAssociations : undefined;
+            resourceInputs["preserve"] = args ? args.preserve : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resolveConflictsOnCreate"] = args ? args.resolveConflictsOnCreate : undefined;
+            resourceInputs["resolveConflictsOnUpdate"] = args ? args.resolveConflictsOnUpdate : undefined;
+            resourceInputs["serviceAccountRoleArn"] = args ? args.serviceAccountRoleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;

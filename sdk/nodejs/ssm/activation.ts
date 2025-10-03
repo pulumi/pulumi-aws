@@ -81,47 +81,47 @@ export class Activation extends pulumi.CustomResource {
     /**
      * The code the system generates when it processes the activation.
      */
-    declare public /*out*/ readonly activationCode: pulumi.Output<string>;
+    public /*out*/ readonly activationCode!: pulumi.Output<string>;
     /**
      * The description of the resource that you want to register.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
      */
-    declare public readonly expirationDate: pulumi.Output<string>;
+    public readonly expirationDate!: pulumi.Output<string>;
     /**
      * If the current activation has expired.
      */
-    declare public /*out*/ readonly expired: pulumi.Output<boolean>;
+    public /*out*/ readonly expired!: pulumi.Output<boolean>;
     /**
      * The IAM Role to attach to the managed instance.
      */
-    declare public readonly iamRole: pulumi.Output<string>;
+    public readonly iamRole!: pulumi.Output<string>;
     /**
      * The default name of the registered managed instance.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The number of managed instances that are currently registered using this activation.
      */
-    declare public /*out*/ readonly registrationCount: pulumi.Output<number>;
+    public /*out*/ readonly registrationCount!: pulumi.Output<number>;
     /**
      * The maximum number of managed instances you want to register. The default value is 1 instance.
      */
-    declare public readonly registrationLimit: pulumi.Output<number | undefined>;
+    public readonly registrationLimit!: pulumi.Output<number | undefined>;
     /**
      * A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Activation resource with the given unique name, arguments, and options.
@@ -136,29 +136,29 @@ export class Activation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ActivationState | undefined;
-            resourceInputs["activationCode"] = state?.activationCode;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["expirationDate"] = state?.expirationDate;
-            resourceInputs["expired"] = state?.expired;
-            resourceInputs["iamRole"] = state?.iamRole;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["registrationCount"] = state?.registrationCount;
-            resourceInputs["registrationLimit"] = state?.registrationLimit;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["activationCode"] = state ? state.activationCode : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["expirationDate"] = state ? state.expirationDate : undefined;
+            resourceInputs["expired"] = state ? state.expired : undefined;
+            resourceInputs["iamRole"] = state ? state.iamRole : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["registrationCount"] = state ? state.registrationCount : undefined;
+            resourceInputs["registrationLimit"] = state ? state.registrationLimit : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ActivationArgs | undefined;
-            if (args?.iamRole === undefined && !opts.urn) {
+            if ((!args || args.iamRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'iamRole'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["expirationDate"] = args?.expirationDate;
-            resourceInputs["iamRole"] = args?.iamRole;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["registrationLimit"] = args?.registrationLimit;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["expirationDate"] = args ? args.expirationDate : undefined;
+            resourceInputs["iamRole"] = args ? args.iamRole : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["registrationLimit"] = args ? args.registrationLimit : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["activationCode"] = undefined /*out*/;
             resourceInputs["expired"] = undefined /*out*/;
             resourceInputs["registrationCount"] = undefined /*out*/;

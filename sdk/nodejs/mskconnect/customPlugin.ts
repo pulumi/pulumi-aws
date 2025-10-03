@@ -75,43 +75,43 @@ export class CustomPlugin extends pulumi.CustomResource {
     /**
      * the Amazon Resource Name (ARN) of the custom plugin.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The type of the plugin file. Allowed values are `ZIP` and `JAR`.
      */
-    declare public readonly contentType: pulumi.Output<string>;
+    public readonly contentType!: pulumi.Output<string>;
     /**
      * A summary description of the custom plugin.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * an ID of the latest successfully created revision of the custom plugin.
      */
-    declare public /*out*/ readonly latestRevision: pulumi.Output<number>;
+    public /*out*/ readonly latestRevision!: pulumi.Output<number>;
     /**
      * Information about the location of a custom plugin. See `location` Block for details.
      */
-    declare public readonly location: pulumi.Output<outputs.mskconnect.CustomPluginLocation>;
+    public readonly location!: pulumi.Output<outputs.mskconnect.CustomPluginLocation>;
     /**
      * The name of the custom plugin..
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * the state of the custom plugin.
      */
-    declare public /*out*/ readonly state: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a CustomPlugin resource with the given unique name, arguments, and options.
@@ -126,30 +126,30 @@ export class CustomPlugin extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomPluginState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["contentType"] = state?.contentType;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["latestRevision"] = state?.latestRevision;
-            resourceInputs["location"] = state?.location;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["state"] = state?.state;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["contentType"] = state ? state.contentType : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["latestRevision"] = state ? state.latestRevision : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as CustomPluginArgs | undefined;
-            if (args?.contentType === undefined && !opts.urn) {
+            if ((!args || args.contentType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'contentType'");
             }
-            if (args?.location === undefined && !opts.urn) {
+            if ((!args || args.location === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'location'");
             }
-            resourceInputs["contentType"] = args?.contentType;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["location"] = args?.location;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["contentType"] = args ? args.contentType : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["latestRevision"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;

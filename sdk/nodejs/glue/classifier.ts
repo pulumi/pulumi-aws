@@ -119,27 +119,27 @@ export class Classifier extends pulumi.CustomResource {
     /**
      * A classifier for CSV content. Defined below.
      */
-    declare public readonly csvClassifier: pulumi.Output<outputs.glue.ClassifierCsvClassifier | undefined>;
+    public readonly csvClassifier!: pulumi.Output<outputs.glue.ClassifierCsvClassifier | undefined>;
     /**
      * A classifier that uses grok patterns. Defined below.
      */
-    declare public readonly grokClassifier: pulumi.Output<outputs.glue.ClassifierGrokClassifier | undefined>;
+    public readonly grokClassifier!: pulumi.Output<outputs.glue.ClassifierGrokClassifier | undefined>;
     /**
      * A classifier for JSON content. Defined below.
      */
-    declare public readonly jsonClassifier: pulumi.Output<outputs.glue.ClassifierJsonClassifier | undefined>;
+    public readonly jsonClassifier!: pulumi.Output<outputs.glue.ClassifierJsonClassifier | undefined>;
     /**
      * The name of the classifier.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A classifier for XML content. Defined below.
      */
-    declare public readonly xmlClassifier: pulumi.Output<outputs.glue.ClassifierXmlClassifier | undefined>;
+    public readonly xmlClassifier!: pulumi.Output<outputs.glue.ClassifierXmlClassifier | undefined>;
 
     /**
      * Create a Classifier resource with the given unique name, arguments, and options.
@@ -154,20 +154,20 @@ export class Classifier extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClassifierState | undefined;
-            resourceInputs["csvClassifier"] = state?.csvClassifier;
-            resourceInputs["grokClassifier"] = state?.grokClassifier;
-            resourceInputs["jsonClassifier"] = state?.jsonClassifier;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["xmlClassifier"] = state?.xmlClassifier;
+            resourceInputs["csvClassifier"] = state ? state.csvClassifier : undefined;
+            resourceInputs["grokClassifier"] = state ? state.grokClassifier : undefined;
+            resourceInputs["jsonClassifier"] = state ? state.jsonClassifier : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["xmlClassifier"] = state ? state.xmlClassifier : undefined;
         } else {
             const args = argsOrState as ClassifierArgs | undefined;
-            resourceInputs["csvClassifier"] = args?.csvClassifier;
-            resourceInputs["grokClassifier"] = args?.grokClassifier;
-            resourceInputs["jsonClassifier"] = args?.jsonClassifier;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["xmlClassifier"] = args?.xmlClassifier;
+            resourceInputs["csvClassifier"] = args ? args.csvClassifier : undefined;
+            resourceInputs["grokClassifier"] = args ? args.grokClassifier : undefined;
+            resourceInputs["jsonClassifier"] = args ? args.jsonClassifier : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["xmlClassifier"] = args ? args.xmlClassifier : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Classifier.__pulumiType, name, resourceInputs, opts);

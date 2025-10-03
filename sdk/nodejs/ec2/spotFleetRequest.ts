@@ -239,43 +239,43 @@ export class SpotFleetRequest extends pulumi.CustomResource {
      * the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
      * `lowestPrice`.
      */
-    declare public readonly allocationStrategy: pulumi.Output<string | undefined>;
-    declare public /*out*/ readonly clientToken: pulumi.Output<string>;
+    public readonly allocationStrategy!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly clientToken!: pulumi.Output<string>;
     /**
      * Reserved.
      */
-    declare public readonly context: pulumi.Output<string | undefined>;
+    public readonly context!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether running Spot
      * instances should be terminated if the target capacity of the Spot fleet
      * request is decreased below the current size of the Spot fleet.
      */
-    declare public readonly excessCapacityTerminationPolicy: pulumi.Output<string | undefined>;
+    public readonly excessCapacityTerminationPolicy!: pulumi.Output<string | undefined>;
     /**
      * The type of fleet request. Indicates whether the Spot Fleet only requests the target
      * capacity or also attempts to maintain it. Default is `maintain`.
      */
-    declare public readonly fleetType: pulumi.Output<string | undefined>;
+    public readonly fleetType!: pulumi.Output<string | undefined>;
     /**
      * Grants the Spot fleet permission to terminate
      * Spot instances on your behalf when you cancel its Spot fleet request using
      * CancelSpotFleetRequests or when the Spot fleet request expires, if you set
      * terminateInstancesWithExpiration.
      */
-    declare public readonly iamFleetRole: pulumi.Output<string>;
+    public readonly iamFleetRole!: pulumi.Output<string>;
     /**
      * Indicates whether a Spot
      * instance stops or terminates when it is interrupted. Default is
      * `terminate`.
      */
-    declare public readonly instanceInterruptionBehaviour: pulumi.Output<string | undefined>;
+    public readonly instanceInterruptionBehaviour!: pulumi.Output<string | undefined>;
     /**
      * The number of Spot pools across which to allocate your target Spot capacity.
      * Valid only when `allocationStrategy` is set to `lowestPrice`. Spot Fleet selects
      * the cheapest Spot pools and evenly allocates your target Spot capacity across
      * the number of Spot pools that you specify.
      */
-    declare public readonly instancePoolsToUseCount: pulumi.Output<number | undefined>;
+    public readonly instancePoolsToUseCount!: pulumi.Output<number | undefined>;
     /**
      * Used to define the launch configuration of the
      * spot-fleet request. Can be specified multiple times to define different bids
@@ -287,94 +287,94 @@ export class SpotFleetRequest extends pulumi.CustomResource {
      * [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `aws.ec2.Instance` parameter that corresponds to those inputs may be used and it have
      * a additional parameter `iamInstanceProfileArn` takes `aws.iam.InstanceProfile` attribute `arn` as input.
      */
-    declare public readonly launchSpecifications: pulumi.Output<outputs.ec2.SpotFleetRequestLaunchSpecification[] | undefined>;
+    public readonly launchSpecifications!: pulumi.Output<outputs.ec2.SpotFleetRequestLaunchSpecification[] | undefined>;
     /**
      * Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launchSpecification`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
      */
-    declare public readonly launchTemplateConfigs: pulumi.Output<outputs.ec2.SpotFleetRequestLaunchTemplateConfig[] | undefined>;
+    public readonly launchTemplateConfigs!: pulumi.Output<outputs.ec2.SpotFleetRequestLaunchTemplateConfig[] | undefined>;
     /**
      * A list of elastic load balancer names to add to the Spot fleet.
      */
-    declare public readonly loadBalancers: pulumi.Output<string[]>;
+    public readonly loadBalancers!: pulumi.Output<string[]>;
     /**
      * The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
      */
-    declare public readonly onDemandAllocationStrategy: pulumi.Output<string | undefined>;
+    public readonly onDemandAllocationStrategy!: pulumi.Output<string | undefined>;
     /**
      * The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
      */
-    declare public readonly onDemandMaxTotalPrice: pulumi.Output<string | undefined>;
+    public readonly onDemandMaxTotalPrice!: pulumi.Output<string | undefined>;
     /**
      * The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
      */
-    declare public readonly onDemandTargetCapacity: pulumi.Output<number | undefined>;
+    public readonly onDemandTargetCapacity!: pulumi.Output<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
      */
-    declare public readonly replaceUnhealthyInstances: pulumi.Output<boolean | undefined>;
+    public readonly replaceUnhealthyInstances!: pulumi.Output<boolean | undefined>;
     /**
      * Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
      */
-    declare public readonly spotMaintenanceStrategies: pulumi.Output<outputs.ec2.SpotFleetRequestSpotMaintenanceStrategies | undefined>;
+    public readonly spotMaintenanceStrategies!: pulumi.Output<outputs.ec2.SpotFleetRequestSpotMaintenanceStrategies | undefined>;
     /**
      * The maximum bid price per unit hour.
      */
-    declare public readonly spotPrice: pulumi.Output<string | undefined>;
+    public readonly spotPrice!: pulumi.Output<string | undefined>;
     /**
      * The state of the Spot fleet request.
      */
-    declare public /*out*/ readonly spotRequestState: pulumi.Output<string>;
+    public /*out*/ readonly spotRequestState!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The number of units to request. You can choose to set the
      * target capacity in terms of instances or a performance characteristic that is
      * important to your application workload, such as vCPUs, memory, or I/O.
      */
-    declare public readonly targetCapacity: pulumi.Output<number>;
+    public readonly targetCapacity!: pulumi.Output<number>;
     /**
      * The unit for the target capacity. This can only be done with `instanceRequirements` defined
      */
-    declare public readonly targetCapacityUnitType: pulumi.Output<string | undefined>;
+    public readonly targetCapacityUnitType!: pulumi.Output<string | undefined>;
     /**
      * A list of `aws.alb.TargetGroup` ARNs, for use with Application Load Balancing.
      */
-    declare public readonly targetGroupArns: pulumi.Output<string[]>;
+    public readonly targetGroupArns!: pulumi.Output<string[]>;
     /**
      * Indicates whether running Spot
      * instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
      * If no value is specified, the value of the `terminateInstancesWithExpiration` argument is used.
      */
-    declare public readonly terminateInstancesOnDelete: pulumi.Output<string | undefined>;
+    public readonly terminateInstancesOnDelete!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether running Spot
      * instances should be terminated when the Spot fleet request expires.
      */
-    declare public readonly terminateInstancesWithExpiration: pulumi.Output<boolean | undefined>;
+    public readonly terminateInstancesWithExpiration!: pulumi.Output<boolean | undefined>;
     /**
      * The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
      */
-    declare public readonly validFrom: pulumi.Output<string | undefined>;
+    public readonly validFrom!: pulumi.Output<string | undefined>;
     /**
      * The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
      */
-    declare public readonly validUntil: pulumi.Output<string | undefined>;
+    public readonly validUntil!: pulumi.Output<string | undefined>;
     /**
      * If set, this provider will
      * wait for the Spot Request to be fulfilled, and will throw an error if the
      * timeout of 10m is reached.
      */
-    declare public readonly waitForFulfillment: pulumi.Output<boolean | undefined>;
+    public readonly waitForFulfillment!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a SpotFleetRequest resource with the given unique name, arguments, and options.
@@ -389,69 +389,69 @@ export class SpotFleetRequest extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpotFleetRequestState | undefined;
-            resourceInputs["allocationStrategy"] = state?.allocationStrategy;
-            resourceInputs["clientToken"] = state?.clientToken;
-            resourceInputs["context"] = state?.context;
-            resourceInputs["excessCapacityTerminationPolicy"] = state?.excessCapacityTerminationPolicy;
-            resourceInputs["fleetType"] = state?.fleetType;
-            resourceInputs["iamFleetRole"] = state?.iamFleetRole;
-            resourceInputs["instanceInterruptionBehaviour"] = state?.instanceInterruptionBehaviour;
-            resourceInputs["instancePoolsToUseCount"] = state?.instancePoolsToUseCount;
-            resourceInputs["launchSpecifications"] = state?.launchSpecifications;
-            resourceInputs["launchTemplateConfigs"] = state?.launchTemplateConfigs;
-            resourceInputs["loadBalancers"] = state?.loadBalancers;
-            resourceInputs["onDemandAllocationStrategy"] = state?.onDemandAllocationStrategy;
-            resourceInputs["onDemandMaxTotalPrice"] = state?.onDemandMaxTotalPrice;
-            resourceInputs["onDemandTargetCapacity"] = state?.onDemandTargetCapacity;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["replaceUnhealthyInstances"] = state?.replaceUnhealthyInstances;
-            resourceInputs["spotMaintenanceStrategies"] = state?.spotMaintenanceStrategies;
-            resourceInputs["spotPrice"] = state?.spotPrice;
-            resourceInputs["spotRequestState"] = state?.spotRequestState;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["targetCapacity"] = state?.targetCapacity;
-            resourceInputs["targetCapacityUnitType"] = state?.targetCapacityUnitType;
-            resourceInputs["targetGroupArns"] = state?.targetGroupArns;
-            resourceInputs["terminateInstancesOnDelete"] = state?.terminateInstancesOnDelete;
-            resourceInputs["terminateInstancesWithExpiration"] = state?.terminateInstancesWithExpiration;
-            resourceInputs["validFrom"] = state?.validFrom;
-            resourceInputs["validUntil"] = state?.validUntil;
-            resourceInputs["waitForFulfillment"] = state?.waitForFulfillment;
+            resourceInputs["allocationStrategy"] = state ? state.allocationStrategy : undefined;
+            resourceInputs["clientToken"] = state ? state.clientToken : undefined;
+            resourceInputs["context"] = state ? state.context : undefined;
+            resourceInputs["excessCapacityTerminationPolicy"] = state ? state.excessCapacityTerminationPolicy : undefined;
+            resourceInputs["fleetType"] = state ? state.fleetType : undefined;
+            resourceInputs["iamFleetRole"] = state ? state.iamFleetRole : undefined;
+            resourceInputs["instanceInterruptionBehaviour"] = state ? state.instanceInterruptionBehaviour : undefined;
+            resourceInputs["instancePoolsToUseCount"] = state ? state.instancePoolsToUseCount : undefined;
+            resourceInputs["launchSpecifications"] = state ? state.launchSpecifications : undefined;
+            resourceInputs["launchTemplateConfigs"] = state ? state.launchTemplateConfigs : undefined;
+            resourceInputs["loadBalancers"] = state ? state.loadBalancers : undefined;
+            resourceInputs["onDemandAllocationStrategy"] = state ? state.onDemandAllocationStrategy : undefined;
+            resourceInputs["onDemandMaxTotalPrice"] = state ? state.onDemandMaxTotalPrice : undefined;
+            resourceInputs["onDemandTargetCapacity"] = state ? state.onDemandTargetCapacity : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["replaceUnhealthyInstances"] = state ? state.replaceUnhealthyInstances : undefined;
+            resourceInputs["spotMaintenanceStrategies"] = state ? state.spotMaintenanceStrategies : undefined;
+            resourceInputs["spotPrice"] = state ? state.spotPrice : undefined;
+            resourceInputs["spotRequestState"] = state ? state.spotRequestState : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["targetCapacity"] = state ? state.targetCapacity : undefined;
+            resourceInputs["targetCapacityUnitType"] = state ? state.targetCapacityUnitType : undefined;
+            resourceInputs["targetGroupArns"] = state ? state.targetGroupArns : undefined;
+            resourceInputs["terminateInstancesOnDelete"] = state ? state.terminateInstancesOnDelete : undefined;
+            resourceInputs["terminateInstancesWithExpiration"] = state ? state.terminateInstancesWithExpiration : undefined;
+            resourceInputs["validFrom"] = state ? state.validFrom : undefined;
+            resourceInputs["validUntil"] = state ? state.validUntil : undefined;
+            resourceInputs["waitForFulfillment"] = state ? state.waitForFulfillment : undefined;
         } else {
             const args = argsOrState as SpotFleetRequestArgs | undefined;
-            if (args?.iamFleetRole === undefined && !opts.urn) {
+            if ((!args || args.iamFleetRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'iamFleetRole'");
             }
-            if (args?.targetCapacity === undefined && !opts.urn) {
+            if ((!args || args.targetCapacity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetCapacity'");
             }
-            resourceInputs["allocationStrategy"] = args?.allocationStrategy;
-            resourceInputs["context"] = args?.context;
-            resourceInputs["excessCapacityTerminationPolicy"] = args?.excessCapacityTerminationPolicy;
-            resourceInputs["fleetType"] = args?.fleetType;
-            resourceInputs["iamFleetRole"] = args?.iamFleetRole;
-            resourceInputs["instanceInterruptionBehaviour"] = args?.instanceInterruptionBehaviour;
-            resourceInputs["instancePoolsToUseCount"] = args?.instancePoolsToUseCount;
-            resourceInputs["launchSpecifications"] = args?.launchSpecifications;
-            resourceInputs["launchTemplateConfigs"] = args?.launchTemplateConfigs;
-            resourceInputs["loadBalancers"] = args?.loadBalancers;
-            resourceInputs["onDemandAllocationStrategy"] = args?.onDemandAllocationStrategy;
-            resourceInputs["onDemandMaxTotalPrice"] = args?.onDemandMaxTotalPrice;
-            resourceInputs["onDemandTargetCapacity"] = args?.onDemandTargetCapacity;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["replaceUnhealthyInstances"] = args?.replaceUnhealthyInstances;
-            resourceInputs["spotMaintenanceStrategies"] = args?.spotMaintenanceStrategies;
-            resourceInputs["spotPrice"] = args?.spotPrice;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["targetCapacity"] = args?.targetCapacity;
-            resourceInputs["targetCapacityUnitType"] = args?.targetCapacityUnitType;
-            resourceInputs["targetGroupArns"] = args?.targetGroupArns;
-            resourceInputs["terminateInstancesOnDelete"] = args?.terminateInstancesOnDelete;
-            resourceInputs["terminateInstancesWithExpiration"] = args?.terminateInstancesWithExpiration;
-            resourceInputs["validFrom"] = args?.validFrom;
-            resourceInputs["validUntil"] = args?.validUntil;
-            resourceInputs["waitForFulfillment"] = args?.waitForFulfillment;
+            resourceInputs["allocationStrategy"] = args ? args.allocationStrategy : undefined;
+            resourceInputs["context"] = args ? args.context : undefined;
+            resourceInputs["excessCapacityTerminationPolicy"] = args ? args.excessCapacityTerminationPolicy : undefined;
+            resourceInputs["fleetType"] = args ? args.fleetType : undefined;
+            resourceInputs["iamFleetRole"] = args ? args.iamFleetRole : undefined;
+            resourceInputs["instanceInterruptionBehaviour"] = args ? args.instanceInterruptionBehaviour : undefined;
+            resourceInputs["instancePoolsToUseCount"] = args ? args.instancePoolsToUseCount : undefined;
+            resourceInputs["launchSpecifications"] = args ? args.launchSpecifications : undefined;
+            resourceInputs["launchTemplateConfigs"] = args ? args.launchTemplateConfigs : undefined;
+            resourceInputs["loadBalancers"] = args ? args.loadBalancers : undefined;
+            resourceInputs["onDemandAllocationStrategy"] = args ? args.onDemandAllocationStrategy : undefined;
+            resourceInputs["onDemandMaxTotalPrice"] = args ? args.onDemandMaxTotalPrice : undefined;
+            resourceInputs["onDemandTargetCapacity"] = args ? args.onDemandTargetCapacity : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["replaceUnhealthyInstances"] = args ? args.replaceUnhealthyInstances : undefined;
+            resourceInputs["spotMaintenanceStrategies"] = args ? args.spotMaintenanceStrategies : undefined;
+            resourceInputs["spotPrice"] = args ? args.spotPrice : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetCapacity"] = args ? args.targetCapacity : undefined;
+            resourceInputs["targetCapacityUnitType"] = args ? args.targetCapacityUnitType : undefined;
+            resourceInputs["targetGroupArns"] = args ? args.targetGroupArns : undefined;
+            resourceInputs["terminateInstancesOnDelete"] = args ? args.terminateInstancesOnDelete : undefined;
+            resourceInputs["terminateInstancesWithExpiration"] = args ? args.terminateInstancesWithExpiration : undefined;
+            resourceInputs["validFrom"] = args ? args.validFrom : undefined;
+            resourceInputs["validUntil"] = args ? args.validUntil : undefined;
+            resourceInputs["waitForFulfillment"] = args ? args.waitForFulfillment : undefined;
             resourceInputs["clientToken"] = undefined /*out*/;
             resourceInputs["spotRequestState"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

@@ -59,25 +59,25 @@ export class StaticIp extends pulumi.CustomResource {
     /**
      * ARN of the Lightsail static IP.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Allocated static IP address.
      */
-    declare public /*out*/ readonly ipAddress: pulumi.Output<string>;
+    public /*out*/ readonly ipAddress!: pulumi.Output<string>;
     /**
      * Name for the allocated static IP.
      *
      * The following arguments are optional:
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Support code for the static IP. Include this code in your email to support when you have questions about a static IP in Lightsail. This code enables our support team to look up your Lightsail information more easily.
      */
-    declare public /*out*/ readonly supportCode: pulumi.Output<string>;
+    public /*out*/ readonly supportCode!: pulumi.Output<string>;
 
     /**
      * Create a StaticIp resource with the given unique name, arguments, and options.
@@ -92,15 +92,15 @@ export class StaticIp extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StaticIpState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["ipAddress"] = state?.ipAddress;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["supportCode"] = state?.supportCode;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["supportCode"] = state ? state.supportCode : undefined;
         } else {
             const args = argsOrState as StaticIpArgs | undefined;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ipAddress"] = undefined /*out*/;
             resourceInputs["supportCode"] = undefined /*out*/;

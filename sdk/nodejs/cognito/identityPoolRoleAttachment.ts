@@ -49,19 +49,19 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
     /**
      * An identity pool ID in the format `REGION_GUID`.
      */
-    declare public readonly identityPoolId: pulumi.Output<string>;
+    public readonly identityPoolId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A List of Role Mapping.
      */
-    declare public readonly roleMappings: pulumi.Output<outputs.cognito.IdentityPoolRoleAttachmentRoleMapping[] | undefined>;
+    public readonly roleMappings!: pulumi.Output<outputs.cognito.IdentityPoolRoleAttachmentRoleMapping[] | undefined>;
     /**
      * The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
      */
-    declare public readonly roles: pulumi.Output<{[key: string]: string}>;
+    public readonly roles!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a IdentityPoolRoleAttachment resource with the given unique name, arguments, and options.
@@ -76,22 +76,22 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IdentityPoolRoleAttachmentState | undefined;
-            resourceInputs["identityPoolId"] = state?.identityPoolId;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["roleMappings"] = state?.roleMappings;
-            resourceInputs["roles"] = state?.roles;
+            resourceInputs["identityPoolId"] = state ? state.identityPoolId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["roleMappings"] = state ? state.roleMappings : undefined;
+            resourceInputs["roles"] = state ? state.roles : undefined;
         } else {
             const args = argsOrState as IdentityPoolRoleAttachmentArgs | undefined;
-            if (args?.identityPoolId === undefined && !opts.urn) {
+            if ((!args || args.identityPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identityPoolId'");
             }
-            if (args?.roles === undefined && !opts.urn) {
+            if ((!args || args.roles === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roles'");
             }
-            resourceInputs["identityPoolId"] = args?.identityPoolId;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["roleMappings"] = args?.roleMappings;
-            resourceInputs["roles"] = args?.roles;
+            resourceInputs["identityPoolId"] = args ? args.identityPoolId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["roleMappings"] = args ? args.roleMappings : undefined;
+            resourceInputs["roles"] = args ? args.roles : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IdentityPoolRoleAttachment.__pulumiType, name, resourceInputs, opts);

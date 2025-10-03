@@ -68,11 +68,11 @@ export class ChannelAssociation extends pulumi.CustomResource {
     /**
      * ARN of the channel to associate with the notification configuration. This can be an email contact ARN.
      */
-    declare public readonly arn: pulumi.Output<string>;
+    public readonly arn!: pulumi.Output<string>;
     /**
      * ARN of the notification configuration to associate the channel with.
      */
-    declare public readonly notificationConfigurationArn: pulumi.Output<string>;
+    public readonly notificationConfigurationArn!: pulumi.Output<string>;
 
     /**
      * Create a ChannelAssociation resource with the given unique name, arguments, and options.
@@ -87,18 +87,18 @@ export class ChannelAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ChannelAssociationState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["notificationConfigurationArn"] = state?.notificationConfigurationArn;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["notificationConfigurationArn"] = state ? state.notificationConfigurationArn : undefined;
         } else {
             const args = argsOrState as ChannelAssociationArgs | undefined;
-            if (args?.arn === undefined && !opts.urn) {
+            if ((!args || args.arn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'arn'");
             }
-            if (args?.notificationConfigurationArn === undefined && !opts.urn) {
+            if ((!args || args.notificationConfigurationArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'notificationConfigurationArn'");
             }
-            resourceInputs["arn"] = args?.arn;
-            resourceInputs["notificationConfigurationArn"] = args?.notificationConfigurationArn;
+            resourceInputs["arn"] = args ? args.arn : undefined;
+            resourceInputs["notificationConfigurationArn"] = args ? args.notificationConfigurationArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ChannelAssociation.__pulumiType, name, resourceInputs, opts);

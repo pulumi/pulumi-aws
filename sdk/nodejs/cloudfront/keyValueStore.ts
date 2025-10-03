@@ -73,23 +73,23 @@ export class KeyValueStore extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Comment.
      */
-    declare public readonly comment: pulumi.Output<string | undefined>;
+    public readonly comment!: pulumi.Output<string | undefined>;
     /**
      * ETag hash of the KeyValueStore.
      */
-    declare public /*out*/ readonly etag: pulumi.Output<string>;
-    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
+    public /*out*/ readonly etag!: pulumi.Output<string>;
+    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
     /**
      * Unique name for your CloudFront KeyValueStore.
      *
      * The following arguments are optional:
      */
-    declare public readonly name: pulumi.Output<string>;
-    declare public readonly timeouts: pulumi.Output<outputs.cloudfront.KeyValueStoreTimeouts | undefined>;
+    public readonly name!: pulumi.Output<string>;
+    public readonly timeouts!: pulumi.Output<outputs.cloudfront.KeyValueStoreTimeouts | undefined>;
 
     /**
      * Create a KeyValueStore resource with the given unique name, arguments, and options.
@@ -104,17 +104,17 @@ export class KeyValueStore extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KeyValueStoreState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["comment"] = state?.comment;
-            resourceInputs["etag"] = state?.etag;
-            resourceInputs["lastModifiedTime"] = state?.lastModifiedTime;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["lastModifiedTime"] = state ? state.lastModifiedTime : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as KeyValueStoreArgs | undefined;
-            resourceInputs["comment"] = args?.comment;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;

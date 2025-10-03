@@ -83,59 +83,59 @@ export class Authorizer extends pulumi.CustomResource {
     /**
      * API identifier.
      */
-    declare public readonly apiId: pulumi.Output<string>;
+    public readonly apiId!: pulumi.Output<string>;
     /**
      * Required credentials as an IAM role for API Gateway to invoke the authorizer.
      * Supported only for `REQUEST` authorizers.
      */
-    declare public readonly authorizerCredentialsArn: pulumi.Output<string | undefined>;
+    public readonly authorizerCredentialsArn!: pulumi.Output<string | undefined>;
     /**
      * Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
      * Valid values: `1.0`, `2.0`.
      */
-    declare public readonly authorizerPayloadFormatVersion: pulumi.Output<string | undefined>;
+    public readonly authorizerPayloadFormatVersion!: pulumi.Output<string | undefined>;
     /**
      * Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
      * If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
      * Supported only for HTTP API Lambda authorizers.
      */
-    declare public readonly authorizerResultTtlInSeconds: pulumi.Output<number>;
+    public readonly authorizerResultTtlInSeconds!: pulumi.Output<number>;
     /**
      * Authorizer type. Valid values: `JWT`, `REQUEST`.
      * Specify `REQUEST` for a Lambda function using incoming request parameters.
      * For HTTP APIs, specify `JWT` to use JSON Web Tokens.
      */
-    declare public readonly authorizerType: pulumi.Output<string>;
+    public readonly authorizerType!: pulumi.Output<string>;
     /**
      * Authorizer's Uniform Resource Identifier (URI).
      * For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `aws.lambda.Function` resource.
      * Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
      */
-    declare public readonly authorizerUri: pulumi.Output<string | undefined>;
+    public readonly authorizerUri!: pulumi.Output<string | undefined>;
     /**
      * Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
      * Supported only for HTTP APIs.
      */
-    declare public readonly enableSimpleResponses: pulumi.Output<boolean | undefined>;
+    public readonly enableSimpleResponses!: pulumi.Output<boolean | undefined>;
     /**
      * Identity sources for which authorization is requested.
      * For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
      * For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
      */
-    declare public readonly identitySources: pulumi.Output<string[] | undefined>;
+    public readonly identitySources!: pulumi.Output<string[] | undefined>;
     /**
      * Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
      * Supported only for HTTP APIs.
      */
-    declare public readonly jwtConfiguration: pulumi.Output<outputs.apigatewayv2.AuthorizerJwtConfiguration | undefined>;
+    public readonly jwtConfiguration!: pulumi.Output<outputs.apigatewayv2.AuthorizerJwtConfiguration | undefined>;
     /**
      * Name of the authorizer. Must be between 1 and 128 characters in length.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a Authorizer resource with the given unique name, arguments, and options.
@@ -150,36 +150,36 @@ export class Authorizer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AuthorizerState | undefined;
-            resourceInputs["apiId"] = state?.apiId;
-            resourceInputs["authorizerCredentialsArn"] = state?.authorizerCredentialsArn;
-            resourceInputs["authorizerPayloadFormatVersion"] = state?.authorizerPayloadFormatVersion;
-            resourceInputs["authorizerResultTtlInSeconds"] = state?.authorizerResultTtlInSeconds;
-            resourceInputs["authorizerType"] = state?.authorizerType;
-            resourceInputs["authorizerUri"] = state?.authorizerUri;
-            resourceInputs["enableSimpleResponses"] = state?.enableSimpleResponses;
-            resourceInputs["identitySources"] = state?.identitySources;
-            resourceInputs["jwtConfiguration"] = state?.jwtConfiguration;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["apiId"] = state ? state.apiId : undefined;
+            resourceInputs["authorizerCredentialsArn"] = state ? state.authorizerCredentialsArn : undefined;
+            resourceInputs["authorizerPayloadFormatVersion"] = state ? state.authorizerPayloadFormatVersion : undefined;
+            resourceInputs["authorizerResultTtlInSeconds"] = state ? state.authorizerResultTtlInSeconds : undefined;
+            resourceInputs["authorizerType"] = state ? state.authorizerType : undefined;
+            resourceInputs["authorizerUri"] = state ? state.authorizerUri : undefined;
+            resourceInputs["enableSimpleResponses"] = state ? state.enableSimpleResponses : undefined;
+            resourceInputs["identitySources"] = state ? state.identitySources : undefined;
+            resourceInputs["jwtConfiguration"] = state ? state.jwtConfiguration : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as AuthorizerArgs | undefined;
-            if (args?.apiId === undefined && !opts.urn) {
+            if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if (args?.authorizerType === undefined && !opts.urn) {
+            if ((!args || args.authorizerType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authorizerType'");
             }
-            resourceInputs["apiId"] = args?.apiId;
-            resourceInputs["authorizerCredentialsArn"] = args?.authorizerCredentialsArn;
-            resourceInputs["authorizerPayloadFormatVersion"] = args?.authorizerPayloadFormatVersion;
-            resourceInputs["authorizerResultTtlInSeconds"] = args?.authorizerResultTtlInSeconds;
-            resourceInputs["authorizerType"] = args?.authorizerType;
-            resourceInputs["authorizerUri"] = args?.authorizerUri;
-            resourceInputs["enableSimpleResponses"] = args?.enableSimpleResponses;
-            resourceInputs["identitySources"] = args?.identitySources;
-            resourceInputs["jwtConfiguration"] = args?.jwtConfiguration;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["authorizerCredentialsArn"] = args ? args.authorizerCredentialsArn : undefined;
+            resourceInputs["authorizerPayloadFormatVersion"] = args ? args.authorizerPayloadFormatVersion : undefined;
+            resourceInputs["authorizerResultTtlInSeconds"] = args ? args.authorizerResultTtlInSeconds : undefined;
+            resourceInputs["authorizerType"] = args ? args.authorizerType : undefined;
+            resourceInputs["authorizerUri"] = args ? args.authorizerUri : undefined;
+            resourceInputs["enableSimpleResponses"] = args ? args.enableSimpleResponses : undefined;
+            resourceInputs["identitySources"] = args ? args.identitySources : undefined;
+            resourceInputs["jwtConfiguration"] = args ? args.jwtConfiguration : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Authorizer.__pulumiType, name, resourceInputs, opts);

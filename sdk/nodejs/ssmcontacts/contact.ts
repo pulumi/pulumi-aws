@@ -82,34 +82,34 @@ export class Contact extends pulumi.CustomResource {
     /**
      * A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
      */
-    declare public readonly alias: pulumi.Output<string>;
+    public readonly alias!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the contact or escalation plan.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
      */
-    declare public readonly displayName: pulumi.Output<string | undefined>;
+    public readonly displayName!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The type of contact engaged. A single contact is type PERSONAL and an escalation
      * plan is type ESCALATION.
      *
      * The following arguments are optional:
      */
-    declare public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a Contact resource with the given unique name, arguments, and options.
@@ -124,26 +124,26 @@ export class Contact extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ContactState | undefined;
-            resourceInputs["alias"] = state?.alias;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["displayName"] = state?.displayName;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["type"] = state?.type;
+            resourceInputs["alias"] = state ? state.alias : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ContactArgs | undefined;
-            if (args?.alias === undefined && !opts.urn) {
+            if ((!args || args.alias === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'alias'");
             }
-            if (args?.type === undefined && !opts.urn) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["alias"] = args?.alias;
-            resourceInputs["displayName"] = args?.displayName;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["type"] = args?.type;
+            resourceInputs["alias"] = args ? args.alias : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

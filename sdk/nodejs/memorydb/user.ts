@@ -71,37 +71,37 @@ export class User extends pulumi.CustomResource {
     /**
      * Access permissions string used for this user.
      */
-    declare public readonly accessString: pulumi.Output<string>;
+    public readonly accessString!: pulumi.Output<string>;
     /**
      * ARN of the user.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Denotes the user's authentication properties. Detailed below.
      */
-    declare public readonly authenticationMode: pulumi.Output<outputs.memorydb.UserAuthenticationMode>;
+    public readonly authenticationMode!: pulumi.Output<outputs.memorydb.UserAuthenticationMode>;
     /**
      * Minimum engine version supported for the user.
      */
-    declare public /*out*/ readonly minimumEngineVersion: pulumi.Output<string>;
+    public /*out*/ readonly minimumEngineVersion!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Name of the MemoryDB user. Up to 40 characters.
      *
      * The following arguments are optional:
      */
-    declare public readonly userName: pulumi.Output<string>;
+    public readonly userName!: pulumi.Output<string>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -116,30 +116,30 @@ export class User extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
-            resourceInputs["accessString"] = state?.accessString;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["authenticationMode"] = state?.authenticationMode;
-            resourceInputs["minimumEngineVersion"] = state?.minimumEngineVersion;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["userName"] = state?.userName;
+            resourceInputs["accessString"] = state ? state.accessString : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["authenticationMode"] = state ? state.authenticationMode : undefined;
+            resourceInputs["minimumEngineVersion"] = state ? state.minimumEngineVersion : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["userName"] = state ? state.userName : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
-            if (args?.accessString === undefined && !opts.urn) {
+            if ((!args || args.accessString === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accessString'");
             }
-            if (args?.authenticationMode === undefined && !opts.urn) {
+            if ((!args || args.authenticationMode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authenticationMode'");
             }
-            if (args?.userName === undefined && !opts.urn) {
+            if ((!args || args.userName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
-            resourceInputs["accessString"] = args?.accessString;
-            resourceInputs["authenticationMode"] = args?.authenticationMode;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["userName"] = args?.userName;
+            resourceInputs["accessString"] = args ? args.accessString : undefined;
+            resourceInputs["authenticationMode"] = args ? args.authenticationMode : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userName"] = args ? args.userName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["minimumEngineVersion"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

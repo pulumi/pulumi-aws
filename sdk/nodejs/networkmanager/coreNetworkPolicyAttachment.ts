@@ -320,15 +320,15 @@ export class CoreNetworkPolicyAttachment extends pulumi.CustomResource {
     /**
      * ID of the core network that a policy will be attached to and made `LIVE`.
      */
-    declare public readonly coreNetworkId: pulumi.Output<string>;
+    public readonly coreNetworkId!: pulumi.Output<string>;
     /**
      * Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
      */
-    declare public readonly policyDocument: pulumi.Output<string>;
+    public readonly policyDocument!: pulumi.Output<string>;
     /**
      * Current state of a core network.
      */
-    declare public /*out*/ readonly state: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string>;
 
     /**
      * Create a CoreNetworkPolicyAttachment resource with the given unique name, arguments, and options.
@@ -343,19 +343,19 @@ export class CoreNetworkPolicyAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CoreNetworkPolicyAttachmentState | undefined;
-            resourceInputs["coreNetworkId"] = state?.coreNetworkId;
-            resourceInputs["policyDocument"] = state?.policyDocument;
-            resourceInputs["state"] = state?.state;
+            resourceInputs["coreNetworkId"] = state ? state.coreNetworkId : undefined;
+            resourceInputs["policyDocument"] = state ? state.policyDocument : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
         } else {
             const args = argsOrState as CoreNetworkPolicyAttachmentArgs | undefined;
-            if (args?.coreNetworkId === undefined && !opts.urn) {
+            if ((!args || args.coreNetworkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'coreNetworkId'");
             }
-            if (args?.policyDocument === undefined && !opts.urn) {
+            if ((!args || args.policyDocument === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyDocument'");
             }
-            resourceInputs["coreNetworkId"] = args?.coreNetworkId;
-            resourceInputs["policyDocument"] = args?.policyDocument;
+            resourceInputs["coreNetworkId"] = args ? args.coreNetworkId : undefined;
+            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
             resourceInputs["state"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -83,39 +83,39 @@ export class DomainAssociation extends pulumi.CustomResource {
     /**
      * Unique ID for an Amplify app.
      */
-    declare public readonly appId: pulumi.Output<string>;
+    public readonly appId!: pulumi.Output<string>;
     /**
      * ARN for the domain association.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
      */
-    declare public readonly certificateSettings: pulumi.Output<outputs.amplify.DomainAssociationCertificateSettings>;
+    public readonly certificateSettings!: pulumi.Output<outputs.amplify.DomainAssociationCertificateSettings>;
     /**
      * DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
      */
-    declare public /*out*/ readonly certificateVerificationDnsRecord: pulumi.Output<string>;
+    public /*out*/ readonly certificateVerificationDnsRecord!: pulumi.Output<string>;
     /**
      * Domain name for the domain association.
      */
-    declare public readonly domainName: pulumi.Output<string>;
+    public readonly domainName!: pulumi.Output<string>;
     /**
      * Enables the automated creation of subdomains for branches.
      */
-    declare public readonly enableAutoSubDomain: pulumi.Output<boolean | undefined>;
+    public readonly enableAutoSubDomain!: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Setting for the subdomain. Documented below.
      */
-    declare public readonly subDomains: pulumi.Output<outputs.amplify.DomainAssociationSubDomain[]>;
+    public readonly subDomains!: pulumi.Output<outputs.amplify.DomainAssociationSubDomain[]>;
     /**
      * If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
      */
-    declare public readonly waitForVerification: pulumi.Output<boolean | undefined>;
+    public readonly waitForVerification!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a DomainAssociation resource with the given unique name, arguments, and options.
@@ -130,33 +130,33 @@ export class DomainAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainAssociationState | undefined;
-            resourceInputs["appId"] = state?.appId;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["certificateSettings"] = state?.certificateSettings;
-            resourceInputs["certificateVerificationDnsRecord"] = state?.certificateVerificationDnsRecord;
-            resourceInputs["domainName"] = state?.domainName;
-            resourceInputs["enableAutoSubDomain"] = state?.enableAutoSubDomain;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["subDomains"] = state?.subDomains;
-            resourceInputs["waitForVerification"] = state?.waitForVerification;
+            resourceInputs["appId"] = state ? state.appId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["certificateSettings"] = state ? state.certificateSettings : undefined;
+            resourceInputs["certificateVerificationDnsRecord"] = state ? state.certificateVerificationDnsRecord : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["enableAutoSubDomain"] = state ? state.enableAutoSubDomain : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["subDomains"] = state ? state.subDomains : undefined;
+            resourceInputs["waitForVerification"] = state ? state.waitForVerification : undefined;
         } else {
             const args = argsOrState as DomainAssociationArgs | undefined;
-            if (args?.appId === undefined && !opts.urn) {
+            if ((!args || args.appId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'appId'");
             }
-            if (args?.domainName === undefined && !opts.urn) {
+            if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if (args?.subDomains === undefined && !opts.urn) {
+            if ((!args || args.subDomains === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subDomains'");
             }
-            resourceInputs["appId"] = args?.appId;
-            resourceInputs["certificateSettings"] = args?.certificateSettings;
-            resourceInputs["domainName"] = args?.domainName;
-            resourceInputs["enableAutoSubDomain"] = args?.enableAutoSubDomain;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["subDomains"] = args?.subDomains;
-            resourceInputs["waitForVerification"] = args?.waitForVerification;
+            resourceInputs["appId"] = args ? args.appId : undefined;
+            resourceInputs["certificateSettings"] = args ? args.certificateSettings : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["enableAutoSubDomain"] = args ? args.enableAutoSubDomain : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["subDomains"] = args ? args.subDomains : undefined;
+            resourceInputs["waitForVerification"] = args ? args.waitForVerification : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["certificateVerificationDnsRecord"] = undefined /*out*/;
         }

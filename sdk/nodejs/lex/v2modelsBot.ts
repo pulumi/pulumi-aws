@@ -86,51 +86,51 @@ export class V2modelsBot extends pulumi.CustomResource {
         return obj['__pulumiType'] === V2modelsBot.__pulumiType;
     }
 
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `dataPrivacy`
      */
-    declare public readonly dataPrivacies: pulumi.Output<outputs.lex.V2modelsBotDataPrivacy[] | undefined>;
+    public readonly dataPrivacies!: pulumi.Output<outputs.lex.V2modelsBotDataPrivacy[] | undefined>;
     /**
      * Description of the bot. It appears in lists to help you identify a particular bot.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
      */
-    declare public readonly idleSessionTtlInSeconds: pulumi.Output<number>;
+    public readonly idleSessionTtlInSeconds!: pulumi.Output<number>;
     /**
      * List of bot members in a network to be created. See `botMembers`.
      */
-    declare public readonly members: pulumi.Output<outputs.lex.V2modelsBotMember[] | undefined>;
+    public readonly members!: pulumi.Output<outputs.lex.V2modelsBotMember[] | undefined>;
     /**
      * Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ARN of an IAM role that has permission to access the bot.
      *
      * The following arguments are optional:
      */
-    declare public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * List of tags to add to the bot. You can only add tags when you create a bot.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
      */
-    declare public readonly testBotAliasTags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public readonly timeouts: pulumi.Output<outputs.lex.V2modelsBotTimeouts | undefined>;
+    public readonly testBotAliasTags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly timeouts!: pulumi.Output<outputs.lex.V2modelsBotTimeouts | undefined>;
     /**
      * Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
      */
-    declare public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a V2modelsBot resource with the given unique name, arguments, and options.
@@ -145,38 +145,38 @@ export class V2modelsBot extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as V2modelsBotState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["dataPrivacies"] = state?.dataPrivacies;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["idleSessionTtlInSeconds"] = state?.idleSessionTtlInSeconds;
-            resourceInputs["members"] = state?.members;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["roleArn"] = state?.roleArn;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["testBotAliasTags"] = state?.testBotAliasTags;
-            resourceInputs["timeouts"] = state?.timeouts;
-            resourceInputs["type"] = state?.type;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["dataPrivacies"] = state ? state.dataPrivacies : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["idleSessionTtlInSeconds"] = state ? state.idleSessionTtlInSeconds : undefined;
+            resourceInputs["members"] = state ? state.members : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["testBotAliasTags"] = state ? state.testBotAliasTags : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as V2modelsBotArgs | undefined;
-            if (args?.idleSessionTtlInSeconds === undefined && !opts.urn) {
+            if ((!args || args.idleSessionTtlInSeconds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'idleSessionTtlInSeconds'");
             }
-            if (args?.roleArn === undefined && !opts.urn) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["dataPrivacies"] = args?.dataPrivacies;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["idleSessionTtlInSeconds"] = args?.idleSessionTtlInSeconds;
-            resourceInputs["members"] = args?.members;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["roleArn"] = args?.roleArn;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["testBotAliasTags"] = args?.testBotAliasTags;
-            resourceInputs["timeouts"] = args?.timeouts;
-            resourceInputs["type"] = args?.type;
+            resourceInputs["dataPrivacies"] = args ? args.dataPrivacies : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["idleSessionTtlInSeconds"] = args ? args.idleSessionTtlInSeconds : undefined;
+            resourceInputs["members"] = args ? args.members : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["testBotAliasTags"] = args ? args.testBotAliasTags : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

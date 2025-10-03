@@ -107,49 +107,49 @@ export class LifecyclePolicy extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the lifecycle policy.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * description for the lifecycle policy.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
      */
-    declare public readonly executionRole: pulumi.Output<string>;
+    public readonly executionRole!: pulumi.Output<string>;
     /**
      * The name of the lifecycle policy to create.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Configuration block with policy details. Detailed below.
      */
-    declare public readonly policyDetails: pulumi.Output<outputs.imagebuilder.LifecyclePolicyPolicyDetail[] | undefined>;
+    public readonly policyDetails!: pulumi.Output<outputs.imagebuilder.LifecyclePolicyPolicyDetail[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
      *
      * The following arguments are optional:
      */
-    declare public readonly resourceSelection: pulumi.Output<outputs.imagebuilder.LifecyclePolicyResourceSelection | undefined>;
+    public readonly resourceSelection!: pulumi.Output<outputs.imagebuilder.LifecyclePolicyResourceSelection | undefined>;
     /**
      * The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.
      */
-    declare public readonly resourceType: pulumi.Output<string>;
+    public readonly resourceType!: pulumi.Output<string>;
     /**
      * The status of the lifecycle policy.
      */
-    declare public readonly status: pulumi.Output<string>;
+    public readonly status!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags for the Image Builder Lifecycle Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a LifecyclePolicy resource with the given unique name, arguments, and options.
@@ -164,34 +164,34 @@ export class LifecyclePolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LifecyclePolicyState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["executionRole"] = state?.executionRole;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["policyDetails"] = state?.policyDetails;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["resourceSelection"] = state?.resourceSelection;
-            resourceInputs["resourceType"] = state?.resourceType;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["executionRole"] = state ? state.executionRole : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["policyDetails"] = state ? state.policyDetails : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["resourceSelection"] = state ? state.resourceSelection : undefined;
+            resourceInputs["resourceType"] = state ? state.resourceType : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as LifecyclePolicyArgs | undefined;
-            if (args?.executionRole === undefined && !opts.urn) {
+            if ((!args || args.executionRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'executionRole'");
             }
-            if (args?.resourceType === undefined && !opts.urn) {
+            if ((!args || args.resourceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            resourceInputs["description"] = args?.description;
-            resourceInputs["executionRole"] = args?.executionRole;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["policyDetails"] = args?.policyDetails;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["resourceSelection"] = args?.resourceSelection;
-            resourceInputs["resourceType"] = args?.resourceType;
-            resourceInputs["status"] = args?.status;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["executionRole"] = args ? args.executionRole : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["policyDetails"] = args ? args.policyDetails : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourceSelection"] = args ? args.resourceSelection : undefined;
+            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

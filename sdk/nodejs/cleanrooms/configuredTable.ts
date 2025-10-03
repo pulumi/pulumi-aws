@@ -76,46 +76,46 @@ export class ConfiguredTable extends pulumi.CustomResource {
     /**
      * The columns of the references table which will be included in the configured table.
      */
-    declare public readonly allowedColumns: pulumi.Output<string[]>;
+    public readonly allowedColumns!: pulumi.Output<string[]>;
     /**
      * The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
      */
-    declare public readonly analysisMethod: pulumi.Output<string>;
+    public readonly analysisMethod!: pulumi.Output<string>;
     /**
      * The ARN of the configured table.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The date and time the configured table was created.
      */
-    declare public /*out*/ readonly createTime: pulumi.Output<string>;
+    public /*out*/ readonly createTime!: pulumi.Output<string>;
     /**
      * A description for the configured table.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The name of the configured table.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A reference to the AWS Glue table which will be used to create the configured table.
      * * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
      * * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
      */
-    declare public readonly tableReference: pulumi.Output<outputs.cleanrooms.ConfiguredTableTableReference>;
+    public readonly tableReference!: pulumi.Output<outputs.cleanrooms.ConfiguredTableTableReference>;
     /**
      * Key value pairs which tag the configured table.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The date and time the configured table was last updated.
      */
-    declare public /*out*/ readonly updateTime: pulumi.Output<string>;
+    public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
     /**
      * Create a ConfiguredTable resource with the given unique name, arguments, and options.
@@ -130,35 +130,35 @@ export class ConfiguredTable extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConfiguredTableState | undefined;
-            resourceInputs["allowedColumns"] = state?.allowedColumns;
-            resourceInputs["analysisMethod"] = state?.analysisMethod;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["createTime"] = state?.createTime;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tableReference"] = state?.tableReference;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["updateTime"] = state?.updateTime;
+            resourceInputs["allowedColumns"] = state ? state.allowedColumns : undefined;
+            resourceInputs["analysisMethod"] = state ? state.analysisMethod : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["createTime"] = state ? state.createTime : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tableReference"] = state ? state.tableReference : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["updateTime"] = state ? state.updateTime : undefined;
         } else {
             const args = argsOrState as ConfiguredTableArgs | undefined;
-            if (args?.allowedColumns === undefined && !opts.urn) {
+            if ((!args || args.allowedColumns === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'allowedColumns'");
             }
-            if (args?.analysisMethod === undefined && !opts.urn) {
+            if ((!args || args.analysisMethod === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'analysisMethod'");
             }
-            if (args?.tableReference === undefined && !opts.urn) {
+            if ((!args || args.tableReference === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tableReference'");
             }
-            resourceInputs["allowedColumns"] = args?.allowedColumns;
-            resourceInputs["analysisMethod"] = args?.analysisMethod;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tableReference"] = args?.tableReference;
-            resourceInputs["tags"] = args?.tags;
+            resourceInputs["allowedColumns"] = args ? args.allowedColumns : undefined;
+            resourceInputs["analysisMethod"] = args ? args.analysisMethod : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tableReference"] = args ? args.tableReference : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;

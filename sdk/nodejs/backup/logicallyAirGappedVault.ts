@@ -64,32 +64,32 @@ export class LogicallyAirGappedVault extends pulumi.CustomResource {
     /**
      * The ARN of the Logically Air Gapped Backup Vault.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
      */
-    declare public readonly maxRetentionDays: pulumi.Output<number>;
+    public readonly maxRetentionDays!: pulumi.Output<number>;
     /**
      * Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
      */
-    declare public readonly minRetentionDays: pulumi.Output<number>;
+    public readonly minRetentionDays!: pulumi.Output<number>;
     /**
      * Name of the Logically Air Gapped Backup Vault to create.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Metadata that you can assign to help organize the resources that you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    declare public readonly timeouts: pulumi.Output<outputs.backup.LogicallyAirGappedVaultTimeouts | undefined>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly timeouts!: pulumi.Output<outputs.backup.LogicallyAirGappedVaultTimeouts | undefined>;
 
     /**
      * Create a LogicallyAirGappedVault resource with the given unique name, arguments, and options.
@@ -104,28 +104,28 @@ export class LogicallyAirGappedVault extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogicallyAirGappedVaultState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["maxRetentionDays"] = state?.maxRetentionDays;
-            resourceInputs["minRetentionDays"] = state?.minRetentionDays;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["tagsAll"] = state?.tagsAll;
-            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["maxRetentionDays"] = state ? state.maxRetentionDays : undefined;
+            resourceInputs["minRetentionDays"] = state ? state.minRetentionDays : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as LogicallyAirGappedVaultArgs | undefined;
-            if (args?.maxRetentionDays === undefined && !opts.urn) {
+            if ((!args || args.maxRetentionDays === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'maxRetentionDays'");
             }
-            if (args?.minRetentionDays === undefined && !opts.urn) {
+            if ((!args || args.minRetentionDays === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'minRetentionDays'");
             }
-            resourceInputs["maxRetentionDays"] = args?.maxRetentionDays;
-            resourceInputs["minRetentionDays"] = args?.minRetentionDays;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["tags"] = args?.tags;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["maxRetentionDays"] = args ? args.maxRetentionDays : undefined;
+            resourceInputs["minRetentionDays"] = args ? args.minRetentionDays : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }

@@ -133,12 +133,12 @@ export class Intent extends pulumi.CustomResource {
     /**
      * The ARN of the Lex intent.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Checksum identifying the version of the intent that was created. The checksum is not
      * included as an argument because the resource will add it automatically when updating the intent.
      */
-    declare public /*out*/ readonly checksum: pulumi.Output<string>;
+    public /*out*/ readonly checksum!: pulumi.Output<string>;
     /**
      * The statement that you want Amazon Lex to convey to the user
      * after the intent is successfully fulfilled by the Lambda function. This element is relevant only if
@@ -146,85 +146,85 @@ export class Intent extends pulumi.CustomResource {
      * application, you can't specify this element. The `followUpPrompt` and `conclusionStatement` are
      * mutually exclusive. You can specify only one. Attributes are documented under statement.
      */
-    declare public readonly conclusionStatement: pulumi.Output<outputs.lex.IntentConclusionStatement | undefined>;
+    public readonly conclusionStatement!: pulumi.Output<outputs.lex.IntentConclusionStatement | undefined>;
     /**
      * Prompts the user to confirm the intent. This question should
      * have a yes or no answer. You you must provide both the `rejectionStatement` and `confirmationPrompt`,
      * or neither. Attributes are documented under prompt.
      */
-    declare public readonly confirmationPrompt: pulumi.Output<outputs.lex.IntentConfirmationPrompt | undefined>;
+    public readonly confirmationPrompt!: pulumi.Output<outputs.lex.IntentConfirmationPrompt | undefined>;
     /**
      * Determines if a new slot type version is created when the initial
      * resource is created and on each update. Defaults to `false`.
      */
-    declare public readonly createVersion: pulumi.Output<boolean | undefined>;
+    public readonly createVersion!: pulumi.Output<boolean | undefined>;
     /**
      * The date when the intent version was created.
      */
-    declare public /*out*/ readonly createdDate: pulumi.Output<string>;
+    public /*out*/ readonly createdDate!: pulumi.Output<string>;
     /**
      * A description of the intent. Must be less than or equal to 200 characters in length.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Specifies a Lambda function to invoke for each user input. You can
      * invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
      */
-    declare public readonly dialogCodeHook: pulumi.Output<outputs.lex.IntentDialogCodeHook | undefined>;
+    public readonly dialogCodeHook!: pulumi.Output<outputs.lex.IntentDialogCodeHook | undefined>;
     /**
      * Amazon Lex uses this prompt to solicit additional activity after
      * fulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the
      * user to order a drink. The `followUpPrompt` field and the `conclusionStatement` field are mutually
      * exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
      */
-    declare public readonly followUpPrompt: pulumi.Output<outputs.lex.IntentFollowUpPrompt | undefined>;
+    public readonly followUpPrompt!: pulumi.Output<outputs.lex.IntentFollowUpPrompt | undefined>;
     /**
      * Describes how the intent is fulfilled. For example, after a
      * user provides all of the information for a pizza order, `fulfillmentActivity` defines how the bot
      * places an order with a local pizza store. Attributes are documented under fulfillment_activity.
      */
-    declare public readonly fulfillmentActivity: pulumi.Output<outputs.lex.IntentFulfillmentActivity>;
+    public readonly fulfillmentActivity!: pulumi.Output<outputs.lex.IntentFulfillmentActivity>;
     /**
      * The date when the $LATEST version of this intent was updated.
      */
-    declare public /*out*/ readonly lastUpdatedDate: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
     /**
      * The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A unique identifier for the built-in intent to base this
      * intent on. To find the signature for an intent, see
      * [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
      * in the Alexa Skills Kit.
      */
-    declare public readonly parentIntentSignature: pulumi.Output<string | undefined>;
+    public readonly parentIntentSignature!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * When the user answers "no" to the question defined in
      * `confirmationPrompt`, Amazon Lex responds with this statement to acknowledge that the intent was
      * canceled. You must provide both the `rejectionStatement` and the `confirmationPrompt`, or neither.
      * Attributes are documented under statement.
      */
-    declare public readonly rejectionStatement: pulumi.Output<outputs.lex.IntentRejectionStatement | undefined>;
+    public readonly rejectionStatement!: pulumi.Output<outputs.lex.IntentRejectionStatement | undefined>;
     /**
      * An array of utterances (strings) that a user might say to signal
      * the intent. For example, "I want {PizzaSize} pizza", "Order {Quantity} {PizzaSize} pizzas".
      * In each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
      */
-    declare public readonly sampleUtterances: pulumi.Output<string[] | undefined>;
+    public readonly sampleUtterances!: pulumi.Output<string[] | undefined>;
     /**
      * An list of intent slots. At runtime, Amazon Lex elicits required slot values
      * from the user using prompts defined in the slots. Attributes are documented under slot.
      */
-    declare public readonly slots: pulumi.Output<outputs.lex.IntentSlot[] | undefined>;
+    public readonly slots!: pulumi.Output<outputs.lex.IntentSlot[] | undefined>;
     /**
      * The version of the bot.
      */
-    declare public /*out*/ readonly version: pulumi.Output<string>;
+    public /*out*/ readonly version!: pulumi.Output<string>;
 
     /**
      * Create a Intent resource with the given unique name, arguments, and options.
@@ -239,42 +239,42 @@ export class Intent extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntentState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["checksum"] = state?.checksum;
-            resourceInputs["conclusionStatement"] = state?.conclusionStatement;
-            resourceInputs["confirmationPrompt"] = state?.confirmationPrompt;
-            resourceInputs["createVersion"] = state?.createVersion;
-            resourceInputs["createdDate"] = state?.createdDate;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["dialogCodeHook"] = state?.dialogCodeHook;
-            resourceInputs["followUpPrompt"] = state?.followUpPrompt;
-            resourceInputs["fulfillmentActivity"] = state?.fulfillmentActivity;
-            resourceInputs["lastUpdatedDate"] = state?.lastUpdatedDate;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["parentIntentSignature"] = state?.parentIntentSignature;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["rejectionStatement"] = state?.rejectionStatement;
-            resourceInputs["sampleUtterances"] = state?.sampleUtterances;
-            resourceInputs["slots"] = state?.slots;
-            resourceInputs["version"] = state?.version;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["checksum"] = state ? state.checksum : undefined;
+            resourceInputs["conclusionStatement"] = state ? state.conclusionStatement : undefined;
+            resourceInputs["confirmationPrompt"] = state ? state.confirmationPrompt : undefined;
+            resourceInputs["createVersion"] = state ? state.createVersion : undefined;
+            resourceInputs["createdDate"] = state ? state.createdDate : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["dialogCodeHook"] = state ? state.dialogCodeHook : undefined;
+            resourceInputs["followUpPrompt"] = state ? state.followUpPrompt : undefined;
+            resourceInputs["fulfillmentActivity"] = state ? state.fulfillmentActivity : undefined;
+            resourceInputs["lastUpdatedDate"] = state ? state.lastUpdatedDate : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parentIntentSignature"] = state ? state.parentIntentSignature : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["rejectionStatement"] = state ? state.rejectionStatement : undefined;
+            resourceInputs["sampleUtterances"] = state ? state.sampleUtterances : undefined;
+            resourceInputs["slots"] = state ? state.slots : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as IntentArgs | undefined;
-            if (args?.fulfillmentActivity === undefined && !opts.urn) {
+            if ((!args || args.fulfillmentActivity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fulfillmentActivity'");
             }
-            resourceInputs["conclusionStatement"] = args?.conclusionStatement;
-            resourceInputs["confirmationPrompt"] = args?.confirmationPrompt;
-            resourceInputs["createVersion"] = args?.createVersion;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["dialogCodeHook"] = args?.dialogCodeHook;
-            resourceInputs["followUpPrompt"] = args?.followUpPrompt;
-            resourceInputs["fulfillmentActivity"] = args?.fulfillmentActivity;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["parentIntentSignature"] = args?.parentIntentSignature;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["rejectionStatement"] = args?.rejectionStatement;
-            resourceInputs["sampleUtterances"] = args?.sampleUtterances;
-            resourceInputs["slots"] = args?.slots;
+            resourceInputs["conclusionStatement"] = args ? args.conclusionStatement : undefined;
+            resourceInputs["confirmationPrompt"] = args ? args.confirmationPrompt : undefined;
+            resourceInputs["createVersion"] = args ? args.createVersion : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["dialogCodeHook"] = args ? args.dialogCodeHook : undefined;
+            resourceInputs["followUpPrompt"] = args ? args.followUpPrompt : undefined;
+            resourceInputs["fulfillmentActivity"] = args ? args.fulfillmentActivity : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parentIntentSignature"] = args ? args.parentIntentSignature : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["rejectionStatement"] = args ? args.rejectionStatement : undefined;
+            resourceInputs["sampleUtterances"] = args ? args.sampleUtterances : undefined;
+            resourceInputs["slots"] = args ? args.slots : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["checksum"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;

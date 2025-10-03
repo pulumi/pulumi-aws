@@ -66,15 +66,15 @@ export class SqlInjectionMatchSet extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the SQL injection match set.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name or description of the SQL Injection Match Set.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
      */
-    declare public readonly sqlInjectionMatchTuples: pulumi.Output<outputs.waf.SqlInjectionMatchSetSqlInjectionMatchTuple[] | undefined>;
+    public readonly sqlInjectionMatchTuples!: pulumi.Output<outputs.waf.SqlInjectionMatchSetSqlInjectionMatchTuple[] | undefined>;
 
     /**
      * Create a SqlInjectionMatchSet resource with the given unique name, arguments, and options.
@@ -89,13 +89,13 @@ export class SqlInjectionMatchSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SqlInjectionMatchSetState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["sqlInjectionMatchTuples"] = state?.sqlInjectionMatchTuples;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["sqlInjectionMatchTuples"] = state ? state.sqlInjectionMatchTuples : undefined;
         } else {
             const args = argsOrState as SqlInjectionMatchSetArgs | undefined;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["sqlInjectionMatchTuples"] = args?.sqlInjectionMatchTuples;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["sqlInjectionMatchTuples"] = args ? args.sqlInjectionMatchTuples : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

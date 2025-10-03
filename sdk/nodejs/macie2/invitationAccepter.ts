@@ -67,15 +67,15 @@ export class InvitationAccepter extends pulumi.CustomResource {
     /**
      * The AWS account ID for the account that sent the invitation.
      */
-    declare public readonly administratorAccountId: pulumi.Output<string>;
+    public readonly administratorAccountId!: pulumi.Output<string>;
     /**
      * The unique identifier for the invitation.
      */
-    declare public /*out*/ readonly invitationId: pulumi.Output<string>;
+    public /*out*/ readonly invitationId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a InvitationAccepter resource with the given unique name, arguments, and options.
@@ -90,16 +90,16 @@ export class InvitationAccepter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InvitationAccepterState | undefined;
-            resourceInputs["administratorAccountId"] = state?.administratorAccountId;
-            resourceInputs["invitationId"] = state?.invitationId;
-            resourceInputs["region"] = state?.region;
+            resourceInputs["administratorAccountId"] = state ? state.administratorAccountId : undefined;
+            resourceInputs["invitationId"] = state ? state.invitationId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as InvitationAccepterArgs | undefined;
-            if (args?.administratorAccountId === undefined && !opts.urn) {
+            if ((!args || args.administratorAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'administratorAccountId'");
             }
-            resourceInputs["administratorAccountId"] = args?.administratorAccountId;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["administratorAccountId"] = args ? args.administratorAccountId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["invitationId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

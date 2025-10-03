@@ -63,20 +63,20 @@ export class FastSnapshotRestore extends pulumi.CustomResource {
     /**
      * Availability zone in which to enable fast snapshot restores.
      */
-    declare public readonly availabilityZone: pulumi.Output<string>;
+    public readonly availabilityZone!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * ID of the snapshot.
      */
-    declare public readonly snapshotId: pulumi.Output<string>;
+    public readonly snapshotId!: pulumi.Output<string>;
     /**
      * State of fast snapshot restores. Valid values are `enabling`, `optimizing`, `enabled`, `disabling`, `disabled`.
      */
-    declare public /*out*/ readonly state: pulumi.Output<string>;
-    declare public readonly timeouts: pulumi.Output<outputs.ebs.FastSnapshotRestoreTimeouts | undefined>;
+    public /*out*/ readonly state!: pulumi.Output<string>;
+    public readonly timeouts!: pulumi.Output<outputs.ebs.FastSnapshotRestoreTimeouts | undefined>;
 
     /**
      * Create a FastSnapshotRestore resource with the given unique name, arguments, and options.
@@ -91,23 +91,23 @@ export class FastSnapshotRestore extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FastSnapshotRestoreState | undefined;
-            resourceInputs["availabilityZone"] = state?.availabilityZone;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["snapshotId"] = state?.snapshotId;
-            resourceInputs["state"] = state?.state;
-            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["snapshotId"] = state ? state.snapshotId : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as FastSnapshotRestoreArgs | undefined;
-            if (args?.availabilityZone === undefined && !opts.urn) {
+            if ((!args || args.availabilityZone === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'availabilityZone'");
             }
-            if (args?.snapshotId === undefined && !opts.urn) {
+            if ((!args || args.snapshotId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'snapshotId'");
             }
-            resourceInputs["availabilityZone"] = args?.availabilityZone;
-            resourceInputs["region"] = args?.region;
-            resourceInputs["snapshotId"] = args?.snapshotId;
-            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["snapshotId"] = args ? args.snapshotId : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["state"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

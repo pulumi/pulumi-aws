@@ -82,11 +82,11 @@ export class RolePoliciesExclusive extends pulumi.CustomResource {
     /**
      * A list of inline policy names to be assigned to the role. Policies attached to this role but not configured in this argument will be removed.
      */
-    declare public readonly policyNames: pulumi.Output<string[]>;
+    public readonly policyNames!: pulumi.Output<string[]>;
     /**
      * IAM role name.
      */
-    declare public readonly roleName: pulumi.Output<string>;
+    public readonly roleName!: pulumi.Output<string>;
 
     /**
      * Create a RolePoliciesExclusive resource with the given unique name, arguments, and options.
@@ -101,18 +101,18 @@ export class RolePoliciesExclusive extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RolePoliciesExclusiveState | undefined;
-            resourceInputs["policyNames"] = state?.policyNames;
-            resourceInputs["roleName"] = state?.roleName;
+            resourceInputs["policyNames"] = state ? state.policyNames : undefined;
+            resourceInputs["roleName"] = state ? state.roleName : undefined;
         } else {
             const args = argsOrState as RolePoliciesExclusiveArgs | undefined;
-            if (args?.policyNames === undefined && !opts.urn) {
+            if ((!args || args.policyNames === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyNames'");
             }
-            if (args?.roleName === undefined && !opts.urn) {
+            if ((!args || args.roleName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleName'");
             }
-            resourceInputs["policyNames"] = args?.policyNames;
-            resourceInputs["roleName"] = args?.roleName;
+            resourceInputs["policyNames"] = args ? args.policyNames : undefined;
+            resourceInputs["roleName"] = args ? args.roleName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RolePoliciesExclusive.__pulumiType, name, resourceInputs, opts);

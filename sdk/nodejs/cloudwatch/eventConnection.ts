@@ -234,39 +234,39 @@ export class EventConnection extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the connection.
      */
-    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Parameters used for authorization. A maximum of 1 are allowed. Documented below.
      */
-    declare public readonly authParameters: pulumi.Output<outputs.cloudwatch.EventConnectionAuthParameters>;
+    public readonly authParameters!: pulumi.Output<outputs.cloudwatch.EventConnectionAuthParameters>;
     /**
      * Type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
      */
-    declare public readonly authorizationType: pulumi.Output<string>;
+    public readonly authorizationType!: pulumi.Output<string>;
     /**
      * Description for the connection. Maximum of 512 characters.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Parameters to use for invoking a private API. Documented below.
      */
-    declare public readonly invocationConnectivityParameters: pulumi.Output<outputs.cloudwatch.EventConnectionInvocationConnectivityParameters | undefined>;
+    public readonly invocationConnectivityParameters!: pulumi.Output<outputs.cloudwatch.EventConnectionInvocationConnectivityParameters | undefined>;
     /**
      * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
      */
-    declare public readonly kmsKeyIdentifier: pulumi.Output<string | undefined>;
+    public readonly kmsKeyIdentifier!: pulumi.Output<string | undefined>;
     /**
      * The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
      */
-    declare public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    declare public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
      */
-    declare public /*out*/ readonly secretArn: pulumi.Output<string>;
+    public /*out*/ readonly secretArn!: pulumi.Output<string>;
 
     /**
      * Create a EventConnection resource with the given unique name, arguments, and options.
@@ -281,30 +281,30 @@ export class EventConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventConnectionState | undefined;
-            resourceInputs["arn"] = state?.arn;
-            resourceInputs["authParameters"] = state?.authParameters;
-            resourceInputs["authorizationType"] = state?.authorizationType;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["invocationConnectivityParameters"] = state?.invocationConnectivityParameters;
-            resourceInputs["kmsKeyIdentifier"] = state?.kmsKeyIdentifier;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["region"] = state?.region;
-            resourceInputs["secretArn"] = state?.secretArn;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["authParameters"] = state ? state.authParameters : undefined;
+            resourceInputs["authorizationType"] = state ? state.authorizationType : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["invocationConnectivityParameters"] = state ? state.invocationConnectivityParameters : undefined;
+            resourceInputs["kmsKeyIdentifier"] = state ? state.kmsKeyIdentifier : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["secretArn"] = state ? state.secretArn : undefined;
         } else {
             const args = argsOrState as EventConnectionArgs | undefined;
-            if (args?.authParameters === undefined && !opts.urn) {
+            if ((!args || args.authParameters === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authParameters'");
             }
-            if (args?.authorizationType === undefined && !opts.urn) {
+            if ((!args || args.authorizationType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authorizationType'");
             }
-            resourceInputs["authParameters"] = args?.authParameters;
-            resourceInputs["authorizationType"] = args?.authorizationType;
-            resourceInputs["description"] = args?.description;
-            resourceInputs["invocationConnectivityParameters"] = args?.invocationConnectivityParameters;
-            resourceInputs["kmsKeyIdentifier"] = args?.kmsKeyIdentifier;
-            resourceInputs["name"] = args?.name;
-            resourceInputs["region"] = args?.region;
+            resourceInputs["authParameters"] = args ? args.authParameters : undefined;
+            resourceInputs["authorizationType"] = args ? args.authorizationType : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["invocationConnectivityParameters"] = args ? args.invocationConnectivityParameters : undefined;
+            resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["secretArn"] = undefined /*out*/;
         }
