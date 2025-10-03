@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -34,6 +35,8 @@ public final class ControlPanelArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Name describing the control panel.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
@@ -41,9 +44,26 @@ public final class ControlPanelArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Name describing the control panel.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Output<Map<String,String>> tags;
+
+    /**
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tags() {
+        return Optional.ofNullable(this.tags);
     }
 
     private ControlPanelArgs() {}
@@ -51,6 +71,7 @@ public final class ControlPanelArgs extends com.pulumi.resources.ResourceArgs {
     private ControlPanelArgs(ControlPanelArgs $) {
         this.clusterArn = $.clusterArn;
         this.name = $.name;
+        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -95,6 +116,8 @@ public final class ControlPanelArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param name Name describing the control panel.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -106,11 +129,34 @@ public final class ControlPanelArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param name Name describing the control panel.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Output<Map<String,String>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        /**
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(Map<String,String> tags) {
+            return tags(Output.of(tags));
         }
 
         public ControlPanelArgs build() {

@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecs.inputs;
 
 import com.pulumi.aws.ecs.inputs.CapacityProviderAutoScalingGroupProviderArgs;
+import com.pulumi.aws.ecs.inputs.CapacityProviderManagedInstancesProviderArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -33,18 +34,48 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Configuration block for the provider for the ECS auto scaling group. Detailed below.
+     * Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
      * 
      */
     @Import(name="autoScalingGroupProvider")
     private @Nullable Output<CapacityProviderAutoScalingGroupProviderArgs> autoScalingGroupProvider;
 
     /**
-     * @return Configuration block for the provider for the ECS auto scaling group. Detailed below.
+     * @return Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
      * 
      */
     public Optional<Output<CapacityProviderAutoScalingGroupProviderArgs>> autoScalingGroupProvider() {
         return Optional.ofNullable(this.autoScalingGroupProvider);
+    }
+
+    /**
+     * Name of the ECS cluster. Required when using `managed_instances_provider`. Must not be set when using `auto_scaling_group_provider`.
+     * 
+     */
+    @Import(name="cluster")
+    private @Nullable Output<String> cluster;
+
+    /**
+     * @return Name of the ECS cluster. Required when using `managed_instances_provider`. Must not be set when using `auto_scaling_group_provider`.
+     * 
+     */
+    public Optional<Output<String>> cluster() {
+        return Optional.ofNullable(this.cluster);
+    }
+
+    /**
+     * Configuration block for the managed instances provider. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
+     * 
+     */
+    @Import(name="managedInstancesProvider")
+    private @Nullable Output<CapacityProviderManagedInstancesProviderArgs> managedInstancesProvider;
+
+    /**
+     * @return Configuration block for the managed instances provider. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
+     * 
+     */
+    public Optional<Output<CapacityProviderManagedInstancesProviderArgs>> managedInstancesProvider() {
+        return Optional.ofNullable(this.managedInstancesProvider);
     }
 
     /**
@@ -112,6 +143,8 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
     private CapacityProviderState(CapacityProviderState $) {
         this.arn = $.arn;
         this.autoScalingGroupProvider = $.autoScalingGroupProvider;
+        this.cluster = $.cluster;
+        this.managedInstancesProvider = $.managedInstancesProvider;
         this.name = $.name;
         this.region = $.region;
         this.tags = $.tags;
@@ -158,7 +191,7 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param autoScalingGroupProvider Configuration block for the provider for the ECS auto scaling group. Detailed below.
+         * @param autoScalingGroupProvider Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
          * 
          * @return builder
          * 
@@ -169,13 +202,55 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param autoScalingGroupProvider Configuration block for the provider for the ECS auto scaling group. Detailed below.
+         * @param autoScalingGroupProvider Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
          * 
          * @return builder
          * 
          */
         public Builder autoScalingGroupProvider(CapacityProviderAutoScalingGroupProviderArgs autoScalingGroupProvider) {
             return autoScalingGroupProvider(Output.of(autoScalingGroupProvider));
+        }
+
+        /**
+         * @param cluster Name of the ECS cluster. Required when using `managed_instances_provider`. Must not be set when using `auto_scaling_group_provider`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cluster(@Nullable Output<String> cluster) {
+            $.cluster = cluster;
+            return this;
+        }
+
+        /**
+         * @param cluster Name of the ECS cluster. Required when using `managed_instances_provider`. Must not be set when using `auto_scaling_group_provider`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cluster(String cluster) {
+            return cluster(Output.of(cluster));
+        }
+
+        /**
+         * @param managedInstancesProvider Configuration block for the managed instances provider. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedInstancesProvider(@Nullable Output<CapacityProviderManagedInstancesProviderArgs> managedInstancesProvider) {
+            $.managedInstancesProvider = managedInstancesProvider;
+            return this;
+        }
+
+        /**
+         * @param managedInstancesProvider Configuration block for the managed instances provider. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedInstancesProvider(CapacityProviderManagedInstancesProviderArgs managedInstancesProvider) {
+            return managedInstancesProvider(Output.of(managedInstancesProvider));
         }
 
         /**

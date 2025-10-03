@@ -131,6 +131,12 @@ namespace Pulumi.Aws.Dms
         public Output<Outputs.EndpointMongodbSettings?> MongodbSettings { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block for MySQL settings. See below.
+        /// </summary>
+        [Output("mysqlSettings")]
+        public Output<Outputs.EndpointMysqlSettings?> MysqlSettings { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block for Oracle settings. See below.
         /// </summary>
         [Output("oracleSettings")]
@@ -341,6 +347,12 @@ namespace Pulumi.Aws.Dms
         public Input<Inputs.EndpointMongodbSettingsArgs>? MongodbSettings { get; set; }
 
         /// <summary>
+        /// Configuration block for MySQL settings. See below.
+        /// </summary>
+        [Input("mysqlSettings")]
+        public Input<Inputs.EndpointMysqlSettingsArgs>? MysqlSettings { get; set; }
+
+        /// <summary>
         /// Configuration block for Oracle settings. See below.
         /// </summary>
         [Input("oracleSettings")]
@@ -523,6 +535,12 @@ namespace Pulumi.Aws.Dms
         /// </summary>
         [Input("mongodbSettings")]
         public Input<Inputs.EndpointMongodbSettingsGetArgs>? MongodbSettings { get; set; }
+
+        /// <summary>
+        /// Configuration block for MySQL settings. See below.
+        /// </summary>
+        [Input("mysqlSettings")]
+        public Input<Inputs.EndpointMysqlSettingsGetArgs>? MysqlSettings { get; set; }
 
         /// <summary>
         /// Configuration block for Oracle settings. See below.

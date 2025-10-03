@@ -45,6 +45,11 @@ export type ExtensionAssociation = import("./extensionAssociation").ExtensionAss
 export const ExtensionAssociation: typeof import("./extensionAssociation").ExtensionAssociation = null as any;
 utilities.lazyLoad(exports, ["ExtensionAssociation"], () => require("./extensionAssociation"));
 
+export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
+export const getApplication: typeof import("./getApplication").getApplication = null as any;
+export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
+utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
+
 export { GetConfigurationProfileArgs, GetConfigurationProfileResult, GetConfigurationProfileOutputArgs } from "./getConfigurationProfile";
 export const getConfigurationProfile: typeof import("./getConfigurationProfile").getConfigurationProfile = null as any;
 export const getConfigurationProfileOutput: typeof import("./getConfigurationProfile").getConfigurationProfileOutput = null as any;

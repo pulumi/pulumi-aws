@@ -35,6 +35,36 @@ export const getCloudVmCluster: typeof import("./getCloudVmCluster").getCloudVmC
 export const getCloudVmClusterOutput: typeof import("./getCloudVmCluster").getCloudVmClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getCloudVmCluster","getCloudVmClusterOutput"], () => require("./getCloudVmCluster"));
 
+export { GetDbNodeArgs, GetDbNodeResult, GetDbNodeOutputArgs } from "./getDbNode";
+export const getDbNode: typeof import("./getDbNode").getDbNode = null as any;
+export const getDbNodeOutput: typeof import("./getDbNode").getDbNodeOutput = null as any;
+utilities.lazyLoad(exports, ["getDbNode","getDbNodeOutput"], () => require("./getDbNode"));
+
+export { GetDbNodesArgs, GetDbNodesResult, GetDbNodesOutputArgs } from "./getDbNodes";
+export const getDbNodes: typeof import("./getDbNodes").getDbNodes = null as any;
+export const getDbNodesOutput: typeof import("./getDbNodes").getDbNodesOutput = null as any;
+utilities.lazyLoad(exports, ["getDbNodes","getDbNodesOutput"], () => require("./getDbNodes"));
+
+export { GetDbServerArgs, GetDbServerResult, GetDbServerOutputArgs } from "./getDbServer";
+export const getDbServer: typeof import("./getDbServer").getDbServer = null as any;
+export const getDbServerOutput: typeof import("./getDbServer").getDbServerOutput = null as any;
+utilities.lazyLoad(exports, ["getDbServer","getDbServerOutput"], () => require("./getDbServer"));
+
+export { GetDbServersArgs, GetDbServersResult, GetDbServersOutputArgs } from "./getDbServers";
+export const getDbServers: typeof import("./getDbServers").getDbServers = null as any;
+export const getDbServersOutput: typeof import("./getDbServers").getDbServersOutput = null as any;
+utilities.lazyLoad(exports, ["getDbServers","getDbServersOutput"], () => require("./getDbServers"));
+
+export { GetDbSystemShapesArgs, GetDbSystemShapesResult, GetDbSystemShapesOutputArgs } from "./getDbSystemShapes";
+export const getDbSystemShapes: typeof import("./getDbSystemShapes").getDbSystemShapes = null as any;
+export const getDbSystemShapesOutput: typeof import("./getDbSystemShapes").getDbSystemShapesOutput = null as any;
+utilities.lazyLoad(exports, ["getDbSystemShapes","getDbSystemShapesOutput"], () => require("./getDbSystemShapes"));
+
+export { GetGiVersionsArgs, GetGiVersionsResult, GetGiVersionsOutputArgs } from "./getGiVersions";
+export const getGiVersions: typeof import("./getGiVersions").getGiVersions = null as any;
+export const getGiVersionsOutput: typeof import("./getGiVersions").getGiVersionsOutput = null as any;
+utilities.lazyLoad(exports, ["getGiVersions","getGiVersionsOutput"], () => require("./getGiVersions"));
+
 export { GetNetworkArgs, GetNetworkResult, GetNetworkOutputArgs } from "./getNetwork";
 export const getNetwork: typeof import("./getNetwork").getNetwork = null as any;
 export const getNetworkOutput: typeof import("./getNetwork").getNetworkOutput = null as any;

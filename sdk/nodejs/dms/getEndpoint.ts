@@ -67,6 +67,7 @@ export interface GetEndpointResult {
     readonly kinesisSettings: outputs.dms.GetEndpointKinesisSetting[];
     readonly kmsKeyArn: string;
     readonly mongodbSettings: outputs.dms.GetEndpointMongodbSetting[];
+    readonly mysqlSettings: outputs.dms.GetEndpointMysqlSetting[];
     readonly password: string;
     readonly port: number;
     readonly postgresSettings: outputs.dms.GetEndpointPostgresSetting[];

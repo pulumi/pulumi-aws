@@ -60,6 +60,10 @@ export interface GetProxyResult {
      */
     readonly debugLogging: boolean;
     /**
+     * Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+     */
+    readonly defaultAuthScheme: string;
+    /**
      * Endpoint that you can use to connect to the DB proxy.
      */
     readonly endpoint: string;

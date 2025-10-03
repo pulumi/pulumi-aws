@@ -42,7 +42,6 @@ import * as utilities from "../utilities";
  *     routingConfig: {
  *         additionalVersionWeights: {
  *             "1": 0.1,
- *             "3": 0.2,
  *         },
  *     },
  * });

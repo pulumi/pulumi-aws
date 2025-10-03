@@ -4006,6 +4006,1112 @@ func (o GetCloudVmClusterIormConfigCachDbPlanArrayOutput) Index(i pulumi.IntInpu
 	}).(GetCloudVmClusterIormConfigCachDbPlanOutput)
 }
 
+type GetDbNodesDbNode struct {
+	// Additional information about the planned maintenance.
+	AdditionalDetails string `pulumi:"additionalDetails"`
+	Arn               string `pulumi:"arn"`
+	// The Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
+	BackupIpId    string `pulumi:"backupIpId"`
+	BackupVnic2Id string `pulumi:"backupVnic2Id"`
+	// The OCID of the backup VNIC for the DB node.
+	BackupVnicId string `pulumi:"backupVnicId"`
+	// The number of CPU cores enabled on the DB node.
+	CpuCoreCount int `pulumi:"cpuCoreCount"`
+	// The date and time when the DB node was created.
+	CreatedAt         string `pulumi:"createdAt"`
+	DbNodeStorageSize int    `pulumi:"dbNodeStorageSize"`
+	// The unique identifier of the database server that's associated with the DB node.
+	DbServerId string `pulumi:"dbServerId"`
+	// The OCID of the DB system.
+	DbSystemId string `pulumi:"dbSystemId"`
+	// The name of the fault domain where the DB node is located.
+	FaultDomain string `pulumi:"faultDomain"`
+	// The OCID of the host IP address that's associated with the DB node.
+	HostIpId string `pulumi:"hostIpId"`
+	// The host name for the DB node.
+	Hostname string `pulumi:"hostname"`
+	Id       string `pulumi:"id"`
+	// The type of maintenance the DB node is undergoing.
+	MaintenanceType string `pulumi:"maintenanceType"`
+	MemorySize      int    `pulumi:"memorySize"`
+	// The name of the OCI resource anchor for the DB node.
+	OciResourceAnchorName string `pulumi:"ociResourceAnchorName"`
+	// The OCID of the DB node.
+	Ocid                string `pulumi:"ocid"`
+	SoftwareStorageSize int    `pulumi:"softwareStorageSize"`
+	// The current status of the DB node.
+	Status string `pulumi:"status"`
+	// Additional information about the status of the DB node.
+	StatusReason string `pulumi:"statusReason"`
+	// The end date and time of the maintenance window.
+	TimeMaintenanceWindowEnd string `pulumi:"timeMaintenanceWindowEnd"`
+	// The start date and time of the maintenance window.
+	TimeMaintenanceWindowStart string `pulumi:"timeMaintenanceWindowStart"`
+	// The total number of CPU cores reserved on the DB node.
+	TotalCpuCoreCount int    `pulumi:"totalCpuCoreCount"`
+	Vnic2Id           string `pulumi:"vnic2Id"`
+	// The OCID of the VNIC.
+	VnicId string `pulumi:"vnicId"`
+}
+
+// GetDbNodesDbNodeInput is an input type that accepts GetDbNodesDbNodeArgs and GetDbNodesDbNodeOutput values.
+// You can construct a concrete instance of `GetDbNodesDbNodeInput` via:
+//
+//	GetDbNodesDbNodeArgs{...}
+type GetDbNodesDbNodeInput interface {
+	pulumi.Input
+
+	ToGetDbNodesDbNodeOutput() GetDbNodesDbNodeOutput
+	ToGetDbNodesDbNodeOutputWithContext(context.Context) GetDbNodesDbNodeOutput
+}
+
+type GetDbNodesDbNodeArgs struct {
+	// Additional information about the planned maintenance.
+	AdditionalDetails pulumi.StringInput `pulumi:"additionalDetails"`
+	Arn               pulumi.StringInput `pulumi:"arn"`
+	// The Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
+	BackupIpId    pulumi.StringInput `pulumi:"backupIpId"`
+	BackupVnic2Id pulumi.StringInput `pulumi:"backupVnic2Id"`
+	// The OCID of the backup VNIC for the DB node.
+	BackupVnicId pulumi.StringInput `pulumi:"backupVnicId"`
+	// The number of CPU cores enabled on the DB node.
+	CpuCoreCount pulumi.IntInput `pulumi:"cpuCoreCount"`
+	// The date and time when the DB node was created.
+	CreatedAt         pulumi.StringInput `pulumi:"createdAt"`
+	DbNodeStorageSize pulumi.IntInput    `pulumi:"dbNodeStorageSize"`
+	// The unique identifier of the database server that's associated with the DB node.
+	DbServerId pulumi.StringInput `pulumi:"dbServerId"`
+	// The OCID of the DB system.
+	DbSystemId pulumi.StringInput `pulumi:"dbSystemId"`
+	// The name of the fault domain where the DB node is located.
+	FaultDomain pulumi.StringInput `pulumi:"faultDomain"`
+	// The OCID of the host IP address that's associated with the DB node.
+	HostIpId pulumi.StringInput `pulumi:"hostIpId"`
+	// The host name for the DB node.
+	Hostname pulumi.StringInput `pulumi:"hostname"`
+	Id       pulumi.StringInput `pulumi:"id"`
+	// The type of maintenance the DB node is undergoing.
+	MaintenanceType pulumi.StringInput `pulumi:"maintenanceType"`
+	MemorySize      pulumi.IntInput    `pulumi:"memorySize"`
+	// The name of the OCI resource anchor for the DB node.
+	OciResourceAnchorName pulumi.StringInput `pulumi:"ociResourceAnchorName"`
+	// The OCID of the DB node.
+	Ocid                pulumi.StringInput `pulumi:"ocid"`
+	SoftwareStorageSize pulumi.IntInput    `pulumi:"softwareStorageSize"`
+	// The current status of the DB node.
+	Status pulumi.StringInput `pulumi:"status"`
+	// Additional information about the status of the DB node.
+	StatusReason pulumi.StringInput `pulumi:"statusReason"`
+	// The end date and time of the maintenance window.
+	TimeMaintenanceWindowEnd pulumi.StringInput `pulumi:"timeMaintenanceWindowEnd"`
+	// The start date and time of the maintenance window.
+	TimeMaintenanceWindowStart pulumi.StringInput `pulumi:"timeMaintenanceWindowStart"`
+	// The total number of CPU cores reserved on the DB node.
+	TotalCpuCoreCount pulumi.IntInput    `pulumi:"totalCpuCoreCount"`
+	Vnic2Id           pulumi.StringInput `pulumi:"vnic2Id"`
+	// The OCID of the VNIC.
+	VnicId pulumi.StringInput `pulumi:"vnicId"`
+}
+
+func (GetDbNodesDbNodeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDbNodesDbNode)(nil)).Elem()
+}
+
+func (i GetDbNodesDbNodeArgs) ToGetDbNodesDbNodeOutput() GetDbNodesDbNodeOutput {
+	return i.ToGetDbNodesDbNodeOutputWithContext(context.Background())
+}
+
+func (i GetDbNodesDbNodeArgs) ToGetDbNodesDbNodeOutputWithContext(ctx context.Context) GetDbNodesDbNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDbNodesDbNodeOutput)
+}
+
+// GetDbNodesDbNodeArrayInput is an input type that accepts GetDbNodesDbNodeArray and GetDbNodesDbNodeArrayOutput values.
+// You can construct a concrete instance of `GetDbNodesDbNodeArrayInput` via:
+//
+//	GetDbNodesDbNodeArray{ GetDbNodesDbNodeArgs{...} }
+type GetDbNodesDbNodeArrayInput interface {
+	pulumi.Input
+
+	ToGetDbNodesDbNodeArrayOutput() GetDbNodesDbNodeArrayOutput
+	ToGetDbNodesDbNodeArrayOutputWithContext(context.Context) GetDbNodesDbNodeArrayOutput
+}
+
+type GetDbNodesDbNodeArray []GetDbNodesDbNodeInput
+
+func (GetDbNodesDbNodeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDbNodesDbNode)(nil)).Elem()
+}
+
+func (i GetDbNodesDbNodeArray) ToGetDbNodesDbNodeArrayOutput() GetDbNodesDbNodeArrayOutput {
+	return i.ToGetDbNodesDbNodeArrayOutputWithContext(context.Background())
+}
+
+func (i GetDbNodesDbNodeArray) ToGetDbNodesDbNodeArrayOutputWithContext(ctx context.Context) GetDbNodesDbNodeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDbNodesDbNodeArrayOutput)
+}
+
+type GetDbNodesDbNodeOutput struct{ *pulumi.OutputState }
+
+func (GetDbNodesDbNodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDbNodesDbNode)(nil)).Elem()
+}
+
+func (o GetDbNodesDbNodeOutput) ToGetDbNodesDbNodeOutput() GetDbNodesDbNodeOutput {
+	return o
+}
+
+func (o GetDbNodesDbNodeOutput) ToGetDbNodesDbNodeOutputWithContext(ctx context.Context) GetDbNodesDbNodeOutput {
+	return o
+}
+
+// Additional information about the planned maintenance.
+func (o GetDbNodesDbNodeOutput) AdditionalDetails() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.AdditionalDetails }).(pulumi.StringOutput)
+}
+
+func (o GetDbNodesDbNodeOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
+func (o GetDbNodesDbNodeOutput) BackupIpId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.BackupIpId }).(pulumi.StringOutput)
+}
+
+func (o GetDbNodesDbNodeOutput) BackupVnic2Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.BackupVnic2Id }).(pulumi.StringOutput)
+}
+
+// The OCID of the backup VNIC for the DB node.
+func (o GetDbNodesDbNodeOutput) BackupVnicId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.BackupVnicId }).(pulumi.StringOutput)
+}
+
+// The number of CPU cores enabled on the DB node.
+func (o GetDbNodesDbNodeOutput) CpuCoreCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) int { return v.CpuCoreCount }).(pulumi.IntOutput)
+}
+
+// The date and time when the DB node was created.
+func (o GetDbNodesDbNodeOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+func (o GetDbNodesDbNodeOutput) DbNodeStorageSize() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) int { return v.DbNodeStorageSize }).(pulumi.IntOutput)
+}
+
+// The unique identifier of the database server that's associated with the DB node.
+func (o GetDbNodesDbNodeOutput) DbServerId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.DbServerId }).(pulumi.StringOutput)
+}
+
+// The OCID of the DB system.
+func (o GetDbNodesDbNodeOutput) DbSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.DbSystemId }).(pulumi.StringOutput)
+}
+
+// The name of the fault domain where the DB node is located.
+func (o GetDbNodesDbNodeOutput) FaultDomain() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.FaultDomain }).(pulumi.StringOutput)
+}
+
+// The OCID of the host IP address that's associated with the DB node.
+func (o GetDbNodesDbNodeOutput) HostIpId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.HostIpId }).(pulumi.StringOutput)
+}
+
+// The host name for the DB node.
+func (o GetDbNodesDbNodeOutput) Hostname() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.Hostname }).(pulumi.StringOutput)
+}
+
+func (o GetDbNodesDbNodeOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The type of maintenance the DB node is undergoing.
+func (o GetDbNodesDbNodeOutput) MaintenanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.MaintenanceType }).(pulumi.StringOutput)
+}
+
+func (o GetDbNodesDbNodeOutput) MemorySize() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) int { return v.MemorySize }).(pulumi.IntOutput)
+}
+
+// The name of the OCI resource anchor for the DB node.
+func (o GetDbNodesDbNodeOutput) OciResourceAnchorName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.OciResourceAnchorName }).(pulumi.StringOutput)
+}
+
+// The OCID of the DB node.
+func (o GetDbNodesDbNodeOutput) Ocid() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.Ocid }).(pulumi.StringOutput)
+}
+
+func (o GetDbNodesDbNodeOutput) SoftwareStorageSize() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) int { return v.SoftwareStorageSize }).(pulumi.IntOutput)
+}
+
+// The current status of the DB node.
+func (o GetDbNodesDbNodeOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Additional information about the status of the DB node.
+func (o GetDbNodesDbNodeOutput) StatusReason() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.StatusReason }).(pulumi.StringOutput)
+}
+
+// The end date and time of the maintenance window.
+func (o GetDbNodesDbNodeOutput) TimeMaintenanceWindowEnd() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.TimeMaintenanceWindowEnd }).(pulumi.StringOutput)
+}
+
+// The start date and time of the maintenance window.
+func (o GetDbNodesDbNodeOutput) TimeMaintenanceWindowStart() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.TimeMaintenanceWindowStart }).(pulumi.StringOutput)
+}
+
+// The total number of CPU cores reserved on the DB node.
+func (o GetDbNodesDbNodeOutput) TotalCpuCoreCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) int { return v.TotalCpuCoreCount }).(pulumi.IntOutput)
+}
+
+func (o GetDbNodesDbNodeOutput) Vnic2Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.Vnic2Id }).(pulumi.StringOutput)
+}
+
+// The OCID of the VNIC.
+func (o GetDbNodesDbNodeOutput) VnicId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.VnicId }).(pulumi.StringOutput)
+}
+
+type GetDbNodesDbNodeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDbNodesDbNodeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDbNodesDbNode)(nil)).Elem()
+}
+
+func (o GetDbNodesDbNodeArrayOutput) ToGetDbNodesDbNodeArrayOutput() GetDbNodesDbNodeArrayOutput {
+	return o
+}
+
+func (o GetDbNodesDbNodeArrayOutput) ToGetDbNodesDbNodeArrayOutputWithContext(ctx context.Context) GetDbNodesDbNodeArrayOutput {
+	return o
+}
+
+func (o GetDbNodesDbNodeArrayOutput) Index(i pulumi.IntInput) GetDbNodesDbNodeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDbNodesDbNode {
+		return vs[0].([]GetDbNodesDbNode)[vs[1].(int)]
+	}).(GetDbNodesDbNodeOutput)
+}
+
+type GetDbServerDbServerPatchingDetail struct {
+	EstimatedPatchDuration int    `pulumi:"estimatedPatchDuration"`
+	PatchingStatus         string `pulumi:"patchingStatus"`
+	TimePatchingEnded      string `pulumi:"timePatchingEnded"`
+	TimePatchingStarted    string `pulumi:"timePatchingStarted"`
+}
+
+// GetDbServerDbServerPatchingDetailInput is an input type that accepts GetDbServerDbServerPatchingDetailArgs and GetDbServerDbServerPatchingDetailOutput values.
+// You can construct a concrete instance of `GetDbServerDbServerPatchingDetailInput` via:
+//
+//	GetDbServerDbServerPatchingDetailArgs{...}
+type GetDbServerDbServerPatchingDetailInput interface {
+	pulumi.Input
+
+	ToGetDbServerDbServerPatchingDetailOutput() GetDbServerDbServerPatchingDetailOutput
+	ToGetDbServerDbServerPatchingDetailOutputWithContext(context.Context) GetDbServerDbServerPatchingDetailOutput
+}
+
+type GetDbServerDbServerPatchingDetailArgs struct {
+	EstimatedPatchDuration pulumi.IntInput    `pulumi:"estimatedPatchDuration"`
+	PatchingStatus         pulumi.StringInput `pulumi:"patchingStatus"`
+	TimePatchingEnded      pulumi.StringInput `pulumi:"timePatchingEnded"`
+	TimePatchingStarted    pulumi.StringInput `pulumi:"timePatchingStarted"`
+}
+
+func (GetDbServerDbServerPatchingDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDbServerDbServerPatchingDetail)(nil)).Elem()
+}
+
+func (i GetDbServerDbServerPatchingDetailArgs) ToGetDbServerDbServerPatchingDetailOutput() GetDbServerDbServerPatchingDetailOutput {
+	return i.ToGetDbServerDbServerPatchingDetailOutputWithContext(context.Background())
+}
+
+func (i GetDbServerDbServerPatchingDetailArgs) ToGetDbServerDbServerPatchingDetailOutputWithContext(ctx context.Context) GetDbServerDbServerPatchingDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDbServerDbServerPatchingDetailOutput)
+}
+
+// GetDbServerDbServerPatchingDetailArrayInput is an input type that accepts GetDbServerDbServerPatchingDetailArray and GetDbServerDbServerPatchingDetailArrayOutput values.
+// You can construct a concrete instance of `GetDbServerDbServerPatchingDetailArrayInput` via:
+//
+//	GetDbServerDbServerPatchingDetailArray{ GetDbServerDbServerPatchingDetailArgs{...} }
+type GetDbServerDbServerPatchingDetailArrayInput interface {
+	pulumi.Input
+
+	ToGetDbServerDbServerPatchingDetailArrayOutput() GetDbServerDbServerPatchingDetailArrayOutput
+	ToGetDbServerDbServerPatchingDetailArrayOutputWithContext(context.Context) GetDbServerDbServerPatchingDetailArrayOutput
+}
+
+type GetDbServerDbServerPatchingDetailArray []GetDbServerDbServerPatchingDetailInput
+
+func (GetDbServerDbServerPatchingDetailArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDbServerDbServerPatchingDetail)(nil)).Elem()
+}
+
+func (i GetDbServerDbServerPatchingDetailArray) ToGetDbServerDbServerPatchingDetailArrayOutput() GetDbServerDbServerPatchingDetailArrayOutput {
+	return i.ToGetDbServerDbServerPatchingDetailArrayOutputWithContext(context.Background())
+}
+
+func (i GetDbServerDbServerPatchingDetailArray) ToGetDbServerDbServerPatchingDetailArrayOutputWithContext(ctx context.Context) GetDbServerDbServerPatchingDetailArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDbServerDbServerPatchingDetailArrayOutput)
+}
+
+type GetDbServerDbServerPatchingDetailOutput struct{ *pulumi.OutputState }
+
+func (GetDbServerDbServerPatchingDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDbServerDbServerPatchingDetail)(nil)).Elem()
+}
+
+func (o GetDbServerDbServerPatchingDetailOutput) ToGetDbServerDbServerPatchingDetailOutput() GetDbServerDbServerPatchingDetailOutput {
+	return o
+}
+
+func (o GetDbServerDbServerPatchingDetailOutput) ToGetDbServerDbServerPatchingDetailOutputWithContext(ctx context.Context) GetDbServerDbServerPatchingDetailOutput {
+	return o
+}
+
+func (o GetDbServerDbServerPatchingDetailOutput) EstimatedPatchDuration() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbServerDbServerPatchingDetail) int { return v.EstimatedPatchDuration }).(pulumi.IntOutput)
+}
+
+func (o GetDbServerDbServerPatchingDetailOutput) PatchingStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbServerDbServerPatchingDetail) string { return v.PatchingStatus }).(pulumi.StringOutput)
+}
+
+func (o GetDbServerDbServerPatchingDetailOutput) TimePatchingEnded() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbServerDbServerPatchingDetail) string { return v.TimePatchingEnded }).(pulumi.StringOutput)
+}
+
+func (o GetDbServerDbServerPatchingDetailOutput) TimePatchingStarted() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbServerDbServerPatchingDetail) string { return v.TimePatchingStarted }).(pulumi.StringOutput)
+}
+
+type GetDbServerDbServerPatchingDetailArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDbServerDbServerPatchingDetailArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDbServerDbServerPatchingDetail)(nil)).Elem()
+}
+
+func (o GetDbServerDbServerPatchingDetailArrayOutput) ToGetDbServerDbServerPatchingDetailArrayOutput() GetDbServerDbServerPatchingDetailArrayOutput {
+	return o
+}
+
+func (o GetDbServerDbServerPatchingDetailArrayOutput) ToGetDbServerDbServerPatchingDetailArrayOutputWithContext(ctx context.Context) GetDbServerDbServerPatchingDetailArrayOutput {
+	return o
+}
+
+func (o GetDbServerDbServerPatchingDetailArrayOutput) Index(i pulumi.IntInput) GetDbServerDbServerPatchingDetailOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDbServerDbServerPatchingDetail {
+		return vs[0].([]GetDbServerDbServerPatchingDetail)[vs[1].(int)]
+	}).(GetDbServerDbServerPatchingDetailOutput)
+}
+
+type GetDbServersDbServer struct {
+	// A list of unique identifiers for the Autonomous VMs.
+	AutonomousVirtualMachineIds []string `pulumi:"autonomousVirtualMachineIds"`
+	// A list of identifiers for the Autonomous VM clusters.
+	AutonomousVmClusterIds []string `pulumi:"autonomousVmClusterIds"`
+	// The OCI compute model used when you create or clone an instance: **ECPU** or **OCPU**. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers, while OCPUs are based on the physical core of a processor with hyper-threading enabled.
+	ComputeModel string `pulumi:"computeModel"`
+	// The number of CPU cores enabled on the database server.
+	CpuCoreCount int `pulumi:"cpuCoreCount"`
+	// The date and time when the database server was created.
+	CreatedAt string `pulumi:"createdAt"`
+	// The amount of local node storage, in gigabytes (GB), that's allocated on the database server.
+	DbNodeStorageSizeInGbs int `pulumi:"dbNodeStorageSizeInGbs"`
+	// The scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.
+	DbServerPatchingDetails []GetDbServersDbServerDbServerPatchingDetail `pulumi:"dbServerPatchingDetails"`
+	// The user-friendly name of the database server. The name doesn't need to be unique.
+	DisplayName string `pulumi:"displayName"`
+	// The ID of the Exadata infrastructure that hosts the database server.
+	ExadataInfrastructureId string `pulumi:"exadataInfrastructureId"`
+	Id                      string `pulumi:"id"`
+	// The total number of CPU cores available on the database server.
+	MaxCpuCount int `pulumi:"maxCpuCount"`
+	// The total amount of local node storage, in gigabytes (GB), that's available on the database server.
+	MaxDbNodeStorageInGbs int `pulumi:"maxDbNodeStorageInGbs"`
+	// The total amount of memory, in gigabytes (GB), that's available on the database server.
+	MaxMemoryInGbs int `pulumi:"maxMemoryInGbs"`
+	// The amount of memory, in gigabytes (GB), that's allocated on the database server.
+	MemorySizeInGbs int `pulumi:"memorySizeInGbs"`
+	// The name of the OCI resource anchor for the database server.
+	OciResourceAnchorName string `pulumi:"ociResourceAnchorName"`
+	// The OCID of the database server.
+	Ocid string `pulumi:"ocid"`
+	// The hardware system model of the Exadata infrastructure that the database server is hosted on. The shape determines the amount of CPU, storage, and memory resources available.
+	Shape string `pulumi:"shape"`
+	// The current status of the database server.
+	Status string `pulumi:"status"`
+	// Additional information about the status of the database server.
+	StatusReason string `pulumi:"statusReason"`
+	// The IDs of the VM clusters that are associated with the database server.
+	VmClusterIds []string `pulumi:"vmClusterIds"`
+}
+
+// GetDbServersDbServerInput is an input type that accepts GetDbServersDbServerArgs and GetDbServersDbServerOutput values.
+// You can construct a concrete instance of `GetDbServersDbServerInput` via:
+//
+//	GetDbServersDbServerArgs{...}
+type GetDbServersDbServerInput interface {
+	pulumi.Input
+
+	ToGetDbServersDbServerOutput() GetDbServersDbServerOutput
+	ToGetDbServersDbServerOutputWithContext(context.Context) GetDbServersDbServerOutput
+}
+
+type GetDbServersDbServerArgs struct {
+	// A list of unique identifiers for the Autonomous VMs.
+	AutonomousVirtualMachineIds pulumi.StringArrayInput `pulumi:"autonomousVirtualMachineIds"`
+	// A list of identifiers for the Autonomous VM clusters.
+	AutonomousVmClusterIds pulumi.StringArrayInput `pulumi:"autonomousVmClusterIds"`
+	// The OCI compute model used when you create or clone an instance: **ECPU** or **OCPU**. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers, while OCPUs are based on the physical core of a processor with hyper-threading enabled.
+	ComputeModel pulumi.StringInput `pulumi:"computeModel"`
+	// The number of CPU cores enabled on the database server.
+	CpuCoreCount pulumi.IntInput `pulumi:"cpuCoreCount"`
+	// The date and time when the database server was created.
+	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
+	// The amount of local node storage, in gigabytes (GB), that's allocated on the database server.
+	DbNodeStorageSizeInGbs pulumi.IntInput `pulumi:"dbNodeStorageSizeInGbs"`
+	// The scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.
+	DbServerPatchingDetails GetDbServersDbServerDbServerPatchingDetailArrayInput `pulumi:"dbServerPatchingDetails"`
+	// The user-friendly name of the database server. The name doesn't need to be unique.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// The ID of the Exadata infrastructure that hosts the database server.
+	ExadataInfrastructureId pulumi.StringInput `pulumi:"exadataInfrastructureId"`
+	Id                      pulumi.StringInput `pulumi:"id"`
+	// The total number of CPU cores available on the database server.
+	MaxCpuCount pulumi.IntInput `pulumi:"maxCpuCount"`
+	// The total amount of local node storage, in gigabytes (GB), that's available on the database server.
+	MaxDbNodeStorageInGbs pulumi.IntInput `pulumi:"maxDbNodeStorageInGbs"`
+	// The total amount of memory, in gigabytes (GB), that's available on the database server.
+	MaxMemoryInGbs pulumi.IntInput `pulumi:"maxMemoryInGbs"`
+	// The amount of memory, in gigabytes (GB), that's allocated on the database server.
+	MemorySizeInGbs pulumi.IntInput `pulumi:"memorySizeInGbs"`
+	// The name of the OCI resource anchor for the database server.
+	OciResourceAnchorName pulumi.StringInput `pulumi:"ociResourceAnchorName"`
+	// The OCID of the database server.
+	Ocid pulumi.StringInput `pulumi:"ocid"`
+	// The hardware system model of the Exadata infrastructure that the database server is hosted on. The shape determines the amount of CPU, storage, and memory resources available.
+	Shape pulumi.StringInput `pulumi:"shape"`
+	// The current status of the database server.
+	Status pulumi.StringInput `pulumi:"status"`
+	// Additional information about the status of the database server.
+	StatusReason pulumi.StringInput `pulumi:"statusReason"`
+	// The IDs of the VM clusters that are associated with the database server.
+	VmClusterIds pulumi.StringArrayInput `pulumi:"vmClusterIds"`
+}
+
+func (GetDbServersDbServerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDbServersDbServer)(nil)).Elem()
+}
+
+func (i GetDbServersDbServerArgs) ToGetDbServersDbServerOutput() GetDbServersDbServerOutput {
+	return i.ToGetDbServersDbServerOutputWithContext(context.Background())
+}
+
+func (i GetDbServersDbServerArgs) ToGetDbServersDbServerOutputWithContext(ctx context.Context) GetDbServersDbServerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDbServersDbServerOutput)
+}
+
+// GetDbServersDbServerArrayInput is an input type that accepts GetDbServersDbServerArray and GetDbServersDbServerArrayOutput values.
+// You can construct a concrete instance of `GetDbServersDbServerArrayInput` via:
+//
+//	GetDbServersDbServerArray{ GetDbServersDbServerArgs{...} }
+type GetDbServersDbServerArrayInput interface {
+	pulumi.Input
+
+	ToGetDbServersDbServerArrayOutput() GetDbServersDbServerArrayOutput
+	ToGetDbServersDbServerArrayOutputWithContext(context.Context) GetDbServersDbServerArrayOutput
+}
+
+type GetDbServersDbServerArray []GetDbServersDbServerInput
+
+func (GetDbServersDbServerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDbServersDbServer)(nil)).Elem()
+}
+
+func (i GetDbServersDbServerArray) ToGetDbServersDbServerArrayOutput() GetDbServersDbServerArrayOutput {
+	return i.ToGetDbServersDbServerArrayOutputWithContext(context.Background())
+}
+
+func (i GetDbServersDbServerArray) ToGetDbServersDbServerArrayOutputWithContext(ctx context.Context) GetDbServersDbServerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDbServersDbServerArrayOutput)
+}
+
+type GetDbServersDbServerOutput struct{ *pulumi.OutputState }
+
+func (GetDbServersDbServerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDbServersDbServer)(nil)).Elem()
+}
+
+func (o GetDbServersDbServerOutput) ToGetDbServersDbServerOutput() GetDbServersDbServerOutput {
+	return o
+}
+
+func (o GetDbServersDbServerOutput) ToGetDbServersDbServerOutputWithContext(ctx context.Context) GetDbServersDbServerOutput {
+	return o
+}
+
+// A list of unique identifiers for the Autonomous VMs.
+func (o GetDbServersDbServerOutput) AutonomousVirtualMachineIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDbServersDbServer) []string { return v.AutonomousVirtualMachineIds }).(pulumi.StringArrayOutput)
+}
+
+// A list of identifiers for the Autonomous VM clusters.
+func (o GetDbServersDbServerOutput) AutonomousVmClusterIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDbServersDbServer) []string { return v.AutonomousVmClusterIds }).(pulumi.StringArrayOutput)
+}
+
+// The OCI compute model used when you create or clone an instance: **ECPU** or **OCPU**. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers, while OCPUs are based on the physical core of a processor with hyper-threading enabled.
+func (o GetDbServersDbServerOutput) ComputeModel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbServersDbServer) string { return v.ComputeModel }).(pulumi.StringOutput)
+}
+
+// The number of CPU cores enabled on the database server.
+func (o GetDbServersDbServerOutput) CpuCoreCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbServersDbServer) int { return v.CpuCoreCount }).(pulumi.IntOutput)
+}
+
+// The date and time when the database server was created.
+func (o GetDbServersDbServerOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbServersDbServer) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// The amount of local node storage, in gigabytes (GB), that's allocated on the database server.
+func (o GetDbServersDbServerOutput) DbNodeStorageSizeInGbs() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbServersDbServer) int { return v.DbNodeStorageSizeInGbs }).(pulumi.IntOutput)
+}
+
+// The scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.
+func (o GetDbServersDbServerOutput) DbServerPatchingDetails() GetDbServersDbServerDbServerPatchingDetailArrayOutput {
+	return o.ApplyT(func(v GetDbServersDbServer) []GetDbServersDbServerDbServerPatchingDetail {
+		return v.DbServerPatchingDetails
+	}).(GetDbServersDbServerDbServerPatchingDetailArrayOutput)
+}
+
+// The user-friendly name of the database server. The name doesn't need to be unique.
+func (o GetDbServersDbServerOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbServersDbServer) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The ID of the Exadata infrastructure that hosts the database server.
+func (o GetDbServersDbServerOutput) ExadataInfrastructureId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbServersDbServer) string { return v.ExadataInfrastructureId }).(pulumi.StringOutput)
+}
+
+func (o GetDbServersDbServerOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbServersDbServer) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The total number of CPU cores available on the database server.
+func (o GetDbServersDbServerOutput) MaxCpuCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbServersDbServer) int { return v.MaxCpuCount }).(pulumi.IntOutput)
+}
+
+// The total amount of local node storage, in gigabytes (GB), that's available on the database server.
+func (o GetDbServersDbServerOutput) MaxDbNodeStorageInGbs() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbServersDbServer) int { return v.MaxDbNodeStorageInGbs }).(pulumi.IntOutput)
+}
+
+// The total amount of memory, in gigabytes (GB), that's available on the database server.
+func (o GetDbServersDbServerOutput) MaxMemoryInGbs() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbServersDbServer) int { return v.MaxMemoryInGbs }).(pulumi.IntOutput)
+}
+
+// The amount of memory, in gigabytes (GB), that's allocated on the database server.
+func (o GetDbServersDbServerOutput) MemorySizeInGbs() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbServersDbServer) int { return v.MemorySizeInGbs }).(pulumi.IntOutput)
+}
+
+// The name of the OCI resource anchor for the database server.
+func (o GetDbServersDbServerOutput) OciResourceAnchorName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbServersDbServer) string { return v.OciResourceAnchorName }).(pulumi.StringOutput)
+}
+
+// The OCID of the database server.
+func (o GetDbServersDbServerOutput) Ocid() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbServersDbServer) string { return v.Ocid }).(pulumi.StringOutput)
+}
+
+// The hardware system model of the Exadata infrastructure that the database server is hosted on. The shape determines the amount of CPU, storage, and memory resources available.
+func (o GetDbServersDbServerOutput) Shape() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbServersDbServer) string { return v.Shape }).(pulumi.StringOutput)
+}
+
+// The current status of the database server.
+func (o GetDbServersDbServerOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbServersDbServer) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Additional information about the status of the database server.
+func (o GetDbServersDbServerOutput) StatusReason() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbServersDbServer) string { return v.StatusReason }).(pulumi.StringOutput)
+}
+
+// The IDs of the VM clusters that are associated with the database server.
+func (o GetDbServersDbServerOutput) VmClusterIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDbServersDbServer) []string { return v.VmClusterIds }).(pulumi.StringArrayOutput)
+}
+
+type GetDbServersDbServerArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDbServersDbServerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDbServersDbServer)(nil)).Elem()
+}
+
+func (o GetDbServersDbServerArrayOutput) ToGetDbServersDbServerArrayOutput() GetDbServersDbServerArrayOutput {
+	return o
+}
+
+func (o GetDbServersDbServerArrayOutput) ToGetDbServersDbServerArrayOutputWithContext(ctx context.Context) GetDbServersDbServerArrayOutput {
+	return o
+}
+
+func (o GetDbServersDbServerArrayOutput) Index(i pulumi.IntInput) GetDbServersDbServerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDbServersDbServer {
+		return vs[0].([]GetDbServersDbServer)[vs[1].(int)]
+	}).(GetDbServersDbServerOutput)
+}
+
+type GetDbServersDbServerDbServerPatchingDetail struct {
+	EstimatedPatchDuration int    `pulumi:"estimatedPatchDuration"`
+	PatchingStatus         string `pulumi:"patchingStatus"`
+	TimePatchingEnded      string `pulumi:"timePatchingEnded"`
+	TimePatchingStarted    string `pulumi:"timePatchingStarted"`
+}
+
+// GetDbServersDbServerDbServerPatchingDetailInput is an input type that accepts GetDbServersDbServerDbServerPatchingDetailArgs and GetDbServersDbServerDbServerPatchingDetailOutput values.
+// You can construct a concrete instance of `GetDbServersDbServerDbServerPatchingDetailInput` via:
+//
+//	GetDbServersDbServerDbServerPatchingDetailArgs{...}
+type GetDbServersDbServerDbServerPatchingDetailInput interface {
+	pulumi.Input
+
+	ToGetDbServersDbServerDbServerPatchingDetailOutput() GetDbServersDbServerDbServerPatchingDetailOutput
+	ToGetDbServersDbServerDbServerPatchingDetailOutputWithContext(context.Context) GetDbServersDbServerDbServerPatchingDetailOutput
+}
+
+type GetDbServersDbServerDbServerPatchingDetailArgs struct {
+	EstimatedPatchDuration pulumi.IntInput    `pulumi:"estimatedPatchDuration"`
+	PatchingStatus         pulumi.StringInput `pulumi:"patchingStatus"`
+	TimePatchingEnded      pulumi.StringInput `pulumi:"timePatchingEnded"`
+	TimePatchingStarted    pulumi.StringInput `pulumi:"timePatchingStarted"`
+}
+
+func (GetDbServersDbServerDbServerPatchingDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDbServersDbServerDbServerPatchingDetail)(nil)).Elem()
+}
+
+func (i GetDbServersDbServerDbServerPatchingDetailArgs) ToGetDbServersDbServerDbServerPatchingDetailOutput() GetDbServersDbServerDbServerPatchingDetailOutput {
+	return i.ToGetDbServersDbServerDbServerPatchingDetailOutputWithContext(context.Background())
+}
+
+func (i GetDbServersDbServerDbServerPatchingDetailArgs) ToGetDbServersDbServerDbServerPatchingDetailOutputWithContext(ctx context.Context) GetDbServersDbServerDbServerPatchingDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDbServersDbServerDbServerPatchingDetailOutput)
+}
+
+// GetDbServersDbServerDbServerPatchingDetailArrayInput is an input type that accepts GetDbServersDbServerDbServerPatchingDetailArray and GetDbServersDbServerDbServerPatchingDetailArrayOutput values.
+// You can construct a concrete instance of `GetDbServersDbServerDbServerPatchingDetailArrayInput` via:
+//
+//	GetDbServersDbServerDbServerPatchingDetailArray{ GetDbServersDbServerDbServerPatchingDetailArgs{...} }
+type GetDbServersDbServerDbServerPatchingDetailArrayInput interface {
+	pulumi.Input
+
+	ToGetDbServersDbServerDbServerPatchingDetailArrayOutput() GetDbServersDbServerDbServerPatchingDetailArrayOutput
+	ToGetDbServersDbServerDbServerPatchingDetailArrayOutputWithContext(context.Context) GetDbServersDbServerDbServerPatchingDetailArrayOutput
+}
+
+type GetDbServersDbServerDbServerPatchingDetailArray []GetDbServersDbServerDbServerPatchingDetailInput
+
+func (GetDbServersDbServerDbServerPatchingDetailArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDbServersDbServerDbServerPatchingDetail)(nil)).Elem()
+}
+
+func (i GetDbServersDbServerDbServerPatchingDetailArray) ToGetDbServersDbServerDbServerPatchingDetailArrayOutput() GetDbServersDbServerDbServerPatchingDetailArrayOutput {
+	return i.ToGetDbServersDbServerDbServerPatchingDetailArrayOutputWithContext(context.Background())
+}
+
+func (i GetDbServersDbServerDbServerPatchingDetailArray) ToGetDbServersDbServerDbServerPatchingDetailArrayOutputWithContext(ctx context.Context) GetDbServersDbServerDbServerPatchingDetailArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDbServersDbServerDbServerPatchingDetailArrayOutput)
+}
+
+type GetDbServersDbServerDbServerPatchingDetailOutput struct{ *pulumi.OutputState }
+
+func (GetDbServersDbServerDbServerPatchingDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDbServersDbServerDbServerPatchingDetail)(nil)).Elem()
+}
+
+func (o GetDbServersDbServerDbServerPatchingDetailOutput) ToGetDbServersDbServerDbServerPatchingDetailOutput() GetDbServersDbServerDbServerPatchingDetailOutput {
+	return o
+}
+
+func (o GetDbServersDbServerDbServerPatchingDetailOutput) ToGetDbServersDbServerDbServerPatchingDetailOutputWithContext(ctx context.Context) GetDbServersDbServerDbServerPatchingDetailOutput {
+	return o
+}
+
+func (o GetDbServersDbServerDbServerPatchingDetailOutput) EstimatedPatchDuration() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbServersDbServerDbServerPatchingDetail) int { return v.EstimatedPatchDuration }).(pulumi.IntOutput)
+}
+
+func (o GetDbServersDbServerDbServerPatchingDetailOutput) PatchingStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbServersDbServerDbServerPatchingDetail) string { return v.PatchingStatus }).(pulumi.StringOutput)
+}
+
+func (o GetDbServersDbServerDbServerPatchingDetailOutput) TimePatchingEnded() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbServersDbServerDbServerPatchingDetail) string { return v.TimePatchingEnded }).(pulumi.StringOutput)
+}
+
+func (o GetDbServersDbServerDbServerPatchingDetailOutput) TimePatchingStarted() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbServersDbServerDbServerPatchingDetail) string { return v.TimePatchingStarted }).(pulumi.StringOutput)
+}
+
+type GetDbServersDbServerDbServerPatchingDetailArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDbServersDbServerDbServerPatchingDetailArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDbServersDbServerDbServerPatchingDetail)(nil)).Elem()
+}
+
+func (o GetDbServersDbServerDbServerPatchingDetailArrayOutput) ToGetDbServersDbServerDbServerPatchingDetailArrayOutput() GetDbServersDbServerDbServerPatchingDetailArrayOutput {
+	return o
+}
+
+func (o GetDbServersDbServerDbServerPatchingDetailArrayOutput) ToGetDbServersDbServerDbServerPatchingDetailArrayOutputWithContext(ctx context.Context) GetDbServersDbServerDbServerPatchingDetailArrayOutput {
+	return o
+}
+
+func (o GetDbServersDbServerDbServerPatchingDetailArrayOutput) Index(i pulumi.IntInput) GetDbServersDbServerDbServerPatchingDetailOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDbServersDbServerDbServerPatchingDetail {
+		return vs[0].([]GetDbServersDbServerDbServerPatchingDetail)[vs[1].(int)]
+	}).(GetDbServersDbServerDbServerPatchingDetailOutput)
+}
+
+type GetDbSystemShapesDbSystemShape struct {
+	AvailableCoreCount                 int    `pulumi:"availableCoreCount"`
+	AvailableCoreCountPerNode          int    `pulumi:"availableCoreCountPerNode"`
+	AvailableDataStorageInTbs          int    `pulumi:"availableDataStorageInTbs"`
+	AvailableDataStoragePerServerInTbs int    `pulumi:"availableDataStoragePerServerInTbs"`
+	AvailableDbNodePerNodeInGbs        int    `pulumi:"availableDbNodePerNodeInGbs"`
+	AvailableDbNodeStorageInGbs        int    `pulumi:"availableDbNodeStorageInGbs"`
+	AvailableMemoryInGbs               int    `pulumi:"availableMemoryInGbs"`
+	AvailableMemoryPerNodeInGbs        int    `pulumi:"availableMemoryPerNodeInGbs"`
+	CoreCountIncrement                 int    `pulumi:"coreCountIncrement"`
+	MaxStorageCount                    int    `pulumi:"maxStorageCount"`
+	MaximumNodeCount                   int    `pulumi:"maximumNodeCount"`
+	MinCoreCountPerNode                int    `pulumi:"minCoreCountPerNode"`
+	MinDataStorageInTbs                int    `pulumi:"minDataStorageInTbs"`
+	MinDbNodeStoragePerNodeInGbs       int    `pulumi:"minDbNodeStoragePerNodeInGbs"`
+	MinMemoryPerNodeInGbs              int    `pulumi:"minMemoryPerNodeInGbs"`
+	MinStorageCount                    int    `pulumi:"minStorageCount"`
+	MinimumCoreCount                   int    `pulumi:"minimumCoreCount"`
+	MinimumNodeCount                   int    `pulumi:"minimumNodeCount"`
+	Name                               string `pulumi:"name"`
+	RuntimeMinimumCoreCount            int    `pulumi:"runtimeMinimumCoreCount"`
+	ShapeFamily                        string `pulumi:"shapeFamily"`
+	ShapeType                          string `pulumi:"shapeType"`
+}
+
+// GetDbSystemShapesDbSystemShapeInput is an input type that accepts GetDbSystemShapesDbSystemShapeArgs and GetDbSystemShapesDbSystemShapeOutput values.
+// You can construct a concrete instance of `GetDbSystemShapesDbSystemShapeInput` via:
+//
+//	GetDbSystemShapesDbSystemShapeArgs{...}
+type GetDbSystemShapesDbSystemShapeInput interface {
+	pulumi.Input
+
+	ToGetDbSystemShapesDbSystemShapeOutput() GetDbSystemShapesDbSystemShapeOutput
+	ToGetDbSystemShapesDbSystemShapeOutputWithContext(context.Context) GetDbSystemShapesDbSystemShapeOutput
+}
+
+type GetDbSystemShapesDbSystemShapeArgs struct {
+	AvailableCoreCount                 pulumi.IntInput    `pulumi:"availableCoreCount"`
+	AvailableCoreCountPerNode          pulumi.IntInput    `pulumi:"availableCoreCountPerNode"`
+	AvailableDataStorageInTbs          pulumi.IntInput    `pulumi:"availableDataStorageInTbs"`
+	AvailableDataStoragePerServerInTbs pulumi.IntInput    `pulumi:"availableDataStoragePerServerInTbs"`
+	AvailableDbNodePerNodeInGbs        pulumi.IntInput    `pulumi:"availableDbNodePerNodeInGbs"`
+	AvailableDbNodeStorageInGbs        pulumi.IntInput    `pulumi:"availableDbNodeStorageInGbs"`
+	AvailableMemoryInGbs               pulumi.IntInput    `pulumi:"availableMemoryInGbs"`
+	AvailableMemoryPerNodeInGbs        pulumi.IntInput    `pulumi:"availableMemoryPerNodeInGbs"`
+	CoreCountIncrement                 pulumi.IntInput    `pulumi:"coreCountIncrement"`
+	MaxStorageCount                    pulumi.IntInput    `pulumi:"maxStorageCount"`
+	MaximumNodeCount                   pulumi.IntInput    `pulumi:"maximumNodeCount"`
+	MinCoreCountPerNode                pulumi.IntInput    `pulumi:"minCoreCountPerNode"`
+	MinDataStorageInTbs                pulumi.IntInput    `pulumi:"minDataStorageInTbs"`
+	MinDbNodeStoragePerNodeInGbs       pulumi.IntInput    `pulumi:"minDbNodeStoragePerNodeInGbs"`
+	MinMemoryPerNodeInGbs              pulumi.IntInput    `pulumi:"minMemoryPerNodeInGbs"`
+	MinStorageCount                    pulumi.IntInput    `pulumi:"minStorageCount"`
+	MinimumCoreCount                   pulumi.IntInput    `pulumi:"minimumCoreCount"`
+	MinimumNodeCount                   pulumi.IntInput    `pulumi:"minimumNodeCount"`
+	Name                               pulumi.StringInput `pulumi:"name"`
+	RuntimeMinimumCoreCount            pulumi.IntInput    `pulumi:"runtimeMinimumCoreCount"`
+	ShapeFamily                        pulumi.StringInput `pulumi:"shapeFamily"`
+	ShapeType                          pulumi.StringInput `pulumi:"shapeType"`
+}
+
+func (GetDbSystemShapesDbSystemShapeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDbSystemShapesDbSystemShape)(nil)).Elem()
+}
+
+func (i GetDbSystemShapesDbSystemShapeArgs) ToGetDbSystemShapesDbSystemShapeOutput() GetDbSystemShapesDbSystemShapeOutput {
+	return i.ToGetDbSystemShapesDbSystemShapeOutputWithContext(context.Background())
+}
+
+func (i GetDbSystemShapesDbSystemShapeArgs) ToGetDbSystemShapesDbSystemShapeOutputWithContext(ctx context.Context) GetDbSystemShapesDbSystemShapeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDbSystemShapesDbSystemShapeOutput)
+}
+
+// GetDbSystemShapesDbSystemShapeArrayInput is an input type that accepts GetDbSystemShapesDbSystemShapeArray and GetDbSystemShapesDbSystemShapeArrayOutput values.
+// You can construct a concrete instance of `GetDbSystemShapesDbSystemShapeArrayInput` via:
+//
+//	GetDbSystemShapesDbSystemShapeArray{ GetDbSystemShapesDbSystemShapeArgs{...} }
+type GetDbSystemShapesDbSystemShapeArrayInput interface {
+	pulumi.Input
+
+	ToGetDbSystemShapesDbSystemShapeArrayOutput() GetDbSystemShapesDbSystemShapeArrayOutput
+	ToGetDbSystemShapesDbSystemShapeArrayOutputWithContext(context.Context) GetDbSystemShapesDbSystemShapeArrayOutput
+}
+
+type GetDbSystemShapesDbSystemShapeArray []GetDbSystemShapesDbSystemShapeInput
+
+func (GetDbSystemShapesDbSystemShapeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDbSystemShapesDbSystemShape)(nil)).Elem()
+}
+
+func (i GetDbSystemShapesDbSystemShapeArray) ToGetDbSystemShapesDbSystemShapeArrayOutput() GetDbSystemShapesDbSystemShapeArrayOutput {
+	return i.ToGetDbSystemShapesDbSystemShapeArrayOutputWithContext(context.Background())
+}
+
+func (i GetDbSystemShapesDbSystemShapeArray) ToGetDbSystemShapesDbSystemShapeArrayOutputWithContext(ctx context.Context) GetDbSystemShapesDbSystemShapeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDbSystemShapesDbSystemShapeArrayOutput)
+}
+
+type GetDbSystemShapesDbSystemShapeOutput struct{ *pulumi.OutputState }
+
+func (GetDbSystemShapesDbSystemShapeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDbSystemShapesDbSystemShape)(nil)).Elem()
+}
+
+func (o GetDbSystemShapesDbSystemShapeOutput) ToGetDbSystemShapesDbSystemShapeOutput() GetDbSystemShapesDbSystemShapeOutput {
+	return o
+}
+
+func (o GetDbSystemShapesDbSystemShapeOutput) ToGetDbSystemShapesDbSystemShapeOutputWithContext(ctx context.Context) GetDbSystemShapesDbSystemShapeOutput {
+	return o
+}
+
+func (o GetDbSystemShapesDbSystemShapeOutput) AvailableCoreCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableCoreCount }).(pulumi.IntOutput)
+}
+
+func (o GetDbSystemShapesDbSystemShapeOutput) AvailableCoreCountPerNode() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableCoreCountPerNode }).(pulumi.IntOutput)
+}
+
+func (o GetDbSystemShapesDbSystemShapeOutput) AvailableDataStorageInTbs() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableDataStorageInTbs }).(pulumi.IntOutput)
+}
+
+func (o GetDbSystemShapesDbSystemShapeOutput) AvailableDataStoragePerServerInTbs() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableDataStoragePerServerInTbs }).(pulumi.IntOutput)
+}
+
+func (o GetDbSystemShapesDbSystemShapeOutput) AvailableDbNodePerNodeInGbs() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableDbNodePerNodeInGbs }).(pulumi.IntOutput)
+}
+
+func (o GetDbSystemShapesDbSystemShapeOutput) AvailableDbNodeStorageInGbs() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableDbNodeStorageInGbs }).(pulumi.IntOutput)
+}
+
+func (o GetDbSystemShapesDbSystemShapeOutput) AvailableMemoryInGbs() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableMemoryInGbs }).(pulumi.IntOutput)
+}
+
+func (o GetDbSystemShapesDbSystemShapeOutput) AvailableMemoryPerNodeInGbs() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableMemoryPerNodeInGbs }).(pulumi.IntOutput)
+}
+
+func (o GetDbSystemShapesDbSystemShapeOutput) CoreCountIncrement() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.CoreCountIncrement }).(pulumi.IntOutput)
+}
+
+func (o GetDbSystemShapesDbSystemShapeOutput) MaxStorageCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MaxStorageCount }).(pulumi.IntOutput)
+}
+
+func (o GetDbSystemShapesDbSystemShapeOutput) MaximumNodeCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MaximumNodeCount }).(pulumi.IntOutput)
+}
+
+func (o GetDbSystemShapesDbSystemShapeOutput) MinCoreCountPerNode() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MinCoreCountPerNode }).(pulumi.IntOutput)
+}
+
+func (o GetDbSystemShapesDbSystemShapeOutput) MinDataStorageInTbs() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MinDataStorageInTbs }).(pulumi.IntOutput)
+}
+
+func (o GetDbSystemShapesDbSystemShapeOutput) MinDbNodeStoragePerNodeInGbs() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MinDbNodeStoragePerNodeInGbs }).(pulumi.IntOutput)
+}
+
+func (o GetDbSystemShapesDbSystemShapeOutput) MinMemoryPerNodeInGbs() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MinMemoryPerNodeInGbs }).(pulumi.IntOutput)
+}
+
+func (o GetDbSystemShapesDbSystemShapeOutput) MinStorageCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MinStorageCount }).(pulumi.IntOutput)
+}
+
+func (o GetDbSystemShapesDbSystemShapeOutput) MinimumCoreCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MinimumCoreCount }).(pulumi.IntOutput)
+}
+
+func (o GetDbSystemShapesDbSystemShapeOutput) MinimumNodeCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MinimumNodeCount }).(pulumi.IntOutput)
+}
+
+func (o GetDbSystemShapesDbSystemShapeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetDbSystemShapesDbSystemShapeOutput) RuntimeMinimumCoreCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.RuntimeMinimumCoreCount }).(pulumi.IntOutput)
+}
+
+func (o GetDbSystemShapesDbSystemShapeOutput) ShapeFamily() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) string { return v.ShapeFamily }).(pulumi.StringOutput)
+}
+
+func (o GetDbSystemShapesDbSystemShapeOutput) ShapeType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) string { return v.ShapeType }).(pulumi.StringOutput)
+}
+
+type GetDbSystemShapesDbSystemShapeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDbSystemShapesDbSystemShapeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDbSystemShapesDbSystemShape)(nil)).Elem()
+}
+
+func (o GetDbSystemShapesDbSystemShapeArrayOutput) ToGetDbSystemShapesDbSystemShapeArrayOutput() GetDbSystemShapesDbSystemShapeArrayOutput {
+	return o
+}
+
+func (o GetDbSystemShapesDbSystemShapeArrayOutput) ToGetDbSystemShapesDbSystemShapeArrayOutputWithContext(ctx context.Context) GetDbSystemShapesDbSystemShapeArrayOutput {
+	return o
+}
+
+func (o GetDbSystemShapesDbSystemShapeArrayOutput) Index(i pulumi.IntInput) GetDbSystemShapesDbSystemShapeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDbSystemShapesDbSystemShape {
+		return vs[0].([]GetDbSystemShapesDbSystemShape)[vs[1].(int)]
+	}).(GetDbSystemShapesDbSystemShapeOutput)
+}
+
+type GetGiVersionsGiVersion struct {
+	Version string `pulumi:"version"`
+}
+
+// GetGiVersionsGiVersionInput is an input type that accepts GetGiVersionsGiVersionArgs and GetGiVersionsGiVersionOutput values.
+// You can construct a concrete instance of `GetGiVersionsGiVersionInput` via:
+//
+//	GetGiVersionsGiVersionArgs{...}
+type GetGiVersionsGiVersionInput interface {
+	pulumi.Input
+
+	ToGetGiVersionsGiVersionOutput() GetGiVersionsGiVersionOutput
+	ToGetGiVersionsGiVersionOutputWithContext(context.Context) GetGiVersionsGiVersionOutput
+}
+
+type GetGiVersionsGiVersionArgs struct {
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (GetGiVersionsGiVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGiVersionsGiVersion)(nil)).Elem()
+}
+
+func (i GetGiVersionsGiVersionArgs) ToGetGiVersionsGiVersionOutput() GetGiVersionsGiVersionOutput {
+	return i.ToGetGiVersionsGiVersionOutputWithContext(context.Background())
+}
+
+func (i GetGiVersionsGiVersionArgs) ToGetGiVersionsGiVersionOutputWithContext(ctx context.Context) GetGiVersionsGiVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGiVersionsGiVersionOutput)
+}
+
+// GetGiVersionsGiVersionArrayInput is an input type that accepts GetGiVersionsGiVersionArray and GetGiVersionsGiVersionArrayOutput values.
+// You can construct a concrete instance of `GetGiVersionsGiVersionArrayInput` via:
+//
+//	GetGiVersionsGiVersionArray{ GetGiVersionsGiVersionArgs{...} }
+type GetGiVersionsGiVersionArrayInput interface {
+	pulumi.Input
+
+	ToGetGiVersionsGiVersionArrayOutput() GetGiVersionsGiVersionArrayOutput
+	ToGetGiVersionsGiVersionArrayOutputWithContext(context.Context) GetGiVersionsGiVersionArrayOutput
+}
+
+type GetGiVersionsGiVersionArray []GetGiVersionsGiVersionInput
+
+func (GetGiVersionsGiVersionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGiVersionsGiVersion)(nil)).Elem()
+}
+
+func (i GetGiVersionsGiVersionArray) ToGetGiVersionsGiVersionArrayOutput() GetGiVersionsGiVersionArrayOutput {
+	return i.ToGetGiVersionsGiVersionArrayOutputWithContext(context.Background())
+}
+
+func (i GetGiVersionsGiVersionArray) ToGetGiVersionsGiVersionArrayOutputWithContext(ctx context.Context) GetGiVersionsGiVersionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGiVersionsGiVersionArrayOutput)
+}
+
+type GetGiVersionsGiVersionOutput struct{ *pulumi.OutputState }
+
+func (GetGiVersionsGiVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGiVersionsGiVersion)(nil)).Elem()
+}
+
+func (o GetGiVersionsGiVersionOutput) ToGetGiVersionsGiVersionOutput() GetGiVersionsGiVersionOutput {
+	return o
+}
+
+func (o GetGiVersionsGiVersionOutput) ToGetGiVersionsGiVersionOutputWithContext(ctx context.Context) GetGiVersionsGiVersionOutput {
+	return o
+}
+
+func (o GetGiVersionsGiVersionOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGiVersionsGiVersion) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type GetGiVersionsGiVersionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetGiVersionsGiVersionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGiVersionsGiVersion)(nil)).Elem()
+}
+
+func (o GetGiVersionsGiVersionArrayOutput) ToGetGiVersionsGiVersionArrayOutput() GetGiVersionsGiVersionArrayOutput {
+	return o
+}
+
+func (o GetGiVersionsGiVersionArrayOutput) ToGetGiVersionsGiVersionArrayOutputWithContext(ctx context.Context) GetGiVersionsGiVersionArrayOutput {
+	return o
+}
+
+func (o GetGiVersionsGiVersionArrayOutput) Index(i pulumi.IntInput) GetGiVersionsGiVersionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGiVersionsGiVersion {
+		return vs[0].([]GetGiVersionsGiVersion)[vs[1].(int)]
+	}).(GetGiVersionsGiVersionOutput)
+}
+
 type GetNetworkManagedService struct {
 	ManagedS3BackupAccesses []GetNetworkManagedServiceManagedS3BackupAccess  `pulumi:"managedS3BackupAccesses"`
 	ManagedServiceIpv4Cidrs []string                                         `pulumi:"managedServiceIpv4Cidrs"`
@@ -4724,6 +5830,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterIormConfigCachArrayInput)(nil)).Elem(), GetCloudVmClusterIormConfigCachArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterIormConfigCachDbPlanInput)(nil)).Elem(), GetCloudVmClusterIormConfigCachDbPlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterIormConfigCachDbPlanArrayInput)(nil)).Elem(), GetCloudVmClusterIormConfigCachDbPlanArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDbNodesDbNodeInput)(nil)).Elem(), GetDbNodesDbNodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDbNodesDbNodeArrayInput)(nil)).Elem(), GetDbNodesDbNodeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDbServerDbServerPatchingDetailInput)(nil)).Elem(), GetDbServerDbServerPatchingDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDbServerDbServerPatchingDetailArrayInput)(nil)).Elem(), GetDbServerDbServerPatchingDetailArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDbServersDbServerInput)(nil)).Elem(), GetDbServersDbServerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDbServersDbServerArrayInput)(nil)).Elem(), GetDbServersDbServerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDbServersDbServerDbServerPatchingDetailInput)(nil)).Elem(), GetDbServersDbServerDbServerPatchingDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDbServersDbServerDbServerPatchingDetailArrayInput)(nil)).Elem(), GetDbServersDbServerDbServerPatchingDetailArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDbSystemShapesDbSystemShapeInput)(nil)).Elem(), GetDbSystemShapesDbSystemShapeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDbSystemShapesDbSystemShapeArrayInput)(nil)).Elem(), GetDbSystemShapesDbSystemShapeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGiVersionsGiVersionInput)(nil)).Elem(), GetGiVersionsGiVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGiVersionsGiVersionArrayInput)(nil)).Elem(), GetGiVersionsGiVersionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagedServiceInput)(nil)).Elem(), GetNetworkManagedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagedServiceArrayInput)(nil)).Elem(), GetNetworkManagedServiceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagedServiceManagedS3BackupAccessInput)(nil)).Elem(), GetNetworkManagedServiceManagedS3BackupAccessArgs{})
@@ -4798,6 +5916,18 @@ func init() {
 	pulumi.RegisterOutputType(GetCloudVmClusterIormConfigCachArrayOutput{})
 	pulumi.RegisterOutputType(GetCloudVmClusterIormConfigCachDbPlanOutput{})
 	pulumi.RegisterOutputType(GetCloudVmClusterIormConfigCachDbPlanArrayOutput{})
+	pulumi.RegisterOutputType(GetDbNodesDbNodeOutput{})
+	pulumi.RegisterOutputType(GetDbNodesDbNodeArrayOutput{})
+	pulumi.RegisterOutputType(GetDbServerDbServerPatchingDetailOutput{})
+	pulumi.RegisterOutputType(GetDbServerDbServerPatchingDetailArrayOutput{})
+	pulumi.RegisterOutputType(GetDbServersDbServerOutput{})
+	pulumi.RegisterOutputType(GetDbServersDbServerArrayOutput{})
+	pulumi.RegisterOutputType(GetDbServersDbServerDbServerPatchingDetailOutput{})
+	pulumi.RegisterOutputType(GetDbServersDbServerDbServerPatchingDetailArrayOutput{})
+	pulumi.RegisterOutputType(GetDbSystemShapesDbSystemShapeOutput{})
+	pulumi.RegisterOutputType(GetDbSystemShapesDbSystemShapeArrayOutput{})
+	pulumi.RegisterOutputType(GetGiVersionsGiVersionOutput{})
+	pulumi.RegisterOutputType(GetGiVersionsGiVersionArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkManagedServiceOutput{})
 	pulumi.RegisterOutputType(GetNetworkManagedServiceArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkManagedServiceManagedS3BackupAccessOutput{})

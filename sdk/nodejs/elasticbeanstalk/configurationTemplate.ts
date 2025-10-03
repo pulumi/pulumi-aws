@@ -18,13 +18,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const tftest = new aws.elasticbeanstalk.Application("tftest", {
+ * const exampleApplication = new aws.elasticbeanstalk.Application("example", {
  *     name: "tf-test-name",
  *     description: "tf-test-desc",
  * });
- * const myTemplate = new aws.elasticbeanstalk.ConfigurationTemplate("my_template", {
+ * const example = new aws.elasticbeanstalk.ConfigurationTemplate("example", {
  *     name: "tf-test-template-config",
- *     application: tftest.name,
+ *     application: exampleApplication.name,
  *     solutionStackName: "64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4",
  * });
  * ```
@@ -33,9 +33,9 @@ import * as utilities from "../utilities";
  *
  * The `setting` field supports the following format:
  *
- * * `namespace` - unique namespace identifying the option's associated AWS resource
- * * `name` - name of the configuration option
- * * `value` - value for the configuration option
+ * * `namespace` - (Required) Unique namespace identifying the option's associated AWS resource
+ * * `name` - (Required) Name of the configuration option
+ * * `value` - (Required) Value for the configuration option
  * * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
  */
 export class ConfigurationTemplate extends pulumi.CustomResource {

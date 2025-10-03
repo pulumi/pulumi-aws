@@ -25,6 +25,11 @@ public final class GetInstanceTypeOfferingResult {
      * 
      */
     private String instanceType;
+    /**
+     * @return Identifier for the location.
+     * 
+     */
+    private String location;
     private @Nullable String locationType;
     private @Nullable List<String> preferredInstanceTypes;
     private String region;
@@ -46,6 +51,13 @@ public final class GetInstanceTypeOfferingResult {
      */
     public String instanceType() {
         return this.instanceType;
+    }
+    /**
+     * @return Identifier for the location.
+     * 
+     */
+    public String location() {
+        return this.location;
     }
     public Optional<String> locationType() {
         return Optional.ofNullable(this.locationType);
@@ -69,6 +81,7 @@ public final class GetInstanceTypeOfferingResult {
         private @Nullable List<GetInstanceTypeOfferingFilter> filters;
         private String id;
         private String instanceType;
+        private String location;
         private @Nullable String locationType;
         private @Nullable List<String> preferredInstanceTypes;
         private String region;
@@ -78,6 +91,7 @@ public final class GetInstanceTypeOfferingResult {
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.instanceType = defaults.instanceType;
+    	      this.location = defaults.location;
     	      this.locationType = defaults.locationType;
     	      this.preferredInstanceTypes = defaults.preferredInstanceTypes;
     	      this.region = defaults.region;
@@ -109,6 +123,14 @@ public final class GetInstanceTypeOfferingResult {
             return this;
         }
         @CustomType.Setter
+        public Builder location(String location) {
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeOfferingResult", "location");
+            }
+            this.location = location;
+            return this;
+        }
+        @CustomType.Setter
         public Builder locationType(@Nullable String locationType) {
 
             this.locationType = locationType;
@@ -136,6 +158,7 @@ public final class GetInstanceTypeOfferingResult {
             _resultValue.filters = filters;
             _resultValue.id = id;
             _resultValue.instanceType = instanceType;
+            _resultValue.location = location;
             _resultValue.locationType = locationType;
             _resultValue.preferredInstanceTypes = preferredInstanceTypes;
             _resultValue.region = region;

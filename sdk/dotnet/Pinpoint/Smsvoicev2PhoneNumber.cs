@@ -132,7 +132,7 @@ namespace Pulumi.Aws.Pinpoint
         public Output<Outputs.Smsvoicev2PhoneNumberTimeouts?> Timeouts { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the two way channel.
+        /// Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
         /// </summary>
         [Output("twoWayChannelArn")]
         public Output<string?> TwoWayChannelArn { get; private set; } = null!;
@@ -267,7 +267,7 @@ namespace Pulumi.Aws.Pinpoint
         public Input<Inputs.Smsvoicev2PhoneNumberTimeoutsArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the two way channel.
+        /// Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
         /// </summary>
         [Input("twoWayChannelArn")]
         public Input<string>? TwoWayChannelArn { get; set; }
@@ -394,7 +394,7 @@ namespace Pulumi.Aws.Pinpoint
         public Input<Inputs.Smsvoicev2PhoneNumberTimeoutsGetArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the two way channel.
+        /// Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
         /// </summary>
         [Input("twoWayChannelArn")]
         public Input<string>? TwoWayChannelArn { get; set; }

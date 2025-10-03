@@ -10,6 +10,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -19,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides an IAM Service Specific Credential.
  * 
  * ## Example Usage
+ * 
+ * ### Basic Usage
  * 
  * <pre>
  * {@code
@@ -58,6 +61,47 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Bedrock API Key with Expiration
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.User;
+ * import com.pulumi.aws.iam.UserArgs;
+ * import com.pulumi.aws.iam.ServiceSpecificCredential;
+ * import com.pulumi.aws.iam.ServiceSpecificCredentialArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new User("example", UserArgs.builder()
+ *             .name("example")
+ *             .build());
+ * 
+ *         var bedrock = new ServiceSpecificCredential("bedrock", ServiceSpecificCredentialArgs.builder()
+ *             .serviceName("bedrock.amazonaws.com")
+ *             .userName(example.name())
+ *             .credentialAgeDays(30)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import IAM Service Specific Credentials using the `service_name:user_name:service_specific_credential_id`. For example:
@@ -70,28 +114,98 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:iam/serviceSpecificCredential:ServiceSpecificCredential")
 public class ServiceSpecificCredential extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
+     * The date and time, in RFC3339 format, when the service-specific credential was created.
+     * 
+     */
+    @Export(name="createDate", refs={String.class}, tree="[0]")
+    private Output<String> createDate;
+
+    /**
+     * @return The date and time, in RFC3339 format, when the service-specific credential was created.
+     * 
+     */
+    public Output<String> createDate() {
+        return this.createDate;
+    }
+    /**
+     * The number of days until the service specific credential expires. This field is only valid for Bedrock API keys and must be between 1 and 36600 (approximately 100 years). When not specified, the credential will not expire.
+     * 
+     */
+    @Export(name="credentialAgeDays", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> credentialAgeDays;
+
+    /**
+     * @return The number of days until the service specific credential expires. This field is only valid for Bedrock API keys and must be between 1 and 36600 (approximately 100 years). When not specified, the credential will not expire.
+     * 
+     */
+    public Output<Optional<Integer>> credentialAgeDays() {
+        return Codegen.optional(this.credentialAgeDays);
+    }
+    /**
+     * The date and time, in RFC3339 format, when the service specific credential expires. This field is only present for Bedrock API keys that were created with an expiration period.
+     * 
+     */
+    @Export(name="expirationDate", refs={String.class}, tree="[0]")
+    private Output<String> expirationDate;
+
+    /**
+     * @return The date and time, in RFC3339 format, when the service specific credential expires. This field is only present for Bedrock API keys that were created with an expiration period.
+     * 
+     */
+    public Output<String> expirationDate() {
+        return this.expirationDate;
+    }
+    /**
+     * For Bedrock API keys, this is the public portion of the credential that includes the IAM user name and a suffix containing version and creation information.
+     * 
+     */
+    @Export(name="serviceCredentialAlias", refs={String.class}, tree="[0]")
+    private Output<String> serviceCredentialAlias;
+
+    /**
+     * @return For Bedrock API keys, this is the public portion of the credential that includes the IAM user name and a suffix containing version and creation information.
+     * 
+     */
+    public Output<String> serviceCredentialAlias() {
+        return this.serviceCredentialAlias;
+    }
+    /**
+     * For Bedrock API keys, this is the secret portion of the credential that should be used to authenticate API calls. This value is only available when the credential is created.
+     * 
+     */
+    @Export(name="serviceCredentialSecret", refs={String.class}, tree="[0]")
+    private Output<String> serviceCredentialSecret;
+
+    /**
+     * @return For Bedrock API keys, this is the secret portion of the credential that should be used to authenticate API calls. This value is only available when the credential is created.
+     * 
+     */
+    public Output<String> serviceCredentialSecret() {
+        return this.serviceCredentialSecret;
+    }
+    /**
+     * The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials. Supported services are `codecommit.amazonaws.com`, `bedrock.amazonaws.com`, and `cassandra.amazonaws.com`.
      * 
      */
     @Export(name="serviceName", refs={String.class}, tree="[0]")
     private Output<String> serviceName;
 
     /**
-     * @return The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
+     * @return The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials. Supported services are `codecommit.amazonaws.com`, `bedrock.amazonaws.com`, and `cassandra.amazonaws.com`.
      * 
      */
     public Output<String> serviceName() {
         return this.serviceName;
     }
     /**
-     * The generated password for the service-specific credential.
+     * The generated password for the service-specific credential. This value is only available when the credential is created.
      * 
      */
     @Export(name="servicePassword", refs={String.class}, tree="[0]")
     private Output<String> servicePassword;
 
     /**
-     * @return The generated password for the service-specific credential.
+     * @return The generated password for the service-specific credential. This value is only available when the credential is created.
      * 
      */
     public Output<String> servicePassword() {
@@ -126,14 +240,14 @@ public class ServiceSpecificCredential extends com.pulumi.resources.CustomResour
         return this.serviceUserName;
     }
     /**
-     * The status to be assigned to the service-specific credential. Valid values are `Active` and `Inactive`. Default value is `Active`.
+     * The status to be assigned to the service-specific credential. Valid values are `Active`, `Inactive`, and `Expired`. Default value is `Active`. Note that `Expired` is only used for read operations and cannot be set manually.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
-     * @return The status to be assigned to the service-specific credential. Valid values are `Active` and `Inactive`. Default value is `Active`.
+     * @return The status to be assigned to the service-specific credential. Valid values are `Active`, `Inactive`, and `Expired`. Default value is `Active`. Note that `Expired` is only used for read operations and cannot be set manually.
      * 
      */
     public Output<Optional<String>> status() {
@@ -194,6 +308,7 @@ public class ServiceSpecificCredential extends com.pulumi.resources.CustomResour
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
+                "serviceCredentialSecret",
                 "servicePassword"
             ))
             .build();

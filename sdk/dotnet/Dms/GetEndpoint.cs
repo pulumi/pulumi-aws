@@ -167,6 +167,7 @@ namespace Pulumi.Aws.Dms
         public readonly ImmutableArray<Outputs.GetEndpointKinesisSettingResult> KinesisSettings;
         public readonly string KmsKeyArn;
         public readonly ImmutableArray<Outputs.GetEndpointMongodbSettingResult> MongodbSettings;
+        public readonly ImmutableArray<Outputs.GetEndpointMysqlSettingResult> MysqlSettings;
         public readonly string Password;
         public readonly int Port;
         public readonly ImmutableArray<Outputs.GetEndpointPostgresSettingResult> PostgresSettings;
@@ -210,6 +211,8 @@ namespace Pulumi.Aws.Dms
 
             ImmutableArray<Outputs.GetEndpointMongodbSettingResult> mongodbSettings,
 
+            ImmutableArray<Outputs.GetEndpointMysqlSettingResult> mysqlSettings,
+
             string password,
 
             int port,
@@ -251,6 +254,7 @@ namespace Pulumi.Aws.Dms
             KinesisSettings = kinesisSettings;
             KmsKeyArn = kmsKeyArn;
             MongodbSettings = mongodbSettings;
+            MysqlSettings = mysqlSettings;
             Password = password;
             Port = port;
             PostgresSettings = postgresSettings;

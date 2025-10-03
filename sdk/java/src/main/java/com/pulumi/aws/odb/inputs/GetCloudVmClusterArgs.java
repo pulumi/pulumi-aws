@@ -17,7 +17,7 @@ public final class GetCloudVmClusterArgs extends com.pulumi.resources.InvokeArgs
     public static final GetCloudVmClusterArgs Empty = new GetCloudVmClusterArgs();
 
     /**
-     * The unique identifier of the Exadata infrastructure.
+     * The unique identifier of the cloud vm cluster.
      * 
      * The following arguments are optional:
      * 
@@ -26,7 +26,7 @@ public final class GetCloudVmClusterArgs extends com.pulumi.resources.InvokeArgs
     private Output<String> id;
 
     /**
-     * @return The unique identifier of the Exadata infrastructure.
+     * @return The unique identifier of the cloud vm cluster.
      * 
      * The following arguments are optional:
      * 
@@ -76,7 +76,7 @@ public final class GetCloudVmClusterArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param id The unique identifier of the Exadata infrastructure.
+         * @param id The unique identifier of the cloud vm cluster.
          * 
          * The following arguments are optional:
          * 
@@ -89,7 +89,7 @@ public final class GetCloudVmClusterArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param id The unique identifier of the Exadata infrastructure.
+         * @param id The unique identifier of the cloud vm cluster.
          * 
          * The following arguments are optional:
          * 

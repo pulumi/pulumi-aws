@@ -27,7 +27,7 @@ class GetProxyResult:
     """
     A collection of values returned by getProxy.
     """
-    def __init__(__self__, arn=None, auths=None, debug_logging=None, endpoint=None, engine_family=None, id=None, idle_client_timeout=None, name=None, region=None, require_tls=None, role_arn=None, vpc_id=None, vpc_security_group_ids=None, vpc_subnet_ids=None):
+    def __init__(__self__, arn=None, auths=None, debug_logging=None, default_auth_scheme=None, endpoint=None, engine_family=None, id=None, idle_client_timeout=None, name=None, region=None, require_tls=None, role_arn=None, vpc_id=None, vpc_security_group_ids=None, vpc_subnet_ids=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -37,6 +37,9 @@ class GetProxyResult:
         if debug_logging and not isinstance(debug_logging, bool):
             raise TypeError("Expected argument 'debug_logging' to be a bool")
         pulumi.set(__self__, "debug_logging", debug_logging)
+        if default_auth_scheme and not isinstance(default_auth_scheme, str):
+            raise TypeError("Expected argument 'default_auth_scheme' to be a str")
+        pulumi.set(__self__, "default_auth_scheme", default_auth_scheme)
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
@@ -94,6 +97,14 @@ class GetProxyResult:
         Whether the proxy includes detailed information about SQL statements in its logs.
         """
         return pulumi.get(self, "debug_logging")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultAuthScheme")
+    def default_auth_scheme(self) -> _builtins.str:
+        """
+        Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+        """
+        return pulumi.get(self, "default_auth_scheme")
 
     @_builtins.property
     @pulumi.getter
@@ -187,6 +198,7 @@ class AwaitableGetProxyResult(GetProxyResult):
             arn=self.arn,
             auths=self.auths,
             debug_logging=self.debug_logging,
+            default_auth_scheme=self.default_auth_scheme,
             endpoint=self.endpoint,
             engine_family=self.engine_family,
             id=self.id,
@@ -229,6 +241,7 @@ def get_proxy(name: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         auths=pulumi.get(__ret__, 'auths'),
         debug_logging=pulumi.get(__ret__, 'debug_logging'),
+        default_auth_scheme=pulumi.get(__ret__, 'default_auth_scheme'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
         engine_family=pulumi.get(__ret__, 'engine_family'),
         id=pulumi.get(__ret__, 'id'),
@@ -268,6 +281,7 @@ def get_proxy_output(name: Optional[pulumi.Input[_builtins.str]] = None,
         arn=pulumi.get(__response__, 'arn'),
         auths=pulumi.get(__response__, 'auths'),
         debug_logging=pulumi.get(__response__, 'debug_logging'),
+        default_auth_scheme=pulumi.get(__response__, 'default_auth_scheme'),
         endpoint=pulumi.get(__response__, 'endpoint'),
         engine_family=pulumi.get(__response__, 'engine_family'),
         id=pulumi.get(__response__, 'id'),

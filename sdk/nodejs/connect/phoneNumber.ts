@@ -59,11 +59,23 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `id` - (String) ID of the connect phone number.
+ *
+ * #### Optional
+ *
+ * - `account_id` (String) AWS Account where this resource is managed.
+ *
+ * - `region` (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import Amazon Connect Phone Numbers using its `id`. For example:
  *
- * ```sh
- * $ pulumi import aws:connect/phoneNumber:PhoneNumber example 12345678-abcd-1234-efgh-9876543210ab
- * ```
+ * console
+ *
+ * % pulumi import aws_connect_phone_number.example 12345678-abcd-1234-efgh-9876543210ab
  */
 export class PhoneNumber extends pulumi.CustomResource {
     /**

@@ -68,12 +68,18 @@ export class Cluster extends pulumi.CustomResource {
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Whether deletion protection is enabled in this cluster.
+     * Default value is `false`.
      */
-    declare public readonly deletionProtectionEnabled: pulumi.Output<boolean | undefined>;
+    declare public readonly deletionProtectionEnabled: pulumi.Output<boolean>;
     /**
      * Encryption configuration details for the DSQL Cluster.
      */
     declare public /*out*/ readonly encryptionDetails: pulumi.Output<outputs.dsql.ClusterEncryptionDetail[]>;
+    /**
+     * Destroys cluster even if `deletionProtectionEnabled` is set to `true`.
+     * Default value is `false`.
+     */
+    declare public readonly forceDestroy: pulumi.Output<boolean>;
     /**
      * Cluster Identifier.
      */
@@ -120,6 +126,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["arn"] = state?.arn;
             resourceInputs["deletionProtectionEnabled"] = state?.deletionProtectionEnabled;
             resourceInputs["encryptionDetails"] = state?.encryptionDetails;
+            resourceInputs["forceDestroy"] = state?.forceDestroy;
             resourceInputs["identifier"] = state?.identifier;
             resourceInputs["kmsEncryptionKey"] = state?.kmsEncryptionKey;
             resourceInputs["multiRegionProperties"] = state?.multiRegionProperties;
@@ -131,6 +138,7 @@ export class Cluster extends pulumi.CustomResource {
         } else {
             const args = argsOrState as ClusterArgs | undefined;
             resourceInputs["deletionProtectionEnabled"] = args?.deletionProtectionEnabled;
+            resourceInputs["forceDestroy"] = args?.forceDestroy;
             resourceInputs["kmsEncryptionKey"] = args?.kmsEncryptionKey;
             resourceInputs["multiRegionProperties"] = args?.multiRegionProperties;
             resourceInputs["region"] = args?.region;
@@ -157,12 +165,18 @@ export interface ClusterState {
     arn?: pulumi.Input<string>;
     /**
      * Whether deletion protection is enabled in this cluster.
+     * Default value is `false`.
      */
     deletionProtectionEnabled?: pulumi.Input<boolean>;
     /**
      * Encryption configuration details for the DSQL Cluster.
      */
     encryptionDetails?: pulumi.Input<pulumi.Input<inputs.dsql.ClusterEncryptionDetail>[]>;
+    /**
+     * Destroys cluster even if `deletionProtectionEnabled` is set to `true`.
+     * Default value is `false`.
+     */
+    forceDestroy?: pulumi.Input<boolean>;
     /**
      * Cluster Identifier.
      */
@@ -200,8 +214,14 @@ export interface ClusterState {
 export interface ClusterArgs {
     /**
      * Whether deletion protection is enabled in this cluster.
+     * Default value is `false`.
      */
     deletionProtectionEnabled?: pulumi.Input<boolean>;
+    /**
+     * Destroys cluster even if `deletionProtectionEnabled` is set to `true`.
+     * Default value is `false`.
+     */
+    forceDestroy?: pulumi.Input<boolean>;
     /**
      * The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
      */

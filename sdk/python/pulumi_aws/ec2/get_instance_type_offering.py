@@ -28,7 +28,7 @@ class GetInstanceTypeOfferingResult:
     """
     A collection of values returned by getInstanceTypeOffering.
     """
-    def __init__(__self__, filters=None, id=None, instance_type=None, location_type=None, preferred_instance_types=None, region=None):
+    def __init__(__self__, filters=None, id=None, instance_type=None, location=None, location_type=None, preferred_instance_types=None, region=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -38,6 +38,9 @@ class GetInstanceTypeOfferingResult:
         if instance_type and not isinstance(instance_type, str):
             raise TypeError("Expected argument 'instance_type' to be a str")
         pulumi.set(__self__, "instance_type", instance_type)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
         if location_type and not isinstance(location_type, str):
             raise TypeError("Expected argument 'location_type' to be a str")
         pulumi.set(__self__, "location_type", location_type)
@@ -70,6 +73,14 @@ class GetInstanceTypeOfferingResult:
         return pulumi.get(self, "instance_type")
 
     @_builtins.property
+    @pulumi.getter
+    def location(self) -> _builtins.str:
+        """
+        Identifier for the location.
+        """
+        return pulumi.get(self, "location")
+
+    @_builtins.property
     @pulumi.getter(name="locationType")
     def location_type(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "location_type")
@@ -94,6 +105,7 @@ class AwaitableGetInstanceTypeOfferingResult(GetInstanceTypeOfferingResult):
             filters=self.filters,
             id=self.id,
             instance_type=self.instance_type,
+            location=self.location,
             location_type=self.location_type,
             preferred_instance_types=self.preferred_instance_types,
             region=self.region)
@@ -144,6 +156,7 @@ def get_instance_type_offering(filters: Optional[Sequence[Union['GetInstanceType
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         instance_type=pulumi.get(__ret__, 'instance_type'),
+        location=pulumi.get(__ret__, 'location'),
         location_type=pulumi.get(__ret__, 'location_type'),
         preferred_instance_types=pulumi.get(__ret__, 'preferred_instance_types'),
         region=pulumi.get(__ret__, 'region'))
@@ -191,6 +204,7 @@ def get_instance_type_offering_output(filters: Optional[pulumi.Input[Optional[Se
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
         instance_type=pulumi.get(__response__, 'instance_type'),
+        location=pulumi.get(__response__, 'location'),
         location_type=pulumi.get(__response__, 'location_type'),
         preferred_instance_types=pulumi.get(__response__, 'preferred_instance_types'),
         region=pulumi.get(__response__, 'region')))

@@ -9,6 +9,8 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Basic Usage
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -17,6 +19,20 @@ import * as utilities from "../utilities";
  * const exampleServiceSpecificCredential = new aws.iam.ServiceSpecificCredential("example", {
  *     serviceName: "codecommit.amazonaws.com",
  *     userName: example.name,
+ * });
+ * ```
+ *
+ * ### Bedrock API Key with Expiration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.iam.User("example", {name: "example"});
+ * const bedrock = new aws.iam.ServiceSpecificCredential("bedrock", {
+ *     serviceName: "bedrock.amazonaws.com",
+ *     userName: example.name,
+ *     credentialAgeDays: 30,
  * });
  * ```
  *
@@ -57,11 +73,31 @@ export class ServiceSpecificCredential extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
+     * The date and time, in RFC3339 format, when the service-specific credential was created.
+     */
+    declare public /*out*/ readonly createDate: pulumi.Output<string>;
+    /**
+     * The number of days until the service specific credential expires. This field is only valid for Bedrock API keys and must be between 1 and 36600 (approximately 100 years). When not specified, the credential will not expire.
+     */
+    declare public readonly credentialAgeDays: pulumi.Output<number | undefined>;
+    /**
+     * The date and time, in RFC3339 format, when the service specific credential expires. This field is only present for Bedrock API keys that were created with an expiration period.
+     */
+    declare public /*out*/ readonly expirationDate: pulumi.Output<string>;
+    /**
+     * For Bedrock API keys, this is the public portion of the credential that includes the IAM user name and a suffix containing version and creation information.
+     */
+    declare public /*out*/ readonly serviceCredentialAlias: pulumi.Output<string>;
+    /**
+     * For Bedrock API keys, this is the secret portion of the credential that should be used to authenticate API calls. This value is only available when the credential is created.
+     */
+    declare public /*out*/ readonly serviceCredentialSecret: pulumi.Output<string>;
+    /**
+     * The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials. Supported services are `codecommit.amazonaws.com`, `bedrock.amazonaws.com`, and `cassandra.amazonaws.com`.
      */
     declare public readonly serviceName: pulumi.Output<string>;
     /**
-     * The generated password for the service-specific credential.
+     * The generated password for the service-specific credential. This value is only available when the credential is created.
      */
     declare public /*out*/ readonly servicePassword: pulumi.Output<string>;
     /**
@@ -73,7 +109,7 @@ export class ServiceSpecificCredential extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly serviceUserName: pulumi.Output<string>;
     /**
-     * The status to be assigned to the service-specific credential. Valid values are `Active` and `Inactive`. Default value is `Active`.
+     * The status to be assigned to the service-specific credential. Valid values are `Active`, `Inactive`, and `Expired`. Default value is `Active`. Note that `Expired` is only used for read operations and cannot be set manually.
      */
     declare public readonly status: pulumi.Output<string | undefined>;
     /**
@@ -94,6 +130,11 @@ export class ServiceSpecificCredential extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceSpecificCredentialState | undefined;
+            resourceInputs["createDate"] = state?.createDate;
+            resourceInputs["credentialAgeDays"] = state?.credentialAgeDays;
+            resourceInputs["expirationDate"] = state?.expirationDate;
+            resourceInputs["serviceCredentialAlias"] = state?.serviceCredentialAlias;
+            resourceInputs["serviceCredentialSecret"] = state?.serviceCredentialSecret;
             resourceInputs["serviceName"] = state?.serviceName;
             resourceInputs["servicePassword"] = state?.servicePassword;
             resourceInputs["serviceSpecificCredentialId"] = state?.serviceSpecificCredentialId;
@@ -108,15 +149,20 @@ export class ServiceSpecificCredential extends pulumi.CustomResource {
             if (args?.userName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
+            resourceInputs["credentialAgeDays"] = args?.credentialAgeDays;
             resourceInputs["serviceName"] = args?.serviceName;
             resourceInputs["status"] = args?.status;
             resourceInputs["userName"] = args?.userName;
+            resourceInputs["createDate"] = undefined /*out*/;
+            resourceInputs["expirationDate"] = undefined /*out*/;
+            resourceInputs["serviceCredentialAlias"] = undefined /*out*/;
+            resourceInputs["serviceCredentialSecret"] = undefined /*out*/;
             resourceInputs["servicePassword"] = undefined /*out*/;
             resourceInputs["serviceSpecificCredentialId"] = undefined /*out*/;
             resourceInputs["serviceUserName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["servicePassword"] };
+        const secretOpts = { additionalSecretOutputs: ["serviceCredentialSecret", "servicePassword"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(ServiceSpecificCredential.__pulumiType, name, resourceInputs, opts);
     }
@@ -127,11 +173,31 @@ export class ServiceSpecificCredential extends pulumi.CustomResource {
  */
 export interface ServiceSpecificCredentialState {
     /**
-     * The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
+     * The date and time, in RFC3339 format, when the service-specific credential was created.
+     */
+    createDate?: pulumi.Input<string>;
+    /**
+     * The number of days until the service specific credential expires. This field is only valid for Bedrock API keys and must be between 1 and 36600 (approximately 100 years). When not specified, the credential will not expire.
+     */
+    credentialAgeDays?: pulumi.Input<number>;
+    /**
+     * The date and time, in RFC3339 format, when the service specific credential expires. This field is only present for Bedrock API keys that were created with an expiration period.
+     */
+    expirationDate?: pulumi.Input<string>;
+    /**
+     * For Bedrock API keys, this is the public portion of the credential that includes the IAM user name and a suffix containing version and creation information.
+     */
+    serviceCredentialAlias?: pulumi.Input<string>;
+    /**
+     * For Bedrock API keys, this is the secret portion of the credential that should be used to authenticate API calls. This value is only available when the credential is created.
+     */
+    serviceCredentialSecret?: pulumi.Input<string>;
+    /**
+     * The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials. Supported services are `codecommit.amazonaws.com`, `bedrock.amazonaws.com`, and `cassandra.amazonaws.com`.
      */
     serviceName?: pulumi.Input<string>;
     /**
-     * The generated password for the service-specific credential.
+     * The generated password for the service-specific credential. This value is only available when the credential is created.
      */
     servicePassword?: pulumi.Input<string>;
     /**
@@ -143,7 +209,7 @@ export interface ServiceSpecificCredentialState {
      */
     serviceUserName?: pulumi.Input<string>;
     /**
-     * The status to be assigned to the service-specific credential. Valid values are `Active` and `Inactive`. Default value is `Active`.
+     * The status to be assigned to the service-specific credential. Valid values are `Active`, `Inactive`, and `Expired`. Default value is `Active`. Note that `Expired` is only used for read operations and cannot be set manually.
      */
     status?: pulumi.Input<string>;
     /**
@@ -157,11 +223,15 @@ export interface ServiceSpecificCredentialState {
  */
 export interface ServiceSpecificCredentialArgs {
     /**
-     * The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
+     * The number of days until the service specific credential expires. This field is only valid for Bedrock API keys and must be between 1 and 36600 (approximately 100 years). When not specified, the credential will not expire.
+     */
+    credentialAgeDays?: pulumi.Input<number>;
+    /**
+     * The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials. Supported services are `codecommit.amazonaws.com`, `bedrock.amazonaws.com`, and `cassandra.amazonaws.com`.
      */
     serviceName: pulumi.Input<string>;
     /**
-     * The status to be assigned to the service-specific credential. Valid values are `Active` and `Inactive`. Default value is `Active`.
+     * The status to be assigned to the service-specific credential. Valid values are `Active`, `Inactive`, and `Expired`. Default value is `Active`. Note that `Expired` is only used for read operations and cannot be set manually.
      */
     status?: pulumi.Input<string>;
     /**

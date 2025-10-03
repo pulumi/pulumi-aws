@@ -19,6 +19,9 @@ __all__ = [
     'AuthorizeVpcEndpointAccessAuthorizedPrincipal',
     'DomainAdvancedSecurityOptions',
     'DomainAdvancedSecurityOptionsMasterUserOptions',
+    'DomainAimlOptions',
+    'DomainAimlOptionsNaturalLanguageQueryGenerationOptions',
+    'DomainAimlOptionsS3VectorsEngine',
     'DomainAutoTuneOptions',
     'DomainAutoTuneOptionsMaintenanceSchedule',
     'DomainAutoTuneOptionsMaintenanceScheduleDuration',
@@ -256,6 +259,95 @@ class DomainAdvancedSecurityOptionsMasterUserOptions(dict):
         Main user's password, which is stored in the Amazon OpenSearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
         """
         return pulumi.get(self, "master_user_password")
+
+
+@pulumi.output_type
+class DomainAimlOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "naturalLanguageQueryGenerationOptions":
+            suggest = "natural_language_query_generation_options"
+        elif key == "s3VectorsEngine":
+            suggest = "s3_vectors_engine"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainAimlOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainAimlOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainAimlOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 natural_language_query_generation_options: Optional['outputs.DomainAimlOptionsNaturalLanguageQueryGenerationOptions'] = None,
+                 s3_vectors_engine: Optional['outputs.DomainAimlOptionsS3VectorsEngine'] = None):
+        if natural_language_query_generation_options is not None:
+            pulumi.set(__self__, "natural_language_query_generation_options", natural_language_query_generation_options)
+        if s3_vectors_engine is not None:
+            pulumi.set(__self__, "s3_vectors_engine", s3_vectors_engine)
+
+    @_builtins.property
+    @pulumi.getter(name="naturalLanguageQueryGenerationOptions")
+    def natural_language_query_generation_options(self) -> Optional['outputs.DomainAimlOptionsNaturalLanguageQueryGenerationOptions']:
+        return pulumi.get(self, "natural_language_query_generation_options")
+
+    @_builtins.property
+    @pulumi.getter(name="s3VectorsEngine")
+    def s3_vectors_engine(self) -> Optional['outputs.DomainAimlOptionsS3VectorsEngine']:
+        return pulumi.get(self, "s3_vectors_engine")
+
+
+@pulumi.output_type
+class DomainAimlOptionsNaturalLanguageQueryGenerationOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "desiredState":
+            suggest = "desired_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainAimlOptionsNaturalLanguageQueryGenerationOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainAimlOptionsNaturalLanguageQueryGenerationOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainAimlOptionsNaturalLanguageQueryGenerationOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 desired_state: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str desired_state: Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+        """
+        if desired_state is not None:
+            pulumi.set(__self__, "desired_state", desired_state)
+
+    @_builtins.property
+    @pulumi.getter(name="desiredState")
+    def desired_state(self) -> Optional[_builtins.str]:
+        """
+        Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+        """
+        return pulumi.get(self, "desired_state")
+
+
+@pulumi.output_type
+class DomainAimlOptionsS3VectorsEngine(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[_builtins.bool] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type

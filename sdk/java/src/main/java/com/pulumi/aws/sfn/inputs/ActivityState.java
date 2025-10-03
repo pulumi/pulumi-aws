@@ -18,14 +18,29 @@ public final class ActivityState extends com.pulumi.resources.ResourceArgs {
     public static final ActivityState Empty = new ActivityState();
 
     /**
-     * The date the activity was created.
+     * Amazon Resource Name (ARN) of the activity.
+     * 
+     */
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    /**
+     * @return Amazon Resource Name (ARN) of the activity.
+     * 
+     */
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
+    }
+
+    /**
+     * Date the activity was created.
      * 
      */
     @Import(name="creationDate")
     private @Nullable Output<String> creationDate;
 
     /**
-     * @return The date the activity was created.
+     * @return Date the activity was created.
      * 
      */
     public Optional<Output<String>> creationDate() {
@@ -110,6 +125,7 @@ public final class ActivityState extends com.pulumi.resources.ResourceArgs {
     private ActivityState() {}
 
     private ActivityState(ActivityState $) {
+        this.arn = $.arn;
         this.creationDate = $.creationDate;
         this.encryptionConfiguration = $.encryptionConfiguration;
         this.name = $.name;
@@ -137,7 +153,28 @@ public final class ActivityState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param creationDate The date the activity was created.
+         * @param arn Amazon Resource Name (ARN) of the activity.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param arn Amazon Resource Name (ARN) of the activity.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
+        }
+
+        /**
+         * @param creationDate Date the activity was created.
          * 
          * @return builder
          * 
@@ -148,7 +185,7 @@ public final class ActivityState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param creationDate The date the activity was created.
+         * @param creationDate Date the activity was created.
          * 
          * @return builder
          * 

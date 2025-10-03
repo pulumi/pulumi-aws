@@ -8,11 +8,22 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Data source for Exadata Infrastructure resource in AWS for Oracle Database@AWS.
+ * Data source for cloud vm cluster in AWS for Oracle Database@AWS.
  *
  * You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
  *
  * ## Example Usage
+ *
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.odb.getCloudVmCluster({
+ *     id: "example-id",
+ * });
+ * ```
  */
 export function getCloudVmCluster(args: GetCloudVmClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudVmClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -27,7 +38,7 @@ export function getCloudVmCluster(args: GetCloudVmClusterArgs, opts?: pulumi.Inv
  */
 export interface GetCloudVmClusterArgs {
     /**
-     * The unique identifier of the Exadata infrastructure.
+     * The unique identifier of the cloud vm cluster.
      *
      * The following arguments are optional:
      */
@@ -203,11 +214,22 @@ export interface GetCloudVmClusterResult {
     readonly vipIds: string[];
 }
 /**
- * Data source for Exadata Infrastructure resource in AWS for Oracle Database@AWS.
+ * Data source for cloud vm cluster in AWS for Oracle Database@AWS.
  *
  * You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
  *
  * ## Example Usage
+ *
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.odb.getCloudVmCluster({
+ *     id: "example-id",
+ * });
+ * ```
  */
 export function getCloudVmClusterOutput(args: GetCloudVmClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudVmClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -222,7 +244,7 @@ export function getCloudVmClusterOutput(args: GetCloudVmClusterOutputArgs, opts?
  */
 export interface GetCloudVmClusterOutputArgs {
     /**
-     * The unique identifier of the Exadata infrastructure.
+     * The unique identifier of the cloud vm cluster.
      *
      * The following arguments are optional:
      */

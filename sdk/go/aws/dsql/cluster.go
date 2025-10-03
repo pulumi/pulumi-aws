@@ -57,9 +57,13 @@ type Cluster struct {
 	// ARN of the Cluster.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Whether deletion protection is enabled in this cluster.
-	DeletionProtectionEnabled pulumi.BoolPtrOutput `pulumi:"deletionProtectionEnabled"`
+	// Default value is `false`.
+	DeletionProtectionEnabled pulumi.BoolOutput `pulumi:"deletionProtectionEnabled"`
 	// Encryption configuration details for the DSQL Cluster.
 	EncryptionDetails ClusterEncryptionDetailArrayOutput `pulumi:"encryptionDetails"`
+	// Destroys cluster even if `deletionProtectionEnabled` is set to `true`.
+	// Default value is `false`.
+	ForceDestroy pulumi.BoolOutput `pulumi:"forceDestroy"`
 	// Cluster Identifier.
 	Identifier pulumi.StringOutput `pulumi:"identifier"`
 	// The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
@@ -110,9 +114,13 @@ type clusterState struct {
 	// ARN of the Cluster.
 	Arn *string `pulumi:"arn"`
 	// Whether deletion protection is enabled in this cluster.
+	// Default value is `false`.
 	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
 	// Encryption configuration details for the DSQL Cluster.
 	EncryptionDetails []ClusterEncryptionDetail `pulumi:"encryptionDetails"`
+	// Destroys cluster even if `deletionProtectionEnabled` is set to `true`.
+	// Default value is `false`.
+	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// Cluster Identifier.
 	Identifier *string `pulumi:"identifier"`
 	// The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
@@ -134,9 +142,13 @@ type ClusterState struct {
 	// ARN of the Cluster.
 	Arn pulumi.StringPtrInput
 	// Whether deletion protection is enabled in this cluster.
+	// Default value is `false`.
 	DeletionProtectionEnabled pulumi.BoolPtrInput
 	// Encryption configuration details for the DSQL Cluster.
 	EncryptionDetails ClusterEncryptionDetailArrayInput
+	// Destroys cluster even if `deletionProtectionEnabled` is set to `true`.
+	// Default value is `false`.
+	ForceDestroy pulumi.BoolPtrInput
 	// Cluster Identifier.
 	Identifier pulumi.StringPtrInput
 	// The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
@@ -160,7 +172,11 @@ func (ClusterState) ElementType() reflect.Type {
 
 type clusterArgs struct {
 	// Whether deletion protection is enabled in this cluster.
+	// Default value is `false`.
 	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
+	// Destroys cluster even if `deletionProtectionEnabled` is set to `true`.
+	// Default value is `false`.
+	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
 	KmsEncryptionKey *string `pulumi:"kmsEncryptionKey"`
 	// Multi-region properties of the DSQL Cluster.
@@ -175,7 +191,11 @@ type clusterArgs struct {
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
 	// Whether deletion protection is enabled in this cluster.
+	// Default value is `false`.
 	DeletionProtectionEnabled pulumi.BoolPtrInput
+	// Destroys cluster even if `deletionProtectionEnabled` is set to `true`.
+	// Default value is `false`.
+	ForceDestroy pulumi.BoolPtrInput
 	// The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
 	KmsEncryptionKey pulumi.StringPtrInput
 	// Multi-region properties of the DSQL Cluster.
@@ -280,13 +300,20 @@ func (o ClusterOutput) Arn() pulumi.StringOutput {
 }
 
 // Whether deletion protection is enabled in this cluster.
-func (o ClusterOutput) DeletionProtectionEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.DeletionProtectionEnabled }).(pulumi.BoolPtrOutput)
+// Default value is `false`.
+func (o ClusterOutput) DeletionProtectionEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolOutput { return v.DeletionProtectionEnabled }).(pulumi.BoolOutput)
 }
 
 // Encryption configuration details for the DSQL Cluster.
 func (o ClusterOutput) EncryptionDetails() ClusterEncryptionDetailArrayOutput {
 	return o.ApplyT(func(v *Cluster) ClusterEncryptionDetailArrayOutput { return v.EncryptionDetails }).(ClusterEncryptionDetailArrayOutput)
+}
+
+// Destroys cluster even if `deletionProtectionEnabled` is set to `true`.
+// Default value is `false`.
+func (o ClusterOutput) ForceDestroy() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolOutput { return v.ForceDestroy }).(pulumi.BoolOutput)
 }
 
 // Cluster Identifier.

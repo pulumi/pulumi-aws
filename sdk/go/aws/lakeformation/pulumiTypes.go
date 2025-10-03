@@ -1045,6 +1045,112 @@ func (o DataLakeSettingsCreateTableDefaultPermissionArrayOutput) Index(i pulumi.
 	}).(DataLakeSettingsCreateTableDefaultPermissionOutput)
 }
 
+type LfTagExpressionExpression struct {
+	// The key-name for the LF-Tag.
+	TagKey string `pulumi:"tagKey"`
+	// A list of possible values for the LF-Tag
+	TagValues []string `pulumi:"tagValues"`
+}
+
+// LfTagExpressionExpressionInput is an input type that accepts LfTagExpressionExpressionArgs and LfTagExpressionExpressionOutput values.
+// You can construct a concrete instance of `LfTagExpressionExpressionInput` via:
+//
+//	LfTagExpressionExpressionArgs{...}
+type LfTagExpressionExpressionInput interface {
+	pulumi.Input
+
+	ToLfTagExpressionExpressionOutput() LfTagExpressionExpressionOutput
+	ToLfTagExpressionExpressionOutputWithContext(context.Context) LfTagExpressionExpressionOutput
+}
+
+type LfTagExpressionExpressionArgs struct {
+	// The key-name for the LF-Tag.
+	TagKey pulumi.StringInput `pulumi:"tagKey"`
+	// A list of possible values for the LF-Tag
+	TagValues pulumi.StringArrayInput `pulumi:"tagValues"`
+}
+
+func (LfTagExpressionExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LfTagExpressionExpression)(nil)).Elem()
+}
+
+func (i LfTagExpressionExpressionArgs) ToLfTagExpressionExpressionOutput() LfTagExpressionExpressionOutput {
+	return i.ToLfTagExpressionExpressionOutputWithContext(context.Background())
+}
+
+func (i LfTagExpressionExpressionArgs) ToLfTagExpressionExpressionOutputWithContext(ctx context.Context) LfTagExpressionExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LfTagExpressionExpressionOutput)
+}
+
+// LfTagExpressionExpressionArrayInput is an input type that accepts LfTagExpressionExpressionArray and LfTagExpressionExpressionArrayOutput values.
+// You can construct a concrete instance of `LfTagExpressionExpressionArrayInput` via:
+//
+//	LfTagExpressionExpressionArray{ LfTagExpressionExpressionArgs{...} }
+type LfTagExpressionExpressionArrayInput interface {
+	pulumi.Input
+
+	ToLfTagExpressionExpressionArrayOutput() LfTagExpressionExpressionArrayOutput
+	ToLfTagExpressionExpressionArrayOutputWithContext(context.Context) LfTagExpressionExpressionArrayOutput
+}
+
+type LfTagExpressionExpressionArray []LfTagExpressionExpressionInput
+
+func (LfTagExpressionExpressionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LfTagExpressionExpression)(nil)).Elem()
+}
+
+func (i LfTagExpressionExpressionArray) ToLfTagExpressionExpressionArrayOutput() LfTagExpressionExpressionArrayOutput {
+	return i.ToLfTagExpressionExpressionArrayOutputWithContext(context.Background())
+}
+
+func (i LfTagExpressionExpressionArray) ToLfTagExpressionExpressionArrayOutputWithContext(ctx context.Context) LfTagExpressionExpressionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LfTagExpressionExpressionArrayOutput)
+}
+
+type LfTagExpressionExpressionOutput struct{ *pulumi.OutputState }
+
+func (LfTagExpressionExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LfTagExpressionExpression)(nil)).Elem()
+}
+
+func (o LfTagExpressionExpressionOutput) ToLfTagExpressionExpressionOutput() LfTagExpressionExpressionOutput {
+	return o
+}
+
+func (o LfTagExpressionExpressionOutput) ToLfTagExpressionExpressionOutputWithContext(ctx context.Context) LfTagExpressionExpressionOutput {
+	return o
+}
+
+// The key-name for the LF-Tag.
+func (o LfTagExpressionExpressionOutput) TagKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LfTagExpressionExpression) string { return v.TagKey }).(pulumi.StringOutput)
+}
+
+// A list of possible values for the LF-Tag
+func (o LfTagExpressionExpressionOutput) TagValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LfTagExpressionExpression) []string { return v.TagValues }).(pulumi.StringArrayOutput)
+}
+
+type LfTagExpressionExpressionArrayOutput struct{ *pulumi.OutputState }
+
+func (LfTagExpressionExpressionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LfTagExpressionExpression)(nil)).Elem()
+}
+
+func (o LfTagExpressionExpressionArrayOutput) ToLfTagExpressionExpressionArrayOutput() LfTagExpressionExpressionArrayOutput {
+	return o
+}
+
+func (o LfTagExpressionExpressionArrayOutput) ToLfTagExpressionExpressionArrayOutputWithContext(ctx context.Context) LfTagExpressionExpressionArrayOutput {
+	return o
+}
+
+func (o LfTagExpressionExpressionArrayOutput) Index(i pulumi.IntInput) LfTagExpressionExpressionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LfTagExpressionExpression {
+		return vs[0].([]LfTagExpressionExpression)[vs[1].(int)]
+	}).(LfTagExpressionExpressionOutput)
+}
+
 type OptInCondition struct {
 	// List of LF-tag conditions or a saved expression that apply to the resource's LF-Tag policy.
 	Expression *string `pulumi:"expression"`
@@ -7714,6 +7820,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeSettingsCreateDatabaseDefaultPermissionArrayInput)(nil)).Elem(), DataLakeSettingsCreateDatabaseDefaultPermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeSettingsCreateTableDefaultPermissionInput)(nil)).Elem(), DataLakeSettingsCreateTableDefaultPermissionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeSettingsCreateTableDefaultPermissionArrayInput)(nil)).Elem(), DataLakeSettingsCreateTableDefaultPermissionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LfTagExpressionExpressionInput)(nil)).Elem(), LfTagExpressionExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LfTagExpressionExpressionArrayInput)(nil)).Elem(), LfTagExpressionExpressionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OptInConditionInput)(nil)).Elem(), OptInConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OptInConditionArrayInput)(nil)).Elem(), OptInConditionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OptInPrincipalInput)(nil)).Elem(), OptInPrincipalArgs{})
@@ -7810,6 +7918,8 @@ func init() {
 	pulumi.RegisterOutputType(DataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput{})
 	pulumi.RegisterOutputType(DataLakeSettingsCreateTableDefaultPermissionOutput{})
 	pulumi.RegisterOutputType(DataLakeSettingsCreateTableDefaultPermissionArrayOutput{})
+	pulumi.RegisterOutputType(LfTagExpressionExpressionOutput{})
+	pulumi.RegisterOutputType(LfTagExpressionExpressionArrayOutput{})
 	pulumi.RegisterOutputType(OptInConditionOutput{})
 	pulumi.RegisterOutputType(OptInConditionArrayOutput{})
 	pulumi.RegisterOutputType(OptInPrincipalOutput{})

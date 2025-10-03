@@ -10,10 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Odb
 {
     /// <summary>
-    /// Data source for Exadata Infrastructure resource in AWS for Oracle Database@AWS.
-    /// 
-    /// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-    /// 
     /// ## Example Usage
     /// 
     /// ### Basic Usage
@@ -147,14 +143,14 @@ namespace Pulumi.Aws.Odb
 
         /// <summary>
         /// The set of preferences for the various diagnostic collection options for the VM cluster.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("dataCollectionOptions")]
         public Output<Outputs.CloudVmClusterDataCollectionOptions?> DataCollectionOptions { get; private set; } = null!;
 
         /// <summary>
         /// The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("dataStorageSizeInTbs")]
         public Output<double> DataStorageSizeInTbs { get; private set; } = null!;
@@ -195,6 +191,12 @@ namespace Pulumi.Aws.Odb
         /// </summary>
         [Output("giVersion")]
         public Output<string> GiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// A complete software version of Oracle Grid Infrastructure (GI).
+        /// </summary>
+        [Output("giVersionComputed")]
+        public Output<string> GiVersionComputed { get; private set; } = null!;
 
         /// <summary>
         /// The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
@@ -445,17 +447,17 @@ namespace Pulumi.Aws.Odb
 
         /// <summary>
         /// The set of preferences for the various diagnostic collection options for the VM cluster.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("dataCollectionOptions")]
         public Input<Inputs.CloudVmClusterDataCollectionOptionsArgs>? DataCollectionOptions { get; set; }
 
         /// <summary>
         /// The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
-        [Input("dataStorageSizeInTbs")]
-        public Input<double>? DataStorageSizeInTbs { get; set; }
+        [Input("dataStorageSizeInTbs", required: true)]
+        public Input<double> DataStorageSizeInTbs { get; set; } = null!;
 
         /// <summary>
         /// The amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
@@ -614,14 +616,14 @@ namespace Pulumi.Aws.Odb
 
         /// <summary>
         /// The set of preferences for the various diagnostic collection options for the VM cluster.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("dataCollectionOptions")]
         public Input<Inputs.CloudVmClusterDataCollectionOptionsGetArgs>? DataCollectionOptions { get; set; }
 
         /// <summary>
         /// The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("dataStorageSizeInTbs")]
         public Input<double>? DataStorageSizeInTbs { get; set; }
@@ -668,6 +670,12 @@ namespace Pulumi.Aws.Odb
         /// </summary>
         [Input("giVersion")]
         public Input<string>? GiVersion { get; set; }
+
+        /// <summary>
+        /// A complete software version of Oracle Grid Infrastructure (GI).
+        /// </summary>
+        [Input("giVersionComputed")]
+        public Input<string>? GiVersionComputed { get; set; }
 
         /// <summary>
         /// The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.

@@ -7525,6 +7525,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "lakeformation/lfTagExpression",
+  "fqn": "pulumi_aws.lakeformation",
+  "classes": {
+   "aws:lakeformation/lfTagExpression:LfTagExpression": "LfTagExpression"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "lakeformation/optIn",
   "fqn": "pulumi_aws.lakeformation",
   "classes": {

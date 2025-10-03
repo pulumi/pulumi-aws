@@ -7,6 +7,7 @@ import com.pulumi.aws.dms.outputs.GetEndpointElasticsearchSetting;
 import com.pulumi.aws.dms.outputs.GetEndpointKafkaSetting;
 import com.pulumi.aws.dms.outputs.GetEndpointKinesisSetting;
 import com.pulumi.aws.dms.outputs.GetEndpointMongodbSetting;
+import com.pulumi.aws.dms.outputs.GetEndpointMysqlSetting;
 import com.pulumi.aws.dms.outputs.GetEndpointPostgresSetting;
 import com.pulumi.aws.dms.outputs.GetEndpointRedisSetting;
 import com.pulumi.aws.dms.outputs.GetEndpointRedshiftSetting;
@@ -38,6 +39,7 @@ public final class GetEndpointResult {
     private List<GetEndpointKinesisSetting> kinesisSettings;
     private String kmsKeyArn;
     private List<GetEndpointMongodbSetting> mongodbSettings;
+    private List<GetEndpointMysqlSetting> mysqlSettings;
     private String password;
     private Integer port;
     private List<GetEndpointPostgresSetting> postgresSettings;
@@ -96,6 +98,9 @@ public final class GetEndpointResult {
     }
     public List<GetEndpointMongodbSetting> mongodbSettings() {
         return this.mongodbSettings;
+    }
+    public List<GetEndpointMysqlSetting> mysqlSettings() {
+        return this.mysqlSettings;
     }
     public String password() {
         return this.password;
@@ -162,6 +167,7 @@ public final class GetEndpointResult {
         private List<GetEndpointKinesisSetting> kinesisSettings;
         private String kmsKeyArn;
         private List<GetEndpointMongodbSetting> mongodbSettings;
+        private List<GetEndpointMysqlSetting> mysqlSettings;
         private String password;
         private Integer port;
         private List<GetEndpointPostgresSetting> postgresSettings;
@@ -192,6 +198,7 @@ public final class GetEndpointResult {
     	      this.kinesisSettings = defaults.kinesisSettings;
     	      this.kmsKeyArn = defaults.kmsKeyArn;
     	      this.mongodbSettings = defaults.mongodbSettings;
+    	      this.mysqlSettings = defaults.mysqlSettings;
     	      this.password = defaults.password;
     	      this.port = defaults.port;
     	      this.postgresSettings = defaults.postgresSettings;
@@ -323,6 +330,17 @@ public final class GetEndpointResult {
         }
         public Builder mongodbSettings(GetEndpointMongodbSetting... mongodbSettings) {
             return mongodbSettings(List.of(mongodbSettings));
+        }
+        @CustomType.Setter
+        public Builder mysqlSettings(List<GetEndpointMysqlSetting> mysqlSettings) {
+            if (mysqlSettings == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "mysqlSettings");
+            }
+            this.mysqlSettings = mysqlSettings;
+            return this;
+        }
+        public Builder mysqlSettings(GetEndpointMysqlSetting... mysqlSettings) {
+            return mysqlSettings(List.of(mysqlSettings));
         }
         @CustomType.Setter
         public Builder password(String password) {
@@ -463,6 +481,7 @@ public final class GetEndpointResult {
             _resultValue.kinesisSettings = kinesisSettings;
             _resultValue.kmsKeyArn = kmsKeyArn;
             _resultValue.mongodbSettings = mongodbSettings;
+            _resultValue.mysqlSettings = mysqlSettings;
             _resultValue.password = password;
             _resultValue.port = port;
             _resultValue.postgresSettings = postgresSettings;

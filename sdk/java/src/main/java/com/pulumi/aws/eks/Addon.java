@@ -99,8 +99,8 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** `configuration_values` is a single JSON string should match the valid JSON schema for each add-on with specific version.
  * 
- * To find the correct JSON schema for each add-on can be extracted using [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html) call.
- * This below is an example for extracting the `configuration_values` schema for `coredns`.
+ * You can use [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html) to extract each add-on&#39;s JSON schema.
+ * Here&#39;s an example command to extract the `configuration_values` schema for `coredns`.
  * 
  * Example to create a `coredns` managed addon with custom `configuration_values`.
  * 

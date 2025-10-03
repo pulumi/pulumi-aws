@@ -71,16 +71,12 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * The set of preferences for the various diagnostic collection options for the VM cluster.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="dataCollectionOptions")
     private @Nullable Output<CloudVmClusterDataCollectionOptionsArgs> dataCollectionOptions;
 
     /**
      * @return The set of preferences for the various diagnostic collection options for the VM cluster.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<Output<CloudVmClusterDataCollectionOptionsArgs>> dataCollectionOptions() {
@@ -90,16 +86,20 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
      * 
+     * The following arguments are optional:
+     * 
      */
-    @Import(name="dataStorageSizeInTbs")
-    private @Nullable Output<Double> dataStorageSizeInTbs;
+    @Import(name="dataStorageSizeInTbs", required=true)
+    private Output<Double> dataStorageSizeInTbs;
 
     /**
      * @return The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
      * 
+     * The following arguments are optional:
+     * 
      */
-    public Optional<Output<Double>> dataStorageSizeInTbs() {
-        return Optional.ofNullable(this.dataStorageSizeInTbs);
+    public Output<Double> dataStorageSizeInTbs() {
+        return this.dataStorageSizeInTbs;
     }
 
     /**
@@ -444,8 +444,6 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param dataCollectionOptions The set of preferences for the various diagnostic collection options for the VM cluster.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -457,8 +455,6 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param dataCollectionOptions The set of preferences for the various diagnostic collection options for the VM cluster.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -469,16 +465,20 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param dataStorageSizeInTbs The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
-        public Builder dataStorageSizeInTbs(@Nullable Output<Double> dataStorageSizeInTbs) {
+        public Builder dataStorageSizeInTbs(Output<Double> dataStorageSizeInTbs) {
             $.dataStorageSizeInTbs = dataStorageSizeInTbs;
             return this;
         }
 
         /**
          * @param dataStorageSizeInTbs The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -837,6 +837,9 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
             }
             if ($.cpuCoreCount == null) {
                 throw new MissingRequiredPropertyException("CloudVmClusterArgs", "cpuCoreCount");
+            }
+            if ($.dataStorageSizeInTbs == null) {
+                throw new MissingRequiredPropertyException("CloudVmClusterArgs", "dataStorageSizeInTbs");
             }
             if ($.dbServers == null) {
                 throw new MissingRequiredPropertyException("CloudVmClusterArgs", "dbServers");

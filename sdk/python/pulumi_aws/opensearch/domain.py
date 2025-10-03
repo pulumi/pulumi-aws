@@ -24,6 +24,7 @@ class DomainArgs:
                  access_policies: Optional[pulumi.Input[_builtins.str]] = None,
                  advanced_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  advanced_security_options: Optional[pulumi.Input['DomainAdvancedSecurityOptionsArgs']] = None,
+                 aiml_options: Optional[pulumi.Input['DomainAimlOptionsArgs']] = None,
                  auto_tune_options: Optional[pulumi.Input['DomainAutoTuneOptionsArgs']] = None,
                  cluster_config: Optional[pulumi.Input['DomainClusterConfigArgs']] = None,
                  cognito_options: Optional[pulumi.Input['DomainCognitoOptionsArgs']] = None,
@@ -74,6 +75,8 @@ class DomainArgs:
             pulumi.set(__self__, "advanced_options", advanced_options)
         if advanced_security_options is not None:
             pulumi.set(__self__, "advanced_security_options", advanced_security_options)
+        if aiml_options is not None:
+            pulumi.set(__self__, "aiml_options", aiml_options)
         if auto_tune_options is not None:
             pulumi.set(__self__, "auto_tune_options", auto_tune_options)
         if cluster_config is not None:
@@ -144,6 +147,15 @@ class DomainArgs:
     @advanced_security_options.setter
     def advanced_security_options(self, value: Optional[pulumi.Input['DomainAdvancedSecurityOptionsArgs']]):
         pulumi.set(self, "advanced_security_options", value)
+
+    @_builtins.property
+    @pulumi.getter(name="aimlOptions")
+    def aiml_options(self) -> Optional[pulumi.Input['DomainAimlOptionsArgs']]:
+        return pulumi.get(self, "aiml_options")
+
+    @aiml_options.setter
+    def aiml_options(self, value: Optional[pulumi.Input['DomainAimlOptionsArgs']]):
+        pulumi.set(self, "aiml_options", value)
 
     @_builtins.property
     @pulumi.getter(name="autoTuneOptions")
@@ -360,6 +372,7 @@ class _DomainState:
                  access_policies: Optional[pulumi.Input[_builtins.str]] = None,
                  advanced_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  advanced_security_options: Optional[pulumi.Input['DomainAdvancedSecurityOptionsArgs']] = None,
+                 aiml_options: Optional[pulumi.Input['DomainAimlOptionsArgs']] = None,
                  arn: Optional[pulumi.Input[_builtins.str]] = None,
                  auto_tune_options: Optional[pulumi.Input['DomainAutoTuneOptionsArgs']] = None,
                  cluster_config: Optional[pulumi.Input['DomainClusterConfigArgs']] = None,
@@ -426,6 +439,8 @@ class _DomainState:
             pulumi.set(__self__, "advanced_options", advanced_options)
         if advanced_security_options is not None:
             pulumi.set(__self__, "advanced_security_options", advanced_security_options)
+        if aiml_options is not None:
+            pulumi.set(__self__, "aiml_options", aiml_options)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if auto_tune_options is not None:
@@ -512,6 +527,15 @@ class _DomainState:
     @advanced_security_options.setter
     def advanced_security_options(self, value: Optional[pulumi.Input['DomainAdvancedSecurityOptionsArgs']]):
         pulumi.set(self, "advanced_security_options", value)
+
+    @_builtins.property
+    @pulumi.getter(name="aimlOptions")
+    def aiml_options(self) -> Optional[pulumi.Input['DomainAimlOptionsArgs']]:
+        return pulumi.get(self, "aiml_options")
+
+    @aiml_options.setter
+    def aiml_options(self, value: Optional[pulumi.Input['DomainAimlOptionsArgs']]):
+        pulumi.set(self, "aiml_options", value)
 
     @_builtins.property
     @pulumi.getter
@@ -827,6 +851,7 @@ class Domain(pulumi.CustomResource):
                  access_policies: Optional[pulumi.Input[_builtins.str]] = None,
                  advanced_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  advanced_security_options: Optional[pulumi.Input[Union['DomainAdvancedSecurityOptionsArgs', 'DomainAdvancedSecurityOptionsArgsDict']]] = None,
+                 aiml_options: Optional[pulumi.Input[Union['DomainAimlOptionsArgs', 'DomainAimlOptionsArgsDict']]] = None,
                  auto_tune_options: Optional[pulumi.Input[Union['DomainAutoTuneOptionsArgs', 'DomainAutoTuneOptionsArgsDict']]] = None,
                  cluster_config: Optional[pulumi.Input[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict']]] = None,
                  cognito_options: Optional[pulumi.Input[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict']]] = None,
@@ -1408,6 +1433,7 @@ class Domain(pulumi.CustomResource):
                  access_policies: Optional[pulumi.Input[_builtins.str]] = None,
                  advanced_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  advanced_security_options: Optional[pulumi.Input[Union['DomainAdvancedSecurityOptionsArgs', 'DomainAdvancedSecurityOptionsArgsDict']]] = None,
+                 aiml_options: Optional[pulumi.Input[Union['DomainAimlOptionsArgs', 'DomainAimlOptionsArgsDict']]] = None,
                  auto_tune_options: Optional[pulumi.Input[Union['DomainAutoTuneOptionsArgs', 'DomainAutoTuneOptionsArgsDict']]] = None,
                  cluster_config: Optional[pulumi.Input[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict']]] = None,
                  cognito_options: Optional[pulumi.Input[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict']]] = None,
@@ -1437,6 +1463,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["access_policies"] = access_policies
             __props__.__dict__["advanced_options"] = advanced_options
             __props__.__dict__["advanced_security_options"] = advanced_security_options
+            __props__.__dict__["aiml_options"] = aiml_options
             __props__.__dict__["auto_tune_options"] = auto_tune_options
             __props__.__dict__["cluster_config"] = cluster_config
             __props__.__dict__["cognito_options"] = cognito_options
@@ -1475,6 +1502,7 @@ class Domain(pulumi.CustomResource):
             access_policies: Optional[pulumi.Input[_builtins.str]] = None,
             advanced_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             advanced_security_options: Optional[pulumi.Input[Union['DomainAdvancedSecurityOptionsArgs', 'DomainAdvancedSecurityOptionsArgsDict']]] = None,
+            aiml_options: Optional[pulumi.Input[Union['DomainAimlOptionsArgs', 'DomainAimlOptionsArgsDict']]] = None,
             arn: Optional[pulumi.Input[_builtins.str]] = None,
             auto_tune_options: Optional[pulumi.Input[Union['DomainAutoTuneOptionsArgs', 'DomainAutoTuneOptionsArgsDict']]] = None,
             cluster_config: Optional[pulumi.Input[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict']]] = None,
@@ -1547,6 +1575,7 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["access_policies"] = access_policies
         __props__.__dict__["advanced_options"] = advanced_options
         __props__.__dict__["advanced_security_options"] = advanced_security_options
+        __props__.__dict__["aiml_options"] = aiml_options
         __props__.__dict__["arn"] = arn
         __props__.__dict__["auto_tune_options"] = auto_tune_options
         __props__.__dict__["cluster_config"] = cluster_config
@@ -1597,6 +1626,11 @@ class Domain(pulumi.CustomResource):
         Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
         """
         return pulumi.get(self, "advanced_security_options")
+
+    @_builtins.property
+    @pulumi.getter(name="aimlOptions")
+    def aiml_options(self) -> pulumi.Output['outputs.DomainAimlOptions']:
+        return pulumi.get(self, "aiml_options")
 
     @_builtins.property
     @pulumi.getter

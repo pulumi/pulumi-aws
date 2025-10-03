@@ -10,6 +10,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -95,6 +96,21 @@ public final class SafetyRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Output<Map<String,String>> tags;
+
+    /**
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
+    /**
      * Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
      * 
      */
@@ -136,6 +152,7 @@ public final class SafetyRuleArgs extends com.pulumi.resources.ResourceArgs {
         this.gatingControls = $.gatingControls;
         this.name = $.name;
         this.ruleConfig = $.ruleConfig;
+        this.tags = $.tags;
         this.targetControls = $.targetControls;
         this.waitPeriodMs = $.waitPeriodMs;
     }
@@ -281,6 +298,27 @@ public final class SafetyRuleArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder ruleConfig(SafetyRuleRuleConfigArgs ruleConfig) {
             return ruleConfig(Output.of(ruleConfig));
+        }
+
+        /**
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Output<Map<String,String>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        /**
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(Map<String,String> tags) {
+            return tags(Output.of(tags));
         }
 
         /**

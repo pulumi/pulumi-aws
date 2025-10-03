@@ -38,6 +38,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Whether deletion protection is enabled in this cluster.
+     * Default value is `false`.
      * 
      */
     @Import(name="deletionProtectionEnabled")
@@ -45,6 +46,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Whether deletion protection is enabled in this cluster.
+     * Default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> deletionProtectionEnabled() {
@@ -64,6 +66,23 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<ClusterEncryptionDetailArgs>>> encryptionDetails() {
         return Optional.ofNullable(this.encryptionDetails);
+    }
+
+    /**
+     * Destroys cluster even if `deletion_protection_enabled` is set to `true`.
+     * Default value is `false`.
+     * 
+     */
+    @Import(name="forceDestroy")
+    private @Nullable Output<Boolean> forceDestroy;
+
+    /**
+     * @return Destroys cluster even if `deletion_protection_enabled` is set to `true`.
+     * Default value is `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> forceDestroy() {
+        return Optional.ofNullable(this.forceDestroy);
     }
 
     /**
@@ -184,6 +203,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.arn = $.arn;
         this.deletionProtectionEnabled = $.deletionProtectionEnabled;
         this.encryptionDetails = $.encryptionDetails;
+        this.forceDestroy = $.forceDestroy;
         this.identifier = $.identifier;
         this.kmsEncryptionKey = $.kmsEncryptionKey;
         this.multiRegionProperties = $.multiRegionProperties;
@@ -235,6 +255,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param deletionProtectionEnabled Whether deletion protection is enabled in this cluster.
+         * Default value is `false`.
          * 
          * @return builder
          * 
@@ -246,6 +267,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param deletionProtectionEnabled Whether deletion protection is enabled in this cluster.
+         * Default value is `false`.
          * 
          * @return builder
          * 
@@ -283,6 +305,29 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder encryptionDetails(ClusterEncryptionDetailArgs... encryptionDetails) {
             return encryptionDetails(List.of(encryptionDetails));
+        }
+
+        /**
+         * @param forceDestroy Destroys cluster even if `deletion_protection_enabled` is set to `true`.
+         * Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceDestroy(@Nullable Output<Boolean> forceDestroy) {
+            $.forceDestroy = forceDestroy;
+            return this;
+        }
+
+        /**
+         * @param forceDestroy Destroys cluster even if `deletion_protection_enabled` is set to `true`.
+         * Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceDestroy(Boolean forceDestroy) {
+            return forceDestroy(Output.of(forceDestroy));
         }
 
         /**

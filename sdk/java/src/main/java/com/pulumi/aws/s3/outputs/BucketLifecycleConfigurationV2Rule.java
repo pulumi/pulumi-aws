@@ -32,8 +32,6 @@ public final class BucketLifecycleConfigurationV2Rule {
     /**
      * @return Configuration block used to identify objects that a Lifecycle Rule applies to.
      * See below.
-     * If not specified, the `rule` will default to using `prefix`.
-     * One of `filter` or `prefix` should be specified.
      * 
      */
     private @Nullable BucketLifecycleConfigurationV2RuleFilter filter;
@@ -56,8 +54,6 @@ public final class BucketLifecycleConfigurationV2Rule {
      * @return **DEPRECATED** Use `filter` instead.
      * This has been deprecated by Amazon S3.
      * Prefix identifying one or more objects to which the rule applies.
-     * Defaults to an empty string (`&#34;&#34;`) if `filter` is not specified.
-     * One of `prefix` or `filter` should be specified.
      * 
      * @deprecated
      * Specify a prefix using &#39;filter&#39; instead
@@ -94,8 +90,6 @@ public final class BucketLifecycleConfigurationV2Rule {
     /**
      * @return Configuration block used to identify objects that a Lifecycle Rule applies to.
      * See below.
-     * If not specified, the `rule` will default to using `prefix`.
-     * One of `filter` or `prefix` should be specified.
      * 
      */
     public Optional<BucketLifecycleConfigurationV2RuleFilter> filter() {
@@ -126,8 +120,6 @@ public final class BucketLifecycleConfigurationV2Rule {
      * @return **DEPRECATED** Use `filter` instead.
      * This has been deprecated by Amazon S3.
      * Prefix identifying one or more objects to which the rule applies.
-     * Defaults to an empty string (`&#34;&#34;`) if `filter` is not specified.
-     * One of `prefix` or `filter` should be specified.
      * 
      * @deprecated
      * Specify a prefix using &#39;filter&#39; instead

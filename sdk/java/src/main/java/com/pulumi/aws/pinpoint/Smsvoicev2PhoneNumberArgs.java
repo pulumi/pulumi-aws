@@ -170,14 +170,14 @@ public final class Smsvoicev2PhoneNumberArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the two way channel.
+     * Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
      * 
      */
     @Import(name="twoWayChannelArn")
     private @Nullable Output<String> twoWayChannelArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the two way channel.
+     * @return Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
      * 
      */
     public Optional<Output<String>> twoWayChannelArn() {
@@ -469,7 +469,7 @@ public final class Smsvoicev2PhoneNumberArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param twoWayChannelArn The Amazon Resource Name (ARN) of the two way channel.
+         * @param twoWayChannelArn Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
          * 
          * @return builder
          * 
@@ -480,7 +480,7 @@ public final class Smsvoicev2PhoneNumberArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param twoWayChannelArn The Amazon Resource Name (ARN) of the two way channel.
+         * @param twoWayChannelArn Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
          * 
          * @return builder
          * 

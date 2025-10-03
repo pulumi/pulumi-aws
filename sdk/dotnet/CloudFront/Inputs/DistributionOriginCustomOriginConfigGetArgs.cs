@@ -24,6 +24,12 @@ namespace Pulumi.Aws.CloudFront.Inputs
         [Input("httpsPort", required: true)]
         public Input<int> HttpsPort { get; set; } = null!;
 
+        /// <summary>
+        /// IP protocol CloudFront uses when connecting to your origin. Valid values: `ipv4`, `ipv6`, `dualstack`.
+        /// </summary>
+        [Input("ipAddressType")]
+        public Input<string>? IpAddressType { get; set; }
+
         [Input("originKeepaliveTimeout")]
         public Input<int>? OriginKeepaliveTimeout { get; set; }
 

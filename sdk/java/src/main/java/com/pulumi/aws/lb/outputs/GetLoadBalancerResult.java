@@ -49,6 +49,7 @@ public final class GetLoadBalancerResult {
     private String name;
     private Boolean preserveHostHeader;
     private String region;
+    private Integer secondaryIpsAutoAssignedPerSubnet;
     private List<String> securityGroups;
     private List<GetLoadBalancerSubnetMapping> subnetMappings;
     private List<String> subnets;
@@ -143,6 +144,9 @@ public final class GetLoadBalancerResult {
     public String region() {
         return this.region;
     }
+    public Integer secondaryIpsAutoAssignedPerSubnet() {
+        return this.secondaryIpsAutoAssignedPerSubnet;
+    }
     public List<String> securityGroups() {
         return this.securityGroups;
     }
@@ -201,6 +205,7 @@ public final class GetLoadBalancerResult {
         private String name;
         private Boolean preserveHostHeader;
         private String region;
+        private Integer secondaryIpsAutoAssignedPerSubnet;
         private List<String> securityGroups;
         private List<GetLoadBalancerSubnetMapping> subnetMappings;
         private List<String> subnets;
@@ -238,6 +243,7 @@ public final class GetLoadBalancerResult {
     	      this.name = defaults.name;
     	      this.preserveHostHeader = defaults.preserveHostHeader;
     	      this.region = defaults.region;
+    	      this.secondaryIpsAutoAssignedPerSubnet = defaults.secondaryIpsAutoAssignedPerSubnet;
     	      this.securityGroups = defaults.securityGroups;
     	      this.subnetMappings = defaults.subnetMappings;
     	      this.subnets = defaults.subnets;
@@ -470,6 +476,14 @@ public final class GetLoadBalancerResult {
             return this;
         }
         @CustomType.Setter
+        public Builder secondaryIpsAutoAssignedPerSubnet(Integer secondaryIpsAutoAssignedPerSubnet) {
+            if (secondaryIpsAutoAssignedPerSubnet == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "secondaryIpsAutoAssignedPerSubnet");
+            }
+            this.secondaryIpsAutoAssignedPerSubnet = secondaryIpsAutoAssignedPerSubnet;
+            return this;
+        }
+        @CustomType.Setter
         public Builder securityGroups(List<String> securityGroups) {
             if (securityGroups == null) {
               throw new MissingRequiredPropertyException("GetLoadBalancerResult", "securityGroups");
@@ -563,6 +577,7 @@ public final class GetLoadBalancerResult {
             _resultValue.name = name;
             _resultValue.preserveHostHeader = preserveHostHeader;
             _resultValue.region = region;
+            _resultValue.secondaryIpsAutoAssignedPerSubnet = secondaryIpsAutoAssignedPerSubnet;
             _resultValue.securityGroups = securityGroups;
             _resultValue.subnetMappings = subnetMappings;
             _resultValue.subnets = subnets;

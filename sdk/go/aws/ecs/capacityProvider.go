@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -16,7 +15,11 @@ import (
 //
 // > **NOTE:** Associating an ECS Capacity Provider to an Auto Scaling Group will automatically add the `AmazonECSManaged` tag to the Auto Scaling Group. This tag should be included in the `autoscaling.Group` resource configuration to prevent the provider from removing it in subsequent executions as well as ensuring the `AmazonECSManaged` tag is propagated to all EC2 Instances in the Auto Scaling Group if `minSize` is above 0 on creation. Any EC2 Instances in the Auto Scaling Group without this tag must be manually be updated, otherwise they may cause unexpected scaling behavior and metrics.
 //
+// > **NOTE:** You must specify exactly one of `autoScalingGroupProvider` or `managedInstancesProvider`. When using `managedInstancesProvider`, the `cluster` parameter is required. When using `autoScalingGroupProvider`, the `cluster` parameter must not be set.
+//
 // ## Example Usage
+//
+// ### Auto Scaling Group Provider
 //
 // ```go
 // package main
@@ -65,6 +68,69 @@ import (
 //
 // ```
 //
+// ### Managed Instances Provider
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ecs.NewCapacityProvider(ctx, "example", &ecs.CapacityProviderArgs{
+//				Name:    pulumi.String("example"),
+//				Cluster: pulumi.String("my-cluster"),
+//				ManagedInstancesProvider: &ecs.CapacityProviderManagedInstancesProviderArgs{
+//					InfrastructureRoleArn: pulumi.Any(ecsInfrastructure.Arn),
+//					PropagateTags:         pulumi.String("TASK_DEFINITION"),
+//					InstanceLaunchTemplate: &ecs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs{
+//						Ec2InstanceProfileArn: pulumi.Any(ecsInstance.Arn),
+//						Monitoring:            pulumi.String("ENABLED"),
+//						NetworkConfiguration: &ecs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs{
+//							Subnets: pulumi.StringArray{
+//								exampleAwsSubnet.Id,
+//							},
+//							SecurityGroups: pulumi.StringArray{
+//								exampleAwsSecurityGroup.Id,
+//							},
+//						},
+//						StorageConfiguration: &ecs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationArgs{
+//							StorageSizeGib: pulumi.Int(30),
+//						},
+//						InstanceRequirements: &ecs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsArgs{
+//							MemoryMib: &ecs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibArgs{
+//								Min: pulumi.Int(1024),
+//								Max: pulumi.Int(8192),
+//							},
+//							VcpuCount: &ecs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountArgs{
+//								Min: pulumi.Int(1),
+//								Max: pulumi.Int(4),
+//							},
+//							InstanceGenerations: pulumi.StringArray{
+//								pulumi.String("current"),
+//							},
+//							CpuManufacturers: pulumi.StringArray{
+//								pulumi.String("intel"),
+//								pulumi.String("amd"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ### Identity Schema
@@ -83,8 +149,12 @@ type CapacityProvider struct {
 
 	// ARN that identifies the capacity provider.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Configuration block for the provider for the ECS auto scaling group. Detailed below.
-	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderOutput `pulumi:"autoScalingGroupProvider"`
+	// Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
+	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderPtrOutput `pulumi:"autoScalingGroupProvider"`
+	// Name of the ECS cluster. Required when using `managedInstancesProvider`. Must not be set when using `autoScalingGroupProvider`.
+	Cluster pulumi.StringPtrOutput `pulumi:"cluster"`
+	// Configuration block for the managed instances provider. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
+	ManagedInstancesProvider CapacityProviderManagedInstancesProviderPtrOutput `pulumi:"managedInstancesProvider"`
 	// Name of the capacity provider.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -99,12 +169,9 @@ type CapacityProvider struct {
 func NewCapacityProvider(ctx *pulumi.Context,
 	name string, args *CapacityProviderArgs, opts ...pulumi.ResourceOption) (*CapacityProvider, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &CapacityProviderArgs{}
 	}
 
-	if args.AutoScalingGroupProvider == nil {
-		return nil, errors.New("invalid value for required argument 'AutoScalingGroupProvider'")
-	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CapacityProvider
 	err := ctx.RegisterResource("aws:ecs/capacityProvider:CapacityProvider", name, args, &resource, opts...)
@@ -130,8 +197,12 @@ func GetCapacityProvider(ctx *pulumi.Context,
 type capacityProviderState struct {
 	// ARN that identifies the capacity provider.
 	Arn *string `pulumi:"arn"`
-	// Configuration block for the provider for the ECS auto scaling group. Detailed below.
+	// Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
 	AutoScalingGroupProvider *CapacityProviderAutoScalingGroupProvider `pulumi:"autoScalingGroupProvider"`
+	// Name of the ECS cluster. Required when using `managedInstancesProvider`. Must not be set when using `autoScalingGroupProvider`.
+	Cluster *string `pulumi:"cluster"`
+	// Configuration block for the managed instances provider. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
+	ManagedInstancesProvider *CapacityProviderManagedInstancesProvider `pulumi:"managedInstancesProvider"`
 	// Name of the capacity provider.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -145,8 +216,12 @@ type capacityProviderState struct {
 type CapacityProviderState struct {
 	// ARN that identifies the capacity provider.
 	Arn pulumi.StringPtrInput
-	// Configuration block for the provider for the ECS auto scaling group. Detailed below.
+	// Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderPtrInput
+	// Name of the ECS cluster. Required when using `managedInstancesProvider`. Must not be set when using `autoScalingGroupProvider`.
+	Cluster pulumi.StringPtrInput
+	// Configuration block for the managed instances provider. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
+	ManagedInstancesProvider CapacityProviderManagedInstancesProviderPtrInput
 	// Name of the capacity provider.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -162,8 +237,12 @@ func (CapacityProviderState) ElementType() reflect.Type {
 }
 
 type capacityProviderArgs struct {
-	// Configuration block for the provider for the ECS auto scaling group. Detailed below.
-	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProvider `pulumi:"autoScalingGroupProvider"`
+	// Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
+	AutoScalingGroupProvider *CapacityProviderAutoScalingGroupProvider `pulumi:"autoScalingGroupProvider"`
+	// Name of the ECS cluster. Required when using `managedInstancesProvider`. Must not be set when using `autoScalingGroupProvider`.
+	Cluster *string `pulumi:"cluster"`
+	// Configuration block for the managed instances provider. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
+	ManagedInstancesProvider *CapacityProviderManagedInstancesProvider `pulumi:"managedInstancesProvider"`
 	// Name of the capacity provider.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -174,8 +253,12 @@ type capacityProviderArgs struct {
 
 // The set of arguments for constructing a CapacityProvider resource.
 type CapacityProviderArgs struct {
-	// Configuration block for the provider for the ECS auto scaling group. Detailed below.
-	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderInput
+	// Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
+	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderPtrInput
+	// Name of the ECS cluster. Required when using `managedInstancesProvider`. Must not be set when using `autoScalingGroupProvider`.
+	Cluster pulumi.StringPtrInput
+	// Configuration block for the managed instances provider. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
+	ManagedInstancesProvider CapacityProviderManagedInstancesProviderPtrInput
 	// Name of the capacity provider.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -276,11 +359,23 @@ func (o CapacityProviderOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityProvider) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Configuration block for the provider for the ECS auto scaling group. Detailed below.
-func (o CapacityProviderOutput) AutoScalingGroupProvider() CapacityProviderAutoScalingGroupProviderOutput {
-	return o.ApplyT(func(v *CapacityProvider) CapacityProviderAutoScalingGroupProviderOutput {
+// Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
+func (o CapacityProviderOutput) AutoScalingGroupProvider() CapacityProviderAutoScalingGroupProviderPtrOutput {
+	return o.ApplyT(func(v *CapacityProvider) CapacityProviderAutoScalingGroupProviderPtrOutput {
 		return v.AutoScalingGroupProvider
-	}).(CapacityProviderAutoScalingGroupProviderOutput)
+	}).(CapacityProviderAutoScalingGroupProviderPtrOutput)
+}
+
+// Name of the ECS cluster. Required when using `managedInstancesProvider`. Must not be set when using `autoScalingGroupProvider`.
+func (o CapacityProviderOutput) Cluster() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityProvider) pulumi.StringPtrOutput { return v.Cluster }).(pulumi.StringPtrOutput)
+}
+
+// Configuration block for the managed instances provider. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
+func (o CapacityProviderOutput) ManagedInstancesProvider() CapacityProviderManagedInstancesProviderPtrOutput {
+	return o.ApplyT(func(v *CapacityProvider) CapacityProviderManagedInstancesProviderPtrOutput {
+		return v.ManagedInstancesProvider
+	}).(CapacityProviderManagedInstancesProviderPtrOutput)
 }
 
 // Name of the capacity provider.

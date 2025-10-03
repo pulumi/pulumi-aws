@@ -60,17 +60,25 @@ namespace Pulumi.Aws.Sfn
     /// 
     /// ## Import
     /// 
+    /// In Terraform v1.12.0 and later, the `import` block can be used with the `identity` attribute. For example:
+    /// 
     /// Using `pulumi import`, import activities using the `arn`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:sfn/activity:Activity foo arn:aws:states:eu-west-1:123456789098:activity:bar
+    /// $ pulumi import aws:sfn/activity:Activity example arn:aws:states:eu-west-1:123456789098:activity:bar
     /// ```
     /// </summary>
     [AwsResourceType("aws:sfn/activity:Activity")]
     public partial class Activity : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The date the activity was created.
+        /// Amazon Resource Name (ARN) of the activity.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// Date the activity was created.
         /// </summary>
         [Output("creationDate")]
         public Output<string> CreationDate { get; private set; } = null!;
@@ -190,7 +198,13 @@ namespace Pulumi.Aws.Sfn
     public sealed class ActivityState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The date the activity was created.
+        /// Amazon Resource Name (ARN) of the activity.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Date the activity was created.
         /// </summary>
         [Input("creationDate")]
         public Input<string>? CreationDate { get; set; }

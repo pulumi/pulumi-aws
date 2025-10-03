@@ -756,12 +756,12 @@ class Environment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        tftest = aws.elasticbeanstalk.Application("tftest",
+        example_application = aws.elasticbeanstalk.Application("example",
             name="tf-test-name",
             description="tf-test-desc")
-        tfenvtest = aws.elasticbeanstalk.Environment("tfenvtest",
+        example = aws.elasticbeanstalk.Environment("example",
             name="tf-test-name",
-            application=tftest.name,
+            application=example_application.name,
             solution_stack_name="64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4")
         ```
 
@@ -772,9 +772,9 @@ class Environment(pulumi.CustomResource):
 
         The `setting` and `all_settings` mappings support the following format:
 
-        * `namespace` - unique namespace identifying the option's associated AWS resource
-        * `name` - name of the configuration option
-        * `value` - value for the configuration option
+        * `namespace` - (Required) Unique namespace identifying the option's associated AWS resource
+        * `name` - (Required) Name of the configuration option
+        * `value` - (Required) Value for the configuration option
         * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
 
         ### Example With Options
@@ -865,12 +865,12 @@ class Environment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        tftest = aws.elasticbeanstalk.Application("tftest",
+        example_application = aws.elasticbeanstalk.Application("example",
             name="tf-test-name",
             description="tf-test-desc")
-        tfenvtest = aws.elasticbeanstalk.Environment("tfenvtest",
+        example = aws.elasticbeanstalk.Environment("example",
             name="tf-test-name",
-            application=tftest.name,
+            application=example_application.name,
             solution_stack_name="64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4")
         ```
 
@@ -881,9 +881,9 @@ class Environment(pulumi.CustomResource):
 
         The `setting` and `all_settings` mappings support the following format:
 
-        * `namespace` - unique namespace identifying the option's associated AWS resource
-        * `name` - name of the configuration option
-        * `value` - value for the configuration option
+        * `namespace` - (Required) Unique namespace identifying the option's associated AWS resource
+        * `name` - (Required) Name of the configuration option
+        * `value` - (Required) Value for the configuration option
         * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
 
         ### Example With Options

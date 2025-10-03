@@ -100,22 +100,23 @@ type LookupLoadBalancerResult struct {
 	EnableZonalShift                                     bool                           `pulumi:"enableZonalShift"`
 	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic string                         `pulumi:"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                      string                         `pulumi:"id"`
-	IdleTimeout             int                            `pulumi:"idleTimeout"`
-	Internal                bool                           `pulumi:"internal"`
-	IpAddressType           string                         `pulumi:"ipAddressType"`
-	IpamPools               []GetLoadBalancerIpamPool      `pulumi:"ipamPools"`
-	LoadBalancerType        string                         `pulumi:"loadBalancerType"`
-	Name                    string                         `pulumi:"name"`
-	PreserveHostHeader      bool                           `pulumi:"preserveHostHeader"`
-	Region                  string                         `pulumi:"region"`
-	SecurityGroups          []string                       `pulumi:"securityGroups"`
-	SubnetMappings          []GetLoadBalancerSubnetMapping `pulumi:"subnetMappings"`
-	Subnets                 []string                       `pulumi:"subnets"`
-	Tags                    map[string]string              `pulumi:"tags"`
-	VpcId                   string                         `pulumi:"vpcId"`
-	XffHeaderProcessingMode string                         `pulumi:"xffHeaderProcessingMode"`
-	ZoneId                  string                         `pulumi:"zoneId"`
+	Id                                string                         `pulumi:"id"`
+	IdleTimeout                       int                            `pulumi:"idleTimeout"`
+	Internal                          bool                           `pulumi:"internal"`
+	IpAddressType                     string                         `pulumi:"ipAddressType"`
+	IpamPools                         []GetLoadBalancerIpamPool      `pulumi:"ipamPools"`
+	LoadBalancerType                  string                         `pulumi:"loadBalancerType"`
+	Name                              string                         `pulumi:"name"`
+	PreserveHostHeader                bool                           `pulumi:"preserveHostHeader"`
+	Region                            string                         `pulumi:"region"`
+	SecondaryIpsAutoAssignedPerSubnet int                            `pulumi:"secondaryIpsAutoAssignedPerSubnet"`
+	SecurityGroups                    []string                       `pulumi:"securityGroups"`
+	SubnetMappings                    []GetLoadBalancerSubnetMapping `pulumi:"subnetMappings"`
+	Subnets                           []string                       `pulumi:"subnets"`
+	Tags                              map[string]string              `pulumi:"tags"`
+	VpcId                             string                         `pulumi:"vpcId"`
+	XffHeaderProcessingMode           string                         `pulumi:"xffHeaderProcessingMode"`
+	ZoneId                            string                         `pulumi:"zoneId"`
 }
 
 func LookupLoadBalancerOutput(ctx *pulumi.Context, args LookupLoadBalancerOutputArgs, opts ...pulumi.InvokeOption) LookupLoadBalancerResultOutput {
@@ -267,6 +268,10 @@ func (o LookupLoadBalancerResultOutput) PreserveHostHeader() pulumi.BoolOutput {
 
 func (o LookupLoadBalancerResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.Region }).(pulumi.StringOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) SecondaryIpsAutoAssignedPerSubnet() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) int { return v.SecondaryIpsAutoAssignedPerSubnet }).(pulumi.IntOutput)
 }
 
 func (o LookupLoadBalancerResultOutput) SecurityGroups() pulumi.StringArrayOutput {

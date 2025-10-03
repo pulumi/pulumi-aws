@@ -47,14 +47,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var tftest = new Application("tftest", ApplicationArgs.builder()
+ *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()
  *             .name("tf-test-name")
  *             .description("tf-test-desc")
  *             .build());
  * 
- *         var myTemplate = new ConfigurationTemplate("myTemplate", ConfigurationTemplateArgs.builder()
+ *         var example = new ConfigurationTemplate("example", ConfigurationTemplateArgs.builder()
  *             .name("tf-test-template-config")
- *             .application(tftest.name())
+ *             .application(exampleApplication.name())
  *             .solutionStackName("64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4")
  *             .build());
  * 
@@ -67,9 +67,9 @@ import javax.annotation.Nullable;
  * 
  * The `setting` field supports the following format:
  * 
- * * `namespace` - unique namespace identifying the option&#39;s associated AWS resource
- * * `name` - name of the configuration option
- * * `value` - value for the configuration option
+ * * `namespace` - (Required) Unique namespace identifying the option&#39;s associated AWS resource
+ * * `name` - (Required) Name of the configuration option
+ * * `value` - (Required) Value for the configuration option
  * * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
  * 
  */

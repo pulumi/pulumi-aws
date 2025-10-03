@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
+        /// Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `default_auth_scheme` is `NONE` or unspecified. Described below.
         /// </summary>
         [Output("auths")]
         public Output<ImmutableArray<Outputs.ProxyAuth>> Auths { get; private set; } = null!;
@@ -38,6 +38,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Output("debugLogging")]
         public Output<bool?> DebugLogging { get; private set; } = null!;
+
+        /// <summary>
+        /// Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database. Valid values are `NONE` and `IAM_AUTH`. Defaults to `NONE`.
+        /// </summary>
+        [Output("defaultAuthScheme")]
+        public Output<string> DefaultAuthScheme { get; private set; } = null!;
 
         /// <summary>
         /// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
@@ -151,11 +157,11 @@ namespace Pulumi.Aws.Rds
 
     public sealed class ProxyArgs : global::Pulumi.ResourceArgs
     {
-        [Input("auths", required: true)]
+        [Input("auths")]
         private InputList<Inputs.ProxyAuthArgs>? _auths;
 
         /// <summary>
-        /// Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
+        /// Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `default_auth_scheme` is `NONE` or unspecified. Described below.
         /// </summary>
         public InputList<Inputs.ProxyAuthArgs> Auths
         {
@@ -168,6 +174,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("debugLogging")]
         public Input<bool>? DebugLogging { get; set; }
+
+        /// <summary>
+        /// Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database. Valid values are `NONE` and `IAM_AUTH`. Defaults to `NONE`.
+        /// </summary>
+        [Input("defaultAuthScheme")]
+        public Input<string>? DefaultAuthScheme { get; set; }
 
         /// <summary>
         /// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
@@ -259,7 +271,7 @@ namespace Pulumi.Aws.Rds
         private InputList<Inputs.ProxyAuthGetArgs>? _auths;
 
         /// <summary>
-        /// Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
+        /// Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `default_auth_scheme` is `NONE` or unspecified. Described below.
         /// </summary>
         public InputList<Inputs.ProxyAuthGetArgs> Auths
         {
@@ -272,6 +284,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("debugLogging")]
         public Input<bool>? DebugLogging { get; set; }
+
+        /// <summary>
+        /// Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database. Valid values are `NONE` and `IAM_AUTH`. Defaults to `NONE`.
+        /// </summary>
+        [Input("defaultAuthScheme")]
+        public Input<string>? DefaultAuthScheme { get; set; }
 
         /// <summary>
         /// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.

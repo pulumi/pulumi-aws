@@ -112,6 +112,14 @@ export class SafetyRule extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    /**
      * Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
      */
     declare public readonly targetControls: pulumi.Output<string[] | undefined>;
@@ -142,6 +150,8 @@ export class SafetyRule extends pulumi.CustomResource {
             resourceInputs["name"] = state?.name;
             resourceInputs["ruleConfig"] = state?.ruleConfig;
             resourceInputs["status"] = state?.status;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
             resourceInputs["targetControls"] = state?.targetControls;
             resourceInputs["waitPeriodMs"] = state?.waitPeriodMs;
         } else {
@@ -160,10 +170,12 @@ export class SafetyRule extends pulumi.CustomResource {
             resourceInputs["gatingControls"] = args?.gatingControls;
             resourceInputs["name"] = args?.name;
             resourceInputs["ruleConfig"] = args?.ruleConfig;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["targetControls"] = args?.targetControls;
             resourceInputs["waitPeriodMs"] = args?.waitPeriodMs;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SafetyRule.__pulumiType, name, resourceInputs, opts);
@@ -203,6 +215,14 @@ export interface SafetyRuleState {
      */
     status?: pulumi.Input<string>;
     /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
      */
     targetControls?: pulumi.Input<pulumi.Input<string>[]>;
@@ -238,6 +258,10 @@ export interface SafetyRuleArgs {
      * Configuration block for safety rule criteria. See below.
      */
     ruleConfig: pulumi.Input<inputs.route53recoverycontrol.SafetyRuleRuleConfig>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
      */

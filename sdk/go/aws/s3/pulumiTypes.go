@@ -3269,8 +3269,6 @@ type BucketLifecycleConfigurationRule struct {
 	Expiration *BucketLifecycleConfigurationRuleExpiration `pulumi:"expiration"`
 	// Configuration block used to identify objects that a Lifecycle Rule applies to.
 	// See below.
-	// If not specified, the `rule` will default to using `prefix`.
-	// One of `filter` or `prefix` should be specified.
 	Filter *BucketLifecycleConfigurationRuleFilter `pulumi:"filter"`
 	// Unique identifier for the rule. The value cannot be longer than 255 characters.
 	Id string `pulumi:"id"`
@@ -3281,8 +3279,6 @@ type BucketLifecycleConfigurationRule struct {
 	// **DEPRECATED** Use `filter` instead.
 	// This has been deprecated by Amazon S3.
 	// Prefix identifying one or more objects to which the rule applies.
-	// Defaults to an empty string (`""`) if `filter` is not specified.
-	// One of `prefix` or `filter` should be specified.
 	//
 	// Deprecated: Specify a prefix using 'filter' instead
 	Prefix *string `pulumi:"prefix"`
@@ -3310,8 +3306,6 @@ type BucketLifecycleConfigurationRuleArgs struct {
 	Expiration BucketLifecycleConfigurationRuleExpirationPtrInput `pulumi:"expiration"`
 	// Configuration block used to identify objects that a Lifecycle Rule applies to.
 	// See below.
-	// If not specified, the `rule` will default to using `prefix`.
-	// One of `filter` or `prefix` should be specified.
 	Filter BucketLifecycleConfigurationRuleFilterPtrInput `pulumi:"filter"`
 	// Unique identifier for the rule. The value cannot be longer than 255 characters.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -3322,8 +3316,6 @@ type BucketLifecycleConfigurationRuleArgs struct {
 	// **DEPRECATED** Use `filter` instead.
 	// This has been deprecated by Amazon S3.
 	// Prefix identifying one or more objects to which the rule applies.
-	// Defaults to an empty string (`""`) if `filter` is not specified.
-	// One of `prefix` or `filter` should be specified.
 	//
 	// Deprecated: Specify a prefix using 'filter' instead
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
@@ -3400,8 +3392,6 @@ func (o BucketLifecycleConfigurationRuleOutput) Expiration() BucketLifecycleConf
 
 // Configuration block used to identify objects that a Lifecycle Rule applies to.
 // See below.
-// If not specified, the `rule` will default to using `prefix`.
-// One of `filter` or `prefix` should be specified.
 func (o BucketLifecycleConfigurationRuleOutput) Filter() BucketLifecycleConfigurationRuleFilterPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationRule) *BucketLifecycleConfigurationRuleFilter { return v.Filter }).(BucketLifecycleConfigurationRuleFilterPtrOutput)
 }
@@ -3428,8 +3418,6 @@ func (o BucketLifecycleConfigurationRuleOutput) NoncurrentVersionTransitions() B
 // **DEPRECATED** Use `filter` instead.
 // This has been deprecated by Amazon S3.
 // Prefix identifying one or more objects to which the rule applies.
-// Defaults to an empty string (`""`) if `filter` is not specified.
-// One of `prefix` or `filter` should be specified.
 //
 // Deprecated: Specify a prefix using 'filter' instead
 func (o BucketLifecycleConfigurationRuleOutput) Prefix() pulumi.StringPtrOutput {
@@ -4910,8 +4898,6 @@ type BucketLifecycleConfigurationV2Rule struct {
 	Expiration *BucketLifecycleConfigurationV2RuleExpiration `pulumi:"expiration"`
 	// Configuration block used to identify objects that a Lifecycle Rule applies to.
 	// See below.
-	// If not specified, the `rule` will default to using `prefix`.
-	// One of `filter` or `prefix` should be specified.
 	Filter *BucketLifecycleConfigurationV2RuleFilter `pulumi:"filter"`
 	// Unique identifier for the rule. The value cannot be longer than 255 characters.
 	Id string `pulumi:"id"`
@@ -4922,8 +4908,6 @@ type BucketLifecycleConfigurationV2Rule struct {
 	// **DEPRECATED** Use `filter` instead.
 	// This has been deprecated by Amazon S3.
 	// Prefix identifying one or more objects to which the rule applies.
-	// Defaults to an empty string (`""`) if `filter` is not specified.
-	// One of `prefix` or `filter` should be specified.
 	//
 	// Deprecated: Specify a prefix using 'filter' instead
 	Prefix *string `pulumi:"prefix"`
@@ -4951,8 +4935,6 @@ type BucketLifecycleConfigurationV2RuleArgs struct {
 	Expiration BucketLifecycleConfigurationV2RuleExpirationPtrInput `pulumi:"expiration"`
 	// Configuration block used to identify objects that a Lifecycle Rule applies to.
 	// See below.
-	// If not specified, the `rule` will default to using `prefix`.
-	// One of `filter` or `prefix` should be specified.
 	Filter BucketLifecycleConfigurationV2RuleFilterPtrInput `pulumi:"filter"`
 	// Unique identifier for the rule. The value cannot be longer than 255 characters.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -4963,8 +4945,6 @@ type BucketLifecycleConfigurationV2RuleArgs struct {
 	// **DEPRECATED** Use `filter` instead.
 	// This has been deprecated by Amazon S3.
 	// Prefix identifying one or more objects to which the rule applies.
-	// Defaults to an empty string (`""`) if `filter` is not specified.
-	// One of `prefix` or `filter` should be specified.
 	//
 	// Deprecated: Specify a prefix using 'filter' instead
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
@@ -5041,8 +5021,6 @@ func (o BucketLifecycleConfigurationV2RuleOutput) Expiration() BucketLifecycleCo
 
 // Configuration block used to identify objects that a Lifecycle Rule applies to.
 // See below.
-// If not specified, the `rule` will default to using `prefix`.
-// One of `filter` or `prefix` should be specified.
 func (o BucketLifecycleConfigurationV2RuleOutput) Filter() BucketLifecycleConfigurationV2RuleFilterPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationV2Rule) *BucketLifecycleConfigurationV2RuleFilter { return v.Filter }).(BucketLifecycleConfigurationV2RuleFilterPtrOutput)
 }
@@ -5069,8 +5047,6 @@ func (o BucketLifecycleConfigurationV2RuleOutput) NoncurrentVersionTransitions()
 // **DEPRECATED** Use `filter` instead.
 // This has been deprecated by Amazon S3.
 // Prefix identifying one or more objects to which the rule applies.
-// Defaults to an empty string (`""`) if `filter` is not specified.
-// One of `prefix` or `filter` should be specified.
 //
 // Deprecated: Specify a prefix using 'filter' instead
 func (o BucketLifecycleConfigurationV2RuleOutput) Prefix() pulumi.StringPtrOutput {

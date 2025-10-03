@@ -12,31 +12,85 @@ namespace Pulumi.Aws.Odb
     public static class GetCloudVmCluster
     {
         /// <summary>
-        /// Data source for Exadata Infrastructure resource in AWS for Oracle Database@AWS.
+        /// Data source for cloud vm cluster in AWS for Oracle Database@AWS.
         /// 
         /// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Odb.GetCloudVmCluster.Invoke(new()
+        ///     {
+        ///         Id = "example-id",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetCloudVmClusterResult> InvokeAsync(GetCloudVmClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudVmClusterResult>("aws:odb/getCloudVmCluster:getCloudVmCluster", args ?? new GetCloudVmClusterArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source for Exadata Infrastructure resource in AWS for Oracle Database@AWS.
+        /// Data source for cloud vm cluster in AWS for Oracle Database@AWS.
         /// 
         /// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Odb.GetCloudVmCluster.Invoke(new()
+        ///     {
+        ///         Id = "example-id",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetCloudVmClusterResult> Invoke(GetCloudVmClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudVmClusterResult>("aws:odb/getCloudVmCluster:getCloudVmCluster", args ?? new GetCloudVmClusterInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source for Exadata Infrastructure resource in AWS for Oracle Database@AWS.
+        /// Data source for cloud vm cluster in AWS for Oracle Database@AWS.
         /// 
         /// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Odb.GetCloudVmCluster.Invoke(new()
+        ///     {
+        ///         Id = "example-id",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetCloudVmClusterResult> Invoke(GetCloudVmClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudVmClusterResult>("aws:odb/getCloudVmCluster:getCloudVmCluster", args ?? new GetCloudVmClusterInvokeArgs(), options.WithDefaults());
@@ -46,7 +100,7 @@ namespace Pulumi.Aws.Odb
     public sealed class GetCloudVmClusterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The unique identifier of the Exadata infrastructure.
+        /// The unique identifier of the cloud vm cluster.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -68,7 +122,7 @@ namespace Pulumi.Aws.Odb
     public sealed class GetCloudVmClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The unique identifier of the Exadata infrastructure.
+        /// The unique identifier of the cloud vm cluster.
         /// 
         /// The following arguments are optional:
         /// </summary>

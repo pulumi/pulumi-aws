@@ -35,11 +35,17 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// - `arn` (String) ARN of the bucket.
+    /// 
     /// Using `pulumi import`, import S3 Control Buckets using Amazon Resource Name (ARN). For example:
     /// 
-    /// ```sh
-    /// $ pulumi import aws:s3control/bucket:Bucket example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
-    /// ```
+    /// console
+    /// 
+    /// % pulumi import aws_s3control_bucket.example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
     /// </summary>
     [AwsResourceType("aws:s3control/bucket:Bucket")]
     public partial class Bucket : global::Pulumi.CustomResource

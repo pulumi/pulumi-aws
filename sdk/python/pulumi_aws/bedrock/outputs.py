@@ -7579,7 +7579,7 @@ class GuardrailContextualGroundingPolicyConfig(dict):
     def __init__(__self__, *,
                  filters_configs: Optional[Sequence['outputs.GuardrailContextualGroundingPolicyConfigFiltersConfig']] = None):
         """
-        :param Sequence['GuardrailContextualGroundingPolicyConfigFiltersConfigArgs'] filters_configs: List of contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
+        :param Sequence['GuardrailContextualGroundingPolicyConfigFiltersConfigArgs'] filters_configs: One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
         """
         if filters_configs is not None:
             pulumi.set(__self__, "filters_configs", filters_configs)
@@ -7588,7 +7588,7 @@ class GuardrailContextualGroundingPolicyConfig(dict):
     @pulumi.getter(name="filtersConfigs")
     def filters_configs(self) -> Optional[Sequence['outputs.GuardrailContextualGroundingPolicyConfigFiltersConfig']]:
         """
-        List of contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
+        One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
         """
         return pulumi.get(self, "filters_configs")
 

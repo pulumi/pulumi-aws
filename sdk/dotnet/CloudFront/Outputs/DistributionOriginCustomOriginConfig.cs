@@ -21,6 +21,10 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// HTTPS port the custom origin listens on.
         /// </summary>
         public readonly int HttpsPort;
+        /// <summary>
+        /// IP protocol CloudFront uses when connecting to your origin. Valid values: `ipv4`, `ipv6`, `dualstack`.
+        /// </summary>
+        public readonly string? IpAddressType;
         public readonly int? OriginKeepaliveTimeout;
         /// <summary>
         /// Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
@@ -38,6 +42,8 @@ namespace Pulumi.Aws.CloudFront.Outputs
 
             int httpsPort,
 
+            string? ipAddressType,
+
             int? originKeepaliveTimeout,
 
             string originProtocolPolicy,
@@ -48,6 +54,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         {
             HttpPort = httpPort;
             HttpsPort = httpsPort;
+            IpAddressType = ipAddressType;
             OriginKeepaliveTimeout = originKeepaliveTimeout;
             OriginProtocolPolicy = originProtocolPolicy;
             OriginReadTimeout = originReadTimeout;

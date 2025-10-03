@@ -58,11 +58,17 @@ type ControlPanel struct {
 	// Whether a control panel is default.
 	DefaultControlPanel pulumi.BoolOutput `pulumi:"defaultControlPanel"`
 	// Name describing the control panel.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Number routing controls in a control panel.
 	RoutingControlCount pulumi.IntOutput `pulumi:"routingControlCount"`
 	// Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
 	Status pulumi.StringOutput `pulumi:"status"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewControlPanel registers a new resource with the given unique name, arguments, and options.
@@ -105,11 +111,17 @@ type controlPanelState struct {
 	// Whether a control panel is default.
 	DefaultControlPanel *bool `pulumi:"defaultControlPanel"`
 	// Name describing the control panel.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Number routing controls in a control panel.
 	RoutingControlCount *int `pulumi:"routingControlCount"`
 	// Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
 	Status *string `pulumi:"status"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ControlPanelState struct {
@@ -120,11 +132,17 @@ type ControlPanelState struct {
 	// Whether a control panel is default.
 	DefaultControlPanel pulumi.BoolPtrInput
 	// Name describing the control panel.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Number routing controls in a control panel.
 	RoutingControlCount pulumi.IntPtrInput
 	// Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
 	Status pulumi.StringPtrInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (ControlPanelState) ElementType() reflect.Type {
@@ -135,7 +153,11 @@ type controlPanelArgs struct {
 	// ARN of the cluster in which this control panel will reside.
 	ClusterArn string `pulumi:"clusterArn"`
 	// Name describing the control panel.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ControlPanel resource.
@@ -143,7 +165,11 @@ type ControlPanelArgs struct {
 	// ARN of the cluster in which this control panel will reside.
 	ClusterArn pulumi.StringInput
 	// Name describing the control panel.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (ControlPanelArgs) ElementType() reflect.Type {
@@ -249,6 +275,8 @@ func (o ControlPanelOutput) DefaultControlPanel() pulumi.BoolOutput {
 }
 
 // Name describing the control panel.
+//
+// The following arguments are optional:
 func (o ControlPanelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ControlPanel) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -261,6 +289,16 @@ func (o ControlPanelOutput) RoutingControlCount() pulumi.IntOutput {
 // Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
 func (o ControlPanelOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *ControlPanel) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o ControlPanelOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ControlPanel) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+func (o ControlPanelOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ControlPanel) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 type ControlPanelArrayOutput struct{ *pulumi.OutputState }

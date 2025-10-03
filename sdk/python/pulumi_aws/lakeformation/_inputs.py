@@ -29,6 +29,8 @@ __all__ = [
     'DataLakeSettingsCreateDatabaseDefaultPermissionArgsDict',
     'DataLakeSettingsCreateTableDefaultPermissionArgs',
     'DataLakeSettingsCreateTableDefaultPermissionArgsDict',
+    'LfTagExpressionExpressionArgs',
+    'LfTagExpressionExpressionArgsDict',
     'OptInConditionArgs',
     'OptInConditionArgsDict',
     'OptInPrincipalArgs',
@@ -509,6 +511,56 @@ class DataLakeSettingsCreateTableDefaultPermissionArgs:
     @principal.setter
     def principal(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "principal", value)
+
+
+if not MYPY:
+    class LfTagExpressionExpressionArgsDict(TypedDict):
+        tag_key: pulumi.Input[_builtins.str]
+        """
+        The key-name for the LF-Tag.
+        """
+        tag_values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        A list of possible values for the LF-Tag
+        """
+elif False:
+    LfTagExpressionExpressionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LfTagExpressionExpressionArgs:
+    def __init__(__self__, *,
+                 tag_key: pulumi.Input[_builtins.str],
+                 tag_values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[_builtins.str] tag_key: The key-name for the LF-Tag.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tag_values: A list of possible values for the LF-Tag
+        """
+        pulumi.set(__self__, "tag_key", tag_key)
+        pulumi.set(__self__, "tag_values", tag_values)
+
+    @_builtins.property
+    @pulumi.getter(name="tagKey")
+    def tag_key(self) -> pulumi.Input[_builtins.str]:
+        """
+        The key-name for the LF-Tag.
+        """
+        return pulumi.get(self, "tag_key")
+
+    @tag_key.setter
+    def tag_key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "tag_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tagValues")
+    def tag_values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        A list of possible values for the LF-Tag
+        """
+        return pulumi.get(self, "tag_values")
+
+    @tag_values.setter
+    def tag_values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "tag_values", value)
 
 
 if not MYPY:

@@ -10,6 +10,18 @@ import com.pulumi.aws.odb.inputs.GetCloudExadataInfrastructureArgs;
 import com.pulumi.aws.odb.inputs.GetCloudExadataInfrastructurePlainArgs;
 import com.pulumi.aws.odb.inputs.GetCloudVmClusterArgs;
 import com.pulumi.aws.odb.inputs.GetCloudVmClusterPlainArgs;
+import com.pulumi.aws.odb.inputs.GetDbNodeArgs;
+import com.pulumi.aws.odb.inputs.GetDbNodePlainArgs;
+import com.pulumi.aws.odb.inputs.GetDbNodesArgs;
+import com.pulumi.aws.odb.inputs.GetDbNodesPlainArgs;
+import com.pulumi.aws.odb.inputs.GetDbServerArgs;
+import com.pulumi.aws.odb.inputs.GetDbServerPlainArgs;
+import com.pulumi.aws.odb.inputs.GetDbServersArgs;
+import com.pulumi.aws.odb.inputs.GetDbServersPlainArgs;
+import com.pulumi.aws.odb.inputs.GetDbSystemShapesArgs;
+import com.pulumi.aws.odb.inputs.GetDbSystemShapesPlainArgs;
+import com.pulumi.aws.odb.inputs.GetGiVersionsArgs;
+import com.pulumi.aws.odb.inputs.GetGiVersionsPlainArgs;
 import com.pulumi.aws.odb.inputs.GetNetworkArgs;
 import com.pulumi.aws.odb.inputs.GetNetworkPeeringConnectionArgs;
 import com.pulumi.aws.odb.inputs.GetNetworkPeeringConnectionPlainArgs;
@@ -17,6 +29,12 @@ import com.pulumi.aws.odb.inputs.GetNetworkPlainArgs;
 import com.pulumi.aws.odb.outputs.GetCloudAutonomousVmClusterResult;
 import com.pulumi.aws.odb.outputs.GetCloudExadataInfrastructureResult;
 import com.pulumi.aws.odb.outputs.GetCloudVmClusterResult;
+import com.pulumi.aws.odb.outputs.GetDbNodeResult;
+import com.pulumi.aws.odb.outputs.GetDbNodesResult;
+import com.pulumi.aws.odb.outputs.GetDbServerResult;
+import com.pulumi.aws.odb.outputs.GetDbServersResult;
+import com.pulumi.aws.odb.outputs.GetDbSystemShapesResult;
+import com.pulumi.aws.odb.outputs.GetGiVersionsResult;
 import com.pulumi.aws.odb.outputs.GetNetworkPeeringConnectionResult;
 import com.pulumi.aws.odb.outputs.GetNetworkResult;
 import com.pulumi.core.Output;
@@ -468,59 +486,1492 @@ public final class OdbFunctions {
         return Deployment.getInstance().invokeAsync("aws:odb/getCloudExadataInfrastructure:getCloudExadataInfrastructure", TypeShape.of(GetCloudExadataInfrastructureResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for Exadata Infrastructure resource in AWS for Oracle Database{@literal @}AWS.
+     * Data source for cloud vm cluster in AWS for Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetCloudVmClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getCloudVmCluster(GetCloudVmClusterArgs.builder()
+     *             .id("example-id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static Output<GetCloudVmClusterResult> getCloudVmCluster(GetCloudVmClusterArgs args) {
         return getCloudVmCluster(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for Exadata Infrastructure resource in AWS for Oracle Database{@literal @}AWS.
+     * Data source for cloud vm cluster in AWS for Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetCloudVmClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getCloudVmCluster(GetCloudVmClusterArgs.builder()
+     *             .id("example-id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetCloudVmClusterResult> getCloudVmClusterPlain(GetCloudVmClusterPlainArgs args) {
         return getCloudVmClusterPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for Exadata Infrastructure resource in AWS for Oracle Database{@literal @}AWS.
+     * Data source for cloud vm cluster in AWS for Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetCloudVmClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getCloudVmCluster(GetCloudVmClusterArgs.builder()
+     *             .id("example-id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static Output<GetCloudVmClusterResult> getCloudVmCluster(GetCloudVmClusterArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:odb/getCloudVmCluster:getCloudVmCluster", TypeShape.of(GetCloudVmClusterResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for Exadata Infrastructure resource in AWS for Oracle Database{@literal @}AWS.
+     * Data source for cloud vm cluster in AWS for Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetCloudVmClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getCloudVmCluster(GetCloudVmClusterArgs.builder()
+     *             .id("example-id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static Output<GetCloudVmClusterResult> getCloudVmCluster(GetCloudVmClusterArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:odb/getCloudVmCluster:getCloudVmCluster", TypeShape.of(GetCloudVmClusterResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for Exadata Infrastructure resource in AWS for Oracle Database{@literal @}AWS.
+     * Data source for cloud vm cluster in AWS for Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetCloudVmClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getCloudVmCluster(GetCloudVmClusterArgs.builder()
+     *             .id("example-id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetCloudVmClusterResult> getCloudVmClusterPlain(GetCloudVmClusterPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:odb/getCloudVmCluster:getCloudVmCluster", TypeShape.of(GetCloudVmClusterResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for manging db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetDbNodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getDbNode(GetDbNodeArgs.builder()
+     *             .cloudVmClusterId("cloud_vm_cluster_id")
+     *             .id("db_node_id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetDbNodeResult> getDbNode(GetDbNodeArgs args) {
+        return getDbNode(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for manging db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetDbNodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getDbNode(GetDbNodeArgs.builder()
+     *             .cloudVmClusterId("cloud_vm_cluster_id")
+     *             .id("db_node_id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetDbNodeResult> getDbNodePlain(GetDbNodePlainArgs args) {
+        return getDbNodePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for manging db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetDbNodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getDbNode(GetDbNodeArgs.builder()
+     *             .cloudVmClusterId("cloud_vm_cluster_id")
+     *             .id("db_node_id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetDbNodeResult> getDbNode(GetDbNodeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:odb/getDbNode:getDbNode", TypeShape.of(GetDbNodeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for manging db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetDbNodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getDbNode(GetDbNodeArgs.builder()
+     *             .cloudVmClusterId("cloud_vm_cluster_id")
+     *             .id("db_node_id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetDbNodeResult> getDbNode(GetDbNodeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:odb/getDbNode:getDbNode", TypeShape.of(GetDbNodeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for manging db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetDbNodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getDbNode(GetDbNodeArgs.builder()
+     *             .cloudVmClusterId("cloud_vm_cluster_id")
+     *             .id("db_node_id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetDbNodeResult> getDbNodePlain(GetDbNodePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:odb/getDbNode:getDbNode", TypeShape.of(GetDbNodeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for manging db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetDbNodesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getDbNodes(GetDbNodesArgs.builder()
+     *             .cloudVmClusterId("example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetDbNodesResult> getDbNodes(GetDbNodesArgs args) {
+        return getDbNodes(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for manging db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetDbNodesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getDbNodes(GetDbNodesArgs.builder()
+     *             .cloudVmClusterId("example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetDbNodesResult> getDbNodesPlain(GetDbNodesPlainArgs args) {
+        return getDbNodesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for manging db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetDbNodesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getDbNodes(GetDbNodesArgs.builder()
+     *             .cloudVmClusterId("example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetDbNodesResult> getDbNodes(GetDbNodesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:odb/getDbNodes:getDbNodes", TypeShape.of(GetDbNodesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for manging db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetDbNodesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getDbNodes(GetDbNodesArgs.builder()
+     *             .cloudVmClusterId("example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetDbNodesResult> getDbNodes(GetDbNodesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:odb/getDbNodes:getDbNodes", TypeShape.of(GetDbNodesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for manging db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetDbNodesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getDbNodes(GetDbNodesArgs.builder()
+     *             .cloudVmClusterId("example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetDbNodesResult> getDbNodesPlain(GetDbNodesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:odb/getDbNodes:getDbNodes", TypeShape.of(GetDbNodesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for manging db server linked to exadata infrastructure of Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetDbServerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getDbServer(GetDbServerArgs.builder()
+     *             .cloudExadataInfrastructureId("exadata_infra_id")
+     *             .id("db_server_id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetDbServerResult> getDbServer(GetDbServerArgs args) {
+        return getDbServer(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for manging db server linked to exadata infrastructure of Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetDbServerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getDbServer(GetDbServerArgs.builder()
+     *             .cloudExadataInfrastructureId("exadata_infra_id")
+     *             .id("db_server_id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetDbServerResult> getDbServerPlain(GetDbServerPlainArgs args) {
+        return getDbServerPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for manging db server linked to exadata infrastructure of Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetDbServerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getDbServer(GetDbServerArgs.builder()
+     *             .cloudExadataInfrastructureId("exadata_infra_id")
+     *             .id("db_server_id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetDbServerResult> getDbServer(GetDbServerArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:odb/getDbServer:getDbServer", TypeShape.of(GetDbServerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for manging db server linked to exadata infrastructure of Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetDbServerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getDbServer(GetDbServerArgs.builder()
+     *             .cloudExadataInfrastructureId("exadata_infra_id")
+     *             .id("db_server_id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetDbServerResult> getDbServer(GetDbServerArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:odb/getDbServer:getDbServer", TypeShape.of(GetDbServerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for manging db server linked to exadata infrastructure of Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetDbServerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getDbServer(GetDbServerArgs.builder()
+     *             .cloudExadataInfrastructureId("exadata_infra_id")
+     *             .id("db_server_id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetDbServerResult> getDbServerPlain(GetDbServerPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:odb/getDbServer:getDbServer", TypeShape.of(GetDbServerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for manging db servers linked to exadata infrastructure of Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetDbServersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getDbServers(GetDbServersArgs.builder()
+     *             .cloudExadataInfrastructureId("exadata_infra_id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetDbServersResult> getDbServers(GetDbServersArgs args) {
+        return getDbServers(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for manging db servers linked to exadata infrastructure of Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetDbServersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getDbServers(GetDbServersArgs.builder()
+     *             .cloudExadataInfrastructureId("exadata_infra_id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetDbServersResult> getDbServersPlain(GetDbServersPlainArgs args) {
+        return getDbServersPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for manging db servers linked to exadata infrastructure of Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetDbServersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getDbServers(GetDbServersArgs.builder()
+     *             .cloudExadataInfrastructureId("exadata_infra_id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetDbServersResult> getDbServers(GetDbServersArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:odb/getDbServers:getDbServers", TypeShape.of(GetDbServersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for manging db servers linked to exadata infrastructure of Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetDbServersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getDbServers(GetDbServersArgs.builder()
+     *             .cloudExadataInfrastructureId("exadata_infra_id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetDbServersResult> getDbServers(GetDbServersArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:odb/getDbServers:getDbServers", TypeShape.of(GetDbServersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for manging db servers linked to exadata infrastructure of Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetDbServersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getDbServers(GetDbServersArgs.builder()
+     *             .cloudExadataInfrastructureId("exadata_infra_id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetDbServersResult> getDbServersPlain(GetDbServersPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:odb/getDbServers:getDbServers", TypeShape.of(GetDbServersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source to retrieve available system shapes Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetDbSystemShapesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getDbSystemShapes(GetDbSystemShapesArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetDbSystemShapesResult> getDbSystemShapes() {
+        return getDbSystemShapes(GetDbSystemShapesArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source to retrieve available system shapes Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetDbSystemShapesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getDbSystemShapes(GetDbSystemShapesArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetDbSystemShapesResult> getDbSystemShapesPlain() {
+        return getDbSystemShapesPlain(GetDbSystemShapesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source to retrieve available system shapes Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetDbSystemShapesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getDbSystemShapes(GetDbSystemShapesArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetDbSystemShapesResult> getDbSystemShapes(GetDbSystemShapesArgs args) {
+        return getDbSystemShapes(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source to retrieve available system shapes Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetDbSystemShapesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getDbSystemShapes(GetDbSystemShapesArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetDbSystemShapesResult> getDbSystemShapesPlain(GetDbSystemShapesPlainArgs args) {
+        return getDbSystemShapesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source to retrieve available system shapes Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetDbSystemShapesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getDbSystemShapes(GetDbSystemShapesArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetDbSystemShapesResult> getDbSystemShapes(GetDbSystemShapesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:odb/getDbSystemShapes:getDbSystemShapes", TypeShape.of(GetDbSystemShapesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source to retrieve available system shapes Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetDbSystemShapesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getDbSystemShapes(GetDbSystemShapesArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetDbSystemShapesResult> getDbSystemShapes(GetDbSystemShapesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:odb/getDbSystemShapes:getDbSystemShapes", TypeShape.of(GetDbSystemShapesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source to retrieve available system shapes Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetDbSystemShapesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getDbSystemShapes(GetDbSystemShapesArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetDbSystemShapesResult> getDbSystemShapesPlain(GetDbSystemShapesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:odb/getDbSystemShapes:getDbSystemShapes", TypeShape.of(GetDbSystemShapesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source to retrieve available Grid Infrastructure versions of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
      * ## Example Usage
      * 
      */
-    public static CompletableFuture<GetCloudVmClusterResult> getCloudVmClusterPlain(GetCloudVmClusterPlainArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invokeAsync("aws:odb/getCloudVmCluster:getCloudVmCluster", TypeShape.of(GetCloudVmClusterResult.class), args, Utilities.withVersion(options));
+    public static Output<GetGiVersionsResult> getGiVersions() {
+        return getGiVersions(GetGiVersionsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source to retrieve available Grid Infrastructure versions of Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static CompletableFuture<GetGiVersionsResult> getGiVersionsPlain() {
+        return getGiVersionsPlain(GetGiVersionsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source to retrieve available Grid Infrastructure versions of Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static Output<GetGiVersionsResult> getGiVersions(GetGiVersionsArgs args) {
+        return getGiVersions(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source to retrieve available Grid Infrastructure versions of Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static CompletableFuture<GetGiVersionsResult> getGiVersionsPlain(GetGiVersionsPlainArgs args) {
+        return getGiVersionsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source to retrieve available Grid Infrastructure versions of Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static Output<GetGiVersionsResult> getGiVersions(GetGiVersionsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:odb/getGiVersions:getGiVersions", TypeShape.of(GetGiVersionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source to retrieve available Grid Infrastructure versions of Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static Output<GetGiVersionsResult> getGiVersions(GetGiVersionsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:odb/getGiVersions:getGiVersions", TypeShape.of(GetGiVersionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source to retrieve available Grid Infrastructure versions of Oracle Database{@literal @}AWS.
+     * 
+     * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static CompletableFuture<GetGiVersionsResult> getGiVersionsPlain(GetGiVersionsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:odb/getGiVersions:getGiVersions", TypeShape.of(GetGiVersionsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data source for to retrieve network resource in AWS for Oracle Database{@literal @}AWS.

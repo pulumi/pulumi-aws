@@ -49,13 +49,17 @@ export class Proxy extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
+     * Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `defaultAuthScheme` is `NONE` or unspecified. Described below.
      */
-    declare public readonly auths: pulumi.Output<outputs.rds.ProxyAuth[]>;
+    declare public readonly auths: pulumi.Output<outputs.rds.ProxyAuth[] | undefined>;
     /**
      * Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
      */
     declare public readonly debugLogging: pulumi.Output<boolean | undefined>;
+    /**
+     * Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database. Valid values are `NONE` and `IAM_AUTH`. Defaults to `NONE`.
+     */
+    declare public readonly defaultAuthScheme: pulumi.Output<string>;
     /**
      * The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
      */
@@ -117,6 +121,7 @@ export class Proxy extends pulumi.CustomResource {
             resourceInputs["arn"] = state?.arn;
             resourceInputs["auths"] = state?.auths;
             resourceInputs["debugLogging"] = state?.debugLogging;
+            resourceInputs["defaultAuthScheme"] = state?.defaultAuthScheme;
             resourceInputs["endpoint"] = state?.endpoint;
             resourceInputs["engineFamily"] = state?.engineFamily;
             resourceInputs["idleClientTimeout"] = state?.idleClientTimeout;
@@ -130,9 +135,6 @@ export class Proxy extends pulumi.CustomResource {
             resourceInputs["vpcSubnetIds"] = state?.vpcSubnetIds;
         } else {
             const args = argsOrState as ProxyArgs | undefined;
-            if (args?.auths === undefined && !opts.urn) {
-                throw new Error("Missing required property 'auths'");
-            }
             if (args?.engineFamily === undefined && !opts.urn) {
                 throw new Error("Missing required property 'engineFamily'");
             }
@@ -144,6 +146,7 @@ export class Proxy extends pulumi.CustomResource {
             }
             resourceInputs["auths"] = args?.auths;
             resourceInputs["debugLogging"] = args?.debugLogging;
+            resourceInputs["defaultAuthScheme"] = args?.defaultAuthScheme;
             resourceInputs["engineFamily"] = args?.engineFamily;
             resourceInputs["idleClientTimeout"] = args?.idleClientTimeout;
             resourceInputs["name"] = args?.name;
@@ -171,13 +174,17 @@ export interface ProxyState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
+     * Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `defaultAuthScheme` is `NONE` or unspecified. Described below.
      */
     auths?: pulumi.Input<pulumi.Input<inputs.rds.ProxyAuth>[]>;
     /**
      * Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
      */
     debugLogging?: pulumi.Input<boolean>;
+    /**
+     * Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database. Valid values are `NONE` and `IAM_AUTH`. Defaults to `NONE`.
+     */
+    defaultAuthScheme?: pulumi.Input<string>;
     /**
      * The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
      */
@@ -229,13 +236,17 @@ export interface ProxyState {
  */
 export interface ProxyArgs {
     /**
-     * Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
+     * Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `defaultAuthScheme` is `NONE` or unspecified. Described below.
      */
-    auths: pulumi.Input<pulumi.Input<inputs.rds.ProxyAuth>[]>;
+    auths?: pulumi.Input<pulumi.Input<inputs.rds.ProxyAuth>[]>;
     /**
      * Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
      */
     debugLogging?: pulumi.Input<boolean>;
+    /**
+     * Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database. Valid values are `NONE` and `IAM_AUTH`. Defaults to `NONE`.
+     */
+    defaultAuthScheme?: pulumi.Input<string>;
     /**
      * The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
      */

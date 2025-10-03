@@ -229,6 +229,7 @@ namespace Pulumi.Aws.LB
         public readonly string Name;
         public readonly bool PreserveHostHeader;
         public readonly string Region;
+        public readonly int SecondaryIpsAutoAssignedPerSubnet;
         public readonly ImmutableArray<string> SecurityGroups;
         public readonly ImmutableArray<Outputs.GetLoadBalancerSubnetMappingResult> SubnetMappings;
         public readonly ImmutableArray<string> Subnets;
@@ -293,6 +294,8 @@ namespace Pulumi.Aws.LB
 
             string region,
 
+            int secondaryIpsAutoAssignedPerSubnet,
+
             ImmutableArray<string> securityGroups,
 
             ImmutableArray<Outputs.GetLoadBalancerSubnetMappingResult> subnetMappings,
@@ -334,6 +337,7 @@ namespace Pulumi.Aws.LB
             Name = name;
             PreserveHostHeader = preserveHostHeader;
             Region = region;
+            SecondaryIpsAutoAssignedPerSubnet = secondaryIpsAutoAssignedPerSubnet;
             SecurityGroups = securityGroups;
             SubnetMappings = subnetMappings;
             Subnets = subnets;

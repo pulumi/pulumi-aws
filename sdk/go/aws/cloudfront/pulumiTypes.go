@@ -4745,8 +4745,10 @@ type DistributionOriginCustomOriginConfig struct {
 	// HTTP port the custom origin listens on.
 	HttpPort int `pulumi:"httpPort"`
 	// HTTPS port the custom origin listens on.
-	HttpsPort              int  `pulumi:"httpsPort"`
-	OriginKeepaliveTimeout *int `pulumi:"originKeepaliveTimeout"`
+	HttpsPort int `pulumi:"httpsPort"`
+	// IP protocol CloudFront uses when connecting to your origin. Valid values: `ipv4`, `ipv6`, `dualstack`.
+	IpAddressType          *string `pulumi:"ipAddressType"`
+	OriginKeepaliveTimeout *int    `pulumi:"originKeepaliveTimeout"`
 	// Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
 	OriginProtocolPolicy string `pulumi:"originProtocolPolicy"`
 	OriginReadTimeout    *int   `pulumi:"originReadTimeout"`
@@ -4769,8 +4771,10 @@ type DistributionOriginCustomOriginConfigArgs struct {
 	// HTTP port the custom origin listens on.
 	HttpPort pulumi.IntInput `pulumi:"httpPort"`
 	// HTTPS port the custom origin listens on.
-	HttpsPort              pulumi.IntInput    `pulumi:"httpsPort"`
-	OriginKeepaliveTimeout pulumi.IntPtrInput `pulumi:"originKeepaliveTimeout"`
+	HttpsPort pulumi.IntInput `pulumi:"httpsPort"`
+	// IP protocol CloudFront uses when connecting to your origin. Valid values: `ipv4`, `ipv6`, `dualstack`.
+	IpAddressType          pulumi.StringPtrInput `pulumi:"ipAddressType"`
+	OriginKeepaliveTimeout pulumi.IntPtrInput    `pulumi:"originKeepaliveTimeout"`
 	// Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
 	OriginProtocolPolicy pulumi.StringInput `pulumi:"originProtocolPolicy"`
 	OriginReadTimeout    pulumi.IntPtrInput `pulumi:"originReadTimeout"`
@@ -4865,6 +4869,11 @@ func (o DistributionOriginCustomOriginConfigOutput) HttpsPort() pulumi.IntOutput
 	return o.ApplyT(func(v DistributionOriginCustomOriginConfig) int { return v.HttpsPort }).(pulumi.IntOutput)
 }
 
+// IP protocol CloudFront uses when connecting to your origin. Valid values: `ipv4`, `ipv6`, `dualstack`.
+func (o DistributionOriginCustomOriginConfigOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionOriginCustomOriginConfig) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
+}
+
 func (o DistributionOriginCustomOriginConfigOutput) OriginKeepaliveTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionOriginCustomOriginConfig) *int { return v.OriginKeepaliveTimeout }).(pulumi.IntPtrOutput)
 }
@@ -4925,6 +4934,16 @@ func (o DistributionOriginCustomOriginConfigPtrOutput) HttpsPort() pulumi.IntPtr
 		}
 		return &v.HttpsPort
 	}).(pulumi.IntPtrOutput)
+}
+
+// IP protocol CloudFront uses when connecting to your origin. Valid values: `ipv4`, `ipv6`, `dualstack`.
+func (o DistributionOriginCustomOriginConfigPtrOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionOriginCustomOriginConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IpAddressType
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o DistributionOriginCustomOriginConfigPtrOutput) OriginKeepaliveTimeout() pulumi.IntPtrOutput {

@@ -317,6 +317,7 @@ export class Domain extends pulumi.CustomResource {
      * Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
      */
     declare public readonly advancedSecurityOptions: pulumi.Output<outputs.opensearch.DomainAdvancedSecurityOptions>;
+    declare public readonly aimlOptions: pulumi.Output<outputs.opensearch.DomainAimlOptions>;
     /**
      * ARN of the domain.
      */
@@ -438,6 +439,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["accessPolicies"] = state?.accessPolicies;
             resourceInputs["advancedOptions"] = state?.advancedOptions;
             resourceInputs["advancedSecurityOptions"] = state?.advancedSecurityOptions;
+            resourceInputs["aimlOptions"] = state?.aimlOptions;
             resourceInputs["arn"] = state?.arn;
             resourceInputs["autoTuneOptions"] = state?.autoTuneOptions;
             resourceInputs["clusterConfig"] = state?.clusterConfig;
@@ -468,6 +470,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["accessPolicies"] = args?.accessPolicies;
             resourceInputs["advancedOptions"] = args?.advancedOptions;
             resourceInputs["advancedSecurityOptions"] = args?.advancedSecurityOptions;
+            resourceInputs["aimlOptions"] = args?.aimlOptions;
             resourceInputs["autoTuneOptions"] = args?.autoTuneOptions;
             resourceInputs["clusterConfig"] = args?.clusterConfig;
             resourceInputs["cognitoOptions"] = args?.cognitoOptions;
@@ -515,6 +518,7 @@ export interface DomainState {
      * Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
      */
     advancedSecurityOptions?: pulumi.Input<inputs.opensearch.DomainAdvancedSecurityOptions>;
+    aimlOptions?: pulumi.Input<inputs.opensearch.DomainAimlOptions>;
     /**
      * ARN of the domain.
      */
@@ -637,6 +641,7 @@ export interface DomainArgs {
      * Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
      */
     advancedSecurityOptions?: pulumi.Input<inputs.opensearch.DomainAdvancedSecurityOptions>;
+    aimlOptions?: pulumi.Input<inputs.opensearch.DomainAimlOptions>;
     /**
      * Configuration block for the Auto-Tune options of the domain. Detailed below.
      */

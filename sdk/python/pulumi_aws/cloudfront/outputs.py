@@ -2091,6 +2091,8 @@ class DistributionOriginCustomOriginConfig(dict):
             suggest = "origin_protocol_policy"
         elif key == "originSslProtocols":
             suggest = "origin_ssl_protocols"
+        elif key == "ipAddressType":
+            suggest = "ip_address_type"
         elif key == "originKeepaliveTimeout":
             suggest = "origin_keepalive_timeout"
         elif key == "originReadTimeout":
@@ -2112,6 +2114,7 @@ class DistributionOriginCustomOriginConfig(dict):
                  https_port: _builtins.int,
                  origin_protocol_policy: _builtins.str,
                  origin_ssl_protocols: Sequence[_builtins.str],
+                 ip_address_type: Optional[_builtins.str] = None,
                  origin_keepalive_timeout: Optional[_builtins.int] = None,
                  origin_read_timeout: Optional[_builtins.int] = None):
         """
@@ -2119,11 +2122,14 @@ class DistributionOriginCustomOriginConfig(dict):
         :param _builtins.int https_port: HTTPS port the custom origin listens on.
         :param _builtins.str origin_protocol_policy: Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
         :param Sequence[_builtins.str] origin_ssl_protocols: List of SSL/TLS protocols that CloudFront can use when connecting to your origin over HTTPS. Valid values: `SSLv3`, `TLSv1`, `TLSv1.1`, `TLSv1.2`. For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the Amazon CloudFront Developer Guide.
+        :param _builtins.str ip_address_type: IP protocol CloudFront uses when connecting to your origin. Valid values: `ipv4`, `ipv6`, `dualstack`.
         """
         pulumi.set(__self__, "http_port", http_port)
         pulumi.set(__self__, "https_port", https_port)
         pulumi.set(__self__, "origin_protocol_policy", origin_protocol_policy)
         pulumi.set(__self__, "origin_ssl_protocols", origin_ssl_protocols)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if origin_keepalive_timeout is not None:
             pulumi.set(__self__, "origin_keepalive_timeout", origin_keepalive_timeout)
         if origin_read_timeout is not None:
@@ -2160,6 +2166,14 @@ class DistributionOriginCustomOriginConfig(dict):
         List of SSL/TLS protocols that CloudFront can use when connecting to your origin over HTTPS. Valid values: `SSLv3`, `TLSv1`, `TLSv1.1`, `TLSv1.2`. For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the Amazon CloudFront Developer Guide.
         """
         return pulumi.get(self, "origin_ssl_protocols")
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[_builtins.str]:
+        """
+        IP protocol CloudFront uses when connecting to your origin. Valid values: `ipv4`, `ipv6`, `dualstack`.
+        """
+        return pulumi.get(self, "ip_address_type")
 
     @_builtins.property
     @pulumi.getter(name="originKeepaliveTimeout")

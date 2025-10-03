@@ -12,6 +12,12 @@ from .cloud_vm_cluster import *
 from .get_cloud_autonomous_vm_cluster import *
 from .get_cloud_exadata_infrastructure import *
 from .get_cloud_vm_cluster import *
+from .get_db_node import *
+from .get_db_nodes import *
+from .get_db_server import *
+from .get_db_servers import *
+from .get_db_system_shapes import *
+from .get_gi_versions import *
 from .get_network import *
 from .get_network_peering_connection import *
 from .network import *

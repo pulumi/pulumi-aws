@@ -486,6 +486,7 @@ type Domain struct {
 	AdvancedOptions pulumi.StringMapOutput `pulumi:"advancedOptions"`
 	// Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
 	AdvancedSecurityOptions DomainAdvancedSecurityOptionsOutput `pulumi:"advancedSecurityOptions"`
+	AimlOptions             DomainAimlOptionsOutput             `pulumi:"aimlOptions"`
 	// ARN of the domain.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration block for the Auto-Tune options of the domain. Detailed below.
@@ -578,6 +579,7 @@ type domainState struct {
 	AdvancedOptions map[string]string `pulumi:"advancedOptions"`
 	// Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
 	AdvancedSecurityOptions *DomainAdvancedSecurityOptions `pulumi:"advancedSecurityOptions"`
+	AimlOptions             *DomainAimlOptions             `pulumi:"aimlOptions"`
 	// ARN of the domain.
 	Arn *string `pulumi:"arn"`
 	// Configuration block for the Auto-Tune options of the domain. Detailed below.
@@ -641,6 +643,7 @@ type DomainState struct {
 	AdvancedOptions pulumi.StringMapInput
 	// Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
 	AdvancedSecurityOptions DomainAdvancedSecurityOptionsPtrInput
+	AimlOptions             DomainAimlOptionsPtrInput
 	// ARN of the domain.
 	Arn pulumi.StringPtrInput
 	// Configuration block for the Auto-Tune options of the domain. Detailed below.
@@ -708,6 +711,7 @@ type domainArgs struct {
 	AdvancedOptions map[string]string `pulumi:"advancedOptions"`
 	// Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
 	AdvancedSecurityOptions *DomainAdvancedSecurityOptions `pulumi:"advancedSecurityOptions"`
+	AimlOptions             *DomainAimlOptions             `pulumi:"aimlOptions"`
 	// Configuration block for the Auto-Tune options of the domain. Detailed below.
 	AutoTuneOptions *DomainAutoTuneOptions `pulumi:"autoTuneOptions"`
 	// Configuration block for the cluster of the domain. Detailed below.
@@ -756,6 +760,7 @@ type DomainArgs struct {
 	AdvancedOptions pulumi.StringMapInput
 	// Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
 	AdvancedSecurityOptions DomainAdvancedSecurityOptionsPtrInput
+	AimlOptions             DomainAimlOptionsPtrInput
 	// Configuration block for the Auto-Tune options of the domain. Detailed below.
 	AutoTuneOptions DomainAutoTuneOptionsPtrInput
 	// Configuration block for the cluster of the domain. Detailed below.
@@ -896,6 +901,10 @@ func (o DomainOutput) AdvancedOptions() pulumi.StringMapOutput {
 // Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
 func (o DomainOutput) AdvancedSecurityOptions() DomainAdvancedSecurityOptionsOutput {
 	return o.ApplyT(func(v *Domain) DomainAdvancedSecurityOptionsOutput { return v.AdvancedSecurityOptions }).(DomainAdvancedSecurityOptionsOutput)
+}
+
+func (o DomainOutput) AimlOptions() DomainAimlOptionsOutput {
+	return o.ApplyT(func(v *Domain) DomainAimlOptionsOutput { return v.AimlOptions }).(DomainAimlOptionsOutput)
 }
 
 // ARN of the domain.

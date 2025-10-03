@@ -490,6 +490,426 @@ func (o DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput) MasterUserPassw
 	}).(pulumi.StringPtrOutput)
 }
 
+type DomainAimlOptions struct {
+	NaturalLanguageQueryGenerationOptions *DomainAimlOptionsNaturalLanguageQueryGenerationOptions `pulumi:"naturalLanguageQueryGenerationOptions"`
+	S3VectorsEngine                       *DomainAimlOptionsS3VectorsEngine                       `pulumi:"s3VectorsEngine"`
+}
+
+// DomainAimlOptionsInput is an input type that accepts DomainAimlOptionsArgs and DomainAimlOptionsOutput values.
+// You can construct a concrete instance of `DomainAimlOptionsInput` via:
+//
+//	DomainAimlOptionsArgs{...}
+type DomainAimlOptionsInput interface {
+	pulumi.Input
+
+	ToDomainAimlOptionsOutput() DomainAimlOptionsOutput
+	ToDomainAimlOptionsOutputWithContext(context.Context) DomainAimlOptionsOutput
+}
+
+type DomainAimlOptionsArgs struct {
+	NaturalLanguageQueryGenerationOptions DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrInput `pulumi:"naturalLanguageQueryGenerationOptions"`
+	S3VectorsEngine                       DomainAimlOptionsS3VectorsEnginePtrInput                       `pulumi:"s3VectorsEngine"`
+}
+
+func (DomainAimlOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAimlOptions)(nil)).Elem()
+}
+
+func (i DomainAimlOptionsArgs) ToDomainAimlOptionsOutput() DomainAimlOptionsOutput {
+	return i.ToDomainAimlOptionsOutputWithContext(context.Background())
+}
+
+func (i DomainAimlOptionsArgs) ToDomainAimlOptionsOutputWithContext(ctx context.Context) DomainAimlOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAimlOptionsOutput)
+}
+
+func (i DomainAimlOptionsArgs) ToDomainAimlOptionsPtrOutput() DomainAimlOptionsPtrOutput {
+	return i.ToDomainAimlOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainAimlOptionsArgs) ToDomainAimlOptionsPtrOutputWithContext(ctx context.Context) DomainAimlOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAimlOptionsOutput).ToDomainAimlOptionsPtrOutputWithContext(ctx)
+}
+
+// DomainAimlOptionsPtrInput is an input type that accepts DomainAimlOptionsArgs, DomainAimlOptionsPtr and DomainAimlOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainAimlOptionsPtrInput` via:
+//
+//	        DomainAimlOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainAimlOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDomainAimlOptionsPtrOutput() DomainAimlOptionsPtrOutput
+	ToDomainAimlOptionsPtrOutputWithContext(context.Context) DomainAimlOptionsPtrOutput
+}
+
+type domainAimlOptionsPtrType DomainAimlOptionsArgs
+
+func DomainAimlOptionsPtr(v *DomainAimlOptionsArgs) DomainAimlOptionsPtrInput {
+	return (*domainAimlOptionsPtrType)(v)
+}
+
+func (*domainAimlOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAimlOptions)(nil)).Elem()
+}
+
+func (i *domainAimlOptionsPtrType) ToDomainAimlOptionsPtrOutput() DomainAimlOptionsPtrOutput {
+	return i.ToDomainAimlOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainAimlOptionsPtrType) ToDomainAimlOptionsPtrOutputWithContext(ctx context.Context) DomainAimlOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAimlOptionsPtrOutput)
+}
+
+type DomainAimlOptionsOutput struct{ *pulumi.OutputState }
+
+func (DomainAimlOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAimlOptions)(nil)).Elem()
+}
+
+func (o DomainAimlOptionsOutput) ToDomainAimlOptionsOutput() DomainAimlOptionsOutput {
+	return o
+}
+
+func (o DomainAimlOptionsOutput) ToDomainAimlOptionsOutputWithContext(ctx context.Context) DomainAimlOptionsOutput {
+	return o
+}
+
+func (o DomainAimlOptionsOutput) ToDomainAimlOptionsPtrOutput() DomainAimlOptionsPtrOutput {
+	return o.ToDomainAimlOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAimlOptionsOutput) ToDomainAimlOptionsPtrOutputWithContext(ctx context.Context) DomainAimlOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainAimlOptions) *DomainAimlOptions {
+		return &v
+	}).(DomainAimlOptionsPtrOutput)
+}
+
+func (o DomainAimlOptionsOutput) NaturalLanguageQueryGenerationOptions() DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput {
+	return o.ApplyT(func(v DomainAimlOptions) *DomainAimlOptionsNaturalLanguageQueryGenerationOptions {
+		return v.NaturalLanguageQueryGenerationOptions
+	}).(DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput)
+}
+
+func (o DomainAimlOptionsOutput) S3VectorsEngine() DomainAimlOptionsS3VectorsEnginePtrOutput {
+	return o.ApplyT(func(v DomainAimlOptions) *DomainAimlOptionsS3VectorsEngine { return v.S3VectorsEngine }).(DomainAimlOptionsS3VectorsEnginePtrOutput)
+}
+
+type DomainAimlOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainAimlOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAimlOptions)(nil)).Elem()
+}
+
+func (o DomainAimlOptionsPtrOutput) ToDomainAimlOptionsPtrOutput() DomainAimlOptionsPtrOutput {
+	return o
+}
+
+func (o DomainAimlOptionsPtrOutput) ToDomainAimlOptionsPtrOutputWithContext(ctx context.Context) DomainAimlOptionsPtrOutput {
+	return o
+}
+
+func (o DomainAimlOptionsPtrOutput) Elem() DomainAimlOptionsOutput {
+	return o.ApplyT(func(v *DomainAimlOptions) DomainAimlOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DomainAimlOptions
+		return ret
+	}).(DomainAimlOptionsOutput)
+}
+
+func (o DomainAimlOptionsPtrOutput) NaturalLanguageQueryGenerationOptions() DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput {
+	return o.ApplyT(func(v *DomainAimlOptions) *DomainAimlOptionsNaturalLanguageQueryGenerationOptions {
+		if v == nil {
+			return nil
+		}
+		return v.NaturalLanguageQueryGenerationOptions
+	}).(DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput)
+}
+
+func (o DomainAimlOptionsPtrOutput) S3VectorsEngine() DomainAimlOptionsS3VectorsEnginePtrOutput {
+	return o.ApplyT(func(v *DomainAimlOptions) *DomainAimlOptionsS3VectorsEngine {
+		if v == nil {
+			return nil
+		}
+		return v.S3VectorsEngine
+	}).(DomainAimlOptionsS3VectorsEnginePtrOutput)
+}
+
+type DomainAimlOptionsNaturalLanguageQueryGenerationOptions struct {
+	// Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+	DesiredState *string `pulumi:"desiredState"`
+}
+
+// DomainAimlOptionsNaturalLanguageQueryGenerationOptionsInput is an input type that accepts DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs and DomainAimlOptionsNaturalLanguageQueryGenerationOptionsOutput values.
+// You can construct a concrete instance of `DomainAimlOptionsNaturalLanguageQueryGenerationOptionsInput` via:
+//
+//	DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs{...}
+type DomainAimlOptionsNaturalLanguageQueryGenerationOptionsInput interface {
+	pulumi.Input
+
+	ToDomainAimlOptionsNaturalLanguageQueryGenerationOptionsOutput() DomainAimlOptionsNaturalLanguageQueryGenerationOptionsOutput
+	ToDomainAimlOptionsNaturalLanguageQueryGenerationOptionsOutputWithContext(context.Context) DomainAimlOptionsNaturalLanguageQueryGenerationOptionsOutput
+}
+
+type DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs struct {
+	// Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+	DesiredState pulumi.StringPtrInput `pulumi:"desiredState"`
+}
+
+func (DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAimlOptionsNaturalLanguageQueryGenerationOptions)(nil)).Elem()
+}
+
+func (i DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs) ToDomainAimlOptionsNaturalLanguageQueryGenerationOptionsOutput() DomainAimlOptionsNaturalLanguageQueryGenerationOptionsOutput {
+	return i.ToDomainAimlOptionsNaturalLanguageQueryGenerationOptionsOutputWithContext(context.Background())
+}
+
+func (i DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs) ToDomainAimlOptionsNaturalLanguageQueryGenerationOptionsOutputWithContext(ctx context.Context) DomainAimlOptionsNaturalLanguageQueryGenerationOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAimlOptionsNaturalLanguageQueryGenerationOptionsOutput)
+}
+
+func (i DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs) ToDomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput() DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput {
+	return i.ToDomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs) ToDomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutputWithContext(ctx context.Context) DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAimlOptionsNaturalLanguageQueryGenerationOptionsOutput).ToDomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutputWithContext(ctx)
+}
+
+// DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrInput is an input type that accepts DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs, DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtr and DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrInput` via:
+//
+//	        DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput() DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput
+	ToDomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutputWithContext(context.Context) DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput
+}
+
+type domainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrType DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs
+
+func DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtr(v *DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs) DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrInput {
+	return (*domainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrType)(v)
+}
+
+func (*domainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAimlOptionsNaturalLanguageQueryGenerationOptions)(nil)).Elem()
+}
+
+func (i *domainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrType) ToDomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput() DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput {
+	return i.ToDomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrType) ToDomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutputWithContext(ctx context.Context) DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput)
+}
+
+type DomainAimlOptionsNaturalLanguageQueryGenerationOptionsOutput struct{ *pulumi.OutputState }
+
+func (DomainAimlOptionsNaturalLanguageQueryGenerationOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAimlOptionsNaturalLanguageQueryGenerationOptions)(nil)).Elem()
+}
+
+func (o DomainAimlOptionsNaturalLanguageQueryGenerationOptionsOutput) ToDomainAimlOptionsNaturalLanguageQueryGenerationOptionsOutput() DomainAimlOptionsNaturalLanguageQueryGenerationOptionsOutput {
+	return o
+}
+
+func (o DomainAimlOptionsNaturalLanguageQueryGenerationOptionsOutput) ToDomainAimlOptionsNaturalLanguageQueryGenerationOptionsOutputWithContext(ctx context.Context) DomainAimlOptionsNaturalLanguageQueryGenerationOptionsOutput {
+	return o
+}
+
+func (o DomainAimlOptionsNaturalLanguageQueryGenerationOptionsOutput) ToDomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput() DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput {
+	return o.ToDomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAimlOptionsNaturalLanguageQueryGenerationOptionsOutput) ToDomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutputWithContext(ctx context.Context) DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainAimlOptionsNaturalLanguageQueryGenerationOptions) *DomainAimlOptionsNaturalLanguageQueryGenerationOptions {
+		return &v
+	}).(DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput)
+}
+
+// Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+func (o DomainAimlOptionsNaturalLanguageQueryGenerationOptionsOutput) DesiredState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainAimlOptionsNaturalLanguageQueryGenerationOptions) *string { return v.DesiredState }).(pulumi.StringPtrOutput)
+}
+
+type DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAimlOptionsNaturalLanguageQueryGenerationOptions)(nil)).Elem()
+}
+
+func (o DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput) ToDomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput() DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput {
+	return o
+}
+
+func (o DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput) ToDomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutputWithContext(ctx context.Context) DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput {
+	return o
+}
+
+func (o DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput) Elem() DomainAimlOptionsNaturalLanguageQueryGenerationOptionsOutput {
+	return o.ApplyT(func(v *DomainAimlOptionsNaturalLanguageQueryGenerationOptions) DomainAimlOptionsNaturalLanguageQueryGenerationOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DomainAimlOptionsNaturalLanguageQueryGenerationOptions
+		return ret
+	}).(DomainAimlOptionsNaturalLanguageQueryGenerationOptionsOutput)
+}
+
+// Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+func (o DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput) DesiredState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAimlOptionsNaturalLanguageQueryGenerationOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DesiredState
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainAimlOptionsS3VectorsEngine struct {
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// DomainAimlOptionsS3VectorsEngineInput is an input type that accepts DomainAimlOptionsS3VectorsEngineArgs and DomainAimlOptionsS3VectorsEngineOutput values.
+// You can construct a concrete instance of `DomainAimlOptionsS3VectorsEngineInput` via:
+//
+//	DomainAimlOptionsS3VectorsEngineArgs{...}
+type DomainAimlOptionsS3VectorsEngineInput interface {
+	pulumi.Input
+
+	ToDomainAimlOptionsS3VectorsEngineOutput() DomainAimlOptionsS3VectorsEngineOutput
+	ToDomainAimlOptionsS3VectorsEngineOutputWithContext(context.Context) DomainAimlOptionsS3VectorsEngineOutput
+}
+
+type DomainAimlOptionsS3VectorsEngineArgs struct {
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (DomainAimlOptionsS3VectorsEngineArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAimlOptionsS3VectorsEngine)(nil)).Elem()
+}
+
+func (i DomainAimlOptionsS3VectorsEngineArgs) ToDomainAimlOptionsS3VectorsEngineOutput() DomainAimlOptionsS3VectorsEngineOutput {
+	return i.ToDomainAimlOptionsS3VectorsEngineOutputWithContext(context.Background())
+}
+
+func (i DomainAimlOptionsS3VectorsEngineArgs) ToDomainAimlOptionsS3VectorsEngineOutputWithContext(ctx context.Context) DomainAimlOptionsS3VectorsEngineOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAimlOptionsS3VectorsEngineOutput)
+}
+
+func (i DomainAimlOptionsS3VectorsEngineArgs) ToDomainAimlOptionsS3VectorsEnginePtrOutput() DomainAimlOptionsS3VectorsEnginePtrOutput {
+	return i.ToDomainAimlOptionsS3VectorsEnginePtrOutputWithContext(context.Background())
+}
+
+func (i DomainAimlOptionsS3VectorsEngineArgs) ToDomainAimlOptionsS3VectorsEnginePtrOutputWithContext(ctx context.Context) DomainAimlOptionsS3VectorsEnginePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAimlOptionsS3VectorsEngineOutput).ToDomainAimlOptionsS3VectorsEnginePtrOutputWithContext(ctx)
+}
+
+// DomainAimlOptionsS3VectorsEnginePtrInput is an input type that accepts DomainAimlOptionsS3VectorsEngineArgs, DomainAimlOptionsS3VectorsEnginePtr and DomainAimlOptionsS3VectorsEnginePtrOutput values.
+// You can construct a concrete instance of `DomainAimlOptionsS3VectorsEnginePtrInput` via:
+//
+//	        DomainAimlOptionsS3VectorsEngineArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainAimlOptionsS3VectorsEnginePtrInput interface {
+	pulumi.Input
+
+	ToDomainAimlOptionsS3VectorsEnginePtrOutput() DomainAimlOptionsS3VectorsEnginePtrOutput
+	ToDomainAimlOptionsS3VectorsEnginePtrOutputWithContext(context.Context) DomainAimlOptionsS3VectorsEnginePtrOutput
+}
+
+type domainAimlOptionsS3VectorsEnginePtrType DomainAimlOptionsS3VectorsEngineArgs
+
+func DomainAimlOptionsS3VectorsEnginePtr(v *DomainAimlOptionsS3VectorsEngineArgs) DomainAimlOptionsS3VectorsEnginePtrInput {
+	return (*domainAimlOptionsS3VectorsEnginePtrType)(v)
+}
+
+func (*domainAimlOptionsS3VectorsEnginePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAimlOptionsS3VectorsEngine)(nil)).Elem()
+}
+
+func (i *domainAimlOptionsS3VectorsEnginePtrType) ToDomainAimlOptionsS3VectorsEnginePtrOutput() DomainAimlOptionsS3VectorsEnginePtrOutput {
+	return i.ToDomainAimlOptionsS3VectorsEnginePtrOutputWithContext(context.Background())
+}
+
+func (i *domainAimlOptionsS3VectorsEnginePtrType) ToDomainAimlOptionsS3VectorsEnginePtrOutputWithContext(ctx context.Context) DomainAimlOptionsS3VectorsEnginePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAimlOptionsS3VectorsEnginePtrOutput)
+}
+
+type DomainAimlOptionsS3VectorsEngineOutput struct{ *pulumi.OutputState }
+
+func (DomainAimlOptionsS3VectorsEngineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAimlOptionsS3VectorsEngine)(nil)).Elem()
+}
+
+func (o DomainAimlOptionsS3VectorsEngineOutput) ToDomainAimlOptionsS3VectorsEngineOutput() DomainAimlOptionsS3VectorsEngineOutput {
+	return o
+}
+
+func (o DomainAimlOptionsS3VectorsEngineOutput) ToDomainAimlOptionsS3VectorsEngineOutputWithContext(ctx context.Context) DomainAimlOptionsS3VectorsEngineOutput {
+	return o
+}
+
+func (o DomainAimlOptionsS3VectorsEngineOutput) ToDomainAimlOptionsS3VectorsEnginePtrOutput() DomainAimlOptionsS3VectorsEnginePtrOutput {
+	return o.ToDomainAimlOptionsS3VectorsEnginePtrOutputWithContext(context.Background())
+}
+
+func (o DomainAimlOptionsS3VectorsEngineOutput) ToDomainAimlOptionsS3VectorsEnginePtrOutputWithContext(ctx context.Context) DomainAimlOptionsS3VectorsEnginePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainAimlOptionsS3VectorsEngine) *DomainAimlOptionsS3VectorsEngine {
+		return &v
+	}).(DomainAimlOptionsS3VectorsEnginePtrOutput)
+}
+
+func (o DomainAimlOptionsS3VectorsEngineOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainAimlOptionsS3VectorsEngine) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type DomainAimlOptionsS3VectorsEnginePtrOutput struct{ *pulumi.OutputState }
+
+func (DomainAimlOptionsS3VectorsEnginePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAimlOptionsS3VectorsEngine)(nil)).Elem()
+}
+
+func (o DomainAimlOptionsS3VectorsEnginePtrOutput) ToDomainAimlOptionsS3VectorsEnginePtrOutput() DomainAimlOptionsS3VectorsEnginePtrOutput {
+	return o
+}
+
+func (o DomainAimlOptionsS3VectorsEnginePtrOutput) ToDomainAimlOptionsS3VectorsEnginePtrOutputWithContext(ctx context.Context) DomainAimlOptionsS3VectorsEnginePtrOutput {
+	return o
+}
+
+func (o DomainAimlOptionsS3VectorsEnginePtrOutput) Elem() DomainAimlOptionsS3VectorsEngineOutput {
+	return o.ApplyT(func(v *DomainAimlOptionsS3VectorsEngine) DomainAimlOptionsS3VectorsEngine {
+		if v != nil {
+			return *v
+		}
+		var ret DomainAimlOptionsS3VectorsEngine
+		return ret
+	}).(DomainAimlOptionsS3VectorsEngineOutput)
+}
+
+func (o DomainAimlOptionsS3VectorsEnginePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainAimlOptionsS3VectorsEngine) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type DomainAutoTuneOptions struct {
 	// Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
 	DesiredState string `pulumi:"desiredState"`
@@ -8122,6 +8542,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAdvancedSecurityOptionsPtrInput)(nil)).Elem(), DomainAdvancedSecurityOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAdvancedSecurityOptionsMasterUserOptionsInput)(nil)).Elem(), DomainAdvancedSecurityOptionsMasterUserOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAdvancedSecurityOptionsMasterUserOptionsPtrInput)(nil)).Elem(), DomainAdvancedSecurityOptionsMasterUserOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAimlOptionsInput)(nil)).Elem(), DomainAimlOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAimlOptionsPtrInput)(nil)).Elem(), DomainAimlOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAimlOptionsNaturalLanguageQueryGenerationOptionsInput)(nil)).Elem(), DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrInput)(nil)).Elem(), DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAimlOptionsS3VectorsEngineInput)(nil)).Elem(), DomainAimlOptionsS3VectorsEngineArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAimlOptionsS3VectorsEnginePtrInput)(nil)).Elem(), DomainAimlOptionsS3VectorsEngineArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAutoTuneOptionsInput)(nil)).Elem(), DomainAutoTuneOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAutoTuneOptionsPtrInput)(nil)).Elem(), DomainAutoTuneOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAutoTuneOptionsMaintenanceScheduleInput)(nil)).Elem(), DomainAutoTuneOptionsMaintenanceScheduleArgs{})
@@ -8231,6 +8657,12 @@ func init() {
 	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsMasterUserOptionsOutput{})
 	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainAimlOptionsOutput{})
+	pulumi.RegisterOutputType(DomainAimlOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainAimlOptionsNaturalLanguageQueryGenerationOptionsOutput{})
+	pulumi.RegisterOutputType(DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainAimlOptionsS3VectorsEngineOutput{})
+	pulumi.RegisterOutputType(DomainAimlOptionsS3VectorsEnginePtrOutput{})
 	pulumi.RegisterOutputType(DomainAutoTuneOptionsOutput{})
 	pulumi.RegisterOutputType(DomainAutoTuneOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainAutoTuneOptionsMaintenanceScheduleOutput{})

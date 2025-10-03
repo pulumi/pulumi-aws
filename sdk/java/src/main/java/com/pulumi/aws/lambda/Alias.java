@@ -89,10 +89,7 @@ import javax.annotation.Nullable;
  *             .functionName(exampleAwsLambdaFunction.functionName())
  *             .functionVersion("2")
  *             .routingConfig(AliasRoutingConfigArgs.builder()
- *                 .additionalVersionWeights(Map.ofEntries(
- *                     Map.entry("1", 0.1),
- *                     Map.entry("3", 0.2)
- *                 ))
+ *                 .additionalVersionWeights(Map.of("1", 0.1))
  *                 .build())
  *             .build());
  * 

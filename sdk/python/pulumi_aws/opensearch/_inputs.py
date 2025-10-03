@@ -21,6 +21,12 @@ __all__ = [
     'DomainAdvancedSecurityOptionsArgsDict',
     'DomainAdvancedSecurityOptionsMasterUserOptionsArgs',
     'DomainAdvancedSecurityOptionsMasterUserOptionsArgsDict',
+    'DomainAimlOptionsArgs',
+    'DomainAimlOptionsArgsDict',
+    'DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs',
+    'DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgsDict',
+    'DomainAimlOptionsS3VectorsEngineArgs',
+    'DomainAimlOptionsS3VectorsEngineArgsDict',
     'DomainAutoTuneOptionsArgs',
     'DomainAutoTuneOptionsArgsDict',
     'DomainAutoTuneOptionsMaintenanceScheduleArgs',
@@ -306,6 +312,97 @@ class DomainAdvancedSecurityOptionsMasterUserOptionsArgs:
     @master_user_password.setter
     def master_user_password(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "master_user_password", value)
+
+
+if not MYPY:
+    class DomainAimlOptionsArgsDict(TypedDict):
+        natural_language_query_generation_options: NotRequired[pulumi.Input['DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgsDict']]
+        s3_vectors_engine: NotRequired[pulumi.Input['DomainAimlOptionsS3VectorsEngineArgsDict']]
+elif False:
+    DomainAimlOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DomainAimlOptionsArgs:
+    def __init__(__self__, *,
+                 natural_language_query_generation_options: Optional[pulumi.Input['DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs']] = None,
+                 s3_vectors_engine: Optional[pulumi.Input['DomainAimlOptionsS3VectorsEngineArgs']] = None):
+        if natural_language_query_generation_options is not None:
+            pulumi.set(__self__, "natural_language_query_generation_options", natural_language_query_generation_options)
+        if s3_vectors_engine is not None:
+            pulumi.set(__self__, "s3_vectors_engine", s3_vectors_engine)
+
+    @_builtins.property
+    @pulumi.getter(name="naturalLanguageQueryGenerationOptions")
+    def natural_language_query_generation_options(self) -> Optional[pulumi.Input['DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs']]:
+        return pulumi.get(self, "natural_language_query_generation_options")
+
+    @natural_language_query_generation_options.setter
+    def natural_language_query_generation_options(self, value: Optional[pulumi.Input['DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs']]):
+        pulumi.set(self, "natural_language_query_generation_options", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3VectorsEngine")
+    def s3_vectors_engine(self) -> Optional[pulumi.Input['DomainAimlOptionsS3VectorsEngineArgs']]:
+        return pulumi.get(self, "s3_vectors_engine")
+
+    @s3_vectors_engine.setter
+    def s3_vectors_engine(self, value: Optional[pulumi.Input['DomainAimlOptionsS3VectorsEngineArgs']]):
+        pulumi.set(self, "s3_vectors_engine", value)
+
+
+if not MYPY:
+    class DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgsDict(TypedDict):
+        desired_state: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+        """
+elif False:
+    DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs:
+    def __init__(__self__, *,
+                 desired_state: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] desired_state: Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+        """
+        if desired_state is not None:
+            pulumi.set(__self__, "desired_state", desired_state)
+
+    @_builtins.property
+    @pulumi.getter(name="desiredState")
+    def desired_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+        """
+        return pulumi.get(self, "desired_state")
+
+    @desired_state.setter
+    def desired_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "desired_state", value)
+
+
+if not MYPY:
+    class DomainAimlOptionsS3VectorsEngineArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[_builtins.bool]]
+elif False:
+    DomainAimlOptionsS3VectorsEngineArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DomainAimlOptionsS3VectorsEngineArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 if not MYPY:

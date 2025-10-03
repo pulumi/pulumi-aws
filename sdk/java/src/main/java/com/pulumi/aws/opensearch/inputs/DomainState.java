@@ -4,6 +4,7 @@
 package com.pulumi.aws.opensearch.inputs;
 
 import com.pulumi.aws.opensearch.inputs.DomainAdvancedSecurityOptionsArgs;
+import com.pulumi.aws.opensearch.inputs.DomainAimlOptionsArgs;
 import com.pulumi.aws.opensearch.inputs.DomainAutoTuneOptionsArgs;
 import com.pulumi.aws.opensearch.inputs.DomainClusterConfigArgs;
 import com.pulumi.aws.opensearch.inputs.DomainCognitoOptionsArgs;
@@ -73,6 +74,13 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<DomainAdvancedSecurityOptionsArgs>> advancedSecurityOptions() {
         return Optional.ofNullable(this.advancedSecurityOptions);
+    }
+
+    @Import(name="aimlOptions")
+    private @Nullable Output<DomainAimlOptionsArgs> aimlOptions;
+
+    public Optional<Output<DomainAimlOptionsArgs>> aimlOptions() {
+        return Optional.ofNullable(this.aimlOptions);
     }
 
     /**
@@ -464,6 +472,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         this.accessPolicies = $.accessPolicies;
         this.advancedOptions = $.advancedOptions;
         this.advancedSecurityOptions = $.advancedSecurityOptions;
+        this.aimlOptions = $.aimlOptions;
         this.arn = $.arn;
         this.autoTuneOptions = $.autoTuneOptions;
         this.clusterConfig = $.clusterConfig;
@@ -570,6 +579,15 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder advancedSecurityOptions(DomainAdvancedSecurityOptionsArgs advancedSecurityOptions) {
             return advancedSecurityOptions(Output.of(advancedSecurityOptions));
+        }
+
+        public Builder aimlOptions(@Nullable Output<DomainAimlOptionsArgs> aimlOptions) {
+            $.aimlOptions = aimlOptions;
+            return this;
+        }
+
+        public Builder aimlOptions(DomainAimlOptionsArgs aimlOptions) {
+            return aimlOptions(Output.of(aimlOptions));
         }
 
         /**

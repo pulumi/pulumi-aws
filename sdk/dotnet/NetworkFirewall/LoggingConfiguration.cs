@@ -126,6 +126,12 @@ namespace Pulumi.Aws.NetworkFirewall
     public partial class LoggingConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
+        /// </summary>
+        [Output("enableMonitoringDashboard")]
+        public Output<bool> EnableMonitoringDashboard { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the Network Firewall firewall.
         /// </summary>
         [Output("firewallArn")]
@@ -190,6 +196,12 @@ namespace Pulumi.Aws.NetworkFirewall
     public sealed class LoggingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
+        /// </summary>
+        [Input("enableMonitoringDashboard")]
+        public Input<bool>? EnableMonitoringDashboard { get; set; }
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the Network Firewall firewall.
         /// </summary>
         [Input("firewallArn", required: true)]
@@ -215,6 +227,12 @@ namespace Pulumi.Aws.NetworkFirewall
 
     public sealed class LoggingConfigurationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
+        /// </summary>
+        [Input("enableMonitoringDashboard")]
+        public Input<bool>? EnableMonitoringDashboard { get; set; }
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Network Firewall firewall.
         /// </summary>

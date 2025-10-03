@@ -27,7 +27,7 @@ class GetLoadBalancerResult:
     """
     A collection of values returned by getLoadBalancer.
     """
-    def __init__(__self__, access_logs=None, arn=None, arn_suffix=None, client_keep_alive=None, connection_logs=None, customer_owned_ipv4_pool=None, desync_mitigation_mode=None, dns_name=None, dns_record_client_routing_policy=None, drop_invalid_header_fields=None, enable_cross_zone_load_balancing=None, enable_deletion_protection=None, enable_http2=None, enable_tls_version_and_cipher_suite_headers=None, enable_waf_fail_open=None, enable_xff_client_port=None, enable_zonal_shift=None, enforce_security_group_inbound_rules_on_private_link_traffic=None, id=None, idle_timeout=None, internal=None, ip_address_type=None, ipam_pools=None, load_balancer_type=None, name=None, preserve_host_header=None, region=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, xff_header_processing_mode=None, zone_id=None):
+    def __init__(__self__, access_logs=None, arn=None, arn_suffix=None, client_keep_alive=None, connection_logs=None, customer_owned_ipv4_pool=None, desync_mitigation_mode=None, dns_name=None, dns_record_client_routing_policy=None, drop_invalid_header_fields=None, enable_cross_zone_load_balancing=None, enable_deletion_protection=None, enable_http2=None, enable_tls_version_and_cipher_suite_headers=None, enable_waf_fail_open=None, enable_xff_client_port=None, enable_zonal_shift=None, enforce_security_group_inbound_rules_on_private_link_traffic=None, id=None, idle_timeout=None, internal=None, ip_address_type=None, ipam_pools=None, load_balancer_type=None, name=None, preserve_host_header=None, region=None, secondary_ips_auto_assigned_per_subnet=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, xff_header_processing_mode=None, zone_id=None):
         if access_logs and not isinstance(access_logs, dict):
             raise TypeError("Expected argument 'access_logs' to be a dict")
         pulumi.set(__self__, "access_logs", access_logs)
@@ -109,6 +109,9 @@ class GetLoadBalancerResult:
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
+        if secondary_ips_auto_assigned_per_subnet and not isinstance(secondary_ips_auto_assigned_per_subnet, int):
+            raise TypeError("Expected argument 'secondary_ips_auto_assigned_per_subnet' to be a int")
+        pulumi.set(__self__, "secondary_ips_auto_assigned_per_subnet", secondary_ips_auto_assigned_per_subnet)
         if security_groups and not isinstance(security_groups, list):
             raise TypeError("Expected argument 'security_groups' to be a list")
         pulumi.set(__self__, "security_groups", security_groups)
@@ -270,6 +273,11 @@ class GetLoadBalancerResult:
         return pulumi.get(self, "region")
 
     @_builtins.property
+    @pulumi.getter(name="secondaryIpsAutoAssignedPerSubnet")
+    def secondary_ips_auto_assigned_per_subnet(self) -> _builtins.int:
+        return pulumi.get(self, "secondary_ips_auto_assigned_per_subnet")
+
+    @_builtins.property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Sequence[_builtins.str]:
         return pulumi.get(self, "security_groups")
@@ -338,6 +346,7 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             name=self.name,
             preserve_host_header=self.preserve_host_header,
             region=self.region,
+            secondary_ips_auto_assigned_per_subnet=self.secondary_ips_auto_assigned_per_subnet,
             security_groups=self.security_groups,
             subnet_mappings=self.subnet_mappings,
             subnets=self.subnets,
@@ -422,6 +431,7 @@ def get_load_balancer(arn: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         preserve_host_header=pulumi.get(__ret__, 'preserve_host_header'),
         region=pulumi.get(__ret__, 'region'),
+        secondary_ips_auto_assigned_per_subnet=pulumi.get(__ret__, 'secondary_ips_auto_assigned_per_subnet'),
         security_groups=pulumi.get(__ret__, 'security_groups'),
         subnet_mappings=pulumi.get(__ret__, 'subnet_mappings'),
         subnets=pulumi.get(__ret__, 'subnets'),
@@ -503,6 +513,7 @@ def get_load_balancer_output(arn: Optional[pulumi.Input[Optional[_builtins.str]]
         name=pulumi.get(__response__, 'name'),
         preserve_host_header=pulumi.get(__response__, 'preserve_host_header'),
         region=pulumi.get(__response__, 'region'),
+        secondary_ips_auto_assigned_per_subnet=pulumi.get(__response__, 'secondary_ips_auto_assigned_per_subnet'),
         security_groups=pulumi.get(__response__, 'security_groups'),
         subnet_mappings=pulumi.get(__response__, 'subnet_mappings'),
         subnets=pulumi.get(__response__, 'subnets'),

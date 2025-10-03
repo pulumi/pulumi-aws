@@ -7,6 +7,7 @@ import com.pulumi.aws.networkfirewall.inputs.LoggingConfigurationLoggingConfigur
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class LoggingConfigurationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final LoggingConfigurationArgs Empty = new LoggingConfigurationArgs();
+
+    /**
+     * Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
+     * 
+     */
+    @Import(name="enableMonitoringDashboard")
+    private @Nullable Output<Boolean> enableMonitoringDashboard;
+
+    /**
+     * @return Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> enableMonitoringDashboard() {
+        return Optional.ofNullable(this.enableMonitoringDashboard);
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the Network Firewall firewall.
@@ -65,6 +81,7 @@ public final class LoggingConfigurationArgs extends com.pulumi.resources.Resourc
     private LoggingConfigurationArgs() {}
 
     private LoggingConfigurationArgs(LoggingConfigurationArgs $) {
+        this.enableMonitoringDashboard = $.enableMonitoringDashboard;
         this.firewallArn = $.firewallArn;
         this.loggingConfiguration = $.loggingConfiguration;
         this.region = $.region;
@@ -86,6 +103,27 @@ public final class LoggingConfigurationArgs extends com.pulumi.resources.Resourc
 
         public Builder(LoggingConfigurationArgs defaults) {
             $ = new LoggingConfigurationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param enableMonitoringDashboard Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableMonitoringDashboard(@Nullable Output<Boolean> enableMonitoringDashboard) {
+            $.enableMonitoringDashboard = enableMonitoringDashboard;
+            return this;
+        }
+
+        /**
+         * @param enableMonitoringDashboard Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableMonitoringDashboard(Boolean enableMonitoringDashboard) {
+            return enableMonitoringDashboard(Output.of(enableMonitoringDashboard));
         }
 
         /**

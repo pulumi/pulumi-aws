@@ -27,16 +27,16 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var tftest = new Aws.ElasticBeanstalk.Application("tftest", new()
+    ///     var exampleApplication = new Aws.ElasticBeanstalk.Application("example", new()
     ///     {
     ///         Name = "tf-test-name",
     ///         Description = "tf-test-desc",
     ///     });
     /// 
-    ///     var tfenvtest = new Aws.ElasticBeanstalk.Environment("tfenvtest", new()
+    ///     var example = new Aws.ElasticBeanstalk.Environment("example", new()
     ///     {
     ///         Name = "tf-test-name",
-    ///         Application = tftest.Name,
+    ///         Application = exampleApplication.Name,
     ///         SolutionStackName = "64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4",
     ///     });
     /// 
@@ -50,9 +50,9 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// 
     /// The `setting` and `all_settings` mappings support the following format:
     /// 
-    /// * `namespace` - unique namespace identifying the option's associated AWS resource
-    /// * `name` - name of the configuration option
-    /// * `value` - value for the configuration option
+    /// * `namespace` - (Required) Unique namespace identifying the option's associated AWS resource
+    /// * `name` - (Required) Name of the configuration option
+    /// * `value` - (Required) Value for the configuration option
     /// * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
     /// 
     /// ### Example With Options

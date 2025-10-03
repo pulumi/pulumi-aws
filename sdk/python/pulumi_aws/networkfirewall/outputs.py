@@ -3885,19 +3885,23 @@ class GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutResult(dict)
 class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceResult(dict):
     def __init__(__self__, *,
                  deep_threat_inspection: _builtins.str,
+                 overrides: Sequence['outputs.GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideResult'],
                  priority: _builtins.int,
-                 resource_arn: _builtins.str,
-                 overrides: Optional[Sequence['outputs.GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideResult']] = None):
+                 resource_arn: _builtins.str):
         pulumi.set(__self__, "deep_threat_inspection", deep_threat_inspection)
+        pulumi.set(__self__, "overrides", overrides)
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "resource_arn", resource_arn)
-        if overrides is not None:
-            pulumi.set(__self__, "overrides", overrides)
 
     @_builtins.property
     @pulumi.getter(name="deepThreatInspection")
     def deep_threat_inspection(self) -> _builtins.str:
         return pulumi.get(self, "deep_threat_inspection")
+
+    @_builtins.property
+    @pulumi.getter
+    def overrides(self) -> Sequence['outputs.GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideResult']:
+        return pulumi.get(self, "overrides")
 
     @_builtins.property
     @pulumi.getter
@@ -3909,22 +3913,16 @@ class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceResult(dict):
     def resource_arn(self) -> _builtins.str:
         return pulumi.get(self, "resource_arn")
 
-    @_builtins.property
-    @pulumi.getter
-    def overrides(self) -> Optional[Sequence['outputs.GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideResult']]:
-        return pulumi.get(self, "overrides")
-
 
 @pulumi.output_type
 class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideResult(dict):
     def __init__(__self__, *,
-                 action: Optional[_builtins.str] = None):
-        if action is not None:
-            pulumi.set(__self__, "action", action)
+                 action: _builtins.str):
+        pulumi.set(__self__, "action", action)
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[_builtins.str]:
+    def action(self) -> _builtins.str:
         return pulumi.get(self, "action")
 
 

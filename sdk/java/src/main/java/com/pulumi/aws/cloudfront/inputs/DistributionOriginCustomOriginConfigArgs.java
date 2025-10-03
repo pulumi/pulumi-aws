@@ -48,6 +48,21 @@ public final class DistributionOriginCustomOriginConfigArgs extends com.pulumi.r
         return this.httpsPort;
     }
 
+    /**
+     * IP protocol CloudFront uses when connecting to your origin. Valid values: `ipv4`, `ipv6`, `dualstack`.
+     * 
+     */
+    @Import(name="ipAddressType")
+    private @Nullable Output<String> ipAddressType;
+
+    /**
+     * @return IP protocol CloudFront uses when connecting to your origin. Valid values: `ipv4`, `ipv6`, `dualstack`.
+     * 
+     */
+    public Optional<Output<String>> ipAddressType() {
+        return Optional.ofNullable(this.ipAddressType);
+    }
+
     @Import(name="originKeepaliveTimeout")
     private @Nullable Output<Integer> originKeepaliveTimeout;
 
@@ -97,6 +112,7 @@ public final class DistributionOriginCustomOriginConfigArgs extends com.pulumi.r
     private DistributionOriginCustomOriginConfigArgs(DistributionOriginCustomOriginConfigArgs $) {
         this.httpPort = $.httpPort;
         this.httpsPort = $.httpsPort;
+        this.ipAddressType = $.ipAddressType;
         this.originKeepaliveTimeout = $.originKeepaliveTimeout;
         this.originProtocolPolicy = $.originProtocolPolicy;
         this.originReadTimeout = $.originReadTimeout;
@@ -161,6 +177,27 @@ public final class DistributionOriginCustomOriginConfigArgs extends com.pulumi.r
          */
         public Builder httpsPort(Integer httpsPort) {
             return httpsPort(Output.of(httpsPort));
+        }
+
+        /**
+         * @param ipAddressType IP protocol CloudFront uses when connecting to your origin. Valid values: `ipv4`, `ipv6`, `dualstack`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressType(@Nullable Output<String> ipAddressType) {
+            $.ipAddressType = ipAddressType;
+            return this;
+        }
+
+        /**
+         * @param ipAddressType IP protocol CloudFront uses when connecting to your origin. Valid values: `ipv4`, `ipv6`, `dualstack`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressType(String ipAddressType) {
+            return ipAddressType(Output.of(ipAddressType));
         }
 
         public Builder originKeepaliveTimeout(@Nullable Output<Integer> originKeepaliveTimeout) {

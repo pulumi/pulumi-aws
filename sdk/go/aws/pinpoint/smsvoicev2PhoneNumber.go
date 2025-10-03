@@ -83,7 +83,7 @@ type Smsvoicev2PhoneNumber struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapOutput                 `pulumi:"tagsAll"`
 	Timeouts Smsvoicev2PhoneNumberTimeoutsPtrOutput `pulumi:"timeouts"`
-	// The Amazon Resource Name (ARN) of the two way channel.
+	// Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
 	TwoWayChannelArn pulumi.StringPtrOutput `pulumi:"twoWayChannelArn"`
 	// By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
 	TwoWayChannelEnabled pulumi.BoolOutput `pulumi:"twoWayChannelEnabled"`
@@ -161,7 +161,7 @@ type smsvoicev2PhoneNumberState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  map[string]string              `pulumi:"tagsAll"`
 	Timeouts *Smsvoicev2PhoneNumberTimeouts `pulumi:"timeouts"`
-	// The Amazon Resource Name (ARN) of the two way channel.
+	// Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
 	TwoWayChannelArn *string `pulumi:"twoWayChannelArn"`
 	// By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
 	TwoWayChannelEnabled *bool `pulumi:"twoWayChannelEnabled"`
@@ -198,7 +198,7 @@ type Smsvoicev2PhoneNumberState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapInput
 	Timeouts Smsvoicev2PhoneNumberTimeoutsPtrInput
-	// The Amazon Resource Name (ARN) of the two way channel.
+	// Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
 	TwoWayChannelArn pulumi.StringPtrInput
 	// By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
 	TwoWayChannelEnabled pulumi.BoolPtrInput
@@ -231,7 +231,7 @@ type smsvoicev2PhoneNumberArgs struct {
 	SelfManagedOptOutsEnabled *bool                          `pulumi:"selfManagedOptOutsEnabled"`
 	Tags                      map[string]string              `pulumi:"tags"`
 	Timeouts                  *Smsvoicev2PhoneNumberTimeouts `pulumi:"timeouts"`
-	// The Amazon Resource Name (ARN) of the two way channel.
+	// Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
 	TwoWayChannelArn *string `pulumi:"twoWayChannelArn"`
 	// By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
 	TwoWayChannelEnabled *bool `pulumi:"twoWayChannelEnabled"`
@@ -261,7 +261,7 @@ type Smsvoicev2PhoneNumberArgs struct {
 	SelfManagedOptOutsEnabled pulumi.BoolPtrInput
 	Tags                      pulumi.StringMapInput
 	Timeouts                  Smsvoicev2PhoneNumberTimeoutsPtrInput
-	// The Amazon Resource Name (ARN) of the two way channel.
+	// Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
 	TwoWayChannelArn pulumi.StringPtrInput
 	// By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
 	TwoWayChannelEnabled pulumi.BoolPtrInput
@@ -429,7 +429,7 @@ func (o Smsvoicev2PhoneNumberOutput) Timeouts() Smsvoicev2PhoneNumberTimeoutsPtr
 	return o.ApplyT(func(v *Smsvoicev2PhoneNumber) Smsvoicev2PhoneNumberTimeoutsPtrOutput { return v.Timeouts }).(Smsvoicev2PhoneNumberTimeoutsPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the two way channel.
+// Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
 func (o Smsvoicev2PhoneNumberOutput) TwoWayChannelArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Smsvoicev2PhoneNumber) pulumi.StringPtrOutput { return v.TwoWayChannelArn }).(pulumi.StringPtrOutput)
 }

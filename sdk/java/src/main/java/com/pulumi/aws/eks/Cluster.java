@@ -534,14 +534,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="computeConfig", refs={ClusterComputeConfig.class}, tree="[0]")
-    private Output</* @Nullable */ ClusterComputeConfig> computeConfig;
+    private Output<ClusterComputeConfig> computeConfig;
 
     /**
      * @return Configuration block with compute configuration for EKS Auto Mode. Detailed below.
      * 
      */
-    public Output<Optional<ClusterComputeConfig>> computeConfig() {
-        return Codegen.optional(this.computeConfig);
+    public Output<ClusterComputeConfig> computeConfig() {
+        return this.computeConfig;
     }
     /**
      * Unix epoch timestamp in seconds for when the cluster was created.
@@ -770,14 +770,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="storageConfig", refs={ClusterStorageConfig.class}, tree="[0]")
-    private Output</* @Nullable */ ClusterStorageConfig> storageConfig;
+    private Output<ClusterStorageConfig> storageConfig;
 
     /**
      * @return Configuration block with storage configuration for EKS Auto Mode. Detailed below.
      * 
      */
-    public Output<Optional<ClusterStorageConfig>> storageConfig() {
-        return Codegen.optional(this.storageConfig);
+    public Output<ClusterStorageConfig> storageConfig() {
+        return this.storageConfig;
     }
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

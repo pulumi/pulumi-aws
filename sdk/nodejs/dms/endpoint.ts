@@ -122,6 +122,10 @@ export class Endpoint extends pulumi.CustomResource {
      */
     declare public readonly mongodbSettings: pulumi.Output<outputs.dms.EndpointMongodbSettings | undefined>;
     /**
+     * Configuration block for MySQL settings. See below.
+     */
+    declare public readonly mysqlSettings: pulumi.Output<outputs.dms.EndpointMysqlSettings | undefined>;
+    /**
      * Configuration block for Oracle settings. See below.
      */
     declare public readonly oracleSettings: pulumi.Output<outputs.dms.EndpointOracleSettings | undefined>;
@@ -207,6 +211,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["kinesisSettings"] = state?.kinesisSettings;
             resourceInputs["kmsKeyArn"] = state?.kmsKeyArn;
             resourceInputs["mongodbSettings"] = state?.mongodbSettings;
+            resourceInputs["mysqlSettings"] = state?.mysqlSettings;
             resourceInputs["oracleSettings"] = state?.oracleSettings;
             resourceInputs["password"] = state?.password;
             resourceInputs["pauseReplicationTasks"] = state?.pauseReplicationTasks;
@@ -245,6 +250,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["kinesisSettings"] = args?.kinesisSettings;
             resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
             resourceInputs["mongodbSettings"] = args?.mongodbSettings;
+            resourceInputs["mysqlSettings"] = args?.mysqlSettings;
             resourceInputs["oracleSettings"] = args?.oracleSettings;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["pauseReplicationTasks"] = args?.pauseReplicationTasks;
@@ -324,6 +330,10 @@ export interface EndpointState {
      * Configuration block for MongoDB settings. See below.
      */
     mongodbSettings?: pulumi.Input<inputs.dms.EndpointMongodbSettings>;
+    /**
+     * Configuration block for MySQL settings. See below.
+     */
+    mysqlSettings?: pulumi.Input<inputs.dms.EndpointMysqlSettings>;
     /**
      * Configuration block for Oracle settings. See below.
      */
@@ -436,6 +446,10 @@ export interface EndpointArgs {
      * Configuration block for MongoDB settings. See below.
      */
     mongodbSettings?: pulumi.Input<inputs.dms.EndpointMongodbSettings>;
+    /**
+     * Configuration block for MySQL settings. See below.
+     */
+    mysqlSettings?: pulumi.Input<inputs.dms.EndpointMysqlSettings>;
     /**
      * Configuration block for Oracle settings. See below.
      */

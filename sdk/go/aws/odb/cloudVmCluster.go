@@ -12,10 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for Exadata Infrastructure resource in AWS for Oracle Database@AWS.
-//
-// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-//
 // ## Example Usage
 //
 // ### Basic Usage
@@ -125,10 +121,10 @@ type CloudVmCluster struct {
 	// The timestamp when the VM cluster was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The set of preferences for the various diagnostic collection options for the VM cluster.
-	//
-	// The following arguments are optional:
 	DataCollectionOptions CloudVmClusterDataCollectionOptionsPtrOutput `pulumi:"dataCollectionOptions"`
 	// The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
+	//
+	// The following arguments are optional:
 	DataStorageSizeInTbs pulumi.Float64Output `pulumi:"dataStorageSizeInTbs"`
 	// The amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
 	DbNodeStorageSizeInGbs pulumi.IntOutput `pulumi:"dbNodeStorageSizeInGbs"`
@@ -143,6 +139,8 @@ type CloudVmCluster struct {
 	Domain pulumi.StringOutput `pulumi:"domain"`
 	// A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
 	GiVersion pulumi.StringOutput `pulumi:"giVersion"`
+	// A complete software version of Oracle Grid Infrastructure (GI).
+	GiVersionComputed pulumi.StringOutput `pulumi:"giVersionComputed"`
 	// The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
 	HostnamePrefix pulumi.StringOutput `pulumi:"hostnamePrefix"`
 	// The host name for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
@@ -219,6 +217,9 @@ func NewCloudVmCluster(ctx *pulumi.Context,
 	if args.CpuCoreCount == nil {
 		return nil, errors.New("invalid value for required argument 'CpuCoreCount'")
 	}
+	if args.DataStorageSizeInTbs == nil {
+		return nil, errors.New("invalid value for required argument 'DataStorageSizeInTbs'")
+	}
 	if args.DbServers == nil {
 		return nil, errors.New("invalid value for required argument 'DbServers'")
 	}
@@ -273,10 +274,10 @@ type cloudVmClusterState struct {
 	// The timestamp when the VM cluster was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// The set of preferences for the various diagnostic collection options for the VM cluster.
-	//
-	// The following arguments are optional:
 	DataCollectionOptions *CloudVmClusterDataCollectionOptions `pulumi:"dataCollectionOptions"`
 	// The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
+	//
+	// The following arguments are optional:
 	DataStorageSizeInTbs *float64 `pulumi:"dataStorageSizeInTbs"`
 	// The amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
 	DbNodeStorageSizeInGbs *int `pulumi:"dbNodeStorageSizeInGbs"`
@@ -291,6 +292,8 @@ type cloudVmClusterState struct {
 	Domain *string `pulumi:"domain"`
 	// A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
 	GiVersion *string `pulumi:"giVersion"`
+	// A complete software version of Oracle Grid Infrastructure (GI).
+	GiVersionComputed *string `pulumi:"giVersionComputed"`
 	// The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
 	HostnamePrefix *string `pulumi:"hostnamePrefix"`
 	// The host name for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
@@ -368,10 +371,10 @@ type CloudVmClusterState struct {
 	// The timestamp when the VM cluster was created.
 	CreatedAt pulumi.StringPtrInput
 	// The set of preferences for the various diagnostic collection options for the VM cluster.
-	//
-	// The following arguments are optional:
 	DataCollectionOptions CloudVmClusterDataCollectionOptionsPtrInput
 	// The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
+	//
+	// The following arguments are optional:
 	DataStorageSizeInTbs pulumi.Float64PtrInput
 	// The amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
 	DbNodeStorageSizeInGbs pulumi.IntPtrInput
@@ -386,6 +389,8 @@ type CloudVmClusterState struct {
 	Domain pulumi.StringPtrInput
 	// A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
 	GiVersion pulumi.StringPtrInput
+	// A complete software version of Oracle Grid Infrastructure (GI).
+	GiVersionComputed pulumi.StringPtrInput
 	// The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
 	HostnamePrefix pulumi.StringPtrInput
 	// The host name for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
@@ -461,11 +466,11 @@ type cloudVmClusterArgs struct {
 	// The number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
 	CpuCoreCount int `pulumi:"cpuCoreCount"`
 	// The set of preferences for the various diagnostic collection options for the VM cluster.
-	//
-	// The following arguments are optional:
 	DataCollectionOptions *CloudVmClusterDataCollectionOptions `pulumi:"dataCollectionOptions"`
 	// The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
-	DataStorageSizeInTbs *float64 `pulumi:"dataStorageSizeInTbs"`
+	//
+	// The following arguments are optional:
+	DataStorageSizeInTbs float64 `pulumi:"dataStorageSizeInTbs"`
 	// The amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
 	DbNodeStorageSizeInGbs *int `pulumi:"dbNodeStorageSizeInGbs"`
 	// The list of database servers for the VM cluster. Changing this will create a new resource.
@@ -508,11 +513,11 @@ type CloudVmClusterArgs struct {
 	// The number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
 	CpuCoreCount pulumi.IntInput
 	// The set of preferences for the various diagnostic collection options for the VM cluster.
-	//
-	// The following arguments are optional:
 	DataCollectionOptions CloudVmClusterDataCollectionOptionsPtrInput
 	// The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
-	DataStorageSizeInTbs pulumi.Float64PtrInput
+	//
+	// The following arguments are optional:
+	DataStorageSizeInTbs pulumi.Float64Input
 	// The amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
 	DbNodeStorageSizeInGbs pulumi.IntPtrInput
 	// The list of database servers for the VM cluster. Changing this will create a new resource.
@@ -664,13 +669,13 @@ func (o CloudVmClusterOutput) CreatedAt() pulumi.StringOutput {
 }
 
 // The set of preferences for the various diagnostic collection options for the VM cluster.
-//
-// The following arguments are optional:
 func (o CloudVmClusterOutput) DataCollectionOptions() CloudVmClusterDataCollectionOptionsPtrOutput {
 	return o.ApplyT(func(v *CloudVmCluster) CloudVmClusterDataCollectionOptionsPtrOutput { return v.DataCollectionOptions }).(CloudVmClusterDataCollectionOptionsPtrOutput)
 }
 
 // The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
+//
+// The following arguments are optional:
 func (o CloudVmClusterOutput) DataStorageSizeInTbs() pulumi.Float64Output {
 	return o.ApplyT(func(v *CloudVmCluster) pulumi.Float64Output { return v.DataStorageSizeInTbs }).(pulumi.Float64Output)
 }
@@ -704,6 +709,11 @@ func (o CloudVmClusterOutput) Domain() pulumi.StringOutput {
 // A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
 func (o CloudVmClusterOutput) GiVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudVmCluster) pulumi.StringOutput { return v.GiVersion }).(pulumi.StringOutput)
+}
+
+// A complete software version of Oracle Grid Infrastructure (GI).
+func (o CloudVmClusterOutput) GiVersionComputed() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudVmCluster) pulumi.StringOutput { return v.GiVersionComputed }).(pulumi.StringOutput)
 }
 
 // The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.

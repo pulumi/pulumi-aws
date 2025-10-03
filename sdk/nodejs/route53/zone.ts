@@ -57,11 +57,26 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * const primary = new aws.ec2.Vpc("primary", {
+ *     cidrBlock: "10.6.0.0/16",
+ *     enableDnsHostnames: true,
+ *     enableDnsSupport: true,
+ * });
+ * const secondary = new aws.ec2.Vpc("secondary", {
+ *     cidrBlock: "10.7.0.0/16",
+ *     enableDnsHostnames: true,
+ *     enableDnsSupport: true,
+ * });
  * const _private = new aws.route53.Zone("private", {
  *     name: "example.com",
- *     vpcs: [{
- *         vpcId: example.id,
- *     }],
+ *     vpcs: [
+ *         {
+ *             vpcId: primary.id,
+ *         },
+ *         {
+ *             vpcId: secondary.id,
+ *         },
+ *     ],
  * });
  * ```
  *

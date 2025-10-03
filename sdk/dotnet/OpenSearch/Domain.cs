@@ -474,6 +474,9 @@ namespace Pulumi.Aws.OpenSearch
         [Output("advancedSecurityOptions")]
         public Output<Outputs.DomainAdvancedSecurityOptions> AdvancedSecurityOptions { get; private set; } = null!;
 
+        [Output("aimlOptions")]
+        public Output<Outputs.DomainAimlOptions> AimlOptions { get; private set; } = null!;
+
         /// <summary>
         /// ARN of the domain.
         /// </summary>
@@ -698,6 +701,9 @@ namespace Pulumi.Aws.OpenSearch
         [Input("advancedSecurityOptions")]
         public Input<Inputs.DomainAdvancedSecurityOptionsArgs>? AdvancedSecurityOptions { get; set; }
 
+        [Input("aimlOptions")]
+        public Input<Inputs.DomainAimlOptionsArgs>? AimlOptions { get; set; }
+
         /// <summary>
         /// Configuration block for the Auto-Tune options of the domain. Detailed below.
         /// </summary>
@@ -847,6 +853,9 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Input("advancedSecurityOptions")]
         public Input<Inputs.DomainAdvancedSecurityOptionsGetArgs>? AdvancedSecurityOptions { get; set; }
+
+        [Input("aimlOptions")]
+        public Input<Inputs.DomainAimlOptionsGetArgs>? AimlOptions { get; set; }
 
         /// <summary>
         /// ARN of the domain.

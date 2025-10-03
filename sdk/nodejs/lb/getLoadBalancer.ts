@@ -100,6 +100,7 @@ export interface GetLoadBalancerResult {
     readonly name: string;
     readonly preserveHostHeader: boolean;
     readonly region: string;
+    readonly secondaryIpsAutoAssignedPerSubnet: number;
     readonly securityGroups: string[];
     readonly subnetMappings: outputs.lb.GetLoadBalancerSubnetMapping[];
     readonly subnets: string[];

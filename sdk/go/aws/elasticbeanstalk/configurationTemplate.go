@@ -30,16 +30,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tftest, err := elasticbeanstalk.NewApplication(ctx, "tftest", &elasticbeanstalk.ApplicationArgs{
+//			exampleApplication, err := elasticbeanstalk.NewApplication(ctx, "example", &elasticbeanstalk.ApplicationArgs{
 //				Name:        pulumi.String("tf-test-name"),
 //				Description: pulumi.String("tf-test-desc"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = elasticbeanstalk.NewConfigurationTemplate(ctx, "my_template", &elasticbeanstalk.ConfigurationTemplateArgs{
+//			_, err = elasticbeanstalk.NewConfigurationTemplate(ctx, "example", &elasticbeanstalk.ConfigurationTemplateArgs{
 //				Name:              pulumi.String("tf-test-template-config"),
-//				Application:       tftest.Name,
+//				Application:       exampleApplication.Name,
 //				SolutionStackName: pulumi.String("64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4"),
 //			})
 //			if err != nil {
@@ -55,9 +55,9 @@ import (
 //
 // The `setting` field supports the following format:
 //
-// * `namespace` - unique namespace identifying the option's associated AWS resource
-// * `name` - name of the configuration option
-// * `value` - value for the configuration option
+// * `namespace` - (Required) Unique namespace identifying the option's associated AWS resource
+// * `name` - (Required) Name of the configuration option
+// * `value` - (Required) Value for the configuration option
 // * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
 type ConfigurationTemplate struct {
 	pulumi.CustomResourceState

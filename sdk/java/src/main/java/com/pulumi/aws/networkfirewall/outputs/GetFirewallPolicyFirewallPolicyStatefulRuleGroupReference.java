@@ -10,12 +10,11 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference {
     private String deepThreatInspection;
-    private @Nullable List<GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride> overrides;
+    private List<GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride> overrides;
     private Integer priority;
     private String resourceArn;
 
@@ -24,7 +23,7 @@ public final class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference {
         return this.deepThreatInspection;
     }
     public List<GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride> overrides() {
-        return this.overrides == null ? List.of() : this.overrides;
+        return this.overrides;
     }
     public Integer priority() {
         return this.priority;
@@ -43,7 +42,7 @@ public final class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference {
     @CustomType.Builder
     public static final class Builder {
         private String deepThreatInspection;
-        private @Nullable List<GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride> overrides;
+        private List<GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride> overrides;
         private Integer priority;
         private String resourceArn;
         public Builder() {}
@@ -64,8 +63,10 @@ public final class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference {
             return this;
         }
         @CustomType.Setter
-        public Builder overrides(@Nullable List<GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride> overrides) {
-
+        public Builder overrides(List<GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride> overrides) {
+            if (overrides == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference", "overrides");
+            }
             this.overrides = overrides;
             return this;
         }

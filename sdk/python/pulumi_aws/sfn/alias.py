@@ -237,6 +237,8 @@ class Alias(pulumi.CustomResource):
 
         ## Import
 
+        In Terraform v1.12.0 and later, the `import` block can be used with the `identity` attribute. For example:
+
         Using `pulumi import`, import SFN (Step Functions) Alias using the `arn`. For example:
 
         ```sh
@@ -288,6 +290,8 @@ class Alias(pulumi.CustomResource):
         ```
 
         ## Import
+
+        In Terraform v1.12.0 and later, the `import` block can be used with the `identity` attribute. For example:
 
         Using `pulumi import`, import SFN (Step Functions) Alias using the `arn`. For example:
 

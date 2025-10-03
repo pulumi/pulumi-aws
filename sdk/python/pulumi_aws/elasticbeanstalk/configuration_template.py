@@ -294,12 +294,12 @@ class ConfigurationTemplate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        tftest = aws.elasticbeanstalk.Application("tftest",
+        example_application = aws.elasticbeanstalk.Application("example",
             name="tf-test-name",
             description="tf-test-desc")
-        my_template = aws.elasticbeanstalk.ConfigurationTemplate("my_template",
+        example = aws.elasticbeanstalk.ConfigurationTemplate("example",
             name="tf-test-template-config",
-            application=tftest.name,
+            application=example_application.name,
             solution_stack_name="64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4")
         ```
 
@@ -307,9 +307,9 @@ class ConfigurationTemplate(pulumi.CustomResource):
 
         The `setting` field supports the following format:
 
-        * `namespace` - unique namespace identifying the option's associated AWS resource
-        * `name` - name of the configuration option
-        * `value` - value for the configuration option
+        * `namespace` - (Required) Unique namespace identifying the option's associated AWS resource
+        * `name` - (Required) Name of the configuration option
+        * `value` - (Required) Value for the configuration option
         * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
 
         :param str resource_name: The name of the resource.
@@ -342,12 +342,12 @@ class ConfigurationTemplate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        tftest = aws.elasticbeanstalk.Application("tftest",
+        example_application = aws.elasticbeanstalk.Application("example",
             name="tf-test-name",
             description="tf-test-desc")
-        my_template = aws.elasticbeanstalk.ConfigurationTemplate("my_template",
+        example = aws.elasticbeanstalk.ConfigurationTemplate("example",
             name="tf-test-template-config",
-            application=tftest.name,
+            application=example_application.name,
             solution_stack_name="64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4")
         ```
 
@@ -355,9 +355,9 @@ class ConfigurationTemplate(pulumi.CustomResource):
 
         The `setting` field supports the following format:
 
-        * `namespace` - unique namespace identifying the option's associated AWS resource
-        * `name` - name of the configuration option
-        * `value` - value for the configuration option
+        * `namespace` - (Required) Unique namespace identifying the option's associated AWS resource
+        * `name` - (Required) Name of the configuration option
+        * `value` - (Required) Value for the configuration option
         * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
 
         :param str resource_name: The name of the resource.

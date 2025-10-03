@@ -111,6 +111,10 @@ type SafetyRule struct {
 	RuleConfig SafetyRuleRuleConfigOutput `pulumi:"ruleConfig"`
 	// Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
 	Status pulumi.StringOutput `pulumi:"status"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
 	TargetControls pulumi.StringArrayOutput `pulumi:"targetControls"`
 	// Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
@@ -172,6 +176,10 @@ type safetyRuleState struct {
 	RuleConfig *SafetyRuleRuleConfig `pulumi:"ruleConfig"`
 	// Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
 	Status *string `pulumi:"status"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
 	TargetControls []string `pulumi:"targetControls"`
 	// Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
@@ -195,6 +203,10 @@ type SafetyRuleState struct {
 	RuleConfig SafetyRuleRuleConfigPtrInput
 	// Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
 	Status pulumi.StringPtrInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
 	TargetControls pulumi.StringArrayInput
 	// Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
@@ -218,6 +230,8 @@ type safetyRuleArgs struct {
 	Name *string `pulumi:"name"`
 	// Configuration block for safety rule criteria. See below.
 	RuleConfig SafetyRuleRuleConfig `pulumi:"ruleConfig"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
 	TargetControls []string `pulumi:"targetControls"`
 	// Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
@@ -238,6 +252,8 @@ type SafetyRuleArgs struct {
 	Name pulumi.StringPtrInput
 	// Configuration block for safety rule criteria. See below.
 	RuleConfig SafetyRuleRuleConfigInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
 	TargetControls pulumi.StringArrayInput
 	// Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
@@ -366,6 +382,16 @@ func (o SafetyRuleOutput) RuleConfig() SafetyRuleRuleConfigOutput {
 // Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
 func (o SafetyRuleOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *SafetyRule) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o SafetyRuleOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SafetyRule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+func (o SafetyRuleOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SafetyRule) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 // Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
