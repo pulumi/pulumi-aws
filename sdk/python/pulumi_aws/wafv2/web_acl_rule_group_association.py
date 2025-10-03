@@ -315,7 +315,6 @@ class WebAclRuleGroupAssociation(pulumi.CustomResource):
         !> **Warning:** Using this resource will cause the associated Web ACL resource to show configuration drift in the `rule` argument unless you add `lifecycle { ignore_changes = [rule] }` to the Web ACL resource configuration. This is because this resource modifies the Web ACL's rules outside of the Web ACL resource's direct management.
 
         > **Note:** This resource creates a rule within the Web ACL that references the entire Rule Group. The rule group's individual rules are evaluated as a unit when requests are processed by the Web ACL.
-
         ## Example Usage
 
         ### Custom Rule Group - Basic Usage
@@ -372,7 +371,6 @@ class WebAclRuleGroupAssociation(pulumi.CustomResource):
                 "arn": example.arn,
             })
         ```
-
         ### Managed Rule Group - Basic Usage
 
         ```python
@@ -399,7 +397,6 @@ class WebAclRuleGroupAssociation(pulumi.CustomResource):
                 "vendor_name": "AWS",
             })
         ```
-
         ### Managed Rule Group - With Version
 
         ```python
@@ -416,7 +413,6 @@ class WebAclRuleGroupAssociation(pulumi.CustomResource):
                 "version": "Version_1.0",
             })
         ```
-
         ### Managed Rule Group - With Rule Action Overrides
 
         ```python
@@ -453,7 +449,6 @@ class WebAclRuleGroupAssociation(pulumi.CustomResource):
                 ],
             })
         ```
-
         ### Custom Rule Group - With Override Action
 
         ```python
@@ -467,162 +462,6 @@ class WebAclRuleGroupAssociation(pulumi.CustomResource):
             override_action="count",
             rule_group_reference={
                 "arn": example_aws_wafv2_rule_group["arn"],
-            })
-        ```
-
-        ### Custom Rule Group - With Rule Action Overrides
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.wafv2.RuleGroup("example",
-            name="example-rule-group",
-            scope="REGIONAL",
-            capacity=10,
-            rules=[
-                {
-                    "name": "geo-block-rule",
-                    "priority": 1,
-                    "action": {
-                        "block": {},
-                    },
-                    "statement": {
-                        "geo_match_statement": {
-                            "country_codes": [
-                                "CN",
-                                "RU",
-                            ],
-                        },
-                    },
-                    "visibility_config": {
-                        "cloudwatch_metrics_enabled": True,
-                        "metric_name": "geo-block-rule",
-                        "sampled_requests_enabled": True,
-                    },
-                },
-                {
-                    "name": "rate-limit-rule",
-                    "priority": 2,
-                    "action": {
-                        "block": {},
-                    },
-                    "statement": {
-                        "rate_based_statement": {
-                            "limit": 1000,
-                            "aggregate_key_type": "IP",
-                        },
-                    },
-                    "visibility_config": {
-                        "cloudwatch_metrics_enabled": True,
-                        "metric_name": "rate-limit-rule",
-                        "sampled_requests_enabled": True,
-                    },
-                },
-            ],
-            visibility_config={
-                "cloudwatch_metrics_enabled": True,
-                "metric_name": "example-rule-group",
-                "sampled_requests_enabled": True,
-            })
-        example_web_acl = aws.wafv2.WebAcl("example",
-            name="example-web-acl",
-            scope="REGIONAL",
-            default_action={
-                "allow": {},
-            },
-            visibility_config={
-                "cloudwatch_metrics_enabled": True,
-                "metric_name": "example-web-acl",
-                "sampled_requests_enabled": True,
-            })
-        example_web_acl_rule_group_association = aws.wafv2.WebAclRuleGroupAssociation("example",
-            rule_name="example-rule-group-rule",
-            priority=100,
-            web_acl_arn=example_web_acl.arn,
-            rule_group_reference={
-                "arn": example.arn,
-                "rule_action_overrides": [
-                    {
-                        "name": "geo-block-rule",
-                        "action_to_use": {
-                            "count": {
-                                "custom_request_handling": {
-                                    "insert_headers": [{
-                                        "name": "X-Geo-Block-Override",
-                                        "value": "counted",
-                                    }],
-                                },
-                            },
-                        },
-                    },
-                    {
-                        "name": "rate-limit-rule",
-                        "action_to_use": {
-                            "captcha": {
-                                "custom_request_handling": {
-                                    "insert_headers": [{
-                                        "name": "X-Rate-Limit-Override",
-                                        "value": "captcha-required",
-                                    }],
-                                },
-                            },
-                        },
-                    },
-                ],
-            })
-        ```
-
-        ### Custom Rule Group - CloudFront Web ACL
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        cloudfront_example = aws.wafv2.RuleGroup("cloudfront_example",
-            name="cloudfront-rule-group",
-            scope="CLOUDFRONT",
-            capacity=10,
-            rules=[{
-                "name": "rate-limit",
-                "priority": 1,
-                "action": {
-                    "block": {},
-                },
-                "statement": {
-                    "rate_based_statement": {
-                        "limit": 2000,
-                        "aggregate_key_type": "IP",
-                    },
-                },
-                "visibility_config": {
-                    "cloudwatch_metrics_enabled": True,
-                    "metric_name": "rate-limit",
-                    "sampled_requests_enabled": True,
-                },
-            }],
-            visibility_config={
-                "cloudwatch_metrics_enabled": True,
-                "metric_name": "cloudfront-rule-group",
-                "sampled_requests_enabled": True,
-            })
-        cloudfront_example_web_acl = aws.wafv2.WebAcl("cloudfront_example",
-            name="cloudfront-web-acl",
-            scope="CLOUDFRONT",
-            default_action={
-                "allow": {},
-            },
-            visibility_config={
-                "cloudwatch_metrics_enabled": True,
-                "metric_name": "cloudfront-web-acl",
-                "sampled_requests_enabled": True,
-            })
-        cloudfront_example_web_acl_rule_group_association = aws.wafv2.WebAclRuleGroupAssociation("cloudfront_example",
-            rule_name="cloudfront-rule-group-rule",
-            priority=50,
-            web_acl_arn=cloudfront_example_web_acl.arn,
-            rule_group_reference={
-                "arn": cloudfront_example.arn,
             })
         ```
 
@@ -670,7 +509,6 @@ class WebAclRuleGroupAssociation(pulumi.CustomResource):
         !> **Warning:** Using this resource will cause the associated Web ACL resource to show configuration drift in the `rule` argument unless you add `lifecycle { ignore_changes = [rule] }` to the Web ACL resource configuration. This is because this resource modifies the Web ACL's rules outside of the Web ACL resource's direct management.
 
         > **Note:** This resource creates a rule within the Web ACL that references the entire Rule Group. The rule group's individual rules are evaluated as a unit when requests are processed by the Web ACL.
-
         ## Example Usage
 
         ### Custom Rule Group - Basic Usage
@@ -727,7 +565,6 @@ class WebAclRuleGroupAssociation(pulumi.CustomResource):
                 "arn": example.arn,
             })
         ```
-
         ### Managed Rule Group - Basic Usage
 
         ```python
@@ -754,7 +591,6 @@ class WebAclRuleGroupAssociation(pulumi.CustomResource):
                 "vendor_name": "AWS",
             })
         ```
-
         ### Managed Rule Group - With Version
 
         ```python
@@ -771,7 +607,6 @@ class WebAclRuleGroupAssociation(pulumi.CustomResource):
                 "version": "Version_1.0",
             })
         ```
-
         ### Managed Rule Group - With Rule Action Overrides
 
         ```python
@@ -808,7 +643,6 @@ class WebAclRuleGroupAssociation(pulumi.CustomResource):
                 ],
             })
         ```
-
         ### Custom Rule Group - With Override Action
 
         ```python
@@ -822,162 +656,6 @@ class WebAclRuleGroupAssociation(pulumi.CustomResource):
             override_action="count",
             rule_group_reference={
                 "arn": example_aws_wafv2_rule_group["arn"],
-            })
-        ```
-
-        ### Custom Rule Group - With Rule Action Overrides
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.wafv2.RuleGroup("example",
-            name="example-rule-group",
-            scope="REGIONAL",
-            capacity=10,
-            rules=[
-                {
-                    "name": "geo-block-rule",
-                    "priority": 1,
-                    "action": {
-                        "block": {},
-                    },
-                    "statement": {
-                        "geo_match_statement": {
-                            "country_codes": [
-                                "CN",
-                                "RU",
-                            ],
-                        },
-                    },
-                    "visibility_config": {
-                        "cloudwatch_metrics_enabled": True,
-                        "metric_name": "geo-block-rule",
-                        "sampled_requests_enabled": True,
-                    },
-                },
-                {
-                    "name": "rate-limit-rule",
-                    "priority": 2,
-                    "action": {
-                        "block": {},
-                    },
-                    "statement": {
-                        "rate_based_statement": {
-                            "limit": 1000,
-                            "aggregate_key_type": "IP",
-                        },
-                    },
-                    "visibility_config": {
-                        "cloudwatch_metrics_enabled": True,
-                        "metric_name": "rate-limit-rule",
-                        "sampled_requests_enabled": True,
-                    },
-                },
-            ],
-            visibility_config={
-                "cloudwatch_metrics_enabled": True,
-                "metric_name": "example-rule-group",
-                "sampled_requests_enabled": True,
-            })
-        example_web_acl = aws.wafv2.WebAcl("example",
-            name="example-web-acl",
-            scope="REGIONAL",
-            default_action={
-                "allow": {},
-            },
-            visibility_config={
-                "cloudwatch_metrics_enabled": True,
-                "metric_name": "example-web-acl",
-                "sampled_requests_enabled": True,
-            })
-        example_web_acl_rule_group_association = aws.wafv2.WebAclRuleGroupAssociation("example",
-            rule_name="example-rule-group-rule",
-            priority=100,
-            web_acl_arn=example_web_acl.arn,
-            rule_group_reference={
-                "arn": example.arn,
-                "rule_action_overrides": [
-                    {
-                        "name": "geo-block-rule",
-                        "action_to_use": {
-                            "count": {
-                                "custom_request_handling": {
-                                    "insert_headers": [{
-                                        "name": "X-Geo-Block-Override",
-                                        "value": "counted",
-                                    }],
-                                },
-                            },
-                        },
-                    },
-                    {
-                        "name": "rate-limit-rule",
-                        "action_to_use": {
-                            "captcha": {
-                                "custom_request_handling": {
-                                    "insert_headers": [{
-                                        "name": "X-Rate-Limit-Override",
-                                        "value": "captcha-required",
-                                    }],
-                                },
-                            },
-                        },
-                    },
-                ],
-            })
-        ```
-
-        ### Custom Rule Group - CloudFront Web ACL
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        cloudfront_example = aws.wafv2.RuleGroup("cloudfront_example",
-            name="cloudfront-rule-group",
-            scope="CLOUDFRONT",
-            capacity=10,
-            rules=[{
-                "name": "rate-limit",
-                "priority": 1,
-                "action": {
-                    "block": {},
-                },
-                "statement": {
-                    "rate_based_statement": {
-                        "limit": 2000,
-                        "aggregate_key_type": "IP",
-                    },
-                },
-                "visibility_config": {
-                    "cloudwatch_metrics_enabled": True,
-                    "metric_name": "rate-limit",
-                    "sampled_requests_enabled": True,
-                },
-            }],
-            visibility_config={
-                "cloudwatch_metrics_enabled": True,
-                "metric_name": "cloudfront-rule-group",
-                "sampled_requests_enabled": True,
-            })
-        cloudfront_example_web_acl = aws.wafv2.WebAcl("cloudfront_example",
-            name="cloudfront-web-acl",
-            scope="CLOUDFRONT",
-            default_action={
-                "allow": {},
-            },
-            visibility_config={
-                "cloudwatch_metrics_enabled": True,
-                "metric_name": "cloudfront-web-acl",
-                "sampled_requests_enabled": True,
-            })
-        cloudfront_example_web_acl_rule_group_association = aws.wafv2.WebAclRuleGroupAssociation("cloudfront_example",
-            rule_name="cloudfront-rule-group-rule",
-            priority=50,
-            web_acl_arn=cloudfront_example_web_acl.arn,
-            rule_group_reference={
-                "arn": cloudfront_example.arn,
             })
         ```
 

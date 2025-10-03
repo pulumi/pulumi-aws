@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * !> **Warning:** Using this resource will cause the associated Web ACL resource to show configuration drift in the `rule` argument unless you add `lifecycle { ignoreChanges = [rule] }` to the Web ACL resource configuration. This is because this resource modifies the Web ACL's rules outside of the Web ACL resource's direct management.
  *
  * > **Note:** This resource creates a rule within the Web ACL that references the entire Rule Group. The rule group's individual rules are evaluated as a unit when requests are processed by the Web ACL.
- *
  * ## Example Usage
  *
  * ### Custom Rule Group - Basic Usage
@@ -80,7 +79,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
  * ### Managed Rule Group - Basic Usage
  *
  * ```typescript
@@ -109,7 +107,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
  * ### Managed Rule Group - With Version
  *
  * ```typescript
@@ -127,7 +124,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
  * ### Managed Rule Group - With Rule Action Overrides
  *
  * ```typescript
@@ -165,7 +161,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
  * ### Custom Rule Group - With Override Action
  *
  * ```typescript
@@ -179,168 +174,6 @@ import * as utilities from "../utilities";
  *     overrideAction: "count",
  *     ruleGroupReference: {
  *         arn: exampleAwsWafv2RuleGroup.arn,
- *     },
- * });
- * ```
- *
- * ### Custom Rule Group - With Rule Action Overrides
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.wafv2.RuleGroup("example", {
- *     name: "example-rule-group",
- *     scope: "REGIONAL",
- *     capacity: 10,
- *     rules: [
- *         {
- *             name: "geo-block-rule",
- *             priority: 1,
- *             action: {
- *                 block: {},
- *             },
- *             statement: {
- *                 geoMatchStatement: {
- *                     countryCodes: [
- *                         "CN",
- *                         "RU",
- *                     ],
- *                 },
- *             },
- *             visibilityConfig: {
- *                 cloudwatchMetricsEnabled: true,
- *                 metricName: "geo-block-rule",
- *                 sampledRequestsEnabled: true,
- *             },
- *         },
- *         {
- *             name: "rate-limit-rule",
- *             priority: 2,
- *             action: {
- *                 block: {},
- *             },
- *             statement: {
- *                 rateBasedStatement: {
- *                     limit: 1000,
- *                     aggregateKeyType: "IP",
- *                 },
- *             },
- *             visibilityConfig: {
- *                 cloudwatchMetricsEnabled: true,
- *                 metricName: "rate-limit-rule",
- *                 sampledRequestsEnabled: true,
- *             },
- *         },
- *     ],
- *     visibilityConfig: {
- *         cloudwatchMetricsEnabled: true,
- *         metricName: "example-rule-group",
- *         sampledRequestsEnabled: true,
- *     },
- * });
- * const exampleWebAcl = new aws.wafv2.WebAcl("example", {
- *     name: "example-web-acl",
- *     scope: "REGIONAL",
- *     defaultAction: {
- *         allow: {},
- *     },
- *     visibilityConfig: {
- *         cloudwatchMetricsEnabled: true,
- *         metricName: "example-web-acl",
- *         sampledRequestsEnabled: true,
- *     },
- * });
- * const exampleWebAclRuleGroupAssociation = new aws.wafv2.WebAclRuleGroupAssociation("example", {
- *     ruleName: "example-rule-group-rule",
- *     priority: 100,
- *     webAclArn: exampleWebAcl.arn,
- *     ruleGroupReference: {
- *         arn: example.arn,
- *         ruleActionOverrides: [
- *             {
- *                 name: "geo-block-rule",
- *                 actionToUse: {
- *                     count: {
- *                         customRequestHandling: {
- *                             insertHeaders: [{
- *                                 name: "X-Geo-Block-Override",
- *                                 value: "counted",
- *                             }],
- *                         },
- *                     },
- *                 },
- *             },
- *             {
- *                 name: "rate-limit-rule",
- *                 actionToUse: {
- *                     captcha: {
- *                         customRequestHandling: {
- *                             insertHeaders: [{
- *                                 name: "X-Rate-Limit-Override",
- *                                 value: "captcha-required",
- *                             }],
- *                         },
- *                     },
- *                 },
- *             },
- *         ],
- *     },
- * });
- * ```
- *
- * ### Custom Rule Group - CloudFront Web ACL
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const cloudfrontExample = new aws.wafv2.RuleGroup("cloudfront_example", {
- *     name: "cloudfront-rule-group",
- *     scope: "CLOUDFRONT",
- *     capacity: 10,
- *     rules: [{
- *         name: "rate-limit",
- *         priority: 1,
- *         action: {
- *             block: {},
- *         },
- *         statement: {
- *             rateBasedStatement: {
- *                 limit: 2000,
- *                 aggregateKeyType: "IP",
- *             },
- *         },
- *         visibilityConfig: {
- *             cloudwatchMetricsEnabled: true,
- *             metricName: "rate-limit",
- *             sampledRequestsEnabled: true,
- *         },
- *     }],
- *     visibilityConfig: {
- *         cloudwatchMetricsEnabled: true,
- *         metricName: "cloudfront-rule-group",
- *         sampledRequestsEnabled: true,
- *     },
- * });
- * const cloudfrontExampleWebAcl = new aws.wafv2.WebAcl("cloudfront_example", {
- *     name: "cloudfront-web-acl",
- *     scope: "CLOUDFRONT",
- *     defaultAction: {
- *         allow: {},
- *     },
- *     visibilityConfig: {
- *         cloudwatchMetricsEnabled: true,
- *         metricName: "cloudfront-web-acl",
- *         sampledRequestsEnabled: true,
- *     },
- * });
- * const cloudfrontExampleWebAclRuleGroupAssociation = new aws.wafv2.WebAclRuleGroupAssociation("cloudfront_example", {
- *     ruleName: "cloudfront-rule-group-rule",
- *     priority: 50,
- *     webAclArn: cloudfrontExampleWebAcl.arn,
- *     ruleGroupReference: {
- *         arn: cloudfrontExample.arn,
  *     },
  * });
  * ```

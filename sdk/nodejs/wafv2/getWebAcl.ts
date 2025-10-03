@@ -6,36 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the summary of a WAFv2 Web ACL.
- *
- * ## Example Usage
- *
- * ### Lookup by name
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.wafv2.getWebAcl({
- *     name: "some-web-acl",
- *     scope: "REGIONAL",
- * });
- * ```
- *
- * ### Lookup by associated resource
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const albExample = aws.wafv2.getWebAcl({
- *     resourceArn: "arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/my-alb/xxxxx",
- *     scope: "REGIONAL",
- * });
- * const cloudfrontExample = aws.wafv2.getWebAcl({
- *     resourceArn: "arn:aws:cloudfront::123456789012:distribution/XXX",
- *     scope: "CLOUDFRONT",
- * });
- * ```
  */
 export function getWebAcl(args: GetWebAclArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAclResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -92,36 +62,6 @@ export interface GetWebAclResult {
 }
 /**
  * Retrieves the summary of a WAFv2 Web ACL.
- *
- * ## Example Usage
- *
- * ### Lookup by name
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.wafv2.getWebAcl({
- *     name: "some-web-acl",
- *     scope: "REGIONAL",
- * });
- * ```
- *
- * ### Lookup by associated resource
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const albExample = aws.wafv2.getWebAcl({
- *     resourceArn: "arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/my-alb/xxxxx",
- *     scope: "REGIONAL",
- * });
- * const cloudfrontExample = aws.wafv2.getWebAcl({
- *     resourceArn: "arn:aws:cloudfront::123456789012:distribution/XXX",
- *     scope: "CLOUDFRONT",
- * });
- * ```
  */
 export function getWebAclOutput(args: GetWebAclOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAclResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

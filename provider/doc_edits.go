@@ -20,8 +20,10 @@ import (
 	"fmt"
 	"os"
 	"regexp"
+	"strings"
 
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfgen"
 )
 
 func editRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
@@ -29,6 +31,8 @@ func editRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 		fixUpCloudFrontPublicKey,
 		fixUpEcsServiceName,
 		fixUpBucketReplicationConfig,
+		fixUpWebAclExample,
+		fixUpWebAclRuleGroupAssociationExample,
 		// This fixes up strings such as:
 		//
 		//	name        = "terraform-kinesis-firehose-os",
@@ -179,6 +183,24 @@ var fixUpEcsServiceName = tfbridge.DocsEdit{
 			}
 		}
 		return content, nil
+	},
+}
+
+var fixUpWebAclExample = tfbridge.DocsEdit{
+	Path: "wafv2_web_acl.html.markdown",
+	Edit: func(path string, content []byte) ([]byte, error) {
+		return tfgen.SkipSectionByHeaderContent(content, func(headerText string) bool {
+			return strings.Contains(headerText, "Example Usage")
+		})
+	},
+}
+
+var fixUpWebAclRuleGroupAssociationExample = tfbridge.DocsEdit{
+	Path: "wafv2_web_acl_rule_group_association.html.markdown",
+	Edit: func(path string, content []byte) ([]byte, error) {
+		return tfgen.SkipSectionByHeaderContent(content, func(headerText string) bool {
+			return strings.Contains(headerText, "Custom Rule Group - With Rule Action Overrides") || strings.Contains(headerText, "Custom Rule Group - CloudFront Web ACL")
+		})
 	},
 }
 

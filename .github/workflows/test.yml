@@ -18,6 +18,7 @@ env:
   PULUMI_LOCAL_NUGET: ${{ github.workspace }}/nuget
   PULUMI_MISSING_DOCS_ERROR: "true"
   TF_APPEND_USER_AGENT: pulumi
+  MISE_ENV: test
 
 jobs:
   test:
@@ -55,8 +56,15 @@ jobs:
       with:
         repository: pulumi/examples
         path: p-examples
-    - name: Setup tools
-      uses: ./.github/actions/setup-tools
+    - name: Setup mise
+      uses: jdx/mise-action@v3
+      env:
+        MISE_ENV: test
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        cache_key: "mise-{{platform}}-{{file_hash}}"
+        # also save this cache since we are using a different mise env.
+        cache_save: true
     - name: Prepare local workspace
       run: make prepare_local_workspace
       env:

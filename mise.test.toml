@@ -1,0 +1,7 @@
+[tools]
+# TODO: need to keep pinned due to https://github.com/pulumi/pulumi/issues/20274 and https://github.com/pulumi/pulumi/issues/20419
+pulumi = "3.187.0"
+
+[settings]
+experimental = true
+lockfile = true

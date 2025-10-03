@@ -24,7 +24,6 @@ import (
 // !> **Warning:** Using this resource will cause the associated Web ACL resource to show configuration drift in the `rule` argument unless you add `lifecycle { ignoreChanges = [rule] }` to the Web ACL resource configuration. This is because this resource modifies the Web ACL's rules outside of the Web ACL resource's direct management.
 //
 // > **Note:** This resource creates a rule within the Web ACL that references the entire Rule Group. The rule group's individual rules are evaluated as a unit when requests are processed by the Web ACL.
-//
 // ## Example Usage
 //
 // ### Custom Rule Group - Basic Usage
@@ -107,7 +106,6 @@ import (
 //	}
 //
 // ```
-//
 // ### Managed Rule Group - Basic Usage
 //
 // ```go
@@ -154,7 +152,6 @@ import (
 //	}
 //
 // ```
-//
 // ### Managed Rule Group - With Version
 //
 // ```go
@@ -187,7 +184,6 @@ import (
 //	}
 //
 // ```
-//
 // ### Managed Rule Group - With Rule Action Overrides
 //
 // ```go
@@ -242,7 +238,6 @@ import (
 //	}
 //
 // ```
-//
 // ### Custom Rule Group - With Override Action
 //
 // ```go
@@ -264,216 +259,6 @@ import (
 //				OverrideAction: pulumi.String("count"),
 //				RuleGroupReference: &wafv2.WebAclRuleGroupAssociationRuleGroupReferenceArgs{
 //					Arn: pulumi.Any(exampleAwsWafv2RuleGroup.Arn),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Custom Rule Group - With Rule Action Overrides
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/wafv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := wafv2.NewRuleGroup(ctx, "example", &wafv2.RuleGroupArgs{
-//				Name:     pulumi.String("example-rule-group"),
-//				Scope:    pulumi.String("REGIONAL"),
-//				Capacity: pulumi.Int(10),
-//				Rules: wafv2.RuleGroupRuleArray{
-//					&wafv2.RuleGroupRuleArgs{
-//						Name:     pulumi.String("geo-block-rule"),
-//						Priority: pulumi.Int(1),
-//						Action: &wafv2.RuleGroupRuleActionArgs{
-//							Block: &wafv2.RuleGroupRuleActionBlockArgs{},
-//						},
-//						Statement: &wafv2.RuleGroupRuleStatementArgs{
-//							GeoMatchStatement: &wafv2.RuleGroupRuleStatementGeoMatchStatementArgs{
-//								CountryCodes: pulumi.StringArray{
-//									pulumi.String("CN"),
-//									pulumi.String("RU"),
-//								},
-//							},
-//						},
-//						VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
-//							CloudwatchMetricsEnabled: pulumi.Bool(true),
-//							MetricName:               pulumi.String("geo-block-rule"),
-//							SampledRequestsEnabled:   pulumi.Bool(true),
-//						},
-//					},
-//					&wafv2.RuleGroupRuleArgs{
-//						Name:     pulumi.String("rate-limit-rule"),
-//						Priority: pulumi.Int(2),
-//						Action: &wafv2.RuleGroupRuleActionArgs{
-//							Block: &wafv2.RuleGroupRuleActionBlockArgs{},
-//						},
-//						Statement: &wafv2.RuleGroupRuleStatementArgs{
-//							RateBasedStatement: &wafv2.RuleGroupRuleStatementRateBasedStatementArgs{
-//								Limit:            pulumi.Int(1000),
-//								AggregateKeyType: pulumi.String("IP"),
-//							},
-//						},
-//						VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
-//							CloudwatchMetricsEnabled: pulumi.Bool(true),
-//							MetricName:               pulumi.String("rate-limit-rule"),
-//							SampledRequestsEnabled:   pulumi.Bool(true),
-//						},
-//					},
-//				},
-//				VisibilityConfig: &wafv2.RuleGroupVisibilityConfigArgs{
-//					CloudwatchMetricsEnabled: pulumi.Bool(true),
-//					MetricName:               pulumi.String("example-rule-group"),
-//					SampledRequestsEnabled:   pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleWebAcl, err := wafv2.NewWebAcl(ctx, "example", &wafv2.WebAclArgs{
-//				Name:  pulumi.String("example-web-acl"),
-//				Scope: pulumi.String("REGIONAL"),
-//				DefaultAction: &wafv2.WebAclDefaultActionArgs{
-//					Allow: &wafv2.WebAclDefaultActionAllowArgs{},
-//				},
-//				VisibilityConfig: &wafv2.WebAclVisibilityConfigArgs{
-//					CloudwatchMetricsEnabled: pulumi.Bool(true),
-//					MetricName:               pulumi.String("example-web-acl"),
-//					SampledRequestsEnabled:   pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = wafv2.NewWebAclRuleGroupAssociation(ctx, "example", &wafv2.WebAclRuleGroupAssociationArgs{
-//				RuleName:  pulumi.String("example-rule-group-rule"),
-//				Priority:  pulumi.Int(100),
-//				WebAclArn: exampleWebAcl.Arn,
-//				RuleGroupReference: &wafv2.WebAclRuleGroupAssociationRuleGroupReferenceArgs{
-//					Arn: example.Arn,
-//					RuleActionOverrides: wafv2.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideArray{
-//						&wafv2.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideArgs{
-//							Name: pulumi.String("geo-block-rule"),
-//							ActionToUse: &wafv2.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseArgs{
-//								Count: &wafv2.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountArgs{
-//									CustomRequestHandling: &wafv2.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandlingArgs{
-//										InsertHeaders: wafv2.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArray{
-//											&wafv2.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgs{
-//												Name:  pulumi.String("X-Geo-Block-Override"),
-//												Value: pulumi.String("counted"),
-//											},
-//										},
-//									},
-//								},
-//							},
-//						},
-//						&wafv2.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideArgs{
-//							Name: pulumi.String("rate-limit-rule"),
-//							ActionToUse: &wafv2.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseArgs{
-//								Captcha: &wafv2.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaArgs{
-//									CustomRequestHandling: &wafv2.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs{
-//										InsertHeaders: wafv2.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArray{
-//											&wafv2.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs{
-//												Name:  pulumi.String("X-Rate-Limit-Override"),
-//												Value: pulumi.String("captcha-required"),
-//											},
-//										},
-//									},
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Custom Rule Group - CloudFront Web ACL
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/wafv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cloudfrontExample, err := wafv2.NewRuleGroup(ctx, "cloudfront_example", &wafv2.RuleGroupArgs{
-//				Name:     pulumi.String("cloudfront-rule-group"),
-//				Scope:    pulumi.String("CLOUDFRONT"),
-//				Capacity: pulumi.Int(10),
-//				Rules: wafv2.RuleGroupRuleArray{
-//					&wafv2.RuleGroupRuleArgs{
-//						Name:     pulumi.String("rate-limit"),
-//						Priority: pulumi.Int(1),
-//						Action: &wafv2.RuleGroupRuleActionArgs{
-//							Block: &wafv2.RuleGroupRuleActionBlockArgs{},
-//						},
-//						Statement: &wafv2.RuleGroupRuleStatementArgs{
-//							RateBasedStatement: &wafv2.RuleGroupRuleStatementRateBasedStatementArgs{
-//								Limit:            pulumi.Int(2000),
-//								AggregateKeyType: pulumi.String("IP"),
-//							},
-//						},
-//						VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
-//							CloudwatchMetricsEnabled: pulumi.Bool(true),
-//							MetricName:               pulumi.String("rate-limit"),
-//							SampledRequestsEnabled:   pulumi.Bool(true),
-//						},
-//					},
-//				},
-//				VisibilityConfig: &wafv2.RuleGroupVisibilityConfigArgs{
-//					CloudwatchMetricsEnabled: pulumi.Bool(true),
-//					MetricName:               pulumi.String("cloudfront-rule-group"),
-//					SampledRequestsEnabled:   pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			cloudfrontExampleWebAcl, err := wafv2.NewWebAcl(ctx, "cloudfront_example", &wafv2.WebAclArgs{
-//				Name:  pulumi.String("cloudfront-web-acl"),
-//				Scope: pulumi.String("CLOUDFRONT"),
-//				DefaultAction: &wafv2.WebAclDefaultActionArgs{
-//					Allow: &wafv2.WebAclDefaultActionAllowArgs{},
-//				},
-//				VisibilityConfig: &wafv2.WebAclVisibilityConfigArgs{
-//					CloudwatchMetricsEnabled: pulumi.Bool(true),
-//					MetricName:               pulumi.String("cloudfront-web-acl"),
-//					SampledRequestsEnabled:   pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = wafv2.NewWebAclRuleGroupAssociation(ctx, "cloudfront_example", &wafv2.WebAclRuleGroupAssociationArgs{
-//				RuleName:  pulumi.String("cloudfront-rule-group-rule"),
-//				Priority:  pulumi.Int(50),
-//				WebAclArn: cloudfrontExampleWebAcl.Arn,
-//				RuleGroupReference: &wafv2.WebAclRuleGroupAssociationRuleGroupReferenceArgs{
-//					Arn: cloudfrontExample.Arn,
 //				},
 //			})
 //			if err != nil {

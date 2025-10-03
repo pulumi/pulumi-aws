@@ -22,7 +22,6 @@ namespace Pulumi.Aws.WafV2
     /// !&gt; **Warning:** Using this resource will cause the associated Web ACL resource to show configuration drift in the `rule` argument unless you add `lifecycle { ignore_changes = [rule] }` to the Web ACL resource configuration. This is because this resource modifies the Web ACL's rules outside of the Web ACL resource's direct management.
     /// 
     /// &gt; **Note:** This resource creates a rule within the Web ACL that references the entire Rule Group. The rule group's individual rules are evaluated as a unit when requests are processed by the Web ACL.
-    /// 
     /// ## Example Usage
     /// 
     /// ### Custom Rule Group - Basic Usage
@@ -106,7 +105,6 @@ namespace Pulumi.Aws.WafV2
     /// 
     /// });
     /// ```
-    /// 
     /// ### Managed Rule Group - Basic Usage
     /// 
     /// ```csharp
@@ -147,7 +145,6 @@ namespace Pulumi.Aws.WafV2
     /// 
     /// });
     /// ```
-    /// 
     /// ### Managed Rule Group - With Version
     /// 
     /// ```csharp
@@ -173,7 +170,6 @@ namespace Pulumi.Aws.WafV2
     /// 
     /// });
     /// ```
-    /// 
     /// ### Managed Rule Group - With Rule Action Overrides
     /// 
     /// ```csharp
@@ -230,7 +226,6 @@ namespace Pulumi.Aws.WafV2
     /// 
     /// });
     /// ```
-    /// 
     /// ### Custom Rule Group - With Override Action
     /// 
     /// ```csharp
@@ -250,235 +245,6 @@ namespace Pulumi.Aws.WafV2
     ///         RuleGroupReference = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationRuleGroupReferenceArgs
     ///         {
     ///             Arn = exampleAwsWafv2RuleGroup.Arn,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Custom Rule Group - With Rule Action Overrides
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.WafV2.RuleGroup("example", new()
-    ///     {
-    ///         Name = "example-rule-group",
-    ///         Scope = "REGIONAL",
-    ///         Capacity = 10,
-    ///         Rules = new[]
-    ///         {
-    ///             new Aws.WafV2.Inputs.RuleGroupRuleArgs
-    ///             {
-    ///                 Name = "geo-block-rule",
-    ///                 Priority = 1,
-    ///                 Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
-    ///                 {
-    ///                     Block = null,
-    ///                 },
-    ///                 Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
-    ///                 {
-    ///                     GeoMatchStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementGeoMatchStatementArgs
-    ///                     {
-    ///                         CountryCodes = new[]
-    ///                         {
-    ///                             "CN",
-    ///                             "RU",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupRuleVisibilityConfigArgs
-    ///                 {
-    ///                     CloudwatchMetricsEnabled = true,
-    ///                     MetricName = "geo-block-rule",
-    ///                     SampledRequestsEnabled = true,
-    ///                 },
-    ///             },
-    ///             new Aws.WafV2.Inputs.RuleGroupRuleArgs
-    ///             {
-    ///                 Name = "rate-limit-rule",
-    ///                 Priority = 2,
-    ///                 Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
-    ///                 {
-    ///                     Block = null,
-    ///                 },
-    ///                 Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
-    ///                 {
-    ///                     RateBasedStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementRateBasedStatementArgs
-    ///                     {
-    ///                         Limit = 1000,
-    ///                         AggregateKeyType = "IP",
-    ///                     },
-    ///                 },
-    ///                 VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupRuleVisibilityConfigArgs
-    ///                 {
-    ///                     CloudwatchMetricsEnabled = true,
-    ///                     MetricName = "rate-limit-rule",
-    ///                     SampledRequestsEnabled = true,
-    ///                 },
-    ///             },
-    ///         },
-    ///         VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupVisibilityConfigArgs
-    ///         {
-    ///             CloudwatchMetricsEnabled = true,
-    ///             MetricName = "example-rule-group",
-    ///             SampledRequestsEnabled = true,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleWebAcl = new Aws.WafV2.WebAcl("example", new()
-    ///     {
-    ///         Name = "example-web-acl",
-    ///         Scope = "REGIONAL",
-    ///         DefaultAction = new Aws.WafV2.Inputs.WebAclDefaultActionArgs
-    ///         {
-    ///             Allow = null,
-    ///         },
-    ///         VisibilityConfig = new Aws.WafV2.Inputs.WebAclVisibilityConfigArgs
-    ///         {
-    ///             CloudwatchMetricsEnabled = true,
-    ///             MetricName = "example-web-acl",
-    ///             SampledRequestsEnabled = true,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleWebAclRuleGroupAssociation = new Aws.WafV2.WebAclRuleGroupAssociation("example", new()
-    ///     {
-    ///         RuleName = "example-rule-group-rule",
-    ///         Priority = 100,
-    ///         WebAclArn = exampleWebAcl.Arn,
-    ///         RuleGroupReference = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationRuleGroupReferenceArgs
-    ///         {
-    ///             Arn = example.Arn,
-    ///             RuleActionOverrides = new[]
-    ///             {
-    ///                 new Aws.WafV2.Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideArgs
-    ///                 {
-    ///                     Name = "geo-block-rule",
-    ///                     ActionToUse = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseArgs
-    ///                     {
-    ///                         Count = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountArgs
-    ///                         {
-    ///                             CustomRequestHandling = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandlingArgs
-    ///                             {
-    ///                                 InsertHeaders = new[]
-    ///                                 {
-    ///                                     new Aws.WafV2.Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgs
-    ///                                     {
-    ///                                         Name = "X-Geo-Block-Override",
-    ///                                         Value = "counted",
-    ///                                     },
-    ///                                 },
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 new Aws.WafV2.Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideArgs
-    ///                 {
-    ///                     Name = "rate-limit-rule",
-    ///                     ActionToUse = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseArgs
-    ///                     {
-    ///                         Captcha = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaArgs
-    ///                         {
-    ///                             CustomRequestHandling = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs
-    ///                             {
-    ///                                 InsertHeaders = new[]
-    ///                                 {
-    ///                                     new Aws.WafV2.Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs
-    ///                                     {
-    ///                                         Name = "X-Rate-Limit-Override",
-    ///                                         Value = "captcha-required",
-    ///                                     },
-    ///                                 },
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Custom Rule Group - CloudFront Web ACL
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var cloudfrontExample = new Aws.WafV2.RuleGroup("cloudfront_example", new()
-    ///     {
-    ///         Name = "cloudfront-rule-group",
-    ///         Scope = "CLOUDFRONT",
-    ///         Capacity = 10,
-    ///         Rules = new[]
-    ///         {
-    ///             new Aws.WafV2.Inputs.RuleGroupRuleArgs
-    ///             {
-    ///                 Name = "rate-limit",
-    ///                 Priority = 1,
-    ///                 Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
-    ///                 {
-    ///                     Block = null,
-    ///                 },
-    ///                 Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
-    ///                 {
-    ///                     RateBasedStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementRateBasedStatementArgs
-    ///                     {
-    ///                         Limit = 2000,
-    ///                         AggregateKeyType = "IP",
-    ///                     },
-    ///                 },
-    ///                 VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupRuleVisibilityConfigArgs
-    ///                 {
-    ///                     CloudwatchMetricsEnabled = true,
-    ///                     MetricName = "rate-limit",
-    ///                     SampledRequestsEnabled = true,
-    ///                 },
-    ///             },
-    ///         },
-    ///         VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupVisibilityConfigArgs
-    ///         {
-    ///             CloudwatchMetricsEnabled = true,
-    ///             MetricName = "cloudfront-rule-group",
-    ///             SampledRequestsEnabled = true,
-    ///         },
-    ///     });
-    /// 
-    ///     var cloudfrontExampleWebAcl = new Aws.WafV2.WebAcl("cloudfront_example", new()
-    ///     {
-    ///         Name = "cloudfront-web-acl",
-    ///         Scope = "CLOUDFRONT",
-    ///         DefaultAction = new Aws.WafV2.Inputs.WebAclDefaultActionArgs
-    ///         {
-    ///             Allow = null,
-    ///         },
-    ///         VisibilityConfig = new Aws.WafV2.Inputs.WebAclVisibilityConfigArgs
-    ///         {
-    ///             CloudwatchMetricsEnabled = true,
-    ///             MetricName = "cloudfront-web-acl",
-    ///             SampledRequestsEnabled = true,
-    ///         },
-    ///     });
-    /// 
-    ///     var cloudfrontExampleWebAclRuleGroupAssociation = new Aws.WafV2.WebAclRuleGroupAssociation("cloudfront_example", new()
-    ///     {
-    ///         RuleName = "cloudfront-rule-group-rule",
-    ///         Priority = 50,
-    ///         WebAclArn = cloudfrontExampleWebAcl.Arn,
-    ///         RuleGroupReference = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationRuleGroupReferenceArgs
-    ///         {
-    ///             Arn = cloudfrontExample.Arn,
     ///         },
     ///     });
     /// 
