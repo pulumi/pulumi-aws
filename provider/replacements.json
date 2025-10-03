@@ -331,6 +331,10 @@
     {
       "old": "  description     = \"I made this table with terraform!\"",
       "new": "  description     = \"I made this table with Pulumi!\""
+    },
+    {
+      "old": "In Terraform v1.12.0 and later, the `import` block can be used with the `identity` attribute. For example:\n",
+      "new": "In TODO v1.12.0 and later, the `import` block can be used with the `identity` attribute. For example:\n"
     }
   ],
   "cloudcontrolapi_resource.html.markdown": [
@@ -2139,6 +2143,10 @@
     {
       "old": "Since `prefix` is deprecated by Amazon S3 and will be removed in the next major version of the Terraform AWS Provider, we recommend users specify `filter`.\n",
       "new": "Since `prefix` is deprecated by Amazon S3 and will be removed in the next major version of the AWS Provider, we recommend users specify `filter`.\n"
+    },
+    {
+      "old": "This configuration maintains compatibility with the default behavior of the `lifecycle_rule` parameter from the `aws_s3_bucket` resource in versions prior to v4.0 of the Terraform AWS Provider.\n",
+      "new": "This configuration maintains compatibility with the default behavior of the `lifecycle_rule` parameter from the `aws_s3_bucket` resource in versions prior to v4.0 of the TODO AWS Provider.\n"
     }
   ],
   "s3_bucket_logging.html.markdown": [
