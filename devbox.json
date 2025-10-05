@@ -2,7 +2,7 @@
   "packages": [
     "yarn@latest",
     "pulumictl@latest",
-    "go@1.23.",
+    "go@1.21.",
     "nodejs@20.",
     "python3@3.11.8",
     "dotnet-sdk@8.0.",
