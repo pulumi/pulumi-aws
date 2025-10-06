@@ -10,6 +10,483 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3
 {
     /// <summary>
+    /// Provides an independent configuration resource for S3 bucket [lifecycle configuration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html).
+    /// 
+    /// An S3 Lifecycle configuration consists of one or more Lifecycle rules. Each rule consists of the following:
+    /// 
+    /// * Rule metadata (`id` and `status`)
+    /// * Filter identifying objects to which the rule applies
+    /// * One or more transition or expiration actions
+    /// 
+    /// For more information see the Amazon S3 User Guide on [`Lifecycle Configuration Elements`](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html).
+    /// 
+    /// &gt; S3 Buckets only support a single lifecycle configuration. Declaring multiple `aws.s3.BucketLifecycleConfiguration` resources to the same S3 Bucket will cause a perpetual difference in configuration.
+    /// 
+    /// &gt; Lifecycle configurations may take some time to fully propagate to all AWS S3 systems.
+    /// Running Pulumi operations shortly after creating a lifecycle configuration may result in changes that affect configuration idempotence.
+    /// See the Amazon S3 User Guide on [setting lifecycle configuration on a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/how-to-set-lifecycle-configuration-intro.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### With neither a filter nor prefix specified
+    /// 
+    /// When you don't specify a filter or prefix, the lifecycle rule applies to all objects in the bucket. This has the same effect as setting an empty `filter` element.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.S3.BucketLifecycleConfiguration("example", new()
+    ///     {
+    ///         Bucket = bucket.Id,
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.S3.Inputs.BucketLifecycleConfigurationRuleArgs
+    ///             {
+    ///                 Id = "rule-1",
+    ///                 Status = "Enabled",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Specifying an empty filter
+    /// 
+    /// The Lifecycle rule applies to all objects in the bucket.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.S3.BucketLifecycleConfiguration("example", new()
+    ///     {
+    ///         Bucket = bucket.Id,
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.S3.Inputs.BucketLifecycleConfigurationRuleArgs
+    ///             {
+    ///                 Id = "rule-1",
+    ///                 Filter = null,
+    ///                 Status = "Enabled",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Specifying a filter using key prefixes
+    /// 
+    /// The Lifecycle rule applies to a subset of objects based on the key name prefix (`logs/`).
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.S3.BucketLifecycleConfiguration("example", new()
+    ///     {
+    ///         Bucket = bucket.Id,
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.S3.Inputs.BucketLifecycleConfigurationRuleArgs
+    ///             {
+    ///                 Id = "rule-1",
+    ///                 Filter = new Aws.S3.Inputs.BucketLifecycleConfigurationRuleFilterArgs
+    ///                 {
+    ///                     Prefix = "logs/",
+    ///                 },
+    ///                 Status = "Enabled",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// If you want to apply a Lifecycle action to a subset of objects based on different key name prefixes, specify separate rules.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.S3.BucketLifecycleConfiguration("example", new()
+    ///     {
+    ///         Bucket = bucket.Id,
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.S3.Inputs.BucketLifecycleConfigurationRuleArgs
+    ///             {
+    ///                 Id = "rule-1",
+    ///                 Filter = new Aws.S3.Inputs.BucketLifecycleConfigurationRuleFilterArgs
+    ///                 {
+    ///                     Prefix = "logs/",
+    ///                 },
+    ///                 Status = "Enabled",
+    ///             },
+    ///             new Aws.S3.Inputs.BucketLifecycleConfigurationRuleArgs
+    ///             {
+    ///                 Id = "rule-2",
+    ///                 Filter = new Aws.S3.Inputs.BucketLifecycleConfigurationRuleFilterArgs
+    ///                 {
+    ///                     Prefix = "tmp/",
+    ///                 },
+    ///                 Status = "Enabled",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Specifying a filter based on an object tag
+    /// 
+    /// The Lifecycle rule specifies a filter based on a tag key and value. The rule then applies only to a subset of objects with the specific tag.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.S3.BucketLifecycleConfiguration("example", new()
+    ///     {
+    ///         Bucket = bucket.Id,
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.S3.Inputs.BucketLifecycleConfigurationRuleArgs
+    ///             {
+    ///                 Id = "rule-1",
+    ///                 Filter = new Aws.S3.Inputs.BucketLifecycleConfigurationRuleFilterArgs
+    ///                 {
+    ///                     Tag = new Aws.S3.Inputs.BucketLifecycleConfigurationRuleFilterTagArgs
+    ///                     {
+    ///                         Key = "Name",
+    ///                         Value = "Staging",
+    ///                     },
+    ///                 },
+    ///                 Status = "Enabled",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Specifying a filter based on multiple tags
+    /// 
+    /// The Lifecycle rule directs Amazon S3 to perform lifecycle actions on objects with two tags (with the specific tag keys and values). Notice `tags` is wrapped in the `and` configuration block.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.S3.BucketLifecycleConfiguration("example", new()
+    ///     {
+    ///         Bucket = bucket.Id,
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.S3.Inputs.BucketLifecycleConfigurationRuleArgs
+    ///             {
+    ///                 Id = "rule-1",
+    ///                 Filter = new Aws.S3.Inputs.BucketLifecycleConfigurationRuleFilterArgs
+    ///                 {
+    ///                     And = new Aws.S3.Inputs.BucketLifecycleConfigurationRuleFilterAndArgs
+    ///                     {
+    ///                         Tags = 
+    ///                         {
+    ///                             { "Key1", "Value1" },
+    ///                             { "Key2", "Value2" },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Status = "Enabled",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Specifying a filter based on both prefix and one or more tags
+    /// 
+    /// The Lifecycle rule directs Amazon S3 to perform lifecycle actions on objects with the specified prefix and two tags (with the specific tag keys and values). Notice both `prefix` and `tags` are wrapped in the `and` configuration block.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.S3.BucketLifecycleConfiguration("example", new()
+    ///     {
+    ///         Bucket = bucket.Id,
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.S3.Inputs.BucketLifecycleConfigurationRuleArgs
+    ///             {
+    ///                 Id = "rule-1",
+    ///                 Filter = new Aws.S3.Inputs.BucketLifecycleConfigurationRuleFilterArgs
+    ///                 {
+    ///                     And = new Aws.S3.Inputs.BucketLifecycleConfigurationRuleFilterAndArgs
+    ///                     {
+    ///                         Prefix = "logs/",
+    ///                         Tags = 
+    ///                         {
+    ///                             { "Key1", "Value1" },
+    ///                             { "Key2", "Value2" },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Status = "Enabled",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Specifying a filter based on object size
+    /// 
+    /// Object size values are in bytes. Maximum filter size is 5TB. Amazon S3 applies a default behavior to your Lifecycle configuration that prevents objects smaller than 128 KB from being transitioned to any storage class. You can allow smaller objects to transition by adding a minimum size (`object_size_greater_than`) or a maximum size (`object_size_less_than`) filter that specifies a smaller size to the configuration. This example allows any object smaller than 128 KB to transition to the S3 Glacier Instant Retrieval storage class:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.S3.BucketLifecycleConfiguration("example", new()
+    ///     {
+    ///         Bucket = bucket.Id,
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.S3.Inputs.BucketLifecycleConfigurationRuleArgs
+    ///             {
+    ///                 Id = "Allow small object transitions",
+    ///                 Filter = new Aws.S3.Inputs.BucketLifecycleConfigurationRuleFilterArgs
+    ///                 {
+    ///                     ObjectSizeGreaterThan = 1,
+    ///                 },
+    ///                 Status = "Enabled",
+    ///                 Transitions = new[]
+    ///                 {
+    ///                     new Aws.S3.Inputs.BucketLifecycleConfigurationRuleTransitionArgs
+    ///                     {
+    ///                         Days = 365,
+    ///                         StorageClass = "GLACIER_IR",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Specifying a filter based on object size range and prefix
+    /// 
+    /// The `object_size_greater_than` must be less than the `object_size_less_than`. Notice both the object size range and prefix are wrapped in the `and` configuration block.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.S3.BucketLifecycleConfiguration("example", new()
+    ///     {
+    ///         Bucket = bucket.Id,
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.S3.Inputs.BucketLifecycleConfigurationRuleArgs
+    ///             {
+    ///                 Id = "rule-1",
+    ///                 Filter = new Aws.S3.Inputs.BucketLifecycleConfigurationRuleFilterArgs
+    ///                 {
+    ///                     And = new Aws.S3.Inputs.BucketLifecycleConfigurationRuleFilterAndArgs
+    ///                     {
+    ///                         Prefix = "logs/",
+    ///                         ObjectSizeGreaterThan = 500,
+    ///                         ObjectSizeLessThan = 64000,
+    ///                     },
+    ///                 },
+    ///                 Status = "Enabled",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Creating a Lifecycle Configuration for a bucket with versioning
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var bucket = new Aws.S3.Bucket("bucket", new()
+    ///     {
+    ///         BucketName = "my-bucket",
+    ///     });
+    /// 
+    ///     var bucketAcl = new Aws.S3.BucketAcl("bucket_acl", new()
+    ///     {
+    ///         Bucket = bucket.Id,
+    ///         Acl = "private",
+    ///     });
+    /// 
+    ///     var bucket_config = new Aws.S3.BucketLifecycleConfiguration("bucket-config", new()
+    ///     {
+    ///         Bucket = bucket.Id,
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.S3.Inputs.BucketLifecycleConfigurationRuleArgs
+    ///             {
+    ///                 Id = "log",
+    ///                 Expiration = new Aws.S3.Inputs.BucketLifecycleConfigurationRuleExpirationArgs
+    ///                 {
+    ///                     Days = 90,
+    ///                 },
+    ///                 Filter = new Aws.S3.Inputs.BucketLifecycleConfigurationRuleFilterArgs
+    ///                 {
+    ///                     And = new Aws.S3.Inputs.BucketLifecycleConfigurationRuleFilterAndArgs
+    ///                     {
+    ///                         Prefix = "log/",
+    ///                         Tags = 
+    ///                         {
+    ///                             { "rule", "log" },
+    ///                             { "autoclean", "true" },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Status = "Enabled",
+    ///                 Transitions = new[]
+    ///                 {
+    ///                     new Aws.S3.Inputs.BucketLifecycleConfigurationRuleTransitionArgs
+    ///                     {
+    ///                         Days = 30,
+    ///                         StorageClass = "STANDARD_IA",
+    ///                     },
+    ///                     new Aws.S3.Inputs.BucketLifecycleConfigurationRuleTransitionArgs
+    ///                     {
+    ///                         Days = 60,
+    ///                         StorageClass = "GLACIER",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Aws.S3.Inputs.BucketLifecycleConfigurationRuleArgs
+    ///             {
+    ///                 Id = "tmp",
+    ///                 Filter = new Aws.S3.Inputs.BucketLifecycleConfigurationRuleFilterArgs
+    ///                 {
+    ///                     Prefix = "tmp/",
+    ///                 },
+    ///                 Expiration = new Aws.S3.Inputs.BucketLifecycleConfigurationRuleExpirationArgs
+    ///                 {
+    ///                     Date = "2023-01-13T00:00:00Z",
+    ///                 },
+    ///                 Status = "Enabled",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var versioningBucket = new Aws.S3.Bucket("versioning_bucket", new()
+    ///     {
+    ///         BucketName = "my-versioning-bucket",
+    ///     });
+    /// 
+    ///     var versioningBucketAcl = new Aws.S3.BucketAcl("versioning_bucket_acl", new()
+    ///     {
+    ///         Bucket = versioningBucket.Id,
+    ///         Acl = "private",
+    ///     });
+    /// 
+    ///     var versioning = new Aws.S3.BucketVersioning("versioning", new()
+    ///     {
+    ///         Bucket = versioningBucket.Id,
+    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningVersioningConfigurationArgs
+    ///         {
+    ///             Status = "Enabled",
+    ///         },
+    ///     });
+    /// 
+    ///     var versioning_bucket_config = new Aws.S3.BucketLifecycleConfiguration("versioning-bucket-config", new()
+    ///     {
+    ///         Bucket = versioningBucket.Id,
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.S3.Inputs.BucketLifecycleConfigurationRuleArgs
+    ///             {
+    ///                 Id = "config",
+    ///                 Filter = new Aws.S3.Inputs.BucketLifecycleConfigurationRuleFilterArgs
+    ///                 {
+    ///                     Prefix = "config/",
+    ///                 },
+    ///                 NoncurrentVersionExpiration = new Aws.S3.Inputs.BucketLifecycleConfigurationRuleNoncurrentVersionExpirationArgs
+    ///                 {
+    ///                     NoncurrentDays = 90,
+    ///                 },
+    ///                 NoncurrentVersionTransitions = new[]
+    ///                 {
+    ///                     new Aws.S3.Inputs.BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArgs
+    ///                     {
+    ///                         NoncurrentDays = 30,
+    ///                         StorageClass = "STANDARD_IA",
+    ///                     },
+    ///                     new Aws.S3.Inputs.BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArgs
+    ///                     {
+    ///                         NoncurrentDays = 60,
+    ///                         StorageClass = "GLACIER",
+    ///                     },
+    ///                 },
+    ///                 Status = "Enabled",
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             versioning,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):

@@ -231,6 +231,303 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
                  transition_default_minimum_object_size: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Provides an independent configuration resource for S3 bucket [lifecycle configuration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html).
+
+        An S3 Lifecycle configuration consists of one or more Lifecycle rules. Each rule consists of the following:
+
+        * Rule metadata (`id` and `status`)
+        * Filter identifying objects to which the rule applies
+        * One or more transition or expiration actions
+
+        For more information see the Amazon S3 User Guide on [`Lifecycle Configuration Elements`](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html).
+
+        > S3 Buckets only support a single lifecycle configuration. Declaring multiple `s3.BucketLifecycleConfiguration` resources to the same S3 Bucket will cause a perpetual difference in configuration.
+
+        > Lifecycle configurations may take some time to fully propagate to all AWS S3 systems.
+        Running Pulumi operations shortly after creating a lifecycle configuration may result in changes that affect configuration idempotence.
+        See the Amazon S3 User Guide on [setting lifecycle configuration on a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/how-to-set-lifecycle-configuration-intro.html).
+
+        ## Example Usage
+
+        ### With neither a filter nor prefix specified
+
+        When you don't specify a filter or prefix, the lifecycle rule applies to all objects in the bucket. This has the same effect as setting an empty `filter` element.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3.BucketLifecycleConfiguration("example",
+            bucket=bucket["id"],
+            rules=[{
+                "id": "rule-1",
+                "status": "Enabled",
+            }])
+        ```
+
+        ### Specifying an empty filter
+
+        The Lifecycle rule applies to all objects in the bucket.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3.BucketLifecycleConfiguration("example",
+            bucket=bucket["id"],
+            rules=[{
+                "id": "rule-1",
+                "filter": {},
+                "status": "Enabled",
+            }])
+        ```
+
+        ### Specifying a filter using key prefixes
+
+        The Lifecycle rule applies to a subset of objects based on the key name prefix (`logs/`).
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3.BucketLifecycleConfiguration("example",
+            bucket=bucket["id"],
+            rules=[{
+                "id": "rule-1",
+                "filter": {
+                    "prefix": "logs/",
+                },
+                "status": "Enabled",
+            }])
+        ```
+
+        If you want to apply a Lifecycle action to a subset of objects based on different key name prefixes, specify separate rules.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3.BucketLifecycleConfiguration("example",
+            bucket=bucket["id"],
+            rules=[
+                {
+                    "id": "rule-1",
+                    "filter": {
+                        "prefix": "logs/",
+                    },
+                    "status": "Enabled",
+                },
+                {
+                    "id": "rule-2",
+                    "filter": {
+                        "prefix": "tmp/",
+                    },
+                    "status": "Enabled",
+                },
+            ])
+        ```
+
+        ### Specifying a filter based on an object tag
+
+        The Lifecycle rule specifies a filter based on a tag key and value. The rule then applies only to a subset of objects with the specific tag.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3.BucketLifecycleConfiguration("example",
+            bucket=bucket["id"],
+            rules=[{
+                "id": "rule-1",
+                "filter": {
+                    "tag": {
+                        "key": "Name",
+                        "value": "Staging",
+                    },
+                },
+                "status": "Enabled",
+            }])
+        ```
+
+        ### Specifying a filter based on multiple tags
+
+        The Lifecycle rule directs Amazon S3 to perform lifecycle actions on objects with two tags (with the specific tag keys and values). Notice `tags` is wrapped in the `and` configuration block.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3.BucketLifecycleConfiguration("example",
+            bucket=bucket["id"],
+            rules=[{
+                "id": "rule-1",
+                "filter": {
+                    "and_": {
+                        "tags": {
+                            "Key1": "Value1",
+                            "Key2": "Value2",
+                        },
+                    },
+                },
+                "status": "Enabled",
+            }])
+        ```
+
+        ### Specifying a filter based on both prefix and one or more tags
+
+        The Lifecycle rule directs Amazon S3 to perform lifecycle actions on objects with the specified prefix and two tags (with the specific tag keys and values). Notice both `prefix` and `tags` are wrapped in the `and` configuration block.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3.BucketLifecycleConfiguration("example",
+            bucket=bucket["id"],
+            rules=[{
+                "id": "rule-1",
+                "filter": {
+                    "and_": {
+                        "prefix": "logs/",
+                        "tags": {
+                            "Key1": "Value1",
+                            "Key2": "Value2",
+                        },
+                    },
+                },
+                "status": "Enabled",
+            }])
+        ```
+
+        ### Specifying a filter based on object size
+
+        Object size values are in bytes. Maximum filter size is 5TB. Amazon S3 applies a default behavior to your Lifecycle configuration that prevents objects smaller than 128 KB from being transitioned to any storage class. You can allow smaller objects to transition by adding a minimum size (`object_size_greater_than`) or a maximum size (`object_size_less_than`) filter that specifies a smaller size to the configuration. This example allows any object smaller than 128 KB to transition to the S3 Glacier Instant Retrieval storage class:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3.BucketLifecycleConfiguration("example",
+            bucket=bucket["id"],
+            rules=[{
+                "id": "Allow small object transitions",
+                "filter": {
+                    "object_size_greater_than": 1,
+                },
+                "status": "Enabled",
+                "transitions": [{
+                    "days": 365,
+                    "storage_class": "GLACIER_IR",
+                }],
+            }])
+        ```
+
+        ### Specifying a filter based on object size range and prefix
+
+        The `object_size_greater_than` must be less than the `object_size_less_than`. Notice both the object size range and prefix are wrapped in the `and` configuration block.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3.BucketLifecycleConfiguration("example",
+            bucket=bucket["id"],
+            rules=[{
+                "id": "rule-1",
+                "filter": {
+                    "and_": {
+                        "prefix": "logs/",
+                        "object_size_greater_than": 500,
+                        "object_size_less_than": 64000,
+                    },
+                },
+                "status": "Enabled",
+            }])
+        ```
+
+        ### Creating a Lifecycle Configuration for a bucket with versioning
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        bucket = aws.s3.Bucket("bucket", bucket="my-bucket")
+        bucket_acl = aws.s3.BucketAcl("bucket_acl",
+            bucket=bucket.id,
+            acl="private")
+        bucket_config = aws.s3.BucketLifecycleConfiguration("bucket-config",
+            bucket=bucket.id,
+            rules=[
+                {
+                    "id": "log",
+                    "expiration": {
+                        "days": 90,
+                    },
+                    "filter": {
+                        "and_": {
+                            "prefix": "log/",
+                            "tags": {
+                                "rule": "log",
+                                "autoclean": "true",
+                            },
+                        },
+                    },
+                    "status": "Enabled",
+                    "transitions": [
+                        {
+                            "days": 30,
+                            "storage_class": "STANDARD_IA",
+                        },
+                        {
+                            "days": 60,
+                            "storage_class": "GLACIER",
+                        },
+                    ],
+                },
+                {
+                    "id": "tmp",
+                    "filter": {
+                        "prefix": "tmp/",
+                    },
+                    "expiration": {
+                        "date": "2023-01-13T00:00:00Z",
+                    },
+                    "status": "Enabled",
+                },
+            ])
+        versioning_bucket = aws.s3.Bucket("versioning_bucket", bucket="my-versioning-bucket")
+        versioning_bucket_acl = aws.s3.BucketAcl("versioning_bucket_acl",
+            bucket=versioning_bucket.id,
+            acl="private")
+        versioning = aws.s3.BucketVersioning("versioning",
+            bucket=versioning_bucket.id,
+            versioning_configuration={
+                "status": "Enabled",
+            })
+        versioning_bucket_config = aws.s3.BucketLifecycleConfiguration("versioning-bucket-config",
+            bucket=versioning_bucket.id,
+            rules=[{
+                "id": "config",
+                "filter": {
+                    "prefix": "config/",
+                },
+                "noncurrent_version_expiration": {
+                    "noncurrent_days": 90,
+                },
+                "noncurrent_version_transitions": [
+                    {
+                        "noncurrent_days": 30,
+                        "storage_class": "STANDARD_IA",
+                    },
+                    {
+                        "noncurrent_days": 60,
+                        "storage_class": "GLACIER",
+                    },
+                ],
+                "status": "Enabled",
+            }],
+            opts = pulumi.ResourceOptions(depends_on=[versioning]))
+        ```
+
         ## Import
 
         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
@@ -263,6 +560,303 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
                  args: BucketLifecycleConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides an independent configuration resource for S3 bucket [lifecycle configuration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html).
+
+        An S3 Lifecycle configuration consists of one or more Lifecycle rules. Each rule consists of the following:
+
+        * Rule metadata (`id` and `status`)
+        * Filter identifying objects to which the rule applies
+        * One or more transition or expiration actions
+
+        For more information see the Amazon S3 User Guide on [`Lifecycle Configuration Elements`](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html).
+
+        > S3 Buckets only support a single lifecycle configuration. Declaring multiple `s3.BucketLifecycleConfiguration` resources to the same S3 Bucket will cause a perpetual difference in configuration.
+
+        > Lifecycle configurations may take some time to fully propagate to all AWS S3 systems.
+        Running Pulumi operations shortly after creating a lifecycle configuration may result in changes that affect configuration idempotence.
+        See the Amazon S3 User Guide on [setting lifecycle configuration on a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/how-to-set-lifecycle-configuration-intro.html).
+
+        ## Example Usage
+
+        ### With neither a filter nor prefix specified
+
+        When you don't specify a filter or prefix, the lifecycle rule applies to all objects in the bucket. This has the same effect as setting an empty `filter` element.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3.BucketLifecycleConfiguration("example",
+            bucket=bucket["id"],
+            rules=[{
+                "id": "rule-1",
+                "status": "Enabled",
+            }])
+        ```
+
+        ### Specifying an empty filter
+
+        The Lifecycle rule applies to all objects in the bucket.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3.BucketLifecycleConfiguration("example",
+            bucket=bucket["id"],
+            rules=[{
+                "id": "rule-1",
+                "filter": {},
+                "status": "Enabled",
+            }])
+        ```
+
+        ### Specifying a filter using key prefixes
+
+        The Lifecycle rule applies to a subset of objects based on the key name prefix (`logs/`).
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3.BucketLifecycleConfiguration("example",
+            bucket=bucket["id"],
+            rules=[{
+                "id": "rule-1",
+                "filter": {
+                    "prefix": "logs/",
+                },
+                "status": "Enabled",
+            }])
+        ```
+
+        If you want to apply a Lifecycle action to a subset of objects based on different key name prefixes, specify separate rules.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3.BucketLifecycleConfiguration("example",
+            bucket=bucket["id"],
+            rules=[
+                {
+                    "id": "rule-1",
+                    "filter": {
+                        "prefix": "logs/",
+                    },
+                    "status": "Enabled",
+                },
+                {
+                    "id": "rule-2",
+                    "filter": {
+                        "prefix": "tmp/",
+                    },
+                    "status": "Enabled",
+                },
+            ])
+        ```
+
+        ### Specifying a filter based on an object tag
+
+        The Lifecycle rule specifies a filter based on a tag key and value. The rule then applies only to a subset of objects with the specific tag.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3.BucketLifecycleConfiguration("example",
+            bucket=bucket["id"],
+            rules=[{
+                "id": "rule-1",
+                "filter": {
+                    "tag": {
+                        "key": "Name",
+                        "value": "Staging",
+                    },
+                },
+                "status": "Enabled",
+            }])
+        ```
+
+        ### Specifying a filter based on multiple tags
+
+        The Lifecycle rule directs Amazon S3 to perform lifecycle actions on objects with two tags (with the specific tag keys and values). Notice `tags` is wrapped in the `and` configuration block.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3.BucketLifecycleConfiguration("example",
+            bucket=bucket["id"],
+            rules=[{
+                "id": "rule-1",
+                "filter": {
+                    "and_": {
+                        "tags": {
+                            "Key1": "Value1",
+                            "Key2": "Value2",
+                        },
+                    },
+                },
+                "status": "Enabled",
+            }])
+        ```
+
+        ### Specifying a filter based on both prefix and one or more tags
+
+        The Lifecycle rule directs Amazon S3 to perform lifecycle actions on objects with the specified prefix and two tags (with the specific tag keys and values). Notice both `prefix` and `tags` are wrapped in the `and` configuration block.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3.BucketLifecycleConfiguration("example",
+            bucket=bucket["id"],
+            rules=[{
+                "id": "rule-1",
+                "filter": {
+                    "and_": {
+                        "prefix": "logs/",
+                        "tags": {
+                            "Key1": "Value1",
+                            "Key2": "Value2",
+                        },
+                    },
+                },
+                "status": "Enabled",
+            }])
+        ```
+
+        ### Specifying a filter based on object size
+
+        Object size values are in bytes. Maximum filter size is 5TB. Amazon S3 applies a default behavior to your Lifecycle configuration that prevents objects smaller than 128 KB from being transitioned to any storage class. You can allow smaller objects to transition by adding a minimum size (`object_size_greater_than`) or a maximum size (`object_size_less_than`) filter that specifies a smaller size to the configuration. This example allows any object smaller than 128 KB to transition to the S3 Glacier Instant Retrieval storage class:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3.BucketLifecycleConfiguration("example",
+            bucket=bucket["id"],
+            rules=[{
+                "id": "Allow small object transitions",
+                "filter": {
+                    "object_size_greater_than": 1,
+                },
+                "status": "Enabled",
+                "transitions": [{
+                    "days": 365,
+                    "storage_class": "GLACIER_IR",
+                }],
+            }])
+        ```
+
+        ### Specifying a filter based on object size range and prefix
+
+        The `object_size_greater_than` must be less than the `object_size_less_than`. Notice both the object size range and prefix are wrapped in the `and` configuration block.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3.BucketLifecycleConfiguration("example",
+            bucket=bucket["id"],
+            rules=[{
+                "id": "rule-1",
+                "filter": {
+                    "and_": {
+                        "prefix": "logs/",
+                        "object_size_greater_than": 500,
+                        "object_size_less_than": 64000,
+                    },
+                },
+                "status": "Enabled",
+            }])
+        ```
+
+        ### Creating a Lifecycle Configuration for a bucket with versioning
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        bucket = aws.s3.Bucket("bucket", bucket="my-bucket")
+        bucket_acl = aws.s3.BucketAcl("bucket_acl",
+            bucket=bucket.id,
+            acl="private")
+        bucket_config = aws.s3.BucketLifecycleConfiguration("bucket-config",
+            bucket=bucket.id,
+            rules=[
+                {
+                    "id": "log",
+                    "expiration": {
+                        "days": 90,
+                    },
+                    "filter": {
+                        "and_": {
+                            "prefix": "log/",
+                            "tags": {
+                                "rule": "log",
+                                "autoclean": "true",
+                            },
+                        },
+                    },
+                    "status": "Enabled",
+                    "transitions": [
+                        {
+                            "days": 30,
+                            "storage_class": "STANDARD_IA",
+                        },
+                        {
+                            "days": 60,
+                            "storage_class": "GLACIER",
+                        },
+                    ],
+                },
+                {
+                    "id": "tmp",
+                    "filter": {
+                        "prefix": "tmp/",
+                    },
+                    "expiration": {
+                        "date": "2023-01-13T00:00:00Z",
+                    },
+                    "status": "Enabled",
+                },
+            ])
+        versioning_bucket = aws.s3.Bucket("versioning_bucket", bucket="my-versioning-bucket")
+        versioning_bucket_acl = aws.s3.BucketAcl("versioning_bucket_acl",
+            bucket=versioning_bucket.id,
+            acl="private")
+        versioning = aws.s3.BucketVersioning("versioning",
+            bucket=versioning_bucket.id,
+            versioning_configuration={
+                "status": "Enabled",
+            })
+        versioning_bucket_config = aws.s3.BucketLifecycleConfiguration("versioning-bucket-config",
+            bucket=versioning_bucket.id,
+            rules=[{
+                "id": "config",
+                "filter": {
+                    "prefix": "config/",
+                },
+                "noncurrent_version_expiration": {
+                    "noncurrent_days": 90,
+                },
+                "noncurrent_version_transitions": [
+                    {
+                        "noncurrent_days": 30,
+                        "storage_class": "STANDARD_IA",
+                    },
+                    {
+                        "noncurrent_days": 60,
+                        "storage_class": "GLACIER",
+                    },
+                ],
+                "status": "Enabled",
+            }],
+            opts = pulumi.ResourceOptions(depends_on=[versioning]))
+        ```
+
         ## Import
 
         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
