@@ -9426,7 +9426,7 @@ if not MYPY:
     class GuardrailContextualGroundingPolicyConfigArgsDict(TypedDict):
         filters_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['GuardrailContextualGroundingPolicyConfigFiltersConfigArgsDict']]]]
         """
-        List of contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
+        One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
         """
 elif False:
     GuardrailContextualGroundingPolicyConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -9436,7 +9436,7 @@ class GuardrailContextualGroundingPolicyConfigArgs:
     def __init__(__self__, *,
                  filters_configs: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailContextualGroundingPolicyConfigFiltersConfigArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['GuardrailContextualGroundingPolicyConfigFiltersConfigArgs']]] filters_configs: List of contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
+        :param pulumi.Input[Sequence[pulumi.Input['GuardrailContextualGroundingPolicyConfigFiltersConfigArgs']]] filters_configs: One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
         """
         if filters_configs is not None:
             pulumi.set(__self__, "filters_configs", filters_configs)
@@ -9445,7 +9445,7 @@ class GuardrailContextualGroundingPolicyConfigArgs:
     @pulumi.getter(name="filtersConfigs")
     def filters_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailContextualGroundingPolicyConfigFiltersConfigArgs']]]]:
         """
-        List of contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
+        One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
         """
         return pulumi.get(self, "filters_configs")
 

@@ -55,8 +55,16 @@ type Cluster struct {
 	ClusterEndpoints ClusterClusterEndpointArrayOutput `pulumi:"clusterEndpoints"`
 	// Unique name describing the cluster.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Network type of cluster. Valid values are `IPV4` and `DUALSTACK`. Defaults to `IPV4`.
+	//
+	// The following arguments are optional:
+	NetworkType pulumi.StringOutput `pulumi:"networkType"`
 	// Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
 	Status pulumi.StringOutput `pulumi:"status"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -95,8 +103,16 @@ type clusterState struct {
 	ClusterEndpoints []ClusterClusterEndpoint `pulumi:"clusterEndpoints"`
 	// Unique name describing the cluster.
 	Name *string `pulumi:"name"`
+	// Network type of cluster. Valid values are `IPV4` and `DUALSTACK`. Defaults to `IPV4`.
+	//
+	// The following arguments are optional:
+	NetworkType *string `pulumi:"networkType"`
 	// Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
 	Status *string `pulumi:"status"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ClusterState struct {
@@ -106,8 +122,16 @@ type ClusterState struct {
 	ClusterEndpoints ClusterClusterEndpointArrayInput
 	// Unique name describing the cluster.
 	Name pulumi.StringPtrInput
+	// Network type of cluster. Valid values are `IPV4` and `DUALSTACK`. Defaults to `IPV4`.
+	//
+	// The following arguments are optional:
+	NetworkType pulumi.StringPtrInput
 	// Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
 	Status pulumi.StringPtrInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (ClusterState) ElementType() reflect.Type {
@@ -117,12 +141,24 @@ func (ClusterState) ElementType() reflect.Type {
 type clusterArgs struct {
 	// Unique name describing the cluster.
 	Name *string `pulumi:"name"`
+	// Network type of cluster. Valid values are `IPV4` and `DUALSTACK`. Defaults to `IPV4`.
+	//
+	// The following arguments are optional:
+	NetworkType *string `pulumi:"networkType"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
 	// Unique name describing the cluster.
 	Name pulumi.StringPtrInput
+	// Network type of cluster. Valid values are `IPV4` and `DUALSTACK`. Defaults to `IPV4`.
+	//
+	// The following arguments are optional:
+	NetworkType pulumi.StringPtrInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {
@@ -227,9 +263,26 @@ func (o ClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Network type of cluster. Valid values are `IPV4` and `DUALSTACK`. Defaults to `IPV4`.
+//
+// The following arguments are optional:
+func (o ClusterOutput) NetworkType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.NetworkType }).(pulumi.StringOutput)
+}
+
 // Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
 func (o ClusterOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o ClusterOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+func (o ClusterOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 type ClusterArrayOutput struct{ *pulumi.OutputState }

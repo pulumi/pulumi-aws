@@ -23,6 +23,7 @@ __all__ = [
     'DataCellsFilterTimeouts',
     'DataLakeSettingsCreateDatabaseDefaultPermission',
     'DataLakeSettingsCreateTableDefaultPermission',
+    'LfTagExpressionExpression',
     'OptInCondition',
     'OptInPrincipal',
     'OptInResourceData',
@@ -365,6 +366,54 @@ class DataLakeSettingsCreateTableDefaultPermission(dict):
         Principal who is granted permissions. To enforce metadata and underlying data access control only by IAM on new databases and tables set `principal` to `IAM_ALLOWED_PRINCIPALS` and `permissions` to `["ALL"]`.
         """
         return pulumi.get(self, "principal")
+
+
+@pulumi.output_type
+class LfTagExpressionExpression(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagKey":
+            suggest = "tag_key"
+        elif key == "tagValues":
+            suggest = "tag_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LfTagExpressionExpression. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LfTagExpressionExpression.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LfTagExpressionExpression.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tag_key: _builtins.str,
+                 tag_values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str tag_key: The key-name for the LF-Tag.
+        :param Sequence[_builtins.str] tag_values: A list of possible values for the LF-Tag
+        """
+        pulumi.set(__self__, "tag_key", tag_key)
+        pulumi.set(__self__, "tag_values", tag_values)
+
+    @_builtins.property
+    @pulumi.getter(name="tagKey")
+    def tag_key(self) -> _builtins.str:
+        """
+        The key-name for the LF-Tag.
+        """
+        return pulumi.get(self, "tag_key")
+
+    @_builtins.property
+    @pulumi.getter(name="tagValues")
+    def tag_values(self) -> Sequence[_builtins.str]:
+        """
+        A list of possible values for the LF-Tag
+        """
+        return pulumi.get(self, "tag_values")
 
 
 @pulumi.output_type

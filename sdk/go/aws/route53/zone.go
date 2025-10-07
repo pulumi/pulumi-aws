@@ -101,6 +101,7 @@ import (
 //
 // import (
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -108,11 +109,30 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.NewZone(ctx, "private", &route53.ZoneArgs{
+//			primary, err := ec2.NewVpc(ctx, "primary", &ec2.VpcArgs{
+//				CidrBlock:          pulumi.String("10.6.0.0/16"),
+//				EnableDnsHostnames: pulumi.Bool(true),
+//				EnableDnsSupport:   pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			secondary, err := ec2.NewVpc(ctx, "secondary", &ec2.VpcArgs{
+//				CidrBlock:          pulumi.String("10.7.0.0/16"),
+//				EnableDnsHostnames: pulumi.Bool(true),
+//				EnableDnsSupport:   pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = route53.NewZone(ctx, "private", &route53.ZoneArgs{
 //				Name: pulumi.String("example.com"),
 //				Vpcs: route53.ZoneVpcArray{
 //					&route53.ZoneVpcArgs{
-//						VpcId: pulumi.Any(example.Id),
+//						VpcId: primary.ID(),
+//					},
+//					&route53.ZoneVpcArgs{
+//						VpcId: secondary.ID(),
 //					},
 //				},
 //			})

@@ -27,6 +27,7 @@ class SafetyRuleArgs:
                  asserted_controls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  gating_controls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_controls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SafetyRule resource.
@@ -38,6 +39,7 @@ class SafetyRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] asserted_controls: Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] gating_controls: Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
         :param pulumi.Input[_builtins.str] name: Name describing the safety rule.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] target_controls: Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
         """
         pulumi.set(__self__, "control_panel_arn", control_panel_arn)
@@ -49,6 +51,8 @@ class SafetyRuleArgs:
             pulumi.set(__self__, "gating_controls", gating_controls)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if target_controls is not None:
             pulumi.set(__self__, "target_controls", target_controls)
 
@@ -127,6 +131,18 @@ class SafetyRuleArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @_builtins.property
     @pulumi.getter(name="targetControls")
     def target_controls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -149,6 +165,8 @@ class _SafetyRuleState:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  rule_config: Optional[pulumi.Input['SafetyRuleRuleConfigArgs']] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_controls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  wait_period_ms: Optional[pulumi.Input[_builtins.int]] = None):
         """
@@ -160,6 +178,8 @@ class _SafetyRuleState:
         :param pulumi.Input[_builtins.str] name: Name describing the safety rule.
         :param pulumi.Input['SafetyRuleRuleConfigArgs'] rule_config: Configuration block for safety rule criteria. See below.
         :param pulumi.Input[_builtins.str] status: Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] target_controls: Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
         :param pulumi.Input[_builtins.int] wait_period_ms: Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
                
@@ -179,6 +199,10 @@ class _SafetyRuleState:
             pulumi.set(__self__, "rule_config", rule_config)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if target_controls is not None:
             pulumi.set(__self__, "target_controls", target_controls)
         if wait_period_ms is not None:
@@ -269,6 +293,30 @@ class _SafetyRuleState:
         pulumi.set(self, "status", value)
 
     @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @_builtins.property
     @pulumi.getter(name="targetControls")
     def target_controls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -306,6 +354,7 @@ class SafetyRule(pulumi.CustomResource):
                  gating_controls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  rule_config: Optional[pulumi.Input[Union['SafetyRuleRuleConfigArgs', 'SafetyRuleRuleConfigArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_controls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  wait_period_ms: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
@@ -362,6 +411,7 @@ class SafetyRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] gating_controls: Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
         :param pulumi.Input[_builtins.str] name: Name describing the safety rule.
         :param pulumi.Input[Union['SafetyRuleRuleConfigArgs', 'SafetyRuleRuleConfigArgsDict']] rule_config: Configuration block for safety rule criteria. See below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] target_controls: Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
         :param pulumi.Input[_builtins.int] wait_period_ms: Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
                
@@ -439,6 +489,7 @@ class SafetyRule(pulumi.CustomResource):
                  gating_controls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  rule_config: Optional[pulumi.Input[Union['SafetyRuleRuleConfigArgs', 'SafetyRuleRuleConfigArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_controls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  wait_period_ms: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
@@ -459,12 +510,14 @@ class SafetyRule(pulumi.CustomResource):
             if rule_config is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_config'")
             __props__.__dict__["rule_config"] = rule_config
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["target_controls"] = target_controls
             if wait_period_ms is None and not opts.urn:
                 raise TypeError("Missing required property 'wait_period_ms'")
             __props__.__dict__["wait_period_ms"] = wait_period_ms
             __props__.__dict__["arn"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["tags_all"] = None
         super(SafetyRule, __self__).__init__(
             'aws:route53recoverycontrol/safetyRule:SafetyRule',
             resource_name,
@@ -482,6 +535,8 @@ class SafetyRule(pulumi.CustomResource):
             name: Optional[pulumi.Input[_builtins.str]] = None,
             rule_config: Optional[pulumi.Input[Union['SafetyRuleRuleConfigArgs', 'SafetyRuleRuleConfigArgsDict']]] = None,
             status: Optional[pulumi.Input[_builtins.str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             target_controls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             wait_period_ms: Optional[pulumi.Input[_builtins.int]] = None) -> 'SafetyRule':
         """
@@ -498,6 +553,8 @@ class SafetyRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name describing the safety rule.
         :param pulumi.Input[Union['SafetyRuleRuleConfigArgs', 'SafetyRuleRuleConfigArgsDict']] rule_config: Configuration block for safety rule criteria. See below.
         :param pulumi.Input[_builtins.str] status: Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] target_controls: Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
         :param pulumi.Input[_builtins.int] wait_period_ms: Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
                
@@ -514,6 +571,8 @@ class SafetyRule(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["rule_config"] = rule_config
         __props__.__dict__["status"] = status
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["target_controls"] = target_controls
         __props__.__dict__["wait_period_ms"] = wait_period_ms
         return SafetyRule(resource_name, opts=opts, __props__=__props__)
@@ -573,6 +632,22 @@ class SafetyRule(pulumi.CustomResource):
         Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
         """
         return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="targetControls")

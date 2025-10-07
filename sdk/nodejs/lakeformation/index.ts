@@ -35,6 +35,11 @@ export type LfTag = import("./lfTag").LfTag;
 export const LfTag: typeof import("./lfTag").LfTag = null as any;
 utilities.lazyLoad(exports, ["LfTag"], () => require("./lfTag"));
 
+export { LfTagExpressionArgs, LfTagExpressionState } from "./lfTagExpression";
+export type LfTagExpression = import("./lfTagExpression").LfTagExpression;
+export const LfTagExpression: typeof import("./lfTagExpression").LfTagExpression = null as any;
+utilities.lazyLoad(exports, ["LfTagExpression"], () => require("./lfTagExpression"));
+
 export { OptInArgs, OptInState } from "./optIn";
 export type OptIn = import("./optIn").OptIn;
 export const OptIn: typeof import("./optIn").OptIn = null as any;
@@ -71,6 +76,8 @@ const _module = {
                 return new DataLakeSettings(name, <any>undefined, { urn })
             case "aws:lakeformation/lfTag:LfTag":
                 return new LfTag(name, <any>undefined, { urn })
+            case "aws:lakeformation/lfTagExpression:LfTagExpression":
+                return new LfTagExpression(name, <any>undefined, { urn })
             case "aws:lakeformation/optIn:OptIn":
                 return new OptIn(name, <any>undefined, { urn })
             case "aws:lakeformation/permissions:Permissions":
@@ -89,6 +96,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "lakeformation/dataCellsFilter", _module)
 pulumi.runtime.registerResourceModule("aws", "lakeformation/dataLakeSettings", _module)
 pulumi.runtime.registerResourceModule("aws", "lakeformation/lfTag", _module)
+pulumi.runtime.registerResourceModule("aws", "lakeformation/lfTagExpression", _module)
 pulumi.runtime.registerResourceModule("aws", "lakeformation/optIn", _module)
 pulumi.runtime.registerResourceModule("aws", "lakeformation/permissions", _module)
 pulumi.runtime.registerResourceModule("aws", "lakeformation/resource", _module)

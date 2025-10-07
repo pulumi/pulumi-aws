@@ -4,18 +4,17 @@
 package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride {
-    private @Nullable String action;
+    private String action;
 
     private GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride() {}
-    public Optional<String> action() {
-        return Optional.ofNullable(this.action);
+    public String action() {
+        return this.action;
     }
 
     public static Builder builder() {
@@ -27,7 +26,7 @@ public final class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOver
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String action;
+        private String action;
         public Builder() {}
         public Builder(GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride defaults) {
     	      Objects.requireNonNull(defaults);
@@ -35,8 +34,10 @@ public final class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOver
         }
 
         @CustomType.Setter
-        public Builder action(@Nullable String action) {
-
+        public Builder action(String action) {
+            if (action == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride", "action");
+            }
             this.action = action;
             return this;
         }

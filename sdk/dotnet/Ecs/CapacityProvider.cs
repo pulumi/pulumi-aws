@@ -14,7 +14,11 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// &gt; **NOTE:** Associating an ECS Capacity Provider to an Auto Scaling Group will automatically add the `AmazonECSManaged` tag to the Auto Scaling Group. This tag should be included in the `aws.autoscaling.Group` resource configuration to prevent the provider from removing it in subsequent executions as well as ensuring the `AmazonECSManaged` tag is propagated to all EC2 Instances in the Auto Scaling Group if `min_size` is above 0 on creation. Any EC2 Instances in the Auto Scaling Group without this tag must be manually be updated, otherwise they may cause unexpected scaling behavior and metrics.
     /// 
+    /// &gt; **NOTE:** You must specify exactly one of `auto_scaling_group_provider` or `managed_instances_provider`. When using `managed_instances_provider`, the `cluster` parameter is required. When using `auto_scaling_group_provider`, the `cluster` parameter must not be set.
+    /// 
     /// ## Example Usage
+    /// 
+    /// ### Auto Scaling Group Provider
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -57,6 +61,72 @@ namespace Pulumi.Aws.Ecs
     /// });
     /// ```
     /// 
+    /// ### Managed Instances Provider
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Ecs.CapacityProvider("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         Cluster = "my-cluster",
+    ///         ManagedInstancesProvider = new Aws.Ecs.Inputs.CapacityProviderManagedInstancesProviderArgs
+    ///         {
+    ///             InfrastructureRoleArn = ecsInfrastructure.Arn,
+    ///             PropagateTags = "TASK_DEFINITION",
+    ///             InstanceLaunchTemplate = new Aws.Ecs.Inputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs
+    ///             {
+    ///                 Ec2InstanceProfileArn = ecsInstance.Arn,
+    ///                 Monitoring = "ENABLED",
+    ///                 NetworkConfiguration = new Aws.Ecs.Inputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs
+    ///                 {
+    ///                     Subnets = new[]
+    ///                     {
+    ///                         exampleAwsSubnet.Id,
+    ///                     },
+    ///                     SecurityGroups = new[]
+    ///                     {
+    ///                         exampleAwsSecurityGroup.Id,
+    ///                     },
+    ///                 },
+    ///                 StorageConfiguration = new Aws.Ecs.Inputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationArgs
+    ///                 {
+    ///                     StorageSizeGib = 30,
+    ///                 },
+    ///                 InstanceRequirements = new Aws.Ecs.Inputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsArgs
+    ///                 {
+    ///                     MemoryMib = new Aws.Ecs.Inputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibArgs
+    ///                     {
+    ///                         Min = 1024,
+    ///                         Max = 8192,
+    ///                     },
+    ///                     VcpuCount = new Aws.Ecs.Inputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountArgs
+    ///                     {
+    ///                         Min = 1,
+    ///                         Max = 4,
+    ///                     },
+    ///                     InstanceGenerations = new[]
+    ///                     {
+    ///                         "current",
+    ///                     },
+    ///                     CpuManufacturers = new[]
+    ///                     {
+    ///                         "intel",
+    ///                         "amd",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ### Identity Schema
@@ -81,10 +151,22 @@ namespace Pulumi.Aws.Ecs
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for the provider for the ECS auto scaling group. Detailed below.
+        /// Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
         /// </summary>
         [Output("autoScalingGroupProvider")]
-        public Output<Outputs.CapacityProviderAutoScalingGroupProvider> AutoScalingGroupProvider { get; private set; } = null!;
+        public Output<Outputs.CapacityProviderAutoScalingGroupProvider?> AutoScalingGroupProvider { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the ECS cluster. Required when using `managed_instances_provider`. Must not be set when using `auto_scaling_group_provider`.
+        /// </summary>
+        [Output("cluster")]
+        public Output<string?> Cluster { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block for the managed instances provider. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
+        /// </summary>
+        [Output("managedInstancesProvider")]
+        public Output<Outputs.CapacityProviderManagedInstancesProvider?> ManagedInstancesProvider { get; private set; } = null!;
 
         /// <summary>
         /// Name of the capacity provider.
@@ -118,7 +200,7 @@ namespace Pulumi.Aws.Ecs
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public CapacityProvider(string name, CapacityProviderArgs args, CustomResourceOptions? options = null)
+        public CapacityProvider(string name, CapacityProviderArgs? args = null, CustomResourceOptions? options = null)
             : base("aws:ecs/capacityProvider:CapacityProvider", name, args ?? new CapacityProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -157,10 +239,22 @@ namespace Pulumi.Aws.Ecs
     public sealed class CapacityProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block for the provider for the ECS auto scaling group. Detailed below.
+        /// Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
         /// </summary>
-        [Input("autoScalingGroupProvider", required: true)]
-        public Input<Inputs.CapacityProviderAutoScalingGroupProviderArgs> AutoScalingGroupProvider { get; set; } = null!;
+        [Input("autoScalingGroupProvider")]
+        public Input<Inputs.CapacityProviderAutoScalingGroupProviderArgs>? AutoScalingGroupProvider { get; set; }
+
+        /// <summary>
+        /// Name of the ECS cluster. Required when using `managed_instances_provider`. Must not be set when using `auto_scaling_group_provider`.
+        /// </summary>
+        [Input("cluster")]
+        public Input<string>? Cluster { get; set; }
+
+        /// <summary>
+        /// Configuration block for the managed instances provider. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
+        /// </summary>
+        [Input("managedInstancesProvider")]
+        public Input<Inputs.CapacityProviderManagedInstancesProviderArgs>? ManagedInstancesProvider { get; set; }
 
         /// <summary>
         /// Name of the capacity provider.
@@ -201,10 +295,22 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Configuration block for the provider for the ECS auto scaling group. Detailed below.
+        /// Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
         /// </summary>
         [Input("autoScalingGroupProvider")]
         public Input<Inputs.CapacityProviderAutoScalingGroupProviderGetArgs>? AutoScalingGroupProvider { get; set; }
+
+        /// <summary>
+        /// Name of the ECS cluster. Required when using `managed_instances_provider`. Must not be set when using `auto_scaling_group_provider`.
+        /// </summary>
+        [Input("cluster")]
+        public Input<string>? Cluster { get; set; }
+
+        /// <summary>
+        /// Configuration block for the managed instances provider. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
+        /// </summary>
+        [Input("managedInstancesProvider")]
+        public Input<Inputs.CapacityProviderManagedInstancesProviderGetArgs>? ManagedInstancesProvider { get; set; }
 
         /// <summary>
         /// Name of the capacity provider.

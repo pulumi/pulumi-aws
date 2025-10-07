@@ -30,10 +30,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// ### With neither a filter nor prefix specified
     /// 
-    /// The Lifecycle rule applies to a subset of objects based on the key name prefix (`""`).
-    /// 
-    /// This configuration is intended to replicate the default behavior of the `lifecycle_rule`
-    /// parameter in the AWS Provider `aws.s3.Bucket` resource prior to `v4.0`.
+    /// When you don't specify a filter or prefix, the lifecycle rule applies to all objects in the bucket. This has the same effect as setting an empty `filter` element.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

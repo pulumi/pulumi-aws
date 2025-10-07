@@ -5867,6 +5867,7 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		"aws_route53_records_exclusive":                                    computeID("zoneId"),
 		"aws_network_interface_permission":                                 computeID("networkInterfacePermissionId"),
 		"aws_lakeformation_opt_in":                                         computeID("principal.dataLakePrincipalIdentifier"),
+		"aws_lakeformation_lf_tag_expression":                              computeIDWith("__", "catalogId", "name"),
 		"aws_rds_shard_group":                                              computeID("dbShardGroupIdentifier"),
 		"aws_macie2_organization_configuration":                            computeID("autoEnable"),
 		"aws_xray_resource_policy":                                         computeID("policyName"),

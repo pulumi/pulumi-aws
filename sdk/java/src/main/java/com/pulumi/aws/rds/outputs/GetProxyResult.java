@@ -30,6 +30,11 @@ public final class GetProxyResult {
      */
     private Boolean debugLogging;
     /**
+     * @return Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+     * 
+     */
+    private String defaultAuthScheme;
+    /**
      * @return Endpoint that you can use to connect to the DB proxy.
      * 
      */
@@ -98,6 +103,13 @@ public final class GetProxyResult {
      */
     public Boolean debugLogging() {
         return this.debugLogging;
+    }
+    /**
+     * @return Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+     * 
+     */
+    public String defaultAuthScheme() {
+        return this.defaultAuthScheme;
     }
     /**
      * @return Endpoint that you can use to connect to the DB proxy.
@@ -181,6 +193,7 @@ public final class GetProxyResult {
         private String arn;
         private List<GetProxyAuth> auths;
         private Boolean debugLogging;
+        private String defaultAuthScheme;
         private String endpoint;
         private String engineFamily;
         private String id;
@@ -198,6 +211,7 @@ public final class GetProxyResult {
     	      this.arn = defaults.arn;
     	      this.auths = defaults.auths;
     	      this.debugLogging = defaults.debugLogging;
+    	      this.defaultAuthScheme = defaults.defaultAuthScheme;
     	      this.endpoint = defaults.endpoint;
     	      this.engineFamily = defaults.engineFamily;
     	      this.id = defaults.id;
@@ -236,6 +250,14 @@ public final class GetProxyResult {
               throw new MissingRequiredPropertyException("GetProxyResult", "debugLogging");
             }
             this.debugLogging = debugLogging;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder defaultAuthScheme(String defaultAuthScheme) {
+            if (defaultAuthScheme == null) {
+              throw new MissingRequiredPropertyException("GetProxyResult", "defaultAuthScheme");
+            }
+            this.defaultAuthScheme = defaultAuthScheme;
             return this;
         }
         @CustomType.Setter
@@ -337,6 +359,7 @@ public final class GetProxyResult {
             _resultValue.arn = arn;
             _resultValue.auths = auths;
             _resultValue.debugLogging = debugLogging;
+            _resultValue.defaultAuthScheme = defaultAuthScheme;
             _resultValue.endpoint = endpoint;
             _resultValue.engineFamily = engineFamily;
             _resultValue.id = id;

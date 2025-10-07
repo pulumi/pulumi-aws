@@ -23,6 +23,7 @@ class CloudVmClusterArgs:
     def __init__(__self__, *,
                  cloud_exadata_infrastructure_id: pulumi.Input[_builtins.str],
                  cpu_core_count: pulumi.Input[_builtins.int],
+                 data_storage_size_in_tbs: pulumi.Input[_builtins.float],
                  db_servers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  display_name: pulumi.Input[_builtins.str],
                  gi_version: pulumi.Input[_builtins.str],
@@ -31,7 +32,6 @@ class CloudVmClusterArgs:
                  ssh_public_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
                  data_collection_options: Optional[pulumi.Input['CloudVmClusterDataCollectionOptionsArgs']] = None,
-                 data_storage_size_in_tbs: Optional[pulumi.Input[_builtins.float]] = None,
                  db_node_storage_size_in_gbs: Optional[pulumi.Input[_builtins.int]] = None,
                  is_local_backup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_sparse_diskgroup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -46,6 +46,9 @@ class CloudVmClusterArgs:
         The set of arguments for constructing a CloudVmCluster resource.
         :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_id: The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.int] cpu_core_count: The number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
+        :param pulumi.Input[_builtins.float] data_storage_size_in_tbs: The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] db_servers: The list of database servers for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] display_name: A user-friendly name for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] gi_version: A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
@@ -54,9 +57,6 @@ class CloudVmClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ssh_public_keys: The public key portion of one or more key pairs used for SSH access to the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Grid Infrastructure (GI) cluster. Changing this will create a new resource.
         :param pulumi.Input['CloudVmClusterDataCollectionOptionsArgs'] data_collection_options: The set of preferences for the various diagnostic collection options for the VM cluster.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.float] data_storage_size_in_tbs: The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.int] db_node_storage_size_in_gbs: The amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.bool] is_local_backup_enabled: Specifies whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.bool] is_sparse_diskgroup_enabled: Specifies whether to create a sparse disk group for the VM cluster. Changing this will create a new resource.
@@ -69,6 +69,7 @@ class CloudVmClusterArgs:
         """
         pulumi.set(__self__, "cloud_exadata_infrastructure_id", cloud_exadata_infrastructure_id)
         pulumi.set(__self__, "cpu_core_count", cpu_core_count)
+        pulumi.set(__self__, "data_storage_size_in_tbs", data_storage_size_in_tbs)
         pulumi.set(__self__, "db_servers", db_servers)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "gi_version", gi_version)
@@ -79,8 +80,6 @@ class CloudVmClusterArgs:
             pulumi.set(__self__, "cluster_name", cluster_name)
         if data_collection_options is not None:
             pulumi.set(__self__, "data_collection_options", data_collection_options)
-        if data_storage_size_in_tbs is not None:
-            pulumi.set(__self__, "data_storage_size_in_tbs", data_storage_size_in_tbs)
         if db_node_storage_size_in_gbs is not None:
             pulumi.set(__self__, "db_node_storage_size_in_gbs", db_node_storage_size_in_gbs)
         if is_local_backup_enabled is not None:
@@ -125,6 +124,20 @@ class CloudVmClusterArgs:
     @cpu_core_count.setter
     def cpu_core_count(self, value: pulumi.Input[_builtins.int]):
         pulumi.set(self, "cpu_core_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataStorageSizeInTbs")
+    def data_storage_size_in_tbs(self) -> pulumi.Input[_builtins.float]:
+        """
+        The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "data_storage_size_in_tbs")
+
+    @data_storage_size_in_tbs.setter
+    def data_storage_size_in_tbs(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "data_storage_size_in_tbs", value)
 
     @_builtins.property
     @pulumi.getter(name="dbServers")
@@ -215,26 +228,12 @@ class CloudVmClusterArgs:
     def data_collection_options(self) -> Optional[pulumi.Input['CloudVmClusterDataCollectionOptionsArgs']]:
         """
         The set of preferences for the various diagnostic collection options for the VM cluster.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "data_collection_options")
 
     @data_collection_options.setter
     def data_collection_options(self, value: Optional[pulumi.Input['CloudVmClusterDataCollectionOptionsArgs']]):
         pulumi.set(self, "data_collection_options", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataStorageSizeInTbs")
-    def data_storage_size_in_tbs(self) -> Optional[pulumi.Input[_builtins.float]]:
-        """
-        The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
-        """
-        return pulumi.get(self, "data_storage_size_in_tbs")
-
-    @data_storage_size_in_tbs.setter
-    def data_storage_size_in_tbs(self, value: Optional[pulumi.Input[_builtins.float]]):
-        pulumi.set(self, "data_storage_size_in_tbs", value)
 
     @_builtins.property
     @pulumi.getter(name="dbNodeStorageSizeInGbs")
@@ -371,6 +370,7 @@ class _CloudVmClusterState:
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  domain: Optional[pulumi.Input[_builtins.str]] = None,
                  gi_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 gi_version_computed: Optional[pulumi.Input[_builtins.str]] = None,
                  hostname_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  hostname_prefix_computed: Optional[pulumi.Input[_builtins.str]] = None,
                  iorm_config_caches: Optional[pulumi.Input[Sequence[pulumi.Input['CloudVmClusterIormConfigCachArgs']]]] = None,
@@ -411,9 +411,9 @@ class _CloudVmClusterState:
         :param pulumi.Input[_builtins.int] cpu_core_count: The number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] created_at: The timestamp when the VM cluster was created.
         :param pulumi.Input['CloudVmClusterDataCollectionOptionsArgs'] data_collection_options: The set of preferences for the various diagnostic collection options for the VM cluster.
+        :param pulumi.Input[_builtins.float] data_storage_size_in_tbs: The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.float] data_storage_size_in_tbs: The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.int] db_node_storage_size_in_gbs: The amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] db_servers: The list of database servers for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] disk_redundancy: The type of redundancy for the VM cluster: NORMAL (2-way) or HIGH (3-way).
@@ -421,6 +421,7 @@ class _CloudVmClusterState:
         :param pulumi.Input[_builtins.str] display_name: A user-friendly name for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] domain: The domain name associated with the VM cluster.
         :param pulumi.Input[_builtins.str] gi_version: A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
+        :param pulumi.Input[_builtins.str] gi_version_computed: A complete software version of Oracle Grid Infrastructure (GI).
         :param pulumi.Input[_builtins.str] hostname_prefix: The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] hostname_prefix_computed: The host name for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
         :param pulumi.Input[Sequence[pulumi.Input['CloudVmClusterIormConfigCachArgs']]] iorm_config_caches: The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
@@ -480,6 +481,8 @@ class _CloudVmClusterState:
             pulumi.set(__self__, "domain", domain)
         if gi_version is not None:
             pulumi.set(__self__, "gi_version", gi_version)
+        if gi_version_computed is not None:
+            pulumi.set(__self__, "gi_version_computed", gi_version_computed)
         if hostname_prefix is not None:
             pulumi.set(__self__, "hostname_prefix", hostname_prefix)
         if hostname_prefix_computed is not None:
@@ -620,8 +623,6 @@ class _CloudVmClusterState:
     def data_collection_options(self) -> Optional[pulumi.Input['CloudVmClusterDataCollectionOptionsArgs']]:
         """
         The set of preferences for the various diagnostic collection options for the VM cluster.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "data_collection_options")
 
@@ -634,6 +635,8 @@ class _CloudVmClusterState:
     def data_storage_size_in_tbs(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
         The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "data_storage_size_in_tbs")
 
@@ -713,6 +716,18 @@ class _CloudVmClusterState:
     @gi_version.setter
     def gi_version(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "gi_version", value)
+
+    @_builtins.property
+    @pulumi.getter(name="giVersionComputed")
+    def gi_version_computed(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A complete software version of Oracle Grid Infrastructure (GI).
+        """
+        return pulumi.get(self, "gi_version_computed")
+
+    @gi_version_computed.setter
+    def gi_version_computed(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "gi_version_computed", value)
 
     @_builtins.property
     @pulumi.getter(name="hostnamePrefix")
@@ -1113,10 +1128,6 @@ class CloudVmCluster(pulumi.CustomResource):
                  timezone: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Data source for Exadata Infrastructure resource in AWS for Oracle Database@AWS.
-
-        You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-
         ## Example Usage
 
         ### Basic Usage
@@ -1193,9 +1204,9 @@ class CloudVmCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Grid Infrastructure (GI) cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.int] cpu_core_count: The number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict']] data_collection_options: The set of preferences for the various diagnostic collection options for the VM cluster.
+        :param pulumi.Input[_builtins.float] data_storage_size_in_tbs: The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.float] data_storage_size_in_tbs: The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.int] db_node_storage_size_in_gbs: The amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] db_servers: The list of database servers for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] display_name: A user-friendly name for the VM cluster. Changing this will create a new resource.
@@ -1219,10 +1230,6 @@ class CloudVmCluster(pulumi.CustomResource):
                  args: CloudVmClusterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Data source for Exadata Infrastructure resource in AWS for Oracle Database@AWS.
-
-        You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-
         ## Example Usage
 
         ### Basic Usage
@@ -1346,6 +1353,8 @@ class CloudVmCluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cpu_core_count'")
             __props__.__dict__["cpu_core_count"] = cpu_core_count
             __props__.__dict__["data_collection_options"] = data_collection_options
+            if data_storage_size_in_tbs is None and not opts.urn:
+                raise TypeError("Missing required property 'data_storage_size_in_tbs'")
             __props__.__dict__["data_storage_size_in_tbs"] = data_storage_size_in_tbs
             __props__.__dict__["db_node_storage_size_in_gbs"] = db_node_storage_size_in_gbs
             if db_servers is None and not opts.urn:
@@ -1380,6 +1389,7 @@ class CloudVmCluster(pulumi.CustomResource):
             __props__.__dict__["created_at"] = None
             __props__.__dict__["disk_redundancy"] = None
             __props__.__dict__["domain"] = None
+            __props__.__dict__["gi_version_computed"] = None
             __props__.__dict__["hostname_prefix_computed"] = None
             __props__.__dict__["iorm_config_caches"] = None
             __props__.__dict__["last_update_history_entry_id"] = None
@@ -1423,6 +1433,7 @@ class CloudVmCluster(pulumi.CustomResource):
             display_name: Optional[pulumi.Input[_builtins.str]] = None,
             domain: Optional[pulumi.Input[_builtins.str]] = None,
             gi_version: Optional[pulumi.Input[_builtins.str]] = None,
+            gi_version_computed: Optional[pulumi.Input[_builtins.str]] = None,
             hostname_prefix: Optional[pulumi.Input[_builtins.str]] = None,
             hostname_prefix_computed: Optional[pulumi.Input[_builtins.str]] = None,
             iorm_config_caches: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudVmClusterIormConfigCachArgs', 'CloudVmClusterIormConfigCachArgsDict']]]]] = None,
@@ -1468,9 +1479,9 @@ class CloudVmCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] cpu_core_count: The number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] created_at: The timestamp when the VM cluster was created.
         :param pulumi.Input[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict']] data_collection_options: The set of preferences for the various diagnostic collection options for the VM cluster.
+        :param pulumi.Input[_builtins.float] data_storage_size_in_tbs: The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.float] data_storage_size_in_tbs: The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.int] db_node_storage_size_in_gbs: The amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] db_servers: The list of database servers for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] disk_redundancy: The type of redundancy for the VM cluster: NORMAL (2-way) or HIGH (3-way).
@@ -1478,6 +1489,7 @@ class CloudVmCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] display_name: A user-friendly name for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] domain: The domain name associated with the VM cluster.
         :param pulumi.Input[_builtins.str] gi_version: A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
+        :param pulumi.Input[_builtins.str] gi_version_computed: A complete software version of Oracle Grid Infrastructure (GI).
         :param pulumi.Input[_builtins.str] hostname_prefix: The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] hostname_prefix_computed: The host name for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CloudVmClusterIormConfigCachArgs', 'CloudVmClusterIormConfigCachArgsDict']]]] iorm_config_caches: The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
@@ -1527,6 +1539,7 @@ class CloudVmCluster(pulumi.CustomResource):
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["domain"] = domain
         __props__.__dict__["gi_version"] = gi_version
+        __props__.__dict__["gi_version_computed"] = gi_version_computed
         __props__.__dict__["hostname_prefix"] = hostname_prefix
         __props__.__dict__["hostname_prefix_computed"] = hostname_prefix_computed
         __props__.__dict__["iorm_config_caches"] = iorm_config_caches
@@ -1613,8 +1626,6 @@ class CloudVmCluster(pulumi.CustomResource):
     def data_collection_options(self) -> pulumi.Output[Optional['outputs.CloudVmClusterDataCollectionOptions']]:
         """
         The set of preferences for the various diagnostic collection options for the VM cluster.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "data_collection_options")
 
@@ -1623,6 +1634,8 @@ class CloudVmCluster(pulumi.CustomResource):
     def data_storage_size_in_tbs(self) -> pulumi.Output[_builtins.float]:
         """
         The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "data_storage_size_in_tbs")
 
@@ -1674,6 +1687,14 @@ class CloudVmCluster(pulumi.CustomResource):
         A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
         """
         return pulumi.get(self, "gi_version")
+
+    @_builtins.property
+    @pulumi.getter(name="giVersionComputed")
+    def gi_version_computed(self) -> pulumi.Output[_builtins.str]:
+        """
+        A complete software version of Oracle Grid Infrastructure (GI).
+        """
+        return pulumi.get(self, "gi_version_computed")
 
     @_builtins.property
     @pulumi.getter(name="hostnamePrefix")

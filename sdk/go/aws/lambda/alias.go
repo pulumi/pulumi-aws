@@ -69,7 +69,6 @@ import (
 //				RoutingConfig: &lambda.AliasRoutingConfigArgs{
 //					AdditionalVersionWeights: pulumi.Float64Map{
 //						"1": pulumi.Float64(0.1),
-//						"3": pulumi.Float64(0.2),
 //					},
 //				},
 //			})

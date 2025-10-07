@@ -23,6 +23,8 @@ __all__ = [
     'EndpointKinesisSettingsArgsDict',
     'EndpointMongodbSettingsArgs',
     'EndpointMongodbSettingsArgsDict',
+    'EndpointMysqlSettingsArgs',
+    'EndpointMysqlSettingsArgsDict',
     'EndpointOracleSettingsArgs',
     'EndpointOracleSettingsArgsDict',
     'EndpointPostgresSettingsArgs',
@@ -882,6 +884,218 @@ class EndpointMongodbSettingsArgs:
     @nesting_level.setter
     def nesting_level(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "nesting_level", value)
+
+
+if not MYPY:
+    class EndpointMysqlSettingsArgsDict(TypedDict):
+        after_connect_script: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Script to run immediately after AWS DMS connects to the endpoint.
+        """
+        authentication_method: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Authentication method to use. Valid values: `password`, `iam`.
+        """
+        clean_source_metadata_on_mismatch: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether to clean and recreate table metadata information on the replication instance when a mismatch occurs.
+        """
+        events_poll_interval: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Time interval to check the binary log for new changes/events when the database is idle. Default is `5`.
+        """
+        execute_timeout: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Client statement timeout (in seconds) for a MySQL source endpoint.
+        """
+        max_file_size: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
+        """
+        parallel_load_threads: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Number of threads to use to load the data into the MySQL-compatible target database.
+        """
+        server_timezone: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Time zone for the source MySQL database.
+        """
+        service_access_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        ARN of the IAM role to authenticate when connecting to the endpoint.
+        """
+        target_db_type: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Where to migrate source tables on the target. Valid values are `specific-database` and `multiple-databases`.
+        """
+elif False:
+    EndpointMysqlSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EndpointMysqlSettingsArgs:
+    def __init__(__self__, *,
+                 after_connect_script: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_method: Optional[pulumi.Input[_builtins.str]] = None,
+                 clean_source_metadata_on_mismatch: Optional[pulumi.Input[_builtins.bool]] = None,
+                 events_poll_interval: Optional[pulumi.Input[_builtins.int]] = None,
+                 execute_timeout: Optional[pulumi.Input[_builtins.int]] = None,
+                 max_file_size: Optional[pulumi.Input[_builtins.int]] = None,
+                 parallel_load_threads: Optional[pulumi.Input[_builtins.int]] = None,
+                 server_timezone: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 target_db_type: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] after_connect_script: Script to run immediately after AWS DMS connects to the endpoint.
+        :param pulumi.Input[_builtins.str] authentication_method: Authentication method to use. Valid values: `password`, `iam`.
+        :param pulumi.Input[_builtins.bool] clean_source_metadata_on_mismatch: Whether to clean and recreate table metadata information on the replication instance when a mismatch occurs.
+        :param pulumi.Input[_builtins.int] events_poll_interval: Time interval to check the binary log for new changes/events when the database is idle. Default is `5`.
+        :param pulumi.Input[_builtins.int] execute_timeout: Client statement timeout (in seconds) for a MySQL source endpoint.
+        :param pulumi.Input[_builtins.int] max_file_size: Maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
+        :param pulumi.Input[_builtins.int] parallel_load_threads: Number of threads to use to load the data into the MySQL-compatible target database.
+        :param pulumi.Input[_builtins.str] server_timezone: Time zone for the source MySQL database.
+        :param pulumi.Input[_builtins.str] service_access_role_arn: ARN of the IAM role to authenticate when connecting to the endpoint.
+        :param pulumi.Input[_builtins.str] target_db_type: Where to migrate source tables on the target. Valid values are `specific-database` and `multiple-databases`.
+        """
+        if after_connect_script is not None:
+            pulumi.set(__self__, "after_connect_script", after_connect_script)
+        if authentication_method is not None:
+            pulumi.set(__self__, "authentication_method", authentication_method)
+        if clean_source_metadata_on_mismatch is not None:
+            pulumi.set(__self__, "clean_source_metadata_on_mismatch", clean_source_metadata_on_mismatch)
+        if events_poll_interval is not None:
+            pulumi.set(__self__, "events_poll_interval", events_poll_interval)
+        if execute_timeout is not None:
+            pulumi.set(__self__, "execute_timeout", execute_timeout)
+        if max_file_size is not None:
+            pulumi.set(__self__, "max_file_size", max_file_size)
+        if parallel_load_threads is not None:
+            pulumi.set(__self__, "parallel_load_threads", parallel_load_threads)
+        if server_timezone is not None:
+            pulumi.set(__self__, "server_timezone", server_timezone)
+        if service_access_role_arn is not None:
+            pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
+        if target_db_type is not None:
+            pulumi.set(__self__, "target_db_type", target_db_type)
+
+    @_builtins.property
+    @pulumi.getter(name="afterConnectScript")
+    def after_connect_script(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Script to run immediately after AWS DMS connects to the endpoint.
+        """
+        return pulumi.get(self, "after_connect_script")
+
+    @after_connect_script.setter
+    def after_connect_script(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "after_connect_script", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authenticationMethod")
+    def authentication_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Authentication method to use. Valid values: `password`, `iam`.
+        """
+        return pulumi.get(self, "authentication_method")
+
+    @authentication_method.setter
+    def authentication_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "authentication_method", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cleanSourceMetadataOnMismatch")
+    def clean_source_metadata_on_mismatch(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to clean and recreate table metadata information on the replication instance when a mismatch occurs.
+        """
+        return pulumi.get(self, "clean_source_metadata_on_mismatch")
+
+    @clean_source_metadata_on_mismatch.setter
+    def clean_source_metadata_on_mismatch(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "clean_source_metadata_on_mismatch", value)
+
+    @_builtins.property
+    @pulumi.getter(name="eventsPollInterval")
+    def events_poll_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Time interval to check the binary log for new changes/events when the database is idle. Default is `5`.
+        """
+        return pulumi.get(self, "events_poll_interval")
+
+    @events_poll_interval.setter
+    def events_poll_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "events_poll_interval", value)
+
+    @_builtins.property
+    @pulumi.getter(name="executeTimeout")
+    def execute_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Client statement timeout (in seconds) for a MySQL source endpoint.
+        """
+        return pulumi.get(self, "execute_timeout")
+
+    @execute_timeout.setter
+    def execute_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "execute_timeout", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxFileSize")
+    def max_file_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
+        """
+        return pulumi.get(self, "max_file_size")
+
+    @max_file_size.setter
+    def max_file_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "max_file_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="parallelLoadThreads")
+    def parallel_load_threads(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Number of threads to use to load the data into the MySQL-compatible target database.
+        """
+        return pulumi.get(self, "parallel_load_threads")
+
+    @parallel_load_threads.setter
+    def parallel_load_threads(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "parallel_load_threads", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverTimezone")
+    def server_timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Time zone for the source MySQL database.
+        """
+        return pulumi.get(self, "server_timezone")
+
+    @server_timezone.setter
+    def server_timezone(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "server_timezone", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceAccessRoleArn")
+    def service_access_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ARN of the IAM role to authenticate when connecting to the endpoint.
+        """
+        return pulumi.get(self, "service_access_role_arn")
+
+    @service_access_role_arn.setter
+    def service_access_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "service_access_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetDbType")
+    def target_db_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Where to migrate source tables on the target. Valid values are `specific-database` and `multiple-databases`.
+        """
+        return pulumi.get(self, "target_db_type")
+
+    @target_db_type.setter
+    def target_db_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "target_db_type", value)
 
 
 if not MYPY:

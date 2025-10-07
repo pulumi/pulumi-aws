@@ -17,14 +17,14 @@ public final class GuardrailContextualGroundingPolicyConfigArgs extends com.pulu
     public static final GuardrailContextualGroundingPolicyConfigArgs Empty = new GuardrailContextualGroundingPolicyConfigArgs();
 
     /**
-     * List of contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
+     * One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
      * 
      */
     @Import(name="filtersConfigs")
     private @Nullable Output<List<GuardrailContextualGroundingPolicyConfigFiltersConfigArgs>> filtersConfigs;
 
     /**
-     * @return List of contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
+     * @return One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
      * 
      */
     public Optional<Output<List<GuardrailContextualGroundingPolicyConfigFiltersConfigArgs>>> filtersConfigs() {
@@ -56,7 +56,7 @@ public final class GuardrailContextualGroundingPolicyConfigArgs extends com.pulu
         }
 
         /**
-         * @param filtersConfigs List of contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
+         * @param filtersConfigs One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class GuardrailContextualGroundingPolicyConfigArgs extends com.pulu
         }
 
         /**
-         * @param filtersConfigs List of contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
+         * @param filtersConfigs One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class GuardrailContextualGroundingPolicyConfigArgs extends com.pulu
         }
 
         /**
-         * @param filtersConfigs List of contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
+         * @param filtersConfigs One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
          * 
          * @return builder
          * 

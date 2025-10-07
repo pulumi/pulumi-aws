@@ -64,6 +64,8 @@ type LookupProxyResult struct {
 	Auths []GetProxyAuth `pulumi:"auths"`
 	// Whether the proxy includes detailed information about SQL statements in its logs.
 	DebugLogging bool `pulumi:"debugLogging"`
+	// Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+	DefaultAuthScheme string `pulumi:"defaultAuthScheme"`
 	// Endpoint that you can use to connect to the DB proxy.
 	Endpoint string `pulumi:"endpoint"`
 	// Kinds of databases that the proxy can connect to.
@@ -135,6 +137,11 @@ func (o LookupProxyResultOutput) Auths() GetProxyAuthArrayOutput {
 // Whether the proxy includes detailed information about SQL statements in its logs.
 func (o LookupProxyResultOutput) DebugLogging() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupProxyResult) bool { return v.DebugLogging }).(pulumi.BoolOutput)
+}
+
+// Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+func (o LookupProxyResultOutput) DefaultAuthScheme() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProxyResult) string { return v.DefaultAuthScheme }).(pulumi.StringOutput)
 }
 
 // Endpoint that you can use to connect to the DB proxy.

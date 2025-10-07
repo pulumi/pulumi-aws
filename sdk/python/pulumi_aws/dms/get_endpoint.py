@@ -27,7 +27,7 @@ class GetEndpointResult:
     """
     A collection of values returned by getEndpoint.
     """
-    def __init__(__self__, certificate_arn=None, database_name=None, elasticsearch_settings=None, endpoint_arn=None, endpoint_id=None, endpoint_type=None, engine_name=None, extra_connection_attributes=None, id=None, kafka_settings=None, kinesis_settings=None, kms_key_arn=None, mongodb_settings=None, password=None, port=None, postgres_settings=None, redis_settings=None, redshift_settings=None, region=None, s3_settings=None, secrets_manager_access_role_arn=None, secrets_manager_arn=None, server_name=None, service_access_role=None, ssl_mode=None, tags=None, username=None):
+    def __init__(__self__, certificate_arn=None, database_name=None, elasticsearch_settings=None, endpoint_arn=None, endpoint_id=None, endpoint_type=None, engine_name=None, extra_connection_attributes=None, id=None, kafka_settings=None, kinesis_settings=None, kms_key_arn=None, mongodb_settings=None, mysql_settings=None, password=None, port=None, postgres_settings=None, redis_settings=None, redshift_settings=None, region=None, s3_settings=None, secrets_manager_access_role_arn=None, secrets_manager_arn=None, server_name=None, service_access_role=None, ssl_mode=None, tags=None, username=None):
         if certificate_arn and not isinstance(certificate_arn, str):
             raise TypeError("Expected argument 'certificate_arn' to be a str")
         pulumi.set(__self__, "certificate_arn", certificate_arn)
@@ -67,6 +67,9 @@ class GetEndpointResult:
         if mongodb_settings and not isinstance(mongodb_settings, list):
             raise TypeError("Expected argument 'mongodb_settings' to be a list")
         pulumi.set(__self__, "mongodb_settings", mongodb_settings)
+        if mysql_settings and not isinstance(mysql_settings, list):
+            raise TypeError("Expected argument 'mysql_settings' to be a list")
+        pulumi.set(__self__, "mysql_settings", mysql_settings)
         if password and not isinstance(password, str):
             raise TypeError("Expected argument 'password' to be a str")
         pulumi.set(__self__, "password", password)
@@ -179,6 +182,11 @@ class GetEndpointResult:
         return pulumi.get(self, "mongodb_settings")
 
     @_builtins.property
+    @pulumi.getter(name="mysqlSettings")
+    def mysql_settings(self) -> Sequence['outputs.GetEndpointMysqlSettingResult']:
+        return pulumi.get(self, "mysql_settings")
+
+    @_builtins.property
     @pulumi.getter
     def password(self) -> _builtins.str:
         return pulumi.get(self, "password")
@@ -268,6 +276,7 @@ class AwaitableGetEndpointResult(GetEndpointResult):
             kinesis_settings=self.kinesis_settings,
             kms_key_arn=self.kms_key_arn,
             mongodb_settings=self.mongodb_settings,
+            mysql_settings=self.mysql_settings,
             password=self.password,
             port=self.port,
             postgres_settings=self.postgres_settings,
@@ -327,6 +336,7 @@ def get_endpoint(endpoint_id: Optional[_builtins.str] = None,
         kinesis_settings=pulumi.get(__ret__, 'kinesis_settings'),
         kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
         mongodb_settings=pulumi.get(__ret__, 'mongodb_settings'),
+        mysql_settings=pulumi.get(__ret__, 'mysql_settings'),
         password=pulumi.get(__ret__, 'password'),
         port=pulumi.get(__ret__, 'port'),
         postgres_settings=pulumi.get(__ret__, 'postgres_settings'),
@@ -383,6 +393,7 @@ def get_endpoint_output(endpoint_id: Optional[pulumi.Input[_builtins.str]] = Non
         kinesis_settings=pulumi.get(__response__, 'kinesis_settings'),
         kms_key_arn=pulumi.get(__response__, 'kms_key_arn'),
         mongodb_settings=pulumi.get(__response__, 'mongodb_settings'),
+        mysql_settings=pulumi.get(__response__, 'mysql_settings'),
         password=pulumi.get(__response__, 'password'),
         port=pulumi.get(__response__, 'port'),
         postgres_settings=pulumi.get(__response__, 'postgres_settings'),

@@ -24,6 +24,11 @@ public final class DistributionOriginCustomOriginConfig {
      * 
      */
     private Integer httpsPort;
+    /**
+     * @return IP protocol CloudFront uses when connecting to your origin. Valid values: `ipv4`, `ipv6`, `dualstack`.
+     * 
+     */
+    private @Nullable String ipAddressType;
     private @Nullable Integer originKeepaliveTimeout;
     /**
      * @return Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
@@ -51,6 +56,13 @@ public final class DistributionOriginCustomOriginConfig {
      */
     public Integer httpsPort() {
         return this.httpsPort;
+    }
+    /**
+     * @return IP protocol CloudFront uses when connecting to your origin. Valid values: `ipv4`, `ipv6`, `dualstack`.
+     * 
+     */
+    public Optional<String> ipAddressType() {
+        return Optional.ofNullable(this.ipAddressType);
     }
     public Optional<Integer> originKeepaliveTimeout() {
         return Optional.ofNullable(this.originKeepaliveTimeout);
@@ -84,6 +96,7 @@ public final class DistributionOriginCustomOriginConfig {
     public static final class Builder {
         private Integer httpPort;
         private Integer httpsPort;
+        private @Nullable String ipAddressType;
         private @Nullable Integer originKeepaliveTimeout;
         private String originProtocolPolicy;
         private @Nullable Integer originReadTimeout;
@@ -93,6 +106,7 @@ public final class DistributionOriginCustomOriginConfig {
     	      Objects.requireNonNull(defaults);
     	      this.httpPort = defaults.httpPort;
     	      this.httpsPort = defaults.httpsPort;
+    	      this.ipAddressType = defaults.ipAddressType;
     	      this.originKeepaliveTimeout = defaults.originKeepaliveTimeout;
     	      this.originProtocolPolicy = defaults.originProtocolPolicy;
     	      this.originReadTimeout = defaults.originReadTimeout;
@@ -113,6 +127,12 @@ public final class DistributionOriginCustomOriginConfig {
               throw new MissingRequiredPropertyException("DistributionOriginCustomOriginConfig", "httpsPort");
             }
             this.httpsPort = httpsPort;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder ipAddressType(@Nullable String ipAddressType) {
+
+            this.ipAddressType = ipAddressType;
             return this;
         }
         @CustomType.Setter
@@ -150,6 +170,7 @@ public final class DistributionOriginCustomOriginConfig {
             final var _resultValue = new DistributionOriginCustomOriginConfig();
             _resultValue.httpPort = httpPort;
             _resultValue.httpsPort = httpsPort;
+            _resultValue.ipAddressType = ipAddressType;
             _resultValue.originKeepaliveTimeout = originKeepaliveTimeout;
             _resultValue.originProtocolPolicy = originProtocolPolicy;
             _resultValue.originReadTimeout = originReadTimeout;

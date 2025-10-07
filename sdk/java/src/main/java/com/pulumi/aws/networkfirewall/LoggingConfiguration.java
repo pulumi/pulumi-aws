@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -156,6 +157,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:networkfirewall/loggingConfiguration:LoggingConfiguration")
 public class LoggingConfiguration extends com.pulumi.resources.CustomResource {
+    /**
+     * Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
+     * 
+     */
+    @Export(name="enableMonitoringDashboard", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> enableMonitoringDashboard;
+
+    /**
+     * @return Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
+     * 
+     */
+    public Output<Boolean> enableMonitoringDashboard() {
+        return this.enableMonitoringDashboard;
+    }
     /**
      * The Amazon Resource Name (ARN) of the Network Firewall firewall.
      * 

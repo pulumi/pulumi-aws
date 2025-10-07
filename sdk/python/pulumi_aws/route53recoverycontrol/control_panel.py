@@ -20,15 +20,21 @@ __all__ = ['ControlPanelArgs', 'ControlPanel']
 class ControlPanelArgs:
     def __init__(__self__, *,
                  cluster_arn: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ControlPanel resource.
         :param pulumi.Input[_builtins.str] cluster_arn: ARN of the cluster in which this control panel will reside.
         :param pulumi.Input[_builtins.str] name: Name describing the control panel.
+               
+               The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "cluster_arn", cluster_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="clusterArn")
@@ -47,12 +53,26 @@ class ControlPanelArgs:
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name describing the control panel.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
     @name.setter
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
@@ -63,15 +83,21 @@ class _ControlPanelState:
                  default_control_panel: Optional[pulumi.Input[_builtins.bool]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  routing_control_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 status: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ControlPanel resources.
         :param pulumi.Input[_builtins.str] arn: ARN of the control panel.
         :param pulumi.Input[_builtins.str] cluster_arn: ARN of the cluster in which this control panel will reside.
         :param pulumi.Input[_builtins.bool] default_control_panel: Whether a control panel is default.
         :param pulumi.Input[_builtins.str] name: Name describing the control panel.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.int] routing_control_count: Number routing controls in a control panel.
         :param pulumi.Input[_builtins.str] status: Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -85,6 +111,10 @@ class _ControlPanelState:
             pulumi.set(__self__, "routing_control_count", routing_control_count)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @_builtins.property
     @pulumi.getter
@@ -127,6 +157,8 @@ class _ControlPanelState:
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name describing the control panel.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -158,6 +190,30 @@ class _ControlPanelState:
     def status(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "status", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.type_token("aws:route53recoverycontrol/controlPanel:ControlPanel")
 class ControlPanel(pulumi.CustomResource):
@@ -167,6 +223,7 @@ class ControlPanel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides an AWS Route 53 Recovery Control Config Control Panel.
@@ -194,6 +251,9 @@ class ControlPanel(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_arn: ARN of the cluster in which this control panel will reside.
         :param pulumi.Input[_builtins.str] name: Name describing the control panel.
+               
+               The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -240,6 +300,7 @@ class ControlPanel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -253,10 +314,12 @@ class ControlPanel(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cluster_arn'")
             __props__.__dict__["cluster_arn"] = cluster_arn
             __props__.__dict__["name"] = name
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["default_control_panel"] = None
             __props__.__dict__["routing_control_count"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["tags_all"] = None
         super(ControlPanel, __self__).__init__(
             'aws:route53recoverycontrol/controlPanel:ControlPanel',
             resource_name,
@@ -272,7 +335,9 @@ class ControlPanel(pulumi.CustomResource):
             default_control_panel: Optional[pulumi.Input[_builtins.bool]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             routing_control_count: Optional[pulumi.Input[_builtins.int]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None) -> 'ControlPanel':
+            status: Optional[pulumi.Input[_builtins.str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ControlPanel':
         """
         Get an existing ControlPanel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -284,8 +349,12 @@ class ControlPanel(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cluster_arn: ARN of the cluster in which this control panel will reside.
         :param pulumi.Input[_builtins.bool] default_control_panel: Whether a control panel is default.
         :param pulumi.Input[_builtins.str] name: Name describing the control panel.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.int] routing_control_count: Number routing controls in a control panel.
         :param pulumi.Input[_builtins.str] status: Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -297,6 +366,8 @@ class ControlPanel(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["routing_control_count"] = routing_control_count
         __props__.__dict__["status"] = status
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         return ControlPanel(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -328,6 +399,8 @@ class ControlPanel(pulumi.CustomResource):
     def name(self) -> pulumi.Output[_builtins.str]:
         """
         Name describing the control panel.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -346,4 +419,20 @@ class ControlPanel(pulumi.CustomResource):
         Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
         """
         return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
 

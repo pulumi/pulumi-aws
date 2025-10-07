@@ -86,6 +86,20 @@ namespace Pulumi.Aws.Route53
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     var primary = new Aws.Ec2.Vpc("primary", new()
+    ///     {
+    ///         CidrBlock = "10.6.0.0/16",
+    ///         EnableDnsHostnames = true,
+    ///         EnableDnsSupport = true,
+    ///     });
+    /// 
+    ///     var secondary = new Aws.Ec2.Vpc("secondary", new()
+    ///     {
+    ///         CidrBlock = "10.7.0.0/16",
+    ///         EnableDnsHostnames = true,
+    ///         EnableDnsSupport = true,
+    ///     });
+    /// 
     ///     var @private = new Aws.Route53.Zone("private", new()
     ///     {
     ///         Name = "example.com",
@@ -93,7 +107,11 @@ namespace Pulumi.Aws.Route53
     ///         {
     ///             new Aws.Route53.Inputs.ZoneVpcArgs
     ///             {
-    ///                 VpcId = example.Id,
+    ///                 VpcId = primary.Id,
+    ///             },
+    ///             new Aws.Route53.Inputs.ZoneVpcArgs
+    ///             {
+    ///                 VpcId = secondary.Id,
     ///             },
     ///         },
     ///     });

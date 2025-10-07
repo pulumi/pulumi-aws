@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.ecs.CapacityProviderArgs;
 import com.pulumi.aws.ecs.inputs.CapacityProviderState;
 import com.pulumi.aws.ecs.outputs.CapacityProviderAutoScalingGroupProvider;
+import com.pulumi.aws.ecs.outputs.CapacityProviderManagedInstancesProvider;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -21,7 +22,11 @@ import javax.annotation.Nullable;
  * 
  * &gt; **NOTE:** Associating an ECS Capacity Provider to an Auto Scaling Group will automatically add the `AmazonECSManaged` tag to the Auto Scaling Group. This tag should be included in the `aws.autoscaling.Group` resource configuration to prevent the provider from removing it in subsequent executions as well as ensuring the `AmazonECSManaged` tag is propagated to all EC2 Instances in the Auto Scaling Group if `min_size` is above 0 on creation. Any EC2 Instances in the Auto Scaling Group without this tag must be manually be updated, otherwise they may cause unexpected scaling behavior and metrics.
  * 
+ * &gt; **NOTE:** You must specify exactly one of `auto_scaling_group_provider` or `managed_instances_provider`. When using `managed_instances_provider`, the `cluster` parameter is required. When using `auto_scaling_group_provider`, the `cluster` parameter must not be set.
+ * 
  * ## Example Usage
+ * 
+ * ### Auto Scaling Group Provider
  * 
  * <pre>
  * {@code
@@ -77,6 +82,76 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Managed Instances Provider
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ecs.CapacityProvider;
+ * import com.pulumi.aws.ecs.CapacityProviderArgs;
+ * import com.pulumi.aws.ecs.inputs.CapacityProviderManagedInstancesProviderArgs;
+ * import com.pulumi.aws.ecs.inputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs;
+ * import com.pulumi.aws.ecs.inputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs;
+ * import com.pulumi.aws.ecs.inputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationArgs;
+ * import com.pulumi.aws.ecs.inputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsArgs;
+ * import com.pulumi.aws.ecs.inputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibArgs;
+ * import com.pulumi.aws.ecs.inputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new CapacityProvider("example", CapacityProviderArgs.builder()
+ *             .name("example")
+ *             .cluster("my-cluster")
+ *             .managedInstancesProvider(CapacityProviderManagedInstancesProviderArgs.builder()
+ *                 .infrastructureRoleArn(ecsInfrastructure.arn())
+ *                 .propagateTags("TASK_DEFINITION")
+ *                 .instanceLaunchTemplate(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs.builder()
+ *                     .ec2InstanceProfileArn(ecsInstance.arn())
+ *                     .monitoring("ENABLED")
+ *                     .networkConfiguration(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs.builder()
+ *                         .subnets(exampleAwsSubnet.id())
+ *                         .securityGroups(exampleAwsSecurityGroup.id())
+ *                         .build())
+ *                     .storageConfiguration(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationArgs.builder()
+ *                         .storageSizeGib(30)
+ *                         .build())
+ *                     .instanceRequirements(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsArgs.builder()
+ *                         .memoryMib(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibArgs.builder()
+ *                             .min(1024)
+ *                             .max(8192)
+ *                             .build())
+ *                         .vcpuCount(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountArgs.builder()
+ *                             .min(1)
+ *                             .max(4)
+ *                             .build())
+ *                         .instanceGenerations("current")
+ *                         .cpuManufacturers(                        
+ *                             "intel",
+ *                             "amd")
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * ### Identity Schema
@@ -109,18 +184,46 @@ public class CapacityProvider extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Configuration block for the provider for the ECS auto scaling group. Detailed below.
+     * Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
      * 
      */
     @Export(name="autoScalingGroupProvider", refs={CapacityProviderAutoScalingGroupProvider.class}, tree="[0]")
-    private Output<CapacityProviderAutoScalingGroupProvider> autoScalingGroupProvider;
+    private Output</* @Nullable */ CapacityProviderAutoScalingGroupProvider> autoScalingGroupProvider;
 
     /**
-     * @return Configuration block for the provider for the ECS auto scaling group. Detailed below.
+     * @return Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
      * 
      */
-    public Output<CapacityProviderAutoScalingGroupProvider> autoScalingGroupProvider() {
-        return this.autoScalingGroupProvider;
+    public Output<Optional<CapacityProviderAutoScalingGroupProvider>> autoScalingGroupProvider() {
+        return Codegen.optional(this.autoScalingGroupProvider);
+    }
+    /**
+     * Name of the ECS cluster. Required when using `managed_instances_provider`. Must not be set when using `auto_scaling_group_provider`.
+     * 
+     */
+    @Export(name="cluster", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> cluster;
+
+    /**
+     * @return Name of the ECS cluster. Required when using `managed_instances_provider`. Must not be set when using `auto_scaling_group_provider`.
+     * 
+     */
+    public Output<Optional<String>> cluster() {
+        return Codegen.optional(this.cluster);
+    }
+    /**
+     * Configuration block for the managed instances provider. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
+     * 
+     */
+    @Export(name="managedInstancesProvider", refs={CapacityProviderManagedInstancesProvider.class}, tree="[0]")
+    private Output</* @Nullable */ CapacityProviderManagedInstancesProvider> managedInstancesProvider;
+
+    /**
+     * @return Configuration block for the managed instances provider. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
+     * 
+     */
+    public Output<Optional<CapacityProviderManagedInstancesProvider>> managedInstancesProvider() {
+        return Codegen.optional(this.managedInstancesProvider);
     }
     /**
      * Name of the capacity provider.
@@ -191,7 +294,7 @@ public class CapacityProvider extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CapacityProvider(java.lang.String name, CapacityProviderArgs args) {
+    public CapacityProvider(java.lang.String name, @Nullable CapacityProviderArgs args) {
         this(name, args, null);
     }
     /**
@@ -200,7 +303,7 @@ public class CapacityProvider extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CapacityProvider(java.lang.String name, CapacityProviderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public CapacityProvider(java.lang.String name, @Nullable CapacityProviderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ecs/capacityProvider:CapacityProvider", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -208,7 +311,7 @@ public class CapacityProvider extends com.pulumi.resources.CustomResource {
         super("aws:ecs/capacityProvider:CapacityProvider", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static CapacityProviderArgs makeArgs(CapacityProviderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static CapacityProviderArgs makeArgs(@Nullable CapacityProviderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

@@ -47,6 +47,12 @@ __all__ = [
     'GetCloudVmClusterDataCollectionOptionResult',
     'GetCloudVmClusterIormConfigCachResult',
     'GetCloudVmClusterIormConfigCachDbPlanResult',
+    'GetDbNodesDbNodeResult',
+    'GetDbServerDbServerPatchingDetailResult',
+    'GetDbServersDbServerResult',
+    'GetDbServersDbServerDbServerPatchingDetailResult',
+    'GetDbSystemShapesDbSystemShapeResult',
+    'GetGiVersionsGiVersionResult',
     'GetNetworkManagedServiceResult',
     'GetNetworkManagedServiceManagedS3BackupAccessResult',
     'GetNetworkManagedServiceS3AccessResult',
@@ -1279,6 +1285,731 @@ class GetCloudVmClusterIormConfigCachDbPlanResult(dict):
     @pulumi.getter
     def share(self) -> _builtins.int:
         return pulumi.get(self, "share")
+
+
+@pulumi.output_type
+class GetDbNodesDbNodeResult(dict):
+    def __init__(__self__, *,
+                 additional_details: _builtins.str,
+                 arn: _builtins.str,
+                 backup_ip_id: _builtins.str,
+                 backup_vnic2_id: _builtins.str,
+                 backup_vnic_id: _builtins.str,
+                 cpu_core_count: _builtins.int,
+                 created_at: _builtins.str,
+                 db_node_storage_size: _builtins.int,
+                 db_server_id: _builtins.str,
+                 db_system_id: _builtins.str,
+                 fault_domain: _builtins.str,
+                 host_ip_id: _builtins.str,
+                 hostname: _builtins.str,
+                 id: _builtins.str,
+                 maintenance_type: _builtins.str,
+                 memory_size: _builtins.int,
+                 oci_resource_anchor_name: _builtins.str,
+                 ocid: _builtins.str,
+                 software_storage_size: _builtins.int,
+                 status: _builtins.str,
+                 status_reason: _builtins.str,
+                 time_maintenance_window_end: _builtins.str,
+                 time_maintenance_window_start: _builtins.str,
+                 total_cpu_core_count: _builtins.int,
+                 vnic2_id: _builtins.str,
+                 vnic_id: _builtins.str):
+        """
+        :param _builtins.str additional_details: Additional information about the planned maintenance.
+        :param _builtins.str backup_ip_id: The Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
+        :param _builtins.str backup_vnic_id: The OCID of the backup VNIC for the DB node.
+        :param _builtins.int cpu_core_count: The number of CPU cores enabled on the DB node.
+        :param _builtins.str created_at: The date and time when the DB node was created.
+        :param _builtins.str db_server_id: The unique identifier of the database server that's associated with the DB node.
+        :param _builtins.str db_system_id: The OCID of the DB system.
+        :param _builtins.str fault_domain: The name of the fault domain where the DB node is located.
+        :param _builtins.str host_ip_id: The OCID of the host IP address that's associated with the DB node.
+        :param _builtins.str hostname: The host name for the DB node.
+        :param _builtins.str maintenance_type: The type of maintenance the DB node is undergoing.
+        :param _builtins.str oci_resource_anchor_name: The name of the OCI resource anchor for the DB node.
+        :param _builtins.str ocid: The OCID of the DB node.
+        :param _builtins.str status: The current status of the DB node.
+        :param _builtins.str status_reason: Additional information about the status of the DB node.
+        :param _builtins.str time_maintenance_window_end: The end date and time of the maintenance window.
+        :param _builtins.str time_maintenance_window_start: The start date and time of the maintenance window.
+        :param _builtins.int total_cpu_core_count: The total number of CPU cores reserved on the DB node.
+        :param _builtins.str vnic_id: The OCID of the VNIC.
+        """
+        pulumi.set(__self__, "additional_details", additional_details)
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "backup_ip_id", backup_ip_id)
+        pulumi.set(__self__, "backup_vnic2_id", backup_vnic2_id)
+        pulumi.set(__self__, "backup_vnic_id", backup_vnic_id)
+        pulumi.set(__self__, "cpu_core_count", cpu_core_count)
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "db_node_storage_size", db_node_storage_size)
+        pulumi.set(__self__, "db_server_id", db_server_id)
+        pulumi.set(__self__, "db_system_id", db_system_id)
+        pulumi.set(__self__, "fault_domain", fault_domain)
+        pulumi.set(__self__, "host_ip_id", host_ip_id)
+        pulumi.set(__self__, "hostname", hostname)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "maintenance_type", maintenance_type)
+        pulumi.set(__self__, "memory_size", memory_size)
+        pulumi.set(__self__, "oci_resource_anchor_name", oci_resource_anchor_name)
+        pulumi.set(__self__, "ocid", ocid)
+        pulumi.set(__self__, "software_storage_size", software_storage_size)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "status_reason", status_reason)
+        pulumi.set(__self__, "time_maintenance_window_end", time_maintenance_window_end)
+        pulumi.set(__self__, "time_maintenance_window_start", time_maintenance_window_start)
+        pulumi.set(__self__, "total_cpu_core_count", total_cpu_core_count)
+        pulumi.set(__self__, "vnic2_id", vnic2_id)
+        pulumi.set(__self__, "vnic_id", vnic_id)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalDetails")
+    def additional_details(self) -> _builtins.str:
+        """
+        Additional information about the planned maintenance.
+        """
+        return pulumi.get(self, "additional_details")
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> _builtins.str:
+        return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="backupIpId")
+    def backup_ip_id(self) -> _builtins.str:
+        """
+        The Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
+        """
+        return pulumi.get(self, "backup_ip_id")
+
+    @_builtins.property
+    @pulumi.getter(name="backupVnic2Id")
+    def backup_vnic2_id(self) -> _builtins.str:
+        return pulumi.get(self, "backup_vnic2_id")
+
+    @_builtins.property
+    @pulumi.getter(name="backupVnicId")
+    def backup_vnic_id(self) -> _builtins.str:
+        """
+        The OCID of the backup VNIC for the DB node.
+        """
+        return pulumi.get(self, "backup_vnic_id")
+
+    @_builtins.property
+    @pulumi.getter(name="cpuCoreCount")
+    def cpu_core_count(self) -> _builtins.int:
+        """
+        The number of CPU cores enabled on the DB node.
+        """
+        return pulumi.get(self, "cpu_core_count")
+
+    @_builtins.property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> _builtins.str:
+        """
+        The date and time when the DB node was created.
+        """
+        return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="dbNodeStorageSize")
+    def db_node_storage_size(self) -> _builtins.int:
+        return pulumi.get(self, "db_node_storage_size")
+
+    @_builtins.property
+    @pulumi.getter(name="dbServerId")
+    def db_server_id(self) -> _builtins.str:
+        """
+        The unique identifier of the database server that's associated with the DB node.
+        """
+        return pulumi.get(self, "db_server_id")
+
+    @_builtins.property
+    @pulumi.getter(name="dbSystemId")
+    def db_system_id(self) -> _builtins.str:
+        """
+        The OCID of the DB system.
+        """
+        return pulumi.get(self, "db_system_id")
+
+    @_builtins.property
+    @pulumi.getter(name="faultDomain")
+    def fault_domain(self) -> _builtins.str:
+        """
+        The name of the fault domain where the DB node is located.
+        """
+        return pulumi.get(self, "fault_domain")
+
+    @_builtins.property
+    @pulumi.getter(name="hostIpId")
+    def host_ip_id(self) -> _builtins.str:
+        """
+        The OCID of the host IP address that's associated with the DB node.
+        """
+        return pulumi.get(self, "host_ip_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def hostname(self) -> _builtins.str:
+        """
+        The host name for the DB node.
+        """
+        return pulumi.get(self, "hostname")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="maintenanceType")
+    def maintenance_type(self) -> _builtins.str:
+        """
+        The type of maintenance the DB node is undergoing.
+        """
+        return pulumi.get(self, "maintenance_type")
+
+    @_builtins.property
+    @pulumi.getter(name="memorySize")
+    def memory_size(self) -> _builtins.int:
+        return pulumi.get(self, "memory_size")
+
+    @_builtins.property
+    @pulumi.getter(name="ociResourceAnchorName")
+    def oci_resource_anchor_name(self) -> _builtins.str:
+        """
+        The name of the OCI resource anchor for the DB node.
+        """
+        return pulumi.get(self, "oci_resource_anchor_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def ocid(self) -> _builtins.str:
+        """
+        The OCID of the DB node.
+        """
+        return pulumi.get(self, "ocid")
+
+    @_builtins.property
+    @pulumi.getter(name="softwareStorageSize")
+    def software_storage_size(self) -> _builtins.int:
+        return pulumi.get(self, "software_storage_size")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        The current status of the DB node.
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="statusReason")
+    def status_reason(self) -> _builtins.str:
+        """
+        Additional information about the status of the DB node.
+        """
+        return pulumi.get(self, "status_reason")
+
+    @_builtins.property
+    @pulumi.getter(name="timeMaintenanceWindowEnd")
+    def time_maintenance_window_end(self) -> _builtins.str:
+        """
+        The end date and time of the maintenance window.
+        """
+        return pulumi.get(self, "time_maintenance_window_end")
+
+    @_builtins.property
+    @pulumi.getter(name="timeMaintenanceWindowStart")
+    def time_maintenance_window_start(self) -> _builtins.str:
+        """
+        The start date and time of the maintenance window.
+        """
+        return pulumi.get(self, "time_maintenance_window_start")
+
+    @_builtins.property
+    @pulumi.getter(name="totalCpuCoreCount")
+    def total_cpu_core_count(self) -> _builtins.int:
+        """
+        The total number of CPU cores reserved on the DB node.
+        """
+        return pulumi.get(self, "total_cpu_core_count")
+
+    @_builtins.property
+    @pulumi.getter(name="vnic2Id")
+    def vnic2_id(self) -> _builtins.str:
+        return pulumi.get(self, "vnic2_id")
+
+    @_builtins.property
+    @pulumi.getter(name="vnicId")
+    def vnic_id(self) -> _builtins.str:
+        """
+        The OCID of the VNIC.
+        """
+        return pulumi.get(self, "vnic_id")
+
+
+@pulumi.output_type
+class GetDbServerDbServerPatchingDetailResult(dict):
+    def __init__(__self__, *,
+                 estimated_patch_duration: _builtins.int,
+                 patching_status: _builtins.str,
+                 time_patching_ended: _builtins.str,
+                 time_patching_started: _builtins.str):
+        pulumi.set(__self__, "estimated_patch_duration", estimated_patch_duration)
+        pulumi.set(__self__, "patching_status", patching_status)
+        pulumi.set(__self__, "time_patching_ended", time_patching_ended)
+        pulumi.set(__self__, "time_patching_started", time_patching_started)
+
+    @_builtins.property
+    @pulumi.getter(name="estimatedPatchDuration")
+    def estimated_patch_duration(self) -> _builtins.int:
+        return pulumi.get(self, "estimated_patch_duration")
+
+    @_builtins.property
+    @pulumi.getter(name="patchingStatus")
+    def patching_status(self) -> _builtins.str:
+        return pulumi.get(self, "patching_status")
+
+    @_builtins.property
+    @pulumi.getter(name="timePatchingEnded")
+    def time_patching_ended(self) -> _builtins.str:
+        return pulumi.get(self, "time_patching_ended")
+
+    @_builtins.property
+    @pulumi.getter(name="timePatchingStarted")
+    def time_patching_started(self) -> _builtins.str:
+        return pulumi.get(self, "time_patching_started")
+
+
+@pulumi.output_type
+class GetDbServersDbServerResult(dict):
+    def __init__(__self__, *,
+                 autonomous_virtual_machine_ids: Sequence[_builtins.str],
+                 autonomous_vm_cluster_ids: Sequence[_builtins.str],
+                 compute_model: _builtins.str,
+                 cpu_core_count: _builtins.int,
+                 created_at: _builtins.str,
+                 db_node_storage_size_in_gbs: _builtins.int,
+                 db_server_patching_details: Sequence['outputs.GetDbServersDbServerDbServerPatchingDetailResult'],
+                 display_name: _builtins.str,
+                 exadata_infrastructure_id: _builtins.str,
+                 id: _builtins.str,
+                 max_cpu_count: _builtins.int,
+                 max_db_node_storage_in_gbs: _builtins.int,
+                 max_memory_in_gbs: _builtins.int,
+                 memory_size_in_gbs: _builtins.int,
+                 oci_resource_anchor_name: _builtins.str,
+                 ocid: _builtins.str,
+                 shape: _builtins.str,
+                 status: _builtins.str,
+                 status_reason: _builtins.str,
+                 vm_cluster_ids: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] autonomous_virtual_machine_ids: A list of unique identifiers for the Autonomous VMs.
+        :param Sequence[_builtins.str] autonomous_vm_cluster_ids: A list of identifiers for the Autonomous VM clusters.
+        :param _builtins.str compute_model: The OCI compute model used when you create or clone an instance: **ECPU** or **OCPU**. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers, while OCPUs are based on the physical core of a processor with hyper-threading enabled.
+        :param _builtins.int cpu_core_count: The number of CPU cores enabled on the database server.
+        :param _builtins.str created_at: The date and time when the database server was created.
+        :param _builtins.int db_node_storage_size_in_gbs: The amount of local node storage, in gigabytes (GB), that's allocated on the database server.
+        :param Sequence['GetDbServersDbServerDbServerPatchingDetailArgs'] db_server_patching_details: The scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.
+        :param _builtins.str display_name: The user-friendly name of the database server. The name doesn't need to be unique.
+        :param _builtins.str exadata_infrastructure_id: The ID of the Exadata infrastructure that hosts the database server.
+        :param _builtins.int max_cpu_count: The total number of CPU cores available on the database server.
+        :param _builtins.int max_db_node_storage_in_gbs: The total amount of local node storage, in gigabytes (GB), that's available on the database server.
+        :param _builtins.int max_memory_in_gbs: The total amount of memory, in gigabytes (GB), that's available on the database server.
+        :param _builtins.int memory_size_in_gbs: The amount of memory, in gigabytes (GB), that's allocated on the database server.
+        :param _builtins.str oci_resource_anchor_name: The name of the OCI resource anchor for the database server.
+        :param _builtins.str ocid: The OCID of the database server.
+        :param _builtins.str shape: The hardware system model of the Exadata infrastructure that the database server is hosted on. The shape determines the amount of CPU, storage, and memory resources available.
+        :param _builtins.str status: The current status of the database server.
+        :param _builtins.str status_reason: Additional information about the status of the database server.
+        :param Sequence[_builtins.str] vm_cluster_ids: The IDs of the VM clusters that are associated with the database server.
+        """
+        pulumi.set(__self__, "autonomous_virtual_machine_ids", autonomous_virtual_machine_ids)
+        pulumi.set(__self__, "autonomous_vm_cluster_ids", autonomous_vm_cluster_ids)
+        pulumi.set(__self__, "compute_model", compute_model)
+        pulumi.set(__self__, "cpu_core_count", cpu_core_count)
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "db_node_storage_size_in_gbs", db_node_storage_size_in_gbs)
+        pulumi.set(__self__, "db_server_patching_details", db_server_patching_details)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "exadata_infrastructure_id", exadata_infrastructure_id)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "max_cpu_count", max_cpu_count)
+        pulumi.set(__self__, "max_db_node_storage_in_gbs", max_db_node_storage_in_gbs)
+        pulumi.set(__self__, "max_memory_in_gbs", max_memory_in_gbs)
+        pulumi.set(__self__, "memory_size_in_gbs", memory_size_in_gbs)
+        pulumi.set(__self__, "oci_resource_anchor_name", oci_resource_anchor_name)
+        pulumi.set(__self__, "ocid", ocid)
+        pulumi.set(__self__, "shape", shape)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "status_reason", status_reason)
+        pulumi.set(__self__, "vm_cluster_ids", vm_cluster_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="autonomousVirtualMachineIds")
+    def autonomous_virtual_machine_ids(self) -> Sequence[_builtins.str]:
+        """
+        A list of unique identifiers for the Autonomous VMs.
+        """
+        return pulumi.get(self, "autonomous_virtual_machine_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="autonomousVmClusterIds")
+    def autonomous_vm_cluster_ids(self) -> Sequence[_builtins.str]:
+        """
+        A list of identifiers for the Autonomous VM clusters.
+        """
+        return pulumi.get(self, "autonomous_vm_cluster_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="computeModel")
+    def compute_model(self) -> _builtins.str:
+        """
+        The OCI compute model used when you create or clone an instance: **ECPU** or **OCPU**. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers, while OCPUs are based on the physical core of a processor with hyper-threading enabled.
+        """
+        return pulumi.get(self, "compute_model")
+
+    @_builtins.property
+    @pulumi.getter(name="cpuCoreCount")
+    def cpu_core_count(self) -> _builtins.int:
+        """
+        The number of CPU cores enabled on the database server.
+        """
+        return pulumi.get(self, "cpu_core_count")
+
+    @_builtins.property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> _builtins.str:
+        """
+        The date and time when the database server was created.
+        """
+        return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="dbNodeStorageSizeInGbs")
+    def db_node_storage_size_in_gbs(self) -> _builtins.int:
+        """
+        The amount of local node storage, in gigabytes (GB), that's allocated on the database server.
+        """
+        return pulumi.get(self, "db_node_storage_size_in_gbs")
+
+    @_builtins.property
+    @pulumi.getter(name="dbServerPatchingDetails")
+    def db_server_patching_details(self) -> Sequence['outputs.GetDbServersDbServerDbServerPatchingDetailResult']:
+        """
+        The scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.
+        """
+        return pulumi.get(self, "db_server_patching_details")
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> _builtins.str:
+        """
+        The user-friendly name of the database server. The name doesn't need to be unique.
+        """
+        return pulumi.get(self, "display_name")
+
+    @_builtins.property
+    @pulumi.getter(name="exadataInfrastructureId")
+    def exadata_infrastructure_id(self) -> _builtins.str:
+        """
+        The ID of the Exadata infrastructure that hosts the database server.
+        """
+        return pulumi.get(self, "exadata_infrastructure_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="maxCpuCount")
+    def max_cpu_count(self) -> _builtins.int:
+        """
+        The total number of CPU cores available on the database server.
+        """
+        return pulumi.get(self, "max_cpu_count")
+
+    @_builtins.property
+    @pulumi.getter(name="maxDbNodeStorageInGbs")
+    def max_db_node_storage_in_gbs(self) -> _builtins.int:
+        """
+        The total amount of local node storage, in gigabytes (GB), that's available on the database server.
+        """
+        return pulumi.get(self, "max_db_node_storage_in_gbs")
+
+    @_builtins.property
+    @pulumi.getter(name="maxMemoryInGbs")
+    def max_memory_in_gbs(self) -> _builtins.int:
+        """
+        The total amount of memory, in gigabytes (GB), that's available on the database server.
+        """
+        return pulumi.get(self, "max_memory_in_gbs")
+
+    @_builtins.property
+    @pulumi.getter(name="memorySizeInGbs")
+    def memory_size_in_gbs(self) -> _builtins.int:
+        """
+        The amount of memory, in gigabytes (GB), that's allocated on the database server.
+        """
+        return pulumi.get(self, "memory_size_in_gbs")
+
+    @_builtins.property
+    @pulumi.getter(name="ociResourceAnchorName")
+    def oci_resource_anchor_name(self) -> _builtins.str:
+        """
+        The name of the OCI resource anchor for the database server.
+        """
+        return pulumi.get(self, "oci_resource_anchor_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def ocid(self) -> _builtins.str:
+        """
+        The OCID of the database server.
+        """
+        return pulumi.get(self, "ocid")
+
+    @_builtins.property
+    @pulumi.getter
+    def shape(self) -> _builtins.str:
+        """
+        The hardware system model of the Exadata infrastructure that the database server is hosted on. The shape determines the amount of CPU, storage, and memory resources available.
+        """
+        return pulumi.get(self, "shape")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        The current status of the database server.
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="statusReason")
+    def status_reason(self) -> _builtins.str:
+        """
+        Additional information about the status of the database server.
+        """
+        return pulumi.get(self, "status_reason")
+
+    @_builtins.property
+    @pulumi.getter(name="vmClusterIds")
+    def vm_cluster_ids(self) -> Sequence[_builtins.str]:
+        """
+        The IDs of the VM clusters that are associated with the database server.
+        """
+        return pulumi.get(self, "vm_cluster_ids")
+
+
+@pulumi.output_type
+class GetDbServersDbServerDbServerPatchingDetailResult(dict):
+    def __init__(__self__, *,
+                 estimated_patch_duration: _builtins.int,
+                 patching_status: _builtins.str,
+                 time_patching_ended: _builtins.str,
+                 time_patching_started: _builtins.str):
+        pulumi.set(__self__, "estimated_patch_duration", estimated_patch_duration)
+        pulumi.set(__self__, "patching_status", patching_status)
+        pulumi.set(__self__, "time_patching_ended", time_patching_ended)
+        pulumi.set(__self__, "time_patching_started", time_patching_started)
+
+    @_builtins.property
+    @pulumi.getter(name="estimatedPatchDuration")
+    def estimated_patch_duration(self) -> _builtins.int:
+        return pulumi.get(self, "estimated_patch_duration")
+
+    @_builtins.property
+    @pulumi.getter(name="patchingStatus")
+    def patching_status(self) -> _builtins.str:
+        return pulumi.get(self, "patching_status")
+
+    @_builtins.property
+    @pulumi.getter(name="timePatchingEnded")
+    def time_patching_ended(self) -> _builtins.str:
+        return pulumi.get(self, "time_patching_ended")
+
+    @_builtins.property
+    @pulumi.getter(name="timePatchingStarted")
+    def time_patching_started(self) -> _builtins.str:
+        return pulumi.get(self, "time_patching_started")
+
+
+@pulumi.output_type
+class GetDbSystemShapesDbSystemShapeResult(dict):
+    def __init__(__self__, *,
+                 available_core_count: _builtins.int,
+                 available_core_count_per_node: _builtins.int,
+                 available_data_storage_in_tbs: _builtins.int,
+                 available_data_storage_per_server_in_tbs: _builtins.int,
+                 available_db_node_per_node_in_gbs: _builtins.int,
+                 available_db_node_storage_in_gbs: _builtins.int,
+                 available_memory_in_gbs: _builtins.int,
+                 available_memory_per_node_in_gbs: _builtins.int,
+                 core_count_increment: _builtins.int,
+                 max_storage_count: _builtins.int,
+                 maximum_node_count: _builtins.int,
+                 min_core_count_per_node: _builtins.int,
+                 min_data_storage_in_tbs: _builtins.int,
+                 min_db_node_storage_per_node_in_gbs: _builtins.int,
+                 min_memory_per_node_in_gbs: _builtins.int,
+                 min_storage_count: _builtins.int,
+                 minimum_core_count: _builtins.int,
+                 minimum_node_count: _builtins.int,
+                 name: _builtins.str,
+                 runtime_minimum_core_count: _builtins.int,
+                 shape_family: _builtins.str,
+                 shape_type: _builtins.str):
+        pulumi.set(__self__, "available_core_count", available_core_count)
+        pulumi.set(__self__, "available_core_count_per_node", available_core_count_per_node)
+        pulumi.set(__self__, "available_data_storage_in_tbs", available_data_storage_in_tbs)
+        pulumi.set(__self__, "available_data_storage_per_server_in_tbs", available_data_storage_per_server_in_tbs)
+        pulumi.set(__self__, "available_db_node_per_node_in_gbs", available_db_node_per_node_in_gbs)
+        pulumi.set(__self__, "available_db_node_storage_in_gbs", available_db_node_storage_in_gbs)
+        pulumi.set(__self__, "available_memory_in_gbs", available_memory_in_gbs)
+        pulumi.set(__self__, "available_memory_per_node_in_gbs", available_memory_per_node_in_gbs)
+        pulumi.set(__self__, "core_count_increment", core_count_increment)
+        pulumi.set(__self__, "max_storage_count", max_storage_count)
+        pulumi.set(__self__, "maximum_node_count", maximum_node_count)
+        pulumi.set(__self__, "min_core_count_per_node", min_core_count_per_node)
+        pulumi.set(__self__, "min_data_storage_in_tbs", min_data_storage_in_tbs)
+        pulumi.set(__self__, "min_db_node_storage_per_node_in_gbs", min_db_node_storage_per_node_in_gbs)
+        pulumi.set(__self__, "min_memory_per_node_in_gbs", min_memory_per_node_in_gbs)
+        pulumi.set(__self__, "min_storage_count", min_storage_count)
+        pulumi.set(__self__, "minimum_core_count", minimum_core_count)
+        pulumi.set(__self__, "minimum_node_count", minimum_node_count)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "runtime_minimum_core_count", runtime_minimum_core_count)
+        pulumi.set(__self__, "shape_family", shape_family)
+        pulumi.set(__self__, "shape_type", shape_type)
+
+    @_builtins.property
+    @pulumi.getter(name="availableCoreCount")
+    def available_core_count(self) -> _builtins.int:
+        return pulumi.get(self, "available_core_count")
+
+    @_builtins.property
+    @pulumi.getter(name="availableCoreCountPerNode")
+    def available_core_count_per_node(self) -> _builtins.int:
+        return pulumi.get(self, "available_core_count_per_node")
+
+    @_builtins.property
+    @pulumi.getter(name="availableDataStorageInTbs")
+    def available_data_storage_in_tbs(self) -> _builtins.int:
+        return pulumi.get(self, "available_data_storage_in_tbs")
+
+    @_builtins.property
+    @pulumi.getter(name="availableDataStoragePerServerInTbs")
+    def available_data_storage_per_server_in_tbs(self) -> _builtins.int:
+        return pulumi.get(self, "available_data_storage_per_server_in_tbs")
+
+    @_builtins.property
+    @pulumi.getter(name="availableDbNodePerNodeInGbs")
+    def available_db_node_per_node_in_gbs(self) -> _builtins.int:
+        return pulumi.get(self, "available_db_node_per_node_in_gbs")
+
+    @_builtins.property
+    @pulumi.getter(name="availableDbNodeStorageInGbs")
+    def available_db_node_storage_in_gbs(self) -> _builtins.int:
+        return pulumi.get(self, "available_db_node_storage_in_gbs")
+
+    @_builtins.property
+    @pulumi.getter(name="availableMemoryInGbs")
+    def available_memory_in_gbs(self) -> _builtins.int:
+        return pulumi.get(self, "available_memory_in_gbs")
+
+    @_builtins.property
+    @pulumi.getter(name="availableMemoryPerNodeInGbs")
+    def available_memory_per_node_in_gbs(self) -> _builtins.int:
+        return pulumi.get(self, "available_memory_per_node_in_gbs")
+
+    @_builtins.property
+    @pulumi.getter(name="coreCountIncrement")
+    def core_count_increment(self) -> _builtins.int:
+        return pulumi.get(self, "core_count_increment")
+
+    @_builtins.property
+    @pulumi.getter(name="maxStorageCount")
+    def max_storage_count(self) -> _builtins.int:
+        return pulumi.get(self, "max_storage_count")
+
+    @_builtins.property
+    @pulumi.getter(name="maximumNodeCount")
+    def maximum_node_count(self) -> _builtins.int:
+        return pulumi.get(self, "maximum_node_count")
+
+    @_builtins.property
+    @pulumi.getter(name="minCoreCountPerNode")
+    def min_core_count_per_node(self) -> _builtins.int:
+        return pulumi.get(self, "min_core_count_per_node")
+
+    @_builtins.property
+    @pulumi.getter(name="minDataStorageInTbs")
+    def min_data_storage_in_tbs(self) -> _builtins.int:
+        return pulumi.get(self, "min_data_storage_in_tbs")
+
+    @_builtins.property
+    @pulumi.getter(name="minDbNodeStoragePerNodeInGbs")
+    def min_db_node_storage_per_node_in_gbs(self) -> _builtins.int:
+        return pulumi.get(self, "min_db_node_storage_per_node_in_gbs")
+
+    @_builtins.property
+    @pulumi.getter(name="minMemoryPerNodeInGbs")
+    def min_memory_per_node_in_gbs(self) -> _builtins.int:
+        return pulumi.get(self, "min_memory_per_node_in_gbs")
+
+    @_builtins.property
+    @pulumi.getter(name="minStorageCount")
+    def min_storage_count(self) -> _builtins.int:
+        return pulumi.get(self, "min_storage_count")
+
+    @_builtins.property
+    @pulumi.getter(name="minimumCoreCount")
+    def minimum_core_count(self) -> _builtins.int:
+        return pulumi.get(self, "minimum_core_count")
+
+    @_builtins.property
+    @pulumi.getter(name="minimumNodeCount")
+    def minimum_node_count(self) -> _builtins.int:
+        return pulumi.get(self, "minimum_node_count")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="runtimeMinimumCoreCount")
+    def runtime_minimum_core_count(self) -> _builtins.int:
+        return pulumi.get(self, "runtime_minimum_core_count")
+
+    @_builtins.property
+    @pulumi.getter(name="shapeFamily")
+    def shape_family(self) -> _builtins.str:
+        return pulumi.get(self, "shape_family")
+
+    @_builtins.property
+    @pulumi.getter(name="shapeType")
+    def shape_type(self) -> _builtins.str:
+        return pulumi.get(self, "shape_type")
+
+
+@pulumi.output_type
+class GetGiVersionsGiVersionResult(dict):
+    def __init__(__self__, *,
+                 version: _builtins.str):
+        pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> _builtins.str:
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type

@@ -134,11 +134,23 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `id` - (String) ID of the connect instance.
+ * 
+ * #### Optional
+ * 
+ * - `account_id` (String) AWS Account where this resource is managed.
+ * 
+ * - `region` (String) Region where this resource is managed.
+ * 
  * Using `pulumi import`, import Connect instances using the `id`. For example:
  * 
- * ```sh
- * $ pulumi import aws:connect/instance:Instance example f1288a1f-6193-445a-b47e-af739b2
- * ```
+ * console
+ * 
+ * % pulumi import aws_connect_instance.example f1288a1f-6193-445a-b47e-af739b2
  * 
  */
 @ResourceType(type="aws:connect/instance:Instance")

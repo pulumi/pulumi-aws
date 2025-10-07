@@ -8,10 +8,6 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Data source for Exadata Infrastructure resource in AWS for Oracle Database@AWS.
- *
- * You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
- *
  * ## Example Usage
  *
  * ### Basic Usage
@@ -138,12 +134,12 @@ export class CloudVmCluster extends pulumi.CustomResource {
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The set of preferences for the various diagnostic collection options for the VM cluster.
-     *
-     * The following arguments are optional:
      */
     declare public readonly dataCollectionOptions: pulumi.Output<outputs.odb.CloudVmClusterDataCollectionOptions | undefined>;
     /**
      * The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
+     *
+     * The following arguments are optional:
      */
     declare public readonly dataStorageSizeInTbs: pulumi.Output<number>;
     /**
@@ -171,6 +167,10 @@ export class CloudVmCluster extends pulumi.CustomResource {
      * A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
      */
     declare public readonly giVersion: pulumi.Output<string>;
+    /**
+     * A complete software version of Oracle Grid Infrastructure (GI).
+     */
+    declare public /*out*/ readonly giVersionComputed: pulumi.Output<string>;
     /**
      * The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
      */
@@ -320,6 +320,7 @@ export class CloudVmCluster extends pulumi.CustomResource {
             resourceInputs["displayName"] = state?.displayName;
             resourceInputs["domain"] = state?.domain;
             resourceInputs["giVersion"] = state?.giVersion;
+            resourceInputs["giVersionComputed"] = state?.giVersionComputed;
             resourceInputs["hostnamePrefix"] = state?.hostnamePrefix;
             resourceInputs["hostnamePrefixComputed"] = state?.hostnamePrefixComputed;
             resourceInputs["iormConfigCaches"] = state?.iormConfigCaches;
@@ -358,6 +359,9 @@ export class CloudVmCluster extends pulumi.CustomResource {
             }
             if (args?.cpuCoreCount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cpuCoreCount'");
+            }
+            if (args?.dataStorageSizeInTbs === undefined && !opts.urn) {
+                throw new Error("Missing required property 'dataStorageSizeInTbs'");
             }
             if (args?.dbServers === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dbServers'");
@@ -403,6 +407,7 @@ export class CloudVmCluster extends pulumi.CustomResource {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["diskRedundancy"] = undefined /*out*/;
             resourceInputs["domain"] = undefined /*out*/;
+            resourceInputs["giVersionComputed"] = undefined /*out*/;
             resourceInputs["hostnamePrefixComputed"] = undefined /*out*/;
             resourceInputs["iormConfigCaches"] = undefined /*out*/;
             resourceInputs["lastUpdateHistoryEntryId"] = undefined /*out*/;
@@ -458,12 +463,12 @@ export interface CloudVmClusterState {
     createdAt?: pulumi.Input<string>;
     /**
      * The set of preferences for the various diagnostic collection options for the VM cluster.
-     *
-     * The following arguments are optional:
      */
     dataCollectionOptions?: pulumi.Input<inputs.odb.CloudVmClusterDataCollectionOptions>;
     /**
      * The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
+     *
+     * The following arguments are optional:
      */
     dataStorageSizeInTbs?: pulumi.Input<number>;
     /**
@@ -491,6 +496,10 @@ export interface CloudVmClusterState {
      * A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
      */
     giVersion?: pulumi.Input<string>;
+    /**
+     * A complete software version of Oracle Grid Infrastructure (GI).
+     */
+    giVersionComputed?: pulumi.Input<string>;
     /**
      * The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
      */
@@ -632,14 +641,14 @@ export interface CloudVmClusterArgs {
     cpuCoreCount: pulumi.Input<number>;
     /**
      * The set of preferences for the various diagnostic collection options for the VM cluster.
-     *
-     * The following arguments are optional:
      */
     dataCollectionOptions?: pulumi.Input<inputs.odb.CloudVmClusterDataCollectionOptions>;
     /**
      * The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
+     *
+     * The following arguments are optional:
      */
-    dataStorageSizeInTbs?: pulumi.Input<number>;
+    dataStorageSizeInTbs: pulumi.Input<number>;
     /**
      * The amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
      */

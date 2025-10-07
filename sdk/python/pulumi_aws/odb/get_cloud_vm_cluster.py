@@ -537,14 +537,23 @@ def get_cloud_vm_cluster(id: Optional[_builtins.str] = None,
                          region: Optional[_builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudVmClusterResult:
     """
-    Data source for Exadata Infrastructure resource in AWS for Oracle Database@AWS.
+    Data source for cloud vm cluster in AWS for Oracle Database@AWS.
 
     You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
 
     ## Example Usage
 
+    ### Basic Usage
 
-    :param _builtins.str id: The unique identifier of the Exadata infrastructure.
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.odb.get_cloud_vm_cluster(id="example-id")
+    ```
+
+
+    :param _builtins.str id: The unique identifier of the cloud vm cluster.
            
            The following arguments are optional:
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -602,14 +611,23 @@ def get_cloud_vm_cluster_output(id: Optional[pulumi.Input[_builtins.str]] = None
                                 region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudVmClusterResult]:
     """
-    Data source for Exadata Infrastructure resource in AWS for Oracle Database@AWS.
+    Data source for cloud vm cluster in AWS for Oracle Database@AWS.
 
     You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
 
     ## Example Usage
 
+    ### Basic Usage
 
-    :param _builtins.str id: The unique identifier of the Exadata infrastructure.
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.odb.get_cloud_vm_cluster(id="example-id")
+    ```
+
+
+    :param _builtins.str id: The unique identifier of the cloud vm cluster.
            
            The following arguments are optional:
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

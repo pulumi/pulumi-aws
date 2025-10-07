@@ -234,6 +234,10 @@ namespace Pulumi.Aws.Ec2
         /// EC2 Instance Type.
         /// </summary>
         public readonly string InstanceType;
+        /// <summary>
+        /// Identifier for the location.
+        /// </summary>
+        public readonly string Location;
         public readonly string? LocationType;
         public readonly ImmutableArray<string> PreferredInstanceTypes;
         public readonly string Region;
@@ -246,6 +250,8 @@ namespace Pulumi.Aws.Ec2
 
             string instanceType,
 
+            string location,
+
             string? locationType,
 
             ImmutableArray<string> preferredInstanceTypes,
@@ -255,6 +261,7 @@ namespace Pulumi.Aws.Ec2
             Filters = filters;
             Id = id;
             InstanceType = instanceType;
+            Location = location;
             LocationType = locationType;
             PreferredInstanceTypes = preferredInstanceTypes;
             Region = region;

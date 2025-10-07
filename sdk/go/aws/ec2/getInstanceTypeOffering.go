@@ -78,7 +78,9 @@ type GetInstanceTypeOfferingResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// EC2 Instance Type.
-	InstanceType           string   `pulumi:"instanceType"`
+	InstanceType string `pulumi:"instanceType"`
+	// Identifier for the location.
+	Location               string   `pulumi:"location"`
 	LocationType           *string  `pulumi:"locationType"`
 	PreferredInstanceTypes []string `pulumi:"preferredInstanceTypes"`
 	Region                 string   `pulumi:"region"`
@@ -136,6 +138,11 @@ func (o GetInstanceTypeOfferingResultOutput) Id() pulumi.StringOutput {
 // EC2 Instance Type.
 func (o GetInstanceTypeOfferingResultOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceTypeOfferingResult) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+// Identifier for the location.
+func (o GetInstanceTypeOfferingResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeOfferingResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
 func (o GetInstanceTypeOfferingResultOutput) LocationType() pulumi.StringPtrOutput {

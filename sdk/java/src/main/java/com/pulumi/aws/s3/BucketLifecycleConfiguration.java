@@ -39,10 +39,7 @@ import javax.annotation.Nullable;
  * 
  * ### With neither a filter nor prefix specified
  * 
- * The Lifecycle rule applies to a subset of objects based on the key name prefix (`&#34;&#34;`).
- * 
- * This configuration is intended to replicate the default behavior of the `lifecycle_rule`
- * parameter in the AWS Provider `aws.s3.Bucket` resource prior to `v4.0`.
+ * When you don&#39;t specify a filter or prefix, the lifecycle rule applies to all objects in the bucket. This has the same effect as setting an empty `filter` element.
  * 
  * <pre>
  * {@code

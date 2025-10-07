@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Example Usage
     /// 
+    /// ### Basic Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,6 +38,31 @@ namespace Pulumi.Aws.Iam
     /// });
     /// ```
     /// 
+    /// ### Bedrock API Key with Expiration
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Iam.User("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
+    /// 
+    ///     var bedrock = new Aws.Iam.ServiceSpecificCredential("bedrock", new()
+    ///     {
+    ///         ServiceName = "bedrock.amazonaws.com",
+    ///         UserName = example.Name,
+    ///         CredentialAgeDays = 30,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IAM Service Specific Credentials using the `service_name:user_name:service_specific_credential_id`. For example:
@@ -48,13 +75,43 @@ namespace Pulumi.Aws.Iam
     public partial class ServiceSpecificCredential : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
+        /// The date and time, in RFC3339 format, when the service-specific credential was created.
+        /// </summary>
+        [Output("createDate")]
+        public Output<string> CreateDate { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of days until the service specific credential expires. This field is only valid for Bedrock API keys and must be between 1 and 36600 (approximately 100 years). When not specified, the credential will not expire.
+        /// </summary>
+        [Output("credentialAgeDays")]
+        public Output<int?> CredentialAgeDays { get; private set; } = null!;
+
+        /// <summary>
+        /// The date and time, in RFC3339 format, when the service specific credential expires. This field is only present for Bedrock API keys that were created with an expiration period.
+        /// </summary>
+        [Output("expirationDate")]
+        public Output<string> ExpirationDate { get; private set; } = null!;
+
+        /// <summary>
+        /// For Bedrock API keys, this is the public portion of the credential that includes the IAM user name and a suffix containing version and creation information.
+        /// </summary>
+        [Output("serviceCredentialAlias")]
+        public Output<string> ServiceCredentialAlias { get; private set; } = null!;
+
+        /// <summary>
+        /// For Bedrock API keys, this is the secret portion of the credential that should be used to authenticate API calls. This value is only available when the credential is created.
+        /// </summary>
+        [Output("serviceCredentialSecret")]
+        public Output<string> ServiceCredentialSecret { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials. Supported services are `codecommit.amazonaws.com`, `bedrock.amazonaws.com`, and `cassandra.amazonaws.com`.
         /// </summary>
         [Output("serviceName")]
         public Output<string> ServiceName { get; private set; } = null!;
 
         /// <summary>
-        /// The generated password for the service-specific credential.
+        /// The generated password for the service-specific credential. This value is only available when the credential is created.
         /// </summary>
         [Output("servicePassword")]
         public Output<string> ServicePassword { get; private set; } = null!;
@@ -72,7 +129,7 @@ namespace Pulumi.Aws.Iam
         public Output<string> ServiceUserName { get; private set; } = null!;
 
         /// <summary>
-        /// The status to be assigned to the service-specific credential. Valid values are `Active` and `Inactive`. Default value is `Active`.
+        /// The status to be assigned to the service-specific credential. Valid values are `Active`, `Inactive`, and `Expired`. Default value is `Active`. Note that `Expired` is only used for read operations and cannot be set manually.
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
@@ -108,6 +165,7 @@ namespace Pulumi.Aws.Iam
                 Version = Utilities.Version,
                 AdditionalSecretOutputs =
                 {
+                    "serviceCredentialSecret",
                     "servicePassword",
                 },
             };
@@ -134,13 +192,19 @@ namespace Pulumi.Aws.Iam
     public sealed class ServiceSpecificCredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
+        /// The number of days until the service specific credential expires. This field is only valid for Bedrock API keys and must be between 1 and 36600 (approximately 100 years). When not specified, the credential will not expire.
+        /// </summary>
+        [Input("credentialAgeDays")]
+        public Input<int>? CredentialAgeDays { get; set; }
+
+        /// <summary>
+        /// The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials. Supported services are `codecommit.amazonaws.com`, `bedrock.amazonaws.com`, and `cassandra.amazonaws.com`.
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
 
         /// <summary>
-        /// The status to be assigned to the service-specific credential. Valid values are `Active` and `Inactive`. Default value is `Active`.
+        /// The status to be assigned to the service-specific credential. Valid values are `Active`, `Inactive`, and `Expired`. Default value is `Active`. Note that `Expired` is only used for read operations and cannot be set manually.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -160,7 +224,47 @@ namespace Pulumi.Aws.Iam
     public sealed class ServiceSpecificCredentialState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
+        /// The date and time, in RFC3339 format, when the service-specific credential was created.
+        /// </summary>
+        [Input("createDate")]
+        public Input<string>? CreateDate { get; set; }
+
+        /// <summary>
+        /// The number of days until the service specific credential expires. This field is only valid for Bedrock API keys and must be between 1 and 36600 (approximately 100 years). When not specified, the credential will not expire.
+        /// </summary>
+        [Input("credentialAgeDays")]
+        public Input<int>? CredentialAgeDays { get; set; }
+
+        /// <summary>
+        /// The date and time, in RFC3339 format, when the service specific credential expires. This field is only present for Bedrock API keys that were created with an expiration period.
+        /// </summary>
+        [Input("expirationDate")]
+        public Input<string>? ExpirationDate { get; set; }
+
+        /// <summary>
+        /// For Bedrock API keys, this is the public portion of the credential that includes the IAM user name and a suffix containing version and creation information.
+        /// </summary>
+        [Input("serviceCredentialAlias")]
+        public Input<string>? ServiceCredentialAlias { get; set; }
+
+        [Input("serviceCredentialSecret")]
+        private Input<string>? _serviceCredentialSecret;
+
+        /// <summary>
+        /// For Bedrock API keys, this is the secret portion of the credential that should be used to authenticate API calls. This value is only available when the credential is created.
+        /// </summary>
+        public Input<string>? ServiceCredentialSecret
+        {
+            get => _serviceCredentialSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _serviceCredentialSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials. Supported services are `codecommit.amazonaws.com`, `bedrock.amazonaws.com`, and `cassandra.amazonaws.com`.
         /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
@@ -169,7 +273,7 @@ namespace Pulumi.Aws.Iam
         private Input<string>? _servicePassword;
 
         /// <summary>
-        /// The generated password for the service-specific credential.
+        /// The generated password for the service-specific credential. This value is only available when the credential is created.
         /// </summary>
         public Input<string>? ServicePassword
         {
@@ -194,7 +298,7 @@ namespace Pulumi.Aws.Iam
         public Input<string>? ServiceUserName { get; set; }
 
         /// <summary>
-        /// The status to be assigned to the service-specific credential. Valid values are `Active` and `Inactive`. Default value is `Active`.
+        /// The status to be assigned to the service-specific credential. Valid values are `Active`, `Inactive`, and `Expired`. Default value is `Active`. Note that `Expired` is only used for read operations and cannot be set manually.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

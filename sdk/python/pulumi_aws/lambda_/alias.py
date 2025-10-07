@@ -311,7 +311,6 @@ class Alias(pulumi.CustomResource):
             routing_config={
                 "additional_version_weights": {
                     "1": 0.1,
-                    "3": 0.2,
                 },
             })
         ```
@@ -407,7 +406,6 @@ class Alias(pulumi.CustomResource):
             routing_config={
                 "additional_version_weights": {
                     "1": 0.1,
-                    "3": 0.2,
                 },
             })
         ```

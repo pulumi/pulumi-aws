@@ -25724,7 +25724,7 @@ func (o GuardrailContentPolicyConfigTierConfigArrayOutput) Index(i pulumi.IntInp
 }
 
 type GuardrailContextualGroundingPolicyConfig struct {
-	// List of contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
+	// One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
 	FiltersConfigs []GuardrailContextualGroundingPolicyConfigFiltersConfig `pulumi:"filtersConfigs"`
 }
 
@@ -25740,7 +25740,7 @@ type GuardrailContextualGroundingPolicyConfigInput interface {
 }
 
 type GuardrailContextualGroundingPolicyConfigArgs struct {
-	// List of contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
+	// One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
 	FiltersConfigs GuardrailContextualGroundingPolicyConfigFiltersConfigArrayInput `pulumi:"filtersConfigs"`
 }
 
@@ -25821,7 +25821,7 @@ func (o GuardrailContextualGroundingPolicyConfigOutput) ToGuardrailContextualGro
 	}).(GuardrailContextualGroundingPolicyConfigPtrOutput)
 }
 
-// List of contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
+// One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
 func (o GuardrailContextualGroundingPolicyConfigOutput) FiltersConfigs() GuardrailContextualGroundingPolicyConfigFiltersConfigArrayOutput {
 	return o.ApplyT(func(v GuardrailContextualGroundingPolicyConfig) []GuardrailContextualGroundingPolicyConfigFiltersConfig {
 		return v.FiltersConfigs
@@ -25852,7 +25852,7 @@ func (o GuardrailContextualGroundingPolicyConfigPtrOutput) Elem() GuardrailConte
 	}).(GuardrailContextualGroundingPolicyConfigOutput)
 }
 
-// List of contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
+// One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
 func (o GuardrailContextualGroundingPolicyConfigPtrOutput) FiltersConfigs() GuardrailContextualGroundingPolicyConfigFiltersConfigArrayOutput {
 	return o.ApplyT(func(v *GuardrailContextualGroundingPolicyConfig) []GuardrailContextualGroundingPolicyConfigFiltersConfig {
 		if v == nil {

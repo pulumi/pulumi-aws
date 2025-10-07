@@ -69,6 +69,8 @@ export class ControlPanel extends pulumi.CustomResource {
     declare public /*out*/ readonly defaultControlPanel: pulumi.Output<boolean>;
     /**
      * Name describing the control panel.
+     *
+     * The following arguments are optional:
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -79,6 +81,14 @@ export class ControlPanel extends pulumi.CustomResource {
      * Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ControlPanel resource with the given unique name, arguments, and options.
@@ -99,6 +109,8 @@ export class ControlPanel extends pulumi.CustomResource {
             resourceInputs["name"] = state?.name;
             resourceInputs["routingControlCount"] = state?.routingControlCount;
             resourceInputs["status"] = state?.status;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as ControlPanelArgs | undefined;
             if (args?.clusterArn === undefined && !opts.urn) {
@@ -106,10 +118,12 @@ export class ControlPanel extends pulumi.CustomResource {
             }
             resourceInputs["clusterArn"] = args?.clusterArn;
             resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["defaultControlPanel"] = undefined /*out*/;
             resourceInputs["routingControlCount"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ControlPanel.__pulumiType, name, resourceInputs, opts);
@@ -134,6 +148,8 @@ export interface ControlPanelState {
     defaultControlPanel?: pulumi.Input<boolean>;
     /**
      * Name describing the control panel.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -144,6 +160,14 @@ export interface ControlPanelState {
      * Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
      */
     status?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -156,6 +180,12 @@ export interface ControlPanelArgs {
     clusterArn: pulumi.Input<string>;
     /**
      * Name describing the control panel.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

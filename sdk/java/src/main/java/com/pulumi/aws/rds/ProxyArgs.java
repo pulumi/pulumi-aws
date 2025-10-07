@@ -22,18 +22,18 @@ public final class ProxyArgs extends com.pulumi.resources.ResourceArgs {
     public static final ProxyArgs Empty = new ProxyArgs();
 
     /**
-     * Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
+     * Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `default_auth_scheme` is `NONE` or unspecified. Described below.
      * 
      */
-    @Import(name="auths", required=true)
-    private Output<List<ProxyAuthArgs>> auths;
+    @Import(name="auths")
+    private @Nullable Output<List<ProxyAuthArgs>> auths;
 
     /**
-     * @return Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
+     * @return Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `default_auth_scheme` is `NONE` or unspecified. Described below.
      * 
      */
-    public Output<List<ProxyAuthArgs>> auths() {
-        return this.auths;
+    public Optional<Output<List<ProxyAuthArgs>>> auths() {
+        return Optional.ofNullable(this.auths);
     }
 
     /**
@@ -49,6 +49,21 @@ public final class ProxyArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> debugLogging() {
         return Optional.ofNullable(this.debugLogging);
+    }
+
+    /**
+     * Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database. Valid values are `NONE` and `IAM_AUTH`. Defaults to `NONE`.
+     * 
+     */
+    @Import(name="defaultAuthScheme")
+    private @Nullable Output<String> defaultAuthScheme;
+
+    /**
+     * @return Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database. Valid values are `NONE` and `IAM_AUTH`. Defaults to `NONE`.
+     * 
+     */
+    public Optional<Output<String>> defaultAuthScheme() {
+        return Optional.ofNullable(this.defaultAuthScheme);
     }
 
     /**
@@ -191,6 +206,7 @@ public final class ProxyArgs extends com.pulumi.resources.ResourceArgs {
     private ProxyArgs(ProxyArgs $) {
         this.auths = $.auths;
         this.debugLogging = $.debugLogging;
+        this.defaultAuthScheme = $.defaultAuthScheme;
         this.engineFamily = $.engineFamily;
         this.idleClientTimeout = $.idleClientTimeout;
         this.name = $.name;
@@ -221,18 +237,18 @@ public final class ProxyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param auths Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
+         * @param auths Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `default_auth_scheme` is `NONE` or unspecified. Described below.
          * 
          * @return builder
          * 
          */
-        public Builder auths(Output<List<ProxyAuthArgs>> auths) {
+        public Builder auths(@Nullable Output<List<ProxyAuthArgs>> auths) {
             $.auths = auths;
             return this;
         }
 
         /**
-         * @param auths Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
+         * @param auths Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `default_auth_scheme` is `NONE` or unspecified. Described below.
          * 
          * @return builder
          * 
@@ -242,7 +258,7 @@ public final class ProxyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param auths Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
+         * @param auths Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `default_auth_scheme` is `NONE` or unspecified. Described below.
          * 
          * @return builder
          * 
@@ -270,6 +286,27 @@ public final class ProxyArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder debugLogging(Boolean debugLogging) {
             return debugLogging(Output.of(debugLogging));
+        }
+
+        /**
+         * @param defaultAuthScheme Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database. Valid values are `NONE` and `IAM_AUTH`. Defaults to `NONE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultAuthScheme(@Nullable Output<String> defaultAuthScheme) {
+            $.defaultAuthScheme = defaultAuthScheme;
+            return this;
+        }
+
+        /**
+         * @param defaultAuthScheme Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database. Valid values are `NONE` and `IAM_AUTH`. Defaults to `NONE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultAuthScheme(String defaultAuthScheme) {
+            return defaultAuthScheme(Output.of(defaultAuthScheme));
         }
 
         /**
@@ -482,9 +519,6 @@ public final class ProxyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ProxyArgs build() {
-            if ($.auths == null) {
-                throw new MissingRequiredPropertyException("ProxyArgs", "auths");
-            }
             if ($.engineFamily == null) {
                 throw new MissingRequiredPropertyException("ProxyArgs", "engineFamily");
             }

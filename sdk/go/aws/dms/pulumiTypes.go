@@ -1245,6 +1245,314 @@ func (o EndpointMongodbSettingsPtrOutput) NestingLevel() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type EndpointMysqlSettings struct {
+	// Script to run immediately after AWS DMS connects to the endpoint.
+	AfterConnectScript *string `pulumi:"afterConnectScript"`
+	// Authentication method to use. Valid values: `password`, `iam`.
+	AuthenticationMethod *string `pulumi:"authenticationMethod"`
+	// Whether to clean and recreate table metadata information on the replication instance when a mismatch occurs.
+	CleanSourceMetadataOnMismatch *bool `pulumi:"cleanSourceMetadataOnMismatch"`
+	// Time interval to check the binary log for new changes/events when the database is idle. Default is `5`.
+	EventsPollInterval *int `pulumi:"eventsPollInterval"`
+	// Client statement timeout (in seconds) for a MySQL source endpoint.
+	ExecuteTimeout *int `pulumi:"executeTimeout"`
+	// Maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
+	MaxFileSize *int `pulumi:"maxFileSize"`
+	// Number of threads to use to load the data into the MySQL-compatible target database.
+	ParallelLoadThreads *int `pulumi:"parallelLoadThreads"`
+	// Time zone for the source MySQL database.
+	ServerTimezone *string `pulumi:"serverTimezone"`
+	// ARN of the IAM role to authenticate when connecting to the endpoint.
+	ServiceAccessRoleArn *string `pulumi:"serviceAccessRoleArn"`
+	// Where to migrate source tables on the target. Valid values are `specific-database` and `multiple-databases`.
+	TargetDbType *string `pulumi:"targetDbType"`
+}
+
+// EndpointMysqlSettingsInput is an input type that accepts EndpointMysqlSettingsArgs and EndpointMysqlSettingsOutput values.
+// You can construct a concrete instance of `EndpointMysqlSettingsInput` via:
+//
+//	EndpointMysqlSettingsArgs{...}
+type EndpointMysqlSettingsInput interface {
+	pulumi.Input
+
+	ToEndpointMysqlSettingsOutput() EndpointMysqlSettingsOutput
+	ToEndpointMysqlSettingsOutputWithContext(context.Context) EndpointMysqlSettingsOutput
+}
+
+type EndpointMysqlSettingsArgs struct {
+	// Script to run immediately after AWS DMS connects to the endpoint.
+	AfterConnectScript pulumi.StringPtrInput `pulumi:"afterConnectScript"`
+	// Authentication method to use. Valid values: `password`, `iam`.
+	AuthenticationMethod pulumi.StringPtrInput `pulumi:"authenticationMethod"`
+	// Whether to clean and recreate table metadata information on the replication instance when a mismatch occurs.
+	CleanSourceMetadataOnMismatch pulumi.BoolPtrInput `pulumi:"cleanSourceMetadataOnMismatch"`
+	// Time interval to check the binary log for new changes/events when the database is idle. Default is `5`.
+	EventsPollInterval pulumi.IntPtrInput `pulumi:"eventsPollInterval"`
+	// Client statement timeout (in seconds) for a MySQL source endpoint.
+	ExecuteTimeout pulumi.IntPtrInput `pulumi:"executeTimeout"`
+	// Maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
+	MaxFileSize pulumi.IntPtrInput `pulumi:"maxFileSize"`
+	// Number of threads to use to load the data into the MySQL-compatible target database.
+	ParallelLoadThreads pulumi.IntPtrInput `pulumi:"parallelLoadThreads"`
+	// Time zone for the source MySQL database.
+	ServerTimezone pulumi.StringPtrInput `pulumi:"serverTimezone"`
+	// ARN of the IAM role to authenticate when connecting to the endpoint.
+	ServiceAccessRoleArn pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
+	// Where to migrate source tables on the target. Valid values are `specific-database` and `multiple-databases`.
+	TargetDbType pulumi.StringPtrInput `pulumi:"targetDbType"`
+}
+
+func (EndpointMysqlSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointMysqlSettings)(nil)).Elem()
+}
+
+func (i EndpointMysqlSettingsArgs) ToEndpointMysqlSettingsOutput() EndpointMysqlSettingsOutput {
+	return i.ToEndpointMysqlSettingsOutputWithContext(context.Background())
+}
+
+func (i EndpointMysqlSettingsArgs) ToEndpointMysqlSettingsOutputWithContext(ctx context.Context) EndpointMysqlSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointMysqlSettingsOutput)
+}
+
+func (i EndpointMysqlSettingsArgs) ToEndpointMysqlSettingsPtrOutput() EndpointMysqlSettingsPtrOutput {
+	return i.ToEndpointMysqlSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointMysqlSettingsArgs) ToEndpointMysqlSettingsPtrOutputWithContext(ctx context.Context) EndpointMysqlSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointMysqlSettingsOutput).ToEndpointMysqlSettingsPtrOutputWithContext(ctx)
+}
+
+// EndpointMysqlSettingsPtrInput is an input type that accepts EndpointMysqlSettingsArgs, EndpointMysqlSettingsPtr and EndpointMysqlSettingsPtrOutput values.
+// You can construct a concrete instance of `EndpointMysqlSettingsPtrInput` via:
+//
+//	        EndpointMysqlSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointMysqlSettingsPtrInput interface {
+	pulumi.Input
+
+	ToEndpointMysqlSettingsPtrOutput() EndpointMysqlSettingsPtrOutput
+	ToEndpointMysqlSettingsPtrOutputWithContext(context.Context) EndpointMysqlSettingsPtrOutput
+}
+
+type endpointMysqlSettingsPtrType EndpointMysqlSettingsArgs
+
+func EndpointMysqlSettingsPtr(v *EndpointMysqlSettingsArgs) EndpointMysqlSettingsPtrInput {
+	return (*endpointMysqlSettingsPtrType)(v)
+}
+
+func (*endpointMysqlSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointMysqlSettings)(nil)).Elem()
+}
+
+func (i *endpointMysqlSettingsPtrType) ToEndpointMysqlSettingsPtrOutput() EndpointMysqlSettingsPtrOutput {
+	return i.ToEndpointMysqlSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointMysqlSettingsPtrType) ToEndpointMysqlSettingsPtrOutputWithContext(ctx context.Context) EndpointMysqlSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointMysqlSettingsPtrOutput)
+}
+
+type EndpointMysqlSettingsOutput struct{ *pulumi.OutputState }
+
+func (EndpointMysqlSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointMysqlSettings)(nil)).Elem()
+}
+
+func (o EndpointMysqlSettingsOutput) ToEndpointMysqlSettingsOutput() EndpointMysqlSettingsOutput {
+	return o
+}
+
+func (o EndpointMysqlSettingsOutput) ToEndpointMysqlSettingsOutputWithContext(ctx context.Context) EndpointMysqlSettingsOutput {
+	return o
+}
+
+func (o EndpointMysqlSettingsOutput) ToEndpointMysqlSettingsPtrOutput() EndpointMysqlSettingsPtrOutput {
+	return o.ToEndpointMysqlSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointMysqlSettingsOutput) ToEndpointMysqlSettingsPtrOutputWithContext(ctx context.Context) EndpointMysqlSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointMysqlSettings) *EndpointMysqlSettings {
+		return &v
+	}).(EndpointMysqlSettingsPtrOutput)
+}
+
+// Script to run immediately after AWS DMS connects to the endpoint.
+func (o EndpointMysqlSettingsOutput) AfterConnectScript() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointMysqlSettings) *string { return v.AfterConnectScript }).(pulumi.StringPtrOutput)
+}
+
+// Authentication method to use. Valid values: `password`, `iam`.
+func (o EndpointMysqlSettingsOutput) AuthenticationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointMysqlSettings) *string { return v.AuthenticationMethod }).(pulumi.StringPtrOutput)
+}
+
+// Whether to clean and recreate table metadata information on the replication instance when a mismatch occurs.
+func (o EndpointMysqlSettingsOutput) CleanSourceMetadataOnMismatch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointMysqlSettings) *bool { return v.CleanSourceMetadataOnMismatch }).(pulumi.BoolPtrOutput)
+}
+
+// Time interval to check the binary log for new changes/events when the database is idle. Default is `5`.
+func (o EndpointMysqlSettingsOutput) EventsPollInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointMysqlSettings) *int { return v.EventsPollInterval }).(pulumi.IntPtrOutput)
+}
+
+// Client statement timeout (in seconds) for a MySQL source endpoint.
+func (o EndpointMysqlSettingsOutput) ExecuteTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointMysqlSettings) *int { return v.ExecuteTimeout }).(pulumi.IntPtrOutput)
+}
+
+// Maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
+func (o EndpointMysqlSettingsOutput) MaxFileSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointMysqlSettings) *int { return v.MaxFileSize }).(pulumi.IntPtrOutput)
+}
+
+// Number of threads to use to load the data into the MySQL-compatible target database.
+func (o EndpointMysqlSettingsOutput) ParallelLoadThreads() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointMysqlSettings) *int { return v.ParallelLoadThreads }).(pulumi.IntPtrOutput)
+}
+
+// Time zone for the source MySQL database.
+func (o EndpointMysqlSettingsOutput) ServerTimezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointMysqlSettings) *string { return v.ServerTimezone }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM role to authenticate when connecting to the endpoint.
+func (o EndpointMysqlSettingsOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointMysqlSettings) *string { return v.ServiceAccessRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// Where to migrate source tables on the target. Valid values are `specific-database` and `multiple-databases`.
+func (o EndpointMysqlSettingsOutput) TargetDbType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointMysqlSettings) *string { return v.TargetDbType }).(pulumi.StringPtrOutput)
+}
+
+type EndpointMysqlSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointMysqlSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointMysqlSettings)(nil)).Elem()
+}
+
+func (o EndpointMysqlSettingsPtrOutput) ToEndpointMysqlSettingsPtrOutput() EndpointMysqlSettingsPtrOutput {
+	return o
+}
+
+func (o EndpointMysqlSettingsPtrOutput) ToEndpointMysqlSettingsPtrOutputWithContext(ctx context.Context) EndpointMysqlSettingsPtrOutput {
+	return o
+}
+
+func (o EndpointMysqlSettingsPtrOutput) Elem() EndpointMysqlSettingsOutput {
+	return o.ApplyT(func(v *EndpointMysqlSettings) EndpointMysqlSettings {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointMysqlSettings
+		return ret
+	}).(EndpointMysqlSettingsOutput)
+}
+
+// Script to run immediately after AWS DMS connects to the endpoint.
+func (o EndpointMysqlSettingsPtrOutput) AfterConnectScript() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointMysqlSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AfterConnectScript
+	}).(pulumi.StringPtrOutput)
+}
+
+// Authentication method to use. Valid values: `password`, `iam`.
+func (o EndpointMysqlSettingsPtrOutput) AuthenticationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointMysqlSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticationMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to clean and recreate table metadata information on the replication instance when a mismatch occurs.
+func (o EndpointMysqlSettingsPtrOutput) CleanSourceMetadataOnMismatch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointMysqlSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CleanSourceMetadataOnMismatch
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Time interval to check the binary log for new changes/events when the database is idle. Default is `5`.
+func (o EndpointMysqlSettingsPtrOutput) EventsPollInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointMysqlSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.EventsPollInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+// Client statement timeout (in seconds) for a MySQL source endpoint.
+func (o EndpointMysqlSettingsPtrOutput) ExecuteTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointMysqlSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ExecuteTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
+func (o EndpointMysqlSettingsPtrOutput) MaxFileSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointMysqlSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxFileSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// Number of threads to use to load the data into the MySQL-compatible target database.
+func (o EndpointMysqlSettingsPtrOutput) ParallelLoadThreads() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointMysqlSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ParallelLoadThreads
+	}).(pulumi.IntPtrOutput)
+}
+
+// Time zone for the source MySQL database.
+func (o EndpointMysqlSettingsPtrOutput) ServerTimezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointMysqlSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerTimezone
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM role to authenticate when connecting to the endpoint.
+func (o EndpointMysqlSettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointMysqlSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceAccessRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Where to migrate source tables on the target. Valid values are `specific-database` and `multiple-databases`.
+func (o EndpointMysqlSettingsPtrOutput) TargetDbType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointMysqlSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetDbType
+	}).(pulumi.StringPtrOutput)
+}
+
 type EndpointOracleSettings struct {
 	// Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
 	AuthenticationMethod *string `pulumi:"authenticationMethod"`
@@ -3376,6 +3684,154 @@ func (o GetEndpointMongodbSettingArrayOutput) Index(i pulumi.IntInput) GetEndpoi
 	}).(GetEndpointMongodbSettingOutput)
 }
 
+type GetEndpointMysqlSetting struct {
+	AfterConnectScript            string `pulumi:"afterConnectScript"`
+	AuthenticationMethod          string `pulumi:"authenticationMethod"`
+	CleanSourceMetadataOnMismatch bool   `pulumi:"cleanSourceMetadataOnMismatch"`
+	EventsPollInterval            int    `pulumi:"eventsPollInterval"`
+	ExecuteTimeout                int    `pulumi:"executeTimeout"`
+	MaxFileSize                   int    `pulumi:"maxFileSize"`
+	ParallelLoadThreads           int    `pulumi:"parallelLoadThreads"`
+	ServerTimezone                string `pulumi:"serverTimezone"`
+	ServiceAccessRoleArn          string `pulumi:"serviceAccessRoleArn"`
+	TargetDbType                  string `pulumi:"targetDbType"`
+}
+
+// GetEndpointMysqlSettingInput is an input type that accepts GetEndpointMysqlSettingArgs and GetEndpointMysqlSettingOutput values.
+// You can construct a concrete instance of `GetEndpointMysqlSettingInput` via:
+//
+//	GetEndpointMysqlSettingArgs{...}
+type GetEndpointMysqlSettingInput interface {
+	pulumi.Input
+
+	ToGetEndpointMysqlSettingOutput() GetEndpointMysqlSettingOutput
+	ToGetEndpointMysqlSettingOutputWithContext(context.Context) GetEndpointMysqlSettingOutput
+}
+
+type GetEndpointMysqlSettingArgs struct {
+	AfterConnectScript            pulumi.StringInput `pulumi:"afterConnectScript"`
+	AuthenticationMethod          pulumi.StringInput `pulumi:"authenticationMethod"`
+	CleanSourceMetadataOnMismatch pulumi.BoolInput   `pulumi:"cleanSourceMetadataOnMismatch"`
+	EventsPollInterval            pulumi.IntInput    `pulumi:"eventsPollInterval"`
+	ExecuteTimeout                pulumi.IntInput    `pulumi:"executeTimeout"`
+	MaxFileSize                   pulumi.IntInput    `pulumi:"maxFileSize"`
+	ParallelLoadThreads           pulumi.IntInput    `pulumi:"parallelLoadThreads"`
+	ServerTimezone                pulumi.StringInput `pulumi:"serverTimezone"`
+	ServiceAccessRoleArn          pulumi.StringInput `pulumi:"serviceAccessRoleArn"`
+	TargetDbType                  pulumi.StringInput `pulumi:"targetDbType"`
+}
+
+func (GetEndpointMysqlSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointMysqlSetting)(nil)).Elem()
+}
+
+func (i GetEndpointMysqlSettingArgs) ToGetEndpointMysqlSettingOutput() GetEndpointMysqlSettingOutput {
+	return i.ToGetEndpointMysqlSettingOutputWithContext(context.Background())
+}
+
+func (i GetEndpointMysqlSettingArgs) ToGetEndpointMysqlSettingOutputWithContext(ctx context.Context) GetEndpointMysqlSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointMysqlSettingOutput)
+}
+
+// GetEndpointMysqlSettingArrayInput is an input type that accepts GetEndpointMysqlSettingArray and GetEndpointMysqlSettingArrayOutput values.
+// You can construct a concrete instance of `GetEndpointMysqlSettingArrayInput` via:
+//
+//	GetEndpointMysqlSettingArray{ GetEndpointMysqlSettingArgs{...} }
+type GetEndpointMysqlSettingArrayInput interface {
+	pulumi.Input
+
+	ToGetEndpointMysqlSettingArrayOutput() GetEndpointMysqlSettingArrayOutput
+	ToGetEndpointMysqlSettingArrayOutputWithContext(context.Context) GetEndpointMysqlSettingArrayOutput
+}
+
+type GetEndpointMysqlSettingArray []GetEndpointMysqlSettingInput
+
+func (GetEndpointMysqlSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointMysqlSetting)(nil)).Elem()
+}
+
+func (i GetEndpointMysqlSettingArray) ToGetEndpointMysqlSettingArrayOutput() GetEndpointMysqlSettingArrayOutput {
+	return i.ToGetEndpointMysqlSettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetEndpointMysqlSettingArray) ToGetEndpointMysqlSettingArrayOutputWithContext(ctx context.Context) GetEndpointMysqlSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointMysqlSettingArrayOutput)
+}
+
+type GetEndpointMysqlSettingOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointMysqlSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointMysqlSetting)(nil)).Elem()
+}
+
+func (o GetEndpointMysqlSettingOutput) ToGetEndpointMysqlSettingOutput() GetEndpointMysqlSettingOutput {
+	return o
+}
+
+func (o GetEndpointMysqlSettingOutput) ToGetEndpointMysqlSettingOutputWithContext(ctx context.Context) GetEndpointMysqlSettingOutput {
+	return o
+}
+
+func (o GetEndpointMysqlSettingOutput) AfterConnectScript() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointMysqlSetting) string { return v.AfterConnectScript }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointMysqlSettingOutput) AuthenticationMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointMysqlSetting) string { return v.AuthenticationMethod }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointMysqlSettingOutput) CleanSourceMetadataOnMismatch() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointMysqlSetting) bool { return v.CleanSourceMetadataOnMismatch }).(pulumi.BoolOutput)
+}
+
+func (o GetEndpointMysqlSettingOutput) EventsPollInterval() pulumi.IntOutput {
+	return o.ApplyT(func(v GetEndpointMysqlSetting) int { return v.EventsPollInterval }).(pulumi.IntOutput)
+}
+
+func (o GetEndpointMysqlSettingOutput) ExecuteTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v GetEndpointMysqlSetting) int { return v.ExecuteTimeout }).(pulumi.IntOutput)
+}
+
+func (o GetEndpointMysqlSettingOutput) MaxFileSize() pulumi.IntOutput {
+	return o.ApplyT(func(v GetEndpointMysqlSetting) int { return v.MaxFileSize }).(pulumi.IntOutput)
+}
+
+func (o GetEndpointMysqlSettingOutput) ParallelLoadThreads() pulumi.IntOutput {
+	return o.ApplyT(func(v GetEndpointMysqlSetting) int { return v.ParallelLoadThreads }).(pulumi.IntOutput)
+}
+
+func (o GetEndpointMysqlSettingOutput) ServerTimezone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointMysqlSetting) string { return v.ServerTimezone }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointMysqlSettingOutput) ServiceAccessRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointMysqlSetting) string { return v.ServiceAccessRoleArn }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointMysqlSettingOutput) TargetDbType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointMysqlSetting) string { return v.TargetDbType }).(pulumi.StringOutput)
+}
+
+type GetEndpointMysqlSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointMysqlSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointMysqlSetting)(nil)).Elem()
+}
+
+func (o GetEndpointMysqlSettingArrayOutput) ToGetEndpointMysqlSettingArrayOutput() GetEndpointMysqlSettingArrayOutput {
+	return o
+}
+
+func (o GetEndpointMysqlSettingArrayOutput) ToGetEndpointMysqlSettingArrayOutputWithContext(ctx context.Context) GetEndpointMysqlSettingArrayOutput {
+	return o
+}
+
+func (o GetEndpointMysqlSettingArrayOutput) Index(i pulumi.IntInput) GetEndpointMysqlSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEndpointMysqlSetting {
+		return vs[0].([]GetEndpointMysqlSetting)[vs[1].(int)]
+	}).(GetEndpointMysqlSettingOutput)
+}
+
 type GetEndpointPostgresSetting struct {
 	AfterConnectScript       string `pulumi:"afterConnectScript"`
 	AuthenticationMethod     string `pulumi:"authenticationMethod"`
@@ -4151,6 +4607,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointKinesisSettingsPtrInput)(nil)).Elem(), EndpointKinesisSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointMongodbSettingsInput)(nil)).Elem(), EndpointMongodbSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointMongodbSettingsPtrInput)(nil)).Elem(), EndpointMongodbSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointMysqlSettingsInput)(nil)).Elem(), EndpointMysqlSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointMysqlSettingsPtrInput)(nil)).Elem(), EndpointMysqlSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointOracleSettingsInput)(nil)).Elem(), EndpointOracleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointOracleSettingsPtrInput)(nil)).Elem(), EndpointOracleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointPostgresSettingsInput)(nil)).Elem(), EndpointPostgresSettingsArgs{})
@@ -4171,6 +4629,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointKinesisSettingArrayInput)(nil)).Elem(), GetEndpointKinesisSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointMongodbSettingInput)(nil)).Elem(), GetEndpointMongodbSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointMongodbSettingArrayInput)(nil)).Elem(), GetEndpointMongodbSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointMysqlSettingInput)(nil)).Elem(), GetEndpointMysqlSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointMysqlSettingArrayInput)(nil)).Elem(), GetEndpointMysqlSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointPostgresSettingInput)(nil)).Elem(), GetEndpointPostgresSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointPostgresSettingArrayInput)(nil)).Elem(), GetEndpointPostgresSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointRedisSettingInput)(nil)).Elem(), GetEndpointRedisSettingArgs{})
@@ -4187,6 +4647,8 @@ func init() {
 	pulumi.RegisterOutputType(EndpointKinesisSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointMongodbSettingsOutput{})
 	pulumi.RegisterOutputType(EndpointMongodbSettingsPtrOutput{})
+	pulumi.RegisterOutputType(EndpointMysqlSettingsOutput{})
+	pulumi.RegisterOutputType(EndpointMysqlSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointOracleSettingsOutput{})
 	pulumi.RegisterOutputType(EndpointOracleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointPostgresSettingsOutput{})
@@ -4207,6 +4669,8 @@ func init() {
 	pulumi.RegisterOutputType(GetEndpointKinesisSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetEndpointMongodbSettingOutput{})
 	pulumi.RegisterOutputType(GetEndpointMongodbSettingArrayOutput{})
+	pulumi.RegisterOutputType(GetEndpointMysqlSettingOutput{})
+	pulumi.RegisterOutputType(GetEndpointMysqlSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetEndpointPostgresSettingOutput{})
 	pulumi.RegisterOutputType(GetEndpointPostgresSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetEndpointRedisSettingOutput{})

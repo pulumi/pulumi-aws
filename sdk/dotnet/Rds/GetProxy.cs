@@ -142,6 +142,10 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly bool DebugLogging;
         /// <summary>
+        /// Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+        /// </summary>
+        public readonly string DefaultAuthScheme;
+        /// <summary>
         /// Endpoint that you can use to connect to the DB proxy.
         /// </summary>
         public readonly string Endpoint;
@@ -188,6 +192,8 @@ namespace Pulumi.Aws.Rds
 
             bool debugLogging,
 
+            string defaultAuthScheme,
+
             string endpoint,
 
             string engineFamily,
@@ -213,6 +219,7 @@ namespace Pulumi.Aws.Rds
             Arn = arn;
             Auths = auths;
             DebugLogging = debugLogging;
+            DefaultAuthScheme = defaultAuthScheme;
             Endpoint = endpoint;
             EngineFamily = engineFamily;
             Id = id;

@@ -115,7 +115,7 @@ export class Smsvoicev2PhoneNumber extends pulumi.CustomResource {
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.pinpoint.Smsvoicev2PhoneNumberTimeouts | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the two way channel.
+     * Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
      */
     declare public readonly twoWayChannelArn: pulumi.Output<string | undefined>;
     /**
@@ -255,7 +255,7 @@ export interface Smsvoicev2PhoneNumberState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.pinpoint.Smsvoicev2PhoneNumberTimeouts>;
     /**
-     * The Amazon Resource Name (ARN) of the two way channel.
+     * Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
      */
     twoWayChannelArn?: pulumi.Input<string>;
     /**
@@ -311,7 +311,7 @@ export interface Smsvoicev2PhoneNumberArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.pinpoint.Smsvoicev2PhoneNumberTimeouts>;
     /**
-     * The Amazon Resource Name (ARN) of the two way channel.
+     * Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
      */
     twoWayChannelArn?: pulumi.Input<string>;
     /**

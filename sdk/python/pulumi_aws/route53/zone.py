@@ -373,11 +373,24 @@ class Zone(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
+        primary = aws.ec2.Vpc("primary",
+            cidr_block="10.6.0.0/16",
+            enable_dns_hostnames=True,
+            enable_dns_support=True)
+        secondary = aws.ec2.Vpc("secondary",
+            cidr_block="10.7.0.0/16",
+            enable_dns_hostnames=True,
+            enable_dns_support=True)
         private = aws.route53.Zone("private",
             name="example.com",
-            vpcs=[{
-                "vpc_id": example["id"],
-            }])
+            vpcs=[
+                {
+                    "vpc_id": primary.id,
+                },
+                {
+                    "vpc_id": secondary.id,
+                },
+            ])
         ```
 
         ## Import
@@ -451,11 +464,24 @@ class Zone(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
+        primary = aws.ec2.Vpc("primary",
+            cidr_block="10.6.0.0/16",
+            enable_dns_hostnames=True,
+            enable_dns_support=True)
+        secondary = aws.ec2.Vpc("secondary",
+            cidr_block="10.7.0.0/16",
+            enable_dns_hostnames=True,
+            enable_dns_support=True)
         private = aws.route53.Zone("private",
             name="example.com",
-            vpcs=[{
-                "vpc_id": example["id"],
-            }])
+            vpcs=[
+                {
+                    "vpc_id": primary.id,
+                },
+                {
+                    "vpc_id": secondary.id,
+                },
+            ])
         ```
 
         ## Import

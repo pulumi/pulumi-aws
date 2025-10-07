@@ -468,7 +468,7 @@ type Cluster struct {
 	// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
 	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
 	// Configuration block with compute configuration for EKS Auto Mode. Detailed below.
-	ComputeConfig ClusterComputeConfigPtrOutput `pulumi:"computeConfig"`
+	ComputeConfig ClusterComputeConfigOutput `pulumi:"computeConfig"`
 	// Unix epoch timestamp in seconds for when the cluster was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Deprecated: Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
@@ -502,7 +502,7 @@ type Cluster struct {
 	// Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Configuration block with storage configuration for EKS Auto Mode. Detailed below.
-	StorageConfig ClusterStorageConfigPtrOutput `pulumi:"storageConfig"`
+	StorageConfig ClusterStorageConfigOutput `pulumi:"storageConfig"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -888,8 +888,8 @@ func (o ClusterOutput) ClusterId() pulumi.StringOutput {
 }
 
 // Configuration block with compute configuration for EKS Auto Mode. Detailed below.
-func (o ClusterOutput) ComputeConfig() ClusterComputeConfigPtrOutput {
-	return o.ApplyT(func(v *Cluster) ClusterComputeConfigPtrOutput { return v.ComputeConfig }).(ClusterComputeConfigPtrOutput)
+func (o ClusterOutput) ComputeConfig() ClusterComputeConfigOutput {
+	return o.ApplyT(func(v *Cluster) ClusterComputeConfigOutput { return v.ComputeConfig }).(ClusterComputeConfigOutput)
 }
 
 // Unix epoch timestamp in seconds for when the cluster was created.
@@ -973,8 +973,8 @@ func (o ClusterOutput) Status() pulumi.StringOutput {
 }
 
 // Configuration block with storage configuration for EKS Auto Mode. Detailed below.
-func (o ClusterOutput) StorageConfig() ClusterStorageConfigPtrOutput {
-	return o.ApplyT(func(v *Cluster) ClusterStorageConfigPtrOutput { return v.StorageConfig }).(ClusterStorageConfigPtrOutput)
+func (o ClusterOutput) StorageConfig() ClusterStorageConfigOutput {
+	return o.ApplyT(func(v *Cluster) ClusterStorageConfigOutput { return v.StorageConfig }).(ClusterStorageConfigOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

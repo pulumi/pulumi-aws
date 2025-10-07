@@ -89,11 +89,17 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import SSM Contact Channel using the `ARN`. For example:
+// ### Identity Schema
 //
-// ```sh
-// $ pulumi import aws:ssmcontacts/contactChannel:ContactChannel example arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example
-// ```
+// #### Required
+//
+// - `arn` (String) Amazon Resource Name (ARN) of the contact channel.
+//
+// Using `pulumi import`, import SSM Contact Channel using the `arn`. For example:
+//
+// console
+//
+// % pulumi import aws_ssmcontacts_contact_channel.example arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example
 type ContactChannel struct {
 	pulumi.CustomResourceState
 

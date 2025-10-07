@@ -23,10 +23,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Data source for Exadata Infrastructure resource in AWS for Oracle Database{@literal @}AWS.
- * 
- * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
- * 
  * ## Example Usage
  * 
  * ### Basic Usage
@@ -209,16 +205,12 @@ public class CloudVmCluster extends com.pulumi.resources.CustomResource {
     /**
      * The set of preferences for the various diagnostic collection options for the VM cluster.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="dataCollectionOptions", refs={CloudVmClusterDataCollectionOptions.class}, tree="[0]")
     private Output</* @Nullable */ CloudVmClusterDataCollectionOptions> dataCollectionOptions;
 
     /**
      * @return The set of preferences for the various diagnostic collection options for the VM cluster.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<Optional<CloudVmClusterDataCollectionOptions>> dataCollectionOptions() {
@@ -227,12 +219,16 @@ public class CloudVmCluster extends com.pulumi.resources.CustomResource {
     /**
      * The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="dataStorageSizeInTbs", refs={Double.class}, tree="[0]")
     private Output<Double> dataStorageSizeInTbs;
 
     /**
      * @return The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<Double> dataStorageSizeInTbs() {
@@ -323,6 +319,20 @@ public class CloudVmCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> giVersion() {
         return this.giVersion;
+    }
+    /**
+     * A complete software version of Oracle Grid Infrastructure (GI).
+     * 
+     */
+    @Export(name="giVersionComputed", refs={String.class}, tree="[0]")
+    private Output<String> giVersionComputed;
+
+    /**
+     * @return A complete software version of Oracle Grid Infrastructure (GI).
+     * 
+     */
+    public Output<String> giVersionComputed() {
+        return this.giVersionComputed;
     }
     /**
      * The host name prefix for the VM cluster. Constraints: - Can&#39;t be &#34;localhost&#34; or &#34;hostname&#34;. - Can&#39;t contain &#34;-version&#34;. - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.

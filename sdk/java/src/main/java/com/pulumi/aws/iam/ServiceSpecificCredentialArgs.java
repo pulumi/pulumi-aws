@@ -6,6 +6,7 @@ package com.pulumi.aws.iam;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -17,14 +18,29 @@ public final class ServiceSpecificCredentialArgs extends com.pulumi.resources.Re
     public static final ServiceSpecificCredentialArgs Empty = new ServiceSpecificCredentialArgs();
 
     /**
-     * The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
+     * The number of days until the service specific credential expires. This field is only valid for Bedrock API keys and must be between 1 and 36600 (approximately 100 years). When not specified, the credential will not expire.
+     * 
+     */
+    @Import(name="credentialAgeDays")
+    private @Nullable Output<Integer> credentialAgeDays;
+
+    /**
+     * @return The number of days until the service specific credential expires. This field is only valid for Bedrock API keys and must be between 1 and 36600 (approximately 100 years). When not specified, the credential will not expire.
+     * 
+     */
+    public Optional<Output<Integer>> credentialAgeDays() {
+        return Optional.ofNullable(this.credentialAgeDays);
+    }
+
+    /**
+     * The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials. Supported services are `codecommit.amazonaws.com`, `bedrock.amazonaws.com`, and `cassandra.amazonaws.com`.
      * 
      */
     @Import(name="serviceName", required=true)
     private Output<String> serviceName;
 
     /**
-     * @return The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
+     * @return The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials. Supported services are `codecommit.amazonaws.com`, `bedrock.amazonaws.com`, and `cassandra.amazonaws.com`.
      * 
      */
     public Output<String> serviceName() {
@@ -32,14 +48,14 @@ public final class ServiceSpecificCredentialArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The status to be assigned to the service-specific credential. Valid values are `Active` and `Inactive`. Default value is `Active`.
+     * The status to be assigned to the service-specific credential. Valid values are `Active`, `Inactive`, and `Expired`. Default value is `Active`. Note that `Expired` is only used for read operations and cannot be set manually.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The status to be assigned to the service-specific credential. Valid values are `Active` and `Inactive`. Default value is `Active`.
+     * @return The status to be assigned to the service-specific credential. Valid values are `Active`, `Inactive`, and `Expired`. Default value is `Active`. Note that `Expired` is only used for read operations and cannot be set manually.
      * 
      */
     public Optional<Output<String>> status() {
@@ -64,6 +80,7 @@ public final class ServiceSpecificCredentialArgs extends com.pulumi.resources.Re
     private ServiceSpecificCredentialArgs() {}
 
     private ServiceSpecificCredentialArgs(ServiceSpecificCredentialArgs $) {
+        this.credentialAgeDays = $.credentialAgeDays;
         this.serviceName = $.serviceName;
         this.status = $.status;
         this.userName = $.userName;
@@ -88,7 +105,28 @@ public final class ServiceSpecificCredentialArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param serviceName The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
+         * @param credentialAgeDays The number of days until the service specific credential expires. This field is only valid for Bedrock API keys and must be between 1 and 36600 (approximately 100 years). When not specified, the credential will not expire.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder credentialAgeDays(@Nullable Output<Integer> credentialAgeDays) {
+            $.credentialAgeDays = credentialAgeDays;
+            return this;
+        }
+
+        /**
+         * @param credentialAgeDays The number of days until the service specific credential expires. This field is only valid for Bedrock API keys and must be between 1 and 36600 (approximately 100 years). When not specified, the credential will not expire.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder credentialAgeDays(Integer credentialAgeDays) {
+            return credentialAgeDays(Output.of(credentialAgeDays));
+        }
+
+        /**
+         * @param serviceName The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials. Supported services are `codecommit.amazonaws.com`, `bedrock.amazonaws.com`, and `cassandra.amazonaws.com`.
          * 
          * @return builder
          * 
@@ -99,7 +137,7 @@ public final class ServiceSpecificCredentialArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param serviceName The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
+         * @param serviceName The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials. Supported services are `codecommit.amazonaws.com`, `bedrock.amazonaws.com`, and `cassandra.amazonaws.com`.
          * 
          * @return builder
          * 
@@ -109,7 +147,7 @@ public final class ServiceSpecificCredentialArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param status The status to be assigned to the service-specific credential. Valid values are `Active` and `Inactive`. Default value is `Active`.
+         * @param status The status to be assigned to the service-specific credential. Valid values are `Active`, `Inactive`, and `Expired`. Default value is `Active`. Note that `Expired` is only used for read operations and cannot be set manually.
          * 
          * @return builder
          * 
@@ -120,7 +158,7 @@ public final class ServiceSpecificCredentialArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param status The status to be assigned to the service-specific credential. Valid values are `Active` and `Inactive`. Default value is `Active`.
+         * @param status The status to be assigned to the service-specific credential. Valid values are `Active`, `Inactive`, and `Expired`. Default value is `Active`. Note that `Expired` is only used for read operations and cannot be set manually.
          * 
          * @return builder
          * 

@@ -10,6 +10,7 @@ import com.pulumi.aws.dms.outputs.EndpointElasticsearchSettings;
 import com.pulumi.aws.dms.outputs.EndpointKafkaSettings;
 import com.pulumi.aws.dms.outputs.EndpointKinesisSettings;
 import com.pulumi.aws.dms.outputs.EndpointMongodbSettings;
+import com.pulumi.aws.dms.outputs.EndpointMysqlSettings;
 import com.pulumi.aws.dms.outputs.EndpointOracleSettings;
 import com.pulumi.aws.dms.outputs.EndpointPostgresSettings;
 import com.pulumi.aws.dms.outputs.EndpointRedisSettings;
@@ -256,6 +257,20 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<EndpointMongodbSettings>> mongodbSettings() {
         return Codegen.optional(this.mongodbSettings);
+    }
+    /**
+     * Configuration block for MySQL settings. See below.
+     * 
+     */
+    @Export(name="mysqlSettings", refs={EndpointMysqlSettings.class}, tree="[0]")
+    private Output</* @Nullable */ EndpointMysqlSettings> mysqlSettings;
+
+    /**
+     * @return Configuration block for MySQL settings. See below.
+     * 
+     */
+    public Output<Optional<EndpointMysqlSettings>> mysqlSettings() {
+        return Codegen.optional(this.mysqlSettings);
     }
     /**
      * Configuration block for Oracle settings. See below.

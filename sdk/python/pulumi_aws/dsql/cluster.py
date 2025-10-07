@@ -22,6 +22,7 @@ __all__ = ['ClusterArgs', 'Cluster']
 class ClusterArgs:
     def __init__(__self__, *,
                  deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
                  kms_encryption_key: Optional[pulumi.Input[_builtins.str]] = None,
                  multi_region_properties: Optional[pulumi.Input['ClusterMultiRegionPropertiesArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -30,6 +31,9 @@ class ClusterArgs:
         """
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[_builtins.bool] deletion_protection_enabled: Whether deletion protection is enabled in this cluster.
+               Default value is `false`.
+        :param pulumi.Input[_builtins.bool] force_destroy: Destroys cluster even if `deletion_protection_enabled` is set to `true`.
+               Default value is `false`.
         :param pulumi.Input[_builtins.str] kms_encryption_key: The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
         :param pulumi.Input['ClusterMultiRegionPropertiesArgs'] multi_region_properties: Multi-region properties of the DSQL Cluster.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -37,6 +41,8 @@ class ClusterArgs:
         """
         if deletion_protection_enabled is not None:
             pulumi.set(__self__, "deletion_protection_enabled", deletion_protection_enabled)
+        if force_destroy is not None:
+            pulumi.set(__self__, "force_destroy", force_destroy)
         if kms_encryption_key is not None:
             pulumi.set(__self__, "kms_encryption_key", kms_encryption_key)
         if multi_region_properties is not None:
@@ -53,12 +59,26 @@ class ClusterArgs:
     def deletion_protection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Whether deletion protection is enabled in this cluster.
+        Default value is `false`.
         """
         return pulumi.get(self, "deletion_protection_enabled")
 
     @deletion_protection_enabled.setter
     def deletion_protection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "deletion_protection_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="forceDestroy")
+    def force_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Destroys cluster even if `deletion_protection_enabled` is set to `true`.
+        Default value is `false`.
+        """
+        return pulumi.get(self, "force_destroy")
+
+    @force_destroy.setter
+    def force_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "force_destroy", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsEncryptionKey")
@@ -124,6 +144,7 @@ class _ClusterState:
                  arn: Optional[pulumi.Input[_builtins.str]] = None,
                  deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  encryption_details: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterEncryptionDetailArgs']]]] = None,
+                 force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
                  identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_encryption_key: Optional[pulumi.Input[_builtins.str]] = None,
                  multi_region_properties: Optional[pulumi.Input['ClusterMultiRegionPropertiesArgs']] = None,
@@ -136,7 +157,10 @@ class _ClusterState:
         Input properties used for looking up and filtering Cluster resources.
         :param pulumi.Input[_builtins.str] arn: ARN of the Cluster.
         :param pulumi.Input[_builtins.bool] deletion_protection_enabled: Whether deletion protection is enabled in this cluster.
+               Default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterEncryptionDetailArgs']]] encryption_details: Encryption configuration details for the DSQL Cluster.
+        :param pulumi.Input[_builtins.bool] force_destroy: Destroys cluster even if `deletion_protection_enabled` is set to `true`.
+               Default value is `false`.
         :param pulumi.Input[_builtins.str] identifier: Cluster Identifier.
         :param pulumi.Input[_builtins.str] kms_encryption_key: The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
         :param pulumi.Input['ClusterMultiRegionPropertiesArgs'] multi_region_properties: Multi-region properties of the DSQL Cluster.
@@ -151,6 +175,8 @@ class _ClusterState:
             pulumi.set(__self__, "deletion_protection_enabled", deletion_protection_enabled)
         if encryption_details is not None:
             pulumi.set(__self__, "encryption_details", encryption_details)
+        if force_destroy is not None:
+            pulumi.set(__self__, "force_destroy", force_destroy)
         if identifier is not None:
             pulumi.set(__self__, "identifier", identifier)
         if kms_encryption_key is not None:
@@ -185,6 +211,7 @@ class _ClusterState:
     def deletion_protection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Whether deletion protection is enabled in this cluster.
+        Default value is `false`.
         """
         return pulumi.get(self, "deletion_protection_enabled")
 
@@ -203,6 +230,19 @@ class _ClusterState:
     @encryption_details.setter
     def encryption_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterEncryptionDetailArgs']]]]):
         pulumi.set(self, "encryption_details", value)
+
+    @_builtins.property
+    @pulumi.getter(name="forceDestroy")
+    def force_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Destroys cluster even if `deletion_protection_enabled` is set to `true`.
+        Default value is `false`.
+        """
+        return pulumi.get(self, "force_destroy")
+
+    @force_destroy.setter
+    def force_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "force_destroy", value)
 
     @_builtins.property
     @pulumi.getter
@@ -305,6 +345,7 @@ class Cluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
                  kms_encryption_key: Optional[pulumi.Input[_builtins.str]] = None,
                  multi_region_properties: Optional[pulumi.Input[Union['ClusterMultiRegionPropertiesArgs', 'ClusterMultiRegionPropertiesArgsDict']]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -340,6 +381,9 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] deletion_protection_enabled: Whether deletion protection is enabled in this cluster.
+               Default value is `false`.
+        :param pulumi.Input[_builtins.bool] force_destroy: Destroys cluster even if `deletion_protection_enabled` is set to `true`.
+               Default value is `false`.
         :param pulumi.Input[_builtins.str] kms_encryption_key: The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
         :param pulumi.Input[Union['ClusterMultiRegionPropertiesArgs', 'ClusterMultiRegionPropertiesArgsDict']] multi_region_properties: Multi-region properties of the DSQL Cluster.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -393,6 +437,7 @@ class Cluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
                  kms_encryption_key: Optional[pulumi.Input[_builtins.str]] = None,
                  multi_region_properties: Optional[pulumi.Input[Union['ClusterMultiRegionPropertiesArgs', 'ClusterMultiRegionPropertiesArgsDict']]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -408,6 +453,7 @@ class Cluster(pulumi.CustomResource):
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
             __props__.__dict__["deletion_protection_enabled"] = deletion_protection_enabled
+            __props__.__dict__["force_destroy"] = force_destroy
             __props__.__dict__["kms_encryption_key"] = kms_encryption_key
             __props__.__dict__["multi_region_properties"] = multi_region_properties
             __props__.__dict__["region"] = region
@@ -431,6 +477,7 @@ class Cluster(pulumi.CustomResource):
             arn: Optional[pulumi.Input[_builtins.str]] = None,
             deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             encryption_details: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterEncryptionDetailArgs', 'ClusterEncryptionDetailArgsDict']]]]] = None,
+            force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
             identifier: Optional[pulumi.Input[_builtins.str]] = None,
             kms_encryption_key: Optional[pulumi.Input[_builtins.str]] = None,
             multi_region_properties: Optional[pulumi.Input[Union['ClusterMultiRegionPropertiesArgs', 'ClusterMultiRegionPropertiesArgsDict']]] = None,
@@ -448,7 +495,10 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Cluster.
         :param pulumi.Input[_builtins.bool] deletion_protection_enabled: Whether deletion protection is enabled in this cluster.
+               Default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterEncryptionDetailArgs', 'ClusterEncryptionDetailArgsDict']]]] encryption_details: Encryption configuration details for the DSQL Cluster.
+        :param pulumi.Input[_builtins.bool] force_destroy: Destroys cluster even if `deletion_protection_enabled` is set to `true`.
+               Default value is `false`.
         :param pulumi.Input[_builtins.str] identifier: Cluster Identifier.
         :param pulumi.Input[_builtins.str] kms_encryption_key: The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
         :param pulumi.Input[Union['ClusterMultiRegionPropertiesArgs', 'ClusterMultiRegionPropertiesArgsDict']] multi_region_properties: Multi-region properties of the DSQL Cluster.
@@ -464,6 +514,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["deletion_protection_enabled"] = deletion_protection_enabled
         __props__.__dict__["encryption_details"] = encryption_details
+        __props__.__dict__["force_destroy"] = force_destroy
         __props__.__dict__["identifier"] = identifier
         __props__.__dict__["kms_encryption_key"] = kms_encryption_key
         __props__.__dict__["multi_region_properties"] = multi_region_properties
@@ -484,9 +535,10 @@ class Cluster(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="deletionProtectionEnabled")
-    def deletion_protection_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+    def deletion_protection_enabled(self) -> pulumi.Output[_builtins.bool]:
         """
         Whether deletion protection is enabled in this cluster.
+        Default value is `false`.
         """
         return pulumi.get(self, "deletion_protection_enabled")
 
@@ -497,6 +549,15 @@ class Cluster(pulumi.CustomResource):
         Encryption configuration details for the DSQL Cluster.
         """
         return pulumi.get(self, "encryption_details")
+
+    @_builtins.property
+    @pulumi.getter(name="forceDestroy")
+    def force_destroy(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Destroys cluster even if `deletion_protection_enabled` is set to `true`.
+        Default value is `false`.
+        """
+        return pulumi.get(self, "force_destroy")
 
     @_builtins.property
     @pulumi.getter

@@ -97,24 +97,40 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * In Terraform v1.12.0 and later, the `import` block can be used with the `identity` attribute. For example:
+ * 
  * Using `pulumi import`, import activities using the `arn`. For example:
  * 
  * ```sh
- * $ pulumi import aws:sfn/activity:Activity foo arn:aws:states:eu-west-1:123456789098:activity:bar
+ * $ pulumi import aws:sfn/activity:Activity example arn:aws:states:eu-west-1:123456789098:activity:bar
  * ```
  * 
  */
 @ResourceType(type="aws:sfn/activity:Activity")
 public class Activity extends com.pulumi.resources.CustomResource {
     /**
-     * The date the activity was created.
+     * Amazon Resource Name (ARN) of the activity.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return Amazon Resource Name (ARN) of the activity.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
+    }
+    /**
+     * Date the activity was created.
      * 
      */
     @Export(name="creationDate", refs={String.class}, tree="[0]")
     private Output<String> creationDate;
 
     /**
-     * @return The date the activity was created.
+     * @return Date the activity was created.
      * 
      */
     public Output<String> creationDate() {

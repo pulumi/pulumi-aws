@@ -1630,7 +1630,7 @@ class Cluster(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="computeConfig")
-    def compute_config(self) -> pulumi.Output[Optional['outputs.ClusterComputeConfig']]:
+    def compute_config(self) -> pulumi.Output['outputs.ClusterComputeConfig']:
         """
         Configuration block with compute configuration for EKS Auto Mode. Detailed below.
         """
@@ -1764,7 +1764,7 @@ class Cluster(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="storageConfig")
-    def storage_config(self) -> pulumi.Output[Optional['outputs.ClusterStorageConfig']]:
+    def storage_config(self) -> pulumi.Output['outputs.ClusterStorageConfig']:
         """
         Configuration block with storage configuration for EKS Auto Mode. Detailed below.
         """

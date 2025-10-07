@@ -76,15 +76,19 @@ import (
 //
 // ## Import
 //
+// In Terraform v1.12.0 and later, the `import` block can be used with the `identity` attribute. For example:
+//
 // Using `pulumi import`, import activities using the `arn`. For example:
 //
 // ```sh
-// $ pulumi import aws:sfn/activity:Activity foo arn:aws:states:eu-west-1:123456789098:activity:bar
+// $ pulumi import aws:sfn/activity:Activity example arn:aws:states:eu-west-1:123456789098:activity:bar
 // ```
 type Activity struct {
 	pulumi.CustomResourceState
 
-	// The date the activity was created.
+	// Amazon Resource Name (ARN) of the activity.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Date the activity was created.
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
 	EncryptionConfiguration ActivityEncryptionConfigurationOutput `pulumi:"encryptionConfiguration"`
@@ -128,7 +132,9 @@ func GetActivity(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Activity resources.
 type activityState struct {
-	// The date the activity was created.
+	// Amazon Resource Name (ARN) of the activity.
+	Arn *string `pulumi:"arn"`
+	// Date the activity was created.
 	CreationDate *string `pulumi:"creationDate"`
 	// Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
 	EncryptionConfiguration *ActivityEncryptionConfiguration `pulumi:"encryptionConfiguration"`
@@ -143,7 +149,9 @@ type activityState struct {
 }
 
 type ActivityState struct {
-	// The date the activity was created.
+	// Amazon Resource Name (ARN) of the activity.
+	Arn pulumi.StringPtrInput
+	// Date the activity was created.
 	CreationDate pulumi.StringPtrInput
 	// Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
 	EncryptionConfiguration ActivityEncryptionConfigurationPtrInput
@@ -271,7 +279,12 @@ func (o ActivityOutput) ToActivityOutputWithContext(ctx context.Context) Activit
 	return o
 }
 
-// The date the activity was created.
+// Amazon Resource Name (ARN) of the activity.
+func (o ActivityOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Activity) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Date the activity was created.
 func (o ActivityOutput) CreationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Activity) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
 }

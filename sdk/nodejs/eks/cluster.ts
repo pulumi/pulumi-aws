@@ -338,7 +338,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Configuration block with compute configuration for EKS Auto Mode. Detailed below.
      */
-    declare public readonly computeConfig: pulumi.Output<outputs.eks.ClusterComputeConfig | undefined>;
+    declare public readonly computeConfig: pulumi.Output<outputs.eks.ClusterComputeConfig>;
     /**
      * Unix epoch timestamp in seconds for when the cluster was created.
      */
@@ -406,7 +406,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Configuration block with storage configuration for EKS Auto Mode. Detailed below.
      */
-    declare public readonly storageConfig: pulumi.Output<outputs.eks.ClusterStorageConfig | undefined>;
+    declare public readonly storageConfig: pulumi.Output<outputs.eks.ClusterStorageConfig>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

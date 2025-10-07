@@ -475,7 +475,7 @@ namespace Pulumi.Aws.Eks
         /// Configuration block with compute configuration for EKS Auto Mode. Detailed below.
         /// </summary>
         [Output("computeConfig")]
-        public Output<Outputs.ClusterComputeConfig?> ComputeConfig { get; private set; } = null!;
+        public Output<Outputs.ClusterComputeConfig> ComputeConfig { get; private set; } = null!;
 
         /// <summary>
         /// Unix epoch timestamp in seconds for when the cluster was created.
@@ -574,7 +574,7 @@ namespace Pulumi.Aws.Eks
         /// Configuration block with storage configuration for EKS Auto Mode. Detailed below.
         /// </summary>
         [Output("storageConfig")]
-        public Output<Outputs.ClusterStorageConfig?> StorageConfig { get; private set; } = null!;
+        public Output<Outputs.ClusterStorageConfig> StorageConfig { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

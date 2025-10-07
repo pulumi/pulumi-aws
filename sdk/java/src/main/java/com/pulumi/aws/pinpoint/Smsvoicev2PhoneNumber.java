@@ -263,14 +263,14 @@ public class Smsvoicev2PhoneNumber extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timeouts);
     }
     /**
-     * The Amazon Resource Name (ARN) of the two way channel.
+     * Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
      * 
      */
     @Export(name="twoWayChannelArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> twoWayChannelArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the two way channel.
+     * @return Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
      * 
      */
     public Output<Optional<String>> twoWayChannelArn() {

@@ -7,6 +7,7 @@ import com.pulumi.aws.dms.inputs.EndpointElasticsearchSettingsArgs;
 import com.pulumi.aws.dms.inputs.EndpointKafkaSettingsArgs;
 import com.pulumi.aws.dms.inputs.EndpointKinesisSettingsArgs;
 import com.pulumi.aws.dms.inputs.EndpointMongodbSettingsArgs;
+import com.pulumi.aws.dms.inputs.EndpointMysqlSettingsArgs;
 import com.pulumi.aws.dms.inputs.EndpointOracleSettingsArgs;
 import com.pulumi.aws.dms.inputs.EndpointPostgresSettingsArgs;
 import com.pulumi.aws.dms.inputs.EndpointRedisSettingsArgs;
@@ -208,6 +209,21 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<EndpointMongodbSettingsArgs>> mongodbSettings() {
         return Optional.ofNullable(this.mongodbSettings);
+    }
+
+    /**
+     * Configuration block for MySQL settings. See below.
+     * 
+     */
+    @Import(name="mysqlSettings")
+    private @Nullable Output<EndpointMysqlSettingsArgs> mysqlSettings;
+
+    /**
+     * @return Configuration block for MySQL settings. See below.
+     * 
+     */
+    public Optional<Output<EndpointMysqlSettingsArgs>> mysqlSettings() {
+        return Optional.ofNullable(this.mysqlSettings);
     }
 
     /**
@@ -453,6 +469,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         this.kinesisSettings = $.kinesisSettings;
         this.kmsKeyArn = $.kmsKeyArn;
         this.mongodbSettings = $.mongodbSettings;
+        this.mysqlSettings = $.mysqlSettings;
         this.oracleSettings = $.oracleSettings;
         this.password = $.password;
         this.pauseReplicationTasks = $.pauseReplicationTasks;
@@ -743,6 +760,27 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder mongodbSettings(EndpointMongodbSettingsArgs mongodbSettings) {
             return mongodbSettings(Output.of(mongodbSettings));
+        }
+
+        /**
+         * @param mysqlSettings Configuration block for MySQL settings. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mysqlSettings(@Nullable Output<EndpointMysqlSettingsArgs> mysqlSettings) {
+            $.mysqlSettings = mysqlSettings;
+            return this;
+        }
+
+        /**
+         * @param mysqlSettings Configuration block for MySQL settings. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mysqlSettings(EndpointMysqlSettingsArgs mysqlSettings) {
+            return mysqlSettings(Output.of(mysqlSettings));
         }
 
         /**

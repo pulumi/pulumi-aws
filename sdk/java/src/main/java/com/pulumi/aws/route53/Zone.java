@@ -121,6 +121,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
  * import com.pulumi.aws.route53.Zone;
  * import com.pulumi.aws.route53.ZoneArgs;
  * import com.pulumi.aws.route53.inputs.ZoneVpcArgs;
@@ -137,11 +139,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         var primary = new Vpc("primary", VpcArgs.builder()
+ *             .cidrBlock("10.6.0.0/16")
+ *             .enableDnsHostnames(true)
+ *             .enableDnsSupport(true)
+ *             .build());
+ * 
+ *         var secondary = new Vpc("secondary", VpcArgs.builder()
+ *             .cidrBlock("10.7.0.0/16")
+ *             .enableDnsHostnames(true)
+ *             .enableDnsSupport(true)
+ *             .build());
+ * 
  *         var private_ = new Zone("private", ZoneArgs.builder()
  *             .name("example.com")
- *             .vpcs(ZoneVpcArgs.builder()
- *                 .vpcId(example.id())
- *                 .build())
+ *             .vpcs(            
+ *                 ZoneVpcArgs.builder()
+ *                     .vpcId(primary.id())
+ *                     .build(),
+ *                 ZoneVpcArgs.builder()
+ *                     .vpcId(secondary.id())
+ *                     .build())
  *             .build());
  * 
  *     }

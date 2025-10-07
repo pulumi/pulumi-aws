@@ -430,6 +430,2693 @@ func (o CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput) TargetC
 	}).(pulumi.IntPtrOutput)
 }
 
+type CapacityProviderManagedInstancesProvider struct {
+	// The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other AWS services required for Amazon ECS Managed Instances functionality. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the Amazon ECS Developer Guide.
+	InfrastructureRoleArn string `pulumi:"infrastructureRoleArn"`
+	// The launch template configuration that specifies how Amazon ECS should launch Amazon EC2 instances. This includes the instance profile, network configuration, storage settings, and instance requirements for attribute-based instance type selection. For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the Amazon EC2 User Guide. Detailed below.
+	InstanceLaunchTemplate CapacityProviderManagedInstancesProviderInstanceLaunchTemplate `pulumi:"instanceLaunchTemplate"`
+	// Specifies whether to propagate tags from the capacity provider to the Amazon ECS Managed Instances. When enabled, tags applied to the capacity provider are automatically applied to all instances launched by this provider. Valid values are `CAPACITY_PROVIDER` and `NONE`.
+	PropagateTags *string `pulumi:"propagateTags"`
+}
+
+// CapacityProviderManagedInstancesProviderInput is an input type that accepts CapacityProviderManagedInstancesProviderArgs and CapacityProviderManagedInstancesProviderOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInput` via:
+//
+//	CapacityProviderManagedInstancesProviderArgs{...}
+type CapacityProviderManagedInstancesProviderInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderOutput() CapacityProviderManagedInstancesProviderOutput
+	ToCapacityProviderManagedInstancesProviderOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderOutput
+}
+
+type CapacityProviderManagedInstancesProviderArgs struct {
+	// The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other AWS services required for Amazon ECS Managed Instances functionality. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the Amazon ECS Developer Guide.
+	InfrastructureRoleArn pulumi.StringInput `pulumi:"infrastructureRoleArn"`
+	// The launch template configuration that specifies how Amazon ECS should launch Amazon EC2 instances. This includes the instance profile, network configuration, storage settings, and instance requirements for attribute-based instance type selection. For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the Amazon EC2 User Guide. Detailed below.
+	InstanceLaunchTemplate CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInput `pulumi:"instanceLaunchTemplate"`
+	// Specifies whether to propagate tags from the capacity provider to the Amazon ECS Managed Instances. When enabled, tags applied to the capacity provider are automatically applied to all instances launched by this provider. Valid values are `CAPACITY_PROVIDER` and `NONE`.
+	PropagateTags pulumi.StringPtrInput `pulumi:"propagateTags"`
+}
+
+func (CapacityProviderManagedInstancesProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProvider)(nil)).Elem()
+}
+
+func (i CapacityProviderManagedInstancesProviderArgs) ToCapacityProviderManagedInstancesProviderOutput() CapacityProviderManagedInstancesProviderOutput {
+	return i.ToCapacityProviderManagedInstancesProviderOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderArgs) ToCapacityProviderManagedInstancesProviderOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderOutput)
+}
+
+func (i CapacityProviderManagedInstancesProviderArgs) ToCapacityProviderManagedInstancesProviderPtrOutput() CapacityProviderManagedInstancesProviderPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderArgs) ToCapacityProviderManagedInstancesProviderPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderOutput).ToCapacityProviderManagedInstancesProviderPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderManagedInstancesProviderPtrInput is an input type that accepts CapacityProviderManagedInstancesProviderArgs, CapacityProviderManagedInstancesProviderPtr and CapacityProviderManagedInstancesProviderPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderPtrInput` via:
+//
+//	        CapacityProviderManagedInstancesProviderArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderManagedInstancesProviderPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderPtrOutput() CapacityProviderManagedInstancesProviderPtrOutput
+	ToCapacityProviderManagedInstancesProviderPtrOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderPtrOutput
+}
+
+type capacityProviderManagedInstancesProviderPtrType CapacityProviderManagedInstancesProviderArgs
+
+func CapacityProviderManagedInstancesProviderPtr(v *CapacityProviderManagedInstancesProviderArgs) CapacityProviderManagedInstancesProviderPtrInput {
+	return (*capacityProviderManagedInstancesProviderPtrType)(v)
+}
+
+func (*capacityProviderManagedInstancesProviderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProvider)(nil)).Elem()
+}
+
+func (i *capacityProviderManagedInstancesProviderPtrType) ToCapacityProviderManagedInstancesProviderPtrOutput() CapacityProviderManagedInstancesProviderPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderManagedInstancesProviderPtrType) ToCapacityProviderManagedInstancesProviderPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProvider)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderOutput) ToCapacityProviderManagedInstancesProviderOutput() CapacityProviderManagedInstancesProviderOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderOutput) ToCapacityProviderManagedInstancesProviderOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderOutput) ToCapacityProviderManagedInstancesProviderPtrOutput() CapacityProviderManagedInstancesProviderPtrOutput {
+	return o.ToCapacityProviderManagedInstancesProviderPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderManagedInstancesProviderOutput) ToCapacityProviderManagedInstancesProviderPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderManagedInstancesProvider) *CapacityProviderManagedInstancesProvider {
+		return &v
+	}).(CapacityProviderManagedInstancesProviderPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other AWS services required for Amazon ECS Managed Instances functionality. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the Amazon ECS Developer Guide.
+func (o CapacityProviderManagedInstancesProviderOutput) InfrastructureRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProvider) string { return v.InfrastructureRoleArn }).(pulumi.StringOutput)
+}
+
+// The launch template configuration that specifies how Amazon ECS should launch Amazon EC2 instances. This includes the instance profile, network configuration, storage settings, and instance requirements for attribute-based instance type selection. For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the Amazon EC2 User Guide. Detailed below.
+func (o CapacityProviderManagedInstancesProviderOutput) InstanceLaunchTemplate() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProvider) CapacityProviderManagedInstancesProviderInstanceLaunchTemplate {
+		return v.InstanceLaunchTemplate
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput)
+}
+
+// Specifies whether to propagate tags from the capacity provider to the Amazon ECS Managed Instances. When enabled, tags applied to the capacity provider are automatically applied to all instances launched by this provider. Valid values are `CAPACITY_PROVIDER` and `NONE`.
+func (o CapacityProviderManagedInstancesProviderOutput) PropagateTags() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProvider) *string { return v.PropagateTags }).(pulumi.StringPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProvider)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderPtrOutput) ToCapacityProviderManagedInstancesProviderPtrOutput() CapacityProviderManagedInstancesProviderPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderPtrOutput) ToCapacityProviderManagedInstancesProviderPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderPtrOutput) Elem() CapacityProviderManagedInstancesProviderOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProvider) CapacityProviderManagedInstancesProvider {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderManagedInstancesProvider
+		return ret
+	}).(CapacityProviderManagedInstancesProviderOutput)
+}
+
+// The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other AWS services required for Amazon ECS Managed Instances functionality. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the Amazon ECS Developer Guide.
+func (o CapacityProviderManagedInstancesProviderPtrOutput) InfrastructureRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InfrastructureRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The launch template configuration that specifies how Amazon ECS should launch Amazon EC2 instances. This includes the instance profile, network configuration, storage settings, and instance requirements for attribute-based instance type selection. For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the Amazon EC2 User Guide. Detailed below.
+func (o CapacityProviderManagedInstancesProviderPtrOutput) InstanceLaunchTemplate() CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProvider) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplate {
+		if v == nil {
+			return nil
+		}
+		return &v.InstanceLaunchTemplate
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput)
+}
+
+// Specifies whether to propagate tags from the capacity provider to the Amazon ECS Managed Instances. When enabled, tags applied to the capacity provider are automatically applied to all instances launched by this provider. Valid values are `CAPACITY_PROVIDER` and `NONE`.
+func (o CapacityProviderManagedInstancesProviderPtrOutput) PropagateTags() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PropagateTags
+	}).(pulumi.StringPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplate struct {
+	// The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources. For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/instance_IAM_role.html) in the Amazon ECS Developer Guide.
+	Ec2InstanceProfileArn string `pulumi:"ec2InstanceProfileArn"`
+	// The instance requirements. You can specify the instance types and instance requirements such as vCPU count, memory, network performance, and accelerator specifications. Amazon ECS automatically selects the instances that match the specified criteria. Detailed below.
+	InstanceRequirements *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements `pulumi:"instanceRequirements"`
+	// CloudWatch provides two categories of monitoring: basic monitoring and detailed monitoring. By default, your managed instance is configured for basic monitoring. You can optionally enable detailed monitoring to help you more quickly identify and act on operational issues. You can enable or turn off detailed monitoring at launch or when the managed instance is running or stopped. For more information, see [Detailed monitoring for Amazon ECS Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-metrics.html) in the Amazon ECS Developer Guide. Valid values are `BASIC` and `DETAILED`.
+	Monitoring *string `pulumi:"monitoring"`
+	// The network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity. Detailed below.
+	NetworkConfiguration CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration `pulumi:"networkConfiguration"`
+	// The storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances. Detailed below.
+	StorageConfiguration *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration `pulumi:"storageConfiguration"`
+}
+
+// CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInput is an input type that accepts CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs and CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInput` via:
+//
+//	CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs{...}
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs struct {
+	// The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources. For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/instance_IAM_role.html) in the Amazon ECS Developer Guide.
+	Ec2InstanceProfileArn pulumi.StringInput `pulumi:"ec2InstanceProfileArn"`
+	// The instance requirements. You can specify the instance types and instance requirements such as vCPU count, memory, network performance, and accelerator specifications. Amazon ECS automatically selects the instances that match the specified criteria. Detailed below.
+	InstanceRequirements CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrInput `pulumi:"instanceRequirements"`
+	// CloudWatch provides two categories of monitoring: basic monitoring and detailed monitoring. By default, your managed instance is configured for basic monitoring. You can optionally enable detailed monitoring to help you more quickly identify and act on operational issues. You can enable or turn off detailed monitoring at launch or when the managed instance is running or stopped. For more information, see [Detailed monitoring for Amazon ECS Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-metrics.html) in the Amazon ECS Developer Guide. Valid values are `BASIC` and `DETAILED`.
+	Monitoring pulumi.StringPtrInput `pulumi:"monitoring"`
+	// The network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity. Detailed below.
+	NetworkConfiguration CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationInput `pulumi:"networkConfiguration"`
+	// The storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances. Detailed below.
+	StorageConfiguration CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrInput `pulumi:"storageConfiguration"`
+}
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplate)(nil)).Elem()
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput)
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput).ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutputWithContext(ctx)
+}
+
+// CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrInput is an input type that accepts CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs, CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtr and CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrInput` via:
+//
+//	        CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput
+}
+
+type capacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrType CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs
+
+func CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtr(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs) CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrInput {
+	return (*capacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrType)(v)
+}
+
+func (*capacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInstanceLaunchTemplate)(nil)).Elem()
+}
+
+func (i *capacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrType) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrType) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplate)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput {
+	return o.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderManagedInstancesProviderInstanceLaunchTemplate) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplate {
+		return &v
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources. For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/instance_IAM_role.html) in the Amazon ECS Developer Guide.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput) Ec2InstanceProfileArn() pulumi.StringOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplate) string {
+		return v.Ec2InstanceProfileArn
+	}).(pulumi.StringOutput)
+}
+
+// The instance requirements. You can specify the instance types and instance requirements such as vCPU count, memory, network performance, and accelerator specifications. Amazon ECS automatically selects the instances that match the specified criteria. Detailed below.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput) InstanceRequirements() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplate) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements {
+		return v.InstanceRequirements
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput)
+}
+
+// CloudWatch provides two categories of monitoring: basic monitoring and detailed monitoring. By default, your managed instance is configured for basic monitoring. You can optionally enable detailed monitoring to help you more quickly identify and act on operational issues. You can enable or turn off detailed monitoring at launch or when the managed instance is running or stopped. For more information, see [Detailed monitoring for Amazon ECS Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-metrics.html) in the Amazon ECS Developer Guide. Valid values are `BASIC` and `DETAILED`.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput) Monitoring() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplate) *string { return v.Monitoring }).(pulumi.StringPtrOutput)
+}
+
+// The network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity. Detailed below.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput) NetworkConfiguration() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplate) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration {
+		return v.NetworkConfiguration
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutput)
+}
+
+// The storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances. Detailed below.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput) StorageConfiguration() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplate) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration {
+		return v.StorageConfiguration
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInstanceLaunchTemplate)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput) Elem() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplate) CapacityProviderManagedInstancesProviderInstanceLaunchTemplate {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderManagedInstancesProviderInstanceLaunchTemplate
+		return ret
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput)
+}
+
+// The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources. For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/instance_IAM_role.html) in the Amazon ECS Developer Guide.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput) Ec2InstanceProfileArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Ec2InstanceProfileArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The instance requirements. You can specify the instance types and instance requirements such as vCPU count, memory, network performance, and accelerator specifications. Amazon ECS automatically selects the instances that match the specified criteria. Detailed below.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput) InstanceRequirements() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplate) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceRequirements
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput)
+}
+
+// CloudWatch provides two categories of monitoring: basic monitoring and detailed monitoring. By default, your managed instance is configured for basic monitoring. You can optionally enable detailed monitoring to help you more quickly identify and act on operational issues. You can enable or turn off detailed monitoring at launch or when the managed instance is running or stopped. For more information, see [Detailed monitoring for Amazon ECS Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-metrics.html) in the Amazon ECS Developer Guide. Valid values are `BASIC` and `DETAILED`.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput) Monitoring() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Monitoring
+	}).(pulumi.StringPtrOutput)
+}
+
+// The network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity. Detailed below.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput) NetworkConfiguration() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplate) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.NetworkConfiguration
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput)
+}
+
+// The storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances. Detailed below.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput) StorageConfiguration() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplate) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.StorageConfiguration
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements struct {
+	// The minimum and maximum number of accelerators for the instance types. This is used when you need instances with specific numbers of GPUs or other accelerators.
+	AcceleratorCount *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount `pulumi:"acceleratorCount"`
+	// The accelerator manufacturers to include. You can specify `nvidia`, `amd`, `amazon-web-services`, `xilinx`, or `habana` depending on your accelerator requirements. Valid values are `amazon-web-services`, `amd`, `nvidia`, `xilinx`, `habana`.
+	AcceleratorManufacturers []string `pulumi:"acceleratorManufacturers"`
+	// The specific accelerator names to include. For example, you can specify `a100`, `v100`, `k80`, or other specific accelerator models. Valid values are `a100`, `inferentia`, `k520`, `k80`, `m60`, `radeon-pro-v520`, `t4`, `vu9p`, `v100`, `a10g`, `h100`, `t4g`.
+	AcceleratorNames []string `pulumi:"acceleratorNames"`
+	// The minimum and maximum total accelerator memory in mebibytes (MiB). This is important for GPU workloads that require specific amounts of video memory.
+	AcceleratorTotalMemoryMib *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib `pulumi:"acceleratorTotalMemoryMib"`
+	// The accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
+	AcceleratorTypes []string `pulumi:"acceleratorTypes"`
+	// The instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified. Maximum of 400 instance types. You can specify instance type patterns using wildcards (e.g., `m5.*`).
+	AllowedInstanceTypes []string `pulumi:"allowedInstanceTypes"`
+	// Indicates whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances. Valid values are `included`, `excluded`, `required`.
+	BareMetal *string `pulumi:"bareMetal"`
+	// The minimum and maximum baseline Amazon EBS bandwidth in megabits per second (Mbps). This is important for workloads with high storage I/O requirements.
+	BaselineEbsBandwidthMbps *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps `pulumi:"baselineEbsBandwidthMbps"`
+	// Indicates whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances. Valid values are `included`, `excluded`, `required`.
+	BurstablePerformance *string `pulumi:"burstablePerformance"`
+	// The CPU manufacturers to include or exclude. You can specify `intel`, `amd`, or `amazon-web-services` to control which CPU types are used for your workloads. Valid values are `intel`, `amd`, `amazon-web-services`.
+	CpuManufacturers []string `pulumi:"cpuManufacturers"`
+	// The instance types to exclude from selection. Use this to prevent Amazon ECS from selecting specific instance types that may not be suitable for your workloads. Maximum of 400 instance types.
+	ExcludedInstanceTypes []string `pulumi:"excludedInstanceTypes"`
+	// The instance generations to include. You can specify `current` to use the latest generation instances, or `previous` to include previous generation instances for cost optimization. Valid values are `current`, `previous`.
+	InstanceGenerations []string `pulumi:"instanceGenerations"`
+	// Indicates whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage. Valid values are `included`, `excluded`, `required`.
+	LocalStorage *string `pulumi:"localStorage"`
+	// The local storage types to include. You can specify `hdd` for hard disk drives, `ssd` for solid state drives, or both. Valid values are `hdd`, `ssd`.
+	LocalStorageTypes []string `pulumi:"localStorageTypes"`
+	// The maximum price for Spot instances as a percentage of the optimal On-Demand price. This provides more precise cost control for Spot instance selection.
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice *int `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
+	// The minimum and maximum amount of memory per vCPU in gibibytes (GiB). This helps ensure that instance types have the appropriate memory-to-CPU ratio for your workloads.
+	MemoryGibPerVcpu *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpu `pulumi:"memoryGibPerVcpu"`
+	// The minimum and maximum amount of memory in mebibytes (MiB) for the instance types. Amazon ECS selects instance types that have memory within this range.
+	MemoryMib CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMib `pulumi:"memoryMib"`
+	// The minimum and maximum network bandwidth in gigabits per second (Gbps). This is crucial for network-intensive workloads that require high throughput.
+	NetworkBandwidthGbps *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbps `pulumi:"networkBandwidthGbps"`
+	// The minimum and maximum number of network interfaces for the instance types. This is useful for workloads that require multiple network interfaces.
+	NetworkInterfaceCount *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCount `pulumi:"networkInterfaceCount"`
+	// The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon ECS selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+	OnDemandMaxPricePercentageOverLowestPrice *int `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	// Indicates whether the instance types must support hibernation. When set to `true`, only instance types that support hibernation are selected.
+	RequireHibernateSupport *bool `pulumi:"requireHibernateSupport"`
+	// The maximum price for Spot instances as a percentage over the lowest priced On-Demand instance. This helps control Spot instance costs while maintaining access to capacity.
+	SpotMaxPricePercentageOverLowestPrice *int `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	// The minimum and maximum total local storage in gigabytes (GB) for instance types with local storage.
+	TotalLocalStorageGb *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGb `pulumi:"totalLocalStorageGb"`
+	// The minimum and maximum number of vCPUs for the instance types. Amazon ECS selects instance types that have vCPU counts within this range.
+	VcpuCount CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCount `pulumi:"vcpuCount"`
+}
+
+// CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsInput is an input type that accepts CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsArgs and CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsInput` via:
+//
+//	CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsArgs{...}
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsArgs struct {
+	// The minimum and maximum number of accelerators for the instance types. This is used when you need instances with specific numbers of GPUs or other accelerators.
+	AcceleratorCount CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrInput `pulumi:"acceleratorCount"`
+	// The accelerator manufacturers to include. You can specify `nvidia`, `amd`, `amazon-web-services`, `xilinx`, or `habana` depending on your accelerator requirements. Valid values are `amazon-web-services`, `amd`, `nvidia`, `xilinx`, `habana`.
+	AcceleratorManufacturers pulumi.StringArrayInput `pulumi:"acceleratorManufacturers"`
+	// The specific accelerator names to include. For example, you can specify `a100`, `v100`, `k80`, or other specific accelerator models. Valid values are `a100`, `inferentia`, `k520`, `k80`, `m60`, `radeon-pro-v520`, `t4`, `vu9p`, `v100`, `a10g`, `h100`, `t4g`.
+	AcceleratorNames pulumi.StringArrayInput `pulumi:"acceleratorNames"`
+	// The minimum and maximum total accelerator memory in mebibytes (MiB). This is important for GPU workloads that require specific amounts of video memory.
+	AcceleratorTotalMemoryMib CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrInput `pulumi:"acceleratorTotalMemoryMib"`
+	// The accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
+	AcceleratorTypes pulumi.StringArrayInput `pulumi:"acceleratorTypes"`
+	// The instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified. Maximum of 400 instance types. You can specify instance type patterns using wildcards (e.g., `m5.*`).
+	AllowedInstanceTypes pulumi.StringArrayInput `pulumi:"allowedInstanceTypes"`
+	// Indicates whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances. Valid values are `included`, `excluded`, `required`.
+	BareMetal pulumi.StringPtrInput `pulumi:"bareMetal"`
+	// The minimum and maximum baseline Amazon EBS bandwidth in megabits per second (Mbps). This is important for workloads with high storage I/O requirements.
+	BaselineEbsBandwidthMbps CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput `pulumi:"baselineEbsBandwidthMbps"`
+	// Indicates whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances. Valid values are `included`, `excluded`, `required`.
+	BurstablePerformance pulumi.StringPtrInput `pulumi:"burstablePerformance"`
+	// The CPU manufacturers to include or exclude. You can specify `intel`, `amd`, or `amazon-web-services` to control which CPU types are used for your workloads. Valid values are `intel`, `amd`, `amazon-web-services`.
+	CpuManufacturers pulumi.StringArrayInput `pulumi:"cpuManufacturers"`
+	// The instance types to exclude from selection. Use this to prevent Amazon ECS from selecting specific instance types that may not be suitable for your workloads. Maximum of 400 instance types.
+	ExcludedInstanceTypes pulumi.StringArrayInput `pulumi:"excludedInstanceTypes"`
+	// The instance generations to include. You can specify `current` to use the latest generation instances, or `previous` to include previous generation instances for cost optimization. Valid values are `current`, `previous`.
+	InstanceGenerations pulumi.StringArrayInput `pulumi:"instanceGenerations"`
+	// Indicates whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage. Valid values are `included`, `excluded`, `required`.
+	LocalStorage pulumi.StringPtrInput `pulumi:"localStorage"`
+	// The local storage types to include. You can specify `hdd` for hard disk drives, `ssd` for solid state drives, or both. Valid values are `hdd`, `ssd`.
+	LocalStorageTypes pulumi.StringArrayInput `pulumi:"localStorageTypes"`
+	// The maximum price for Spot instances as a percentage of the optimal On-Demand price. This provides more precise cost control for Spot instance selection.
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice pulumi.IntPtrInput `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
+	// The minimum and maximum amount of memory per vCPU in gibibytes (GiB). This helps ensure that instance types have the appropriate memory-to-CPU ratio for your workloads.
+	MemoryGibPerVcpu CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrInput `pulumi:"memoryGibPerVcpu"`
+	// The minimum and maximum amount of memory in mebibytes (MiB) for the instance types. Amazon ECS selects instance types that have memory within this range.
+	MemoryMib CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibInput `pulumi:"memoryMib"`
+	// The minimum and maximum network bandwidth in gigabits per second (Gbps). This is crucial for network-intensive workloads that require high throughput.
+	NetworkBandwidthGbps CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrInput `pulumi:"networkBandwidthGbps"`
+	// The minimum and maximum number of network interfaces for the instance types. This is useful for workloads that require multiple network interfaces.
+	NetworkInterfaceCount CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrInput `pulumi:"networkInterfaceCount"`
+	// The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon ECS selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	// Indicates whether the instance types must support hibernation. When set to `true`, only instance types that support hibernation are selected.
+	RequireHibernateSupport pulumi.BoolPtrInput `pulumi:"requireHibernateSupport"`
+	// The maximum price for Spot instances as a percentage over the lowest priced On-Demand instance. This helps control Spot instance costs while maintaining access to capacity.
+	SpotMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	// The minimum and maximum total local storage in gigabytes (GB) for instance types with local storage.
+	TotalLocalStorageGb CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrInput `pulumi:"totalLocalStorageGb"`
+	// The minimum and maximum number of vCPUs for the instance types. Amazon ECS selects instance types that have vCPU counts within this range.
+	VcpuCount CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountInput `pulumi:"vcpuCount"`
+}
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements)(nil)).Elem()
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput)
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput).ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrInput is an input type that accepts CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsArgs, CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtr and CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrInput` via:
+//
+//	        CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput
+}
+
+type capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrType CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsArgs
+
+func CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtr(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsArgs) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrInput {
+	return (*capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrType)(v)
+}
+
+func (*capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements)(nil)).Elem()
+}
+
+func (i *capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrType) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrType) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput {
+	return o.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements {
+		return &v
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput)
+}
+
+// The minimum and maximum number of accelerators for the instance types. This is used when you need instances with specific numbers of GPUs or other accelerators.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) AcceleratorCount() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount {
+		return v.AcceleratorCount
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput)
+}
+
+// The accelerator manufacturers to include. You can specify `nvidia`, `amd`, `amazon-web-services`, `xilinx`, or `habana` depending on your accelerator requirements. Valid values are `amazon-web-services`, `amd`, `nvidia`, `xilinx`, `habana`.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) AcceleratorManufacturers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
+		return v.AcceleratorManufacturers
+	}).(pulumi.StringArrayOutput)
+}
+
+// The specific accelerator names to include. For example, you can specify `a100`, `v100`, `k80`, or other specific accelerator models. Valid values are `a100`, `inferentia`, `k520`, `k80`, `m60`, `radeon-pro-v520`, `t4`, `vu9p`, `v100`, `a10g`, `h100`, `t4g`.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) AcceleratorNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
+		return v.AcceleratorNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// The minimum and maximum total accelerator memory in mebibytes (MiB). This is important for GPU workloads that require specific amounts of video memory.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) AcceleratorTotalMemoryMib() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib {
+		return v.AcceleratorTotalMemoryMib
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput)
+}
+
+// The accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) AcceleratorTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
+		return v.AcceleratorTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified. Maximum of 400 instance types. You can specify instance type patterns using wildcards (e.g., `m5.*`).
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
+		return v.AllowedInstanceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Indicates whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances. Valid values are `included`, `excluded`, `required`.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) BareMetal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *string {
+		return v.BareMetal
+	}).(pulumi.StringPtrOutput)
+}
+
+// The minimum and maximum baseline Amazon EBS bandwidth in megabits per second (Mbps). This is important for workloads with high storage I/O requirements.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) BaselineEbsBandwidthMbps() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps {
+		return v.BaselineEbsBandwidthMbps
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput)
+}
+
+// Indicates whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances. Valid values are `included`, `excluded`, `required`.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) BurstablePerformance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *string {
+		return v.BurstablePerformance
+	}).(pulumi.StringPtrOutput)
+}
+
+// The CPU manufacturers to include or exclude. You can specify `intel`, `amd`, or `amazon-web-services` to control which CPU types are used for your workloads. Valid values are `intel`, `amd`, `amazon-web-services`.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) CpuManufacturers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
+		return v.CpuManufacturers
+	}).(pulumi.StringArrayOutput)
+}
+
+// The instance types to exclude from selection. Use this to prevent Amazon ECS from selecting specific instance types that may not be suitable for your workloads. Maximum of 400 instance types.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
+		return v.ExcludedInstanceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The instance generations to include. You can specify `current` to use the latest generation instances, or `previous` to include previous generation instances for cost optimization. Valid values are `current`, `previous`.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) InstanceGenerations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
+		return v.InstanceGenerations
+	}).(pulumi.StringArrayOutput)
+}
+
+// Indicates whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage. Valid values are `included`, `excluded`, `required`.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) LocalStorage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *string {
+		return v.LocalStorage
+	}).(pulumi.StringPtrOutput)
+}
+
+// The local storage types to include. You can specify `hdd` for hard disk drives, `ssd` for solid state drives, or both. Valid values are `hdd`, `ssd`.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) LocalStorageTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
+		return v.LocalStorageTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The maximum price for Spot instances as a percentage of the optimal On-Demand price. This provides more precise cost control for Spot instance selection.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *int {
+		return v.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum and maximum amount of memory per vCPU in gibibytes (GiB). This helps ensure that instance types have the appropriate memory-to-CPU ratio for your workloads.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) MemoryGibPerVcpu() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpu {
+		return v.MemoryGibPerVcpu
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput)
+}
+
+// The minimum and maximum amount of memory in mebibytes (MiB) for the instance types. Amazon ECS selects instance types that have memory within this range.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) MemoryMib() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMib {
+		return v.MemoryMib
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutput)
+}
+
+// The minimum and maximum network bandwidth in gigabits per second (Gbps). This is crucial for network-intensive workloads that require high throughput.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) NetworkBandwidthGbps() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbps {
+		return v.NetworkBandwidthGbps
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput)
+}
+
+// The minimum and maximum number of network interfaces for the instance types. This is useful for workloads that require multiple network interfaces.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) NetworkInterfaceCount() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCount {
+		return v.NetworkInterfaceCount
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput)
+}
+
+// The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon ECS selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *int {
+		return v.OnDemandMaxPricePercentageOverLowestPrice
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether the instance types must support hibernation. When set to `true`, only instance types that support hibernation are selected.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) RequireHibernateSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *bool {
+		return v.RequireHibernateSupport
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The maximum price for Spot instances as a percentage over the lowest priced On-Demand instance. This helps control Spot instance costs while maintaining access to capacity.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *int {
+		return v.SpotMaxPricePercentageOverLowestPrice
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum and maximum total local storage in gigabytes (GB) for instance types with local storage.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) TotalLocalStorageGb() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGb {
+		return v.TotalLocalStorageGb
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput)
+}
+
+// The minimum and maximum number of vCPUs for the instance types. Amazon ECS selects instance types that have vCPU counts within this range.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) VcpuCount() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCount {
+		return v.VcpuCount
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) Elem() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements
+		return ret
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput)
+}
+
+// The minimum and maximum number of accelerators for the instance types. This is used when you need instances with specific numbers of GPUs or other accelerators.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) AcceleratorCount() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorCount
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput)
+}
+
+// The accelerator manufacturers to include. You can specify `nvidia`, `amd`, `amazon-web-services`, `xilinx`, or `habana` depending on your accelerator requirements. Valid values are `amazon-web-services`, `amd`, `nvidia`, `xilinx`, `habana`.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) AcceleratorManufacturers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorManufacturers
+	}).(pulumi.StringArrayOutput)
+}
+
+// The specific accelerator names to include. For example, you can specify `a100`, `v100`, `k80`, or other specific accelerator models. Valid values are `a100`, `inferentia`, `k520`, `k80`, `m60`, `radeon-pro-v520`, `t4`, `vu9p`, `v100`, `a10g`, `h100`, `t4g`.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) AcceleratorNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// The minimum and maximum total accelerator memory in mebibytes (MiB). This is important for GPU workloads that require specific amounts of video memory.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) AcceleratorTotalMemoryMib() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorTotalMemoryMib
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput)
+}
+
+// The accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) AcceleratorTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified. Maximum of 400 instance types. You can specify instance type patterns using wildcards (e.g., `m5.*`).
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedInstanceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Indicates whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances. Valid values are `included`, `excluded`, `required`.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) BareMetal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BareMetal
+	}).(pulumi.StringPtrOutput)
+}
+
+// The minimum and maximum baseline Amazon EBS bandwidth in megabits per second (Mbps). This is important for workloads with high storage I/O requirements.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) BaselineEbsBandwidthMbps() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps {
+		if v == nil {
+			return nil
+		}
+		return v.BaselineEbsBandwidthMbps
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput)
+}
+
+// Indicates whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances. Valid values are `included`, `excluded`, `required`.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) BurstablePerformance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BurstablePerformance
+	}).(pulumi.StringPtrOutput)
+}
+
+// The CPU manufacturers to include or exclude. You can specify `intel`, `amd`, or `amazon-web-services` to control which CPU types are used for your workloads. Valid values are `intel`, `amd`, `amazon-web-services`.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) CpuManufacturers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CpuManufacturers
+	}).(pulumi.StringArrayOutput)
+}
+
+// The instance types to exclude from selection. Use this to prevent Amazon ECS from selecting specific instance types that may not be suitable for your workloads. Maximum of 400 instance types.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedInstanceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The instance generations to include. You can specify `current` to use the latest generation instances, or `previous` to include previous generation instances for cost optimization. Valid values are `current`, `previous`.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) InstanceGenerations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceGenerations
+	}).(pulumi.StringArrayOutput)
+}
+
+// Indicates whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage. Valid values are `included`, `excluded`, `required`.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) LocalStorage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalStorage
+	}).(pulumi.StringPtrOutput)
+}
+
+// The local storage types to include. You can specify `hdd` for hard disk drives, `ssd` for solid state drives, or both. Valid values are `hdd`, `ssd`.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) LocalStorageTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalStorageTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The maximum price for Spot instances as a percentage of the optimal On-Demand price. This provides more precise cost control for Spot instance selection.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum and maximum amount of memory per vCPU in gibibytes (GiB). This helps ensure that instance types have the appropriate memory-to-CPU ratio for your workloads.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) MemoryGibPerVcpu() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpu {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryGibPerVcpu
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput)
+}
+
+// The minimum and maximum amount of memory in mebibytes (MiB) for the instance types. Amazon ECS selects instance types that have memory within this range.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) MemoryMib() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMib {
+		if v == nil {
+			return nil
+		}
+		return &v.MemoryMib
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutput)
+}
+
+// The minimum and maximum network bandwidth in gigabits per second (Gbps). This is crucial for network-intensive workloads that require high throughput.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) NetworkBandwidthGbps() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbps {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkBandwidthGbps
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput)
+}
+
+// The minimum and maximum number of network interfaces for the instance types. This is useful for workloads that require multiple network interfaces.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) NetworkInterfaceCount() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCount {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkInterfaceCount
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput)
+}
+
+// The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon ECS selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *int {
+		if v == nil {
+			return nil
+		}
+		return v.OnDemandMaxPricePercentageOverLowestPrice
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether the instance types must support hibernation. When set to `true`, only instance types that support hibernation are selected.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) RequireHibernateSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireHibernateSupport
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The maximum price for Spot instances as a percentage over the lowest priced On-Demand instance. This helps control Spot instance costs while maintaining access to capacity.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SpotMaxPricePercentageOverLowestPrice
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum and maximum total local storage in gigabytes (GB) for instance types with local storage.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) TotalLocalStorageGb() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGb {
+		if v == nil {
+			return nil
+		}
+		return v.TotalLocalStorageGb
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput)
+}
+
+// The minimum and maximum number of vCPUs for the instance types. Amazon ECS selects instance types that have vCPU counts within this range.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) VcpuCount() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCount {
+		if v == nil {
+			return nil
+		}
+		return &v.VcpuCount
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount struct {
+	Max *int `pulumi:"max"`
+	Min *int `pulumi:"min"`
+}
+
+// CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountInput is an input type that accepts CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountArgs and CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountInput` via:
+//
+//	CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountArgs{...}
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountOutput
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountOutput
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountArgs struct {
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount)(nil)).Elem()
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountOutput)
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountOutput).ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrInput is an input type that accepts CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountArgs, CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtr and CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrInput` via:
+//
+//	        CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput
+}
+
+type capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrType CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountArgs
+
+func CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtr(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountArgs) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrInput {
+	return (*capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrType)(v)
+}
+
+func (*capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount)(nil)).Elem()
+}
+
+func (i *capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrType) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrType) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput {
+	return o.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount {
+		return &v
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount) *int {
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount) *int {
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput) Elem() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount
+		return ret
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib struct {
+	Max *int `pulumi:"max"`
+	Min *int `pulumi:"min"`
+}
+
+// CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibInput is an input type that accepts CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs and CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibInput` via:
+//
+//	CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs{...}
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs struct {
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib)(nil)).Elem()
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput)
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput).ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrInput is an input type that accepts CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs, CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtr and CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrInput` via:
+//
+//	        CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput
+}
+
+type capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrType CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs
+
+func CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtr(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrInput {
+	return (*capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrType)(v)
+}
+
+func (*capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib)(nil)).Elem()
+}
+
+func (i *capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrType) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrType) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return o.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib {
+		return &v
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib) *int {
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib) *int {
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) Elem() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib
+		return ret
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps struct {
+	Max *int `pulumi:"max"`
+	Min *int `pulumi:"min"`
+}
+
+// CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsInput is an input type that accepts CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs and CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsInput` via:
+//
+//	CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs{...}
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs struct {
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps)(nil)).Elem()
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput)
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput).ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput is an input type that accepts CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs, CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtr and CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput` via:
+//
+//	        CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput
+}
+
+type capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrType CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs
+
+func CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtr(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput {
+	return (*capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrType)(v)
+}
+
+func (*capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps)(nil)).Elem()
+}
+
+func (i *capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrType) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrType) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return o.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps {
+		return &v
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps) *int {
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps) *int {
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) Elem() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps
+		return ret
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpu struct {
+	Max *float64 `pulumi:"max"`
+	Min *float64 `pulumi:"min"`
+}
+
+// CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuInput is an input type that accepts CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs and CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuInput` via:
+//
+//	CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs{...}
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs struct {
+	Max pulumi.Float64PtrInput `pulumi:"max"`
+	Min pulumi.Float64PtrInput `pulumi:"min"`
+}
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpu)(nil)).Elem()
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput)
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput).ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrInput is an input type that accepts CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs, CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtr and CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrInput` via:
+//
+//	        CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput
+}
+
+type capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrType CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs
+
+func CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtr(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrInput {
+	return (*capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrType)(v)
+}
+
+func (*capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpu)(nil)).Elem()
+}
+
+func (i *capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrType) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrType) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpu)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return o.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpu) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpu {
+		return &v
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpu) *float64 {
+		return v.Max
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpu) *float64 {
+		return v.Min
+	}).(pulumi.Float64PtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpu)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput) Elem() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpu) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpu {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpu
+		return ret
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpu) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpu) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.Float64PtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMib struct {
+	Max *int `pulumi:"max"`
+	Min int  `pulumi:"min"`
+}
+
+// CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibInput is an input type that accepts CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibArgs and CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibInput` via:
+//
+//	CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibArgs{...}
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutput
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutput
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibArgs struct {
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	Min pulumi.IntInput    `pulumi:"min"`
+}
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMib)(nil)).Elem()
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutput)
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutput).ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrInput is an input type that accepts CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibArgs, CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtr and CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrInput` via:
+//
+//	        CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutput
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutput
+}
+
+type capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrType CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibArgs
+
+func CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtr(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibArgs) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrInput {
+	return (*capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrType)(v)
+}
+
+func (*capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMib)(nil)).Elem()
+}
+
+func (i *capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrType) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrType) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMib)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutput {
+	return o.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMib) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMib {
+		return &v
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMib) *int {
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutput) Min() pulumi.IntOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMib) int {
+		return v.Min
+	}).(pulumi.IntOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMib)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutput) Elem() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMib) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMib {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMib
+		return ret
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMib) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMib) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbps struct {
+	Max *float64 `pulumi:"max"`
+	Min *float64 `pulumi:"min"`
+}
+
+// CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsInput is an input type that accepts CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs and CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsInput` via:
+//
+//	CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs{...}
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs struct {
+	Max pulumi.Float64PtrInput `pulumi:"max"`
+	Min pulumi.Float64PtrInput `pulumi:"min"`
+}
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbps)(nil)).Elem()
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput)
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput).ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrInput is an input type that accepts CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs, CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtr and CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrInput` via:
+//
+//	        CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput
+}
+
+type capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrType CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs
+
+func CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtr(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrInput {
+	return (*capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrType)(v)
+}
+
+func (*capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbps)(nil)).Elem()
+}
+
+func (i *capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrType) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrType) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbps)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return o.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbps) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbps {
+		return &v
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbps) *float64 {
+		return v.Max
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbps) *float64 {
+		return v.Min
+	}).(pulumi.Float64PtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbps)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput) Elem() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbps) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbps {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbps
+		return ret
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbps) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbps) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.Float64PtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCount struct {
+	Max *int `pulumi:"max"`
+	Min *int `pulumi:"min"`
+}
+
+// CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountInput is an input type that accepts CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs and CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountInput` via:
+//
+//	CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs{...}
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs struct {
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCount)(nil)).Elem()
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput)
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput).ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrInput is an input type that accepts CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs, CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtr and CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrInput` via:
+//
+//	        CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput
+}
+
+type capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrType CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs
+
+func CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtr(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrInput {
+	return (*capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrType)(v)
+}
+
+func (*capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCount)(nil)).Elem()
+}
+
+func (i *capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrType) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrType) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCount)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return o.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCount) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCount {
+		return &v
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCount) *int {
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCount) *int {
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCount)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput) Elem() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCount) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCount {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCount
+		return ret
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGb struct {
+	Max *float64 `pulumi:"max"`
+	Min *float64 `pulumi:"min"`
+}
+
+// CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbInput is an input type that accepts CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs and CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbInput` via:
+//
+//	CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs{...}
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs struct {
+	Max pulumi.Float64PtrInput `pulumi:"max"`
+	Min pulumi.Float64PtrInput `pulumi:"min"`
+}
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGb)(nil)).Elem()
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput)
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput).ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrInput is an input type that accepts CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs, CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtr and CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrInput` via:
+//
+//	        CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput
+}
+
+type capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrType CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs
+
+func CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtr(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrInput {
+	return (*capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrType)(v)
+}
+
+func (*capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGb)(nil)).Elem()
+}
+
+func (i *capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrType) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrType) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGb)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return o.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGb) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGb {
+		return &v
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGb) *float64 {
+		return v.Max
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGb) *float64 {
+		return v.Min
+	}).(pulumi.Float64PtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGb)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput) Elem() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGb) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGb {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGb
+		return ret
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGb) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGb) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.Float64PtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCount struct {
+	Max *int `pulumi:"max"`
+	Min int  `pulumi:"min"`
+}
+
+// CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountInput is an input type that accepts CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountArgs and CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountInput` via:
+//
+//	CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountArgs{...}
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutput
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutput
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountArgs struct {
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	Min pulumi.IntInput    `pulumi:"min"`
+}
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCount)(nil)).Elem()
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutput)
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutput).ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrInput is an input type that accepts CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountArgs, CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtr and CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrInput` via:
+//
+//	        CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutput
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutput
+}
+
+type capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrType CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountArgs
+
+func CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtr(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountArgs) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrInput {
+	return (*capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrType)(v)
+}
+
+func (*capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCount)(nil)).Elem()
+}
+
+func (i *capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrType) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrType) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCount)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutput {
+	return o.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCount) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCount {
+		return &v
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCount) *int {
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutput) Min() pulumi.IntOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCount) int {
+		return v.Min
+	}).(pulumi.IntOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCount)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutput) Elem() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCount) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCount {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCount
+		return ret
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCount) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration struct {
+	// The list of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
+	SecurityGroups []string `pulumi:"securityGroups"`
+	// The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
+	Subnets []string `pulumi:"subnets"`
+}
+
+// CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationInput is an input type that accepts CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs and CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationInput` via:
+//
+//	CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs{...}
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutput
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutput
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs struct {
+	// The list of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	// The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+}
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration)(nil)).Elem()
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutput)
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutput).ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrInput is an input type that accepts CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs, CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtr and CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrInput` via:
+//
+//	        CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput
+}
+
+type capacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrType CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs
+
+func CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtr(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrInput {
+	return (*capacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrType)(v)
+}
+
+func (*capacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration)(nil)).Elem()
+}
+
+func (i *capacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrType) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrType) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput {
+	return o.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration {
+		return &v
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput)
+}
+
+// The list of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration) []string {
+		return v.SecurityGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+// The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration) []string {
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput) Elem() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration
+		return ret
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutput)
+}
+
+// The list of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+// The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration struct {
+	// The size of the tasks volume in GiB. Must be at least 1.
+	StorageSizeGib int `pulumi:"storageSizeGib"`
+}
+
+// CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationInput is an input type that accepts CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationArgs and CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationInput` via:
+//
+//	CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationArgs{...}
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationOutput
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationOutput
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationArgs struct {
+	// The size of the tasks volume in GiB. Must be at least 1.
+	StorageSizeGib pulumi.IntInput `pulumi:"storageSizeGib"`
+}
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration)(nil)).Elem()
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationOutput)
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationOutput).ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrInput is an input type that accepts CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationArgs, CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtr and CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrInput` via:
+//
+//	        CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput
+}
+
+type capacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrType CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationArgs
+
+func CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtr(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationArgs) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrInput {
+	return (*capacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrType)(v)
+}
+
+func (*capacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration)(nil)).Elem()
+}
+
+func (i *capacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrType) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrType) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput {
+	return o.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration {
+		return &v
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput)
+}
+
+// The size of the tasks volume in GiB. Must be at least 1.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationOutput) StorageSizeGib() pulumi.IntOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration) int {
+		return v.StorageSizeGib
+	}).(pulumi.IntOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput) Elem() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration
+		return ret
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationOutput)
+}
+
+// The size of the tasks volume in GiB. Must be at least 1.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput) StorageSizeGib() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageSizeGib
+	}).(pulumi.IntPtrOutput)
+}
+
 type ClusterCapacityProvidersDefaultCapacityProviderStrategy struct {
 	// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
 	Base *int `pulumi:"base"`
@@ -10814,6 +13501,34 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderPtrInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderManagedScalingInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderManagedScalingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderManagedScalingPtrInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderManagedScalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacityProvidersDefaultCapacityProviderStrategyInput)(nil)).Elem(), ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayInput)(nil)).Elem(), ClusterCapacityProvidersDefaultCapacityProviderStrategyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterConfigurationInput)(nil)).Elem(), ClusterConfigurationArgs{})
@@ -10960,6 +13675,34 @@ func init() {
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderManagedScalingOutput{})
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ClusterCapacityProvidersDefaultCapacityProviderStrategyOutput{})
 	pulumi.RegisterOutputType(ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutput{})
 	pulumi.RegisterOutputType(ClusterConfigurationOutput{})

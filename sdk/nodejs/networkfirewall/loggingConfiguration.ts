@@ -110,6 +110,10 @@ export class LoggingConfiguration extends pulumi.CustomResource {
     }
 
     /**
+     * Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
+     */
+    declare public readonly enableMonitoringDashboard: pulumi.Output<boolean>;
+    /**
      * The Amazon Resource Name (ARN) of the Network Firewall firewall.
      */
     declare public readonly firewallArn: pulumi.Output<string>;
@@ -135,6 +139,7 @@ export class LoggingConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LoggingConfigurationState | undefined;
+            resourceInputs["enableMonitoringDashboard"] = state?.enableMonitoringDashboard;
             resourceInputs["firewallArn"] = state?.firewallArn;
             resourceInputs["loggingConfiguration"] = state?.loggingConfiguration;
             resourceInputs["region"] = state?.region;
@@ -146,6 +151,7 @@ export class LoggingConfiguration extends pulumi.CustomResource {
             if (args?.loggingConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loggingConfiguration'");
             }
+            resourceInputs["enableMonitoringDashboard"] = args?.enableMonitoringDashboard;
             resourceInputs["firewallArn"] = args?.firewallArn;
             resourceInputs["loggingConfiguration"] = args?.loggingConfiguration;
             resourceInputs["region"] = args?.region;
@@ -159,6 +165,10 @@ export class LoggingConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LoggingConfiguration resources.
  */
 export interface LoggingConfigurationState {
+    /**
+     * Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
+     */
+    enableMonitoringDashboard?: pulumi.Input<boolean>;
     /**
      * The Amazon Resource Name (ARN) of the Network Firewall firewall.
      */
@@ -177,6 +187,10 @@ export interface LoggingConfigurationState {
  * The set of arguments for constructing a LoggingConfiguration resource.
  */
 export interface LoggingConfigurationArgs {
+    /**
+     * Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
+     */
+    enableMonitoringDashboard?: pulumi.Input<boolean>;
     /**
      * The Amazon Resource Name (ARN) of the Network Firewall firewall.
      */

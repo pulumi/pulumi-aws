@@ -4,6 +4,8 @@
 package com.pulumi.aws.appconfig;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.appconfig.inputs.GetApplicationArgs;
+import com.pulumi.aws.appconfig.inputs.GetApplicationPlainArgs;
 import com.pulumi.aws.appconfig.inputs.GetConfigurationProfileArgs;
 import com.pulumi.aws.appconfig.inputs.GetConfigurationProfilePlainArgs;
 import com.pulumi.aws.appconfig.inputs.GetConfigurationProfilesArgs;
@@ -12,6 +14,7 @@ import com.pulumi.aws.appconfig.inputs.GetEnvironmentArgs;
 import com.pulumi.aws.appconfig.inputs.GetEnvironmentPlainArgs;
 import com.pulumi.aws.appconfig.inputs.GetEnvironmentsArgs;
 import com.pulumi.aws.appconfig.inputs.GetEnvironmentsPlainArgs;
+import com.pulumi.aws.appconfig.outputs.GetApplicationResult;
 import com.pulumi.aws.appconfig.outputs.GetConfigurationProfileResult;
 import com.pulumi.aws.appconfig.outputs.GetConfigurationProfilesResult;
 import com.pulumi.aws.appconfig.outputs.GetEnvironmentResult;
@@ -24,6 +27,300 @@ import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class AppconfigFunctions {
+    /**
+     * Provides details about an AWS AppConfig Application.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.appconfig.AppconfigFunctions;
+     * import com.pulumi.aws.appconfig.inputs.GetApplicationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppconfigFunctions.getApplication(GetApplicationArgs.builder()
+     *             .name("my-appconfig-application")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetApplicationResult> getApplication() {
+        return getApplication(GetApplicationArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an AWS AppConfig Application.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.appconfig.AppconfigFunctions;
+     * import com.pulumi.aws.appconfig.inputs.GetApplicationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppconfigFunctions.getApplication(GetApplicationArgs.builder()
+     *             .name("my-appconfig-application")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetApplicationResult> getApplicationPlain() {
+        return getApplicationPlain(GetApplicationPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an AWS AppConfig Application.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.appconfig.AppconfigFunctions;
+     * import com.pulumi.aws.appconfig.inputs.GetApplicationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppconfigFunctions.getApplication(GetApplicationArgs.builder()
+     *             .name("my-appconfig-application")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetApplicationResult> getApplication(GetApplicationArgs args) {
+        return getApplication(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an AWS AppConfig Application.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.appconfig.AppconfigFunctions;
+     * import com.pulumi.aws.appconfig.inputs.GetApplicationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppconfigFunctions.getApplication(GetApplicationArgs.builder()
+     *             .name("my-appconfig-application")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetApplicationResult> getApplicationPlain(GetApplicationPlainArgs args) {
+        return getApplicationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an AWS AppConfig Application.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.appconfig.AppconfigFunctions;
+     * import com.pulumi.aws.appconfig.inputs.GetApplicationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppconfigFunctions.getApplication(GetApplicationArgs.builder()
+     *             .name("my-appconfig-application")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetApplicationResult> getApplication(GetApplicationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:appconfig/getApplication:getApplication", TypeShape.of(GetApplicationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about an AWS AppConfig Application.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.appconfig.AppconfigFunctions;
+     * import com.pulumi.aws.appconfig.inputs.GetApplicationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppconfigFunctions.getApplication(GetApplicationArgs.builder()
+     *             .name("my-appconfig-application")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetApplicationResult> getApplication(GetApplicationArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:appconfig/getApplication:getApplication", TypeShape.of(GetApplicationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about an AWS AppConfig Application.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.appconfig.AppconfigFunctions;
+     * import com.pulumi.aws.appconfig.inputs.GetApplicationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppconfigFunctions.getApplication(GetApplicationArgs.builder()
+     *             .name("my-appconfig-application")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetApplicationResult> getApplicationPlain(GetApplicationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:appconfig/getApplication:getApplication", TypeShape.of(GetApplicationResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Provides access to an AppConfig Configuration Profile.
      * 

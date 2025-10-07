@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataLakeSettings{}
 	case "aws:lakeformation/lfTag:LfTag":
 		r = &LfTag{}
+	case "aws:lakeformation/lfTagExpression:LfTagExpression":
+		r = &LfTagExpression{}
 	case "aws:lakeformation/optIn:OptIn":
 		r = &OptIn{}
 	case "aws:lakeformation/permissions:Permissions":
@@ -63,6 +65,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"lakeformation/lfTag",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"lakeformation/lfTagExpression",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -12,7 +12,11 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Associating an ECS Capacity Provider to an Auto Scaling Group will automatically add the `AmazonECSManaged` tag to the Auto Scaling Group. This tag should be included in the `aws.autoscaling.Group` resource configuration to prevent the provider from removing it in subsequent executions as well as ensuring the `AmazonECSManaged` tag is propagated to all EC2 Instances in the Auto Scaling Group if `minSize` is above 0 on creation. Any EC2 Instances in the Auto Scaling Group without this tag must be manually be updated, otherwise they may cause unexpected scaling behavior and metrics.
  *
+ * > **NOTE:** You must specify exactly one of `autoScalingGroupProvider` or `managedInstancesProvider`. When using `managedInstancesProvider`, the `cluster` parameter is required. When using `autoScalingGroupProvider`, the `cluster` parameter must not be set.
+ *
  * ## Example Usage
+ *
+ * ### Auto Scaling Group Provider
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -33,6 +37,48 @@ import * as utilities from "../utilities";
  *             minimumScalingStepSize: 1,
  *             status: "ENABLED",
  *             targetCapacity: 10,
+ *         },
+ *     },
+ * });
+ * ```
+ *
+ * ### Managed Instances Provider
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ecs.CapacityProvider("example", {
+ *     name: "example",
+ *     cluster: "my-cluster",
+ *     managedInstancesProvider: {
+ *         infrastructureRoleArn: ecsInfrastructure.arn,
+ *         propagateTags: "TASK_DEFINITION",
+ *         instanceLaunchTemplate: {
+ *             ec2InstanceProfileArn: ecsInstance.arn,
+ *             monitoring: "ENABLED",
+ *             networkConfiguration: {
+ *                 subnets: [exampleAwsSubnet.id],
+ *                 securityGroups: [exampleAwsSecurityGroup.id],
+ *             },
+ *             storageConfiguration: {
+ *                 storageSizeGib: 30,
+ *             },
+ *             instanceRequirements: {
+ *                 memoryMib: {
+ *                     min: 1024,
+ *                     max: 8192,
+ *                 },
+ *                 vcpuCount: {
+ *                     min: 1,
+ *                     max: 4,
+ *                 },
+ *                 instanceGenerations: ["current"],
+ *                 cpuManufacturers: [
+ *                     "intel",
+ *                     "amd",
+ *                 ],
+ *             },
  *         },
  *     },
  * });
@@ -85,9 +131,17 @@ export class CapacityProvider extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Configuration block for the provider for the ECS auto scaling group. Detailed below.
+     * Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
      */
-    declare public readonly autoScalingGroupProvider: pulumi.Output<outputs.ecs.CapacityProviderAutoScalingGroupProvider>;
+    declare public readonly autoScalingGroupProvider: pulumi.Output<outputs.ecs.CapacityProviderAutoScalingGroupProvider | undefined>;
+    /**
+     * Name of the ECS cluster. Required when using `managedInstancesProvider`. Must not be set when using `autoScalingGroupProvider`.
+     */
+    declare public readonly cluster: pulumi.Output<string | undefined>;
+    /**
+     * Configuration block for the managed instances provider. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
+     */
+    declare public readonly managedInstancesProvider: pulumi.Output<outputs.ecs.CapacityProviderManagedInstancesProvider | undefined>;
     /**
      * Name of the capacity provider.
      */
@@ -112,7 +166,7 @@ export class CapacityProvider extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CapacityProviderArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: CapacityProviderArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CapacityProviderArgs | CapacityProviderState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -120,16 +174,17 @@ export class CapacityProvider extends pulumi.CustomResource {
             const state = argsOrState as CapacityProviderState | undefined;
             resourceInputs["arn"] = state?.arn;
             resourceInputs["autoScalingGroupProvider"] = state?.autoScalingGroupProvider;
+            resourceInputs["cluster"] = state?.cluster;
+            resourceInputs["managedInstancesProvider"] = state?.managedInstancesProvider;
             resourceInputs["name"] = state?.name;
             resourceInputs["region"] = state?.region;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as CapacityProviderArgs | undefined;
-            if (args?.autoScalingGroupProvider === undefined && !opts.urn) {
-                throw new Error("Missing required property 'autoScalingGroupProvider'");
-            }
             resourceInputs["autoScalingGroupProvider"] = args?.autoScalingGroupProvider;
+            resourceInputs["cluster"] = args?.cluster;
+            resourceInputs["managedInstancesProvider"] = args?.managedInstancesProvider;
             resourceInputs["name"] = args?.name;
             resourceInputs["region"] = args?.region;
             resourceInputs["tags"] = args?.tags;
@@ -150,9 +205,17 @@ export interface CapacityProviderState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * Configuration block for the provider for the ECS auto scaling group. Detailed below.
+     * Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
      */
     autoScalingGroupProvider?: pulumi.Input<inputs.ecs.CapacityProviderAutoScalingGroupProvider>;
+    /**
+     * Name of the ECS cluster. Required when using `managedInstancesProvider`. Must not be set when using `autoScalingGroupProvider`.
+     */
+    cluster?: pulumi.Input<string>;
+    /**
+     * Configuration block for the managed instances provider. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
+     */
+    managedInstancesProvider?: pulumi.Input<inputs.ecs.CapacityProviderManagedInstancesProvider>;
     /**
      * Name of the capacity provider.
      */
@@ -176,9 +239,17 @@ export interface CapacityProviderState {
  */
 export interface CapacityProviderArgs {
     /**
-     * Configuration block for the provider for the ECS auto scaling group. Detailed below.
+     * Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
      */
-    autoScalingGroupProvider: pulumi.Input<inputs.ecs.CapacityProviderAutoScalingGroupProvider>;
+    autoScalingGroupProvider?: pulumi.Input<inputs.ecs.CapacityProviderAutoScalingGroupProvider>;
+    /**
+     * Name of the ECS cluster. Required when using `managedInstancesProvider`. Must not be set when using `autoScalingGroupProvider`.
+     */
+    cluster?: pulumi.Input<string>;
+    /**
+     * Configuration block for the managed instances provider. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
+     */
+    managedInstancesProvider?: pulumi.Input<inputs.ecs.CapacityProviderManagedInstancesProvider>;
     /**
      * Name of the capacity provider.
      */

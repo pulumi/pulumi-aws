@@ -116,16 +116,12 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     /**
      * The set of preferences for the various diagnostic collection options for the VM cluster.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="dataCollectionOptions")
     private @Nullable Output<CloudVmClusterDataCollectionOptionsArgs> dataCollectionOptions;
 
     /**
      * @return The set of preferences for the various diagnostic collection options for the VM cluster.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<Output<CloudVmClusterDataCollectionOptionsArgs>> dataCollectionOptions() {
@@ -135,12 +131,16 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     /**
      * The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="dataStorageSizeInTbs")
     private @Nullable Output<Double> dataStorageSizeInTbs;
 
     /**
      * @return The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<Double>> dataStorageSizeInTbs() {
@@ -237,6 +237,21 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
      */
     public Optional<Output<String>> giVersion() {
         return Optional.ofNullable(this.giVersion);
+    }
+
+    /**
+     * A complete software version of Oracle Grid Infrastructure (GI).
+     * 
+     */
+    @Import(name="giVersionComputed")
+    private @Nullable Output<String> giVersionComputed;
+
+    /**
+     * @return A complete software version of Oracle Grid Infrastructure (GI).
+     * 
+     */
+    public Optional<Output<String>> giVersionComputed() {
+        return Optional.ofNullable(this.giVersionComputed);
     }
 
     /**
@@ -713,6 +728,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         this.displayName = $.displayName;
         this.domain = $.domain;
         this.giVersion = $.giVersion;
+        this.giVersionComputed = $.giVersionComputed;
         this.hostnamePrefix = $.hostnamePrefix;
         this.hostnamePrefixComputed = $.hostnamePrefixComputed;
         this.iormConfigCaches = $.iormConfigCaches;
@@ -893,8 +909,6 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         /**
          * @param dataCollectionOptions The set of preferences for the various diagnostic collection options for the VM cluster.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -906,8 +920,6 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         /**
          * @param dataCollectionOptions The set of preferences for the various diagnostic collection options for the VM cluster.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -917,6 +929,8 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param dataStorageSizeInTbs The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -928,6 +942,8 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param dataStorageSizeInTbs The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -1072,6 +1088,27 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
          */
         public Builder giVersion(String giVersion) {
             return giVersion(Output.of(giVersion));
+        }
+
+        /**
+         * @param giVersionComputed A complete software version of Oracle Grid Infrastructure (GI).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder giVersionComputed(@Nullable Output<String> giVersionComputed) {
+            $.giVersionComputed = giVersionComputed;
+            return this;
+        }
+
+        /**
+         * @param giVersionComputed A complete software version of Oracle Grid Infrastructure (GI).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder giVersionComputed(String giVersionComputed) {
+            return giVersionComputed(Output.of(giVersionComputed));
         }
 
         /**

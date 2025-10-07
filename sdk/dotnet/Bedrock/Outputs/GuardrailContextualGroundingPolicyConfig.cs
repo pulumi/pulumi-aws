@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class GuardrailContextualGroundingPolicyConfig
     {
         /// <summary>
-        /// List of contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
+        /// One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
         /// </summary>
         public readonly ImmutableArray<Outputs.GuardrailContextualGroundingPolicyConfigFiltersConfig> FiltersConfigs;
 

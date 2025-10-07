@@ -41,10 +41,12 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * In Terraform v1.12.0 and later, the `import` block can be used with the `identity` attribute. For example:
+ *
  * Using `pulumi import`, import activities using the `arn`. For example:
  *
  * ```sh
- * $ pulumi import aws:sfn/activity:Activity foo arn:aws:states:eu-west-1:123456789098:activity:bar
+ * $ pulumi import aws:sfn/activity:Activity example arn:aws:states:eu-west-1:123456789098:activity:bar
  * ```
  */
 export class Activity extends pulumi.CustomResource {
@@ -76,7 +78,11 @@ export class Activity extends pulumi.CustomResource {
     }
 
     /**
-     * The date the activity was created.
+     * Amazon Resource Name (ARN) of the activity.
+     */
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
+     * Date the activity was created.
      */
     declare public /*out*/ readonly creationDate: pulumi.Output<string>;
     /**
@@ -113,6 +119,7 @@ export class Activity extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ActivityState | undefined;
+            resourceInputs["arn"] = state?.arn;
             resourceInputs["creationDate"] = state?.creationDate;
             resourceInputs["encryptionConfiguration"] = state?.encryptionConfiguration;
             resourceInputs["name"] = state?.name;
@@ -125,6 +132,7 @@ export class Activity extends pulumi.CustomResource {
             resourceInputs["name"] = args?.name;
             resourceInputs["region"] = args?.region;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -138,7 +146,11 @@ export class Activity extends pulumi.CustomResource {
  */
 export interface ActivityState {
     /**
-     * The date the activity was created.
+     * Amazon Resource Name (ARN) of the activity.
+     */
+    arn?: pulumi.Input<string>;
+    /**
+     * Date the activity was created.
      */
     creationDate?: pulumi.Input<string>;
     /**

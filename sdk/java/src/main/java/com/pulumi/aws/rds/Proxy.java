@@ -46,18 +46,18 @@ public class Proxy extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
+     * Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `default_auth_scheme` is `NONE` or unspecified. Described below.
      * 
      */
     @Export(name="auths", refs={List.class,ProxyAuth.class}, tree="[0,1]")
-    private Output<List<ProxyAuth>> auths;
+    private Output</* @Nullable */ List<ProxyAuth>> auths;
 
     /**
-     * @return Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
+     * @return Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `default_auth_scheme` is `NONE` or unspecified. Described below.
      * 
      */
-    public Output<List<ProxyAuth>> auths() {
-        return this.auths;
+    public Output<Optional<List<ProxyAuth>>> auths() {
+        return Codegen.optional(this.auths);
     }
     /**
      * Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
@@ -72,6 +72,20 @@ public class Proxy extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> debugLogging() {
         return Codegen.optional(this.debugLogging);
+    }
+    /**
+     * Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database. Valid values are `NONE` and `IAM_AUTH`. Defaults to `NONE`.
+     * 
+     */
+    @Export(name="defaultAuthScheme", refs={String.class}, tree="[0]")
+    private Output<String> defaultAuthScheme;
+
+    /**
+     * @return Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database. Valid values are `NONE` and `IAM_AUTH`. Defaults to `NONE`.
+     * 
+     */
+    public Output<String> defaultAuthScheme() {
+        return this.defaultAuthScheme;
     }
     /**
      * The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.

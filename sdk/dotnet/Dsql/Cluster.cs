@@ -55,15 +55,23 @@ namespace Pulumi.Aws.Dsql
 
         /// <summary>
         /// Whether deletion protection is enabled in this cluster.
+        /// Default value is `false`.
         /// </summary>
         [Output("deletionProtectionEnabled")]
-        public Output<bool?> DeletionProtectionEnabled { get; private set; } = null!;
+        public Output<bool> DeletionProtectionEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Encryption configuration details for the DSQL Cluster.
         /// </summary>
         [Output("encryptionDetails")]
         public Output<ImmutableArray<Outputs.ClusterEncryptionDetail>> EncryptionDetails { get; private set; } = null!;
+
+        /// <summary>
+        /// Destroys cluster even if `deletion_protection_enabled` is set to `true`.
+        /// Default value is `false`.
+        /// </summary>
+        [Output("forceDestroy")]
+        public Output<bool> ForceDestroy { get; private set; } = null!;
 
         /// <summary>
         /// Cluster Identifier.
@@ -158,9 +166,17 @@ namespace Pulumi.Aws.Dsql
     {
         /// <summary>
         /// Whether deletion protection is enabled in this cluster.
+        /// Default value is `false`.
         /// </summary>
         [Input("deletionProtectionEnabled")]
         public Input<bool>? DeletionProtectionEnabled { get; set; }
+
+        /// <summary>
+        /// Destroys cluster even if `deletion_protection_enabled` is set to `true`.
+        /// Default value is `false`.
+        /// </summary>
+        [Input("forceDestroy")]
+        public Input<bool>? ForceDestroy { get; set; }
 
         /// <summary>
         /// The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
@@ -211,6 +227,7 @@ namespace Pulumi.Aws.Dsql
 
         /// <summary>
         /// Whether deletion protection is enabled in this cluster.
+        /// Default value is `false`.
         /// </summary>
         [Input("deletionProtectionEnabled")]
         public Input<bool>? DeletionProtectionEnabled { get; set; }
@@ -226,6 +243,13 @@ namespace Pulumi.Aws.Dsql
             get => _encryptionDetails ?? (_encryptionDetails = new InputList<Inputs.ClusterEncryptionDetailGetArgs>());
             set => _encryptionDetails = value;
         }
+
+        /// <summary>
+        /// Destroys cluster even if `deletion_protection_enabled` is set to `true`.
+        /// Default value is `false`.
+        /// </summary>
+        [Input("forceDestroy")]
+        public Input<bool>? ForceDestroy { get; set; }
 
         /// <summary>
         /// Cluster Identifier.

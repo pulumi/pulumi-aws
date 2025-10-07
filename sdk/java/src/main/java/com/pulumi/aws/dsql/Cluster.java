@@ -86,17 +86,19 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     }
     /**
      * Whether deletion protection is enabled in this cluster.
+     * Default value is `false`.
      * 
      */
     @Export(name="deletionProtectionEnabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> deletionProtectionEnabled;
+    private Output<Boolean> deletionProtectionEnabled;
 
     /**
      * @return Whether deletion protection is enabled in this cluster.
+     * Default value is `false`.
      * 
      */
-    public Output<Optional<Boolean>> deletionProtectionEnabled() {
-        return Codegen.optional(this.deletionProtectionEnabled);
+    public Output<Boolean> deletionProtectionEnabled() {
+        return this.deletionProtectionEnabled;
     }
     /**
      * Encryption configuration details for the DSQL Cluster.
@@ -111,6 +113,22 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<List<ClusterEncryptionDetail>> encryptionDetails() {
         return this.encryptionDetails;
+    }
+    /**
+     * Destroys cluster even if `deletion_protection_enabled` is set to `true`.
+     * Default value is `false`.
+     * 
+     */
+    @Export(name="forceDestroy", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> forceDestroy;
+
+    /**
+     * @return Destroys cluster even if `deletion_protection_enabled` is set to `true`.
+     * Default value is `false`.
+     * 
+     */
+    public Output<Boolean> forceDestroy() {
+        return this.forceDestroy;
     }
     /**
      * Cluster Identifier.

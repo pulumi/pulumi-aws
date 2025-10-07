@@ -382,11 +382,23 @@ class PhoneNumber(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `id` - (String) ID of the connect phone number.
+
+        #### Optional
+
+        - `account_id` (String) AWS Account where this resource is managed.
+
+        - `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import Amazon Connect Phone Numbers using its `id`. For example:
 
-        ```sh
-        $ pulumi import aws:connect/phoneNumber:PhoneNumber example 12345678-abcd-1234-efgh-9876543210ab
-        ```
+        console
+
+        % pulumi import aws_connect_phone_number.example 12345678-abcd-1234-efgh-9876543210ab
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -453,11 +465,23 @@ class PhoneNumber(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `id` - (String) ID of the connect phone number.
+
+        #### Optional
+
+        - `account_id` (String) AWS Account where this resource is managed.
+
+        - `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import Amazon Connect Phone Numbers using its `id`. For example:
 
-        ```sh
-        $ pulumi import aws:connect/phoneNumber:PhoneNumber example 12345678-abcd-1234-efgh-9876543210ab
-        ```
+        console
+
+        % pulumi import aws_connect_phone_number.example 12345678-abcd-1234-efgh-9876543210ab
 
         :param str resource_name: The name of the resource.
         :param PhoneNumberArgs args: The arguments to use to populate this resource's properties.

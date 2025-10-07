@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.opensearch.DomainArgs;
 import com.pulumi.aws.opensearch.inputs.DomainState;
 import com.pulumi.aws.opensearch.outputs.DomainAdvancedSecurityOptions;
+import com.pulumi.aws.opensearch.outputs.DomainAimlOptions;
 import com.pulumi.aws.opensearch.outputs.DomainAutoTuneOptions;
 import com.pulumi.aws.opensearch.outputs.DomainClusterConfig;
 import com.pulumi.aws.opensearch.outputs.DomainCognitoOptions;
@@ -529,6 +530,12 @@ public class Domain extends com.pulumi.resources.CustomResource {
      */
     public Output<DomainAdvancedSecurityOptions> advancedSecurityOptions() {
         return this.advancedSecurityOptions;
+    }
+    @Export(name="aimlOptions", refs={DomainAimlOptions.class}, tree="[0]")
+    private Output<DomainAimlOptions> aimlOptions;
+
+    public Output<DomainAimlOptions> aimlOptions() {
+        return this.aimlOptions;
     }
     /**
      * ARN of the domain.

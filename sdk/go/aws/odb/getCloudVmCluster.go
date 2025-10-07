@@ -11,11 +11,37 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for Exadata Infrastructure resource in AWS for Oracle Database@AWS.
+// Data source for cloud vm cluster in AWS for Oracle Database@AWS.
 //
 // You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
 //
 // ## Example Usage
+//
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/odb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := odb.LookupCloudVmCluster(ctx, &odb.LookupCloudVmClusterArgs{
+//				Id: "example-id",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupCloudVmCluster(ctx *pulumi.Context, args *LookupCloudVmClusterArgs, opts ...pulumi.InvokeOption) (*LookupCloudVmClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCloudVmClusterResult
@@ -28,7 +54,7 @@ func LookupCloudVmCluster(ctx *pulumi.Context, args *LookupCloudVmClusterArgs, o
 
 // A collection of arguments for invoking getCloudVmCluster.
 type LookupCloudVmClusterArgs struct {
-	// The unique identifier of the Exadata infrastructure.
+	// The unique identifier of the cloud vm cluster.
 	//
 	// The following arguments are optional:
 	Id string `pulumi:"id"`
@@ -132,7 +158,7 @@ func LookupCloudVmClusterOutput(ctx *pulumi.Context, args LookupCloudVmClusterOu
 
 // A collection of arguments for invoking getCloudVmCluster.
 type LookupCloudVmClusterOutputArgs struct {
-	// The unique identifier of the Exadata infrastructure.
+	// The unique identifier of the cloud vm cluster.
 	//
 	// The following arguments are optional:
 	Id pulumi.StringInput `pulumi:"id"`

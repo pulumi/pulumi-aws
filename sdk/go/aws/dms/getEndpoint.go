@@ -75,6 +75,7 @@ type LookupEndpointResult struct {
 	KinesisSettings             []GetEndpointKinesisSetting  `pulumi:"kinesisSettings"`
 	KmsKeyArn                   string                       `pulumi:"kmsKeyArn"`
 	MongodbSettings             []GetEndpointMongodbSetting  `pulumi:"mongodbSettings"`
+	MysqlSettings               []GetEndpointMysqlSetting    `pulumi:"mysqlSettings"`
 	Password                    string                       `pulumi:"password"`
 	Port                        int                          `pulumi:"port"`
 	PostgresSettings            []GetEndpointPostgresSetting `pulumi:"postgresSettings"`
@@ -179,6 +180,10 @@ func (o LookupEndpointResultOutput) KmsKeyArn() pulumi.StringOutput {
 
 func (o LookupEndpointResultOutput) MongodbSettings() GetEndpointMongodbSettingArrayOutput {
 	return o.ApplyT(func(v LookupEndpointResult) []GetEndpointMongodbSetting { return v.MongodbSettings }).(GetEndpointMongodbSettingArrayOutput)
+}
+
+func (o LookupEndpointResultOutput) MysqlSettings() GetEndpointMysqlSettingArrayOutput {
+	return o.ApplyT(func(v LookupEndpointResult) []GetEndpointMysqlSetting { return v.MysqlSettings }).(GetEndpointMysqlSettingArrayOutput)
 }
 
 func (o LookupEndpointResultOutput) Password() pulumi.StringOutput {

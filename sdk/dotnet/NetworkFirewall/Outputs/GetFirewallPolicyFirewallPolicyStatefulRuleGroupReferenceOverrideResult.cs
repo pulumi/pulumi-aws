@@ -13,10 +13,10 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideResult
     {
-        public readonly string? Action;
+        public readonly string Action;
 
         [OutputConstructor]
-        private GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideResult(string? action)
+        private GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideResult(string action)
         {
             Action = action;
         }

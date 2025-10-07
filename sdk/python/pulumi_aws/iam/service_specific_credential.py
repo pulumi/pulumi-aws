@@ -21,15 +21,19 @@ class ServiceSpecificCredentialArgs:
     def __init__(__self__, *,
                  service_name: pulumi.Input[_builtins.str],
                  user_name: pulumi.Input[_builtins.str],
+                 credential_age_days: Optional[pulumi.Input[_builtins.int]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceSpecificCredential resource.
-        :param pulumi.Input[_builtins.str] service_name: The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
+        :param pulumi.Input[_builtins.str] service_name: The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials. Supported services are `codecommit.amazonaws.com`, `bedrock.amazonaws.com`, and `cassandra.amazonaws.com`.
         :param pulumi.Input[_builtins.str] user_name: The name of the IAM user that is to be associated with the credentials. The new service-specific credentials have the same permissions as the associated user except that they can be used only to access the specified service.
-        :param pulumi.Input[_builtins.str] status: The status to be assigned to the service-specific credential. Valid values are `Active` and `Inactive`. Default value is `Active`.
+        :param pulumi.Input[_builtins.int] credential_age_days: The number of days until the service specific credential expires. This field is only valid for Bedrock API keys and must be between 1 and 36600 (approximately 100 years). When not specified, the credential will not expire.
+        :param pulumi.Input[_builtins.str] status: The status to be assigned to the service-specific credential. Valid values are `Active`, `Inactive`, and `Expired`. Default value is `Active`. Note that `Expired` is only used for read operations and cannot be set manually.
         """
         pulumi.set(__self__, "service_name", service_name)
         pulumi.set(__self__, "user_name", user_name)
+        if credential_age_days is not None:
+            pulumi.set(__self__, "credential_age_days", credential_age_days)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -37,7 +41,7 @@ class ServiceSpecificCredentialArgs:
     @pulumi.getter(name="serviceName")
     def service_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
+        The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials. Supported services are `codecommit.amazonaws.com`, `bedrock.amazonaws.com`, and `cassandra.amazonaws.com`.
         """
         return pulumi.get(self, "service_name")
 
@@ -58,10 +62,22 @@ class ServiceSpecificCredentialArgs:
         pulumi.set(self, "user_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="credentialAgeDays")
+    def credential_age_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The number of days until the service specific credential expires. This field is only valid for Bedrock API keys and must be between 1 and 36600 (approximately 100 years). When not specified, the credential will not expire.
+        """
+        return pulumi.get(self, "credential_age_days")
+
+    @credential_age_days.setter
+    def credential_age_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "credential_age_days", value)
+
+    @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The status to be assigned to the service-specific credential. Valid values are `Active` and `Inactive`. Default value is `Active`.
+        The status to be assigned to the service-specific credential. Valid values are `Active`, `Inactive`, and `Expired`. Default value is `Active`. Note that `Expired` is only used for read operations and cannot be set manually.
         """
         return pulumi.get(self, "status")
 
@@ -73,6 +89,11 @@ class ServiceSpecificCredentialArgs:
 @pulumi.input_type
 class _ServiceSpecificCredentialState:
     def __init__(__self__, *,
+                 create_date: Optional[pulumi.Input[_builtins.str]] = None,
+                 credential_age_days: Optional[pulumi.Input[_builtins.int]] = None,
+                 expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_credential_alias: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_credential_secret: Optional[pulumi.Input[_builtins.str]] = None,
                  service_name: Optional[pulumi.Input[_builtins.str]] = None,
                  service_password: Optional[pulumi.Input[_builtins.str]] = None,
                  service_specific_credential_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -81,13 +102,28 @@ class _ServiceSpecificCredentialState:
                  user_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceSpecificCredential resources.
-        :param pulumi.Input[_builtins.str] service_name: The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
-        :param pulumi.Input[_builtins.str] service_password: The generated password for the service-specific credential.
+        :param pulumi.Input[_builtins.str] create_date: The date and time, in RFC3339 format, when the service-specific credential was created.
+        :param pulumi.Input[_builtins.int] credential_age_days: The number of days until the service specific credential expires. This field is only valid for Bedrock API keys and must be between 1 and 36600 (approximately 100 years). When not specified, the credential will not expire.
+        :param pulumi.Input[_builtins.str] expiration_date: The date and time, in RFC3339 format, when the service specific credential expires. This field is only present for Bedrock API keys that were created with an expiration period.
+        :param pulumi.Input[_builtins.str] service_credential_alias: For Bedrock API keys, this is the public portion of the credential that includes the IAM user name and a suffix containing version and creation information.
+        :param pulumi.Input[_builtins.str] service_credential_secret: For Bedrock API keys, this is the secret portion of the credential that should be used to authenticate API calls. This value is only available when the credential is created.
+        :param pulumi.Input[_builtins.str] service_name: The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials. Supported services are `codecommit.amazonaws.com`, `bedrock.amazonaws.com`, and `cassandra.amazonaws.com`.
+        :param pulumi.Input[_builtins.str] service_password: The generated password for the service-specific credential. This value is only available when the credential is created.
         :param pulumi.Input[_builtins.str] service_specific_credential_id: The unique identifier for the service-specific credential.
         :param pulumi.Input[_builtins.str] service_user_name: The generated user name for the service-specific credential. This value is generated by combining the IAM user's name combined with the ID number of the AWS account, as in `jane-at-123456789012`, for example.
-        :param pulumi.Input[_builtins.str] status: The status to be assigned to the service-specific credential. Valid values are `Active` and `Inactive`. Default value is `Active`.
+        :param pulumi.Input[_builtins.str] status: The status to be assigned to the service-specific credential. Valid values are `Active`, `Inactive`, and `Expired`. Default value is `Active`. Note that `Expired` is only used for read operations and cannot be set manually.
         :param pulumi.Input[_builtins.str] user_name: The name of the IAM user that is to be associated with the credentials. The new service-specific credentials have the same permissions as the associated user except that they can be used only to access the specified service.
         """
+        if create_date is not None:
+            pulumi.set(__self__, "create_date", create_date)
+        if credential_age_days is not None:
+            pulumi.set(__self__, "credential_age_days", credential_age_days)
+        if expiration_date is not None:
+            pulumi.set(__self__, "expiration_date", expiration_date)
+        if service_credential_alias is not None:
+            pulumi.set(__self__, "service_credential_alias", service_credential_alias)
+        if service_credential_secret is not None:
+            pulumi.set(__self__, "service_credential_secret", service_credential_secret)
         if service_name is not None:
             pulumi.set(__self__, "service_name", service_name)
         if service_password is not None:
@@ -102,10 +138,70 @@ class _ServiceSpecificCredentialState:
             pulumi.set(__self__, "user_name", user_name)
 
     @_builtins.property
+    @pulumi.getter(name="createDate")
+    def create_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The date and time, in RFC3339 format, when the service-specific credential was created.
+        """
+        return pulumi.get(self, "create_date")
+
+    @create_date.setter
+    def create_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "create_date", value)
+
+    @_builtins.property
+    @pulumi.getter(name="credentialAgeDays")
+    def credential_age_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The number of days until the service specific credential expires. This field is only valid for Bedrock API keys and must be between 1 and 36600 (approximately 100 years). When not specified, the credential will not expire.
+        """
+        return pulumi.get(self, "credential_age_days")
+
+    @credential_age_days.setter
+    def credential_age_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "credential_age_days", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expirationDate")
+    def expiration_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The date and time, in RFC3339 format, when the service specific credential expires. This field is only present for Bedrock API keys that were created with an expiration period.
+        """
+        return pulumi.get(self, "expiration_date")
+
+    @expiration_date.setter
+    def expiration_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "expiration_date", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceCredentialAlias")
+    def service_credential_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        For Bedrock API keys, this is the public portion of the credential that includes the IAM user name and a suffix containing version and creation information.
+        """
+        return pulumi.get(self, "service_credential_alias")
+
+    @service_credential_alias.setter
+    def service_credential_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "service_credential_alias", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceCredentialSecret")
+    def service_credential_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        For Bedrock API keys, this is the secret portion of the credential that should be used to authenticate API calls. This value is only available when the credential is created.
+        """
+        return pulumi.get(self, "service_credential_secret")
+
+    @service_credential_secret.setter
+    def service_credential_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "service_credential_secret", value)
+
+    @_builtins.property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
+        The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials. Supported services are `codecommit.amazonaws.com`, `bedrock.amazonaws.com`, and `cassandra.amazonaws.com`.
         """
         return pulumi.get(self, "service_name")
 
@@ -117,7 +213,7 @@ class _ServiceSpecificCredentialState:
     @pulumi.getter(name="servicePassword")
     def service_password(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The generated password for the service-specific credential.
+        The generated password for the service-specific credential. This value is only available when the credential is created.
         """
         return pulumi.get(self, "service_password")
 
@@ -153,7 +249,7 @@ class _ServiceSpecificCredentialState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The status to be assigned to the service-specific credential. Valid values are `Active` and `Inactive`. Default value is `Active`.
+        The status to be assigned to the service-specific credential. Valid values are `Active`, `Inactive`, and `Expired`. Default value is `Active`. Note that `Expired` is only used for read operations and cannot be set manually.
         """
         return pulumi.get(self, "status")
 
@@ -180,6 +276,7 @@ class ServiceSpecificCredential(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 credential_age_days: Optional[pulumi.Input[_builtins.int]] = None,
                  service_name: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  user_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -189,6 +286,8 @@ class ServiceSpecificCredential(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -197,6 +296,19 @@ class ServiceSpecificCredential(pulumi.CustomResource):
         example_service_specific_credential = aws.iam.ServiceSpecificCredential("example",
             service_name="codecommit.amazonaws.com",
             user_name=example.name)
+        ```
+
+        ### Bedrock API Key with Expiration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.iam.User("example", name="example")
+        bedrock = aws.iam.ServiceSpecificCredential("bedrock",
+            service_name="bedrock.amazonaws.com",
+            user_name=example.name,
+            credential_age_days=30)
         ```
 
         ## Import
@@ -209,8 +321,9 @@ class ServiceSpecificCredential(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] service_name: The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
-        :param pulumi.Input[_builtins.str] status: The status to be assigned to the service-specific credential. Valid values are `Active` and `Inactive`. Default value is `Active`.
+        :param pulumi.Input[_builtins.int] credential_age_days: The number of days until the service specific credential expires. This field is only valid for Bedrock API keys and must be between 1 and 36600 (approximately 100 years). When not specified, the credential will not expire.
+        :param pulumi.Input[_builtins.str] service_name: The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials. Supported services are `codecommit.amazonaws.com`, `bedrock.amazonaws.com`, and `cassandra.amazonaws.com`.
+        :param pulumi.Input[_builtins.str] status: The status to be assigned to the service-specific credential. Valid values are `Active`, `Inactive`, and `Expired`. Default value is `Active`. Note that `Expired` is only used for read operations and cannot be set manually.
         :param pulumi.Input[_builtins.str] user_name: The name of the IAM user that is to be associated with the credentials. The new service-specific credentials have the same permissions as the associated user except that they can be used only to access the specified service.
         """
         ...
@@ -224,6 +337,8 @@ class ServiceSpecificCredential(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -232,6 +347,19 @@ class ServiceSpecificCredential(pulumi.CustomResource):
         example_service_specific_credential = aws.iam.ServiceSpecificCredential("example",
             service_name="codecommit.amazonaws.com",
             user_name=example.name)
+        ```
+
+        ### Bedrock API Key with Expiration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.iam.User("example", name="example")
+        bedrock = aws.iam.ServiceSpecificCredential("bedrock",
+            service_name="bedrock.amazonaws.com",
+            user_name=example.name,
+            credential_age_days=30)
         ```
 
         ## Import
@@ -257,6 +385,7 @@ class ServiceSpecificCredential(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 credential_age_days: Optional[pulumi.Input[_builtins.int]] = None,
                  service_name: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  user_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -269,6 +398,7 @@ class ServiceSpecificCredential(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceSpecificCredentialArgs.__new__(ServiceSpecificCredentialArgs)
 
+            __props__.__dict__["credential_age_days"] = credential_age_days
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
@@ -276,10 +406,14 @@ class ServiceSpecificCredential(pulumi.CustomResource):
             if user_name is None and not opts.urn:
                 raise TypeError("Missing required property 'user_name'")
             __props__.__dict__["user_name"] = user_name
+            __props__.__dict__["create_date"] = None
+            __props__.__dict__["expiration_date"] = None
+            __props__.__dict__["service_credential_alias"] = None
+            __props__.__dict__["service_credential_secret"] = None
             __props__.__dict__["service_password"] = None
             __props__.__dict__["service_specific_credential_id"] = None
             __props__.__dict__["service_user_name"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["servicePassword"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["serviceCredentialSecret", "servicePassword"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceSpecificCredential, __self__).__init__(
             'aws:iam/serviceSpecificCredential:ServiceSpecificCredential',
@@ -291,6 +425,11 @@ class ServiceSpecificCredential(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            create_date: Optional[pulumi.Input[_builtins.str]] = None,
+            credential_age_days: Optional[pulumi.Input[_builtins.int]] = None,
+            expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
+            service_credential_alias: Optional[pulumi.Input[_builtins.str]] = None,
+            service_credential_secret: Optional[pulumi.Input[_builtins.str]] = None,
             service_name: Optional[pulumi.Input[_builtins.str]] = None,
             service_password: Optional[pulumi.Input[_builtins.str]] = None,
             service_specific_credential_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -304,17 +443,27 @@ class ServiceSpecificCredential(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] service_name: The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
-        :param pulumi.Input[_builtins.str] service_password: The generated password for the service-specific credential.
+        :param pulumi.Input[_builtins.str] create_date: The date and time, in RFC3339 format, when the service-specific credential was created.
+        :param pulumi.Input[_builtins.int] credential_age_days: The number of days until the service specific credential expires. This field is only valid for Bedrock API keys and must be between 1 and 36600 (approximately 100 years). When not specified, the credential will not expire.
+        :param pulumi.Input[_builtins.str] expiration_date: The date and time, in RFC3339 format, when the service specific credential expires. This field is only present for Bedrock API keys that were created with an expiration period.
+        :param pulumi.Input[_builtins.str] service_credential_alias: For Bedrock API keys, this is the public portion of the credential that includes the IAM user name and a suffix containing version and creation information.
+        :param pulumi.Input[_builtins.str] service_credential_secret: For Bedrock API keys, this is the secret portion of the credential that should be used to authenticate API calls. This value is only available when the credential is created.
+        :param pulumi.Input[_builtins.str] service_name: The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials. Supported services are `codecommit.amazonaws.com`, `bedrock.amazonaws.com`, and `cassandra.amazonaws.com`.
+        :param pulumi.Input[_builtins.str] service_password: The generated password for the service-specific credential. This value is only available when the credential is created.
         :param pulumi.Input[_builtins.str] service_specific_credential_id: The unique identifier for the service-specific credential.
         :param pulumi.Input[_builtins.str] service_user_name: The generated user name for the service-specific credential. This value is generated by combining the IAM user's name combined with the ID number of the AWS account, as in `jane-at-123456789012`, for example.
-        :param pulumi.Input[_builtins.str] status: The status to be assigned to the service-specific credential. Valid values are `Active` and `Inactive`. Default value is `Active`.
+        :param pulumi.Input[_builtins.str] status: The status to be assigned to the service-specific credential. Valid values are `Active`, `Inactive`, and `Expired`. Default value is `Active`. Note that `Expired` is only used for read operations and cannot be set manually.
         :param pulumi.Input[_builtins.str] user_name: The name of the IAM user that is to be associated with the credentials. The new service-specific credentials have the same permissions as the associated user except that they can be used only to access the specified service.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _ServiceSpecificCredentialState.__new__(_ServiceSpecificCredentialState)
 
+        __props__.__dict__["create_date"] = create_date
+        __props__.__dict__["credential_age_days"] = credential_age_days
+        __props__.__dict__["expiration_date"] = expiration_date
+        __props__.__dict__["service_credential_alias"] = service_credential_alias
+        __props__.__dict__["service_credential_secret"] = service_credential_secret
         __props__.__dict__["service_name"] = service_name
         __props__.__dict__["service_password"] = service_password
         __props__.__dict__["service_specific_credential_id"] = service_specific_credential_id
@@ -324,10 +473,50 @@ class ServiceSpecificCredential(pulumi.CustomResource):
         return ServiceSpecificCredential(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
+    @pulumi.getter(name="createDate")
+    def create_date(self) -> pulumi.Output[_builtins.str]:
+        """
+        The date and time, in RFC3339 format, when the service-specific credential was created.
+        """
+        return pulumi.get(self, "create_date")
+
+    @_builtins.property
+    @pulumi.getter(name="credentialAgeDays")
+    def credential_age_days(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The number of days until the service specific credential expires. This field is only valid for Bedrock API keys and must be between 1 and 36600 (approximately 100 years). When not specified, the credential will not expire.
+        """
+        return pulumi.get(self, "credential_age_days")
+
+    @_builtins.property
+    @pulumi.getter(name="expirationDate")
+    def expiration_date(self) -> pulumi.Output[_builtins.str]:
+        """
+        The date and time, in RFC3339 format, when the service specific credential expires. This field is only present for Bedrock API keys that were created with an expiration period.
+        """
+        return pulumi.get(self, "expiration_date")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceCredentialAlias")
+    def service_credential_alias(self) -> pulumi.Output[_builtins.str]:
+        """
+        For Bedrock API keys, this is the public portion of the credential that includes the IAM user name and a suffix containing version and creation information.
+        """
+        return pulumi.get(self, "service_credential_alias")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceCredentialSecret")
+    def service_credential_secret(self) -> pulumi.Output[_builtins.str]:
+        """
+        For Bedrock API keys, this is the secret portion of the credential that should be used to authenticate API calls. This value is only available when the credential is created.
+        """
+        return pulumi.get(self, "service_credential_secret")
+
+    @_builtins.property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
+        The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials. Supported services are `codecommit.amazonaws.com`, `bedrock.amazonaws.com`, and `cassandra.amazonaws.com`.
         """
         return pulumi.get(self, "service_name")
 
@@ -335,7 +524,7 @@ class ServiceSpecificCredential(pulumi.CustomResource):
     @pulumi.getter(name="servicePassword")
     def service_password(self) -> pulumi.Output[_builtins.str]:
         """
-        The generated password for the service-specific credential.
+        The generated password for the service-specific credential. This value is only available when the credential is created.
         """
         return pulumi.get(self, "service_password")
 
@@ -359,7 +548,7 @@ class ServiceSpecificCredential(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The status to be assigned to the service-specific credential. Valid values are `Active` and `Inactive`. Default value is `Active`.
+        The status to be assigned to the service-specific credential. Valid values are `Active`, `Inactive`, and `Expired`. Default value is `Active`. Note that `Expired` is only used for read operations and cannot be set manually.
         """
         return pulumi.get(self, "status")
 

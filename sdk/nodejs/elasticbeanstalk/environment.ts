@@ -23,13 +23,13 @@ import {Application, ApplicationVersion} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const tftest = new aws.elasticbeanstalk.Application("tftest", {
+ * const exampleApplication = new aws.elasticbeanstalk.Application("example", {
  *     name: "tf-test-name",
  *     description: "tf-test-desc",
  * });
- * const tfenvtest = new aws.elasticbeanstalk.Environment("tfenvtest", {
+ * const example = new aws.elasticbeanstalk.Environment("example", {
  *     name: "tf-test-name",
- *     application: tftest.name,
+ *     application: exampleApplication.name,
  *     solutionStackName: "64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4",
  * });
  * ```
@@ -41,9 +41,9 @@ import {Application, ApplicationVersion} from "./index";
  *
  * The `setting` and `allSettings` mappings support the following format:
  *
- * * `namespace` - unique namespace identifying the option's associated AWS resource
- * * `name` - name of the configuration option
- * * `value` - value for the configuration option
+ * * `namespace` - (Required) Unique namespace identifying the option's associated AWS resource
+ * * `name` - (Required) Name of the configuration option
+ * * `value` - (Required) Value for the configuration option
  * * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
  *
  * ### Example With Options
