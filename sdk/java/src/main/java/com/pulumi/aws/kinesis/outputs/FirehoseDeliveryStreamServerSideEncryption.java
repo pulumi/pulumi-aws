@@ -18,7 +18,7 @@ public final class FirehoseDeliveryStreamServerSideEncryption {
      */
     private @Nullable Boolean enabled;
     /**
-     * @return Amazon Resource Name (ARN) of the encryption key. Required when `key_type` is `CUSTOMER_MANAGED_CMK`.
+     * @return Amazon Resource Name (ARN) of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
      * 
      */
     private @Nullable String keyArn;
@@ -37,7 +37,7 @@ public final class FirehoseDeliveryStreamServerSideEncryption {
         return Optional.ofNullable(this.enabled);
     }
     /**
-     * @return Amazon Resource Name (ARN) of the encryption key. Required when `key_type` is `CUSTOMER_MANAGED_CMK`.
+     * @return Amazon Resource Name (ARN) of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
      * 
      */
     public Optional<String> keyArn() {

@@ -29,15 +29,15 @@ import javax.annotation.Nullable;
  * databases.
  * 
  * Changes to a DB instance can occur when you manually change a parameter, such as
- * `allocated_storage`, and are reflected in the next maintenance window. Because
+ * `allocatedStorage`, and are reflected in the next maintenance window. Because
  * of this, this provider may report a difference in its planning phase because a
- * modification has not yet taken place. You can use the `apply_immediately` flag
+ * modification has not yet taken place. You can use the `applyImmediately` flag
  * to instruct the service to apply the change immediately (see documentation
  * below).
  * 
- * When upgrading the major version of an engine, `allow_major_version_upgrade` must be set to `true`.
+ * When upgrading the major version of an engine, `allowMajorVersionUpgrade` must be set to `true`.
  * 
- * &gt; **Note:** using `apply_immediately` can result in a brief downtime as the server reboots.
+ * &gt; **Note:** using `applyImmediately` can result in a brief downtime as the server reboots.
  * See the AWS Docs on [RDS Instance Maintenance][instance-maintenance] for more information.
  * 
  * &gt; **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
@@ -337,7 +337,7 @@ import javax.annotation.Nullable;
  * 
  * ### Storage Autoscaling
  * 
- * To enable Storage Autoscaling with instances that support the feature, define the `max_allocated_storage` argument higher than the `allocated_storage` argument. This provider will automatically hide differences with the `allocated_storage` argument value if autoscaling occurs.
+ * To enable Storage Autoscaling with instances that support the feature, define the `maxAllocatedStorage` argument higher than the `allocatedStorage` argument. This provider will automatically hide differences with the `allocatedStorage` argument value if autoscaling occurs.
  * 
  * <pre>
  * {@code
@@ -375,7 +375,7 @@ import javax.annotation.Nullable;
  * 
  * &gt; More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
  * 
- * You can specify the `manage_master_user_password` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manage_master_user_password` attribute and removing the `password` attribute (removal is required).
+ * You can specify the `manageMasterUserPassword` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manageMasterUserPassword` attribute and removing the `password` attribute (removal is required).
  * 
  * <pre>
  * {@code
@@ -419,7 +419,7 @@ import javax.annotation.Nullable;
  * 
  * &gt; More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
  * 
- * You can specify the `master_user_secret_kms_key_id` attribute to specify a specific KMS Key.
+ * You can specify the `masterUserSecretKmsKeyId` attribute to specify a specific KMS Key.
  * 
  * <pre>
  * {@code
@@ -492,14 +492,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.address;
     }
     /**
-     * The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
+     * The allocated storage in gibibytes. If `maxAllocatedStorage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicateSourceDb` is set, the value is ignored during the creation of the instance.
      * 
      */
     @Export(name="allocatedStorage", refs={Integer.class}, tree="[0]")
     private Output<Integer> allocatedStorage;
 
     /**
-     * @return The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
+     * @return The allocated storage in gibibytes. If `maxAllocatedStorage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicateSourceDb` is set, the value is ignored during the creation of the instance.
      * 
      */
     public Output<Integer> allocatedStorage() {
@@ -629,7 +629,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
     }
     /**
      * The daily time range (in UTC) during which automated backups are created if they are enabled.
-     * Example: &#34;09:46-10:16&#34;. Must not overlap with `maintenance_window`.
+     * Example: &#34;09:46-10:16&#34;. Must not overlap with `maintenanceWindow`.
      * 
      */
     @Export(name="backupWindow", refs={String.class}, tree="[0]")
@@ -637,7 +637,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The daily time range (in UTC) during which automated backups are created if they are enabled.
-     * Example: &#34;09:46-10:16&#34;. Must not overlap with `maintenance_window`.
+     * Example: &#34;09:46-10:16&#34;. Must not overlap with `maintenanceWindow`.
      * 
      */
     public Output<String> backupWindow() {
@@ -645,7 +645,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
     }
     /**
      * Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-     * See `blue_green_update` below.
+     * See `blueGreenUpdate` below.
      * 
      */
     @Export(name="blueGreenUpdate", refs={InstanceBlueGreenUpdate.class}, tree="[0]")
@@ -653,7 +653,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-     * See `blue_green_update` below.
+     * See `blueGreenUpdate` below.
      * 
      */
     public Output<Optional<InstanceBlueGreenUpdate>> blueGreenUpdate() {
@@ -678,7 +678,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * This can&#39;t be changed.
      * See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html) or
      * [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
-     * Cannot be set  with `replicate_source_db`, `restore_to_point_in_time`, `s3_import`, or `snapshot_identifier`.
+     * Cannot be set  with `replicateSourceDb`, `restoreToPointInTime`, `s3Import`, or `snapshotIdentifier`.
      * 
      */
     @Export(name="characterSetName", refs={String.class}, tree="[0]")
@@ -689,7 +689,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * This can&#39;t be changed.
      * See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html) or
      * [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
-     * Cannot be set  with `replicate_source_db`, `restore_to_point_in_time`, `s3_import`, or `snapshot_identifier`.
+     * Cannot be set  with `replicateSourceDb`, `restoreToPointInTime`, `s3Import`, or `snapshotIdentifier`.
      * 
      */
     public Output<String> characterSetName() {
@@ -729,7 +729,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * For more detailed documentation about each argument, refer to the [AWS official
      * documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
      * 
-     * &gt; **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
+     * &gt; **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
      * Replicate database managed by the provider will promote the database to a fully
      * standalone database.
      * 
@@ -743,7 +743,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * For more detailed documentation about each argument, refer to the [AWS official
      * documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
      * 
-     * &gt; **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
+     * &gt; **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
      * Replicate database managed by the provider will promote the database to a fully
      * standalone database.
      * 
@@ -846,84 +846,84 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.deletionProtection);
     }
     /**
-     * The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
+     * The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domainFqdn`, `domainOu`, `domainAuthSecretArn` and a `domainDnsIps`.
      * 
      */
     @Export(name="domain", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> domain;
 
     /**
-     * @return The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
+     * @return The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domainFqdn`, `domainOu`, `domainAuthSecretArn` and a `domainDnsIps`.
      * 
      */
     public Output<Optional<String>> domain() {
         return Codegen.optional(this.domain);
     }
     /**
-     * The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
+     * The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domainIamRoleName`.
      * 
      */
     @Export(name="domainAuthSecretArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> domainAuthSecretArn;
 
     /**
-     * @return The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
+     * @return The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domainIamRoleName`.
      * 
      */
     public Output<Optional<String>> domainAuthSecretArn() {
         return Codegen.optional(this.domainAuthSecretArn);
     }
     /**
-     * The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn&#39;t a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
+     * The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn&#39;t a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domainIamRoleName`.
      * 
      */
     @Export(name="domainDnsIps", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> domainDnsIps;
 
     /**
-     * @return The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn&#39;t a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
+     * @return The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn&#39;t a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domainIamRoleName`.
      * 
      */
     public Output<Optional<List<String>>> domainDnsIps() {
         return Codegen.optional(this.domainDnsIps);
     }
     /**
-     * The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
+     * The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domainIamRoleName`.
      * 
      */
     @Export(name="domainFqdn", refs={String.class}, tree="[0]")
     private Output<String> domainFqdn;
 
     /**
-     * @return The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
+     * @return The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domainIamRoleName`.
      * 
      */
     public Output<String> domainFqdn() {
         return this.domainFqdn;
     }
     /**
-     * The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
+     * The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domainFqdn`, `domainOu`, `domainAuthSecretArn` and a `domainDnsIps`.
      * 
      */
     @Export(name="domainIamRoleName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> domainIamRoleName;
 
     /**
-     * @return The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
+     * @return The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domainFqdn`, `domainOu`, `domainAuthSecretArn` and a `domainDnsIps`.
      * 
      */
     public Output<Optional<String>> domainIamRoleName() {
         return Codegen.optional(this.domainIamRoleName);
     }
     /**
-     * The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
+     * The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domainIamRoleName`.
      * 
      */
     @Export(name="domainOu", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> domainOu;
 
     /**
-     * @return The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
+     * @return The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domainIamRoleName`.
      * 
      */
     public Output<Optional<String>> domainOu() {
@@ -986,14 +986,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.engineLifecycleSupport;
     }
     /**
-     * The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
+     * The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
     /**
-     * @return The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
+     * @return The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
      * 
      */
     public Output<String> engineVersion() {
@@ -1015,7 +1015,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
     }
     /**
      * The name of your final DB snapshot
-     * when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
+     * when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
      * set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
      * 
      */
@@ -1024,7 +1024,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The name of your final DB snapshot
-     * when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
+     * when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
      * set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
      * 
      */
@@ -1062,14 +1062,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.iamDatabaseAuthenticationEnabled);
     }
     /**
-     * The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
+     * The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
      * 
      */
     @Export(name="identifier", refs={String.class}, tree="[0]")
     private Output<String> identifier;
 
     /**
-     * @return The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
+     * @return The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
      * 
      */
     public Output<String> identifier() {
@@ -1105,8 +1105,8 @@ public class Instance extends com.pulumi.resources.CustomResource {
     }
     /**
      * The amount of provisioned IOPS. Setting this implies a
-     * storage_type of &#34;io1&#34; or &#34;io2&#34;. Can only be set when `storage_type` is `&#34;io1&#34;`, `&#34;io2` or `&#34;gp3&#34;`.
-     * Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
+     * storageType of &#34;io1&#34; or &#34;io2&#34;. Can only be set when `storageType` is `&#34;io1&#34;`, `&#34;io2` or `&#34;gp3&#34;`.
+     * Cannot be specified for gp3 storage if the `allocatedStorage` value is below a per-`engine` threshold.
      * See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
      * 
      */
@@ -1115,8 +1115,8 @@ public class Instance extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The amount of provisioned IOPS. Setting this implies a
-     * storage_type of &#34;io1&#34; or &#34;io2&#34;. Can only be set when `storage_type` is `&#34;io1&#34;`, `&#34;io2` or `&#34;gp3&#34;`.
-     * Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
+     * storageType of &#34;io1&#34; or &#34;io2&#34;. Can only be set when `storageType` is `&#34;io1&#34;`, `&#34;io2` or `&#34;gp3&#34;`.
+     * Cannot be specified for gp3 storage if the `allocatedStorage` value is below a per-`engine` threshold.
      * See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
      * 
      */
@@ -1214,14 +1214,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.maintenanceWindow;
     }
     /**
-     * Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `password_wo` is provided.
+     * Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `passwordWo` is provided.
      * 
      */
     @Export(name="manageMasterUserPassword", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> manageMasterUserPassword;
 
     /**
-     * @return Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `password_wo` is provided.
+     * @return Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `passwordWo` is provided.
      * 
      */
     public Output<Optional<Boolean>> manageMasterUserPassword() {
@@ -1242,28 +1242,28 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.masterUserSecretKmsKeyId;
     }
     /**
-     * A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+     * A block that specifies the master user secret. Only available when `manageMasterUserPassword` is set to true. Documented below.
      * 
      */
     @Export(name="masterUserSecrets", refs={List.class,InstanceMasterUserSecret.class}, tree="[0,1]")
     private Output<List<InstanceMasterUserSecret>> masterUserSecrets;
 
     /**
-     * @return A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+     * @return A block that specifies the master user secret. Only available when `manageMasterUserPassword` is set to true. Documented below.
      * 
      */
     public Output<List<InstanceMasterUserSecret>> masterUserSecrets() {
         return this.masterUserSecrets;
     }
     /**
-     * Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `max_allocated_storage` to **greater than or equal to** `allocated_storage`. Setting `max_allocated_storage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocated_storage` will be automatically ignored as the storage can dynamically scale.
+     * Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `maxAllocatedStorage` to **greater than or equal to** `allocatedStorage`. Setting `maxAllocatedStorage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocatedStorage` will be automatically ignored as the storage can dynamically scale.
      * 
      */
     @Export(name="maxAllocatedStorage", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxAllocatedStorage;
 
     /**
-     * @return Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `max_allocated_storage` to **greater than or equal to** `allocated_storage`. Setting `max_allocated_storage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocated_storage` will be automatically ignored as the storage can dynamically scale.
+     * @return Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `maxAllocatedStorage` to **greater than or equal to** `allocatedStorage`. Setting `maxAllocatedStorage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocatedStorage` will be automatically ignored as the storage can dynamically scale.
      * 
      */
     public Output<Optional<Integer>> maxAllocatedStorage() {
@@ -1384,14 +1384,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.parameterGroupName;
     }
     /**
-     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
+     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
      * 
      */
     @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 
     /**
-     * @return Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
+     * @return Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
      * 
      */
     public Output<Optional<String>> password() {
@@ -1412,28 +1412,28 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.performanceInsightsEnabled);
     }
     /**
-     * The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
+     * The ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true. Once KMS key is set, it can never be changed.
      * 
      */
     @Export(name="performanceInsightsKmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> performanceInsightsKmsKeyId;
 
     /**
-     * @return The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
+     * @return The ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true. Once KMS key is set, it can never be changed.
      * 
      */
     public Output<String> performanceInsightsKmsKeyId() {
         return this.performanceInsightsKmsKeyId;
     }
     /**
-     * Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to &#39;7&#39;.
+     * Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to &#39;7&#39;.
      * 
      */
     @Export(name="performanceInsightsRetentionPeriod", refs={Integer.class}, tree="[0]")
     private Output<Integer> performanceInsightsRetentionPeriod;
 
     /**
-     * @return Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to &#39;7&#39;.
+     * @return Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to &#39;7&#39;.
      * 
      */
     public Output<Integer> performanceInsightsRetentionPeriod() {
@@ -1507,10 +1507,10 @@ public class Instance extends com.pulumi.resources.CustomResource {
     }
     /**
      * Specifies that this resource is a Replica database, and to use this value as the source database.
-     * If replicating an Amazon RDS Database Instance in the same region, use the `identifier` of the source DB, unless also specifying the `db_subnet_group_name`.
-     * If specifying the `db_subnet_group_name` in the same region, use the `arn` of the source DB.
+     * If replicating an Amazon RDS Database Instance in the same region, use the `identifier` of the source DB, unless also specifying the `dbSubnetGroupName`.
+     * If specifying the `dbSubnetGroupName` in the same region, use the `arn` of the source DB.
      * If replicating an Instance in a different region, use the `arn` of the source DB.
-     * Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kms_key_id`.
+     * Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kmsKeyId`.
      * See [DB Instance Replication][instance-replication] and [Working with PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html) for more information on using Replication.
      * 
      */
@@ -1519,10 +1519,10 @@ public class Instance extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Specifies that this resource is a Replica database, and to use this value as the source database.
-     * If replicating an Amazon RDS Database Instance in the same region, use the `identifier` of the source DB, unless also specifying the `db_subnet_group_name`.
-     * If specifying the `db_subnet_group_name` in the same region, use the `arn` of the source DB.
+     * If replicating an Amazon RDS Database Instance in the same region, use the `identifier` of the source DB, unless also specifying the `dbSubnetGroupName`.
+     * If specifying the `dbSubnetGroupName` in the same region, use the `arn` of the source DB.
      * If replicating an Instance in a different region, use the `arn` of the source DB.
-     * Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kms_key_id`.
+     * Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kmsKeyId`.
      * See [DB Instance Replication][instance-replication] and [Working with PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html) for more information on using Replication.
      * 
      */
@@ -1579,7 +1579,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Determines whether a final DB snapshot is
      * created before the DB instance is deleted. If true is specified, no DBSnapshot
      * is created. If false is specified, a DB snapshot is created before the DB
-     * instance is deleted, using the value from `final_snapshot_identifier`. Default
+     * instance is deleted, using the value from `finalSnapshotIdentifier`. Default
      * is `false`.
      * 
      */
@@ -1590,7 +1590,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * @return Determines whether a final DB snapshot is
      * created before the DB instance is deleted. If true is specified, no DBSnapshot
      * is created. If false is specified, a DB snapshot is created before the DB
-     * instance is deleted, using the value from `final_snapshot_identifier`. Default
+     * instance is deleted, using the value from `finalSnapshotIdentifier`. Default
      * is `false`.
      * 
      */
@@ -1630,7 +1630,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
     /**
      * Specifies whether the DB instance is
      * encrypted. Note that if you are creating a cross-region read replica this field
-     * is ignored and you should instead declare `kms_key_id` with a valid ARN. The
+     * is ignored and you should instead declare `kmsKeyId` with a valid ARN. The
      * default is `false` if not specified.
      * 
      */
@@ -1640,7 +1640,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies whether the DB instance is
      * encrypted. Note that if you are creating a cross-region read replica this field
-     * is ignored and you should instead declare `kms_key_id` with a valid ARN. The
+     * is ignored and you should instead declare `kmsKeyId` with a valid ARN. The
      * default is `false` if not specified.
      * 
      */
@@ -1648,14 +1648,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.storageEncrypted);
     }
     /**
-     * The storage throughput value for the DB instance. Can only be set when `storage_type` is `&#34;gp3&#34;`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
+     * The storage throughput value for the DB instance. Can only be set when `storageType` is `&#34;gp3&#34;`. Cannot be specified if the `allocatedStorage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
      * 
      */
     @Export(name="storageThroughput", refs={Integer.class}, tree="[0]")
     private Output<Integer> storageThroughput;
 
     /**
-     * @return The storage throughput value for the DB instance. Can only be set when `storage_type` is `&#34;gp3&#34;`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
+     * @return The storage throughput value for the DB instance. Can only be set when `storageType` is `&#34;gp3&#34;`. Cannot be specified if the `allocatedStorage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
      * 
      */
     public Output<Integer> storageThroughput() {
@@ -1682,28 +1682,28 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.storageType;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -1733,7 +1733,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
     }
     /**
      * Whether to upgrade the storage file system configuration on the read replica.
-     * Can only be set with `replicate_source_db`.
+     * Can only be set with `replicateSourceDb`.
      * 
      */
     @Export(name="upgradeStorageConfig", refs={Boolean.class}, tree="[0]")
@@ -1741,14 +1741,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Whether to upgrade the storage file system configuration on the read replica.
-     * Can only be set with `replicate_source_db`.
+     * Can only be set with `replicateSourceDb`.
      * 
      */
     public Output<Optional<Boolean>> upgradeStorageConfig() {
         return Codegen.optional(this.upgradeStorageConfig);
     }
     /**
-     * (Required unless a `snapshot_identifier` or `replicate_source_db`
+     * (Required unless a `snapshotIdentifier` or `replicateSourceDb`
      * is provided) Username for the master DB user. Cannot be specified for a replica.
      * 
      */
@@ -1756,7 +1756,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
     private Output<String> username;
 
     /**
-     * @return (Required unless a `snapshot_identifier` or `replicate_source_db`
+     * @return (Required unless a `snapshotIdentifier` or `replicateSourceDb`
      * is provided) Username for the master DB user. Cannot be specified for a replica.
      * 
      */

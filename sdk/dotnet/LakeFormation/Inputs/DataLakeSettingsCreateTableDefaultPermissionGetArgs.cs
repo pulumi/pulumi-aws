@@ -25,7 +25,7 @@ namespace Pulumi.Aws.LakeFormation.Inputs
         }
 
         /// <summary>
-        /// Principal who is granted permissions. To enforce metadata and underlying data access control only by IAM on new databases and tables set `principal` to `IAM_ALLOWED_PRINCIPALS` and `permissions` to `["ALL"]`.
+        /// Principal who is granted permissions. To enforce metadata and underlying data access control only by IAM on new databases and tables set `Principal` to `IAM_ALLOWED_PRINCIPALS` and `Permissions` to `["ALL"]`.
         /// </summary>
         [Input("principal")]
         public Input<string>? Principal { get; set; }

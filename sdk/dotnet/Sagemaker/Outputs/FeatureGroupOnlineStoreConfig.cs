@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class FeatureGroupOnlineStoreConfig
     {
         /// <summary>
-        /// Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
+        /// Set to `True` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
         /// </summary>
         public readonly bool? EnableOnlineStore;
         /// <summary>

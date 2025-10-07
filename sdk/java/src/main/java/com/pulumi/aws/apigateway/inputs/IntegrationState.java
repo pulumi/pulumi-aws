@@ -50,14 +50,14 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ID of the VpcLink used for the integration. **Required** if `connection_type` is `VPC_LINK`
+     * ID of the VpcLink used for the integration. **Required** if `connectionType` is `VPC_LINK`
      * 
      */
     @Import(name="connectionId")
     private @Nullable Output<String> connectionId;
 
     /**
-     * @return ID of the VpcLink used for the integration. **Required** if `connection_type` is `VPC_LINK`
+     * @return ID of the VpcLink used for the integration. **Required** if `connectionType` is `VPC_LINK`
      * 
      */
     public Optional<Output<String>> connectionId() {
@@ -150,14 +150,14 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
+     * Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
      * 
      */
     @Import(name="passthroughBehavior")
     private @Nullable Output<String> passthroughBehavior;
 
     /**
-     * @return Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
+     * @return Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
      * 
      */
     public Optional<Output<String>> passthroughBehavior() {
@@ -181,7 +181,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Map of request query string parameters and headers that should be passed to the backend responder.
-     * For example: `request_parameters = { &#34;integration.request.header.X-Some-Other-Header&#34; = &#34;method.request.header.X-Some-Header&#34; }`
+     * For example: `requestParameters = { &#34;integration.request.header.X-Some-Other-Header&#34; = &#34;method.request.header.X-Some-Header&#34; }`
      * 
      */
     @Import(name="requestParameters")
@@ -189,7 +189,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Map of request query string parameters and headers that should be passed to the backend responder.
-     * For example: `request_parameters = { &#34;integration.request.header.X-Some-Other-Header&#34; = &#34;method.request.header.X-Some-Header&#34; }`
+     * For example: `requestParameters = { &#34;integration.request.header.X-Some-Other-Header&#34; = &#34;method.request.header.X-Some-Header&#34; }`
      * 
      */
     public Optional<Output<Map<String,String>>> requestParameters() {
@@ -272,14 +272,14 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Integration input&#39;s [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
+     * Integration input&#39;s [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Integration input&#39;s [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
+     * @return Integration input&#39;s [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
      * 
      */
     public Optional<Output<String>> type() {
@@ -399,7 +399,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionId ID of the VpcLink used for the integration. **Required** if `connection_type` is `VPC_LINK`
+         * @param connectionId ID of the VpcLink used for the integration. **Required** if `connectionType` is `VPC_LINK`
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionId ID of the VpcLink used for the integration. **Required** if `connection_type` is `VPC_LINK`
+         * @param connectionId ID of the VpcLink used for the integration. **Required** if `connectionType` is `VPC_LINK`
          * 
          * @return builder
          * 
@@ -535,7 +535,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passthroughBehavior Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
+         * @param passthroughBehavior Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
          * 
          * @return builder
          * 
@@ -546,7 +546,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passthroughBehavior Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
+         * @param passthroughBehavior Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
          * 
          * @return builder
          * 
@@ -578,7 +578,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param requestParameters Map of request query string parameters and headers that should be passed to the backend responder.
-         * For example: `request_parameters = { &#34;integration.request.header.X-Some-Other-Header&#34; = &#34;method.request.header.X-Some-Header&#34; }`
+         * For example: `requestParameters = { &#34;integration.request.header.X-Some-Other-Header&#34; = &#34;method.request.header.X-Some-Header&#34; }`
          * 
          * @return builder
          * 
@@ -590,7 +590,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param requestParameters Map of request query string parameters and headers that should be passed to the backend responder.
-         * For example: `request_parameters = { &#34;integration.request.header.X-Some-Other-Header&#34; = &#34;method.request.header.X-Some-Header&#34; }`
+         * For example: `requestParameters = { &#34;integration.request.header.X-Some-Other-Header&#34; = &#34;method.request.header.X-Some-Header&#34; }`
          * 
          * @return builder
          * 
@@ -705,7 +705,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Integration input&#39;s [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
+         * @param type Integration input&#39;s [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
          * 
          * @return builder
          * 
@@ -716,7 +716,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Integration input&#39;s [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
+         * @param type Integration input&#39;s [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
          * 
          * @return builder
          * 

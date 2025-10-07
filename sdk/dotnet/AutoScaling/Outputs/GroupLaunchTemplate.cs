@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     public sealed class GroupLaunchTemplate
     {
         /// <summary>
-        /// ID of the launch template. Conflicts with `name`.
+        /// ID of the launch template. Conflicts with `Name`.
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Name of the launch template. Conflicts with `id`.
+        /// Name of the launch template. Conflicts with `Id`.
         /// </summary>
         public readonly string? Name;
         /// <summary>

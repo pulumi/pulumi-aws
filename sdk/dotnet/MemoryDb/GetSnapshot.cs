@@ -179,7 +179,7 @@ namespace Pulumi.Aws.MemoryDb
         public readonly string Name;
         public readonly string Region;
         /// <summary>
-        /// Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
+        /// Whether the snapshot is from an automatic backup (`Automated`) or was created manually (`Manual`).
         /// </summary>
         public readonly string Source;
         /// <summary>

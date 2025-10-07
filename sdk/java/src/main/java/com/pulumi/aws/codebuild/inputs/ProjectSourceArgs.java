@@ -41,7 +41,7 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Configuration block that contains information that defines how the build project
      * reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub
-     * Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
+     * Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `buildStatusConfig` blocks are documented below.
      * 
      */
     @Import(name="buildStatusConfig")
@@ -50,7 +50,7 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Configuration block that contains information that defines how the build project
      * reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub
-     * Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
+     * Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `buildStatusConfig` blocks are documented below.
      * 
      */
     public Optional<Output<ProjectSourceBuildStatusConfigArgs>> buildStatusConfig() {
@@ -236,7 +236,7 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param buildStatusConfig Configuration block that contains information that defines how the build project
          * reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub
-         * Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
+         * Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `buildStatusConfig` blocks are documented below.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param buildStatusConfig Configuration block that contains information that defines how the build project
          * reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub
-         * Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
+         * Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `buildStatusConfig` blocks are documented below.
          * 
          * @return builder
          * 

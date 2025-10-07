@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Cfg.Inputs
     public sealed class RuleSourceCustomPolicyDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is `false`.
+        /// The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is `False`.
         /// </summary>
         [Input("enableDebugLogDelivery")]
         public Input<bool>? EnableDebugLogDelivery { get; set; }

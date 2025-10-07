@@ -19,14 +19,14 @@ public final class ScheduleTargetEcsParametersNetworkConfigurationArgs extends c
     public static final ScheduleTargetEcsParametersNetworkConfigurationArgs Empty = new ScheduleTargetEcsParametersNetworkConfigurationArgs();
 
     /**
-     * Specifies whether the task&#39;s elastic network interface receives a public IP address. This attribute is a boolean type, where `true` maps to `ENABLED` and `false` to `DISABLED`. You can specify `true` only when the `launch_type` is set to `FARGATE`.
+     * Specifies whether the task&#39;s elastic network interface receives a public IP address. This attribute is a boolean type, where `true` maps to `ENABLED` and `false` to `DISABLED`. You can specify `true` only when the `launchType` is set to `FARGATE`.
      * 
      */
     @Import(name="assignPublicIp")
     private @Nullable Output<Boolean> assignPublicIp;
 
     /**
-     * @return Specifies whether the task&#39;s elastic network interface receives a public IP address. This attribute is a boolean type, where `true` maps to `ENABLED` and `false` to `DISABLED`. You can specify `true` only when the `launch_type` is set to `FARGATE`.
+     * @return Specifies whether the task&#39;s elastic network interface receives a public IP address. This attribute is a boolean type, where `true` maps to `ENABLED` and `false` to `DISABLED`. You can specify `true` only when the `launchType` is set to `FARGATE`.
      * 
      */
     public Optional<Output<Boolean>> assignPublicIp() {
@@ -90,7 +90,7 @@ public final class ScheduleTargetEcsParametersNetworkConfigurationArgs extends c
         }
 
         /**
-         * @param assignPublicIp Specifies whether the task&#39;s elastic network interface receives a public IP address. This attribute is a boolean type, where `true` maps to `ENABLED` and `false` to `DISABLED`. You can specify `true` only when the `launch_type` is set to `FARGATE`.
+         * @param assignPublicIp Specifies whether the task&#39;s elastic network interface receives a public IP address. This attribute is a boolean type, where `true` maps to `ENABLED` and `false` to `DISABLED`. You can specify `true` only when the `launchType` is set to `FARGATE`.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class ScheduleTargetEcsParametersNetworkConfigurationArgs extends c
         }
 
         /**
-         * @param assignPublicIp Specifies whether the task&#39;s elastic network interface receives a public IP address. This attribute is a boolean type, where `true` maps to `ENABLED` and `false` to `DISABLED`. You can specify `true` only when the `launch_type` is set to `FARGATE`.
+         * @param assignPublicIp Specifies whether the task&#39;s elastic network interface receives a public IP address. This attribute is a boolean type, where `true` maps to `ENABLED` and `false` to `DISABLED`. You can specify `true` only when the `launchType` is set to `FARGATE`.
          * 
          * @return builder
          * 

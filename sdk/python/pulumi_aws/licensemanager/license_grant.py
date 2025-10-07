@@ -284,6 +284,26 @@ class LicenseGrant(pulumi.CustomResource):
         """
         Provides a License Manager grant. This allows for sharing licenses with other AWS accounts.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.licensemanager.LicenseGrant("test",
+            name="share-license-with-account",
+            allowed_operations=[
+                "ListPurchasedLicenses",
+                "CheckoutLicense",
+                "CheckInLicense",
+                "ExtendConsumptionLicense",
+                "CreateToken",
+            ],
+            license_arn="arn:aws:license-manager::111111111111:license:l-exampleARN",
+            principal="arn:aws:iam::111111111112:root",
+            home_region="us-east-1")
+        ```
+
         ## Import
 
         Using `pulumi import`, import `aws_licensemanager_grant` using the grant arn. For example:
@@ -308,6 +328,26 @@ class LicenseGrant(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a License Manager grant. This allows for sharing licenses with other AWS accounts.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.licensemanager.LicenseGrant("test",
+            name="share-license-with-account",
+            allowed_operations=[
+                "ListPurchasedLicenses",
+                "CheckoutLicense",
+                "CheckInLicense",
+                "ExtendConsumptionLicense",
+                "CreateToken",
+            ],
+            license_arn="arn:aws:license-manager::111111111111:license:l-exampleARN",
+            principal="arn:aws:iam::111111111112:root",
+            home_region="us-east-1")
+        ```
 
         ## Import
 

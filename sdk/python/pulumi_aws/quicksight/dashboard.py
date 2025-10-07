@@ -552,6 +552,63 @@ class Dashboard(pulumi.CustomResource):
             })
         ```
 
+        ### With Definition
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.quicksight.Dashboard("example",
+            dashboard_id="example-id",
+            name="example-name",
+            version_description="version",
+            definition={
+                "dataSetIdentifiersDeclarations": [{
+                    "dataSetArn": dataset["arn"],
+                    "identifier": "1",
+                }],
+                "sheets": [{
+                    "title": "Example",
+                    "sheetId": "Example1",
+                    "visuals": [{
+                        "lineChartVisual": {
+                            "visualId": "LineChart",
+                            "title": {
+                                "formatText": {
+                                    "plainText": "Line Chart Example",
+                                },
+                            },
+                            "chartConfiguration": {
+                                "fieldWells": {
+                                    "lineChartAggregatedFieldWells": {
+                                        "categories": [{
+                                            "categoricalDimensionField": {
+                                                "fieldId": "1",
+                                                "column": {
+                                                    "dataSetIdentifier": "1",
+                                                    "columnName": "Column1",
+                                                },
+                                            },
+                                        }],
+                                        "values": [{
+                                            "categoricalMeasureField": {
+                                                "fieldId": "2",
+                                                "column": {
+                                                    "dataSetIdentifier": "1",
+                                                    "columnName": "Column1",
+                                                },
+                                                "aggregationFunction": "COUNT",
+                                            },
+                                        }],
+                                    },
+                                },
+                            },
+                        },
+                    }],
+                }],
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import a QuickSight Dashboard using the AWS account ID and dashboard ID separated by a comma (`,`). For example:
@@ -604,6 +661,63 @@ class Dashboard(pulumi.CustomResource):
                         "data_set_placeholder": "1",
                     }],
                 },
+            })
+        ```
+
+        ### With Definition
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.quicksight.Dashboard("example",
+            dashboard_id="example-id",
+            name="example-name",
+            version_description="version",
+            definition={
+                "dataSetIdentifiersDeclarations": [{
+                    "dataSetArn": dataset["arn"],
+                    "identifier": "1",
+                }],
+                "sheets": [{
+                    "title": "Example",
+                    "sheetId": "Example1",
+                    "visuals": [{
+                        "lineChartVisual": {
+                            "visualId": "LineChart",
+                            "title": {
+                                "formatText": {
+                                    "plainText": "Line Chart Example",
+                                },
+                            },
+                            "chartConfiguration": {
+                                "fieldWells": {
+                                    "lineChartAggregatedFieldWells": {
+                                        "categories": [{
+                                            "categoricalDimensionField": {
+                                                "fieldId": "1",
+                                                "column": {
+                                                    "dataSetIdentifier": "1",
+                                                    "columnName": "Column1",
+                                                },
+                                            },
+                                        }],
+                                        "values": [{
+                                            "categoricalMeasureField": {
+                                                "fieldId": "2",
+                                                "column": {
+                                                    "dataSetIdentifier": "1",
+                                                    "columnName": "Column1",
+                                                },
+                                                "aggregationFunction": "COUNT",
+                                            },
+                                        }],
+                                    },
+                                },
+                            },
+                        },
+                    }],
+                }],
             })
         ```
 

@@ -154,6 +154,53 @@ import * as utilities from "../utilities";
  * }});
  * ```
  *
+ * ### Associate Web ACL (v2)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.appsync.GraphQLApi("example", {
+ *     authenticationType: "API_KEY",
+ *     name: "example",
+ * });
+ * const exampleWebAcl = new aws.wafv2.WebAcl("example", {
+ *     name: "managed-rule-example",
+ *     description: "Example of a managed rule.",
+ *     scope: "REGIONAL",
+ *     defaultAction: {
+ *         allow: {},
+ *     },
+ *     rules: [{
+ *         name: "rule-1",
+ *         priority: 1,
+ *         overrideAction: {
+ *             block: [{}],
+ *         },
+ *         statement: {
+ *             managedRuleGroupStatement: {
+ *                 name: "AWSManagedRulesCommonRuleSet",
+ *                 vendorName: "AWS",
+ *             },
+ *         },
+ *         visibilityConfig: {
+ *             cloudwatchMetricsEnabled: false,
+ *             metricName: "friendly-rule-metric-name",
+ *             sampledRequestsEnabled: false,
+ *         },
+ *     }],
+ *     visibilityConfig: {
+ *         cloudwatchMetricsEnabled: false,
+ *         metricName: "friendly-metric-name",
+ *         sampledRequestsEnabled: false,
+ *     },
+ * });
+ * const exampleWebAclAssociation = new aws.wafv2.WebAclAssociation("example", {
+ *     resourceArn: example.arn,
+ *     webAclArn: exampleWebAcl.arn,
+ * });
+ * ```
+ *
  * ### GraphQL run complexity, query depth, and introspection
  *
  * ```typescript

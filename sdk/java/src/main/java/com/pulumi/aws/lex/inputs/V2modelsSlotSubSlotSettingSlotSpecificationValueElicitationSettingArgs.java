@@ -22,7 +22,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
 
     /**
      * List of default values for a slot.
-     * See the `default_value_specification` argument reference below.
+     * See the `defaultValueSpecification` argument reference below.
      * 
      */
     @Import(name="defaultValueSpecifications")
@@ -30,7 +30,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
 
     /**
      * @return List of default values for a slot.
-     * See the `default_value_specification` argument reference below.
+     * See the `defaultValueSpecification` argument reference below.
      * 
      */
     public Optional<Output<List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgs>>> defaultValueSpecifications() {
@@ -39,7 +39,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
 
     /**
      * Prompt that Amazon Lex uses to elicit the slot value from the user.
-     * See the `aws.lex.V2modelsIntent` resource for details on the `prompt_specification` argument reference - they are identical.
+     * See the `aws.lex.V2modelsIntent` resource for details on the `promptSpecification` argument reference - they are identical.
      * 
      */
     @Import(name="promptSpecification", required=true)
@@ -47,7 +47,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
 
     /**
      * @return Prompt that Amazon Lex uses to elicit the slot value from the user.
-     * See the `aws.lex.V2modelsIntent` resource for details on the `prompt_specification` argument reference - they are identical.
+     * See the `aws.lex.V2modelsIntent` resource for details on the `promptSpecification` argument reference - they are identical.
      * 
      */
     public Output<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs> promptSpecification() {
@@ -63,7 +63,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
 
     /**
      * Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
-     * See the `wait_and_continue_specification` argument reference below.
+     * See the `waitAndContinueSpecification` argument reference below.
      * 
      */
     @Import(name="waitAndContinueSpecifications")
@@ -71,7 +71,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
 
     /**
      * @return Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
-     * See the `wait_and_continue_specification` argument reference below.
+     * See the `waitAndContinueSpecification` argument reference below.
      * 
      */
     public Optional<Output<List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgs>>> waitAndContinueSpecifications() {
@@ -107,7 +107,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
 
         /**
          * @param defaultValueSpecifications List of default values for a slot.
-         * See the `default_value_specification` argument reference below.
+         * See the `defaultValueSpecification` argument reference below.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
 
         /**
          * @param defaultValueSpecifications List of default values for a slot.
-         * See the `default_value_specification` argument reference below.
+         * See the `defaultValueSpecification` argument reference below.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
 
         /**
          * @param defaultValueSpecifications List of default values for a slot.
-         * See the `default_value_specification` argument reference below.
+         * See the `defaultValueSpecification` argument reference below.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
 
         /**
          * @param promptSpecification Prompt that Amazon Lex uses to elicit the slot value from the user.
-         * See the `aws.lex.V2modelsIntent` resource for details on the `prompt_specification` argument reference - they are identical.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `promptSpecification` argument reference - they are identical.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
 
         /**
          * @param promptSpecification Prompt that Amazon Lex uses to elicit the slot value from the user.
-         * See the `aws.lex.V2modelsIntent` resource for details on the `prompt_specification` argument reference - they are identical.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `promptSpecification` argument reference - they are identical.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
 
         /**
          * @param waitAndContinueSpecifications Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
-         * See the `wait_and_continue_specification` argument reference below.
+         * See the `waitAndContinueSpecification` argument reference below.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
 
         /**
          * @param waitAndContinueSpecifications Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
-         * See the `wait_and_continue_specification` argument reference below.
+         * See the `waitAndContinueSpecification` argument reference below.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
 
         /**
          * @param waitAndContinueSpecifications Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
-         * See the `wait_and_continue_specification` argument reference below.
+         * See the `waitAndContinueSpecification` argument reference below.
          * 
          * @return builder
          * 

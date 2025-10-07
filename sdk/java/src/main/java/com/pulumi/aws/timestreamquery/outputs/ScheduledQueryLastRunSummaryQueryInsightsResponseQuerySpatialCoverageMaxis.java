@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxis {
     /**
-     * @return Partition key used for partitioning, which can be a default measure_name or a customer defined partition key.
+     * @return Partition key used for partitioning, which can be a default measureName or a customer defined partition key.
      * 
      */
     private @Nullable List<String> partitionKeys;
@@ -31,7 +31,7 @@ public final class ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatial
 
     private ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxis() {}
     /**
-     * @return Partition key used for partitioning, which can be a default measure_name or a customer defined partition key.
+     * @return Partition key used for partitioning, which can be a default measureName or a customer defined partition key.
      * 
      */
     public List<String> partitionKeys() {

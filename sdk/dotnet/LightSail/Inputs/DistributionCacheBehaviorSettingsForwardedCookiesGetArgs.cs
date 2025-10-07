@@ -25,7 +25,7 @@ namespace Pulumi.Aws.LightSail.Inputs
         }
 
         /// <summary>
-        /// Which cookies to forward to the distribution's origin for a cache behavior. Valid values: `all`, `none`, `allow-list`.
+        /// Which cookies to forward to the distribution's origin for a cache behavior. Valid values: `All`, `None`, `allow-list`.
         /// </summary>
         [Input("option")]
         public Input<string>? Option { get; set; }

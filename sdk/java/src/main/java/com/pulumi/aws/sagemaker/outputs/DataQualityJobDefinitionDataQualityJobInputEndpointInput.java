@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DataQualityJobDefinitionDataQualityJobInputEndpointInput {
     /**
-     * @return An endpoint in customer&#39;s account which has `data_capture_config` enabled.
+     * @return An endpoint in customer&#39;s account which has `dataCaptureConfig` enabled.
      * 
      */
     private String endpointName;
@@ -35,7 +35,7 @@ public final class DataQualityJobDefinitionDataQualityJobInputEndpointInput {
 
     private DataQualityJobDefinitionDataQualityJobInputEndpointInput() {}
     /**
-     * @return An endpoint in customer&#39;s account which has `data_capture_config` enabled.
+     * @return An endpoint in customer&#39;s account which has `dataCaptureConfig` enabled.
      * 
      */
     public String endpointName() {

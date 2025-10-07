@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Iam
     public partial class GroupMembership : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The IAM Group name to attach the list of `users` to
+        /// The IAM Group name to attach the list of `Users` to
         /// </summary>
         [Output("group")]
         public Output<string> Group { get; private set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.Iam
     public sealed class GroupMembershipArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The IAM Group name to attach the list of `users` to
+        /// The IAM Group name to attach the list of `Users` to
         /// </summary>
         [Input("group", required: true)]
         public Input<string> Group { get; set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.Iam
     public sealed class GroupMembershipState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The IAM Group name to attach the list of `users` to
+        /// The IAM Group name to attach the list of `Users` to
         /// </summary>
         [Input("group")]
         public Input<string>? Group { get; set; }

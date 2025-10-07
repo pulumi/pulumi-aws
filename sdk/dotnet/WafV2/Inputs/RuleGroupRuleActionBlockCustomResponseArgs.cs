@@ -13,7 +13,7 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class RuleGroupRuleActionBlockCustomResponseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `custom_response_body` block of this resource.
+        /// References the response body that you want AWS WAF to return to the web request client. This must reference a `Key` defined in a `CustomResponseBody` block of this resource.
         /// </summary>
         [Input("customResponseBodyKey")]
         public Input<string>? CustomResponseBodyKey { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<Inputs.RuleGroupRuleActionBlockCustomResponseResponseHeaderArgs>? _responseHeaders;
 
         /// <summary>
-        /// The `response_header` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
+        /// The `ResponseHeader` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
         /// </summary>
         public InputList<Inputs.RuleGroupRuleActionBlockCustomResponseResponseHeaderArgs> ResponseHeaders
         {

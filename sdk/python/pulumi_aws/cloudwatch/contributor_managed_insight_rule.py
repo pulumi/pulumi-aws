@@ -239,6 +239,18 @@ class ContributorManagedInsightRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudwatch.ContributorManagedInsightRule("example",
+            resource_arn=test["arn"],
+            template_name="VpcEndpointService-BytesByEndpointId-v1",
+            rule_state="DISABLED")
+        ```
+
         ## Import
 
         Using `pulumi import`, import CloudWatch Contributor Managed Insight Rule using the `resource_arn`. For example:
@@ -265,6 +277,18 @@ class ContributorManagedInsightRule(pulumi.CustomResource):
         Resource for managing an AWS CloudWatch Contributor Managed Insight Rule.
 
         ## Example Usage
+
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudwatch.ContributorManagedInsightRule("example",
+            resource_arn=test["arn"],
+            template_name="VpcEndpointService-BytesByEndpointId-v1",
+            rule_state="DISABLED")
+        ```
 
         ## Import
 

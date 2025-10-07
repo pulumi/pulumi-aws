@@ -31,13 +31,13 @@ namespace Pulumi.Aws.Workspaces.Inputs
         public Input<bool>? EnableInternetAccess { get; set; }
 
         /// <summary>
-        /// Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
+        /// Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `WorkspaceType` is set to `PERSONAL`.
         /// </summary>
         [Input("enableMaintenanceMode")]
         public Input<bool>? EnableMaintenanceMode { get; set; }
 
         /// <summary>
-        /// Indicates whether users are local administrators of their WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
+        /// Indicates whether users are local administrators of their WorkSpaces. Valid only if `WorkspaceType` is set to `PERSONAL`.
         /// </summary>
         [Input("userEnabledAsLocalAdministrator")]
         public Input<bool>? UserEnabledAsLocalAdministrator { get; set; }

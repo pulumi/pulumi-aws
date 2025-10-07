@@ -26,7 +26,7 @@ namespace Pulumi.Aws.CloudFormation.Outputs
         /// </summary>
         public readonly string? DriftStatus;
         /// <summary>
-        /// Organization root ID or organizational unit (OU) IDs that you specified for `deployment_targets`.
+        /// Organization root ID or organizational unit (OU) IDs that you specified for `DeploymentTargets`.
         /// </summary>
         public readonly string? OrganizationalUnitId;
         /// <summary>

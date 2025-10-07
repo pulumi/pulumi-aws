@@ -28,12 +28,12 @@ public final class DirectoryWorkspaceCreationProperties {
      */
     private @Nullable Boolean enableInternetAccess;
     /**
-     * @return Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
+     * @return Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspaceType` is set to `PERSONAL`.
      * 
      */
     private @Nullable Boolean enableMaintenanceMode;
     /**
-     * @return Indicates whether users are local administrators of their WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
+     * @return Indicates whether users are local administrators of their WorkSpaces. Valid only if `workspaceType` is set to `PERSONAL`.
      * 
      */
     private @Nullable Boolean userEnabledAsLocalAdministrator;
@@ -61,14 +61,14 @@ public final class DirectoryWorkspaceCreationProperties {
         return Optional.ofNullable(this.enableInternetAccess);
     }
     /**
-     * @return Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
+     * @return Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspaceType` is set to `PERSONAL`.
      * 
      */
     public Optional<Boolean> enableMaintenanceMode() {
         return Optional.ofNullable(this.enableMaintenanceMode);
     }
     /**
-     * @return Indicates whether users are local administrators of their WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
+     * @return Indicates whether users are local administrators of their WorkSpaces. Valid only if `workspaceType` is set to `PERSONAL`.
      * 
      */
     public Optional<Boolean> userEnabledAsLocalAdministrator() {

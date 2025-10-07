@@ -367,6 +367,89 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Associate Web ACL (v2)
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.appsync.GraphQLApi;
+ * import com.pulumi.aws.appsync.GraphQLApiArgs;
+ * import com.pulumi.aws.wafv2.WebAcl;
+ * import com.pulumi.aws.wafv2.WebAclArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionAllowArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleOverrideActionArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleVisibilityConfigArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclVisibilityConfigArgs;
+ * import com.pulumi.aws.wafv2.WebAclAssociation;
+ * import com.pulumi.aws.wafv2.WebAclAssociationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new GraphQLApi("example", GraphQLApiArgs.builder()
+ *             .authenticationType("API_KEY")
+ *             .name("example")
+ *             .build());
+ * 
+ *         var exampleWebAcl = new WebAcl("exampleWebAcl", WebAclArgs.builder()
+ *             .name("managed-rule-example")
+ *             .description("Example of a managed rule.")
+ *             .scope("REGIONAL")
+ *             .defaultAction(WebAclDefaultActionArgs.builder()
+ *                 .allow(WebAclDefaultActionAllowArgs.builder()
+ *                     .build())
+ *                 .build())
+ *             .rules(WebAclRuleArgs.builder()
+ *                 .name("rule-1")
+ *                 .priority(1)
+ *                 .overrideAction(WebAclRuleOverrideActionArgs.builder()
+ *                     .block(List.of(Map.ofEntries(
+ *                     )))
+ *                     .build())
+ *                 .statement(Map.of("managedRuleGroupStatement", WebAclRuleStatementManagedRuleGroupStatementArgs.builder()
+ *                     .name("AWSManagedRulesCommonRuleSet")
+ *                     .vendorName("AWS")
+ *                     .build()))
+ *                 .visibilityConfig(WebAclRuleVisibilityConfigArgs.builder()
+ *                     .cloudwatchMetricsEnabled(false)
+ *                     .metricName("friendly-rule-metric-name")
+ *                     .sampledRequestsEnabled(false)
+ *                     .build())
+ *                 .build())
+ *             .visibilityConfig(WebAclVisibilityConfigArgs.builder()
+ *                 .cloudwatchMetricsEnabled(false)
+ *                 .metricName("friendly-metric-name")
+ *                 .sampledRequestsEnabled(false)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleWebAclAssociation = new WebAclAssociation("exampleWebAclAssociation", WebAclAssociationArgs.builder()
+ *             .resourceArn(example.arn())
+ *             .webAclArn(exampleWebAcl.arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ### GraphQL run complexity, query depth, and introspection
  * 
  * <pre>
@@ -416,28 +499,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:appsync/graphQLApi:GraphQLApi")
 public class GraphQLApi extends com.pulumi.resources.CustomResource {
     /**
-     * One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
+     * One or more additional authentication providers for the GraphQL API. See `additionalAuthenticationProvider` Block for details.
      * 
      */
     @Export(name="additionalAuthenticationProviders", refs={List.class,GraphQLApiAdditionalAuthenticationProvider.class}, tree="[0,1]")
     private Output</* @Nullable */ List<GraphQLApiAdditionalAuthenticationProvider>> additionalAuthenticationProviders;
 
     /**
-     * @return One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
+     * @return One or more additional authentication providers for the GraphQL API. See `additionalAuthenticationProvider` Block for details.
      * 
      */
     public Output<Optional<List<GraphQLApiAdditionalAuthenticationProvider>>> additionalAuthenticationProviders() {
         return Codegen.optional(this.additionalAuthenticationProviders);
     }
     /**
-     * API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
+     * API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `mergedApiExecutionRoleArn` to be set.
      * 
      */
     @Export(name="apiType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apiType;
 
     /**
-     * @return API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
+     * @return API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `mergedApiExecutionRoleArn` to be set.
      * 
      */
     public Output<Optional<String>> apiType() {
@@ -472,14 +555,14 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
         return this.authenticationType;
     }
     /**
-     * Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
+     * Enables and controls the enhanced metrics feature. See `enhancedMetricsConfig` Block for details.
      * 
      */
     @Export(name="enhancedMetricsConfig", refs={GraphQLApiEnhancedMetricsConfig.class}, tree="[0]")
     private Output</* @Nullable */ GraphQLApiEnhancedMetricsConfig> enhancedMetricsConfig;
 
     /**
-     * @return Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
+     * @return Enables and controls the enhanced metrics feature. See `enhancedMetricsConfig` Block for details.
      * 
      */
     public Output<Optional<GraphQLApiEnhancedMetricsConfig>> enhancedMetricsConfig() {
@@ -500,42 +583,42 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.introspectionConfig);
     }
     /**
-     * Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
+     * Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
      * 
      */
     @Export(name="lambdaAuthorizerConfig", refs={GraphQLApiLambdaAuthorizerConfig.class}, tree="[0]")
     private Output</* @Nullable */ GraphQLApiLambdaAuthorizerConfig> lambdaAuthorizerConfig;
 
     /**
-     * @return Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
+     * @return Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
      * 
      */
     public Output<Optional<GraphQLApiLambdaAuthorizerConfig>> lambdaAuthorizerConfig() {
         return Codegen.optional(this.lambdaAuthorizerConfig);
     }
     /**
-     * Nested argument containing logging configuration. See `log_config` Block for details.
+     * Nested argument containing logging configuration. See `logConfig` Block for details.
      * 
      */
     @Export(name="logConfig", refs={GraphQLApiLogConfig.class}, tree="[0]")
     private Output</* @Nullable */ GraphQLApiLogConfig> logConfig;
 
     /**
-     * @return Nested argument containing logging configuration. See `log_config` Block for details.
+     * @return Nested argument containing logging configuration. See `logConfig` Block for details.
      * 
      */
     public Output<Optional<GraphQLApiLogConfig>> logConfig() {
         return Codegen.optional(this.logConfig);
     }
     /**
-     * ARN of the execution role when `api_type` is set to `MERGED`.
+     * ARN of the execution role when `apiType` is set to `MERGED`.
      * 
      */
     @Export(name="mergedApiExecutionRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mergedApiExecutionRoleArn;
 
     /**
-     * @return ARN of the execution role when `api_type` is set to `MERGED`.
+     * @return ARN of the execution role when `apiType` is set to `MERGED`.
      * 
      */
     public Output<Optional<String>> mergedApiExecutionRoleArn() {
@@ -560,14 +643,14 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
+     * Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
      * 
      */
     @Export(name="openidConnectConfig", refs={GraphQLApiOpenidConnectConfig.class}, tree="[0]")
     private Output</* @Nullable */ GraphQLApiOpenidConnectConfig> openidConnectConfig;
 
     /**
-     * @return Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
+     * @return Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
      * 
      */
     public Output<Optional<GraphQLApiOpenidConnectConfig>> openidConnectConfig() {
@@ -634,28 +717,28 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.schema);
     }
     /**
-     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -676,14 +759,14 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
         return this.uris;
     }
     /**
-     * Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
+     * Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
      * 
      */
     @Export(name="userPoolConfig", refs={GraphQLApiUserPoolConfig.class}, tree="[0]")
     private Output</* @Nullable */ GraphQLApiUserPoolConfig> userPoolConfig;
 
     /**
-     * @return Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
+     * @return Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
      * 
      */
     public Output<Optional<GraphQLApiUserPoolConfig>> userPoolConfig() {

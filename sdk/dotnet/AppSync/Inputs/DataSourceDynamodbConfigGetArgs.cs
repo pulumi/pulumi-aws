@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppSync.Inputs
     public sealed class DataSourceDynamodbConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The DeltaSyncConfig for a versioned data source. See `delta_sync_config` Block for details.
+        /// The DeltaSyncConfig for a versioned data source. See `DeltaSyncConfig` Block for details.
         /// </summary>
         [Input("deltaSyncConfig")]
         public Input<Inputs.DataSourceDynamodbConfigDeltaSyncConfigGetArgs>? DeltaSyncConfig { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.AppSync.Inputs
         public Input<string> TableName { get; set; } = null!;
 
         /// <summary>
-        /// Set to `true` to use Amazon Cognito credentials with this data source.
+        /// Set to `True` to use Amazon Cognito credentials with this data source.
         /// </summary>
         [Input("useCallerCredentials")]
         public Input<bool>? UseCallerCredentials { get; set; }

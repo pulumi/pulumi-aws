@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Kinesis
     public partial class Stream : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
+        /// The Amazon Resource Name (ARN) specifying the Stream (same as `Id`)
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Kinesis
         public Output<string?> EncryptionType { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
+        /// A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `False`.
         /// </summary>
         [Output("enforceConsumerDeletion")]
         public Output<bool?> EnforceConsumerDeletion { get; private set; } = null!;
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.Kinesis
         public Output<int?> RetentionPeriod { get; private set; } = null!;
 
         /// <summary>
-        /// The number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required.
+        /// The number of shards that the stream will use. If the `StreamMode` is `PROVISIONED`, this field is required.
         /// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
         /// </summary>
         [Output("shardCount")]
@@ -121,13 +121,13 @@ namespace Pulumi.Aws.Kinesis
         public Output<Outputs.StreamStreamModeDetails> StreamModeDetails { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -179,7 +179,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class StreamArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
+        /// The Amazon Resource Name (ARN) specifying the Stream (same as `Id`)
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -191,7 +191,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? EncryptionType { get; set; }
 
         /// <summary>
-        /// A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
+        /// A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `False`.
         /// </summary>
         [Input("enforceConsumerDeletion")]
         public Input<bool>? EnforceConsumerDeletion { get; set; }
@@ -221,7 +221,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<int>? RetentionPeriod { get; set; }
 
         /// <summary>
-        /// The number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required.
+        /// The number of shards that the stream will use. If the `StreamMode` is `PROVISIONED`, this field is required.
         /// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
         /// </summary>
         [Input("shardCount")]
@@ -249,7 +249,7 @@ namespace Pulumi.Aws.Kinesis
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -266,7 +266,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class StreamState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
+        /// The Amazon Resource Name (ARN) specifying the Stream (same as `Id`)
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -278,7 +278,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? EncryptionType { get; set; }
 
         /// <summary>
-        /// A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
+        /// A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `False`.
         /// </summary>
         [Input("enforceConsumerDeletion")]
         public Input<bool>? EnforceConsumerDeletion { get; set; }
@@ -308,7 +308,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<int>? RetentionPeriod { get; set; }
 
         /// <summary>
-        /// The number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required.
+        /// The number of shards that the stream will use. If the `StreamMode` is `PROVISIONED`, this field is required.
         /// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
         /// </summary>
         [Input("shardCount")]
@@ -336,7 +336,7 @@ namespace Pulumi.Aws.Kinesis
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -348,7 +348,7 @@ namespace Pulumi.Aws.Kinesis
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

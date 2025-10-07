@@ -19,7 +19,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailFieldArgs>? EmailField { get; set; }
 
         /// <summary>
-        /// Details about your login page password field. See `password_field` for more details.
+        /// Details about your login page password field. See `PasswordField` for more details.
         /// </summary>
         [Input("passwordField")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordFieldArgs>? PasswordField { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFieldsArgs>? PhoneNumberFields { get; set; }
 
         /// <summary>
-        /// Details about your login page username field. See `username_field` for more details.
+        /// Details about your login page username field. See `UsernameField` for more details.
         /// </summary>
         [Input("usernameField")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameFieldArgs>? UsernameField { get; set; }

@@ -16,14 +16,14 @@ public final class ApplicationDefinitionArgs extends com.pulumi.resources.Resour
     public static final ApplicationDefinitionArgs Empty = new ApplicationDefinitionArgs();
 
     /**
-     * JSON application definition. Either this or `s3_location` must be specified.
+     * JSON application definition. Either this or `s3Location` must be specified.
      * 
      */
     @Import(name="content")
     private @Nullable Output<String> content;
 
     /**
-     * @return JSON application definition. Either this or `s3_location` must be specified.
+     * @return JSON application definition. Either this or `s3Location` must be specified.
      * 
      */
     public Optional<Output<String>> content() {
@@ -71,7 +71,7 @@ public final class ApplicationDefinitionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param content JSON application definition. Either this or `s3_location` must be specified.
+         * @param content JSON application definition. Either this or `s3Location` must be specified.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ApplicationDefinitionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param content JSON application definition. Either this or `s3_location` must be specified.
+         * @param content JSON application definition. Either this or `s3Location` must be specified.
          * 
          * @return builder
          * 

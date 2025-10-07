@@ -30,14 +30,14 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     public static final TableArgs Empty = new TableArgs();
 
     /**
-     * Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
+     * Set of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. See below.
      * 
      */
     @Import(name="attributes")
     private @Nullable Output<List<TableAttributeArgs>> attributes;
 
     /**
-     * @return Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
+     * @return Set of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. See below.
      * 
      */
     public Optional<Output<List<TableAttributeArgs>>> attributes() {
@@ -199,14 +199,14 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
+     * Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
      * 
      */
     @Import(name="readCapacity")
     private @Nullable Output<Integer> readCapacity;
 
     /**
-     * @return Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
+     * @return Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
      * 
      */
     public Optional<Output<Integer>> readCapacity() {
@@ -368,14 +368,14 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -413,14 +413,14 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
+     * Number of write units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
      * 
      */
     @Import(name="writeCapacity")
     private @Nullable Output<Integer> writeCapacity;
 
     /**
-     * @return Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
+     * @return Number of write units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
      * 
      */
     public Optional<Output<Integer>> writeCapacity() {
@@ -477,7 +477,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param attributes Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
+         * @param attributes Set of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. See below.
          * 
          * @return builder
          * 
@@ -488,7 +488,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param attributes Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
+         * @param attributes Set of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. See below.
          * 
          * @return builder
          * 
@@ -498,7 +498,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param attributes Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
+         * @param attributes Set of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. See below.
          * 
          * @return builder
          * 
@@ -742,7 +742,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param readCapacity Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
+         * @param readCapacity Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
          * 
          * @return builder
          * 
@@ -753,7 +753,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param readCapacity Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
+         * @param readCapacity Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
          * 
          * @return builder
          * 
@@ -987,7 +987,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -998,7 +998,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1050,7 +1050,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param writeCapacity Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
+         * @param writeCapacity Number of write units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
          * 
          * @return builder
          * 
@@ -1061,7 +1061,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param writeCapacity Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
+         * @param writeCapacity Number of write units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
          * 
          * @return builder
          * 

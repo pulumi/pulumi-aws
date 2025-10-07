@@ -12,9 +12,9 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides an Elastic IP resource.
     /// 
-    /// &gt; **Note:** EIP may require IGW to exist prior to association. Use `depends_on` to set an explicit dependency on the IGW.
+    /// &gt; **Note:** EIP may require IGW to exist prior to association. Use `DependsOn` to set an explicit dependency on the IGW.
     /// 
-    /// &gt; **Note:** Do not use `network_interface` to associate the EIP to `aws.lb.LoadBalancer` or `aws.ec2.NatGateway` resources. Instead use the `allocation_id` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
+    /// &gt; **Note:** Do not use `NetworkInterface` to associate the EIP to `aws.lb.LoadBalancer` or `aws.ec2.NatGateway` resources. Instead use the `AllocationId` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
     /// 
     /// ## Example Usage
     /// 
@@ -227,7 +227,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> CustomerOwnedIpv4Pool { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates if this EIP is for use in VPC (`vpc`).
+        /// Indicates if this EIP is for use in VPC (`Vpc`).
         /// </summary>
         [Output("domain")]
         public Output<string> Domain { get; private set; } = null!;
@@ -287,7 +287,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> PublicIp { get; private set; } = null!;
 
         /// <summary>
-        /// EC2 IPv4 address pool identifier or `amazon`.
+        /// EC2 IPv4 address pool identifier or `Amazon`.
         /// This option is only available for VPC EIPs.
         /// </summary>
         [Output("publicIpv4Pool")]
@@ -300,19 +300,19 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
-        /// &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
+        /// &gt; **NOTE:** You can specify either the `Instance` ID or the `NetworkInterface` ID, but not both.
         /// Including both will **not** return an error from the AWS API, but will have undefined behavior.
         /// See the relevant [AssociateAddress API Call][1] for more information.
         /// 
-        /// &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
+        /// &gt; **NOTE:** Specifying both `PublicIpv4Pool` and `Address` won't cause an error, however, only `Address` will be used if both options are defined as the API only requires one of the two.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -382,7 +382,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? CustomerOwnedIpv4Pool { get; set; }
 
         /// <summary>
-        /// Indicates if this EIP is for use in VPC (`vpc`).
+        /// Indicates if this EIP is for use in VPC (`Vpc`).
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
@@ -412,7 +412,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? NetworkInterface { get; set; }
 
         /// <summary>
-        /// EC2 IPv4 address pool identifier or `amazon`.
+        /// EC2 IPv4 address pool identifier or `Amazon`.
         /// This option is only available for VPC EIPs.
         /// </summary>
         [Input("publicIpv4Pool")]
@@ -428,13 +428,13 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
-        /// &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
+        /// &gt; **NOTE:** You can specify either the `Instance` ID or the `NetworkInterface` ID, but not both.
         /// Including both will **not** return an error from the AWS API, but will have undefined behavior.
         /// See the relevant [AssociateAddress API Call][1] for more information.
         /// 
-        /// &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
+        /// &gt; **NOTE:** Specifying both `PublicIpv4Pool` and `Address` won't cause an error, however, only `Address` will be used if both options are defined as the API only requires one of the two.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -496,7 +496,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? CustomerOwnedIpv4Pool { get; set; }
 
         /// <summary>
-        /// Indicates if this EIP is for use in VPC (`vpc`).
+        /// Indicates if this EIP is for use in VPC (`Vpc`).
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
@@ -556,7 +556,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PublicIp { get; set; }
 
         /// <summary>
-        /// EC2 IPv4 address pool identifier or `amazon`.
+        /// EC2 IPv4 address pool identifier or `Amazon`.
         /// This option is only available for VPC EIPs.
         /// </summary>
         [Input("publicIpv4Pool")]
@@ -572,13 +572,13 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
-        /// &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
+        /// &gt; **NOTE:** You can specify either the `Instance` ID or the `NetworkInterface` ID, but not both.
         /// Including both will **not** return an error from the AWS API, but will have undefined behavior.
         /// See the relevant [AssociateAddress API Call][1] for more information.
         /// 
-        /// &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
+        /// &gt; **NOTE:** Specifying both `PublicIpv4Pool` and `Address` won't cause an error, however, only `Address` will be used if both options are defined as the API only requires one of the two.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -590,7 +590,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

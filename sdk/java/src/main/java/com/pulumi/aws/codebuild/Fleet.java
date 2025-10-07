@@ -149,14 +149,14 @@ public class Fleet extends com.pulumi.resources.CustomResource {
         return this.baseCapacity;
     }
     /**
-     * The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `compute_configuration` below.
+     * The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `computeConfiguration` below.
      * 
      */
     @Export(name="computeConfiguration", refs={FleetComputeConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ FleetComputeConfiguration> computeConfiguration;
 
     /**
-     * @return The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `compute_configuration` below.
+     * @return The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `computeConfiguration` below.
      * 
      */
     public Output<Optional<FleetComputeConfiguration>> computeConfiguration() {
@@ -293,14 +293,14 @@ public class Fleet extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
+     * Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
      * 
      */
     @Export(name="scalingConfiguration", refs={FleetScalingConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ FleetScalingConfiguration> scalingConfiguration;
 
     /**
-     * @return Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
+     * @return Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
      * 
      */
     public Output<Optional<FleetScalingConfiguration>> scalingConfiguration() {
@@ -321,14 +321,14 @@ public class Fleet extends com.pulumi.resources.CustomResource {
         return this.statuses;
     }
     /**
-     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
@@ -341,14 +341,14 @@ public class Fleet extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Configuration block. See `vpc_config` below.
+     * Configuration block. See `vpcConfig` below.
      * 
      */
     @Export(name="vpcConfigs", refs={List.class,FleetVpcConfig.class}, tree="[0,1]")
     private Output</* @Nullable */ List<FleetVpcConfig>> vpcConfigs;
 
     /**
-     * @return Configuration block. See `vpc_config` below.
+     * @return Configuration block. See `vpcConfig` below.
      * 
      */
     public Output<Optional<List<FleetVpcConfig>>> vpcConfigs() {

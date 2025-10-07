@@ -456,7 +456,7 @@ public final class NetworkmanagerFunctions {
         return Deployment.getInstance().invokeAsync("aws:networkmanager/getConnections:getConnections", TypeShape.of(GetConnectionsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Generates a Core Network policy document in JSON format for use with resources that expect core network policy documents such as `awscc_networkmanager_core_network`. It follows the API definition from the [core-network-policy documentation](https://docs.aws.amazon.com/vpc/latest/cloudwan/cloudwan-policies-json.html).
+     * Generates a Core Network policy document in JSON format for use with resources that expect core network policy documents such as `awsccNetworkmanagerCoreNetwork`. It follows the API definition from the [core-network-policy documentation](https://docs.aws.amazon.com/vpc/latest/cloudwan/cloudwan-policies-json.html).
      * 
      * Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `file` interpolation function to read a raw JSON policy document from a file.
      * 
@@ -560,7 +560,7 @@ public final class NetworkmanagerFunctions {
         return getCoreNetworkPolicyDocument(args, InvokeOptions.Empty);
     }
     /**
-     * Generates a Core Network policy document in JSON format for use with resources that expect core network policy documents such as `awscc_networkmanager_core_network`. It follows the API definition from the [core-network-policy documentation](https://docs.aws.amazon.com/vpc/latest/cloudwan/cloudwan-policies-json.html).
+     * Generates a Core Network policy document in JSON format for use with resources that expect core network policy documents such as `awsccNetworkmanagerCoreNetwork`. It follows the API definition from the [core-network-policy documentation](https://docs.aws.amazon.com/vpc/latest/cloudwan/cloudwan-policies-json.html).
      * 
      * Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `file` interpolation function to read a raw JSON policy document from a file.
      * 
@@ -664,7 +664,7 @@ public final class NetworkmanagerFunctions {
         return getCoreNetworkPolicyDocumentPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Generates a Core Network policy document in JSON format for use with resources that expect core network policy documents such as `awscc_networkmanager_core_network`. It follows the API definition from the [core-network-policy documentation](https://docs.aws.amazon.com/vpc/latest/cloudwan/cloudwan-policies-json.html).
+     * Generates a Core Network policy document in JSON format for use with resources that expect core network policy documents such as `awsccNetworkmanagerCoreNetwork`. It follows the API definition from the [core-network-policy documentation](https://docs.aws.amazon.com/vpc/latest/cloudwan/cloudwan-policies-json.html).
      * 
      * Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `file` interpolation function to read a raw JSON policy document from a file.
      * 
@@ -768,7 +768,7 @@ public final class NetworkmanagerFunctions {
         return Deployment.getInstance().invoke("aws:networkmanager/getCoreNetworkPolicyDocument:getCoreNetworkPolicyDocument", TypeShape.of(GetCoreNetworkPolicyDocumentResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Generates a Core Network policy document in JSON format for use with resources that expect core network policy documents such as `awscc_networkmanager_core_network`. It follows the API definition from the [core-network-policy documentation](https://docs.aws.amazon.com/vpc/latest/cloudwan/cloudwan-policies-json.html).
+     * Generates a Core Network policy document in JSON format for use with resources that expect core network policy documents such as `awsccNetworkmanagerCoreNetwork`. It follows the API definition from the [core-network-policy documentation](https://docs.aws.amazon.com/vpc/latest/cloudwan/cloudwan-policies-json.html).
      * 
      * Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `file` interpolation function to read a raw JSON policy document from a file.
      * 
@@ -872,7 +872,7 @@ public final class NetworkmanagerFunctions {
         return Deployment.getInstance().invoke("aws:networkmanager/getCoreNetworkPolicyDocument:getCoreNetworkPolicyDocument", TypeShape.of(GetCoreNetworkPolicyDocumentResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Generates a Core Network policy document in JSON format for use with resources that expect core network policy documents such as `awscc_networkmanager_core_network`. It follows the API definition from the [core-network-policy documentation](https://docs.aws.amazon.com/vpc/latest/cloudwan/cloudwan-policies-json.html).
+     * Generates a Core Network policy document in JSON format for use with resources that expect core network policy documents such as `awsccNetworkmanagerCoreNetwork`. It follows the API definition from the [core-network-policy documentation](https://docs.aws.amazon.com/vpc/latest/cloudwan/cloudwan-policies-json.html).
      * 
      * Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `file` interpolation function to read a raw JSON policy document from a file.
      * 

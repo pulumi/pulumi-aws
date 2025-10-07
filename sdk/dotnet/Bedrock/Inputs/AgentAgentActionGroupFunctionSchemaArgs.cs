@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         /// <summary>
         /// Contains a list of functions.
         /// Each function describes and action in the action group.
-        /// See `member_functions` Block for details.
+        /// See `MemberFunctions` Block for details.
         /// </summary>
         [Input("memberFunctions")]
         public Input<Inputs.AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs>? MemberFunctions { get; set; }

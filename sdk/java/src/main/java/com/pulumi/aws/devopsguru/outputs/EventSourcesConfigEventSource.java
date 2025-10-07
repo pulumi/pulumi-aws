@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EventSourcesConfigEventSource {
     /**
-     * @return Stores whether DevOps Guru is configured to consume recommendations which are generated from AWS CodeGuru Profiler. See `amazon_code_guru_profiler` below.
+     * @return Stores whether DevOps Guru is configured to consume recommendations which are generated from AWS CodeGuru Profiler. See `amazonCodeGuruProfiler` below.
      * 
      */
     private @Nullable List<EventSourcesConfigEventSourceAmazonCodeGuruProfiler> amazonCodeGuruProfilers;
 
     private EventSourcesConfigEventSource() {}
     /**
-     * @return Stores whether DevOps Guru is configured to consume recommendations which are generated from AWS CodeGuru Profiler. See `amazon_code_guru_profiler` below.
+     * @return Stores whether DevOps Guru is configured to consume recommendations which are generated from AWS CodeGuru Profiler. See `amazonCodeGuruProfiler` below.
      * 
      */
     public List<EventSourcesConfigEventSourceAmazonCodeGuruProfiler> amazonCodeGuruProfilers() {

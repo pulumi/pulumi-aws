@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Route53.Outputs
         /// </summary>
         public readonly string? Ipv6;
         /// <summary>
-        /// Port at `ip` that you want to forward DNS queries to. Default value is `53`.
+        /// Port at `Ip` that you want to forward DNS queries to. Default value is `53`.
         /// </summary>
         public readonly int? Port;
         /// <summary>

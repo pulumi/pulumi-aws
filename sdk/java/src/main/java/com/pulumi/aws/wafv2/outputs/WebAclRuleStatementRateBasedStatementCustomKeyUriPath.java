@@ -12,14 +12,14 @@ import java.util.Objects;
 @CustomType
 public final class WebAclRuleStatementRateBasedStatementCustomKeyUriPath {
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `text_transformation` above for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `textTransformation` above for details.
      * 
      */
     private List<WebAclRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation> textTransformations;
 
     private WebAclRuleStatementRateBasedStatementCustomKeyUriPath() {}
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `text_transformation` above for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `textTransformation` above for details.
      * 
      */
     public List<WebAclRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation> textTransformations() {

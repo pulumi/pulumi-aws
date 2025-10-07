@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Details about the embeddings model that'sused to convert the data source. See `vector_knowledge_base_configuration` block for details.
+        /// Details about the embeddings model that'sused to convert the data source. See `VectorKnowledgeBaseConfiguration` block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration? VectorKnowledgeBaseConfiguration;
 

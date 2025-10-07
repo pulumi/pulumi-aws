@@ -22,7 +22,7 @@ namespace Pulumi.Aws.LakeFormation.Inputs
         private InputList<string>? _columnNames;
 
         /// <summary>
-        /// Set of column names for the table. At least one of `column_names` or `excluded_column_names` is required.
+        /// Set of column names for the table. At least one of `ColumnNames` or `ExcludedColumnNames` is required.
         /// </summary>
         public InputList<string> ColumnNames
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.LakeFormation.Inputs
         private InputList<string>? _excludedColumnNames;
 
         /// <summary>
-        /// Set of column names for the table to exclude. At least one of `column_names` or `excluded_column_names` is required.
+        /// Set of column names for the table to exclude. At least one of `ColumnNames` or `ExcludedColumnNames` is required.
         /// </summary>
         public InputList<string> ExcludedColumnNames
         {
@@ -57,7 +57,7 @@ namespace Pulumi.Aws.LakeFormation.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
+        /// Whether to use a wildcard representing every table under a database. At least one of `Name` or `Wildcard` is required. Defaults to `False`.
         /// </summary>
         [Input("wildcard")]
         public Input<bool>? Wildcard { get; set; }

@@ -12,6 +12,28 @@ namespace Pulumi.Aws.Detective
     /// <summary>
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Detective.Graph("example", new()
+    ///     {
+    ///         Enable = true,
+    ///     });
+    /// 
+    ///     var exampleOrganizationConfiguration = new Aws.Detective.OrganizationConfiguration("example", new()
+    ///     {
+    ///         AutoEnable = true,
+    ///         GraphArn = example.GraphArn,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_detective_organization_admin_account` using the behavior graph ARN. For example:

@@ -64,7 +64,7 @@ public final class PublicKeyArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The name for the public key. Conflicts with `name`.
      * 
-     * **NOTE:** When setting `encoded_key` value, there needs a newline at the end of string. Otherwise, multiple runs of pulumi will want to recreate the `aws.cloudfront.PublicKey` resource.
+     * **NOTE:** When setting `encodedKey` value, there needs a newline at the end of string. Otherwise, multiple runs of pulumi will want to recreate the `aws.cloudfront.PublicKey` resource.
      * 
      */
     @Import(name="namePrefix")
@@ -73,7 +73,7 @@ public final class PublicKeyArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The name for the public key. Conflicts with `name`.
      * 
-     * **NOTE:** When setting `encoded_key` value, there needs a newline at the end of string. Otherwise, multiple runs of pulumi will want to recreate the `aws.cloudfront.PublicKey` resource.
+     * **NOTE:** When setting `encodedKey` value, there needs a newline at the end of string. Otherwise, multiple runs of pulumi will want to recreate the `aws.cloudfront.PublicKey` resource.
      * 
      */
     public Optional<Output<String>> namePrefix() {
@@ -173,7 +173,7 @@ public final class PublicKeyArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param namePrefix The name for the public key. Conflicts with `name`.
          * 
-         * **NOTE:** When setting `encoded_key` value, there needs a newline at the end of string. Otherwise, multiple runs of pulumi will want to recreate the `aws.cloudfront.PublicKey` resource.
+         * **NOTE:** When setting `encodedKey` value, there needs a newline at the end of string. Otherwise, multiple runs of pulumi will want to recreate the `aws.cloudfront.PublicKey` resource.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class PublicKeyArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param namePrefix The name for the public key. Conflicts with `name`.
          * 
-         * **NOTE:** When setting `encoded_key` value, there needs a newline at the end of string. Otherwise, multiple runs of pulumi will want to recreate the `aws.cloudfront.PublicKey` resource.
+         * **NOTE:** When setting `encodedKey` value, there needs a newline at the end of string. Otherwise, multiple runs of pulumi will want to recreate the `aws.cloudfront.PublicKey` resource.
          * 
          * @return builder
          * 

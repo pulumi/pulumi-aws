@@ -19,7 +19,7 @@ namespace Pulumi.Aws.AppAutoScaling.Inputs
         public Input<string>? MaxCapacityBreachBehavior { get; set; }
 
         /// <summary>
-        /// Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. Required if the `max_capacity_breach_behavior` argument is set to `IncreaseMaxCapacity`, and cannot be used otherwise.
+        /// Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. Required if the `MaxCapacityBreachBehavior` argument is set to `IncreaseMaxCapacity`, and cannot be used otherwise.
         /// </summary>
         [Input("maxCapacityBuffer")]
         public Input<int>? MaxCapacityBuffer { get; set; }

@@ -16,14 +16,14 @@ public final class DomainDefaultUserSettingsCustomFileSystemConfigArgs extends c
     public static final DomainDefaultUserSettingsCustomFileSystemConfigArgs Empty = new DomainDefaultUserSettingsCustomFileSystemConfigArgs();
 
     /**
-     * The default EBS storage settings for a private space. See `efs_file_system_config` Block below.
+     * The default EBS storage settings for a private space. See `efsFileSystemConfig` Block below.
      * 
      */
     @Import(name="efsFileSystemConfig")
     private @Nullable Output<DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs> efsFileSystemConfig;
 
     /**
-     * @return The default EBS storage settings for a private space. See `efs_file_system_config` Block below.
+     * @return The default EBS storage settings for a private space. See `efsFileSystemConfig` Block below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs>> efsFileSystemConfig() {
@@ -55,7 +55,7 @@ public final class DomainDefaultUserSettingsCustomFileSystemConfigArgs extends c
         }
 
         /**
-         * @param efsFileSystemConfig The default EBS storage settings for a private space. See `efs_file_system_config` Block below.
+         * @param efsFileSystemConfig The default EBS storage settings for a private space. See `efsFileSystemConfig` Block below.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class DomainDefaultUserSettingsCustomFileSystemConfigArgs extends c
         }
 
         /**
-         * @param efsFileSystemConfig The default EBS storage settings for a private space. See `efs_file_system_config` Block below.
+         * @param efsFileSystemConfig The default EBS storage settings for a private space. See `efsFileSystemConfig` Block below.
          * 
          * @return builder
          * 

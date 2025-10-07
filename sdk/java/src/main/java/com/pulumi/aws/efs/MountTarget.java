@@ -177,14 +177,14 @@ public class MountTarget extends com.pulumi.resources.CustomResource {
         return this.ipAddressType;
     }
     /**
-     * IPv6 address to use. Valid only when `ip_address_type` is set to `IPV6_ONLY` or `DUAL_STACK`.
+     * IPv6 address to use. Valid only when `ipAddressType` is set to `IPV6_ONLY` or `DUAL_STACK`.
      * 
      */
     @Export(name="ipv6Address", refs={String.class}, tree="[0]")
     private Output<String> ipv6Address;
 
     /**
-     * @return IPv6 address to use. Valid only when `ip_address_type` is set to `IPV6_ONLY` or `DUAL_STACK`.
+     * @return IPv6 address to use. Valid only when `ipAddressType` is set to `IPV6_ONLY` or `DUAL_STACK`.
      * 
      */
     public Output<String> ipv6Address() {

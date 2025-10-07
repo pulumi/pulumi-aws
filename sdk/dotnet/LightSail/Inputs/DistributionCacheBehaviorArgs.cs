@@ -13,7 +13,7 @@ namespace Pulumi.Aws.LightSail.Inputs
     public sealed class DistributionCacheBehaviorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Cache behavior for the specified path. Valid values: `cache`, `dont-cache`.
+        /// Cache behavior for the specified path. Valid values: `Cache`, `dont-cache`.
         /// </summary>
         [Input("behavior", required: true)]
         public Input<string> Behavior { get; set; } = null!;

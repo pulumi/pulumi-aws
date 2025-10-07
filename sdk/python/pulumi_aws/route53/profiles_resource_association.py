@@ -294,6 +294,25 @@ class ProfilesResourceAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.route53.ProfilesProfile("example", name="example")
+        example_vpc = aws.ec2.Vpc("example", cidr="10.0.0.0/16")
+        example_zone = aws.route53.Zone("example",
+            name="example.com",
+            vpcs=[{
+                "vpc_id": example_vpc.id,
+            }])
+        example_profiles_resource_association = aws.route53.ProfilesResourceAssociation("example",
+            name="example",
+            profile_id=example.id,
+            resource_arn=example_zone.arn)
+        ```
+
         ## Import
 
         Using `pulumi import`, import Route 53 Profiles Resource Association using the `id`. For example:
@@ -320,6 +339,25 @@ class ProfilesResourceAssociation(pulumi.CustomResource):
         Resource for managing an AWS Route 53 Profiles Resource Association.
 
         ## Example Usage
+
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.route53.ProfilesProfile("example", name="example")
+        example_vpc = aws.ec2.Vpc("example", cidr="10.0.0.0/16")
+        example_zone = aws.route53.Zone("example",
+            name="example.com",
+            vpcs=[{
+                "vpc_id": example_vpc.id,
+            }])
+        example_profiles_resource_association = aws.route53.ProfilesResourceAssociation("example",
+            name="example",
+            profile_id=example.id,
+            resource_arn=example_zone.arn)
+        ```
 
         ## Import
 

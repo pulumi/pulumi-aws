@@ -14,6 +14,75 @@ namespace Pulumi.Aws.FinSpace
     /// 
     /// ## Example Usage
     /// 
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.FinSpace.KxCluster("example", new()
+    ///     {
+    ///         Name = "my-tf-kx-cluster",
+    ///         EnvironmentId = exampleAwsFinspaceKxEnvironment.Id,
+    ///         Type = "HDB",
+    ///         ReleaseLabel = "1.0",
+    ///         AzMode = "SINGLE",
+    ///         AvailabilityZoneId = "use1-az2",
+    ///         CapacityConfiguration = new Aws.FinSpace.Inputs.KxClusterCapacityConfigurationArgs
+    ///         {
+    ///             NodeType = "kx.s.2xlarge",
+    ///             NodeCount = 2,
+    ///         },
+    ///         VpcConfiguration = new Aws.FinSpace.Inputs.KxClusterVpcConfigurationArgs
+    ///         {
+    ///             VpcId = test.Id,
+    ///             SecurityGroupIds = new[]
+    ///             {
+    ///                 exampleAwsSecurityGroup.Id,
+    ///             },
+    ///             SubnetIds = new[]
+    ///             {
+    ///                 exampleAwsSubnet.Id,
+    ///             },
+    ///             IpAddressType = "IP_V4",
+    ///         },
+    ///         CacheStorageConfigurations = new[]
+    ///         {
+    ///             new Aws.FinSpace.Inputs.KxClusterCacheStorageConfigurationArgs
+    ///             {
+    ///                 Type = "CACHE_1000",
+    ///                 Size = 1200,
+    ///             },
+    ///         },
+    ///         Databases = new[]
+    ///         {
+    ///             new Aws.FinSpace.Inputs.KxClusterDatabaseArgs
+    ///             {
+    ///                 DatabaseName = exampleAwsFinspaceKxDatabase.Name,
+    ///                 CacheConfiguration = new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "cacheType", "CACHE_1000" },
+    ///                         { "dbPaths", "/" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Code = new Aws.FinSpace.Inputs.KxClusterCodeArgs
+    ///         {
+    ///             S3Bucket = testAwsS3Bucket.Id,
+    ///             S3Key = @object.Key,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import an AWS FinSpace Kx Cluster using the `id` (environment ID and cluster name, comma-delimited). For example:
@@ -38,7 +107,7 @@ namespace Pulumi.Aws.FinSpace
         public Output<Outputs.KxClusterAutoScalingConfiguration?> AutoScalingConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
+        /// The availability zone identifiers for the requested regions. Required when `AzMode` is set to SINGLE.
         /// </summary>
         [Output("availabilityZoneId")]
         public Output<string?> AvailabilityZoneId { get; private set; } = null!;
@@ -136,7 +205,7 @@ namespace Pulumi.Aws.FinSpace
         public Output<string> ReleaseLabel { get; private set; } = null!;
 
         /// <summary>
-        /// Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
+        /// Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `Type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
         /// </summary>
         [Output("savedownStorageConfiguration")]
         public Output<Outputs.KxClusterSavedownStorageConfiguration?> SavedownStorageConfiguration { get; private set; } = null!;
@@ -154,13 +223,13 @@ namespace Pulumi.Aws.FinSpace
         public Output<string> StatusReason { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -243,7 +312,7 @@ namespace Pulumi.Aws.FinSpace
         public Input<Inputs.KxClusterAutoScalingConfigurationArgs>? AutoScalingConfiguration { get; set; }
 
         /// <summary>
-        /// The availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
+        /// The availability zone identifiers for the requested regions. Required when `AzMode` is set to SINGLE.
         /// </summary>
         [Input("availabilityZoneId")]
         public Input<string>? AvailabilityZoneId { get; set; }
@@ -347,7 +416,7 @@ namespace Pulumi.Aws.FinSpace
         public Input<string> ReleaseLabel { get; set; } = null!;
 
         /// <summary>
-        /// Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
+        /// Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `Type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
         /// </summary>
         [Input("savedownStorageConfiguration")]
         public Input<Inputs.KxClusterSavedownStorageConfigurationArgs>? SavedownStorageConfiguration { get; set; }
@@ -362,7 +431,7 @@ namespace Pulumi.Aws.FinSpace
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -422,7 +491,7 @@ namespace Pulumi.Aws.FinSpace
         public Input<Inputs.KxClusterAutoScalingConfigurationGetArgs>? AutoScalingConfiguration { get; set; }
 
         /// <summary>
-        /// The availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
+        /// The availability zone identifiers for the requested regions. Required when `AzMode` is set to SINGLE.
         /// </summary>
         [Input("availabilityZoneId")]
         public Input<string>? AvailabilityZoneId { get; set; }
@@ -538,7 +607,7 @@ namespace Pulumi.Aws.FinSpace
         public Input<string>? ReleaseLabel { get; set; }
 
         /// <summary>
-        /// Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
+        /// Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `Type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
         /// </summary>
         [Input("savedownStorageConfiguration")]
         public Input<Inputs.KxClusterSavedownStorageConfigurationGetArgs>? SavedownStorageConfiguration { get; set; }
@@ -559,7 +628,7 @@ namespace Pulumi.Aws.FinSpace
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -571,7 +640,7 @@ namespace Pulumi.Aws.FinSpace
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Kinesis.Inputs
     public sealed class FirehoseDeliveryStreamServerSideEncryptionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to enable encryption at rest. Default is `false`.
+        /// Whether to enable encryption at rest. Default is `False`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the encryption key. Required when `key_type` is `CUSTOMER_MANAGED_CMK`.
+        /// Amazon Resource Name (ARN) of the encryption key. Required when `KeyType` is `CUSTOMER_MANAGED_CMK`.
         /// </summary>
         [Input("keyArn")]
         public Input<string>? KeyArn { get; set; }

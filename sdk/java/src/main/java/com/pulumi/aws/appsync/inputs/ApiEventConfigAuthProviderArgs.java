@@ -35,14 +35,14 @@ public final class ApiEventConfigAuthProviderArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Configuration for Cognito user pool authentication. Required when `auth_type` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
+     * Configuration for Cognito user pool authentication. Required when `authType` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
      * 
      */
     @Import(name="cognitoConfig")
     private @Nullable Output<ApiEventConfigAuthProviderCognitoConfigArgs> cognitoConfig;
 
     /**
-     * @return Configuration for Cognito user pool authentication. Required when `auth_type` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
+     * @return Configuration for Cognito user pool authentication. Required when `authType` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
      * 
      */
     public Optional<Output<ApiEventConfigAuthProviderCognitoConfigArgs>> cognitoConfig() {
@@ -50,14 +50,14 @@ public final class ApiEventConfigAuthProviderArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Configuration for Lambda authorization. Required when `auth_type` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
+     * Configuration for Lambda authorization. Required when `authType` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
      * 
      */
     @Import(name="lambdaAuthorizerConfig")
     private @Nullable Output<ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs> lambdaAuthorizerConfig;
 
     /**
-     * @return Configuration for Lambda authorization. Required when `auth_type` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
+     * @return Configuration for Lambda authorization. Required when `authType` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
      * 
      */
     public Optional<Output<ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs>> lambdaAuthorizerConfig() {
@@ -65,14 +65,14 @@ public final class ApiEventConfigAuthProviderArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Configuration for OpenID Connect. Required when `auth_type` is `OPENID_CONNECT`. See OpenID Connect Config below.
+     * Configuration for OpenID Connect. Required when `authType` is `OPENID_CONNECT`. See OpenID Connect Config below.
      * 
      */
     @Import(name="openidConnectConfig")
     private @Nullable Output<ApiEventConfigAuthProviderOpenidConnectConfigArgs> openidConnectConfig;
 
     /**
-     * @return Configuration for OpenID Connect. Required when `auth_type` is `OPENID_CONNECT`. See OpenID Connect Config below.
+     * @return Configuration for OpenID Connect. Required when `authType` is `OPENID_CONNECT`. See OpenID Connect Config below.
      * 
      */
     public Optional<Output<ApiEventConfigAuthProviderOpenidConnectConfigArgs>> openidConnectConfig() {
@@ -128,7 +128,7 @@ public final class ApiEventConfigAuthProviderArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param cognitoConfig Configuration for Cognito user pool authentication. Required when `auth_type` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
+         * @param cognitoConfig Configuration for Cognito user pool authentication. Required when `authType` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class ApiEventConfigAuthProviderArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param cognitoConfig Configuration for Cognito user pool authentication. Required when `auth_type` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
+         * @param cognitoConfig Configuration for Cognito user pool authentication. Required when `authType` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class ApiEventConfigAuthProviderArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param lambdaAuthorizerConfig Configuration for Lambda authorization. Required when `auth_type` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
+         * @param lambdaAuthorizerConfig Configuration for Lambda authorization. Required when `authType` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class ApiEventConfigAuthProviderArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param lambdaAuthorizerConfig Configuration for Lambda authorization. Required when `auth_type` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
+         * @param lambdaAuthorizerConfig Configuration for Lambda authorization. Required when `authType` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class ApiEventConfigAuthProviderArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param openidConnectConfig Configuration for OpenID Connect. Required when `auth_type` is `OPENID_CONNECT`. See OpenID Connect Config below.
+         * @param openidConnectConfig Configuration for OpenID Connect. Required when `authType` is `OPENID_CONNECT`. See OpenID Connect Config below.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class ApiEventConfigAuthProviderArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param openidConnectConfig Configuration for OpenID Connect. Required when `auth_type` is `OPENID_CONNECT`. See OpenID Connect Config below.
+         * @param openidConnectConfig Configuration for OpenID Connect. Required when `authType` is `OPENID_CONNECT`. See OpenID Connect Config below.
          * 
          * @return builder
          * 

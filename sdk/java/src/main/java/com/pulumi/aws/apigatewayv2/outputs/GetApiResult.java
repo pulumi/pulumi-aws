@@ -48,7 +48,7 @@ public final class GetApiResult {
      */
     private Boolean disableExecuteApiEndpoint;
     /**
-     * @return ARN prefix to be used in an `aws.lambda.Permission`&#39;s `source_arn` attribute
+     * @return ARN prefix to be used in an `aws.lambda.Permission`&#39;s `sourceArn` attribute
      * or in an `aws.iam.Policy` to authorize access to the [`{@literal @}connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      * 
@@ -136,7 +136,7 @@ public final class GetApiResult {
         return this.disableExecuteApiEndpoint;
     }
     /**
-     * @return ARN prefix to be used in an `aws.lambda.Permission`&#39;s `source_arn` attribute
+     * @return ARN prefix to be used in an `aws.lambda.Permission`&#39;s `sourceArn` attribute
      * or in an `aws.iam.Policy` to authorize access to the [`{@literal @}connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      * 

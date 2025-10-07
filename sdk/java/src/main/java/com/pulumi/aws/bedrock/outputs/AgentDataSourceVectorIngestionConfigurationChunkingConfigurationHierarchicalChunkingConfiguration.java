@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration {
     /**
-     * @return Maximum number of tokens to include in a chunk. Must contain two `level_configurations`. See `level_configurations` for details.
+     * @return Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
      * 
      */
     private List<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration> levelConfigurations;
@@ -25,7 +25,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
 
     private AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration() {}
     /**
-     * @return Maximum number of tokens to include in a chunk. Must contain two `level_configurations`. See `level_configurations` for details.
+     * @return Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
      * 
      */
     public List<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration> levelConfigurations() {

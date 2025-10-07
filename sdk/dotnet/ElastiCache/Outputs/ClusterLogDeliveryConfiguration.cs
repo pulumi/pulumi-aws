@@ -22,7 +22,7 @@ namespace Pulumi.Aws.ElastiCache.Outputs
         /// </summary>
         public readonly string DestinationType;
         /// <summary>
-        /// Valid values are `json` or `text`
+        /// Valid values are `Json` or `Text`
         /// </summary>
         public readonly string LogFormat;
         /// <summary>

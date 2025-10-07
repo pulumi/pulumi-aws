@@ -181,7 +181,7 @@ namespace Pulumi.Aws.Kendra
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// When the `status` field value is `FAILED`, this contains a message that explains why.
+        /// When the `Status` field value is `FAILED`, this contains a message that explains why.
         /// </summary>
         public readonly string ErrorMessage;
         /// <summary>

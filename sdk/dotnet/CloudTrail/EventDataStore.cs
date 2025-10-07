@@ -20,7 +20,7 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// ### Basic
     /// 
-    /// The most simple event data store configuration requires us to only set the `name` attribute. The event data store will automatically capture all management events. To capture management events from all the regions, `multi_region_enabled` must be `true`.
+    /// The most simple event data store configuration requires us to only set the `Name` attribute. The event data store will automatically capture all management events. To capture management events from all the regions, `MultiRegionEnabled` must be `True`.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.CloudTrail
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
+        /// Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `True`.
         /// </summary>
         [Output("multiRegionEnabled")]
         public Output<bool?> MultiRegionEnabled { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.CloudTrail
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
+        /// Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `False`.
         /// </summary>
         [Output("organizationEnabled")]
         public Output<bool?> OrganizationEnabled { get; private set; } = null!;
@@ -180,25 +180,25 @@ namespace Pulumi.Aws.CloudTrail
         public Output<int?> RetentionPeriod { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
+        /// Specifies whether to stop ingesting new events into the event data store. If set to `True`, ingestion is suspended while maintaining the ability to query existing events. If set to `False`, ingestion is active.
         /// </summary>
         [Output("suspend")]
         public Output<string?> Suspend { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
+        /// Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `True`.
         /// </summary>
         [Output("terminationProtectionEnabled")]
         public Output<bool?> TerminationProtectionEnabled { get; private set; } = null!;
@@ -274,7 +274,7 @@ namespace Pulumi.Aws.CloudTrail
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
+        /// Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `True`.
         /// </summary>
         [Input("multiRegionEnabled")]
         public Input<bool>? MultiRegionEnabled { get; set; }
@@ -286,7 +286,7 @@ namespace Pulumi.Aws.CloudTrail
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
+        /// Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `False`.
         /// </summary>
         [Input("organizationEnabled")]
         public Input<bool>? OrganizationEnabled { get; set; }
@@ -304,7 +304,7 @@ namespace Pulumi.Aws.CloudTrail
         public Input<int>? RetentionPeriod { get; set; }
 
         /// <summary>
-        /// Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
+        /// Specifies whether to stop ingesting new events into the event data store. If set to `True`, ingestion is suspended while maintaining the ability to query existing events. If set to `False`, ingestion is active.
         /// </summary>
         [Input("suspend")]
         public Input<string>? Suspend { get; set; }
@@ -313,7 +313,7 @@ namespace Pulumi.Aws.CloudTrail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -322,7 +322,7 @@ namespace Pulumi.Aws.CloudTrail
         }
 
         /// <summary>
-        /// Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
+        /// Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `True`.
         /// </summary>
         [Input("terminationProtectionEnabled")]
         public Input<bool>? TerminationProtectionEnabled { get; set; }
@@ -366,7 +366,7 @@ namespace Pulumi.Aws.CloudTrail
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
+        /// Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `True`.
         /// </summary>
         [Input("multiRegionEnabled")]
         public Input<bool>? MultiRegionEnabled { get; set; }
@@ -378,7 +378,7 @@ namespace Pulumi.Aws.CloudTrail
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
+        /// Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `False`.
         /// </summary>
         [Input("organizationEnabled")]
         public Input<bool>? OrganizationEnabled { get; set; }
@@ -396,7 +396,7 @@ namespace Pulumi.Aws.CloudTrail
         public Input<int>? RetentionPeriod { get; set; }
 
         /// <summary>
-        /// Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
+        /// Specifies whether to stop ingesting new events into the event data store. If set to `True`, ingestion is suspended while maintaining the ability to query existing events. If set to `False`, ingestion is active.
         /// </summary>
         [Input("suspend")]
         public Input<string>? Suspend { get; set; }
@@ -405,7 +405,7 @@ namespace Pulumi.Aws.CloudTrail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -417,7 +417,7 @@ namespace Pulumi.Aws.CloudTrail
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -426,7 +426,7 @@ namespace Pulumi.Aws.CloudTrail
         }
 
         /// <summary>
-        /// Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
+        /// Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `True`.
         /// </summary>
         [Input("terminationProtectionEnabled")]
         public Input<bool>? TerminationProtectionEnabled { get; set; }

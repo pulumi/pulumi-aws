@@ -25,7 +25,7 @@ public final class FleetSpotOptions {
      */
     private @Nullable String instanceInterruptionBehavior;
     /**
-     * @return Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocation_strategy` is set to `lowestPrice`. Default: `1`.
+     * @return Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocationStrategy` is set to `lowestPrice`. Default: `1`.
      * 
      */
     private @Nullable Integer instancePoolsToUseCount;
@@ -71,7 +71,7 @@ public final class FleetSpotOptions {
         return Optional.ofNullable(this.instanceInterruptionBehavior);
     }
     /**
-     * @return Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocation_strategy` is set to `lowestPrice`. Default: `1`.
+     * @return Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocationStrategy` is set to `lowestPrice`. Default: `1`.
      * 
      */
     public Optional<Integer> instancePoolsToUseCount() {

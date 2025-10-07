@@ -174,14 +174,14 @@ public final class RegisteredDomainState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The list of nameservers for the domain. See `name_server` Blocks for more details.
+     * The list of nameservers for the domain. See `nameServer` Blocks for more details.
      * 
      */
     @Import(name="nameServers")
     private @Nullable Output<List<RegisteredDomainNameServerArgs>> nameServers;
 
     /**
-     * @return The list of nameservers for the domain. See `name_server` Blocks for more details.
+     * @return The list of nameservers for the domain. See `nameServer` Blocks for more details.
      * 
      */
     public Optional<Output<List<RegisteredDomainNameServerArgs>>> nameServers() {
@@ -279,14 +279,14 @@ public final class RegisteredDomainState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -294,14 +294,14 @@ public final class RegisteredDomainState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -341,7 +341,7 @@ public final class RegisteredDomainState extends com.pulumi.resources.ResourceAr
     /**
      * Whether the domain is locked for transfer. Default: `true`.
      * 
-     * &gt; **NOTE:** You must specify the same privacy setting for `admin_privacy`, `registrant_privacy` and `tech_privacy`.
+     * &gt; **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
      * 
      */
     @Import(name="transferLock")
@@ -350,7 +350,7 @@ public final class RegisteredDomainState extends com.pulumi.resources.ResourceAr
     /**
      * @return Whether the domain is locked for transfer. Default: `true`.
      * 
-     * &gt; **NOTE:** You must specify the same privacy setting for `admin_privacy`, `registrant_privacy` and `tech_privacy`.
+     * &gt; **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
      * 
      */
     public Optional<Output<Boolean>> transferLock() {
@@ -645,7 +645,7 @@ public final class RegisteredDomainState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param nameServers The list of nameservers for the domain. See `name_server` Blocks for more details.
+         * @param nameServers The list of nameservers for the domain. See `nameServer` Blocks for more details.
          * 
          * @return builder
          * 
@@ -656,7 +656,7 @@ public final class RegisteredDomainState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param nameServers The list of nameservers for the domain. See `name_server` Blocks for more details.
+         * @param nameServers The list of nameservers for the domain. See `nameServer` Blocks for more details.
          * 
          * @return builder
          * 
@@ -666,7 +666,7 @@ public final class RegisteredDomainState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param nameServers The list of nameservers for the domain. See `name_server` Blocks for more details.
+         * @param nameServers The list of nameservers for the domain. See `nameServer` Blocks for more details.
          * 
          * @return builder
          * 
@@ -812,7 +812,7 @@ public final class RegisteredDomainState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -823,7 +823,7 @@ public final class RegisteredDomainState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -833,7 +833,7 @@ public final class RegisteredDomainState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -844,7 +844,7 @@ public final class RegisteredDomainState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -898,7 +898,7 @@ public final class RegisteredDomainState extends com.pulumi.resources.ResourceAr
         /**
          * @param transferLock Whether the domain is locked for transfer. Default: `true`.
          * 
-         * &gt; **NOTE:** You must specify the same privacy setting for `admin_privacy`, `registrant_privacy` and `tech_privacy`.
+         * &gt; **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
          * 
          * @return builder
          * 
@@ -911,7 +911,7 @@ public final class RegisteredDomainState extends com.pulumi.resources.ResourceAr
         /**
          * @param transferLock Whether the domain is locked for transfer. Default: `true`.
          * 
-         * &gt; **NOTE:** You must specify the same privacy setting for `admin_privacy`, `registrant_privacy` and `tech_privacy`.
+         * &gt; **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
          * 
          * @return builder
          * 

@@ -19,7 +19,7 @@ public final class DevEnvironmentRepositoryArgs extends com.pulumi.resources.Res
     /**
      * The name of the branch in a source repository.
      * 
-     * persistent storage (`  persistent_storage `) supports the following:
+     * persistent storage (`  persistentStorage `) supports the following:
      * 
      */
     @Import(name="branchName")
@@ -28,7 +28,7 @@ public final class DevEnvironmentRepositoryArgs extends com.pulumi.resources.Res
     /**
      * @return The name of the branch in a source repository.
      * 
-     * persistent storage (`  persistent_storage `) supports the following:
+     * persistent storage (`  persistentStorage `) supports the following:
      * 
      */
     public Optional<Output<String>> branchName() {
@@ -78,7 +78,7 @@ public final class DevEnvironmentRepositoryArgs extends com.pulumi.resources.Res
         /**
          * @param branchName The name of the branch in a source repository.
          * 
-         * persistent storage (`  persistent_storage `) supports the following:
+         * persistent storage (`  persistentStorage `) supports the following:
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class DevEnvironmentRepositoryArgs extends com.pulumi.resources.Res
         /**
          * @param branchName The name of the branch in a source repository.
          * 
-         * persistent storage (`  persistent_storage `) supports the following:
+         * persistent storage (`  persistentStorage `) supports the following:
          * 
          * @return builder
          * 

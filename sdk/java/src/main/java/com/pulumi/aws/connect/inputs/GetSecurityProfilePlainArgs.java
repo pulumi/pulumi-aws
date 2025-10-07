@@ -34,7 +34,7 @@ public final class GetSecurityProfilePlainArgs extends com.pulumi.resources.Invo
     /**
      * Returns information on a specific Security Profile by name
      * 
-     * &gt; **NOTE:** `instance_id` and one of either `name` or `security_profile_id` is required.
+     * &gt; **NOTE:** `instanceId` and one of either `name` or `securityProfileId` is required.
      * 
      */
     @Import(name="name")
@@ -43,7 +43,7 @@ public final class GetSecurityProfilePlainArgs extends com.pulumi.resources.Invo
     /**
      * @return Returns information on a specific Security Profile by name
      * 
-     * &gt; **NOTE:** `instance_id` and one of either `name` or `security_profile_id` is required.
+     * &gt; **NOTE:** `instanceId` and one of either `name` or `securityProfileId` is required.
      * 
      */
     public Optional<String> name() {
@@ -137,7 +137,7 @@ public final class GetSecurityProfilePlainArgs extends com.pulumi.resources.Invo
         /**
          * @param name Returns information on a specific Security Profile by name
          * 
-         * &gt; **NOTE:** `instance_id` and one of either `name` or `security_profile_id` is required.
+         * &gt; **NOTE:** `instanceId` and one of either `name` or `securityProfileId` is required.
          * 
          * @return builder
          * 

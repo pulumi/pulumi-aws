@@ -18,7 +18,7 @@ public final class BucketReplicationConfigRuleSourceSelectionCriteria {
      */
     private @Nullable BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications replicaModifications;
     /**
-     * @return Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If specified, `replica_kms_key_id` in `destination` `encryption_configuration` must be specified as well.
+     * @return Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If specified, `replicaKmsKeyId` in `destination` `encryptionConfiguration` must be specified as well.
      * 
      */
     private @Nullable BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects sseKmsEncryptedObjects;
@@ -32,7 +32,7 @@ public final class BucketReplicationConfigRuleSourceSelectionCriteria {
         return Optional.ofNullable(this.replicaModifications);
     }
     /**
-     * @return Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If specified, `replica_kms_key_id` in `destination` `encryption_configuration` must be specified as well.
+     * @return Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If specified, `replicaKmsKeyId` in `destination` `encryptionConfiguration` must be specified as well.
      * 
      */
     public Optional<BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects> sseKmsEncryptedObjects() {

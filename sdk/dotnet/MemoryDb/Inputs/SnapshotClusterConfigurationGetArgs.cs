@@ -37,7 +37,7 @@ namespace Pulumi.Aws.MemoryDb.Inputs
         public Input<string>? MaintenanceWindow { get; set; }
 
         /// <summary>
-        /// Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

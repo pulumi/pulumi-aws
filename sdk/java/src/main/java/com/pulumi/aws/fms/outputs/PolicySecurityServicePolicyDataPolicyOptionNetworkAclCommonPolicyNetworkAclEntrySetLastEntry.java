@@ -27,7 +27,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
      */
     private Boolean egress;
     /**
-     * @return A configuration block for ICMP protocol: The ICMP type and code. See the `icmp_type_code` block.
+     * @return A configuration block for ICMP protocol: The ICMP type and code. See the `icmpTypeCode` block.
      * 
      */
     private @Nullable List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCode> icmpTypeCodes;
@@ -37,7 +37,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
      */
     private @Nullable String ipv6CidrBlock;
     /**
-     * @return A configuration block for PortRange. See the `port_range` block.
+     * @return A configuration block for PortRange. See the `portRange` block.
      * 
      */
     private @Nullable List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRange> portRanges;
@@ -68,7 +68,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         return this.egress;
     }
     /**
-     * @return A configuration block for ICMP protocol: The ICMP type and code. See the `icmp_type_code` block.
+     * @return A configuration block for ICMP protocol: The ICMP type and code. See the `icmpTypeCode` block.
      * 
      */
     public List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCode> icmpTypeCodes() {
@@ -82,7 +82,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         return Optional.ofNullable(this.ipv6CidrBlock);
     }
     /**
-     * @return A configuration block for PortRange. See the `port_range` block.
+     * @return A configuration block for PortRange. See the `portRange` block.
      * 
      */
     public List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRange> portRanges() {

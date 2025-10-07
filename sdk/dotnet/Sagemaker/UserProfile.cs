@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
+        /// A specifier for the type of value specified in `SingleSignOnUserValue`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
         /// </summary>
         [Output("singleSignOnUserIdentifier")]
         public Output<string?> SingleSignOnUserIdentifier { get; private set; } = null!;
@@ -95,13 +95,13 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string?> SingleSignOnUserValue { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
+        /// A specifier for the type of value specified in `SingleSignOnUserValue`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
         /// </summary>
         [Input("singleSignOnUserIdentifier")]
         public Input<string>? SingleSignOnUserIdentifier { get; set; }
@@ -192,7 +192,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -245,7 +245,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
+        /// A specifier for the type of value specified in `SingleSignOnUserValue`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
         /// </summary>
         [Input("singleSignOnUserIdentifier")]
         public Input<string>? SingleSignOnUserIdentifier { get; set; }
@@ -260,7 +260,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -272,7 +272,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

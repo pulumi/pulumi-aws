@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Chime
         public Output<string> AwsRegion { get; private set; } = null!;
 
         /// <summary>
-        /// List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
+        /// List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `Endpoints`.
         /// </summary>
         [Output("endpoints")]
         public Output<Outputs.SdkvoiceSipMediaApplicationEndpoints> Endpoints { get; private set; } = null!;
@@ -81,13 +81,13 @@ namespace Pulumi.Aws.Chime
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Chime
         public Input<string> AwsRegion { get; set; } = null!;
 
         /// <summary>
-        /// List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
+        /// List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `Endpoints`.
         /// </summary>
         [Input("endpoints", required: true)]
         public Input<Inputs.SdkvoiceSipMediaApplicationEndpointsArgs> Endpoints { get; set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Chime
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -197,7 +197,7 @@ namespace Pulumi.Aws.Chime
         public Input<string>? AwsRegion { get; set; }
 
         /// <summary>
-        /// List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
+        /// List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `Endpoints`.
         /// </summary>
         [Input("endpoints")]
         public Input<Inputs.SdkvoiceSipMediaApplicationEndpointsGetArgs>? Endpoints { get; set; }
@@ -220,7 +220,7 @@ namespace Pulumi.Aws.Chime
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -232,7 +232,7 @@ namespace Pulumi.Aws.Chime
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

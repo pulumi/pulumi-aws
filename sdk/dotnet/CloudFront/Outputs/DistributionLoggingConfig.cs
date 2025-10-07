@@ -18,7 +18,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly string Bucket;
         /// <summary>
-        /// Whether to include cookies in access logs (default: `false`).
+        /// Whether to include cookies in access logs (default: `False`).
         /// </summary>
         public readonly bool? IncludeCookies;
         /// <summary>

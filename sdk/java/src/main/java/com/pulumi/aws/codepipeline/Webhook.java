@@ -21,6 +21,130 @@ import javax.annotation.Nullable;
 /**
  * Provides a CodePipeline Webhook.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.codepipeline.Pipeline;
+ * import com.pulumi.aws.codepipeline.PipelineArgs;
+ * import com.pulumi.aws.codepipeline.inputs.PipelineArtifactStoreArgs;
+ * import com.pulumi.aws.codepipeline.inputs.PipelineArtifactStoreEncryptionKeyArgs;
+ * import com.pulumi.aws.codepipeline.inputs.PipelineStageArgs;
+ * import com.pulumi.aws.codepipeline.Webhook;
+ * import com.pulumi.aws.codepipeline.WebhookArgs;
+ * import com.pulumi.aws.codepipeline.inputs.WebhookAuthenticationConfigurationArgs;
+ * import com.pulumi.aws.codepipeline.inputs.WebhookFilterArgs;
+ * import com.pulumi.github.RepositoryWebhook;
+ * import com.pulumi.github.RepositoryWebhookArgs;
+ * import com.pulumi.github.inputs.RepositoryWebhookConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var bar = new Pipeline("bar", PipelineArgs.builder()
+ *             .name("tf-test-pipeline")
+ *             .roleArn(barAwsIamRole.arn())
+ *             .artifactStores(PipelineArtifactStoreArgs.builder()
+ *                 .location(barAwsS3Bucket.bucket())
+ *                 .type("S3")
+ *                 .encryptionKey(PipelineArtifactStoreEncryptionKeyArgs.builder()
+ *                     .id(s3kmskey.arn())
+ *                     .type("KMS")
+ *                     .build())
+ *                 .build())
+ *             .stages(            
+ *                 PipelineStageArgs.builder()
+ *                     .name("Source")
+ *                     .actions(PipelineStageActionArgs.builder()
+ *                         .name("Source")
+ *                         .category("Source")
+ *                         .owner("ThirdParty")
+ *                         .provider("GitHub")
+ *                         .version("1")
+ *                         .outputArtifacts("test")
+ *                         .configuration(Map.ofEntries(
+ *                             Map.entry("Owner", "my-organization"),
+ *                             Map.entry("Repo", "test"),
+ *                             Map.entry("Branch", "master")
+ *                         ))
+ *                         .build())
+ *                     .build(),
+ *                 PipelineStageArgs.builder()
+ *                     .name("Build")
+ *                     .actions(PipelineStageActionArgs.builder()
+ *                         .name("Build")
+ *                         .category("Build")
+ *                         .owner("AWS")
+ *                         .provider("CodeBuild")
+ *                         .inputArtifacts("test")
+ *                         .version("1")
+ *                         .configuration(Map.of("ProjectName", "test"))
+ *                         .build())
+ *                     .build())
+ *             .build());
+ * 
+ *         final var webhookSecret = "super-secret";
+ * 
+ *         var barWebhook = new Webhook("barWebhook", WebhookArgs.builder()
+ *             .name("test-webhook-github-bar")
+ *             .authentication("GITHUB_HMAC")
+ *             .targetAction("Source")
+ *             .targetPipeline(bar.name())
+ *             .authenticationConfiguration(WebhookAuthenticationConfigurationArgs.builder()
+ *                 .secretToken(webhookSecret)
+ *                 .build())
+ *             .filters(WebhookFilterArgs.builder()
+ *                 .jsonPath("$.ref")
+ *                 .matchEquals("refs/heads/{Branch}")
+ *                 .build())
+ *             .build());
+ * 
+ *         // Wire the CodePipeline webhook into a GitHub repository.
+ *         var barRepositoryWebhook = new RepositoryWebhook("barRepositoryWebhook", RepositoryWebhookArgs.builder()
+ *             .repository(repo.name())
+ *             .name("web")
+ *             .configuration(RepositoryWebhookConfigurationArgs.builder()
+ *                 .url(barWebhook.url())
+ *                 .contentType("json")
+ *                 .insecureSsl(true)
+ *                 .secret(webhookSecret)
+ *                 .build())
+ *             .events("push")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Import
+ * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * - `arn` (String) Amazon Resource Name (ARN) of the CodePipeline webhook.
+ * 
+ * Using `pulumi import`, import CodePipeline Webhooks using their ARN. For example:
+ * 
+ * console
+ * 
+ * % pulumi import aws_codepipeline_webhook.example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
+ * 
  */
 @ResourceType(type="aws:codepipeline/webhook:Webhook")
 public class Webhook extends com.pulumi.resources.CustomResource {
@@ -109,28 +233,28 @@ public class Webhook extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

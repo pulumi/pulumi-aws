@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Dlm.Outputs
     public sealed class LifecyclePolicyPolicyDetails
     {
         /// <summary>
-        /// The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
+        /// The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `Action` configuration block.
         /// </summary>
         public readonly Outputs.LifecyclePolicyPolicyDetailsAction? Action;
         public readonly bool? CopyTags;
@@ -23,15 +23,15 @@ namespace Pulumi.Aws.Dlm.Outputs
         /// </summary>
         public readonly int? CreateInterval;
         /// <summary>
-        /// The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `event_source` configuration block.
+        /// The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `EventSource` configuration block.
         /// </summary>
         public readonly Outputs.LifecyclePolicyPolicyDetailsEventSource? EventSource;
         /// <summary>
-        /// Specifies exclusion parameters for volumes or instances for which you do not want to create snapshots or AMIs.  See the `exclusions` configuration block.
+        /// Specifies exclusion parameters for volumes or instances for which you do not want to create snapshots or AMIs.  See the `Exclusions` configuration block.
         /// </summary>
         public readonly Outputs.LifecyclePolicyPolicyDetailsExclusions? Exclusions;
         /// <summary>
-        /// snapshot or AMI retention behavior for the policy if the source volume or instance is deleted, or if the policy enters the error, disabled, or deleted state. Default value is `false`.
+        /// snapshot or AMI retention behavior for the policy if the source volume or instance is deleted, or if the policy enters the error, disabled, or deleted state. Default value is `False`.
         /// </summary>
         public readonly bool? ExtendDeletion;
         public readonly Outputs.LifecyclePolicyPolicyDetailsParameters? Parameters;
@@ -60,13 +60,13 @@ namespace Pulumi.Aws.Dlm.Outputs
         /// </summary>
         public readonly int? RetainInterval;
         /// <summary>
-        /// See the `schedule` configuration block.
+        /// See the `Schedule` configuration block.
         /// </summary>
         public readonly ImmutableArray<Outputs.LifecyclePolicyPolicyDetailsSchedule> Schedules;
         /// <summary>
-        /// A map of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted. Required when `policy_type` is `EBS_SNAPSHOT_MANAGEMENT` or `IMAGE_MANAGEMENT`. Must not be specified when `policy_type` is `EVENT_BASED_POLICY`.
+        /// A map of tag keys and their values. Any resources that match the `ResourceTypes` and are tagged with _any_ of these tags will be targeted. Required when `PolicyType` is `EBS_SNAPSHOT_MANAGEMENT` or `IMAGE_MANAGEMENT`. Must not be specified when `PolicyType` is `EVENT_BASED_POLICY`.
         /// 
-        /// &gt; Note: You cannot have overlapping lifecycle policies that share the same `target_tags`. Pulumi is unable to detect this at plan time but it will fail during apply.
+        /// &gt; Note: You cannot have overlapping lifecycle policies that share the same `TargetTags`. Pulumi is unable to detect this at plan time but it will fail during apply.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? TargetTags;
 

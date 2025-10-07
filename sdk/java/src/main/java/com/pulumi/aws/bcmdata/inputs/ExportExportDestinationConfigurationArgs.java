@@ -17,14 +17,14 @@ public final class ExportExportDestinationConfigurationArgs extends com.pulumi.r
     public static final ExportExportDestinationConfigurationArgs Empty = new ExportExportDestinationConfigurationArgs();
 
     /**
-     * Object that describes the destination of the data exports file. See the `s3_destination` argument reference below.
+     * Object that describes the destination of the data exports file. See the `s3Destination` argument reference below.
      * 
      */
     @Import(name="s3Destinations")
     private @Nullable Output<List<ExportExportDestinationConfigurationS3DestinationArgs>> s3Destinations;
 
     /**
-     * @return Object that describes the destination of the data exports file. See the `s3_destination` argument reference below.
+     * @return Object that describes the destination of the data exports file. See the `s3Destination` argument reference below.
      * 
      */
     public Optional<Output<List<ExportExportDestinationConfigurationS3DestinationArgs>>> s3Destinations() {
@@ -56,7 +56,7 @@ public final class ExportExportDestinationConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param s3Destinations Object that describes the destination of the data exports file. See the `s3_destination` argument reference below.
+         * @param s3Destinations Object that describes the destination of the data exports file. See the `s3Destination` argument reference below.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class ExportExportDestinationConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param s3Destinations Object that describes the destination of the data exports file. See the `s3_destination` argument reference below.
+         * @param s3Destinations Object that describes the destination of the data exports file. See the `s3Destination` argument reference below.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class ExportExportDestinationConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param s3Destinations Object that describes the destination of the data exports file. See the `s3_destination` argument reference below.
+         * @param s3Destinations Object that describes the destination of the data exports file. See the `s3Destination` argument reference below.
          * 
          * @return builder
          * 

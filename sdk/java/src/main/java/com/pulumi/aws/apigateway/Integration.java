@@ -343,14 +343,14 @@ public class Integration extends com.pulumi.resources.CustomResource {
         return this.cacheNamespace;
     }
     /**
-     * ID of the VpcLink used for the integration. **Required** if `connection_type` is `VPC_LINK`
+     * ID of the VpcLink used for the integration. **Required** if `connectionType` is `VPC_LINK`
      * 
      */
     @Export(name="connectionId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> connectionId;
 
     /**
-     * @return ID of the VpcLink used for the integration. **Required** if `connection_type` is `VPC_LINK`
+     * @return ID of the VpcLink used for the integration. **Required** if `connectionType` is `VPC_LINK`
      * 
      */
     public Output<Optional<String>> connectionId() {
@@ -437,14 +437,14 @@ public class Integration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.integrationHttpMethod);
     }
     /**
-     * Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
+     * Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
      * 
      */
     @Export(name="passthroughBehavior", refs={String.class}, tree="[0]")
     private Output<String> passthroughBehavior;
 
     /**
-     * @return Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
+     * @return Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
      * 
      */
     public Output<String> passthroughBehavior() {
@@ -466,7 +466,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
     }
     /**
      * Map of request query string parameters and headers that should be passed to the backend responder.
-     * For example: `request_parameters = { &#34;integration.request.header.X-Some-Other-Header&#34; = &#34;method.request.header.X-Some-Header&#34; }`
+     * For example: `requestParameters = { &#34;integration.request.header.X-Some-Other-Header&#34; = &#34;method.request.header.X-Some-Header&#34; }`
      * 
      */
     @Export(name="requestParameters", refs={Map.class,String.class}, tree="[0,1,1]")
@@ -474,7 +474,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Map of request query string parameters and headers that should be passed to the backend responder.
-     * For example: `request_parameters = { &#34;integration.request.header.X-Some-Other-Header&#34; = &#34;method.request.header.X-Some-Header&#34; }`
+     * For example: `requestParameters = { &#34;integration.request.header.X-Some-Other-Header&#34; = &#34;method.request.header.X-Some-Header&#34; }`
      * 
      */
     public Output<Optional<Map<String,String>>> requestParameters() {
@@ -551,14 +551,14 @@ public class Integration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tlsConfig);
     }
     /**
-     * Integration input&#39;s [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
+     * Integration input&#39;s [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return Integration input&#39;s [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
+     * @return Integration input&#39;s [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
      * 
      */
     public Output<String> type() {

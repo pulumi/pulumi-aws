@@ -2372,7 +2372,7 @@ public final class LbFunctions {
         return Deployment.getInstance().invokeAsync("aws:lb/getTargetGroup:getTargetGroup", TypeShape.of(GetTargetGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &gt; **Note:** `aws_alb_trust_store` is known as `aws.lb.TrustStore`. The functionality is identical.
+     * &gt; **Note:** `awsAlbTrustStore` is known as `aws.lb.TrustStore`. The functionality is identical.
      * 
      * Provides information about a Load Balancer Trust Store.
      * 
@@ -2422,7 +2422,7 @@ public final class LbFunctions {
         return getTrustStore(GetTrustStoreArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Note:** `aws_alb_trust_store` is known as `aws.lb.TrustStore`. The functionality is identical.
+     * &gt; **Note:** `awsAlbTrustStore` is known as `aws.lb.TrustStore`. The functionality is identical.
      * 
      * Provides information about a Load Balancer Trust Store.
      * 
@@ -2472,7 +2472,7 @@ public final class LbFunctions {
         return getTrustStorePlain(GetTrustStorePlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Note:** `aws_alb_trust_store` is known as `aws.lb.TrustStore`. The functionality is identical.
+     * &gt; **Note:** `awsAlbTrustStore` is known as `aws.lb.TrustStore`. The functionality is identical.
      * 
      * Provides information about a Load Balancer Trust Store.
      * 
@@ -2522,7 +2522,7 @@ public final class LbFunctions {
         return getTrustStore(args, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Note:** `aws_alb_trust_store` is known as `aws.lb.TrustStore`. The functionality is identical.
+     * &gt; **Note:** `awsAlbTrustStore` is known as `aws.lb.TrustStore`. The functionality is identical.
      * 
      * Provides information about a Load Balancer Trust Store.
      * 
@@ -2572,7 +2572,7 @@ public final class LbFunctions {
         return getTrustStorePlain(args, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Note:** `aws_alb_trust_store` is known as `aws.lb.TrustStore`. The functionality is identical.
+     * &gt; **Note:** `awsAlbTrustStore` is known as `aws.lb.TrustStore`. The functionality is identical.
      * 
      * Provides information about a Load Balancer Trust Store.
      * 
@@ -2622,7 +2622,7 @@ public final class LbFunctions {
         return Deployment.getInstance().invoke("aws:lb/getTrustStore:getTrustStore", TypeShape.of(GetTrustStoreResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &gt; **Note:** `aws_alb_trust_store` is known as `aws.lb.TrustStore`. The functionality is identical.
+     * &gt; **Note:** `awsAlbTrustStore` is known as `aws.lb.TrustStore`. The functionality is identical.
      * 
      * Provides information about a Load Balancer Trust Store.
      * 
@@ -2672,7 +2672,7 @@ public final class LbFunctions {
         return Deployment.getInstance().invoke("aws:lb/getTrustStore:getTrustStore", TypeShape.of(GetTrustStoreResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &gt; **Note:** `aws_alb_trust_store` is known as `aws.lb.TrustStore`. The functionality is identical.
+     * &gt; **Note:** `awsAlbTrustStore` is known as `aws.lb.TrustStore`. The functionality is identical.
      * 
      * Provides information about a Load Balancer Trust Store.
      * 

@@ -165,28 +165,28 @@ public class ClassificationJob extends com.pulumi.resources.CustomResource {
         return this.jobStatus;
     }
     /**
-     * The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don&#39;t specify a value for the `schedule_frequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `schedule_frequency` property to define the recurrence pattern for the job.
+     * The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don&#39;t specify a value for the `scheduleFrequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `scheduleFrequency` property to define the recurrence pattern for the job.
      * 
      */
     @Export(name="jobType", refs={String.class}, tree="[0]")
     private Output<String> jobType;
 
     /**
-     * @return The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don&#39;t specify a value for the `schedule_frequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `schedule_frequency` property to define the recurrence pattern for the job.
+     * @return The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don&#39;t specify a value for the `scheduleFrequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `scheduleFrequency` property to define the recurrence pattern for the job.
      * 
      */
     public Output<String> jobType() {
         return this.jobType;
     }
     /**
-     * A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * @return A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     public Output<String> name() {
@@ -249,42 +249,42 @@ public class ClassificationJob extends com.pulumi.resources.CustomResource {
         return this.samplingPercentage;
     }
     /**
-     * The recurrence pattern for running the job. To run the job only once, don&#39;t specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
+     * The recurrence pattern for running the job. To run the job only once, don&#39;t specify a value for this property and set the value for the `jobType` property to `ONE_TIME`. (documented below)
      * 
      */
     @Export(name="scheduleFrequency", refs={ClassificationJobScheduleFrequency.class}, tree="[0]")
     private Output<ClassificationJobScheduleFrequency> scheduleFrequency;
 
     /**
-     * @return The recurrence pattern for running the job. To run the job only once, don&#39;t specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
+     * @return The recurrence pattern for running the job. To run the job only once, don&#39;t specify a value for this property and set the value for the `jobType` property to `ONE_TIME`. (documented below)
      * 
      */
     public Output<ClassificationJobScheduleFrequency> scheduleFrequency() {
         return this.scheduleFrequency;
     }
     /**
-     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

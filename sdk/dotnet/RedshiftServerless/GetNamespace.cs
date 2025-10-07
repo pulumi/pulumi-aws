@@ -142,7 +142,7 @@ namespace Pulumi.Aws.RedshiftServerless
         /// </summary>
         public readonly string DbName;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
+        /// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `DefaultIamRoleArn`, it also must be part of `IamRoles`.
         /// </summary>
         public readonly string DefaultIamRoleArn;
         /// <summary>
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.RedshiftServerless
         /// </summary>
         public readonly string KmsKeyId;
         /// <summary>
-        /// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
+        /// The types of logs the namespace can export. Available export types are `Userlog`, `Connectionlog`, and `Useractivitylog`.
         /// </summary>
         public readonly ImmutableArray<string> LogExports;
         /// <summary>

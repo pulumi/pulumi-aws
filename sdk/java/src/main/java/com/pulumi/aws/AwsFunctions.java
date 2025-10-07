@@ -2849,6 +2849,8 @@ public final class AwsFunctions {
      * }
      * </pre>
      * 
+     * ### Dynamically Apply Default Tags to Auto Scaling Group
+     * 
      */
     public static Output<GetDefaultTagsResult> getDefaultTags() {
         return getDefaultTags(GetDefaultTagsArgs.Empty, InvokeOptions.Empty);
@@ -2891,6 +2893,8 @@ public final class AwsFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ### Dynamically Apply Default Tags to Auto Scaling Group
      * 
      */
     public static CompletableFuture<GetDefaultTagsResult> getDefaultTagsPlain() {
@@ -2935,6 +2939,8 @@ public final class AwsFunctions {
      * }
      * </pre>
      * 
+     * ### Dynamically Apply Default Tags to Auto Scaling Group
+     * 
      */
     public static Output<GetDefaultTagsResult> getDefaultTags(GetDefaultTagsArgs args) {
         return getDefaultTags(args, InvokeOptions.Empty);
@@ -2977,6 +2983,8 @@ public final class AwsFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ### Dynamically Apply Default Tags to Auto Scaling Group
      * 
      */
     public static CompletableFuture<GetDefaultTagsResult> getDefaultTagsPlain(GetDefaultTagsPlainArgs args) {
@@ -3021,6 +3029,8 @@ public final class AwsFunctions {
      * }
      * </pre>
      * 
+     * ### Dynamically Apply Default Tags to Auto Scaling Group
+     * 
      */
     public static Output<GetDefaultTagsResult> getDefaultTags(GetDefaultTagsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:index/getDefaultTags:getDefaultTags", TypeShape.of(GetDefaultTagsResult.class), args, Utilities.withVersion(options));
@@ -3064,6 +3074,8 @@ public final class AwsFunctions {
      * }
      * </pre>
      * 
+     * ### Dynamically Apply Default Tags to Auto Scaling Group
+     * 
      */
     public static Output<GetDefaultTagsResult> getDefaultTags(GetDefaultTagsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:index/getDefaultTags:getDefaultTags", TypeShape.of(GetDefaultTagsResult.class), args, Utilities.withVersion(options));
@@ -3106,6 +3118,8 @@ public final class AwsFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ### Dynamically Apply Default Tags to Auto Scaling Group
      * 
      */
     public static CompletableFuture<GetDefaultTagsResult> getDefaultTagsPlain(GetDefaultTagsPlainArgs args, InvokeOptions options) {
@@ -4165,7 +4179,7 @@ public final class AwsFunctions {
      * }
      * </pre>
      * 
-     * To see regions that are filtered by `&#34;not-opted-in&#34;`, the `all_regions` argument needs to be set to `true` or no results will be returned.
+     * To see regions that are filtered by `&#34;not-opted-in&#34;`, the `allRegions` argument needs to be set to `true` or no results will be returned.
      * 
      * <pre>
      * {@code
@@ -4276,7 +4290,7 @@ public final class AwsFunctions {
      * }
      * </pre>
      * 
-     * To see regions that are filtered by `&#34;not-opted-in&#34;`, the `all_regions` argument needs to be set to `true` or no results will be returned.
+     * To see regions that are filtered by `&#34;not-opted-in&#34;`, the `allRegions` argument needs to be set to `true` or no results will be returned.
      * 
      * <pre>
      * {@code
@@ -4387,7 +4401,7 @@ public final class AwsFunctions {
      * }
      * </pre>
      * 
-     * To see regions that are filtered by `&#34;not-opted-in&#34;`, the `all_regions` argument needs to be set to `true` or no results will be returned.
+     * To see regions that are filtered by `&#34;not-opted-in&#34;`, the `allRegions` argument needs to be set to `true` or no results will be returned.
      * 
      * <pre>
      * {@code
@@ -4498,7 +4512,7 @@ public final class AwsFunctions {
      * }
      * </pre>
      * 
-     * To see regions that are filtered by `&#34;not-opted-in&#34;`, the `all_regions` argument needs to be set to `true` or no results will be returned.
+     * To see regions that are filtered by `&#34;not-opted-in&#34;`, the `allRegions` argument needs to be set to `true` or no results will be returned.
      * 
      * <pre>
      * {@code
@@ -4609,7 +4623,7 @@ public final class AwsFunctions {
      * }
      * </pre>
      * 
-     * To see regions that are filtered by `&#34;not-opted-in&#34;`, the `all_regions` argument needs to be set to `true` or no results will be returned.
+     * To see regions that are filtered by `&#34;not-opted-in&#34;`, the `allRegions` argument needs to be set to `true` or no results will be returned.
      * 
      * <pre>
      * {@code
@@ -4720,7 +4734,7 @@ public final class AwsFunctions {
      * }
      * </pre>
      * 
-     * To see regions that are filtered by `&#34;not-opted-in&#34;`, the `all_regions` argument needs to be set to `true` or no results will be returned.
+     * To see regions that are filtered by `&#34;not-opted-in&#34;`, the `allRegions` argument needs to be set to `true` or no results will be returned.
      * 
      * <pre>
      * {@code
@@ -4831,7 +4845,7 @@ public final class AwsFunctions {
      * }
      * </pre>
      * 
-     * To see regions that are filtered by `&#34;not-opted-in&#34;`, the `all_regions` argument needs to be set to `true` or no results will be returned.
+     * To see regions that are filtered by `&#34;not-opted-in&#34;`, the `allRegions` argument needs to be set to `true` or no results will be returned.
      * 
      * <pre>
      * {@code

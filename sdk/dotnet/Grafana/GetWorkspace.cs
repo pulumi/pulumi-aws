@@ -160,7 +160,7 @@ namespace Pulumi.Aws.Grafana
     public sealed class GetWorkspaceResult
     {
         /// <summary>
-        /// (Required) Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
+        /// (Required) Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `OrganizationalUnits` must also be present.
         /// </summary>
         public readonly string AccountAccessType;
         /// <summary>

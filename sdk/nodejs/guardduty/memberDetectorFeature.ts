@@ -26,6 +26,33 @@ import * as utilities from "../utilities";
  *     status: "ENABLED",
  * });
  * ```
+ *
+ * ## Extended Threat Detection for EKS
+ *
+ * To enable GuardDuty [Extended Threat Detection](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html) for EKS, you need at least one of these features enabled: [EKS Protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html) or [Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring-configuration.html). For maximum detection coverage, enabling both is recommended to enhance detection capabilities.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.guardduty.Detector("example", {enable: true});
+ * const eksProtection = new aws.guardduty.DetectorFeature("eks_protection", {
+ *     detectorId: example.id,
+ *     accountId: "123456789012",
+ *     name: "EKS_AUDIT_LOGS",
+ *     status: "ENABLED",
+ * });
+ * const eksRuntimeMonitoring = new aws.guardduty.DetectorFeature("eks_runtime_monitoring", {
+ *     detectorId: example.id,
+ *     accountId: "123456789012",
+ *     name: "EKS_RUNTIME_MONITORING",
+ *     status: "ENABLED",
+ *     additionalConfigurations: [{
+ *         name: "EKS_ADDON_MANAGEMENT",
+ *         status: "ENABLED",
+ *     }],
+ * });
+ * ```
  */
 export class MemberDetectorFeature extends pulumi.CustomResource {
     /**

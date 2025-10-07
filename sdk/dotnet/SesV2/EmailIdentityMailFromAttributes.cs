@@ -63,7 +63,7 @@ namespace Pulumi.Aws.SesV2
         public Output<string> EmailIdentity { get; private set; } = null!;
 
         /// <summary>
-        /// The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
+        /// The custom MAIL FROM domain that you want the verified identity to use. Required if `BehaviorOnMxFailure` is `REJECT_MESSAGE`.
         /// </summary>
         [Output("mailFromDomain")]
         public Output<string?> MailFromDomain { get; private set; } = null!;
@@ -133,7 +133,7 @@ namespace Pulumi.Aws.SesV2
         public Input<string> EmailIdentity { get; set; } = null!;
 
         /// <summary>
-        /// The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
+        /// The custom MAIL FROM domain that you want the verified identity to use. Required if `BehaviorOnMxFailure` is `REJECT_MESSAGE`.
         /// </summary>
         [Input("mailFromDomain")]
         public Input<string>? MailFromDomain { get; set; }
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.SesV2
         public Input<string>? EmailIdentity { get; set; }
 
         /// <summary>
-        /// The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
+        /// The custom MAIL FROM domain that you want the verified identity to use. Required if `BehaviorOnMxFailure` is `REJECT_MESSAGE`.
         /// </summary>
         [Input("mailFromDomain")]
         public Input<string>? MailFromDomain { get; set; }

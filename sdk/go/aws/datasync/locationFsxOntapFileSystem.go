@@ -16,6 +16,43 @@ import (
 //
 // ## Example Usage
 //
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datasync"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datasync.NewLocationFsxOntapFileSystem(ctx, "test", &datasync.LocationFsxOntapFileSystemArgs{
+//				FsxFilesystemArn: testAwsFsxOntapFileSystem.Arn,
+//				SecurityGroupArns: pulumi.StringArray{
+//					testAwsSecurityGroup.Arn,
+//				},
+//				StorageVirtualMachineArn: pulumi.Any(testAwsFsxOntapStorageVirtualMachine.Arn),
+//				Protocol: &datasync.LocationFsxOntapFileSystemProtocolArgs{
+//					Nfs: &datasync.LocationFsxOntapFileSystemProtocolNfsArgs{
+//						MountOptions: &datasync.LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs{
+//							Version: pulumi.String("NFS3"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import `aws_datasync_location_fsx_ontap_file_system` using the `DataSync-ARN#FSx-ontap-svm-ARN`. For example:

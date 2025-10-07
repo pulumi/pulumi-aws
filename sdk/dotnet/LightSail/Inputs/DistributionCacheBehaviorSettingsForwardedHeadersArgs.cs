@@ -25,7 +25,7 @@ namespace Pulumi.Aws.LightSail.Inputs
         }
 
         /// <summary>
-        /// Headers that you want your distribution to forward to your origin and base caching on. Valid values: `default`, `allow-list`, `all`.
+        /// Headers that you want your distribution to forward to your origin and base caching on. Valid values: `Default`, `allow-list`, `All`.
         /// </summary>
         [Input("option")]
         public Input<string>? Option { get; set; }

@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ApplicationPortalOptions {
     /**
-     * @return Sign-in options for the access portal. See `sign_in_options` below.
+     * @return Sign-in options for the access portal. See `signInOptions` below.
      * 
      */
     private @Nullable ApplicationPortalOptionsSignInOptions signInOptions;
@@ -25,7 +25,7 @@ public final class ApplicationPortalOptions {
 
     private ApplicationPortalOptions() {}
     /**
-     * @return Sign-in options for the access portal. See `sign_in_options` below.
+     * @return Sign-in options for the access portal. See `signInOptions` below.
      * 
      */
     public Optional<ApplicationPortalOptionsSignInOptions> signInOptions() {

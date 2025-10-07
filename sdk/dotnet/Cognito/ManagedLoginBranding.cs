@@ -119,7 +119,7 @@ namespace Pulumi.Aws.Cognito
         public Output<string> SettingsAll { get; private set; } = null!;
 
         /// <summary>
-        /// When `true`, applies the default branding style options.
+        /// When `True`, applies the default branding style options.
         /// </summary>
         [Output("useCognitoProvidedValues")]
         public Output<bool> UseCognitoProvidedValues { get; private set; } = null!;
@@ -209,7 +209,7 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? Settings { get; set; }
 
         /// <summary>
-        /// When `true`, applies the default branding style options.
+        /// When `True`, applies the default branding style options.
         /// </summary>
         [Input("useCognitoProvidedValues")]
         public Input<bool>? UseCognitoProvidedValues { get; set; }
@@ -273,7 +273,7 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? SettingsAll { get; set; }
 
         /// <summary>
-        /// When `true`, applies the default branding style options.
+        /// When `True`, applies the default branding style options.
         /// </summary>
         [Input("useCognitoProvidedValues")]
         public Input<bool>? UseCognitoProvidedValues { get; set; }

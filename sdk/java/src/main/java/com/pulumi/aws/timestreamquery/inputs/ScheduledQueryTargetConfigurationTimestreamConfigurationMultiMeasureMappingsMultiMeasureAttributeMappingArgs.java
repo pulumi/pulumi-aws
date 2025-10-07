@@ -47,14 +47,14 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfigurationMulti
     }
 
     /**
-     * Custom name to be used for attribute name in derived table. If not provided, `source_column` is used.
+     * Custom name to be used for attribute name in derived table. If not provided, `sourceColumn` is used.
      * 
      */
     @Import(name="targetMultiMeasureAttributeName")
     private @Nullable Output<String> targetMultiMeasureAttributeName;
 
     /**
-     * @return Custom name to be used for attribute name in derived table. If not provided, `source_column` is used.
+     * @return Custom name to be used for attribute name in derived table. If not provided, `sourceColumn` is used.
      * 
      */
     public Optional<Output<String>> targetMultiMeasureAttributeName() {
@@ -130,7 +130,7 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfigurationMulti
         }
 
         /**
-         * @param targetMultiMeasureAttributeName Custom name to be used for attribute name in derived table. If not provided, `source_column` is used.
+         * @param targetMultiMeasureAttributeName Custom name to be used for attribute name in derived table. If not provided, `sourceColumn` is used.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfigurationMulti
         }
 
         /**
-         * @param targetMultiMeasureAttributeName Custom name to be used for attribute name in derived table. If not provided, `source_column` is used.
+         * @param targetMultiMeasureAttributeName Custom name to be used for attribute name in derived table. If not provided, `sourceColumn` is used.
          * 
          * @return builder
          * 

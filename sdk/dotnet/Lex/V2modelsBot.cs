@@ -89,7 +89,7 @@ namespace Pulumi.Aws.Lex
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `data_privacy`
+        /// Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `DataPrivacy`
         /// </summary>
         [Output("dataPrivacies")]
         public Output<ImmutableArray<Outputs.V2modelsBotDataPrivacy>> DataPrivacies { get; private set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.Aws.Lex
         public Output<int> IdleSessionTtlInSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// List of bot members in a network to be created. See `bot_members`.
+        /// List of bot members in a network to be created. See `BotMembers`.
         /// </summary>
         [Output("members")]
         public Output<ImmutableArray<Outputs.V2modelsBotMember>> Members { get; private set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.Aws.Lex
         private InputList<Inputs.V2modelsBotDataPrivacyArgs>? _dataPrivacies;
 
         /// <summary>
-        /// Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `data_privacy`
+        /// Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `DataPrivacy`
         /// </summary>
         public InputList<Inputs.V2modelsBotDataPrivacyArgs> DataPrivacies
         {
@@ -230,7 +230,7 @@ namespace Pulumi.Aws.Lex
         private InputList<Inputs.V2modelsBotMemberArgs>? _members;
 
         /// <summary>
-        /// List of bot members in a network to be created. See `bot_members`.
+        /// List of bot members in a network to be created. See `BotMembers`.
         /// </summary>
         public InputList<Inputs.V2modelsBotMemberArgs> Members
         {
@@ -306,7 +306,7 @@ namespace Pulumi.Aws.Lex
         private InputList<Inputs.V2modelsBotDataPrivacyGetArgs>? _dataPrivacies;
 
         /// <summary>
-        /// Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `data_privacy`
+        /// Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `DataPrivacy`
         /// </summary>
         public InputList<Inputs.V2modelsBotDataPrivacyGetArgs> DataPrivacies
         {
@@ -330,7 +330,7 @@ namespace Pulumi.Aws.Lex
         private InputList<Inputs.V2modelsBotMemberGetArgs>? _members;
 
         /// <summary>
-        /// List of bot members in a network to be created. See `bot_members`.
+        /// List of bot members in a network to be created. See `BotMembers`.
         /// </summary>
         public InputList<Inputs.V2modelsBotMemberGetArgs> Members
         {

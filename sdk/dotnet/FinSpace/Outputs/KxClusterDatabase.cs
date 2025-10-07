@@ -26,7 +26,7 @@ namespace Pulumi.Aws.FinSpace.Outputs
         /// </summary>
         public readonly string DatabaseName;
         /// <summary>
-        /// The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignore_changes` for database to prevent any undesirable behaviors.
+        /// The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `Lifecycle` `IgnoreChanges` for database to prevent any undesirable behaviors.
         /// </summary>
         public readonly string? DataviewName;
 

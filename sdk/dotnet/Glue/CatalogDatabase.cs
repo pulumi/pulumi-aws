@@ -86,7 +86,7 @@ namespace Pulumi.Aws.Glue
         public Output<string> CatalogId { get; private set; } = null!;
 
         /// <summary>
-        /// Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
+        /// Creates a set of default permissions on the table for principals. See `CreateTableDefaultPermission` below.
         /// </summary>
         [Output("createTableDefaultPermissions")]
         public Output<ImmutableArray<Outputs.CatalogDatabaseCreateTableDefaultPermission>> CreateTableDefaultPermissions { get; private set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.Aws.Glue
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
+        /// Configuration block that references an entity outside the AWS Glue Data Catalog. See `FederatedDatabase` below.
         /// </summary>
         [Output("federatedDatabase")]
         public Output<Outputs.CatalogDatabaseFederatedDatabase?> FederatedDatabase { get; private set; } = null!;
@@ -128,19 +128,19 @@ namespace Pulumi.Aws.Glue
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for a target database for resource linking. See `target_database` below.
+        /// Configuration block for a target database for resource linking. See `TargetDatabase` below.
         /// </summary>
         [Output("targetDatabase")]
         public Output<Outputs.CatalogDatabaseTargetDatabase?> TargetDatabase { get; private set; } = null!;
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CatalogDatabaseCreateTableDefaultPermissionArgs>? _createTableDefaultPermissions;
 
         /// <summary>
-        /// Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
+        /// Creates a set of default permissions on the table for principals. See `CreateTableDefaultPermission` below.
         /// </summary>
         public InputList<Inputs.CatalogDatabaseCreateTableDefaultPermissionArgs> CreateTableDefaultPermissions
         {
@@ -216,7 +216,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
+        /// Configuration block that references an entity outside the AWS Glue Data Catalog. See `FederatedDatabase` below.
         /// </summary>
         [Input("federatedDatabase")]
         public Input<Inputs.CatalogDatabaseFederatedDatabaseArgs>? FederatedDatabase { get; set; }
@@ -255,7 +255,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -264,7 +264,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// Configuration block for a target database for resource linking. See `target_database` below.
+        /// Configuration block for a target database for resource linking. See `TargetDatabase` below.
         /// </summary>
         [Input("targetDatabase")]
         public Input<Inputs.CatalogDatabaseTargetDatabaseArgs>? TargetDatabase { get; set; }
@@ -293,7 +293,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CatalogDatabaseCreateTableDefaultPermissionGetArgs>? _createTableDefaultPermissions;
 
         /// <summary>
-        /// Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
+        /// Creates a set of default permissions on the table for principals. See `CreateTableDefaultPermission` below.
         /// </summary>
         public InputList<Inputs.CatalogDatabaseCreateTableDefaultPermissionGetArgs> CreateTableDefaultPermissions
         {
@@ -308,7 +308,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
+        /// Configuration block that references an entity outside the AWS Glue Data Catalog. See `FederatedDatabase` below.
         /// </summary>
         [Input("federatedDatabase")]
         public Input<Inputs.CatalogDatabaseFederatedDatabaseGetArgs>? FederatedDatabase { get; set; }
@@ -347,7 +347,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -359,7 +359,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -368,7 +368,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// Configuration block for a target database for resource linking. See `target_database` below.
+        /// Configuration block for a target database for resource linking. See `TargetDatabase` below.
         /// </summary>
         [Input("targetDatabase")]
         public Input<Inputs.CatalogDatabaseTargetDatabaseGetArgs>? TargetDatabase { get; set; }

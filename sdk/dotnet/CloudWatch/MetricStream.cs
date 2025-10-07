@@ -277,7 +277,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> CreationDate { get; private set; } = null!;
 
         /// <summary>
-        /// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `include_filter`.
+        /// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `IncludeFilter`.
         /// </summary>
         [Output("excludeFilters")]
         public Output<ImmutableArray<Outputs.MetricStreamExcludeFilter>> ExcludeFilters { get; private set; } = null!;
@@ -289,7 +289,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> FirehoseArn { get; private set; } = null!;
 
         /// <summary>
-        /// List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `exclude_filter`.
+        /// List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `ExcludeFilter`.
         /// </summary>
         [Output("includeFilters")]
         public Output<ImmutableArray<Outputs.MetricStreamIncludeFilter>> IncludeFilters { get; private set; } = null!;
@@ -307,19 +307,19 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> LastUpdateDate { get; private set; } = null!;
 
         /// <summary>
-        /// Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
+        /// Creates a unique friendly name beginning with the specified prefix. Conflicts with `Name`.
         /// </summary>
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
-        /// Output format for the stream. Possible values are `json`, `opentelemetry0.7`, and `opentelemetry1.0`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+        /// Output format for the stream. Possible values are `Json`, `opentelemetry0.7`, and `opentelemetry1.0`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -339,25 +339,25 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// State of the metric stream. Possible values are `running` and `stopped`.
+        /// State of the metric stream. Possible values are `Running` and `Stopped`.
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7` or `opentelemetry1.0`, you can stream percentile statistics (p99 etc.). See details below.
+        /// For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `OutputFormat`. If the OutputFormat is `Json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7` or `opentelemetry1.0`, you can stream percentile statistics (p99 etc.). See details below.
         /// </summary>
         [Output("statisticsConfigurations")]
         public Output<ImmutableArray<Outputs.MetricStreamStatisticsConfiguration>> StatisticsConfigurations { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -412,7 +412,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputList<Inputs.MetricStreamExcludeFilterArgs>? _excludeFilters;
 
         /// <summary>
-        /// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `include_filter`.
+        /// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `IncludeFilter`.
         /// </summary>
         public InputList<Inputs.MetricStreamExcludeFilterArgs> ExcludeFilters
         {
@@ -430,7 +430,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputList<Inputs.MetricStreamIncludeFilterArgs>? _includeFilters;
 
         /// <summary>
-        /// List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `exclude_filter`.
+        /// List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `ExcludeFilter`.
         /// </summary>
         public InputList<Inputs.MetricStreamIncludeFilterArgs> IncludeFilters
         {
@@ -445,19 +445,19 @@ namespace Pulumi.Aws.CloudWatch
         public Input<bool>? IncludeLinkedAccountsMetrics { get; set; }
 
         /// <summary>
-        /// Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
+        /// Creates a unique friendly name beginning with the specified prefix. Conflicts with `Name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// Output format for the stream. Possible values are `json`, `opentelemetry0.7`, and `opentelemetry1.0`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+        /// Output format for the stream. Possible values are `Json`, `opentelemetry0.7`, and `opentelemetry1.0`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -480,7 +480,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputList<Inputs.MetricStreamStatisticsConfigurationArgs>? _statisticsConfigurations;
 
         /// <summary>
-        /// For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7` or `opentelemetry1.0`, you can stream percentile statistics (p99 etc.). See details below.
+        /// For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `OutputFormat`. If the OutputFormat is `Json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7` or `opentelemetry1.0`, you can stream percentile statistics (p99 etc.). See details below.
         /// </summary>
         public InputList<Inputs.MetricStreamStatisticsConfigurationArgs> StatisticsConfigurations
         {
@@ -492,7 +492,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -524,7 +524,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputList<Inputs.MetricStreamExcludeFilterGetArgs>? _excludeFilters;
 
         /// <summary>
-        /// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `include_filter`.
+        /// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `IncludeFilter`.
         /// </summary>
         public InputList<Inputs.MetricStreamExcludeFilterGetArgs> ExcludeFilters
         {
@@ -542,7 +542,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputList<Inputs.MetricStreamIncludeFilterGetArgs>? _includeFilters;
 
         /// <summary>
-        /// List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `exclude_filter`.
+        /// List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `ExcludeFilter`.
         /// </summary>
         public InputList<Inputs.MetricStreamIncludeFilterGetArgs> IncludeFilters
         {
@@ -563,19 +563,19 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? LastUpdateDate { get; set; }
 
         /// <summary>
-        /// Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
+        /// Creates a unique friendly name beginning with the specified prefix. Conflicts with `Name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// Output format for the stream. Possible values are `json`, `opentelemetry0.7`, and `opentelemetry1.0`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+        /// Output format for the stream. Possible values are `Json`, `opentelemetry0.7`, and `opentelemetry1.0`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -595,7 +595,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// State of the metric stream. Possible values are `running` and `stopped`.
+        /// State of the metric stream. Possible values are `Running` and `Stopped`.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
@@ -604,7 +604,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputList<Inputs.MetricStreamStatisticsConfigurationGetArgs>? _statisticsConfigurations;
 
         /// <summary>
-        /// For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7` or `opentelemetry1.0`, you can stream percentile statistics (p99 etc.). See details below.
+        /// For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `OutputFormat`. If the OutputFormat is `Json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7` or `opentelemetry1.0`, you can stream percentile statistics (p99 etc.). See details below.
         /// </summary>
         public InputList<Inputs.MetricStreamStatisticsConfigurationGetArgs> StatisticsConfigurations
         {
@@ -616,7 +616,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -628,7 +628,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

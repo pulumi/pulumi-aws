@@ -35,7 +35,7 @@ public final class ReplicationConfigurationTemplatePitPolicy {
      */
     private @Nullable Integer ruleId;
     /**
-     * @return Units used to measure the `interval` and `retention_duration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
+     * @return Units used to measure the `interval` and `retentionDuration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
      * 
      */
     private String units;
@@ -70,7 +70,7 @@ public final class ReplicationConfigurationTemplatePitPolicy {
         return Optional.ofNullable(this.ruleId);
     }
     /**
-     * @return Units used to measure the `interval` and `retention_duration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
+     * @return Units used to measure the `interval` and `retentionDuration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
      * 
      */
     public String units() {

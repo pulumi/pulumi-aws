@@ -31,14 +31,14 @@ public final class InfrastructureConfigurationPlacementArgs extends com.pulumi.r
     }
 
     /**
-     * ID of the Dedicated Host on which build and test instances run. Conflicts with `host_resource_group_arn`.
+     * ID of the Dedicated Host on which build and test instances run. Conflicts with `hostResourceGroupArn`.
      * 
      */
     @Import(name="hostId")
     private @Nullable Output<String> hostId;
 
     /**
-     * @return ID of the Dedicated Host on which build and test instances run. Conflicts with `host_resource_group_arn`.
+     * @return ID of the Dedicated Host on which build and test instances run. Conflicts with `hostResourceGroupArn`.
      * 
      */
     public Optional<Output<String>> hostId() {
@@ -46,14 +46,14 @@ public final class InfrastructureConfigurationPlacementArgs extends com.pulumi.r
     }
 
     /**
-     * ARN of the host resource group in which to launch build and test instances. Conflicts with `host_id`.
+     * ARN of the host resource group in which to launch build and test instances. Conflicts with `hostId`.
      * 
      */
     @Import(name="hostResourceGroupArn")
     private @Nullable Output<String> hostResourceGroupArn;
 
     /**
-     * @return ARN of the host resource group in which to launch build and test instances. Conflicts with `host_id`.
+     * @return ARN of the host resource group in which to launch build and test instances. Conflicts with `hostId`.
      * 
      */
     public Optional<Output<String>> hostResourceGroupArn() {
@@ -124,7 +124,7 @@ public final class InfrastructureConfigurationPlacementArgs extends com.pulumi.r
         }
 
         /**
-         * @param hostId ID of the Dedicated Host on which build and test instances run. Conflicts with `host_resource_group_arn`.
+         * @param hostId ID of the Dedicated Host on which build and test instances run. Conflicts with `hostResourceGroupArn`.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class InfrastructureConfigurationPlacementArgs extends com.pulumi.r
         }
 
         /**
-         * @param hostId ID of the Dedicated Host on which build and test instances run. Conflicts with `host_resource_group_arn`.
+         * @param hostId ID of the Dedicated Host on which build and test instances run. Conflicts with `hostResourceGroupArn`.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class InfrastructureConfigurationPlacementArgs extends com.pulumi.r
         }
 
         /**
-         * @param hostResourceGroupArn ARN of the host resource group in which to launch build and test instances. Conflicts with `host_id`.
+         * @param hostResourceGroupArn ARN of the host resource group in which to launch build and test instances. Conflicts with `hostId`.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class InfrastructureConfigurationPlacementArgs extends com.pulumi.r
         }
 
         /**
-         * @param hostResourceGroupArn ARN of the host resource group in which to launch build and test instances. Conflicts with `host_id`.
+         * @param hostResourceGroupArn ARN of the host resource group in which to launch build and test instances. Conflicts with `hostId`.
          * 
          * @return builder
          * 

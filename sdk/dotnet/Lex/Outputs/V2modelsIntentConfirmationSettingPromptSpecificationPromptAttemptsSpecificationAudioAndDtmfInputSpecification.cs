@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Lex.Outputs
     public sealed class V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification
     {
         /// <summary>
-        /// Configuration block for the settings on audio input. See `audio_specification`.
+        /// Configuration block for the settings on audio input. See `AudioSpecification`.
         /// </summary>
         public readonly Outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification? AudioSpecification;
         /// <summary>
-        /// Configuration block for the settings on DTMF input. See `dtmf_specification`.
+        /// Configuration block for the settings on DTMF input. See `DtmfSpecification`.
         /// </summary>
         public readonly Outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification? DtmfSpecification;
         /// <summary>

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
     public sealed class PolicyPredictiveScalingConfigurationMetricSpecificationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
+        /// Customized capacity metric specification. The field is only valid when you use `CustomizedLoadMetricSpecification`
         /// </summary>
         [Input("customizedCapacityMetricSpecification")]
         public Input<Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationGetArgs>? CustomizedCapacityMetricSpecification { get; set; }

@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Connect
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
+        /// A block that defines the configuration information for the Quick Connect: `QuickConnectType` and one of `PhoneConfig`, `QueueConfig`, `UserConfig` . The Quick Connect Config block is documented below.
         /// </summary>
         [Output("quickConnectConfig")]
         public Output<Outputs.QuickConnectQuickConnectConfig> QuickConnectConfig { get; private set; } = null!;
@@ -102,13 +102,13 @@ namespace Pulumi.Aws.Connect
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Tags to apply to the Quick Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the Quick Connect. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.Connect
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
+        /// A block that defines the configuration information for the Quick Connect: `QuickConnectType` and one of `PhoneConfig`, `QueueConfig`, `UserConfig` . The Quick Connect Config block is documented below.
         /// </summary>
         [Input("quickConnectConfig", required: true)]
         public Input<Inputs.QuickConnectQuickConnectConfigArgs> QuickConnectConfig { get; set; } = null!;
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.Connect
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags to apply to the Quick Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the Quick Connect. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -234,7 +234,7 @@ namespace Pulumi.Aws.Connect
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
+        /// A block that defines the configuration information for the Quick Connect: `QuickConnectType` and one of `PhoneConfig`, `QueueConfig`, `UserConfig` . The Quick Connect Config block is documented below.
         /// </summary>
         [Input("quickConnectConfig")]
         public Input<Inputs.QuickConnectQuickConnectConfigGetArgs>? QuickConnectConfig { get; set; }
@@ -255,7 +255,7 @@ namespace Pulumi.Aws.Connect
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags to apply to the Quick Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the Quick Connect. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -267,7 +267,7 @@ namespace Pulumi.Aws.Connect
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Route53.Inputs
     public sealed class GetTrafficPolicyDocumentRuleGeoProximityLocationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specify a value for `bias` if you want to route more traffic to an endpoint from nearby endpoints (positive values) or route less traffic to an endpoint (negative values).
+        /// Specify a value for `Bias` if you want to route more traffic to an endpoint from nearby endpoints (positive values) or route less traffic to an endpoint (negative values).
         /// </summary>
         [Input("bias")]
         public string? Bias { get; set; }

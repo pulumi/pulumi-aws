@@ -13,7 +13,7 @@ namespace Pulumi.Aws.MemoryDb.Inputs
     public sealed class ClusterShardGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

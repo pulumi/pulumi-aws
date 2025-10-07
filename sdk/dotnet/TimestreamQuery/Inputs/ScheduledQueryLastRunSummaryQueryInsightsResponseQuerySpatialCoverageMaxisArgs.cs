@@ -16,7 +16,7 @@ namespace Pulumi.Aws.TimestreamQuery.Inputs
         private InputList<string>? _partitionKeys;
 
         /// <summary>
-        /// Partition key used for partitioning, which can be a default measure_name or a customer defined partition key.
+        /// Partition key used for partitioning, which can be a default MeasureName or a customer defined partition key.
         /// </summary>
         public InputList<string> PartitionKeys
         {

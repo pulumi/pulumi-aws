@@ -80,28 +80,28 @@ public class CustomerGateway extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgp_asn_extended`.
+     * The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgpAsnExtended`.
      * 
      */
     @Export(name="bgpAsn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bgpAsn;
 
     /**
-     * @return The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgp_asn_extended`.
+     * @return The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgpAsnExtended`.
      * 
      */
     public Output<Optional<String>> bgpAsn() {
         return Codegen.optional(this.bgpAsn);
     }
     /**
-     * The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgp_asn`.
+     * The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgpAsn`.
      * 
      */
     @Export(name="bgpAsnExtended", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bgpAsnExtended;
 
     /**
-     * @return The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgp_asn`.
+     * @return The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgpAsn`.
      * 
      */
     public Output<Optional<String>> bgpAsnExtended() {
@@ -164,28 +164,28 @@ public class CustomerGateway extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Tags to apply to the gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Tags to apply to the gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

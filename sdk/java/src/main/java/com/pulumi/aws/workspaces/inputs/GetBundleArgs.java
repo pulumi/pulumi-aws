@@ -31,14 +31,14 @@ public final class GetBundleArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Name of the bundle. You cannot combine this parameter with `bundle_id`.
+     * Name of the bundle. You cannot combine this parameter with `bundleId`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the bundle. You cannot combine this parameter with `bundle_id`.
+     * @return Name of the bundle. You cannot combine this parameter with `bundleId`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -46,14 +46,14 @@ public final class GetBundleArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
+     * Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundleId`.
      * 
      */
     @Import(name="owner")
     private @Nullable Output<String> owner;
 
     /**
-     * @return Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
+     * @return Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundleId`.
      * 
      */
     public Optional<Output<String>> owner() {
@@ -124,7 +124,7 @@ public final class GetBundleArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Name of the bundle. You cannot combine this parameter with `bundle_id`.
+         * @param name Name of the bundle. You cannot combine this parameter with `bundleId`.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class GetBundleArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Name of the bundle. You cannot combine this parameter with `bundle_id`.
+         * @param name Name of the bundle. You cannot combine this parameter with `bundleId`.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class GetBundleArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param owner Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
+         * @param owner Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundleId`.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class GetBundleArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param owner Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
+         * @param owner Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundleId`.
          * 
          * @return builder
          * 

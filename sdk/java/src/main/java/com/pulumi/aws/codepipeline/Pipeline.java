@@ -228,14 +228,14 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * One or more artifact_store blocks. Artifact stores are documented below.
+     * One or more artifactStore blocks. Artifact stores are documented below.
      * 
      */
     @Export(name="artifactStores", refs={List.class,PipelineArtifactStore.class}, tree="[0,1]")
     private Output<List<PipelineArtifactStore>> artifactStores;
 
     /**
-     * @return One or more artifact_store blocks. Artifact stores are documented below.
+     * @return One or more artifactStore blocks. Artifact stores are documented below.
      * 
      */
     public Output<List<PipelineArtifactStore>> artifactStores() {
@@ -326,28 +326,28 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
         return this.stages;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -368,21 +368,21 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
         return this.triggerAlls;
     }
     /**
-     * A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+     * A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
      * 
      */
     @Export(name="triggers", refs={List.class,PipelineTrigger.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PipelineTrigger>> triggers;
 
     /**
-     * @return A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+     * @return A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
      * 
      */
     public Output<Optional<List<PipelineTrigger>>> triggers() {
         return Codegen.optional(this.triggers);
     }
     /**
-     * A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+     * A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
      * 
      * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
      * 
@@ -391,7 +391,7 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ List<PipelineVariable>> variables;
 
     /**
-     * @return A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+     * @return A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
      * 
      * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
      * 

@@ -17,7 +17,7 @@ namespace Pulumi.Aws.Lex.Inputs
 
         /// <summary>
         /// Source of the grammar used to create the slot type.
-        /// See `source` argument reference below.
+        /// See `Source` argument reference below.
         /// </summary>
         public InputList<Inputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceGetArgs> Sources
         {

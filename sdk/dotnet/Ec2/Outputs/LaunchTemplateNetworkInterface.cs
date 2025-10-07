@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class LaunchTemplateNetworkInterface
     {
         /// <summary>
-        /// Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value, can be left unset.
+        /// Associate a Carrier IP address with `Eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value, can be left unset.
         /// </summary>
         public readonly string? AssociateCarrierIpAddress;
         /// <summary>
@@ -42,39 +42,39 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly Outputs.LaunchTemplateNetworkInterfaceEnaSrdSpecification? EnaSrdSpecification;
         /// <summary>
-        /// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify `efa`.
+        /// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify `Efa`.
         /// </summary>
         public readonly string? InterfaceType;
         /// <summary>
-        /// The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`
+        /// The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `Ipv4Addresses`
         /// </summary>
         public readonly int? Ipv4AddressCount;
         /// <summary>
-        /// One or more private IPv4 addresses to associate. Conflicts with `ipv4_address_count`
+        /// One or more private IPv4 addresses to associate. Conflicts with `Ipv4AddressCount`
         /// </summary>
         public readonly ImmutableArray<string> Ipv4Addresses;
         /// <summary>
-        /// The number of IPv4 prefixes to be automatically assigned to the network interface. Conflicts with `ipv4_prefixes`
+        /// The number of IPv4 prefixes to be automatically assigned to the network interface. Conflicts with `Ipv4Prefixes`
         /// </summary>
         public readonly int? Ipv4PrefixCount;
         /// <summary>
-        /// One or more IPv4 prefixes to be assigned to the network interface. Conflicts with `ipv4_prefix_count`
+        /// One or more IPv4 prefixes to be assigned to the network interface. Conflicts with `Ipv4PrefixCount`
         /// </summary>
         public readonly ImmutableArray<string> Ipv4Prefixes;
         /// <summary>
-        /// The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6_addresses`
+        /// The number of IPv6 addresses to assign to a network interface. Conflicts with `Ipv6Addresses`
         /// </summary>
         public readonly int? Ipv6AddressCount;
         /// <summary>
-        /// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6_address_count`
+        /// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `Ipv6AddressCount`
         /// </summary>
         public readonly ImmutableArray<string> Ipv6Addresses;
         /// <summary>
-        /// The number of IPv6 prefixes to be automatically assigned to the network interface. Conflicts with `ipv6_prefixes`
+        /// The number of IPv6 prefixes to be automatically assigned to the network interface. Conflicts with `Ipv6Prefixes`
         /// </summary>
         public readonly int? Ipv6PrefixCount;
         /// <summary>
-        /// One or more IPv6 prefixes to be assigned to the network interface. Conflicts with `ipv6_prefix_count`
+        /// One or more IPv6 prefixes to be assigned to the network interface. Conflicts with `Ipv6PrefixCount`
         /// </summary>
         public readonly ImmutableArray<string> Ipv6Prefixes;
         /// <summary>

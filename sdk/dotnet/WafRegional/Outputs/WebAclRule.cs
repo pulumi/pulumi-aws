@@ -14,11 +14,11 @@ namespace Pulumi.Aws.WafRegional.Outputs
     public sealed class WebAclRule
     {
         /// <summary>
-        /// Configuration block of the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Not used if `type` is `GROUP`. Detailed below.
+        /// Configuration block of the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Not used if `Type` is `GROUP`. Detailed below.
         /// </summary>
         public readonly Outputs.WebAclRuleAction? Action;
         /// <summary>
-        /// Configuration block of the override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Only used if `type` is `GROUP`. Detailed below.
+        /// Configuration block of the override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Only used if `Type` is `GROUP`. Detailed below.
         /// </summary>
         public readonly Outputs.WebAclRuleOverrideAction? OverrideAction;
         /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.WafRegional.Outputs
         /// </summary>
         public readonly string RuleId;
         /// <summary>
-        /// The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
+        /// The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `Type` as `RATE_BASED`. If you add a GROUP rule, you need to set `Type` as `GROUP`.
         /// </summary>
         public readonly string? Type;
 

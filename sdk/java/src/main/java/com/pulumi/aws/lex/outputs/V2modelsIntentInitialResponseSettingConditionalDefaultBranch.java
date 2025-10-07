@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class V2modelsIntentInitialResponseSettingConditionalDefaultBranch {
     /**
-     * @return Configuration block for the next step in the conversation. See `next_step`.
+     * @return Configuration block for the next step in the conversation. See `nextStep`.
      * 
      */
     private @Nullable V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStep nextStep;
@@ -25,7 +25,7 @@ public final class V2modelsIntentInitialResponseSettingConditionalDefaultBranch 
 
     private V2modelsIntentInitialResponseSettingConditionalDefaultBranch() {}
     /**
-     * @return Configuration block for the next step in the conversation. See `next_step`.
+     * @return Configuration block for the next step in the conversation. See `nextStep`.
      * 
      */
     public Optional<V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStep> nextStep() {

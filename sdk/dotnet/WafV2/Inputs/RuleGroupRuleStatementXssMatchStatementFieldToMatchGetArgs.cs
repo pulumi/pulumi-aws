@@ -55,13 +55,13 @@ namespace Pulumi.Aws.WafV2.Inputs
         }
 
         /// <summary>
-        /// Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        /// Inspect the JA3 fingerprint. See `Ja3Fingerprint` below for details.
         /// </summary>
         [Input("ja3Fingerprint")]
         public Input<Inputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3FingerprintGetArgs>? Ja3Fingerprint { get; set; }
 
         /// <summary>
-        /// Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
+        /// Inspect the JA4 fingerprint. See `Ja4Fingerprint` below for details.
         /// </summary>
         [Input("ja4Fingerprint")]
         public Input<Inputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchJa4FingerprintGetArgs>? Ja4Fingerprint { get; set; }

@@ -18,6 +18,59 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Basic Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.workspacesweb.Portal;
+ * import com.pulumi.aws.workspacesweb.PortalArgs;
+ * import com.pulumi.aws.workspacesweb.TrustStore;
+ * import com.pulumi.aws.workspacesweb.TrustStoreArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
+ * import com.pulumi.std.inputs.Base64encodeArgs;
+ * import com.pulumi.aws.workspacesweb.TrustStoreAssociation;
+ * import com.pulumi.aws.workspacesweb.TrustStoreAssociationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Portal("example", PortalArgs.builder()
+ *             .displayName("example")
+ *             .build());
+ * 
+ *         var exampleTrustStore = new TrustStore("exampleTrustStore", TrustStoreArgs.builder()
+ *             .certificateList(List.of(StdFunctions.base64encode(Base64encodeArgs.builder()
+ *                 .input(StdFunctions.file(FileArgs.builder()
+ *                     .input("certificate.pem")
+ *                     .build()).result())
+ *                 .build()).result()))
+ *             .build());
+ * 
+ *         var exampleTrustStoreAssociation = new TrustStoreAssociation("exampleTrustStoreAssociation", TrustStoreAssociationArgs.builder()
+ *             .trustStoreArn(exampleTrustStore.trustStoreArn())
+ *             .portalArn(example.portalArn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import WorkSpaces Web Trust Store Association using the `trust_store_arn,portal_arn`. For example:

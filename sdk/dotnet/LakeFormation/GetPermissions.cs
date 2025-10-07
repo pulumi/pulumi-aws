@@ -313,7 +313,7 @@ namespace Pulumi.Aws.LakeFormation
         public string? CatalogId { get; set; }
 
         /// <summary>
-        /// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
+        /// Whether the permissions are to be granted for the Data Catalog. Defaults to `False`.
         /// </summary>
         [Input("catalogResource")]
         public bool? CatalogResource { get; set; }
@@ -391,7 +391,7 @@ namespace Pulumi.Aws.LakeFormation
         public Input<string>? CatalogId { get; set; }
 
         /// <summary>
-        /// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
+        /// Whether the permissions are to be granted for the Data Catalog. Defaults to `False`.
         /// </summary>
         [Input("catalogResource")]
         public Input<bool>? CatalogResource { get; set; }
@@ -480,7 +480,7 @@ namespace Pulumi.Aws.LakeFormation
         /// </summary>
         public readonly ImmutableArray<string> Permissions;
         /// <summary>
-        /// Subset of `permissions` which the principal can pass.
+        /// Subset of `Permissions` which the principal can pass.
         /// </summary>
         public readonly ImmutableArray<string> PermissionsWithGrantOptions;
         public readonly string Principal;

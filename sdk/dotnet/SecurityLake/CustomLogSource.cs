@@ -12,7 +12,7 @@ namespace Pulumi.Aws.SecurityLake
     /// <summary>
     /// Resource for managing an AWS Security Lake Custom Log Source.
     /// 
-    /// &gt; **NOTE:** The underlying `aws.securitylake.DataLake` must be configured before creating the `aws.securitylake.CustomLogSource`. Use a `depends_on` statement.
+    /// &gt; **NOTE:** The underlying `aws.securitylake.DataLake` must be configured before creating the `aws.securitylake.CustomLogSource`. Use a `DependsOn` statement.
     /// 
     /// ## Example Usage
     /// 

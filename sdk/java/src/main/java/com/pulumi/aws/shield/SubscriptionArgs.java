@@ -32,14 +32,14 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Skip attempting to disable automated renewal upon destruction. If set to `true`, the `auto_renew` value will be left as-is and the resource will simply be removed from state.
+     * Skip attempting to disable automated renewal upon destruction. If set to `true`, the `autoRenew` value will be left as-is and the resource will simply be removed from state.
      * 
      */
     @Import(name="skipDestroy")
     private @Nullable Output<Boolean> skipDestroy;
 
     /**
-     * @return Skip attempting to disable automated renewal upon destruction. If set to `true`, the `auto_renew` value will be left as-is and the resource will simply be removed from state.
+     * @return Skip attempting to disable automated renewal upon destruction. If set to `true`, the `autoRenew` value will be left as-is and the resource will simply be removed from state.
      * 
      */
     public Optional<Output<Boolean>> skipDestroy() {
@@ -93,7 +93,7 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipDestroy Skip attempting to disable automated renewal upon destruction. If set to `true`, the `auto_renew` value will be left as-is and the resource will simply be removed from state.
+         * @param skipDestroy Skip attempting to disable automated renewal upon destruction. If set to `true`, the `autoRenew` value will be left as-is and the resource will simply be removed from state.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipDestroy Skip attempting to disable automated renewal upon destruction. If set to `true`, the `auto_renew` value will be left as-is and the resource will simply be removed from state.
+         * @param skipDestroy Skip attempting to disable automated renewal upon destruction. If set to `true`, the `autoRenew` value will be left as-is and the resource will simply be removed from state.
          * 
          * @return builder
          * 

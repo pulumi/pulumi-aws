@@ -17,7 +17,7 @@ public final class ApplicationApplicationConfigurationRunConfigurationApplicatio
      */
     private @Nullable String applicationRestoreType;
     /**
-     * @return The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `application_restore_type`.
+     * @return The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `applicationRestoreType`.
      * 
      */
     private @Nullable String snapshotName;
@@ -31,7 +31,7 @@ public final class ApplicationApplicationConfigurationRunConfigurationApplicatio
         return Optional.ofNullable(this.applicationRestoreType);
     }
     /**
-     * @return The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `application_restore_type`.
+     * @return The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `applicationRestoreType`.
      * 
      */
     public Optional<String> snapshotName() {

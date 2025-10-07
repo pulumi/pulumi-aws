@@ -66,14 +66,14 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Conf
     }
 
     /**
-     * The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+     * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     @Import(name="cloudwatchLoggingOptions")
     private @Nullable Output<FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs> cloudwatchLoggingOptions;
 
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs>> cloudwatchLoggingOptions() {
@@ -255,7 +255,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Conf
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Conf
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          * 
          * @return builder
          * 

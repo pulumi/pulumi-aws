@@ -20,6 +20,63 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Basic Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.route53.ProfilesProfile;
+ * import com.pulumi.aws.route53.ProfilesProfileArgs;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.route53.Zone;
+ * import com.pulumi.aws.route53.ZoneArgs;
+ * import com.pulumi.aws.route53.inputs.ZoneVpcArgs;
+ * import com.pulumi.aws.route53.ProfilesResourceAssociation;
+ * import com.pulumi.aws.route53.ProfilesResourceAssociationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ProfilesProfile("example", ProfilesProfileArgs.builder()
+ *             .name("example")
+ *             .build());
+ * 
+ *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()
+ *             .cidr("10.0.0.0/16")
+ *             .build());
+ * 
+ *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()
+ *             .name("example.com")
+ *             .vpcs(ZoneVpcArgs.builder()
+ *                 .vpcId(exampleVpc.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleProfilesResourceAssociation = new ProfilesResourceAssociation("exampleProfilesResourceAssociation", ProfilesResourceAssociationArgs.builder()
+ *             .name("example")
+ *             .profileId(example.id())
+ *             .resourceArn(exampleZone.arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Route 53 Profiles Resource Association using the `id`. For example:

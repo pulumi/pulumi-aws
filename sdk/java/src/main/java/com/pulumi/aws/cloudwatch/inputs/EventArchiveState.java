@@ -47,14 +47,14 @@ public final class EventArchiveState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `event_source_arn`.
+     * Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `eventSourceArn`.
      * 
      */
     @Import(name="eventPattern")
     private @Nullable Output<String> eventPattern;
 
     /**
-     * @return Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `event_source_arn`.
+     * @return Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `eventSourceArn`.
      * 
      */
     public Optional<Output<String>> eventPattern() {
@@ -210,7 +210,7 @@ public final class EventArchiveState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventPattern Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `event_source_arn`.
+         * @param eventPattern Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `eventSourceArn`.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class EventArchiveState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventPattern Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `event_source_arn`.
+         * @param eventPattern Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `eventSourceArn`.
          * 
          * @return builder
          * 

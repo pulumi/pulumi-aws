@@ -105,7 +105,7 @@ public class InstancePublicPorts extends com.pulumi.resources.CustomResource {
         return this.instanceName;
     }
     /**
-     * Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
+     * Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `portInfo` Block for details.
      * 
      * The following arguments are optional:
      * 
@@ -114,7 +114,7 @@ public class InstancePublicPorts extends com.pulumi.resources.CustomResource {
     private Output<List<InstancePublicPortsPortInfo>> portInfos;
 
     /**
-     * @return Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
+     * @return Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `portInfo` Block for details.
      * 
      * The following arguments are optional:
      * 

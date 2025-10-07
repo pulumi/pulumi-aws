@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Signer
         public Output<Outputs.SigningJobDestination> Destination { get; private set; } = null!;
 
         /// <summary>
-        /// Set this argument to `true` to ignore signing job failures and retrieve failed status and reason. Default `false`.
+        /// Set this argument to `True` to ignore signing job failures and retrieve failed status and reason. Default `False`.
         /// </summary>
         [Output("ignoreSigningJobFailure")]
         public Output<bool?> IgnoreSigningJobFailure { get; private set; } = null!;
@@ -231,7 +231,7 @@ namespace Pulumi.Aws.Signer
         public Input<Inputs.SigningJobDestinationArgs> Destination { get; set; } = null!;
 
         /// <summary>
-        /// Set this argument to `true` to ignore signing job failures and retrieve failed status and reason. Default `false`.
+        /// Set this argument to `True` to ignore signing job failures and retrieve failed status and reason. Default `False`.
         /// </summary>
         [Input("ignoreSigningJobFailure")]
         public Input<bool>? IgnoreSigningJobFailure { get; set; }
@@ -281,7 +281,7 @@ namespace Pulumi.Aws.Signer
         public Input<Inputs.SigningJobDestinationGetArgs>? Destination { get; set; }
 
         /// <summary>
-        /// Set this argument to `true` to ignore signing job failures and retrieve failed status and reason. Default `false`.
+        /// Set this argument to `True` to ignore signing job failures and retrieve failed status and reason. Default `False`.
         /// </summary>
         [Input("ignoreSigningJobFailure")]
         public Input<bool>? IgnoreSigningJobFailure { get; set; }

@@ -36,14 +36,14 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
+     * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dnsConfig` Block for details.
      * 
      */
     @Import(name="dnsConfig")
     private @Nullable Output<ServiceDnsConfigArgs> dnsConfig;
 
     /**
-     * @return A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
+     * @return A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dnsConfig` Block for details.
      * 
      */
     public Optional<Output<ServiceDnsConfigArgs>> dnsConfig() {
@@ -66,14 +66,14 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
+     * A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `healthCheckConfig` Block for details.
      * 
      */
     @Import(name="healthCheckConfig")
     private @Nullable Output<ServiceHealthCheckConfigArgs> healthCheckConfig;
 
     /**
-     * @return A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
+     * @return A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `healthCheckConfig` Block for details.
      * 
      */
     public Optional<Output<ServiceHealthCheckConfigArgs>> healthCheckConfig() {
@@ -81,14 +81,14 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
+     * A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
      * 
      */
     @Import(name="healthCheckCustomConfig")
     private @Nullable Output<ServiceHealthCheckCustomConfigArgs> healthCheckCustomConfig;
 
     /**
-     * @return A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
+     * @return A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
      * 
      */
     public Optional<Output<ServiceHealthCheckCustomConfigArgs>> healthCheckCustomConfig() {
@@ -141,14 +141,14 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -225,7 +225,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsConfig A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
+         * @param dnsConfig A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dnsConfig` Block for details.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsConfig A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
+         * @param dnsConfig A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dnsConfig` Block for details.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param healthCheckConfig A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
+         * @param healthCheckConfig A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `healthCheckConfig` Block for details.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param healthCheckConfig A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
+         * @param healthCheckConfig A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `healthCheckConfig` Block for details.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param healthCheckCustomConfig A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
+         * @param healthCheckCustomConfig A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
          * 
          * @return builder
          * 
@@ -299,7 +299,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param healthCheckCustomConfig A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
+         * @param healthCheckCustomConfig A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
          * 
          * @return builder
          * 
@@ -372,7 +372,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -383,7 +383,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

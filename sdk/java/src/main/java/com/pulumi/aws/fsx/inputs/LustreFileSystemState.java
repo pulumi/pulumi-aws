@@ -99,14 +99,14 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automatic_backup_retention_days` to be set.
+     * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automaticBackupRetentionDays` to be set.
      * 
      */
     @Import(name="dailyAutomaticBackupStartTime")
     private @Nullable Output<String> dailyAutomaticBackupStartTime;
 
     /**
-     * @return A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automatic_backup_retention_days` to be set.
+     * @return A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automaticBackupRetentionDays` to be set.
      * 
      */
     public Optional<Output<String>> dailyAutomaticBackupStartTime() {
@@ -181,14 +181,14 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `per_unit_storage_throughput`. This is only supported when deployment_type is set to `PERSISTENT_2`, `metadata_configuration` is used, and an EFA-enabled security group is attached.
+     * Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `perUnitStorageThroughput`. This is only supported when deploymentType is set to `PERSISTENT_2`, `metadataConfiguration` is used, and an EFA-enabled security group is attached.
      * 
      */
     @Import(name="efaEnabled")
     private @Nullable Output<Boolean> efaEnabled;
 
     /**
-     * @return Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `per_unit_storage_throughput`. This is only supported when deployment_type is set to `PERSISTENT_2`, `metadata_configuration` is used, and an EFA-enabled security group is attached.
+     * @return Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `perUnitStorageThroughput`. This is only supported when deploymentType is set to `PERSISTENT_2`, `metadataConfiguration` is used, and an EFA-enabled security group is attached.
      * 
      */
     public Optional<Output<Boolean>> efaEnabled() {
@@ -196,14 +196,14 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
+     * S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `importPath` argument and the path must use the same Amazon S3 bucket as specified in `importPath`. Set equal to `importPath` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
      * 
      */
     @Import(name="exportPath")
     private @Nullable Output<String> exportPath;
 
     /**
-     * @return S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
+     * @return S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `importPath` argument and the path must use the same Amazon S3 bucket as specified in `importPath`. Set equal to `importPath` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
      * 
      */
     public Optional<Output<String>> exportPath() {
@@ -260,14 +260,14 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `import_path` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`. Only supported on `PERSISTENT_1` deployment types.
+     * For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `importPath` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`. Only supported on `PERSISTENT_1` deployment types.
      * 
      */
     @Import(name="importedFileChunkSize")
     private @Nullable Output<Integer> importedFileChunkSize;
 
     /**
-     * @return For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `import_path` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`. Only supported on `PERSISTENT_1` deployment types.
+     * @return For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `importPath` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`. Only supported on `PERSISTENT_1` deployment types.
      * 
      */
     public Optional<Output<Integer>> importedFileChunkSize() {
@@ -290,14 +290,14 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `log_configuration` Block for details.
+     * The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `logConfiguration` Block for details.
      * 
      */
     @Import(name="logConfiguration")
     private @Nullable Output<LustreFileSystemLogConfigurationArgs> logConfiguration;
 
     /**
-     * @return The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `log_configuration` Block for details.
+     * @return The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `logConfiguration` Block for details.
      * 
      */
     public Optional<Output<LustreFileSystemLogConfigurationArgs>> logConfiguration() {
@@ -305,14 +305,14 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deployment_type` is set to `PERSISTENT_2`. See `metadata_configuration` Block for details.
+     * The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deploymentType` is set to `PERSISTENT_2`. See `metadataConfiguration` Block for details.
      * 
      */
     @Import(name="metadataConfiguration")
     private @Nullable Output<LustreFileSystemMetadataConfigurationArgs> metadataConfiguration;
 
     /**
-     * @return The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deployment_type` is set to `PERSISTENT_2`. See `metadata_configuration` Block for details.
+     * @return The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deploymentType` is set to `PERSISTENT_2`. See `metadataConfiguration` Block for details.
      * 
      */
     public Optional<Output<LustreFileSystemMetadataConfigurationArgs>> metadataConfiguration() {
@@ -365,14 +365,14 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deployment_type and `SSD` storage_type are 50, 100, 200. Valid values for `PERSISTENT_1` deployment_type and `HDD` storage_type are 12, 40. Valid values for `PERSISTENT_2` deployment_type and `  SSD ` storage_type are 125, 250, 500, 1000.
+     * Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deploymentType and `SSD` storageType are 50, 100, 200. Valid values for `PERSISTENT_1` deploymentType and `HDD` storageType are 12, 40. Valid values for `PERSISTENT_2` deploymentType and `  SSD ` storageType are 125, 250, 500, 1000.
      * 
      */
     @Import(name="perUnitStorageThroughput")
     private @Nullable Output<Integer> perUnitStorageThroughput;
 
     /**
-     * @return Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deployment_type and `SSD` storage_type are 50, 100, 200. Valid values for `PERSISTENT_1` deployment_type and `HDD` storage_type are 12, 40. Valid values for `PERSISTENT_2` deployment_type and `  SSD ` storage_type are 125, 250, 500, 1000.
+     * @return Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deploymentType and `SSD` storageType are 50, 100, 200. Valid values for `PERSISTENT_1` deploymentType and `HDD` storageType are 12, 40. Valid values for `PERSISTENT_2` deploymentType and `  SSD ` storageType are 125, 250, 500, 1000.
      * 
      */
     public Optional<Output<Integer>> perUnitStorageThroughput() {
@@ -395,14 +395,14 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `root_squash_configuration` Block for details.
+     * The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `rootSquashConfiguration` Block for details.
      * 
      */
     @Import(name="rootSquashConfiguration")
     private @Nullable Output<LustreFileSystemRootSquashConfigurationArgs> rootSquashConfiguration;
 
     /**
-     * @return The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `root_squash_configuration` Block for details.
+     * @return The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `rootSquashConfiguration` Block for details.
      * 
      */
     public Optional<Output<LustreFileSystemRootSquashConfigurationArgs>> rootSquashConfiguration() {
@@ -459,14 +459,14 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `data_read_cache_configuration` and `metadata_configuration` to be set and is only supported for `PERSISTENT_2` deployment types.
+     * The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `dataReadCacheConfiguration` and `metadataConfiguration` to be set and is only supported for `PERSISTENT_2` deployment types.
      * 
      */
     @Import(name="storageType")
     private @Nullable Output<String> storageType;
 
     /**
-     * @return The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `data_read_cache_configuration` and `metadata_configuration` to be set and is only supported for `PERSISTENT_2` deployment types.
+     * @return The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `dataReadCacheConfiguration` and `metadataConfiguration` to be set and is only supported for `PERSISTENT_2` deployment types.
      * 
      */
     public Optional<Output<String>> storageType() {
@@ -493,14 +493,14 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -508,14 +508,14 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -732,7 +732,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param dailyAutomaticBackupStartTime A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automatic_backup_retention_days` to be set.
+         * @param dailyAutomaticBackupStartTime A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automaticBackupRetentionDays` to be set.
          * 
          * @return builder
          * 
@@ -743,7 +743,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param dailyAutomaticBackupStartTime A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automatic_backup_retention_days` to be set.
+         * @param dailyAutomaticBackupStartTime A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automaticBackupRetentionDays` to be set.
          * 
          * @return builder
          * 
@@ -846,7 +846,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param efaEnabled Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `per_unit_storage_throughput`. This is only supported when deployment_type is set to `PERSISTENT_2`, `metadata_configuration` is used, and an EFA-enabled security group is attached.
+         * @param efaEnabled Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `perUnitStorageThroughput`. This is only supported when deploymentType is set to `PERSISTENT_2`, `metadataConfiguration` is used, and an EFA-enabled security group is attached.
          * 
          * @return builder
          * 
@@ -857,7 +857,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param efaEnabled Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `per_unit_storage_throughput`. This is only supported when deployment_type is set to `PERSISTENT_2`, `metadata_configuration` is used, and an EFA-enabled security group is attached.
+         * @param efaEnabled Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `perUnitStorageThroughput`. This is only supported when deploymentType is set to `PERSISTENT_2`, `metadataConfiguration` is used, and an EFA-enabled security group is attached.
          * 
          * @return builder
          * 
@@ -867,7 +867,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param exportPath S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
+         * @param exportPath S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `importPath` argument and the path must use the same Amazon S3 bucket as specified in `importPath`. Set equal to `importPath` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
          * 
          * @return builder
          * 
@@ -878,7 +878,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param exportPath S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
+         * @param exportPath S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `importPath` argument and the path must use the same Amazon S3 bucket as specified in `importPath`. Set equal to `importPath` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
          * 
          * @return builder
          * 
@@ -955,7 +955,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param importedFileChunkSize For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `import_path` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`. Only supported on `PERSISTENT_1` deployment types.
+         * @param importedFileChunkSize For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `importPath` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`. Only supported on `PERSISTENT_1` deployment types.
          * 
          * @return builder
          * 
@@ -966,7 +966,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param importedFileChunkSize For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `import_path` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`. Only supported on `PERSISTENT_1` deployment types.
+         * @param importedFileChunkSize For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `importPath` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`. Only supported on `PERSISTENT_1` deployment types.
          * 
          * @return builder
          * 
@@ -997,7 +997,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param logConfiguration The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `log_configuration` Block for details.
+         * @param logConfiguration The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `logConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -1008,7 +1008,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param logConfiguration The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `log_configuration` Block for details.
+         * @param logConfiguration The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `logConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -1018,7 +1018,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param metadataConfiguration The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deployment_type` is set to `PERSISTENT_2`. See `metadata_configuration` Block for details.
+         * @param metadataConfiguration The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deploymentType` is set to `PERSISTENT_2`. See `metadataConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -1029,7 +1029,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param metadataConfiguration The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deployment_type` is set to `PERSISTENT_2`. See `metadata_configuration` Block for details.
+         * @param metadataConfiguration The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deploymentType` is set to `PERSISTENT_2`. See `metadataConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -1112,7 +1112,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param perUnitStorageThroughput Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deployment_type and `SSD` storage_type are 50, 100, 200. Valid values for `PERSISTENT_1` deployment_type and `HDD` storage_type are 12, 40. Valid values for `PERSISTENT_2` deployment_type and `  SSD ` storage_type are 125, 250, 500, 1000.
+         * @param perUnitStorageThroughput Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deploymentType and `SSD` storageType are 50, 100, 200. Valid values for `PERSISTENT_1` deploymentType and `HDD` storageType are 12, 40. Valid values for `PERSISTENT_2` deploymentType and `  SSD ` storageType are 125, 250, 500, 1000.
          * 
          * @return builder
          * 
@@ -1123,7 +1123,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param perUnitStorageThroughput Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deployment_type and `SSD` storage_type are 50, 100, 200. Valid values for `PERSISTENT_1` deployment_type and `HDD` storage_type are 12, 40. Valid values for `PERSISTENT_2` deployment_type and `  SSD ` storage_type are 125, 250, 500, 1000.
+         * @param perUnitStorageThroughput Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deploymentType and `SSD` storageType are 50, 100, 200. Valid values for `PERSISTENT_1` deploymentType and `HDD` storageType are 12, 40. Valid values for `PERSISTENT_2` deploymentType and `  SSD ` storageType are 125, 250, 500, 1000.
          * 
          * @return builder
          * 
@@ -1154,7 +1154,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param rootSquashConfiguration The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `root_squash_configuration` Block for details.
+         * @param rootSquashConfiguration The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `rootSquashConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -1165,7 +1165,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param rootSquashConfiguration The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `root_squash_configuration` Block for details.
+         * @param rootSquashConfiguration The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `rootSquashConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -1252,7 +1252,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param storageType The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `data_read_cache_configuration` and `metadata_configuration` to be set and is only supported for `PERSISTENT_2` deployment types.
+         * @param storageType The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `dataReadCacheConfiguration` and `metadataConfiguration` to be set and is only supported for `PERSISTENT_2` deployment types.
          * 
          * @return builder
          * 
@@ -1263,7 +1263,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param storageType The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `data_read_cache_configuration` and `metadata_configuration` to be set and is only supported for `PERSISTENT_2` deployment types.
+         * @param storageType The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `dataReadCacheConfiguration` and `metadataConfiguration` to be set and is only supported for `PERSISTENT_2` deployment types.
          * 
          * @return builder
          * 
@@ -1298,7 +1298,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tags A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1309,7 +1309,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tags A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1319,7 +1319,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -1330,7 +1330,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

@@ -54,7 +54,7 @@ public final class KeyvaluestoreKeysExclusiveState extends com.pulumi.resources.
 
     /**
      * A list of all resource key value pairs associated with the KeyValueStore.
-     * See `resource_key_value_pair` below.
+     * See `resourceKeyValuePair` below.
      * 
      */
     @Import(name="resourceKeyValuePairs")
@@ -62,7 +62,7 @@ public final class KeyvaluestoreKeysExclusiveState extends com.pulumi.resources.
 
     /**
      * @return A list of all resource key value pairs associated with the KeyValueStore.
-     * See `resource_key_value_pair` below.
+     * See `resourceKeyValuePair` below.
      * 
      */
     public Optional<Output<List<KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs>>> resourceKeyValuePairs() {
@@ -159,7 +159,7 @@ public final class KeyvaluestoreKeysExclusiveState extends com.pulumi.resources.
 
         /**
          * @param resourceKeyValuePairs A list of all resource key value pairs associated with the KeyValueStore.
-         * See `resource_key_value_pair` below.
+         * See `resourceKeyValuePair` below.
          * 
          * @return builder
          * 
@@ -171,7 +171,7 @@ public final class KeyvaluestoreKeysExclusiveState extends com.pulumi.resources.
 
         /**
          * @param resourceKeyValuePairs A list of all resource key value pairs associated with the KeyValueStore.
-         * See `resource_key_value_pair` below.
+         * See `resourceKeyValuePair` below.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class KeyvaluestoreKeysExclusiveState extends com.pulumi.resources.
 
         /**
          * @param resourceKeyValuePairs A list of all resource key value pairs associated with the KeyValueStore.
-         * See `resource_key_value_pair` below.
+         * See `resourceKeyValuePair` below.
          * 
          * @return builder
          * 

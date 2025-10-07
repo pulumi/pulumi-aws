@@ -30,6 +30,74 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Basic Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.finspace.KxCluster;
+ * import com.pulumi.aws.finspace.KxClusterArgs;
+ * import com.pulumi.aws.finspace.inputs.KxClusterCapacityConfigurationArgs;
+ * import com.pulumi.aws.finspace.inputs.KxClusterVpcConfigurationArgs;
+ * import com.pulumi.aws.finspace.inputs.KxClusterCacheStorageConfigurationArgs;
+ * import com.pulumi.aws.finspace.inputs.KxClusterDatabaseArgs;
+ * import com.pulumi.aws.finspace.inputs.KxClusterCodeArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new KxCluster("example", KxClusterArgs.builder()
+ *             .name("my-tf-kx-cluster")
+ *             .environmentId(exampleAwsFinspaceKxEnvironment.id())
+ *             .type("HDB")
+ *             .releaseLabel("1.0")
+ *             .azMode("SINGLE")
+ *             .availabilityZoneId("use1-az2")
+ *             .capacityConfiguration(KxClusterCapacityConfigurationArgs.builder()
+ *                 .nodeType("kx.s.2xlarge")
+ *                 .nodeCount(2)
+ *                 .build())
+ *             .vpcConfiguration(KxClusterVpcConfigurationArgs.builder()
+ *                 .vpcId(test.id())
+ *                 .securityGroupIds(exampleAwsSecurityGroup.id())
+ *                 .subnetIds(exampleAwsSubnet.id())
+ *                 .ipAddressType("IP_V4")
+ *                 .build())
+ *             .cacheStorageConfigurations(KxClusterCacheStorageConfigurationArgs.builder()
+ *                 .type("CACHE_1000")
+ *                 .size(1200)
+ *                 .build())
+ *             .databases(KxClusterDatabaseArgs.builder()
+ *                 .databaseName(exampleAwsFinspaceKxDatabase.name())
+ *                 .cacheConfiguration(List.of(Map.ofEntries(
+ *                     Map.entry("cacheType", "CACHE_1000"),
+ *                     Map.entry("dbPaths", "/")
+ *                 )))
+ *                 .build())
+ *             .code(KxClusterCodeArgs.builder()
+ *                 .s3Bucket(testAwsS3Bucket.id())
+ *                 .s3Key(object.key())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import an AWS FinSpace Kx Cluster using the `id` (environment ID and cluster name, comma-delimited). For example:
@@ -70,14 +138,14 @@ public class KxCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.autoScalingConfiguration);
     }
     /**
-     * The availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
+     * The availability zone identifiers for the requested regions. Required when `azMode` is set to SINGLE.
      * 
      */
     @Export(name="availabilityZoneId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> availabilityZoneId;
 
     /**
-     * @return The availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
+     * @return The availability zone identifiers for the requested regions. Required when `azMode` is set to SINGLE.
      * 
      */
     public Output<Optional<String>> availabilityZoneId() {
@@ -338,28 +406,28 @@ public class KxCluster extends com.pulumi.resources.CustomResource {
         return this.statusReason;
     }
     /**
-     * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

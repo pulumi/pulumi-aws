@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> MemberName { get; private set; } = null!;
 
         /// <summary>
-        /// The namespace that you want the user to be a part of. Defaults to `default`.
+        /// The namespace that you want the user to be a part of. Defaults to `Default`.
         /// </summary>
         [Output("namespace")]
         public Output<string?> Namespace { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string> MemberName { get; set; } = null!;
 
         /// <summary>
-        /// The namespace that you want the user to be a part of. Defaults to `default`.
+        /// The namespace that you want the user to be a part of. Defaults to `Default`.
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? MemberName { get; set; }
 
         /// <summary>
-        /// The namespace that you want the user to be a part of. Defaults to `default`.
+        /// The namespace that you want the user to be a part of. Defaults to `Default`.
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Dlm.Inputs
     public sealed class LifecyclePolicyPolicyDetailsScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies a snapshot archiving rule for a schedule. See `archive_rule` block.
+        /// Specifies a snapshot archiving rule for a schedule. See `ArchiveRule` block.
         /// </summary>
         [Input("archiveRule")]
         public Input<Inputs.LifecyclePolicyPolicyDetailsScheduleArchiveRuleArgs>? ArchiveRule { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Dlm.Inputs
         public Input<bool>? CopyTags { get; set; }
 
         /// <summary>
-        /// See the `create_rule` block. Max of 1 per schedule.
+        /// See the `CreateRule` block. Max of 1 per schedule.
         /// </summary>
         [Input("createRule", required: true)]
         public Input<Inputs.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs> CreateRule { get; set; } = null!;
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Dlm.Inputs
         private InputList<Inputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs>? _crossRegionCopyRules;
 
         /// <summary>
-        /// See the `cross_region_copy_rule` block. Max of 3 per schedule.
+        /// See the `CrossRegionCopyRule` block. Max of 3 per schedule.
         /// </summary>
         public InputList<Inputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs> CrossRegionCopyRules
         {
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Dlm.Inputs
         public Input<Inputs.LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs>? DeprecateRule { get; set; }
 
         /// <summary>
-        /// See the `fast_restore_rule` block. Max of 1 per schedule.
+        /// See the `FastRestoreRule` block. Max of 1 per schedule.
         /// </summary>
         [Input("fastRestoreRule")]
         public Input<Inputs.LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs>? FastRestoreRule { get; set; }
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Dlm.Inputs
         public Input<Inputs.LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs> RetainRule { get; set; } = null!;
 
         /// <summary>
-        /// See the `share_rule` block. Max of 1 per schedule.
+        /// See the `ShareRule` block. Max of 1 per schedule.
         /// </summary>
         [Input("shareRule")]
         public Input<Inputs.LifecyclePolicyPolicyDetailsScheduleShareRuleArgs>? ShareRule { get; set; }
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Dlm.Inputs
         private InputMap<string>? _variableTags;
 
         /// <summary>
-        /// A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resource_types` is `INSTANCE`.
+        /// A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `ResourceTypes` is `INSTANCE`.
         /// </summary>
         public InputMap<string> VariableTags
         {

@@ -89,7 +89,7 @@ public final class EndpointPostgresSettings {
      */
     private @Nullable Integer maxFileSize;
     /**
-     * @return Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test_decoding`.
+     * @return Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `testDecoding`.
      * 
      */
     private @Nullable String pluginName;
@@ -211,7 +211,7 @@ public final class EndpointPostgresSettings {
         return Optional.ofNullable(this.maxFileSize);
     }
     /**
-     * @return Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test_decoding`.
+     * @return Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `testDecoding`.
      * 
      */
     public Optional<String> pluginName() {

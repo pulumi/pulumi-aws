@@ -132,14 +132,14 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The list of nameservers for the domain. See `name_server` Blocks for more details.
+     * The list of nameservers for the domain. See `nameServer` Blocks for more details.
      * 
      */
     @Import(name="nameServers")
     private @Nullable Output<List<DomainNameServerArgs>> nameServers;
 
     /**
-     * @return The list of nameservers for the domain. See `name_server` Blocks for more details.
+     * @return The list of nameservers for the domain. See `nameServer` Blocks for more details.
      * 
      */
     public Optional<Output<List<DomainNameServerArgs>>> nameServers() {
@@ -177,14 +177,14 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -231,7 +231,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Whether the domain is locked for transfer. Default: `true`.
      * 
-     * &gt; **NOTE:** You must specify the same privacy setting for `admin_privacy`, `registrant_privacy` and `tech_privacy`.
+     * &gt; **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
      * 
      */
     @Import(name="transferLock")
@@ -240,7 +240,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Whether the domain is locked for transfer. Default: `true`.
      * 
-     * &gt; **NOTE:** You must specify the same privacy setting for `admin_privacy`, `registrant_privacy` and `tech_privacy`.
+     * &gt; **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
      * 
      */
     public Optional<Output<Boolean>> transferLock() {
@@ -443,7 +443,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nameServers The list of nameservers for the domain. See `name_server` Blocks for more details.
+         * @param nameServers The list of nameservers for the domain. See `nameServer` Blocks for more details.
          * 
          * @return builder
          * 
@@ -454,7 +454,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nameServers The list of nameservers for the domain. See `name_server` Blocks for more details.
+         * @param nameServers The list of nameservers for the domain. See `nameServer` Blocks for more details.
          * 
          * @return builder
          * 
@@ -464,7 +464,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nameServers The list of nameservers for the domain. See `name_server` Blocks for more details.
+         * @param nameServers The list of nameservers for the domain. See `nameServer` Blocks for more details.
          * 
          * @return builder
          * 
@@ -516,7 +516,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -527,7 +527,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -590,7 +590,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param transferLock Whether the domain is locked for transfer. Default: `true`.
          * 
-         * &gt; **NOTE:** You must specify the same privacy setting for `admin_privacy`, `registrant_privacy` and `tech_privacy`.
+         * &gt; **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
          * 
          * @return builder
          * 
@@ -603,7 +603,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param transferLock Whether the domain is locked for transfer. Default: `true`.
          * 
-         * &gt; **NOTE:** You must specify the same privacy setting for `admin_privacy`, `registrant_privacy` and `tech_privacy`.
+         * &gt; **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
          * 
          * @return builder
          * 

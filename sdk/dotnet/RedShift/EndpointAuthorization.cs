@@ -67,7 +67,7 @@ namespace Pulumi.Aws.RedShift
         public Output<int> EndpointCount { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
+        /// Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `False`.
         /// </summary>
         [Output("forceDelete")]
         public Output<bool?> ForceDelete { get; private set; } = null!;
@@ -155,7 +155,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string> ClusterIdentifier { get; set; } = null!;
 
         /// <summary>
-        /// Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
+        /// Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `False`.
         /// </summary>
         [Input("forceDelete")]
         public Input<bool>? ForceDelete { get; set; }
@@ -211,7 +211,7 @@ namespace Pulumi.Aws.RedShift
         public Input<int>? EndpointCount { get; set; }
 
         /// <summary>
-        /// Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
+        /// Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `False`.
         /// </summary>
         [Input("forceDelete")]
         public Input<bool>? ForceDelete { get; set; }

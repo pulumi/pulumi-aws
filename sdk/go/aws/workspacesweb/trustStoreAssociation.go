@@ -16,6 +16,56 @@ import (
 //
 // ## Example Usage
 //
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspacesweb"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := workspacesweb.NewPortal(ctx, "example", &workspacesweb.PortalArgs{
+//				DisplayName: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			invokeBase64encode, err := std.Base64encode(ctx, &std.Base64encodeArgs{
+//				Input: std.File(ctx, &std.FileArgs{
+//					Input: "certificate.pem",
+//				}, nil).Result,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleTrustStore, err := workspacesweb.NewTrustStore(ctx, "example", &workspacesweb.TrustStoreArgs{
+//				CertificateList: []*string{
+//					invokeBase64encode.Result,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = workspacesweb.NewTrustStoreAssociation(ctx, "example", &workspacesweb.TrustStoreAssociationArgs{
+//				TrustStoreArn: exampleTrustStore.TrustStoreArn,
+//				PortalArn:     example.PortalArn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import WorkSpaces Web Trust Store Association using the `trust_store_arn,portal_arn`. For example:

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclAssociationConfig
     {
         /// <summary>
-        /// Customizes the request body that your protected resource forward to AWS WAF for inspection. See `request_body` below for details.
+        /// Customizes the request body that your protected resource forward to AWS WAF for inspection. See `RequestBody` below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclAssociationConfigRequestBody> RequestBodies;
 

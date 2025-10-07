@@ -39,7 +39,7 @@ public final class GetStateMachineResult {
      */
     private String revisionId;
     /**
-     * @return Set to the role_arn used by the state function.
+     * @return Set to the roleArn used by the state function.
      * 
      */
     private String roleArn;
@@ -95,7 +95,7 @@ public final class GetStateMachineResult {
         return this.revisionId;
     }
     /**
-     * @return Set to the role_arn used by the state function.
+     * @return Set to the roleArn used by the state function.
      * 
      */
     public String roleArn() {

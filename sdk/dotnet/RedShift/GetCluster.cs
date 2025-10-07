@@ -13,18 +13,159 @@ namespace Pulumi.Aws.RedShift
     {
         /// <summary>
         /// Provides details about a specific redshift cluster.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.RedShift.GetCluster.Invoke(new()
+        ///     {
+        ///         ClusterIdentifier = "example-cluster",
+        ///     });
+        /// 
+        ///     var exampleStream = new Aws.Kinesis.FirehoseDeliveryStream("example_stream", new()
+        ///     {
+        ///         Name = "kinesis-firehose-example-stream",
+        ///         Destination = "redshift",
+        ///         RedshiftConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs
+        ///         {
+        ///             RoleArn = firehoseRole.Arn,
+        ///             ClusterJdbcurl = Output.Tuple(example, example).Apply(values =&gt;
+        ///             {
+        ///                 var example = values.Item1;
+        ///                 var example1 = values.Item2;
+        ///                 return $"jdbc:redshift://{example.Apply(getClusterResult =&gt; getClusterResult.Endpoint)}/{example1.DatabaseName}";
+        ///             }),
+        ///             Username = "exampleuser",
+        ///             Password = "Exampl3Pass",
+        ///             DataTableName = "example-table",
+        ///             CopyOptions = "delimiter '|'",
+        ///             DataTableColumns = "example-col",
+        ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs
+        ///             {
+        ///                 RoleArn = firehoseRole.Arn,
+        ///                 BucketArn = bucket.Arn,
+        ///                 BufferSize = 10,
+        ///                 BufferInterval = 400,
+        ///                 CompressionFormat = "GZIP",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:redshift/getCluster:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific redshift cluster.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.RedShift.GetCluster.Invoke(new()
+        ///     {
+        ///         ClusterIdentifier = "example-cluster",
+        ///     });
+        /// 
+        ///     var exampleStream = new Aws.Kinesis.FirehoseDeliveryStream("example_stream", new()
+        ///     {
+        ///         Name = "kinesis-firehose-example-stream",
+        ///         Destination = "redshift",
+        ///         RedshiftConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs
+        ///         {
+        ///             RoleArn = firehoseRole.Arn,
+        ///             ClusterJdbcurl = Output.Tuple(example, example).Apply(values =&gt;
+        ///             {
+        ///                 var example = values.Item1;
+        ///                 var example1 = values.Item2;
+        ///                 return $"jdbc:redshift://{example.Apply(getClusterResult =&gt; getClusterResult.Endpoint)}/{example1.DatabaseName}";
+        ///             }),
+        ///             Username = "exampleuser",
+        ///             Password = "Exampl3Pass",
+        ///             DataTableName = "example-table",
+        ///             CopyOptions = "delimiter '|'",
+        ///             DataTableColumns = "example-col",
+        ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs
+        ///             {
+        ///                 RoleArn = firehoseRole.Arn,
+        ///                 BucketArn = bucket.Arn,
+        ///                 BufferSize = 10,
+        ///                 BufferInterval = 400,
+        ///                 CompressionFormat = "GZIP",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws:redshift/getCluster:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific redshift cluster.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.RedShift.GetCluster.Invoke(new()
+        ///     {
+        ///         ClusterIdentifier = "example-cluster",
+        ///     });
+        /// 
+        ///     var exampleStream = new Aws.Kinesis.FirehoseDeliveryStream("example_stream", new()
+        ///     {
+        ///         Name = "kinesis-firehose-example-stream",
+        ///         Destination = "redshift",
+        ///         RedshiftConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs
+        ///         {
+        ///             RoleArn = firehoseRole.Arn,
+        ///             ClusterJdbcurl = Output.Tuple(example, example).Apply(values =&gt;
+        ///             {
+        ///                 var example = values.Item1;
+        ///                 var example1 = values.Item2;
+        ///                 return $"jdbc:redshift://{example.Apply(getClusterResult =&gt; getClusterResult.Endpoint)}/{example1.DatabaseName}";
+        ///             }),
+        ///             Username = "exampleuser",
+        ///             Password = "Exampl3Pass",
+        ///             DataTableName = "example-table",
+        ///             CopyOptions = "delimiter '|'",
+        ///             DataTableColumns = "example-col",
+        ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs
+        ///             {
+        ///                 RoleArn = firehoseRole.Arn,
+        ///                 BucketArn = bucket.Arn,
+        ///                 BufferSize = 10,
+        ///                 BufferInterval = 400,
+        ///                 CompressionFormat = "GZIP",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws:redshift/getCluster:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());

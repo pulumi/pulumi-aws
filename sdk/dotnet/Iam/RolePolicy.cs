@@ -12,9 +12,9 @@ namespace Pulumi.Aws.Iam
     /// <summary>
     /// Provides an IAM role inline policy.
     /// 
-    /// &gt; **NOTE:** For a given role, this resource is incompatible with using the `aws.iam.Role` resource `inline_policy` argument. When using that argument and this resource, both will attempt to manage the role's inline policies and the provider will show a permanent difference.
+    /// &gt; **NOTE:** For a given role, this resource is incompatible with using the `aws.iam.Role` resource `InlinePolicy` argument. When using that argument and this resource, both will attempt to manage the role's inline policies and the provider will show a permanent difference.
     /// 
-    /// &gt; **NOTE:** We suggest using explicit JSON encoding or `aws.iam.getPolicyDocument` when assigning a value to `policy`. They seamlessly translate configuration to JSON, enabling you to maintain consistency within your configuration without the need for context switches. Also, you can sidestep potential complications arising from formatting discrepancies, whitespace inconsistencies, and other nuances inherent to JSON.
+    /// &gt; **NOTE:** We suggest using explicit JSON encoding or `aws.iam.getPolicyDocument` when assigning a value to `Policy`. They seamlessly translate configuration to JSON, enabling you to maintain consistency within your configuration without the need for context switches. Also, you can sidestep potential complications arising from formatting discrepancies, whitespace inconsistencies, and other nuances inherent to JSON.
     /// 
     /// ## Example Usage
     /// 
@@ -106,7 +106,7 @@ namespace Pulumi.Aws.Iam
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix.
-        /// Conflicts with `name`.
+        /// Conflicts with `Name`.
         /// </summary>
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.Iam
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix.
-        /// Conflicts with `name`.
+        /// Conflicts with `Name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
@@ -216,7 +216,7 @@ namespace Pulumi.Aws.Iam
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix.
-        /// Conflicts with `name`.
+        /// Conflicts with `Name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }

@@ -25,13 +25,13 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// The ID of the placement group for the instance. Conflicts with `group_name`.
+        /// The ID of the placement group for the instance. Conflicts with `GroupName`.
         /// </summary>
         [Input("groupId")]
         public Input<string>? GroupId { get; set; }
 
         /// <summary>
-        /// The name of the placement group for the instance. Conflicts with `group_id`.
+        /// The name of the placement group for the instance. Conflicts with `GroupId`.
         /// </summary>
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? SpreadDomain { get; set; }
 
         /// <summary>
-        /// The tenancy of the instance (if the instance is running in a VPC). Can be `default`, `dedicated`, or `host`.
+        /// The tenancy of the instance (if the instance is running in a VPC). Can be `Default`, `Dedicated`, or `Host`.
         /// </summary>
         [Input("tenancy")]
         public Input<string>? Tenancy { get; set; }

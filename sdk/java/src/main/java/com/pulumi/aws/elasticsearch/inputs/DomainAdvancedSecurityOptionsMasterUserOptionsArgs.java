@@ -16,14 +16,14 @@ public final class DomainAdvancedSecurityOptionsMasterUserOptionsArgs extends co
     public static final DomainAdvancedSecurityOptionsMasterUserOptionsArgs Empty = new DomainAdvancedSecurityOptionsMasterUserOptionsArgs();
 
     /**
-     * ARN for the main user. Only specify if `internal_user_database_enabled` is not set or set to `false`.
+     * ARN for the main user. Only specify if `internalUserDatabaseEnabled` is not set or set to `false`.
      * 
      */
     @Import(name="masterUserArn")
     private @Nullable Output<String> masterUserArn;
 
     /**
-     * @return ARN for the main user. Only specify if `internal_user_database_enabled` is not set or set to `false`.
+     * @return ARN for the main user. Only specify if `internalUserDatabaseEnabled` is not set or set to `false`.
      * 
      */
     public Optional<Output<String>> masterUserArn() {
@@ -31,14 +31,14 @@ public final class DomainAdvancedSecurityOptionsMasterUserOptionsArgs extends co
     }
 
     /**
-     * Main user&#39;s username, which is stored in the Amazon Elasticsearch Service domain&#39;s internal database. Only specify if `internal_user_database_enabled` is set to `true`.
+     * Main user&#39;s username, which is stored in the Amazon Elasticsearch Service domain&#39;s internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
      * 
      */
     @Import(name="masterUserName")
     private @Nullable Output<String> masterUserName;
 
     /**
-     * @return Main user&#39;s username, which is stored in the Amazon Elasticsearch Service domain&#39;s internal database. Only specify if `internal_user_database_enabled` is set to `true`.
+     * @return Main user&#39;s username, which is stored in the Amazon Elasticsearch Service domain&#39;s internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
      * 
      */
     public Optional<Output<String>> masterUserName() {
@@ -46,14 +46,14 @@ public final class DomainAdvancedSecurityOptionsMasterUserOptionsArgs extends co
     }
 
     /**
-     * Main user&#39;s password, which is stored in the Amazon Elasticsearch Service domain&#39;s internal database. Only specify if `internal_user_database_enabled` is set to `true`.
+     * Main user&#39;s password, which is stored in the Amazon Elasticsearch Service domain&#39;s internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
      * 
      */
     @Import(name="masterUserPassword")
     private @Nullable Output<String> masterUserPassword;
 
     /**
-     * @return Main user&#39;s password, which is stored in the Amazon Elasticsearch Service domain&#39;s internal database. Only specify if `internal_user_database_enabled` is set to `true`.
+     * @return Main user&#39;s password, which is stored in the Amazon Elasticsearch Service domain&#39;s internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
      * 
      */
     public Optional<Output<String>> masterUserPassword() {
@@ -87,7 +87,7 @@ public final class DomainAdvancedSecurityOptionsMasterUserOptionsArgs extends co
         }
 
         /**
-         * @param masterUserArn ARN for the main user. Only specify if `internal_user_database_enabled` is not set or set to `false`.
+         * @param masterUserArn ARN for the main user. Only specify if `internalUserDatabaseEnabled` is not set or set to `false`.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class DomainAdvancedSecurityOptionsMasterUserOptionsArgs extends co
         }
 
         /**
-         * @param masterUserArn ARN for the main user. Only specify if `internal_user_database_enabled` is not set or set to `false`.
+         * @param masterUserArn ARN for the main user. Only specify if `internalUserDatabaseEnabled` is not set or set to `false`.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class DomainAdvancedSecurityOptionsMasterUserOptionsArgs extends co
         }
 
         /**
-         * @param masterUserName Main user&#39;s username, which is stored in the Amazon Elasticsearch Service domain&#39;s internal database. Only specify if `internal_user_database_enabled` is set to `true`.
+         * @param masterUserName Main user&#39;s username, which is stored in the Amazon Elasticsearch Service domain&#39;s internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class DomainAdvancedSecurityOptionsMasterUserOptionsArgs extends co
         }
 
         /**
-         * @param masterUserName Main user&#39;s username, which is stored in the Amazon Elasticsearch Service domain&#39;s internal database. Only specify if `internal_user_database_enabled` is set to `true`.
+         * @param masterUserName Main user&#39;s username, which is stored in the Amazon Elasticsearch Service domain&#39;s internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class DomainAdvancedSecurityOptionsMasterUserOptionsArgs extends co
         }
 
         /**
-         * @param masterUserPassword Main user&#39;s password, which is stored in the Amazon Elasticsearch Service domain&#39;s internal database. Only specify if `internal_user_database_enabled` is set to `true`.
+         * @param masterUserPassword Main user&#39;s password, which is stored in the Amazon Elasticsearch Service domain&#39;s internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class DomainAdvancedSecurityOptionsMasterUserOptionsArgs extends co
         }
 
         /**
-         * @param masterUserPassword Main user&#39;s password, which is stored in the Amazon Elasticsearch Service domain&#39;s internal database. Only specify if `internal_user_database_enabled` is set to `true`.
+         * @param masterUserPassword Main user&#39;s password, which is stored in the Amazon Elasticsearch Service domain&#39;s internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
          * 
          * @return builder
          * 

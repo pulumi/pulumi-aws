@@ -155,7 +155,7 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// A comma-delimited string concatenating `name` and `user_pool_id`.
+        /// A comma-delimited string concatenating `Name` and `UserPoolId`.
         /// </summary>
         public readonly string Id;
         public readonly string Name;

@@ -22,14 +22,14 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
     public static final BudgetActionArgs Empty = new BudgetActionArgs();
 
     /**
-     * The ID of the target account for budget. Will use current user&#39;s account_id by default if omitted.
+     * The ID of the target account for budget. Will use current user&#39;s accountId by default if omitted.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The ID of the target account for budget. Will use current user&#39;s account_id by default if omitted.
+     * @return The ID of the target account for budget. Will use current user&#39;s accountId by default if omitted.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -157,14 +157,14 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -205,7 +205,7 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountId The ID of the target account for budget. Will use current user&#39;s account_id by default if omitted.
+         * @param accountId The ID of the target account for budget. Will use current user&#39;s accountId by default if omitted.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountId The ID of the target account for budget. Will use current user&#39;s account_id by default if omitted.
+         * @param accountId The ID of the target account for budget. Will use current user&#39;s accountId by default if omitted.
          * 
          * @return builder
          * 
@@ -404,7 +404,7 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -415,7 +415,7 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

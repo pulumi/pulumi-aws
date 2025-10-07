@@ -207,14 +207,14 @@ public final class InfrastructureConfigurationArgs extends com.pulumi.resources.
     }
 
     /**
-     * EC2 Subnet identifier. Also requires `security_group_ids` argument.
+     * EC2 Subnet identifier. Also requires `securityGroupIds` argument.
      * 
      */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
     /**
-     * @return EC2 Subnet identifier. Also requires `security_group_ids` argument.
+     * @return EC2 Subnet identifier. Also requires `securityGroupIds` argument.
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -222,14 +222,14 @@ public final class InfrastructureConfigurationArgs extends com.pulumi.resources.
     }
 
     /**
-     * Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags to assign to the configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags to assign to the configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -566,7 +566,7 @@ public final class InfrastructureConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param subnetId EC2 Subnet identifier. Also requires `security_group_ids` argument.
+         * @param subnetId EC2 Subnet identifier. Also requires `securityGroupIds` argument.
          * 
          * @return builder
          * 
@@ -577,7 +577,7 @@ public final class InfrastructureConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param subnetId EC2 Subnet identifier. Also requires `security_group_ids` argument.
+         * @param subnetId EC2 Subnet identifier. Also requires `securityGroupIds` argument.
          * 
          * @return builder
          * 
@@ -587,7 +587,7 @@ public final class InfrastructureConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param tags Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags to assign to the configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -598,7 +598,7 @@ public final class InfrastructureConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param tags Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags to assign to the configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

@@ -74,19 +74,19 @@ namespace Pulumi.Aws.CloudFront
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
+        /// The type of origin that this Origin Access Control is for. Valid values are `Lambda`, `Mediapackagev2`, `Mediastore`, and `S3`.
         /// </summary>
         [Output("originAccessControlOriginType")]
         public Output<string> OriginAccessControlOriginType { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
+        /// Specifies which requests CloudFront signs. Specify `Always` for the most common use case. Allowed values: `Always`, `Never`, and `no-override`.
         /// </summary>
         [Output("signingBehavior")]
         public Output<string> SigningBehavior { get; private set; } = null!;
 
         /// <summary>
-        /// Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
+        /// Determines how CloudFront signs (authenticates) requests. The only valid value is `Sigv4`.
         /// </summary>
         [Output("signingProtocol")]
         public Output<string> SigningProtocol { get; private set; } = null!;
@@ -150,19 +150,19 @@ namespace Pulumi.Aws.CloudFront
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
+        /// The type of origin that this Origin Access Control is for. Valid values are `Lambda`, `Mediapackagev2`, `Mediastore`, and `S3`.
         /// </summary>
         [Input("originAccessControlOriginType", required: true)]
         public Input<string> OriginAccessControlOriginType { get; set; } = null!;
 
         /// <summary>
-        /// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
+        /// Specifies which requests CloudFront signs. Specify `Always` for the most common use case. Allowed values: `Always`, `Never`, and `no-override`.
         /// </summary>
         [Input("signingBehavior", required: true)]
         public Input<string> SigningBehavior { get; set; } = null!;
 
         /// <summary>
-        /// Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
+        /// Determines how CloudFront signs (authenticates) requests. The only valid value is `Sigv4`.
         /// </summary>
         [Input("signingProtocol", required: true)]
         public Input<string> SigningProtocol { get; set; } = null!;
@@ -200,19 +200,19 @@ namespace Pulumi.Aws.CloudFront
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
+        /// The type of origin that this Origin Access Control is for. Valid values are `Lambda`, `Mediapackagev2`, `Mediastore`, and `S3`.
         /// </summary>
         [Input("originAccessControlOriginType")]
         public Input<string>? OriginAccessControlOriginType { get; set; }
 
         /// <summary>
-        /// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
+        /// Specifies which requests CloudFront signs. Specify `Always` for the most common use case. Allowed values: `Always`, `Never`, and `no-override`.
         /// </summary>
         [Input("signingBehavior")]
         public Input<string>? SigningBehavior { get; set; }
 
         /// <summary>
-        /// Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
+        /// Determines how CloudFront signs (authenticates) requests. The only valid value is `Sigv4`.
         /// </summary>
         [Input("signingProtocol")]
         public Input<string>? SigningProtocol { get; set; }

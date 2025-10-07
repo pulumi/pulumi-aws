@@ -19,13 +19,13 @@ namespace Pulumi.Aws.Rds
     /// Instances and Aurora manages the replication. You can use the [count][5]
     /// meta-parameter to make multiple instances and join them all to the same RDS
     /// Cluster, or you may specify different Cluster Instance resources with various
-    /// `instance_class` sizes.
+    /// `InstanceClass` sizes.
     /// 
     /// For more information on Amazon Aurora, see [Aurora on Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html) in the Amazon RDS User Guide.
     /// 
-    /// &gt; **NOTE:** Deletion Protection from the RDS service can only be enabled at the cluster level, not for individual cluster instances. You can still add the [`protect` CustomResourceOption](https://www.pulumi.com/docs/intro/concepts/programming-model/#protect) to this resource configuration if you desire protection from accidental deletion.
+    /// &gt; **NOTE:** Deletion Protection from the RDS service can only be enabled at the cluster level, not for individual cluster instances. You can still add the [`Protect` CustomResourceOption](https://www.pulumi.com/docs/intro/concepts/programming-model/#protect) to this resource configuration if you desire protection from accidental deletion.
     /// 
-    /// &gt; **NOTE:** `aurora` is no longer a valid `engine` because of [Amazon Aurora's MySQL-Compatible Edition version 1 end of life](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.MySQL56.EOL.html).
+    /// &gt; **NOTE:** `Aurora` is no longer a valid `Engine` because of [Amazon Aurora's MySQL-Compatible Edition version 1 end of life](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.MySQL56.EOL.html).
     /// 
     /// ## Example Usage
     /// 
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Rds
     public partial class ClusterInstance : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
+        /// Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`False`.
         /// </summary>
         [Output("applyImmediately")]
         public Output<bool> ApplyImmediately { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+        /// Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `True`.
         /// </summary>
         [Output("autoMinorVersionUpgrade")]
         public Output<bool?> AutoMinorVersionUpgrade { get; private set; } = null!;
@@ -115,7 +115,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> ClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
+        /// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `False`.
         /// </summary>
         [Output("copyTagsToSnapshot")]
         public Output<bool?> CopyTagsToSnapshot { get; private set; } = null!;
@@ -133,7 +133,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> DbParameterGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `db_subnet_group_name` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `db_subnet_group_name` and `publicly_accessible` parameters affect DB instance behaviour. **NOTE:** This must match the `db_subnet_group_name` of the attached `aws.rds.Cluster`.
+        /// Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `DbSubnetGroupName` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `DbSubnetGroupName` and `PubliclyAccessible` parameters affect DB instance behaviour. **NOTE:** This must match the `DbSubnetGroupName` of the attached `aws.rds.Cluster`.
         /// </summary>
         [Output("dbSubnetGroupName")]
         public Output<string> DbSubnetGroupName { get; private set; } = null!;
@@ -152,13 +152,13 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Name of the database engine to be used for the RDS cluster instance.
-        /// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+        /// Valid Values: `aurora-mysql`, `aurora-postgresql`, `Mysql`, `Postgres`.(Note that `Mysql` and `Postgres` are Multi-AZ RDS clusters).
         /// </summary>
         [Output("engine")]
         public Output<Pulumi.Aws.Rds.EngineType> Engine { get; private set; } = null!;
 
         /// <summary>
-        /// Database engine version. Please note that to upgrade the `engine_version` of the instance, it must be done on the `aws.rds.Cluster` `engine_version`. Trying to upgrade in `aws_cluster_instance` will not update the `engine_version`.
+        /// Database engine version. Please note that to upgrade the `EngineVersion` of the instance, it must be done on the `aws.rds.Cluster` `EngineVersion`. Trying to upgrade in `AwsClusterInstance` will not update the `EngineVersion`.
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> Identifier { get; private set; } = null!;
 
         /// <summary>
-        /// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
+        /// Creates a unique identifier beginning with the specified prefix. Conflicts with `Identifier`.
         /// </summary>
         [Output("identifierPrefix")]
         public Output<string> IdentifierPrefix { get; private set; } = null!;
@@ -224,13 +224,13 @@ namespace Pulumi.Aws.Rds
         public Output<bool> PerformanceInsightsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
+        /// ARN for the KMS key to encrypt Performance Insights data. When specifying `PerformanceInsightsKmsKeyId`, `PerformanceInsightsEnabled` needs to be set to true.
         /// </summary>
         [Output("performanceInsightsKmsKeyId")]
         public Output<string> PerformanceInsightsKmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
+        /// Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `PerformanceInsightsRetentionPeriod`, `PerformanceInsightsEnabled` needs to be set to true. Defaults to '7'.
         /// </summary>
         [Output("performanceInsightsRetentionPeriod")]
         public Output<int> PerformanceInsightsRetentionPeriod { get; private set; } = null!;
@@ -242,7 +242,7 @@ namespace Pulumi.Aws.Rds
         public Output<int> Port { get; private set; } = null!;
 
         /// <summary>
-        /// Daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00". **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.
+        /// Daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00". **NOTE:** If `PreferredBackupWindow` is set at the cluster level, this argument **must** be omitted.
         /// </summary>
         [Output("preferredBackupWindow")]
         public Output<string> PreferredBackupWindow { get; private set; } = null!;
@@ -260,7 +260,7 @@ namespace Pulumi.Aws.Rds
         public Output<int?> PromotionTier { get; private set; } = null!;
 
         /// <summary>
-        /// Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
+        /// Bool to control if instance is publicly accessible. Default `False`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
         /// </summary>
         [Output("publiclyAccessible")]
         public Output<bool> PubliclyAccessible { get; private set; } = null!;
@@ -278,7 +278,7 @@ namespace Pulumi.Aws.Rds
         public Output<bool> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the instance. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// For more detailed documentation about each argument, refer to
         /// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
@@ -287,7 +287,7 @@ namespace Pulumi.Aws.Rds
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -345,13 +345,13 @@ namespace Pulumi.Aws.Rds
     public sealed class ClusterInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
+        /// Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`False`.
         /// </summary>
         [Input("applyImmediately")]
         public Input<bool>? ApplyImmediately { get; set; }
 
         /// <summary>
-        /// Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+        /// Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `True`.
         /// </summary>
         [Input("autoMinorVersionUpgrade")]
         public Input<bool>? AutoMinorVersionUpgrade { get; set; }
@@ -375,7 +375,7 @@ namespace Pulumi.Aws.Rds
         public Input<string> ClusterIdentifier { get; set; } = null!;
 
         /// <summary>
-        /// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
+        /// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `False`.
         /// </summary>
         [Input("copyTagsToSnapshot")]
         public Input<bool>? CopyTagsToSnapshot { get; set; }
@@ -393,20 +393,20 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DbParameterGroupName { get; set; }
 
         /// <summary>
-        /// Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `db_subnet_group_name` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `db_subnet_group_name` and `publicly_accessible` parameters affect DB instance behaviour. **NOTE:** This must match the `db_subnet_group_name` of the attached `aws.rds.Cluster`.
+        /// Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `DbSubnetGroupName` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `DbSubnetGroupName` and `PubliclyAccessible` parameters affect DB instance behaviour. **NOTE:** This must match the `DbSubnetGroupName` of the attached `aws.rds.Cluster`.
         /// </summary>
         [Input("dbSubnetGroupName")]
         public Input<string>? DbSubnetGroupName { get; set; }
 
         /// <summary>
         /// Name of the database engine to be used for the RDS cluster instance.
-        /// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+        /// Valid Values: `aurora-mysql`, `aurora-postgresql`, `Mysql`, `Postgres`.(Note that `Mysql` and `Postgres` are Multi-AZ RDS clusters).
         /// </summary>
         [Input("engine", required: true)]
         public Input<Pulumi.Aws.Rds.EngineType> Engine { get; set; } = null!;
 
         /// <summary>
-        /// Database engine version. Please note that to upgrade the `engine_version` of the instance, it must be done on the `aws.rds.Cluster` `engine_version`. Trying to upgrade in `aws_cluster_instance` will not update the `engine_version`.
+        /// Database engine version. Please note that to upgrade the `EngineVersion` of the instance, it must be done on the `aws.rds.Cluster` `EngineVersion`. Trying to upgrade in `AwsClusterInstance` will not update the `EngineVersion`.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
@@ -424,7 +424,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Identifier { get; set; }
 
         /// <summary>
-        /// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
+        /// Creates a unique identifier beginning with the specified prefix. Conflicts with `Identifier`.
         /// </summary>
         [Input("identifierPrefix")]
         public Input<string>? IdentifierPrefix { get; set; }
@@ -454,19 +454,19 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? PerformanceInsightsEnabled { get; set; }
 
         /// <summary>
-        /// ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
+        /// ARN for the KMS key to encrypt Performance Insights data. When specifying `PerformanceInsightsKmsKeyId`, `PerformanceInsightsEnabled` needs to be set to true.
         /// </summary>
         [Input("performanceInsightsKmsKeyId")]
         public Input<string>? PerformanceInsightsKmsKeyId { get; set; }
 
         /// <summary>
-        /// Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
+        /// Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `PerformanceInsightsRetentionPeriod`, `PerformanceInsightsEnabled` needs to be set to true. Defaults to '7'.
         /// </summary>
         [Input("performanceInsightsRetentionPeriod")]
         public Input<int>? PerformanceInsightsRetentionPeriod { get; set; }
 
         /// <summary>
-        /// Daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00". **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.
+        /// Daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00". **NOTE:** If `PreferredBackupWindow` is set at the cluster level, this argument **must** be omitted.
         /// </summary>
         [Input("preferredBackupWindow")]
         public Input<string>? PreferredBackupWindow { get; set; }
@@ -484,7 +484,7 @@ namespace Pulumi.Aws.Rds
         public Input<int>? PromotionTier { get; set; }
 
         /// <summary>
-        /// Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
+        /// Bool to control if instance is publicly accessible. Default `False`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
         /// </summary>
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
@@ -499,7 +499,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the instance. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// For more detailed documentation about each argument, refer to
         /// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
@@ -519,7 +519,7 @@ namespace Pulumi.Aws.Rds
     public sealed class ClusterInstanceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
+        /// Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`False`.
         /// </summary>
         [Input("applyImmediately")]
         public Input<bool>? ApplyImmediately { get; set; }
@@ -531,7 +531,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+        /// Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `True`.
         /// </summary>
         [Input("autoMinorVersionUpgrade")]
         public Input<bool>? AutoMinorVersionUpgrade { get; set; }
@@ -555,7 +555,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? ClusterIdentifier { get; set; }
 
         /// <summary>
-        /// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
+        /// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `False`.
         /// </summary>
         [Input("copyTagsToSnapshot")]
         public Input<bool>? CopyTagsToSnapshot { get; set; }
@@ -573,7 +573,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DbParameterGroupName { get; set; }
 
         /// <summary>
-        /// Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `db_subnet_group_name` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `db_subnet_group_name` and `publicly_accessible` parameters affect DB instance behaviour. **NOTE:** This must match the `db_subnet_group_name` of the attached `aws.rds.Cluster`.
+        /// Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `DbSubnetGroupName` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `DbSubnetGroupName` and `PubliclyAccessible` parameters affect DB instance behaviour. **NOTE:** This must match the `DbSubnetGroupName` of the attached `aws.rds.Cluster`.
         /// </summary>
         [Input("dbSubnetGroupName")]
         public Input<string>? DbSubnetGroupName { get; set; }
@@ -592,13 +592,13 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Name of the database engine to be used for the RDS cluster instance.
-        /// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+        /// Valid Values: `aurora-mysql`, `aurora-postgresql`, `Mysql`, `Postgres`.(Note that `Mysql` and `Postgres` are Multi-AZ RDS clusters).
         /// </summary>
         [Input("engine")]
         public Input<Pulumi.Aws.Rds.EngineType>? Engine { get; set; }
 
         /// <summary>
-        /// Database engine version. Please note that to upgrade the `engine_version` of the instance, it must be done on the `aws.rds.Cluster` `engine_version`. Trying to upgrade in `aws_cluster_instance` will not update the `engine_version`.
+        /// Database engine version. Please note that to upgrade the `EngineVersion` of the instance, it must be done on the `aws.rds.Cluster` `EngineVersion`. Trying to upgrade in `AwsClusterInstance` will not update the `EngineVersion`.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
@@ -622,7 +622,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Identifier { get; set; }
 
         /// <summary>
-        /// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
+        /// Creates a unique identifier beginning with the specified prefix. Conflicts with `Identifier`.
         /// </summary>
         [Input("identifierPrefix")]
         public Input<string>? IdentifierPrefix { get; set; }
@@ -664,13 +664,13 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? PerformanceInsightsEnabled { get; set; }
 
         /// <summary>
-        /// ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
+        /// ARN for the KMS key to encrypt Performance Insights data. When specifying `PerformanceInsightsKmsKeyId`, `PerformanceInsightsEnabled` needs to be set to true.
         /// </summary>
         [Input("performanceInsightsKmsKeyId")]
         public Input<string>? PerformanceInsightsKmsKeyId { get; set; }
 
         /// <summary>
-        /// Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
+        /// Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `PerformanceInsightsRetentionPeriod`, `PerformanceInsightsEnabled` needs to be set to true. Defaults to '7'.
         /// </summary>
         [Input("performanceInsightsRetentionPeriod")]
         public Input<int>? PerformanceInsightsRetentionPeriod { get; set; }
@@ -682,7 +682,7 @@ namespace Pulumi.Aws.Rds
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// Daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00". **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.
+        /// Daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00". **NOTE:** If `PreferredBackupWindow` is set at the cluster level, this argument **must** be omitted.
         /// </summary>
         [Input("preferredBackupWindow")]
         public Input<string>? PreferredBackupWindow { get; set; }
@@ -700,7 +700,7 @@ namespace Pulumi.Aws.Rds
         public Input<int>? PromotionTier { get; set; }
 
         /// <summary>
-        /// Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
+        /// Bool to control if instance is publicly accessible. Default `False`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
         /// </summary>
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
@@ -721,7 +721,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the instance. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// For more detailed documentation about each argument, refer to
         /// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
@@ -736,7 +736,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

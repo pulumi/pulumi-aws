@@ -19,14 +19,14 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
     public static final V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs Empty = new V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs();
 
     /**
-     * Configuration block for the settings on audio input. See `audio_specification`.
+     * Configuration block for the settings on audio input. See `audioSpecification`.
      * 
      */
     @Import(name="audioSpecification")
     private @Nullable Output<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs> audioSpecification;
 
     /**
-     * @return Configuration block for the settings on audio input. See `audio_specification`.
+     * @return Configuration block for the settings on audio input. See `audioSpecification`.
      * 
      */
     public Optional<Output<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs>> audioSpecification() {
@@ -34,14 +34,14 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
     }
 
     /**
-     * Configuration block for the settings on DTMF input. See `dtmf_specification`.
+     * Configuration block for the settings on DTMF input. See `dtmfSpecification`.
      * 
      */
     @Import(name="dtmfSpecification")
     private @Nullable Output<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs> dtmfSpecification;
 
     /**
-     * @return Configuration block for the settings on DTMF input. See `dtmf_specification`.
+     * @return Configuration block for the settings on DTMF input. See `dtmfSpecification`.
      * 
      */
     public Optional<Output<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs>> dtmfSpecification() {
@@ -90,7 +90,7 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
         }
 
         /**
-         * @param audioSpecification Configuration block for the settings on audio input. See `audio_specification`.
+         * @param audioSpecification Configuration block for the settings on audio input. See `audioSpecification`.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
         }
 
         /**
-         * @param audioSpecification Configuration block for the settings on audio input. See `audio_specification`.
+         * @param audioSpecification Configuration block for the settings on audio input. See `audioSpecification`.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
         }
 
         /**
-         * @param dtmfSpecification Configuration block for the settings on DTMF input. See `dtmf_specification`.
+         * @param dtmfSpecification Configuration block for the settings on DTMF input. See `dtmfSpecification`.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
         }
 
         /**
-         * @param dtmfSpecification Configuration block for the settings on DTMF input. See `dtmf_specification`.
+         * @param dtmfSpecification Configuration block for the settings on DTMF input. See `dtmfSpecification`.
          * 
          * @return builder
          * 

@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * &gt; **Note:** Once the runtime update mode is set to `Manual`, the `aws.lambda.Function` `runtime` cannot be updated. To upgrade a runtime, the `update_runtime_on` argument must be set to `Auto` or `FunctionUpdate` prior to changing the function&#39;s `runtime` argument.
+ * &gt; **Note:** Once the runtime update mode is set to `Manual`, the `aws.lambda.Function` `runtime` cannot be updated. To upgrade a runtime, the `updateRuntimeOn` argument must be set to `Auto` or `FunctionUpdate` prior to changing the function&#39;s `runtime` argument.
  * 
  * ## Import
  * 
@@ -166,14 +166,14 @@ public class RuntimeManagementConfig extends com.pulumi.resources.CustomResource
         return this.region;
     }
     /**
-     * ARN of the runtime version. Only required when `update_runtime_on` is `Manual`.
+     * ARN of the runtime version. Only required when `updateRuntimeOn` is `Manual`.
      * 
      */
     @Export(name="runtimeVersionArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runtimeVersionArn;
 
     /**
-     * @return ARN of the runtime version. Only required when `update_runtime_on` is `Manual`.
+     * @return ARN of the runtime version. Only required when `updateRuntimeOn` is `Manual`.
      * 
      */
     public Output<Optional<String>> runtimeVersionArn() {

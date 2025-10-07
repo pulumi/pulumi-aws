@@ -17,14 +17,14 @@ public final class GetTagsFilterAnd extends com.pulumi.resources.InvokeArgs {
     public static final GetTagsFilterAnd Empty = new GetTagsFilterAnd();
 
     /**
-     * Configuration block for the filter that&#39;s based on `CostCategory` values. See `cost_category` block below for details.
+     * Configuration block for the filter that&#39;s based on `CostCategory` values. See `costCategory` block below for details.
      * 
      */
     @Import(name="costCategory")
     private @Nullable GetTagsFilterAndCostCategory costCategory;
 
     /**
-     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See `cost_category` block below for details.
+     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See `costCategory` block below for details.
      * 
      */
     public Optional<GetTagsFilterAndCostCategory> costCategory() {
@@ -88,7 +88,7 @@ public final class GetTagsFilterAnd extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param costCategory Configuration block for the filter that&#39;s based on `CostCategory` values. See `cost_category` block below for details.
+         * @param costCategory Configuration block for the filter that&#39;s based on `CostCategory` values. See `costCategory` block below for details.
          * 
          * @return builder
          * 

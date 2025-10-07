@@ -24,10 +24,10 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// The following provides a very basic example of setting up an instance (provided
-    /// by `instance`) in the default security group, creating a security group
-    /// (provided by `sg`) and then attaching the security group to the instance's
+    /// by `Instance`) in the default security group, creating a security group
+    /// (provided by `Sg`) and then attaching the security group to the instance's
     /// primary network interface via the `aws.ec2.NetworkInterfaceSecurityGroupAttachment` resource,
-    /// named `sg_attachment`:
+    /// named `SgAttachment`:
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -84,9 +84,9 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// 
-    /// In this example, `instance` is provided by the `aws.ec2.Instance` data source,
+    /// In this example, `Instance` is provided by the `aws.ec2.Instance` data source,
     /// fetching an external instance, possibly not managed by this provider.
-    /// `sg_attachment` then attaches to the output instance's `network_interface_id`:
+    /// `SgAttachment` then attaches to the output instance's `NetworkInterfaceId`:
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

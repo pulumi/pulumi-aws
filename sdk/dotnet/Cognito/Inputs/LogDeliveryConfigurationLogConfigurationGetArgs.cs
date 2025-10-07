@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Cognito.Inputs
         /// <summary>
         /// Configuration for S3 delivery. See S3 Configuration below.
         /// 
-        /// &gt; **Note:** At least one destination configuration (`cloud_watch_logs_configuration`, `firehose_configuration`, or `s3_configuration`) must be specified for each log configuration.
+        /// &gt; **Note:** At least one destination configuration (`CloudWatchLogsConfiguration`, `FirehoseConfiguration`, or `S3Configuration`) must be specified for each log configuration.
         /// </summary>
         [Input("s3Configuration")]
         public Input<Inputs.LogDeliveryConfigurationLogConfigurationS3ConfigurationGetArgs>? S3Configuration { get; set; }

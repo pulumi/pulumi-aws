@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Fms.Outputs
         /// </summary>
         public readonly bool Egress;
         /// <summary>
-        /// A configuration block for ICMP protocol: The ICMP type and code. See the `icmp_type_code` block.
+        /// A configuration block for ICMP protocol: The ICMP type and code. See the `IcmpTypeCode` block.
         /// </summary>
         public readonly ImmutableArray<Outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCode> IcmpTypeCodes;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Fms.Outputs
         /// </summary>
         public readonly string? Ipv6CidrBlock;
         /// <summary>
-        /// A configuration block for PortRange. See the `port_range` block.
+        /// A configuration block for PortRange. See the `PortRange` block.
         /// </summary>
         public readonly ImmutableArray<Outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRange> PortRanges;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Fms.Outputs
         /// </summary>
         public readonly string Protocol;
         /// <summary>
-        /// A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
+        /// A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `Allow`, `Deny`.
         /// </summary>
         public readonly string RuleAction;
 

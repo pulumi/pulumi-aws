@@ -35,7 +35,7 @@ public final class EventActionActionExportRevisionToS3Args extends com.pulumi.re
 
     /**
      * Configures the S3 destination of the exported revision.
-     * Described in `revision_destination` Configuration Block below.
+     * Described in `revisionDestination` Configuration Block below.
      * 
      */
     @Import(name="revisionDestination")
@@ -43,7 +43,7 @@ public final class EventActionActionExportRevisionToS3Args extends com.pulumi.re
 
     /**
      * @return Configures the S3 destination of the exported revision.
-     * Described in `revision_destination` Configuration Block below.
+     * Described in `revisionDestination` Configuration Block below.
      * 
      */
     public Optional<Output<EventActionActionExportRevisionToS3RevisionDestinationArgs>> revisionDestination() {
@@ -100,7 +100,7 @@ public final class EventActionActionExportRevisionToS3Args extends com.pulumi.re
 
         /**
          * @param revisionDestination Configures the S3 destination of the exported revision.
-         * Described in `revision_destination` Configuration Block below.
+         * Described in `revisionDestination` Configuration Block below.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class EventActionActionExportRevisionToS3Args extends com.pulumi.re
 
         /**
          * @param revisionDestination Configures the S3 destination of the exported revision.
-         * Described in `revision_destination` Configuration Block below.
+         * Described in `revisionDestination` Configuration Block below.
          * 
          * @return builder
          * 

@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration {
     /**
-     * @return Describes the metadata sent to the HTTP endpoint destination. See `common_attributes` block below for details.
+     * @return Describes the metadata sent to the HTTP endpoint destination. See `commonAttributes` block below for details.
      * 
      */
     private @Nullable List<FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute> commonAttributes;
@@ -26,7 +26,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigu
 
     private FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration() {}
     /**
-     * @return Describes the metadata sent to the HTTP endpoint destination. See `common_attributes` block below for details.
+     * @return Describes the metadata sent to the HTTP endpoint destination. See `commonAttributes` block below for details.
      * 
      */
     public List<FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute> commonAttributes() {

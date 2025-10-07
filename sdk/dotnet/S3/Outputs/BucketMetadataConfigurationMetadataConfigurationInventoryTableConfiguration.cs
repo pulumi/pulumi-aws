@@ -18,7 +18,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string ConfigurationState;
         /// <summary>
-        /// Encryption configuration for the inventory table. See `encryption_configuration` Block for details.
+        /// Encryption configuration for the inventory table. See `EncryptionConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationEncryptionConfiguration? EncryptionConfiguration;
         /// <summary>

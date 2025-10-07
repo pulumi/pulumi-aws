@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Fsx.Inputs
         private InputList<Inputs.FileCacheLustreConfigurationMetadataConfigurationGetArgs>? _metadataConfigurations;
 
         /// <summary>
-        /// The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadata_configuration` block.
+        /// The configuration for a Lustre MDT (Metadata Target) storage volume. See the `MetadataConfiguration` block.
         /// </summary>
         public InputList<Inputs.FileCacheLustreConfigurationMetadataConfigurationGetArgs> MetadataConfigurations
         {

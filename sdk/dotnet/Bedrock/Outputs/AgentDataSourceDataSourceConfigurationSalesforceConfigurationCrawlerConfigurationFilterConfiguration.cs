@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration
     {
         /// <summary>
-        /// The configuration of filtering certain objects or content types of the data source. See `pattern_object_filter` block for details.
+        /// The configuration of filtering certain objects or content types of the data source. See `PatternObjectFilter` block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter> PatternObjectFilters;
         /// <summary>

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
     public sealed class RuleGroupRuleGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details. Please notes that there can only be a maximum of 5 `reference_sets` in a `rule_group`. See the [AWS documentation](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references.html#rule-groups-ip-set-reference-limits) for details.
+        /// A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details. Please notes that there can only be a maximum of 5 `ReferenceSets` in a `RuleGroup`. See the [AWS documentation](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references.html#rule-groups-ip-set-reference-limits) for details.
         /// </summary>
         [Input("referenceSets")]
         public Input<Inputs.RuleGroupRuleGroupReferenceSetsArgs>? ReferenceSets { get; set; }

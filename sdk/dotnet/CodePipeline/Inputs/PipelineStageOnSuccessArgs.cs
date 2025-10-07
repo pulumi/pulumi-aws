@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CodePipeline.Inputs
     public sealed class PipelineStageOnSuccessArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The conditions that are success conditions. Defined as a `condition` block below.
+        /// The conditions that are success conditions. Defined as a `Condition` block below.
         /// </summary>
         [Input("condition", required: true)]
         public Input<Inputs.PipelineStageOnSuccessConditionArgs> Condition { get; set; } = null!;

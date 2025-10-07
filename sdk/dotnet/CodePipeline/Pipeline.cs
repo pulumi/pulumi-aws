@@ -257,7 +257,7 @@ namespace Pulumi.Aws.CodePipeline
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// One or more artifact_store blocks. Artifact stores are documented below.
+        /// One or more ArtifactStore blocks. Artifact stores are documented below.
         /// </summary>
         [Output("artifactStores")]
         public Output<ImmutableArray<Outputs.PipelineArtifactStore>> ArtifactStores { get; private set; } = null!;
@@ -299,31 +299,31 @@ namespace Pulumi.Aws.CodePipeline
         public Output<ImmutableArray<Outputs.PipelineStage>> Stages { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `trigger` definition.
+        /// A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `Trigger` definition.
         /// </summary>
         [Output("triggerAlls")]
         public Output<ImmutableArray<Outputs.PipelineTriggerAll>> TriggerAlls { get; private set; } = null!;
 
         /// <summary>
-        /// A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+        /// A trigger block. Valid only when `PipelineType` is `V2`. Triggers are documented below.
         /// </summary>
         [Output("triggers")]
         public Output<ImmutableArray<Outputs.PipelineTrigger>> Triggers { get; private set; } = null!;
 
         /// <summary>
-        /// A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+        /// A pipeline-level variable block. Valid only when `PipelineType` is `V2`. Variable are documented below.
         /// 
         /// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         /// </summary>
@@ -380,7 +380,7 @@ namespace Pulumi.Aws.CodePipeline
         private InputList<Inputs.PipelineArtifactStoreArgs>? _artifactStores;
 
         /// <summary>
-        /// One or more artifact_store blocks. Artifact stores are documented below.
+        /// One or more ArtifactStore blocks. Artifact stores are documented below.
         /// </summary>
         public InputList<Inputs.PipelineArtifactStoreArgs> ArtifactStores
         {
@@ -434,7 +434,7 @@ namespace Pulumi.Aws.CodePipeline
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -446,7 +446,7 @@ namespace Pulumi.Aws.CodePipeline
         private InputList<Inputs.PipelineTriggerArgs>? _triggers;
 
         /// <summary>
-        /// A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+        /// A trigger block. Valid only when `PipelineType` is `V2`. Triggers are documented below.
         /// </summary>
         public InputList<Inputs.PipelineTriggerArgs> Triggers
         {
@@ -458,7 +458,7 @@ namespace Pulumi.Aws.CodePipeline
         private InputList<Inputs.PipelineVariableArgs>? _variables;
 
         /// <summary>
-        /// A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+        /// A pipeline-level variable block. Valid only when `PipelineType` is `V2`. Variable are documented below.
         /// 
         /// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         /// </summary>
@@ -486,7 +486,7 @@ namespace Pulumi.Aws.CodePipeline
         private InputList<Inputs.PipelineArtifactStoreGetArgs>? _artifactStores;
 
         /// <summary>
-        /// One or more artifact_store blocks. Artifact stores are documented below.
+        /// One or more ArtifactStore blocks. Artifact stores are documented below.
         /// </summary>
         public InputList<Inputs.PipelineArtifactStoreGetArgs> ArtifactStores
         {
@@ -540,7 +540,7 @@ namespace Pulumi.Aws.CodePipeline
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -552,7 +552,7 @@ namespace Pulumi.Aws.CodePipeline
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -564,7 +564,7 @@ namespace Pulumi.Aws.CodePipeline
         private InputList<Inputs.PipelineTriggerAllGetArgs>? _triggerAlls;
 
         /// <summary>
-        /// A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `trigger` definition.
+        /// A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `Trigger` definition.
         /// </summary>
         public InputList<Inputs.PipelineTriggerAllGetArgs> TriggerAlls
         {
@@ -576,7 +576,7 @@ namespace Pulumi.Aws.CodePipeline
         private InputList<Inputs.PipelineTriggerGetArgs>? _triggers;
 
         /// <summary>
-        /// A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+        /// A trigger block. Valid only when `PipelineType` is `V2`. Triggers are documented below.
         /// </summary>
         public InputList<Inputs.PipelineTriggerGetArgs> Triggers
         {
@@ -588,7 +588,7 @@ namespace Pulumi.Aws.CodePipeline
         private InputList<Inputs.PipelineVariableGetArgs>? _variables;
 
         /// <summary>
-        /// A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+        /// A pipeline-level variable block. Valid only when `PipelineType` is `V2`. Variable are documented below.
         /// 
         /// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         /// </summary>

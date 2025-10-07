@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 /**
  * Resource for managing an AWS VPC NAT Gateway EIP Association.
  * 
- * !&gt; **WARNING:** You should not use the `aws.ec2.NatGatewayEipAssociation` resource in conjunction with an `aws.ec2.NatGateway` resource that has `secondary_allocation_ids` configured. Doing so may cause perpetual differences, and result in associations being overwritten.
+ * !&gt; **WARNING:** You should not use the `aws.ec2.NatGatewayEipAssociation` resource in conjunction with an `aws.ec2.NatGateway` resource that has `secondaryAllocationIds` configured. Doing so may cause perpetual differences, and result in associations being overwritten.
  * 
  * ## Example Usage
  * 

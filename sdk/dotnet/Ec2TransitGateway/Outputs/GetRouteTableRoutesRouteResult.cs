@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ec2TransitGateway.Outputs
         /// </summary>
         public readonly string PrefixListId;
         /// <summary>
-        /// The current state of the route, can be `active`, `deleted`, `pending`, `blackhole`, `deleting`.
+        /// The current state of the route, can be `Active`, `Deleted`, `Pending`, `Blackhole`, `Deleting`.
         /// </summary>
         public readonly string State;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Ec2TransitGateway.Outputs
         /// </summary>
         public readonly string TransitGatewayRouteTableAnnouncementId;
         /// <summary>
-        /// The type of the route, can be `propagated` or `static`.
+        /// The type of the route, can be `Propagated` or `Static`.
         /// </summary>
         public readonly string Type;
 

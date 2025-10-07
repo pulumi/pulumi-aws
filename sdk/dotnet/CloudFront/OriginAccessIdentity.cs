@@ -41,8 +41,8 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// Normally, when referencing an origin access identity in CloudFront, you need to
     /// prefix the ID with the `origin-access-identity/cloudfront/` special path.
-    /// The `cloudfront_access_identity_path` allows this to be circumvented.
-    /// The below snippet demonstrates use with the `s3_origin_config` structure for the
+    /// The `CloudfrontAccessIdentityPath` allows this to be circumvented.
+    /// The below snippet demonstrates use with the `S3OriginConfig` structure for the
     /// `aws.cloudfront.Distribution` resource:
     /// 
     /// ```csharp
@@ -72,10 +72,10 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// ### Updating your bucket policy
     /// 
-    /// Note that the AWS API may translate the `s3_canonical_user_id` `CanonicalUser`
+    /// Note that the AWS API may translate the `S3CanonicalUserId` `CanonicalUser`
     /// principal into an `AWS` IAM ARN principal when supplied in an
     /// `aws.s3.Bucket` bucket policy, causing spurious diffs. If
-    /// you see this behavior, use the `iam_arn` instead:
+    /// you see this behavior, use the `IamArn` instead:
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

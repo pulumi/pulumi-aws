@@ -26,7 +26,7 @@ public final class ClusterBrokerNodeGroupInfo {
      */
     private List<String> clientSubnets;
     /**
-     * @return Information about the cluster access configuration. See broker_node_group_info connectivity_info Argument Reference below. For security reasons, you can&#39;t turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
+     * @return Information about the cluster access configuration. See brokerNodeGroupInfo connectivity_info Argument Reference below. For security reasons, you can&#39;t turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
      * 
      */
     private @Nullable ClusterBrokerNodeGroupInfoConnectivityInfo connectivityInfo;
@@ -41,7 +41,7 @@ public final class ClusterBrokerNodeGroupInfo {
      */
     private List<String> securityGroups;
     /**
-     * @return A block that contains information about storage volumes attached to MSK broker nodes. See broker_node_group_info storage_info Argument Reference below.
+     * @return A block that contains information about storage volumes attached to MSK broker nodes. See brokerNodeGroupInfo storage_info Argument Reference below.
      * 
      */
     private @Nullable ClusterBrokerNodeGroupInfoStorageInfo storageInfo;
@@ -62,7 +62,7 @@ public final class ClusterBrokerNodeGroupInfo {
         return this.clientSubnets;
     }
     /**
-     * @return Information about the cluster access configuration. See broker_node_group_info connectivity_info Argument Reference below. For security reasons, you can&#39;t turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
+     * @return Information about the cluster access configuration. See brokerNodeGroupInfo connectivity_info Argument Reference below. For security reasons, you can&#39;t turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
      * 
      */
     public Optional<ClusterBrokerNodeGroupInfoConnectivityInfo> connectivityInfo() {
@@ -83,7 +83,7 @@ public final class ClusterBrokerNodeGroupInfo {
         return this.securityGroups;
     }
     /**
-     * @return A block that contains information about storage volumes attached to MSK broker nodes. See broker_node_group_info storage_info Argument Reference below.
+     * @return A block that contains information about storage volumes attached to MSK broker nodes. See brokerNodeGroupInfo storage_info Argument Reference below.
      * 
      */
     public Optional<ClusterBrokerNodeGroupInfoStorageInfo> storageInfo() {

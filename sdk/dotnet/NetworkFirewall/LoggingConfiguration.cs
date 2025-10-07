@@ -126,7 +126,7 @@ namespace Pulumi.Aws.NetworkFirewall
     public partial class LoggingConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
+        /// Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `False`.
         /// </summary>
         [Output("enableMonitoringDashboard")]
         public Output<bool> EnableMonitoringDashboard { get; private set; } = null!;
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.NetworkFirewall
     public sealed class LoggingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
+        /// Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `False`.
         /// </summary>
         [Input("enableMonitoringDashboard")]
         public Input<bool>? EnableMonitoringDashboard { get; set; }
@@ -228,7 +228,7 @@ namespace Pulumi.Aws.NetworkFirewall
     public sealed class LoggingConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
+        /// Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `False`.
         /// </summary>
         [Input("enableMonitoringDashboard")]
         public Input<bool>? EnableMonitoringDashboard { get; set; }

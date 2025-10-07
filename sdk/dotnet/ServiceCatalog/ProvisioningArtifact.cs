@@ -16,7 +16,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// &gt; **NOTE:** You cannot create a provisioning artifact for a product that was shared with you.
     /// 
-    /// &gt; **NOTE:** The user or role that use this resource must have the `cloudformation:GetTemplate` IAM policy permission. This policy permission is required when using the `template_physical_id` argument.
+    /// &gt; **NOTE:** The user or role that use this resource must have the `cloudformation:GetTemplate` IAM policy permission. This policy permission is required when using the `TemplatePhysicalId` argument.
     /// 
     /// ## Example Usage
     /// 
@@ -53,13 +53,13 @@ namespace Pulumi.Aws.ServiceCatalog
     public partial class ProvisioningArtifact : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
+        /// Language code. Valid values: `En` (English), `Jp` (Japanese), `Zh` (Chinese). The default value is `En`.
         /// </summary>
         [Output("acceptLanguage")]
         public Output<string?> AcceptLanguage { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the product version is active. Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact. Default is `true`.
+        /// Whether the product version is active. Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact. Default is `True`.
         /// </summary>
         [Output("active")]
         public Output<bool?> Active { get; private set; } = null!;
@@ -89,7 +89,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Output<string?> Guidance { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+        /// Name of the provisioning artifact (for example, `V1`, `V2beta`). No spaces are allowed.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -179,13 +179,13 @@ namespace Pulumi.Aws.ServiceCatalog
     public sealed class ProvisioningArtifactArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
+        /// Language code. Valid values: `En` (English), `Jp` (Japanese), `Zh` (Chinese). The default value is `En`.
         /// </summary>
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
 
         /// <summary>
-        /// Whether the product version is active. Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact. Default is `true`.
+        /// Whether the product version is active. Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact. Default is `True`.
         /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }
@@ -209,7 +209,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Input<string>? Guidance { get; set; }
 
         /// <summary>
-        /// Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+        /// Name of the provisioning artifact (for example, `V1`, `V2beta`). No spaces are allowed.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -255,13 +255,13 @@ namespace Pulumi.Aws.ServiceCatalog
     public sealed class ProvisioningArtifactState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
+        /// Language code. Valid values: `En` (English), `Jp` (Japanese), `Zh` (Chinese). The default value is `En`.
         /// </summary>
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
 
         /// <summary>
-        /// Whether the product version is active. Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact. Default is `true`.
+        /// Whether the product version is active. Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact. Default is `True`.
         /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }
@@ -291,7 +291,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Input<string>? Guidance { get; set; }
 
         /// <summary>
-        /// Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+        /// Name of the provisioning artifact (for example, `V1`, `V2beta`). No spaces are allowed.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

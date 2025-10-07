@@ -19,7 +19,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * When destroying this user, destroy even if it
-     * has non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
+     * has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
      * a user with non-provider-managed access keys and login profile will fail to be destroyed.
      * 
      */
@@ -28,7 +28,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return When destroying this user, destroy even if it
-     * has non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
+     * has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
      * a user with non-provider-managed access keys and login profile will fail to be destroyed.
      * 
      */
@@ -82,14 +82,14 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value mapping of tags for the IAM user. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value mapping of tags for the IAM user. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -126,7 +126,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param forceDestroy When destroying this user, destroy even if it
-         * has non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
+         * has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
          * a user with non-provider-managed access keys and login profile will fail to be destroyed.
          * 
          * @return builder
@@ -139,7 +139,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param forceDestroy When destroying this user, destroy even if it
-         * has non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
+         * has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
          * a user with non-provider-managed access keys and login profile will fail to be destroyed.
          * 
          * @return builder
@@ -213,7 +213,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value mapping of tags for the IAM user. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value mapping of tags for the IAM user. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

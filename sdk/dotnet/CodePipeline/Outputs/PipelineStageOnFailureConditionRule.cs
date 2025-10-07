@@ -38,7 +38,7 @@ namespace Pulumi.Aws.CodePipeline.Outputs
         /// </summary>
         public readonly string? RoleArn;
         /// <summary>
-        /// The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `rule_type_id` block below.
+        /// The ID for the rule type, which is made up of the combined values for `Category`, `Owner`, `Provider`, and `Version`. Defined as an `RuleTypeId` block below.
         /// </summary>
         public readonly Outputs.PipelineStageOnFailureConditionRuleRuleTypeId RuleTypeId;
         /// <summary>

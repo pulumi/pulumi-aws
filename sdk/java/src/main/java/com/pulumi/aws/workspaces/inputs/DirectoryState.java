@@ -24,14 +24,14 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
     public static final DirectoryState Empty = new DirectoryState();
 
     /**
-     * Configuration for Active Directory integration when `workspace_type` is set to `POOLS`. Defined below.
+     * Configuration for Active Directory integration when `workspaceType` is set to `POOLS`. Defined below.
      * 
      */
     @Import(name="activeDirectoryConfig")
     private @Nullable Output<DirectoryActiveDirectoryConfigArgs> activeDirectoryConfig;
 
     /**
-     * @return Configuration for Active Directory integration when `workspace_type` is set to `POOLS`. Defined below.
+     * @return Configuration for Active Directory integration when `workspaceType` is set to `POOLS`. Defined below.
      * 
      */
     public Optional<Output<DirectoryActiveDirectoryConfigArgs>> activeDirectoryConfig() {
@@ -219,14 +219,14 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
+     * Permissions to enable or disable self-service capabilities when `workspaceType` is set to `PERSONAL`.. Defined below.
      * 
      */
     @Import(name="selfServicePermissions")
     private @Nullable Output<DirectorySelfServicePermissionsArgs> selfServicePermissions;
 
     /**
-     * @return Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
+     * @return Permissions to enable or disable self-service capabilities when `workspaceType` is set to `PERSONAL`.. Defined below.
      * 
      */
     public Optional<Output<DirectorySelfServicePermissionsArgs>> selfServicePermissions() {
@@ -249,14 +249,14 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags assigned to the WorkSpaces directory. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags assigned to the WorkSpaces directory. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -264,14 +264,14 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -281,7 +281,7 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
      * 
-     * &gt; **Note:** When `workspace_type` is set to `POOLS`, the `directory_id` is automatically generated and cannot be manually set.
+     * &gt; **Note:** When `workspaceType` is set to `POOLS`, the `directoryId` is automatically generated and cannot be manually set.
      * 
      */
     @Import(name="userIdentityType")
@@ -290,7 +290,7 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
      * 
-     * &gt; **Note:** When `workspace_type` is set to `POOLS`, the `directory_id` is automatically generated and cannot be manually set.
+     * &gt; **Note:** When `workspaceType` is set to `POOLS`, the `directoryId` is automatically generated and cannot be manually set.
      * 
      */
     public Optional<Output<String>> userIdentityType() {
@@ -328,14 +328,14 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The description of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+     * The description of the WorkSpaces directory when `workspaceType` is set to `POOLS`.
      * 
      */
     @Import(name="workspaceDirectoryDescription")
     private @Nullable Output<String> workspaceDirectoryDescription;
 
     /**
-     * @return The description of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+     * @return The description of the WorkSpaces directory when `workspaceType` is set to `POOLS`.
      * 
      */
     public Optional<Output<String>> workspaceDirectoryDescription() {
@@ -343,14 +343,14 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+     * The name of the WorkSpaces directory when `workspaceType` is set to `POOLS`.
      * 
      */
     @Import(name="workspaceDirectoryName")
     private @Nullable Output<String> workspaceDirectoryName;
 
     /**
-     * @return The name of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+     * @return The name of the WorkSpaces directory when `workspaceType` is set to `POOLS`.
      * 
      */
     public Optional<Output<String>> workspaceDirectoryName() {
@@ -435,7 +435,7 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param activeDirectoryConfig Configuration for Active Directory integration when `workspace_type` is set to `POOLS`. Defined below.
+         * @param activeDirectoryConfig Configuration for Active Directory integration when `workspaceType` is set to `POOLS`. Defined below.
          * 
          * @return builder
          * 
@@ -446,7 +446,7 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param activeDirectoryConfig Configuration for Active Directory integration when `workspace_type` is set to `POOLS`. Defined below.
+         * @param activeDirectoryConfig Configuration for Active Directory integration when `workspaceType` is set to `POOLS`. Defined below.
          * 
          * @return builder
          * 
@@ -728,7 +728,7 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param selfServicePermissions Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
+         * @param selfServicePermissions Permissions to enable or disable self-service capabilities when `workspaceType` is set to `PERSONAL`.. Defined below.
          * 
          * @return builder
          * 
@@ -739,7 +739,7 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param selfServicePermissions Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
+         * @param selfServicePermissions Permissions to enable or disable self-service capabilities when `workspaceType` is set to `PERSONAL`.. Defined below.
          * 
          * @return builder
          * 
@@ -780,7 +780,7 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags assigned to the WorkSpaces directory. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -791,7 +791,7 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags assigned to the WorkSpaces directory. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -801,7 +801,7 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -812,7 +812,7 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -824,7 +824,7 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param userIdentityType Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
          * 
-         * &gt; **Note:** When `workspace_type` is set to `POOLS`, the `directory_id` is automatically generated and cannot be manually set.
+         * &gt; **Note:** When `workspaceType` is set to `POOLS`, the `directoryId` is automatically generated and cannot be manually set.
          * 
          * @return builder
          * 
@@ -837,7 +837,7 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param userIdentityType Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
          * 
-         * &gt; **Note:** When `workspace_type` is set to `POOLS`, the `directory_id` is automatically generated and cannot be manually set.
+         * &gt; **Note:** When `workspaceType` is set to `POOLS`, the `directoryId` is automatically generated and cannot be manually set.
          * 
          * @return builder
          * 
@@ -889,7 +889,7 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workspaceDirectoryDescription The description of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+         * @param workspaceDirectoryDescription The description of the WorkSpaces directory when `workspaceType` is set to `POOLS`.
          * 
          * @return builder
          * 
@@ -900,7 +900,7 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workspaceDirectoryDescription The description of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+         * @param workspaceDirectoryDescription The description of the WorkSpaces directory when `workspaceType` is set to `POOLS`.
          * 
          * @return builder
          * 
@@ -910,7 +910,7 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workspaceDirectoryName The name of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+         * @param workspaceDirectoryName The name of the WorkSpaces directory when `workspaceType` is set to `POOLS`.
          * 
          * @return builder
          * 
@@ -921,7 +921,7 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workspaceDirectoryName The name of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+         * @param workspaceDirectoryName The name of the WorkSpaces directory when `workspaceType` is set to `POOLS`.
          * 
          * @return builder
          * 

@@ -50,14 +50,14 @@ public final class ResourceSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
+     * Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
      * 
      */
     @Import(name="resourceSets")
     private @Nullable Output<List<ResourceSetResourceSetArgs>> resourceSets;
 
     /**
-     * @return Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
+     * @return Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
      * 
      */
     public Optional<Output<List<ResourceSetResourceSetArgs>>> resourceSets() {
@@ -157,7 +157,7 @@ public final class ResourceSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceSets Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
+         * @param resourceSets Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class ResourceSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceSets Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
+         * @param resourceSets Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class ResourceSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceSets Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
+         * @param resourceSets Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
          * 
          * @return builder
          * 

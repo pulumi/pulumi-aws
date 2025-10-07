@@ -90,7 +90,7 @@ namespace Pulumi.Aws.ServiceQuotas
         public Output<string> RequestStatus { get; private set; } = null!;
 
         /// <summary>
-        /// Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
+        /// Code of the service to track. For example: `Vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
         /// </summary>
         [Output("serviceCode")]
         public Output<string> ServiceCode { get; private set; } = null!;
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.ServiceQuotas
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
+        /// Code of the service to track. For example: `Vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
         /// </summary>
         [Input("serviceCode", required: true)]
         public Input<string> ServiceCode { get; set; } = null!;
@@ -234,7 +234,7 @@ namespace Pulumi.Aws.ServiceQuotas
         public Input<string>? RequestStatus { get; set; }
 
         /// <summary>
-        /// Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
+        /// Code of the service to track. For example: `Vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
         /// </summary>
         [Input("serviceCode")]
         public Input<string>? ServiceCode { get; set; }

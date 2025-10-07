@@ -21,7 +21,7 @@ public final class GetServerlessCacheResult {
      */
     private String arn;
     /**
-     * @return The cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
+     * @return The cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
      * 
      */
     private GetServerlessCacheCacheUsageLimits cacheUsageLimits;
@@ -72,7 +72,7 @@ public final class GetServerlessCacheResult {
     private String majorEngineVersion;
     private String name;
     /**
-     * @return Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
+     * @return Represents the information required for client programs to connect to a cache node. See `readerEndpoint` Block for details.
      * 
      */
     private GetServerlessCacheReaderEndpoint readerEndpoint;
@@ -112,7 +112,7 @@ public final class GetServerlessCacheResult {
         return this.arn;
     }
     /**
-     * @return The cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
+     * @return The cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
      * 
      */
     public GetServerlessCacheCacheUsageLimits cacheUsageLimits() {
@@ -185,7 +185,7 @@ public final class GetServerlessCacheResult {
         return this.name;
     }
     /**
-     * @return Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
+     * @return Represents the information required for client programs to connect to a cache node. See `readerEndpoint` Block for details.
      * 
      */
     public GetServerlessCacheReaderEndpoint readerEndpoint() {

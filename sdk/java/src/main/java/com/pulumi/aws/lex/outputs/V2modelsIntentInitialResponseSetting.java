@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class V2modelsIntentInitialResponseSetting {
     /**
-     * @return Configuration block for the dialog code hook that is called by Amazon Lex at a step of the conversation. See `code_hook`.
+     * @return Configuration block for the dialog code hook that is called by Amazon Lex at a step of the conversation. See `codeHook`.
      * 
      */
     private @Nullable V2modelsIntentInitialResponseSettingCodeHook codeHook;
@@ -25,19 +25,19 @@ public final class V2modelsIntentInitialResponseSetting {
      */
     private @Nullable V2modelsIntentInitialResponseSettingConditional conditional;
     /**
-     * @return Configuration block for message groups that Amazon Lex uses to respond the user input. See `initial_response`.
+     * @return Configuration block for message groups that Amazon Lex uses to respond the user input. See `initialResponse`.
      * 
      */
     private @Nullable V2modelsIntentInitialResponseSettingInitialResponse initialResponse;
     /**
-     * @return Configuration block for the next step in the conversation. See `next_step`.
+     * @return Configuration block for the next step in the conversation. See `nextStep`.
      * 
      */
     private @Nullable V2modelsIntentInitialResponseSettingNextStep nextStep;
 
     private V2modelsIntentInitialResponseSetting() {}
     /**
-     * @return Configuration block for the dialog code hook that is called by Amazon Lex at a step of the conversation. See `code_hook`.
+     * @return Configuration block for the dialog code hook that is called by Amazon Lex at a step of the conversation. See `codeHook`.
      * 
      */
     public Optional<V2modelsIntentInitialResponseSettingCodeHook> codeHook() {
@@ -51,14 +51,14 @@ public final class V2modelsIntentInitialResponseSetting {
         return Optional.ofNullable(this.conditional);
     }
     /**
-     * @return Configuration block for message groups that Amazon Lex uses to respond the user input. See `initial_response`.
+     * @return Configuration block for message groups that Amazon Lex uses to respond the user input. See `initialResponse`.
      * 
      */
     public Optional<V2modelsIntentInitialResponseSettingInitialResponse> initialResponse() {
         return Optional.ofNullable(this.initialResponse);
     }
     /**
-     * @return Configuration block for the next step in the conversation. See `next_step`.
+     * @return Configuration block for the next step in the conversation. See `nextStep`.
      * 
      */
     public Optional<V2modelsIntentInitialResponseSettingNextStep> nextStep() {

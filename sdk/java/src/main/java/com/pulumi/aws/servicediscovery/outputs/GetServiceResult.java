@@ -27,17 +27,17 @@ public final class GetServiceResult {
      */
     private String description;
     /**
-     * @return Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
+     * @return Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dnsConfig` Block for details.
      * 
      */
     private List<GetServiceDnsConfig> dnsConfigs;
     /**
-     * @return Complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
+     * @return Complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `healthCheckConfig` Block for details.
      * 
      */
     private List<GetServiceHealthCheckConfig> healthCheckConfigs;
     /**
-     * @return A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
+     * @return A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
      * 
      */
     private List<GetServiceHealthCheckCustomConfig> healthCheckCustomConfigs;
@@ -54,7 +54,7 @@ public final class GetServiceResult {
     private String namespaceId;
     private String region;
     /**
-     * @return Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     private @Nullable Map<String,String> tags;
@@ -75,21 +75,21 @@ public final class GetServiceResult {
         return this.description;
     }
     /**
-     * @return Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
+     * @return Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dnsConfig` Block for details.
      * 
      */
     public List<GetServiceDnsConfig> dnsConfigs() {
         return this.dnsConfigs;
     }
     /**
-     * @return Complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
+     * @return Complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `healthCheckConfig` Block for details.
      * 
      */
     public List<GetServiceHealthCheckConfig> healthCheckConfigs() {
         return this.healthCheckConfigs;
     }
     /**
-     * @return A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
+     * @return A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
      * 
      */
     public List<GetServiceHealthCheckCustomConfig> healthCheckCustomConfigs() {
@@ -116,7 +116,7 @@ public final class GetServiceResult {
         return this.region;
     }
     /**
-     * @return Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Map<String,String> tags() {

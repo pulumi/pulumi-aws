@@ -120,13 +120,13 @@ namespace Pulumi.Aws.Neptune
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+        /// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `True`. The default is `False`.
         /// </summary>
         [Output("deletionProtection")]
         public Output<bool?> DeletionProtection { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `neptune`. Conflicts with `source_db_cluster_identifier`.
+        /// Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `Neptune`. Conflicts with `SourceDbClusterIdentifier`.
         /// </summary>
         [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.Neptune
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
+        /// Whether the DB cluster is encrypted. The default is `False` unless `SourceDbClusterIdentifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Output("storageEncrypted")]
         public Output<bool> StorageEncrypted { get; private set; } = null!;
@@ -223,13 +223,13 @@ namespace Pulumi.Aws.Neptune
     public sealed class GlobalClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+        /// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `True`. The default is `False`.
         /// </summary>
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
 
         /// <summary>
-        /// Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `neptune`. Conflicts with `source_db_cluster_identifier`.
+        /// Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `Neptune`. Conflicts with `SourceDbClusterIdentifier`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -259,7 +259,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? SourceDbClusterIdentifier { get; set; }
 
         /// <summary>
-        /// Whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
+        /// Whether the DB cluster is encrypted. The default is `False` unless `SourceDbClusterIdentifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
@@ -279,13 +279,13 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+        /// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `True`. The default is `False`.
         /// </summary>
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
 
         /// <summary>
-        /// Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `neptune`. Conflicts with `source_db_cluster_identifier`.
+        /// Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `Neptune`. Conflicts with `SourceDbClusterIdentifier`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -336,7 +336,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
+        /// Whether the DB cluster is encrypted. The default is `False` unless `SourceDbClusterIdentifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }

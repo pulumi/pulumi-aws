@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Connect
         /// 
         /// ## Example Usage
         /// 
-        /// By `name`
+        /// By `Name`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Connect
         /// });
         /// ```
         /// 
-        /// By `user_id`
+        /// By `UserId`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Connect
         /// 
         /// ## Example Usage
         /// 
-        /// By `name`
+        /// By `Name`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Connect
         /// });
         /// ```
         /// 
-        /// By `user_id`
+        /// By `UserId`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Connect
         /// 
         /// ## Example Usage
         /// 
-        /// By `name`
+        /// By `Name`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.Connect
         /// });
         /// ```
         /// 
-        /// By `user_id`
+        /// By `UserId`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -186,7 +186,7 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// Returns information on a specific User by User id
         /// 
-        /// &gt; **NOTE:** `instance_id` and one of either `name` or `user_id` is required.
+        /// &gt; **NOTE:** `InstanceId` and one of either `Name` or `UserId` is required.
         /// </summary>
         [Input("userId")]
         public string? UserId { get; set; }
@@ -232,7 +232,7 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// Returns information on a specific User by User id
         /// 
-        /// &gt; **NOTE:** `instance_id` and one of either `name` or `user_id` is required.
+        /// &gt; **NOTE:** `InstanceId` and one of either `Name` or `UserId` is required.
         /// </summary>
         [Input("userId")]
         public Input<string>? UserId { get; set; }

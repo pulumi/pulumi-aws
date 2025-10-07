@@ -27,7 +27,7 @@ public final class EndpointRedshiftSettings {
      */
     private @Nullable String encryptionMode;
     /**
-     * @return ARN or Id of KMS Key to use when `encryption_mode` is `SSE_KMS`.
+     * @return ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
      * 
      */
     private @Nullable String serverSideEncryptionKmsKeyId;
@@ -60,7 +60,7 @@ public final class EndpointRedshiftSettings {
         return Optional.ofNullable(this.encryptionMode);
     }
     /**
-     * @return ARN or Id of KMS Key to use when `encryption_mode` is `SSE_KMS`.
+     * @return ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
      * 
      */
     public Optional<String> serverSideEncryptionKmsKeyId() {

@@ -14,14 +14,14 @@ namespace Pulumi.Aws.DataExchange.Inputs
     {
         /// <summary>
         /// Configures server-side encryption of the exported revision.
-        /// Described in `encryption` Configuration Block below.
+        /// Described in `Encryption` Configuration Block below.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.EventActionActionExportRevisionToS3EncryptionArgs>? Encryption { get; set; }
 
         /// <summary>
         /// Configures the S3 destination of the exported revision.
-        /// Described in `revision_destination` Configuration Block below.
+        /// Described in `RevisionDestination` Configuration Block below.
         /// </summary>
         [Input("revisionDestination")]
         public Input<Inputs.EventActionActionExportRevisionToS3RevisionDestinationArgs>? RevisionDestination { get; set; }

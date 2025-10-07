@@ -119,14 +119,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:fsx/ontapVolume:OntapVolume")
 public class OntapVolume extends com.pulumi.resources.CustomResource {
     /**
-     * The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
+     * The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregateConfiguration` Block] for details.
      * 
      */
     @Export(name="aggregateConfiguration", refs={OntapVolumeAggregateConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ OntapVolumeAggregateConfiguration> aggregateConfiguration;
 
     /**
-     * @return The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
+     * @return The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregateConfiguration` Block] for details.
      * 
      */
     public Output<Optional<OntapVolumeAggregateConfiguration>> aggregateConfiguration() {
@@ -217,14 +217,14 @@ public class OntapVolume extends com.pulumi.resources.CustomResource {
         return this.flexcacheEndpointType;
     }
     /**
-     * Specifies the location in the storage virtual machine&#39;s namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
+     * Specifies the location in the storage virtual machine&#39;s namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
      * 
      */
     @Export(name="junctionPath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> junctionPath;
 
     /**
-     * @return Specifies the location in the storage virtual machine&#39;s namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
+     * @return Specifies the location in the storage virtual machine&#39;s namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
      * 
      */
     public Output<Optional<String>> junctionPath() {
@@ -287,28 +287,28 @@ public class OntapVolume extends com.pulumi.resources.CustomResource {
         return this.securityStyle;
     }
     /**
-     * Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+     * Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
      * 
      */
     @Export(name="sizeInBytes", refs={String.class}, tree="[0]")
     private Output<String> sizeInBytes;
 
     /**
-     * @return Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+     * @return Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
      * 
      */
     public Output<String> sizeInBytes() {
         return this.sizeInBytes;
     }
     /**
-     * Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+     * Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
      * 
      */
     @Export(name="sizeInMegabytes", refs={Integer.class}, tree="[0]")
     private Output<Integer> sizeInMegabytes;
 
     /**
-     * @return Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+     * @return Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
      * 
      */
     public Output<Integer> sizeInMegabytes() {
@@ -329,14 +329,14 @@ public class OntapVolume extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.skipFinalBackup);
     }
     /**
-     * The SnapLock configuration for an FSx for ONTAP volume. See `snaplock_configuration` Block for details.
+     * The SnapLock configuration for an FSx for ONTAP volume. See `snaplockConfiguration` Block for details.
      * 
      */
     @Export(name="snaplockConfiguration", refs={OntapVolumeSnaplockConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ OntapVolumeSnaplockConfiguration> snaplockConfiguration;
 
     /**
-     * @return The SnapLock configuration for an FSx for ONTAP volume. See `snaplock_configuration` Block for details.
+     * @return The SnapLock configuration for an FSx for ONTAP volume. See `snaplockConfiguration` Block for details.
      * 
      */
     public Output<Optional<OntapVolumeSnaplockConfiguration>> snaplockConfiguration() {
@@ -389,42 +389,42 @@ public class OntapVolume extends com.pulumi.resources.CustomResource {
         return this.storageVirtualMachineId;
     }
     /**
-     * A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The data tiering policy for an FSx for ONTAP volume. See `tiering_policy` Block for details.
+     * The data tiering policy for an FSx for ONTAP volume. See `tieringPolicy` Block for details.
      * 
      */
     @Export(name="tieringPolicy", refs={OntapVolumeTieringPolicy.class}, tree="[0]")
     private Output</* @Nullable */ OntapVolumeTieringPolicy> tieringPolicy;
 
     /**
-     * @return The data tiering policy for an FSx for ONTAP volume. See `tiering_policy` Block for details.
+     * @return The data tiering policy for an FSx for ONTAP volume. See `tieringPolicy` Block for details.
      * 
      */
     public Output<Optional<OntapVolumeTieringPolicy>> tieringPolicy() {

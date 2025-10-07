@@ -49,7 +49,7 @@ public final class AppImageConfigCodeEditorAppImageConfigFileSystemConfigArgs ex
     /**
      * The path within the image to mount the user&#39;s EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
      * 
-     * &gt; **Note:** When specifying `default_gid` and `default_uid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
+     * &gt; **Note:** When specifying `defaultGid` and `defaultUid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
      * 
      */
     @Import(name="mountPath")
@@ -58,7 +58,7 @@ public final class AppImageConfigCodeEditorAppImageConfigFileSystemConfigArgs ex
     /**
      * @return The path within the image to mount the user&#39;s EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
      * 
-     * &gt; **Note:** When specifying `default_gid` and `default_uid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
+     * &gt; **Note:** When specifying `defaultGid` and `defaultUid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
      * 
      */
     public Optional<Output<String>> mountPath() {
@@ -136,7 +136,7 @@ public final class AppImageConfigCodeEditorAppImageConfigFileSystemConfigArgs ex
         /**
          * @param mountPath The path within the image to mount the user&#39;s EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
          * 
-         * &gt; **Note:** When specifying `default_gid` and `default_uid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
+         * &gt; **Note:** When specifying `defaultGid` and `defaultUid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class AppImageConfigCodeEditorAppImageConfigFileSystemConfigArgs ex
         /**
          * @param mountPath The path within the image to mount the user&#39;s EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
          * 
-         * &gt; **Note:** When specifying `default_gid` and `default_uid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
+         * &gt; **Note:** When specifying `defaultGid` and `defaultUid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
          * 
          * @return builder
          * 

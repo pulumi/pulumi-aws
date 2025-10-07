@@ -114,7 +114,7 @@ namespace Pulumi.Aws.MskConnect
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Information about the capacity allocated to the connector. See `capacity` Block for details.
+        /// Information about the capacity allocated to the connector. See `Capacity` Block for details.
         /// </summary>
         [Output("capacity")]
         public Output<Outputs.ConnectorCapacity> Capacity { get; private set; } = null!;
@@ -132,19 +132,19 @@ namespace Pulumi.Aws.MskConnect
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies which Apache Kafka cluster to connect to. See `kafka_cluster` Block for details.
+        /// Specifies which Apache Kafka cluster to connect to. See `KafkaCluster` Block for details.
         /// </summary>
         [Output("kafkaCluster")]
         public Output<Outputs.ConnectorKafkaCluster> KafkaCluster { get; private set; } = null!;
 
         /// <summary>
-        /// Details of the client authentication used by the Apache Kafka cluster. See `kafka_cluster_client_authentication` Block for details.
+        /// Details of the client authentication used by the Apache Kafka cluster. See `KafkaClusterClientAuthentication` Block for details.
         /// </summary>
         [Output("kafkaClusterClientAuthentication")]
         public Output<Outputs.ConnectorKafkaClusterClientAuthentication> KafkaClusterClientAuthentication { get; private set; } = null!;
 
         /// <summary>
-        /// Details of encryption in transit to the Apache Kafka cluster. See `kafka_cluster_encryption_in_transit` Block for details.
+        /// Details of encryption in transit to the Apache Kafka cluster. See `KafkaClusterEncryptionInTransit` Block for details.
         /// </summary>
         [Output("kafkaClusterEncryptionInTransit")]
         public Output<Outputs.ConnectorKafkaClusterEncryptionInTransit> KafkaClusterEncryptionInTransit { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.MskConnect
         public Output<string> KafkaconnectVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Details about log delivery. See `log_delivery` Block for details.
+        /// Details about log delivery. See `LogDelivery` Block for details.
         /// </summary>
         [Output("logDelivery")]
         public Output<Outputs.ConnectorLogDelivery?> LogDelivery { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.MskConnect
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies which plugins to use for the connector. See `plugin` Block for details.
+        /// Specifies which plugins to use for the connector. See `Plugin` Block for details.
         /// </summary>
         [Output("plugins")]
         public Output<ImmutableArray<Outputs.ConnectorPlugin>> Plugins { get; private set; } = null!;
@@ -188,13 +188,13 @@ namespace Pulumi.Aws.MskConnect
         public Output<string> ServiceExecutionRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.Aws.MskConnect
         public Output<string> Version { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies which worker configuration to use with the connector. See `worker_configuration` Block for details.
+        /// Specifies which worker configuration to use with the connector. See `WorkerConfiguration` Block for details.
         /// </summary>
         [Output("workerConfiguration")]
         public Output<Outputs.ConnectorWorkerConfiguration?> WorkerConfiguration { get; private set; } = null!;
@@ -258,7 +258,7 @@ namespace Pulumi.Aws.MskConnect
     public sealed class ConnectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Information about the capacity allocated to the connector. See `capacity` Block for details.
+        /// Information about the capacity allocated to the connector. See `Capacity` Block for details.
         /// </summary>
         [Input("capacity", required: true)]
         public Input<Inputs.ConnectorCapacityArgs> Capacity { get; set; } = null!;
@@ -282,19 +282,19 @@ namespace Pulumi.Aws.MskConnect
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies which Apache Kafka cluster to connect to. See `kafka_cluster` Block for details.
+        /// Specifies which Apache Kafka cluster to connect to. See `KafkaCluster` Block for details.
         /// </summary>
         [Input("kafkaCluster", required: true)]
         public Input<Inputs.ConnectorKafkaClusterArgs> KafkaCluster { get; set; } = null!;
 
         /// <summary>
-        /// Details of the client authentication used by the Apache Kafka cluster. See `kafka_cluster_client_authentication` Block for details.
+        /// Details of the client authentication used by the Apache Kafka cluster. See `KafkaClusterClientAuthentication` Block for details.
         /// </summary>
         [Input("kafkaClusterClientAuthentication", required: true)]
         public Input<Inputs.ConnectorKafkaClusterClientAuthenticationArgs> KafkaClusterClientAuthentication { get; set; } = null!;
 
         /// <summary>
-        /// Details of encryption in transit to the Apache Kafka cluster. See `kafka_cluster_encryption_in_transit` Block for details.
+        /// Details of encryption in transit to the Apache Kafka cluster. See `KafkaClusterEncryptionInTransit` Block for details.
         /// </summary>
         [Input("kafkaClusterEncryptionInTransit", required: true)]
         public Input<Inputs.ConnectorKafkaClusterEncryptionInTransitArgs> KafkaClusterEncryptionInTransit { get; set; } = null!;
@@ -306,7 +306,7 @@ namespace Pulumi.Aws.MskConnect
         public Input<string> KafkaconnectVersion { get; set; } = null!;
 
         /// <summary>
-        /// Details about log delivery. See `log_delivery` Block for details.
+        /// Details about log delivery. See `LogDelivery` Block for details.
         /// </summary>
         [Input("logDelivery")]
         public Input<Inputs.ConnectorLogDeliveryArgs>? LogDelivery { get; set; }
@@ -321,7 +321,7 @@ namespace Pulumi.Aws.MskConnect
         private InputList<Inputs.ConnectorPluginArgs>? _plugins;
 
         /// <summary>
-        /// Specifies which plugins to use for the connector. See `plugin` Block for details.
+        /// Specifies which plugins to use for the connector. See `Plugin` Block for details.
         /// </summary>
         public InputList<Inputs.ConnectorPluginArgs> Plugins
         {
@@ -347,7 +347,7 @@ namespace Pulumi.Aws.MskConnect
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -356,7 +356,7 @@ namespace Pulumi.Aws.MskConnect
         }
 
         /// <summary>
-        /// Specifies which worker configuration to use with the connector. See `worker_configuration` Block for details.
+        /// Specifies which worker configuration to use with the connector. See `WorkerConfiguration` Block for details.
         /// </summary>
         [Input("workerConfiguration")]
         public Input<Inputs.ConnectorWorkerConfigurationArgs>? WorkerConfiguration { get; set; }
@@ -376,7 +376,7 @@ namespace Pulumi.Aws.MskConnect
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Information about the capacity allocated to the connector. See `capacity` Block for details.
+        /// Information about the capacity allocated to the connector. See `Capacity` Block for details.
         /// </summary>
         [Input("capacity")]
         public Input<Inputs.ConnectorCapacityGetArgs>? Capacity { get; set; }
@@ -400,19 +400,19 @@ namespace Pulumi.Aws.MskConnect
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies which Apache Kafka cluster to connect to. See `kafka_cluster` Block for details.
+        /// Specifies which Apache Kafka cluster to connect to. See `KafkaCluster` Block for details.
         /// </summary>
         [Input("kafkaCluster")]
         public Input<Inputs.ConnectorKafkaClusterGetArgs>? KafkaCluster { get; set; }
 
         /// <summary>
-        /// Details of the client authentication used by the Apache Kafka cluster. See `kafka_cluster_client_authentication` Block for details.
+        /// Details of the client authentication used by the Apache Kafka cluster. See `KafkaClusterClientAuthentication` Block for details.
         /// </summary>
         [Input("kafkaClusterClientAuthentication")]
         public Input<Inputs.ConnectorKafkaClusterClientAuthenticationGetArgs>? KafkaClusterClientAuthentication { get; set; }
 
         /// <summary>
-        /// Details of encryption in transit to the Apache Kafka cluster. See `kafka_cluster_encryption_in_transit` Block for details.
+        /// Details of encryption in transit to the Apache Kafka cluster. See `KafkaClusterEncryptionInTransit` Block for details.
         /// </summary>
         [Input("kafkaClusterEncryptionInTransit")]
         public Input<Inputs.ConnectorKafkaClusterEncryptionInTransitGetArgs>? KafkaClusterEncryptionInTransit { get; set; }
@@ -424,7 +424,7 @@ namespace Pulumi.Aws.MskConnect
         public Input<string>? KafkaconnectVersion { get; set; }
 
         /// <summary>
-        /// Details about log delivery. See `log_delivery` Block for details.
+        /// Details about log delivery. See `LogDelivery` Block for details.
         /// </summary>
         [Input("logDelivery")]
         public Input<Inputs.ConnectorLogDeliveryGetArgs>? LogDelivery { get; set; }
@@ -439,7 +439,7 @@ namespace Pulumi.Aws.MskConnect
         private InputList<Inputs.ConnectorPluginGetArgs>? _plugins;
 
         /// <summary>
-        /// Specifies which plugins to use for the connector. See `plugin` Block for details.
+        /// Specifies which plugins to use for the connector. See `Plugin` Block for details.
         /// </summary>
         public InputList<Inputs.ConnectorPluginGetArgs> Plugins
         {
@@ -465,7 +465,7 @@ namespace Pulumi.Aws.MskConnect
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -477,7 +477,7 @@ namespace Pulumi.Aws.MskConnect
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -492,7 +492,7 @@ namespace Pulumi.Aws.MskConnect
         public Input<string>? Version { get; set; }
 
         /// <summary>
-        /// Specifies which worker configuration to use with the connector. See `worker_configuration` Block for details.
+        /// Specifies which worker configuration to use with the connector. See `WorkerConfiguration` Block for details.
         /// </summary>
         [Input("workerConfiguration")]
         public Input<Inputs.ConnectorWorkerConfigurationGetArgs>? WorkerConfiguration { get; set; }

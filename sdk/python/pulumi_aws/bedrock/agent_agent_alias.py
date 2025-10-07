@@ -323,6 +323,55 @@ class AgentAgentAlias(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        current_get_partition = aws.get_partition()
+        current_get_region = aws.get_region()
+        example_agent_trust = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "identifiers": ["bedrock.amazonaws.com"],
+                "type": "Service",
+            }],
+            "conditions": [
+                {
+                    "test": "StringEquals",
+                    "values": [current.account_id],
+                    "variable": "aws:SourceAccount",
+                },
+                {
+                    "test": "ArnLike",
+                    "values": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}:{current.account_id}:agent/*"],
+                    "variable": "AWS:SourceArn",
+                },
+            ],
+        }])
+        example_agent_permissions = aws.iam.get_policy_document(statements=[{
+            "actions": ["bedrock:InvokeModel"],
+            "resources": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}::foundation-model/anthropic.claude-v2"],
+        }])
+        example = aws.iam.Role("example",
+            assume_role_policy=example_agent_trust.json,
+            name_prefix="AmazonBedrockExecutionRoleForAgents_")
+        example_role_policy = aws.iam.RolePolicy("example",
+            policy=example_agent_permissions.json,
+            role=example.id)
+        example_agent_agent = aws.bedrock.AgentAgent("example",
+            agent_name="my-agent-name",
+            agent_resource_role_arn=example.arn,
+            idle_ttl=500,
+            foundation_model="anthropic.claude-v2")
+        example_agent_agent_alias = aws.bedrock.AgentAgentAlias("example",
+            agent_alias_name="my-agent-alias",
+            agent_id=example_agent_agent.agent_id,
+            description="Test Alias")
+        ```
+
         ## Import
 
         Using `pulumi import`, import Agents for Amazon Bedrock Agent Alias using the alias ID and the agent ID separated by `,`. For example:
@@ -352,6 +401,55 @@ class AgentAgentAlias(pulumi.CustomResource):
         Resource for managing an AWS Agents for Amazon Bedrock Agent Alias.
 
         ## Example Usage
+
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        current_get_partition = aws.get_partition()
+        current_get_region = aws.get_region()
+        example_agent_trust = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "identifiers": ["bedrock.amazonaws.com"],
+                "type": "Service",
+            }],
+            "conditions": [
+                {
+                    "test": "StringEquals",
+                    "values": [current.account_id],
+                    "variable": "aws:SourceAccount",
+                },
+                {
+                    "test": "ArnLike",
+                    "values": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}:{current.account_id}:agent/*"],
+                    "variable": "AWS:SourceArn",
+                },
+            ],
+        }])
+        example_agent_permissions = aws.iam.get_policy_document(statements=[{
+            "actions": ["bedrock:InvokeModel"],
+            "resources": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}::foundation-model/anthropic.claude-v2"],
+        }])
+        example = aws.iam.Role("example",
+            assume_role_policy=example_agent_trust.json,
+            name_prefix="AmazonBedrockExecutionRoleForAgents_")
+        example_role_policy = aws.iam.RolePolicy("example",
+            policy=example_agent_permissions.json,
+            role=example.id)
+        example_agent_agent = aws.bedrock.AgentAgent("example",
+            agent_name="my-agent-name",
+            agent_resource_role_arn=example.arn,
+            idle_ttl=500,
+            foundation_model="anthropic.claude-v2")
+        example_agent_agent_alias = aws.bedrock.AgentAgentAlias("example",
+            agent_alias_name="my-agent-alias",
+            agent_id=example_agent_agent.agent_id,
+            description="Test Alias")
+        ```
 
         ## Import
 

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string ModelArn;
         /// <summary>
-        /// Instructions for interpreting the contents of the document. See `parsing_prompt` block for details.
+        /// Instructions for interpreting the contents of the document. See `ParsingPrompt` block for details.
         /// </summary>
         public readonly Outputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt? ParsingPrompt;
 

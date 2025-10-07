@@ -31,7 +31,7 @@ namespace Pulumi.Aws.AppRunner.Inputs
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// IP protocol that App Runner uses to perform health checks for your service. Valid values: `TCP`, `HTTP`. Defaults to `TCP`. If you set protocol to `HTTP`, App Runner sends health check requests to the HTTP path specified by `path`.
+        /// IP protocol that App Runner uses to perform health checks for your service. Valid values: `TCP`, `HTTP`. Defaults to `TCP`. If you set protocol to `HTTP`, App Runner sends health check requests to the HTTP path specified by `Path`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }

@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public partial class Connect : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The tunnel protocol. Valid values: `gre`. Default is `gre`.
+        /// The tunnel protocol. Valid values: `Gre`. Default is `Gre`.
         /// </summary>
         [Output("protocol")]
         public Output<string?> Protocol { get; private set; } = null!;
@@ -65,25 +65,25 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
+        /// Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `True`.
         /// </summary>
         [Output("transitGatewayDefaultRouteTableAssociation")]
         public Output<bool?> TransitGatewayDefaultRouteTableAssociation { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
+        /// Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `True`.
         /// </summary>
         [Output("transitGatewayDefaultRouteTablePropagation")]
         public Output<bool?> TransitGatewayDefaultRouteTablePropagation { get; private set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public sealed class ConnectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The tunnel protocol. Valid values: `gre`. Default is `gre`.
+        /// The tunnel protocol. Valid values: `Gre`. Default is `Gre`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -171,13 +171,13 @@ namespace Pulumi.Aws.Ec2TransitGateway
         }
 
         /// <summary>
-        /// Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
+        /// Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `True`.
         /// </summary>
         [Input("transitGatewayDefaultRouteTableAssociation")]
         public Input<bool>? TransitGatewayDefaultRouteTableAssociation { get; set; }
 
         /// <summary>
-        /// Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
+        /// Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `True`.
         /// </summary>
         [Input("transitGatewayDefaultRouteTablePropagation")]
         public Input<bool>? TransitGatewayDefaultRouteTablePropagation { get; set; }
@@ -203,7 +203,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public sealed class ConnectState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The tunnel protocol. Valid values: `gre`. Default is `gre`.
+        /// The tunnel protocol. Valid values: `Gre`. Default is `Gre`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
@@ -218,7 +218,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -230,7 +230,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -239,13 +239,13 @@ namespace Pulumi.Aws.Ec2TransitGateway
         }
 
         /// <summary>
-        /// Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
+        /// Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `True`.
         /// </summary>
         [Input("transitGatewayDefaultRouteTableAssociation")]
         public Input<bool>? TransitGatewayDefaultRouteTableAssociation { get; set; }
 
         /// <summary>
-        /// Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
+        /// Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `True`.
         /// </summary>
         [Input("transitGatewayDefaultRouteTablePropagation")]
         public Input<bool>? TransitGatewayDefaultRouteTablePropagation { get; set; }

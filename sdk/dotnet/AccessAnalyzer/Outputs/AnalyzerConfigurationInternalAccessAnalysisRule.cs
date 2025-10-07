@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AccessAnalyzer.Outputs
     public sealed class AnalyzerConfigurationInternalAccessAnalysisRule
     {
         /// <summary>
-        /// List of rules for the internal access analyzer containing criteria to include in analysis. Only resources that meet the rule criteria will generate findings. See `inclusion` Block for details.
+        /// List of rules for the internal access analyzer containing criteria to include in analysis. Only resources that meet the rule criteria will generate findings. See `Inclusion` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalyzerConfigurationInternalAccessAnalysisRuleInclusion> Inclusions;
 

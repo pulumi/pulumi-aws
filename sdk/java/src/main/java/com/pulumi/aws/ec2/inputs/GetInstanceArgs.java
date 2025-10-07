@@ -41,14 +41,14 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
+     * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      * 
      */
     @Import(name="getPasswordData")
     private @Nullable Output<Boolean> getPasswordData;
 
     /**
-     * @return If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
+     * @return If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      * 
      */
     public Optional<Output<Boolean>> getPasswordData() {
@@ -56,9 +56,9 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Retrieve Base64 encoded User Data contents into the `user_data_base64` attribute. A SHA-1 hash of the User Data contents will always be present in the `user_data` attribute. Defaults to `false`.
+     * Retrieve Base64 encoded User Data contents into the `userDataBase64` attribute. A SHA-1 hash of the User Data contents will always be present in the `userData` attribute. Defaults to `false`.
      * 
-     * &gt; **NOTE:** At least one of `filter`, `instance_tags`, or `instance_id` must be specified.
+     * &gt; **NOTE:** At least one of `filter`, `instanceTags`, or `instanceId` must be specified.
      * 
      * &gt; **NOTE:** If anything other than a single match is returned by the search,
      * this call will fail. Ensure that your search is specific enough to return
@@ -69,9 +69,9 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
     private @Nullable Output<Boolean> getUserData;
 
     /**
-     * @return Retrieve Base64 encoded User Data contents into the `user_data_base64` attribute. A SHA-1 hash of the User Data contents will always be present in the `user_data` attribute. Defaults to `false`.
+     * @return Retrieve Base64 encoded User Data contents into the `userDataBase64` attribute. A SHA-1 hash of the User Data contents will always be present in the `userData` attribute. Defaults to `false`.
      * 
-     * &gt; **NOTE:** At least one of `filter`, `instance_tags`, or `instance_id` must be specified.
+     * &gt; **NOTE:** At least one of `filter`, `instanceTags`, or `instanceId` must be specified.
      * 
      * &gt; **NOTE:** If anything other than a single match is returned by the search,
      * this call will fail. Ensure that your search is specific enough to return
@@ -215,7 +215,7 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param getPasswordData If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
+         * @param getPasswordData If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param getPasswordData If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
+         * @param getPasswordData If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
          * 
          * @return builder
          * 
@@ -236,9 +236,9 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param getUserData Retrieve Base64 encoded User Data contents into the `user_data_base64` attribute. A SHA-1 hash of the User Data contents will always be present in the `user_data` attribute. Defaults to `false`.
+         * @param getUserData Retrieve Base64 encoded User Data contents into the `userDataBase64` attribute. A SHA-1 hash of the User Data contents will always be present in the `userData` attribute. Defaults to `false`.
          * 
-         * &gt; **NOTE:** At least one of `filter`, `instance_tags`, or `instance_id` must be specified.
+         * &gt; **NOTE:** At least one of `filter`, `instanceTags`, or `instanceId` must be specified.
          * 
          * &gt; **NOTE:** If anything other than a single match is returned by the search,
          * this call will fail. Ensure that your search is specific enough to return
@@ -253,9 +253,9 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param getUserData Retrieve Base64 encoded User Data contents into the `user_data_base64` attribute. A SHA-1 hash of the User Data contents will always be present in the `user_data` attribute. Defaults to `false`.
+         * @param getUserData Retrieve Base64 encoded User Data contents into the `userDataBase64` attribute. A SHA-1 hash of the User Data contents will always be present in the `userData` attribute. Defaults to `false`.
          * 
-         * &gt; **NOTE:** At least one of `filter`, `instance_tags`, or `instance_id` must be specified.
+         * &gt; **NOTE:** At least one of `filter`, `instanceTags`, or `instanceId` must be specified.
          * 
          * &gt; **NOTE:** If anything other than a single match is returned by the search,
          * this call will fail. Ensure that your search is specific enough to return

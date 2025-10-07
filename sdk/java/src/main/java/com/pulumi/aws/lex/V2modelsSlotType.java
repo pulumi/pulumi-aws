@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### value_selection_setting Usage
+ * ### valueSelectionSetting Usage
  * 
  * <pre>
  * {@code
@@ -179,7 +179,7 @@ public class V2modelsSlotType extends com.pulumi.resources.CustomResource {
     }
     /**
      * Specifications for a composite slot type.
-     * See `composite_slot_type_setting` argument reference below.
+     * See `compositeSlotTypeSetting` argument reference below.
      * 
      */
     @Export(name="compositeSlotTypeSettings", refs={List.class,V2modelsSlotTypeCompositeSlotTypeSetting.class}, tree="[0,1]")
@@ -187,7 +187,7 @@ public class V2modelsSlotType extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Specifications for a composite slot type.
-     * See `composite_slot_type_setting` argument reference below.
+     * See `compositeSlotTypeSetting` argument reference below.
      * 
      */
     public Output<Optional<List<V2modelsSlotTypeCompositeSlotTypeSetting>>> compositeSlotTypeSettings() {
@@ -209,7 +209,7 @@ public class V2modelsSlotType extends com.pulumi.resources.CustomResource {
     }
     /**
      * Type of external information used to create the slot type.
-     * See `external_source_setting` argument reference below.
+     * See `externalSourceSetting` argument reference below.
      * 
      */
     @Export(name="externalSourceSettings", refs={List.class,V2modelsSlotTypeExternalSourceSetting.class}, tree="[0,1]")
@@ -217,7 +217,7 @@ public class V2modelsSlotType extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Type of external information used to create the slot type.
-     * See `external_source_setting` argument reference below.
+     * See `externalSourceSetting` argument reference below.
      * 
      */
     public Output<Optional<List<V2modelsSlotTypeExternalSourceSetting>>> externalSourceSettings() {
@@ -306,7 +306,7 @@ public class V2modelsSlotType extends com.pulumi.resources.CustomResource {
     /**
      * List of SlotTypeValue objects that defines the values that the slot type can take.
      * Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
-     * See `slot_type_values` argument reference below.
+     * See `slotTypeValues` argument reference below.
      * 
      */
     @Export(name="slotTypeValues", refs={List.class,V2modelsSlotTypeSlotTypeValue.class}, tree="[0,1]")
@@ -315,7 +315,7 @@ public class V2modelsSlotType extends com.pulumi.resources.CustomResource {
     /**
      * @return List of SlotTypeValue objects that defines the values that the slot type can take.
      * Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
-     * See `slot_type_values` argument reference below.
+     * See `slotTypeValues` argument reference below.
      * 
      */
     public Output<Optional<List<V2modelsSlotTypeSlotTypeValue>>> slotTypeValues() {
@@ -329,7 +329,7 @@ public class V2modelsSlotType extends com.pulumi.resources.CustomResource {
     }
     /**
      * Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
-     * See `value_selection_setting` argument reference below.
+     * See `valueSelectionSetting` argument reference below.
      * 
      */
     @Export(name="valueSelectionSetting", refs={V2modelsSlotTypeValueSelectionSetting.class}, tree="[0]")
@@ -337,7 +337,7 @@ public class V2modelsSlotType extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
-     * See `value_selection_setting` argument reference below.
+     * See `valueSelectionSetting` argument reference below.
      * 
      */
     public Output<Optional<V2modelsSlotTypeValueSelectionSetting>> valueSelectionSetting() {

@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ### Private Zone
     /// 
-    /// &gt; **NOTE:** This provider provides both exclusive VPC associations defined in-line in this resource via `vpc` configuration blocks and a separate ` Zone VPC Association resource. At this time, you cannot use in-line VPC associations in conjunction with any  `aws.route53.ZoneAssociation`  resources with the same zone ID otherwise it will cause a perpetual difference in plan output. You can optionally use [ `ignoreChanges` ](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to manage additional associations via the  `aws.route53.ZoneAssociation` resource.
+    /// &gt; **NOTE:** This provider provides both exclusive VPC associations defined in-line in this resource via `Vpc` configuration blocks and a separate ` Zone VPC Association resource. At this time, you cannot use in-line VPC associations in conjunction with any  `aws.route53.ZoneAssociation`  resources with the same zone ID otherwise it will cause a perpetual difference in plan output. You can optionally use [ `ignoreChanges` ](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to manage additional associations via the  `aws.route53.ZoneAssociation` resource.
     /// 
     /// &gt; **NOTE:** Private zones require at least one VPC association at all times.
     /// 
@@ -143,7 +143,7 @@ namespace Pulumi.Aws.Route53
         public Output<string> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
+        /// The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `Vpc` as delegation sets can only be used for public zones.
         /// </summary>
         [Output("delegationSetId")]
         public Output<string?> DelegationSetId { get; private set; } = null!;
@@ -174,19 +174,19 @@ namespace Pulumi.Aws.Route53
         public Output<string> PrimaryNameServer { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A mapping of tags to assign to the zone. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `aws.route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
+        /// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `DelegationSetId` argument in this resource and any `aws.route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
         /// </summary>
         [Output("vpcs")]
         public Output<ImmutableArray<Outputs.ZoneVpc>> Vpcs { get; private set; } = null!;
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.Route53
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
+        /// The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `Vpc` as delegation sets can only be used for public zones.
         /// </summary>
         [Input("delegationSetId")]
         public Input<string>? DelegationSetId { get; set; }
@@ -271,7 +271,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A mapping of tags to assign to the zone. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -283,7 +283,7 @@ namespace Pulumi.Aws.Route53
         private InputList<Inputs.ZoneVpcArgs>? _vpcs;
 
         /// <summary>
-        /// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `aws.route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
+        /// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `DelegationSetId` argument in this resource and any `aws.route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
         /// </summary>
         public InputList<Inputs.ZoneVpcArgs> Vpcs
         {
@@ -313,7 +313,7 @@ namespace Pulumi.Aws.Route53
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
+        /// The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `Vpc` as delegation sets can only be used for public zones.
         /// </summary>
         [Input("delegationSetId")]
         public Input<string>? DelegationSetId { get; set; }
@@ -353,7 +353,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A mapping of tags to assign to the zone. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -365,7 +365,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -377,7 +377,7 @@ namespace Pulumi.Aws.Route53
         private InputList<Inputs.ZoneVpcGetArgs>? _vpcs;
 
         /// <summary>
-        /// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `aws.route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
+        /// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `DelegationSetId` argument in this resource and any `aws.route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
         /// </summary>
         public InputList<Inputs.ZoneVpcGetArgs> Vpcs
         {

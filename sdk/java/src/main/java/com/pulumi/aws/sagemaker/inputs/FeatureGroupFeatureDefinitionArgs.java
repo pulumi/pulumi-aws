@@ -31,14 +31,14 @@ public final class FeatureGroupFeatureDefinitionArgs extends com.pulumi.resource
     }
 
     /**
-     * The name of a feature. `feature_name` cannot be any of the following: `is_deleted`, `write_time`, `api_invocation_time`.
+     * The name of a feature. `featureName` cannot be any of the following: `isDeleted`, `writeTime`, `apiInvocationTime`.
      * 
      */
     @Import(name="featureName")
     private @Nullable Output<String> featureName;
 
     /**
-     * @return The name of a feature. `feature_name` cannot be any of the following: `is_deleted`, `write_time`, `api_invocation_time`.
+     * @return The name of a feature. `featureName` cannot be any of the following: `isDeleted`, `writeTime`, `apiInvocationTime`.
      * 
      */
     public Optional<Output<String>> featureName() {
@@ -106,7 +106,7 @@ public final class FeatureGroupFeatureDefinitionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param featureName The name of a feature. `feature_name` cannot be any of the following: `is_deleted`, `write_time`, `api_invocation_time`.
+         * @param featureName The name of a feature. `featureName` cannot be any of the following: `isDeleted`, `writeTime`, `apiInvocationTime`.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class FeatureGroupFeatureDefinitionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param featureName The name of a feature. `feature_name` cannot be any of the following: `is_deleted`, `write_time`, `api_invocation_time`.
+         * @param featureName The name of a feature. `featureName` cannot be any of the following: `isDeleted`, `writeTime`, `apiInvocationTime`.
          * 
          * @return builder
          * 

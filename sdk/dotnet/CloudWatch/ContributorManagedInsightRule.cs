@@ -14,6 +14,26 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Example Usage
     /// 
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.CloudWatch.ContributorManagedInsightRule("example", new()
+    ///     {
+    ///         ResourceArn = test.Arn,
+    ///         TemplateName = "VpcEndpointService-BytesByEndpointId-v1",
+    ///         RuleState = "DISABLED",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudWatch Contributor Managed Insight Rule using the `resource_arn`. For example:

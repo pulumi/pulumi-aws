@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Iot
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not to enable the destination. Default: `true`.
+        /// Whether or not to enable the destination. Default: `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -119,7 +119,7 @@ namespace Pulumi.Aws.Iot
     public sealed class TopicRuleDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether or not to enable the destination. Default: `true`.
+        /// Whether or not to enable the destination. Default: `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Iot
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Whether or not to enable the destination. Default: `true`.
+        /// Whether or not to enable the destination. Default: `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

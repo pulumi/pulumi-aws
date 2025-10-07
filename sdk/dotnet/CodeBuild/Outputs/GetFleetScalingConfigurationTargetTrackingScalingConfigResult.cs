@@ -18,7 +18,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// </summary>
         public readonly string MetricType;
         /// <summary>
-        /// The value of metric_type when to start scaling.
+        /// The value of MetricType when to start scaling.
         /// </summary>
         public readonly double TargetValue;
 

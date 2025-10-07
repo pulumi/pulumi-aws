@@ -17,7 +17,7 @@ namespace Pulumi.Aws.Lex.Inputs
 
         /// <summary>
         /// Value of the slot type entry.
-        /// See `sample_value` argument reference below.
+        /// See `SampleValue` argument reference below.
         /// </summary>
         public InputList<Inputs.V2modelsSlotTypeSlotTypeValueSampleValueGetArgs> SampleValues
         {
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Lex.Inputs
 
         /// <summary>
         /// A list of additional values related to the slot type entry.
-        /// See `synonyms` argument reference below.
+        /// See `Synonyms` argument reference below.
         /// </summary>
         public InputList<Inputs.V2modelsSlotTypeSlotTypeValueSynonymGetArgs> Synonyms
         {

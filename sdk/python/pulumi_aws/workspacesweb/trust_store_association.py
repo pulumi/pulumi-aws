@@ -149,6 +149,20 @@ class TrustStoreAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        example = aws.workspacesweb.Portal("example", display_name="example")
+        example_trust_store = aws.workspacesweb.TrustStore("example", certificate_list=[std.base64encode(input=std.file(input="certificate.pem").result).result])
+        example_trust_store_association = aws.workspacesweb.TrustStoreAssociation("example",
+            trust_store_arn=example_trust_store.trust_store_arn,
+            portal_arn=example.portal_arn)
+        ```
+
         ## Import
 
         Using `pulumi import`, import WorkSpaces Web Trust Store Association using the `trust_store_arn,portal_arn`. For example:
@@ -175,6 +189,20 @@ class TrustStoreAssociation(pulumi.CustomResource):
         Resource for managing an AWS WorkSpaces Web Trust Store Association.
 
         ## Example Usage
+
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        example = aws.workspacesweb.Portal("example", display_name="example")
+        example_trust_store = aws.workspacesweb.TrustStore("example", certificate_list=[std.base64encode(input=std.file(input="certificate.pem").result).result])
+        example_trust_store_association = aws.workspacesweb.TrustStoreAssociation("example",
+            trust_store_arn=example_trust_store.trust_store_arn,
+            portal_arn=example.portal_arn)
+        ```
 
         ## Import
 

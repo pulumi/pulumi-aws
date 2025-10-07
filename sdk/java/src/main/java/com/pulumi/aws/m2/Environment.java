@@ -25,6 +25,182 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Basic Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.m2.Environment;
+ * import com.pulumi.aws.m2.EnvironmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Environment("test", EnvironmentArgs.builder()
+ *             .name("test-env")
+ *             .engineType("bluage")
+ *             .instanceType("M2.m5.large")
+ *             .securityGroups(List.of("sg-01234567890abcdef"))
+ *             .subnetIds(            
+ *                 "subnet-01234567890abcdef",
+ *                 "subnet-01234567890abcdea")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### High Availability
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.m2.Environment;
+ * import com.pulumi.aws.m2.EnvironmentArgs;
+ * import com.pulumi.aws.m2.inputs.EnvironmentHighAvailabilityConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Environment("test", EnvironmentArgs.builder()
+ *             .name("test-env")
+ *             .engineType("bluage")
+ *             .instanceType("M2.m5.large")
+ *             .securityGroups(List.of("sg-01234567890abcdef"))
+ *             .subnetIds(            
+ *                 "subnet-01234567890abcdef",
+ *                 "subnet-01234567890abcdea")
+ *             .highAvailabilityConfig(EnvironmentHighAvailabilityConfigArgs.builder()
+ *                 .desiredCapacity(2)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### EFS Filesystem
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.m2.Environment;
+ * import com.pulumi.aws.m2.EnvironmentArgs;
+ * import com.pulumi.aws.m2.inputs.EnvironmentStorageConfigurationArgs;
+ * import com.pulumi.aws.m2.inputs.EnvironmentStorageConfigurationEfsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Environment("test", EnvironmentArgs.builder()
+ *             .name("test-env")
+ *             .engineType("bluage")
+ *             .instanceType("M2.m5.large")
+ *             .securityGroups(List.of("sg-01234567890abcdef"))
+ *             .subnetIds(            
+ *                 "subnet-01234567890abcdef",
+ *                 "subnet-01234567890abcdea")
+ *             .storageConfiguration(EnvironmentStorageConfigurationArgs.builder()
+ *                 .efs(EnvironmentStorageConfigurationEfsArgs.builder()
+ *                     .fileSystemId("fs-01234567890abcdef")
+ *                     .mountPoint("/m2/mount/example")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### FSX Filesystem
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.m2.Environment;
+ * import com.pulumi.aws.m2.EnvironmentArgs;
+ * import com.pulumi.aws.m2.inputs.EnvironmentStorageConfigurationArgs;
+ * import com.pulumi.aws.m2.inputs.EnvironmentStorageConfigurationFsxArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Environment("test", EnvironmentArgs.builder()
+ *             .name("test-env")
+ *             .engineType("bluage")
+ *             .instanceType("M2.m5.large")
+ *             .securityGroups(List.of("sg-01234567890abcdef"))
+ *             .subnetIds(            
+ *                 "subnet-01234567890abcdef",
+ *                 "subnet-01234567890abcdea")
+ *             .storageConfiguration(EnvironmentStorageConfigurationArgs.builder()
+ *                 .fsx(EnvironmentStorageConfigurationFsxArgs.builder()
+ *                     .fileSystemId("fs-01234567890abcdef")
+ *                     .mountPoint("/m2/mount/example")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Mainframe Modernization Environment using the `01234567890abcdef012345678`. For example:
@@ -261,14 +437,14 @@ public class Environment extends com.pulumi.resources.CustomResource {
         return this.subnetIds;
     }
     /**
-     * Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

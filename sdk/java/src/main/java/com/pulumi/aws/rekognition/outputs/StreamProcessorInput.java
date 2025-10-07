@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class StreamProcessorInput {
     /**
-     * @return Kinesis input stream. See `kinesis_video_stream`.
+     * @return Kinesis input stream. See `kinesisVideoStream`.
      * 
      */
     private @Nullable StreamProcessorInputKinesisVideoStream kinesisVideoStream;
 
     private StreamProcessorInput() {}
     /**
-     * @return Kinesis input stream. See `kinesis_video_stream`.
+     * @return Kinesis input stream. See `kinesisVideoStream`.
      * 
      */
     public Optional<StreamProcessorInputKinesisVideoStream> kinesisVideoStream() {

@@ -113,7 +113,7 @@ import javax.annotation.Nullable;
  * 
  * ### EKS Cluster with EKS Auto Mode
  * 
- * &gt; **NOTE:** When using EKS Auto Mode `compute_config.enabled`, `kubernetes_network_config.elastic_load_balancing.enabled`, and `storage_config.block_storage.enabled` must *ALL be set to `true`. Likewise for disabling EKS Auto Mode, all three arguments must be set to `false`. Enabling EKS Auto Mode also requires that `bootstrap_self_managed_addons` is set to `false`.
+ * &gt; **NOTE:** When using EKS Auto Mode `compute_config.enabled`, `kubernetes_network_config.elastic_load_balancing.enabled`, and `storage_config.block_storage.enabled` must *ALL be set to `true`. Likewise for disabling EKS Auto Mode, all three arguments must be set to `false`. Enabling EKS Auto Mode also requires that `bootstrapSelfManagedAddons` is set to `false`.
  * 
  * <pre>
  * {@code
@@ -559,10 +559,10 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     }
     /**
      * @deprecated
-     * Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider
+     * Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
      * 
      */
-    @Deprecated /* Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider */
+    @Deprecated /* Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider */
     @Export(name="defaultAddonsToRemoves", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> defaultAddonsToRemoves;
 
@@ -738,14 +738,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.remoteNetworkConfig);
     }
     /**
-     * ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
+     * ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `dependsOn` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
+     * @return ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `dependsOn` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
      * 
      */
     public Output<String> roleArn() {
@@ -780,42 +780,42 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.storageConfig;
     }
     /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
+     * Configuration block for the support policy to use for the cluster.  See upgradePolicy for details.
      * 
      */
     @Export(name="upgradePolicy", refs={ClusterUpgradePolicy.class}, tree="[0]")
     private Output<ClusterUpgradePolicy> upgradePolicy;
 
     /**
-     * @return Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
+     * @return Configuration block for the support policy to use for the cluster.  See upgradePolicy for details.
      * 
      */
     public Output<ClusterUpgradePolicy> upgradePolicy() {

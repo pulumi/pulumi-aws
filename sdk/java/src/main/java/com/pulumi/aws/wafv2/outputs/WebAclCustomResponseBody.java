@@ -21,7 +21,7 @@ public final class WebAclCustomResponseBody {
      */
     private String contentType;
     /**
-     * @return Unique key identifying the custom response body. This is referenced by the `custom_response_body_key` argument in the `custom_response` block.
+     * @return Unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the `customResponse` block.
      * 
      */
     private String key;
@@ -42,7 +42,7 @@ public final class WebAclCustomResponseBody {
         return this.contentType;
     }
     /**
-     * @return Unique key identifying the custom response body. This is referenced by the `custom_response_body_key` argument in the `custom_response` block.
+     * @return Unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the `customResponse` block.
      * 
      */
     public String key() {

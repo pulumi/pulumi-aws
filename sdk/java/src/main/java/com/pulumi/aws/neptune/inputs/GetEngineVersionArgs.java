@@ -18,14 +18,14 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
     public static final GetEngineVersionArgs Empty = new GetEngineVersionArgs();
 
     /**
-     * Whether to return only default engine versions that match all other criteria. AWS may define multiple default versions for a given engine, so using `default_only` alone does not guarantee that only one version will be returned. To ensure a single version is selected, consider combining this with `latest`. Note that default versions are defined by AWS and may not reflect the most recent engine version available.
+     * Whether to return only default engine versions that match all other criteria. AWS may define multiple default versions for a given engine, so using `defaultOnly` alone does not guarantee that only one version will be returned. To ensure a single version is selected, consider combining this with `latest`. Note that default versions are defined by AWS and may not reflect the most recent engine version available.
      * 
      */
     @Import(name="defaultOnly")
     private @Nullable Output<Boolean> defaultOnly;
 
     /**
-     * @return Whether to return only default engine versions that match all other criteria. AWS may define multiple default versions for a given engine, so using `default_only` alone does not guarantee that only one version will be returned. To ensure a single version is selected, consider combining this with `latest`. Note that default versions are defined by AWS and may not reflect the most recent engine version available.
+     * @return Whether to return only default engine versions that match all other criteria. AWS may define multiple default versions for a given engine, so using `defaultOnly` alone does not guarantee that only one version will be returned. To ensure a single version is selected, consider combining this with `latest`. Note that default versions are defined by AWS and may not reflect the most recent engine version available.
      * 
      */
     public Optional<Output<Boolean>> defaultOnly() {
@@ -78,14 +78,14 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * Whether to return only the latest engine version that matches all other criteria. This differs from `default_only`: AWS may define multiple defaults, and the latest version is not always marked as the default. As a result, `default_only` may still return multiple versions, while `latest` selects a single version. The two options can be used together. **Note:** This argument uses a best-effort approach. Because AWS does not consistently provide version dates or standardized identifiers, the result may not always reflect the true latest version.
+     * Whether to return only the latest engine version that matches all other criteria. This differs from `defaultOnly`: AWS may define multiple defaults, and the latest version is not always marked as the default. As a result, `defaultOnly` may still return multiple versions, while `latest` selects a single version. The two options can be used together. **Note:** This argument uses a best-effort approach. Because AWS does not consistently provide version dates or standardized identifiers, the result may not always reflect the true latest version.
      * 
      */
     @Import(name="latest")
     private @Nullable Output<Boolean> latest;
 
     /**
-     * @return Whether to return only the latest engine version that matches all other criteria. This differs from `default_only`: AWS may define multiple defaults, and the latest version is not always marked as the default. As a result, `default_only` may still return multiple versions, while `latest` selects a single version. The two options can be used together. **Note:** This argument uses a best-effort approach. Because AWS does not consistently provide version dates or standardized identifiers, the result may not always reflect the true latest version.
+     * @return Whether to return only the latest engine version that matches all other criteria. This differs from `defaultOnly`: AWS may define multiple defaults, and the latest version is not always marked as the default. As a result, `defaultOnly` may still return multiple versions, while `latest` selects a single version. The two options can be used together. **Note:** This argument uses a best-effort approach. Because AWS does not consistently provide version dates or standardized identifiers, the result may not always reflect the true latest version.
      * 
      */
     public Optional<Output<Boolean>> latest() {
@@ -138,14 +138,14 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+     * Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
      * 
      */
     @Import(name="preferredVersions")
     private @Nullable Output<List<String>> preferredVersions;
 
     /**
-     * @return Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+     * @return Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
      * 
      */
     public Optional<Output<List<String>>> preferredVersions() {
@@ -168,14 +168,14 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+     * Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
      * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
 
     /**
-     * @return Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+     * @return Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
      * 
      */
     public Optional<Output<String>> version() {
@@ -217,7 +217,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param defaultOnly Whether to return only default engine versions that match all other criteria. AWS may define multiple default versions for a given engine, so using `default_only` alone does not guarantee that only one version will be returned. To ensure a single version is selected, consider combining this with `latest`. Note that default versions are defined by AWS and may not reflect the most recent engine version available.
+         * @param defaultOnly Whether to return only default engine versions that match all other criteria. AWS may define multiple default versions for a given engine, so using `defaultOnly` alone does not guarantee that only one version will be returned. To ensure a single version is selected, consider combining this with `latest`. Note that default versions are defined by AWS and may not reflect the most recent engine version available.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param defaultOnly Whether to return only default engine versions that match all other criteria. AWS may define multiple default versions for a given engine, so using `default_only` alone does not guarantee that only one version will be returned. To ensure a single version is selected, consider combining this with `latest`. Note that default versions are defined by AWS and may not reflect the most recent engine version available.
+         * @param defaultOnly Whether to return only default engine versions that match all other criteria. AWS may define multiple default versions for a given engine, so using `defaultOnly` alone does not guarantee that only one version will be returned. To ensure a single version is selected, consider combining this with `latest`. Note that default versions are defined by AWS and may not reflect the most recent engine version available.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param latest Whether to return only the latest engine version that matches all other criteria. This differs from `default_only`: AWS may define multiple defaults, and the latest version is not always marked as the default. As a result, `default_only` may still return multiple versions, while `latest` selects a single version. The two options can be used together. **Note:** This argument uses a best-effort approach. Because AWS does not consistently provide version dates or standardized identifiers, the result may not always reflect the true latest version.
+         * @param latest Whether to return only the latest engine version that matches all other criteria. This differs from `defaultOnly`: AWS may define multiple defaults, and the latest version is not always marked as the default. As a result, `defaultOnly` may still return multiple versions, while `latest` selects a single version. The two options can be used together. **Note:** This argument uses a best-effort approach. Because AWS does not consistently provide version dates or standardized identifiers, the result may not always reflect the true latest version.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param latest Whether to return only the latest engine version that matches all other criteria. This differs from `default_only`: AWS may define multiple defaults, and the latest version is not always marked as the default. As a result, `default_only` may still return multiple versions, while `latest` selects a single version. The two options can be used together. **Note:** This argument uses a best-effort approach. Because AWS does not consistently provide version dates or standardized identifiers, the result may not always reflect the true latest version.
+         * @param latest Whether to return only the latest engine version that matches all other criteria. This differs from `defaultOnly`: AWS may define multiple defaults, and the latest version is not always marked as the default. As a result, `defaultOnly` may still return multiple versions, while `latest` selects a single version. The two options can be used together. **Note:** This argument uses a best-effort approach. Because AWS does not consistently provide version dates or standardized identifiers, the result may not always reflect the true latest version.
          * 
          * @return builder
          * 
@@ -405,7 +405,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param preferredVersions Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+         * @param preferredVersions Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param preferredVersions Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+         * @param preferredVersions Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
          * 
          * @return builder
          * 
@@ -426,7 +426,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param preferredVersions Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+         * @param preferredVersions Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
          * 
          * @return builder
          * 
@@ -457,7 +457,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param version Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+         * @param version Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
          * 
          * @return builder
          * 
@@ -468,7 +468,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param version Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+         * @param version Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
          * 
          * @return builder
          * 

@@ -20,14 +20,14 @@ public final class BucketReplicationConfigurationRuleDestinationArgs extends com
     public static final BucketReplicationConfigurationRuleDestinationArgs Empty = new BucketReplicationConfigurationRuleDestinationArgs();
 
     /**
-     * Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
+     * Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `accountId` owner override configuration.
      * 
      */
     @Import(name="accessControlTranslation")
     private @Nullable Output<BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs> accessControlTranslation;
 
     /**
-     * @return Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
+     * @return Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `accountId` owner override configuration.
      * 
      */
     public Optional<Output<BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs>> accessControlTranslation() {
@@ -35,14 +35,14 @@ public final class BucketReplicationConfigurationRuleDestinationArgs extends com
     }
 
     /**
-     * Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
+     * Account ID to use for overriding the object owner on replication. Must be used in conjunction with `accessControlTranslation` override configuration.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
+     * @return Account ID to use for overriding the object owner on replication. Must be used in conjunction with `accessControlTranslation` override configuration.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -81,7 +81,7 @@ public final class BucketReplicationConfigurationRuleDestinationArgs extends com
 
     /**
      * Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
-     * `sse_kms_encrypted_objects` source selection criteria.
+     * `sseKmsEncryptedObjects` source selection criteria.
      * 
      */
     @Import(name="replicaKmsKeyId")
@@ -89,7 +89,7 @@ public final class BucketReplicationConfigurationRuleDestinationArgs extends com
 
     /**
      * @return Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
-     * `sse_kms_encrypted_objects` source selection criteria.
+     * `sseKmsEncryptedObjects` source selection criteria.
      * 
      */
     public Optional<Output<String>> replicaKmsKeyId() {
@@ -157,7 +157,7 @@ public final class BucketReplicationConfigurationRuleDestinationArgs extends com
         }
 
         /**
-         * @param accessControlTranslation Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
+         * @param accessControlTranslation Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `accountId` owner override configuration.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class BucketReplicationConfigurationRuleDestinationArgs extends com
         }
 
         /**
-         * @param accessControlTranslation Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
+         * @param accessControlTranslation Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `accountId` owner override configuration.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class BucketReplicationConfigurationRuleDestinationArgs extends com
         }
 
         /**
-         * @param accountId Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
+         * @param accountId Account ID to use for overriding the object owner on replication. Must be used in conjunction with `accessControlTranslation` override configuration.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class BucketReplicationConfigurationRuleDestinationArgs extends com
         }
 
         /**
-         * @param accountId Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
+         * @param accountId Account ID to use for overriding the object owner on replication. Must be used in conjunction with `accessControlTranslation` override configuration.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class BucketReplicationConfigurationRuleDestinationArgs extends com
 
         /**
          * @param replicaKmsKeyId Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
-         * `sse_kms_encrypted_objects` source selection criteria.
+         * `sseKmsEncryptedObjects` source selection criteria.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class BucketReplicationConfigurationRuleDestinationArgs extends com
 
         /**
          * @param replicaKmsKeyId Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
-         * `sse_kms_encrypted_objects` source selection criteria.
+         * `sseKmsEncryptedObjects` source selection criteria.
          * 
          * @return builder
          * 

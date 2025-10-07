@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Ecs.Outputs
     public sealed class ServiceVolumeConfigurationManagedEbsVolume
     {
         /// <summary>
-        /// Whether the volume should be encrypted. Default value is `true`.
+        /// Whether the volume should be encrypted. Default value is `True`.
         /// </summary>
         public readonly bool? Encrypted;
         /// <summary>
-        /// Linux filesystem type for the volume. For volumes created from a snapshot, same filesystem type must be specified that the volume was using when the snapshot was created. Valid values are `ext3`, `ext4`, `xfs`. Default value is `xfs`.
+        /// Linux filesystem type for the volume. For volumes created from a snapshot, same filesystem type must be specified that the volume was using when the snapshot was created. Valid values are `Ext3`, `Ext4`, `Xfs`. Default value is `Xfs`.
         /// </summary>
         public readonly string? FileSystemType;
         /// <summary>
@@ -34,11 +34,11 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly string RoleArn;
         /// <summary>
-        /// Size of the volume in GiB. You must specify either a `size_in_gb` or a `snapshot_id`. You can optionally specify a volume size greater than or equal to the snapshot size.
+        /// Size of the volume in GiB. You must specify either a `SizeInGb` or a `SnapshotId`. You can optionally specify a volume size greater than or equal to the snapshot size.
         /// </summary>
         public readonly int? SizeInGb;
         /// <summary>
-        /// Snapshot that Amazon ECS uses to create the volume. You must specify either a `size_in_gb` or a `snapshot_id`.
+        /// Snapshot that Amazon ECS uses to create the volume. You must specify either a `SizeInGb` or a `SnapshotId`.
         /// </summary>
         public readonly string? SnapshotId;
         /// <summary>
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly int? Throughput;
         /// <summary>
-        /// Volume Initialization Rate in MiB/s. You must also specify a `snapshot_id`.
+        /// Volume Initialization Rate in MiB/s. You must also specify a `SnapshotId`.
         /// </summary>
         public readonly int? VolumeInitializationRate;
         /// <summary>

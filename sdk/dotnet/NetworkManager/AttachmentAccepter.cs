@@ -145,13 +145,13 @@ namespace Pulumi.Aws.NetworkManager
         public Output<string> CoreNetworkId { get; private set; } = null!;
 
         /// <summary>
-        /// Region where the edge is located. This is returned for all attachment types except Direct Connect gateway attachments, which instead return `edge_locations`.
+        /// Region where the edge is located. This is returned for all attachment types except Direct Connect gateway attachments, which instead return `EdgeLocations`.
         /// </summary>
         [Output("edgeLocation")]
         public Output<string> EdgeLocation { get; private set; } = null!;
 
         /// <summary>
-        /// Edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`.
+        /// Edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `EdgeLocation`.
         /// </summary>
         [Output("edgeLocations")]
         public Output<ImmutableArray<string>> EdgeLocations { get; private set; } = null!;
@@ -277,7 +277,7 @@ namespace Pulumi.Aws.NetworkManager
         public Input<string>? CoreNetworkId { get; set; }
 
         /// <summary>
-        /// Region where the edge is located. This is returned for all attachment types except Direct Connect gateway attachments, which instead return `edge_locations`.
+        /// Region where the edge is located. This is returned for all attachment types except Direct Connect gateway attachments, which instead return `EdgeLocations`.
         /// </summary>
         [Input("edgeLocation")]
         public Input<string>? EdgeLocation { get; set; }
@@ -286,7 +286,7 @@ namespace Pulumi.Aws.NetworkManager
         private InputList<string>? _edgeLocations;
 
         /// <summary>
-        /// Edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`.
+        /// Edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `EdgeLocation`.
         /// </summary>
         public InputList<string> EdgeLocations
         {

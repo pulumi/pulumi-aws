@@ -184,7 +184,7 @@ namespace Pulumi.Aws.Mwaa
     public partial class Environment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The `airflow_configuration_options` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
+        /// The `AirflowConfigurationOptions` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
         /// </summary>
         [Output("airflowConfigurationOptions")]
         public Output<ImmutableDictionary<string, string>?> AirflowConfigurationOptions { get; private set; } = null!;
@@ -248,13 +248,13 @@ namespace Pulumi.Aws.Mwaa
         public Output<ImmutableArray<Outputs.EnvironmentLastUpdated>> LastUpdateds { get; private set; } = null!;
 
         /// <summary>
-        /// The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
+        /// The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `LoggingConfiguration` Block for details.
         /// </summary>
         [Output("loggingConfiguration")]
         public Output<Outputs.EnvironmentLoggingConfiguration> LoggingConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
+        /// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `EnvironmentClass` is not `mw1.micro`, `1` otherwise.
         /// </summary>
         [Output("maxWebservers")]
         public Output<int> MaxWebservers { get; private set; } = null!;
@@ -266,7 +266,7 @@ namespace Pulumi.Aws.Mwaa
         public Output<int> MaxWorkers { get; private set; } = null!;
 
         /// <summary>
-        /// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
+        /// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `EnvironmentClass` is not `mw1.micro`, `1` otherwise.
         /// </summary>
         [Output("minWebservers")]
         public Output<int> MinWebservers { get; private set; } = null!;
@@ -284,7 +284,7 @@ namespace Pulumi.Aws.Mwaa
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
+        /// Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `NetworkConfiguration` Block for details.
         /// </summary>
         [Output("networkConfiguration")]
         public Output<Outputs.EnvironmentNetworkConfiguration> NetworkConfiguration { get; private set; } = null!;
@@ -296,7 +296,7 @@ namespace Pulumi.Aws.Mwaa
         public Output<string> PluginsS3ObjectVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then plugins_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        /// The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then PluginsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         /// </summary>
         [Output("pluginsS3Path")]
         public Output<string?> PluginsS3Path { get; private set; } = null!;
@@ -314,7 +314,7 @@ namespace Pulumi.Aws.Mwaa
         public Output<string> RequirementsS3ObjectVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        /// The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then RequirementsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         /// </summary>
         [Output("requirementsS3Path")]
         public Output<string?> RequirementsS3Path { get; private set; } = null!;
@@ -356,13 +356,13 @@ namespace Pulumi.Aws.Mwaa
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of resource tags to associate with the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -451,7 +451,7 @@ namespace Pulumi.Aws.Mwaa
         private InputMap<string>? _airflowConfigurationOptions;
 
         /// <summary>
-        /// The `airflow_configuration_options` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
+        /// The `AirflowConfigurationOptions` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
         /// </summary>
         public InputMap<string> AirflowConfigurationOptions
         {
@@ -500,13 +500,13 @@ namespace Pulumi.Aws.Mwaa
         public Input<string>? KmsKey { get; set; }
 
         /// <summary>
-        /// The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
+        /// The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `LoggingConfiguration` Block for details.
         /// </summary>
         [Input("loggingConfiguration")]
         public Input<Inputs.EnvironmentLoggingConfigurationArgs>? LoggingConfiguration { get; set; }
 
         /// <summary>
-        /// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
+        /// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `EnvironmentClass` is not `mw1.micro`, `1` otherwise.
         /// </summary>
         [Input("maxWebservers")]
         public Input<int>? MaxWebservers { get; set; }
@@ -518,7 +518,7 @@ namespace Pulumi.Aws.Mwaa
         public Input<int>? MaxWorkers { get; set; }
 
         /// <summary>
-        /// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
+        /// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `EnvironmentClass` is not `mw1.micro`, `1` otherwise.
         /// </summary>
         [Input("minWebservers")]
         public Input<int>? MinWebservers { get; set; }
@@ -536,7 +536,7 @@ namespace Pulumi.Aws.Mwaa
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
+        /// Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `NetworkConfiguration` Block for details.
         /// </summary>
         [Input("networkConfiguration", required: true)]
         public Input<Inputs.EnvironmentNetworkConfigurationArgs> NetworkConfiguration { get; set; } = null!;
@@ -548,7 +548,7 @@ namespace Pulumi.Aws.Mwaa
         public Input<string>? PluginsS3ObjectVersion { get; set; }
 
         /// <summary>
-        /// The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then plugins_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        /// The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then PluginsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         /// </summary>
         [Input("pluginsS3Path")]
         public Input<string>? PluginsS3Path { get; set; }
@@ -566,7 +566,7 @@ namespace Pulumi.Aws.Mwaa
         public Input<string>? RequirementsS3ObjectVersion { get; set; }
 
         /// <summary>
-        /// The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        /// The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then RequirementsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         /// </summary>
         [Input("requirementsS3Path")]
         public Input<string>? RequirementsS3Path { get; set; }
@@ -599,7 +599,7 @@ namespace Pulumi.Aws.Mwaa
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of resource tags to associate with the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -637,7 +637,7 @@ namespace Pulumi.Aws.Mwaa
         private InputMap<string>? _airflowConfigurationOptions;
 
         /// <summary>
-        /// The `airflow_configuration_options` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
+        /// The `AirflowConfigurationOptions` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
         /// </summary>
         public InputMap<string> AirflowConfigurationOptions
         {
@@ -713,13 +713,13 @@ namespace Pulumi.Aws.Mwaa
         }
 
         /// <summary>
-        /// The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
+        /// The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `LoggingConfiguration` Block for details.
         /// </summary>
         [Input("loggingConfiguration")]
         public Input<Inputs.EnvironmentLoggingConfigurationGetArgs>? LoggingConfiguration { get; set; }
 
         /// <summary>
-        /// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
+        /// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `EnvironmentClass` is not `mw1.micro`, `1` otherwise.
         /// </summary>
         [Input("maxWebservers")]
         public Input<int>? MaxWebservers { get; set; }
@@ -731,7 +731,7 @@ namespace Pulumi.Aws.Mwaa
         public Input<int>? MaxWorkers { get; set; }
 
         /// <summary>
-        /// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
+        /// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `EnvironmentClass` is not `mw1.micro`, `1` otherwise.
         /// </summary>
         [Input("minWebservers")]
         public Input<int>? MinWebservers { get; set; }
@@ -749,7 +749,7 @@ namespace Pulumi.Aws.Mwaa
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
+        /// Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `NetworkConfiguration` Block for details.
         /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.EnvironmentNetworkConfigurationGetArgs>? NetworkConfiguration { get; set; }
@@ -761,7 +761,7 @@ namespace Pulumi.Aws.Mwaa
         public Input<string>? PluginsS3ObjectVersion { get; set; }
 
         /// <summary>
-        /// The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then plugins_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        /// The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then PluginsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         /// </summary>
         [Input("pluginsS3Path")]
         public Input<string>? PluginsS3Path { get; set; }
@@ -779,7 +779,7 @@ namespace Pulumi.Aws.Mwaa
         public Input<string>? RequirementsS3ObjectVersion { get; set; }
 
         /// <summary>
-        /// The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        /// The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then RequirementsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         /// </summary>
         [Input("requirementsS3Path")]
         public Input<string>? RequirementsS3Path { get; set; }
@@ -824,7 +824,7 @@ namespace Pulumi.Aws.Mwaa
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of resource tags to associate with the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -836,7 +836,7 @@ namespace Pulumi.Aws.Mwaa
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

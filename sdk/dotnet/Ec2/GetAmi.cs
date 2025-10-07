@@ -200,7 +200,7 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// If true, allow unsafe filter values. With unsafe
-        /// filters and `most_recent` set to `true`, a third party may introduce a new image which
+        /// filters and `MostRecent` set to `True`, a third party may introduce a new image which
         /// will be returned by this data source. Consider filtering by owner or image ID rather
         /// than setting this argument.
         /// </summary>
@@ -212,7 +212,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Limit search to users with *explicit* launch permission on
-        /// the image. Valid items are the numeric account ID or `self`.
+        /// the image. Valid items are the numeric account ID or `Self`.
         /// </summary>
         public List<string> ExecutableUsers
         {
@@ -256,7 +256,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// &gt; **NOTE:** If more or less than a single match is returned by the search,
         /// this call will fail. Ensure that your search is specific enough to return
-        /// a single AMI ID only, or use `most_recent` to choose the most recent one. If
+        /// a single AMI ID only, or use `MostRecent` to choose the most recent one. If
         /// you want to match multiple AMIs, use the `aws.ec2.getAmiIds` data source instead.
         /// </summary>
         [Input("nameRegex")]
@@ -266,7 +266,7 @@ namespace Pulumi.Aws.Ec2
         private List<string>? _owners;
 
         /// <summary>
-        /// List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
+        /// List of AMI owners to limit search. Valid values: an AWS account ID, `Self` (the current account), or an AWS owner alias (e.g., `Amazon`, `aws-marketplace`, `Microsoft`).
         /// </summary>
         public List<string> Owners
         {
@@ -310,7 +310,7 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// If true, allow unsafe filter values. With unsafe
-        /// filters and `most_recent` set to `true`, a third party may introduce a new image which
+        /// filters and `MostRecent` set to `True`, a third party may introduce a new image which
         /// will be returned by this data source. Consider filtering by owner or image ID rather
         /// than setting this argument.
         /// </summary>
@@ -322,7 +322,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Limit search to users with *explicit* launch permission on
-        /// the image. Valid items are the numeric account ID or `self`.
+        /// the image. Valid items are the numeric account ID or `Self`.
         /// </summary>
         public InputList<string> ExecutableUsers
         {
@@ -366,7 +366,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// &gt; **NOTE:** If more or less than a single match is returned by the search,
         /// this call will fail. Ensure that your search is specific enough to return
-        /// a single AMI ID only, or use `most_recent` to choose the most recent one. If
+        /// a single AMI ID only, or use `MostRecent` to choose the most recent one. If
         /// you want to match multiple AMIs, use the `aws.ec2.getAmiIds` data source instead.
         /// </summary>
         [Input("nameRegex")]
@@ -376,7 +376,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _owners;
 
         /// <summary>
-        /// List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
+        /// List of AMI owners to limit search. Valid values: an AWS account ID, `Self` (the current account), or an AWS owner alias (e.g., `Amazon`, `aws-marketplace`, `Microsoft`).
         /// </summary>
         public InputList<string> Owners
         {
@@ -422,7 +422,7 @@ namespace Pulumi.Aws.Ec2
     {
         public readonly bool? AllowUnsafeFilter;
         /// <summary>
-        /// OS architecture of the AMI (ie: `i386` or `x86_64`).
+        /// OS architecture of the AMI (ie: `I386` or `X8664`).
         /// </summary>
         public readonly string Architecture;
         /// <summary>
@@ -465,7 +465,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// ID of the AMI. Should be the same as the resource `id`.
+        /// ID of the AMI. Should be the same as the resource `Id`.
         /// </summary>
         public readonly string ImageId;
         /// <summary>
@@ -473,7 +473,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string ImageLocation;
         /// <summary>
-        /// AWS account alias (for example, `amazon`, `self`) or
+        /// AWS account alias (for example, `Amazon`, `Self`) or
         /// the AWS account ID of the AMI owner.
         /// </summary>
         public readonly string ImageOwnerAlias;
@@ -521,7 +521,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAmiProductCodeResult> ProductCodes;
         /// <summary>
-        /// `true` if the image has public launch permissions.
+        /// `True` if the image has public launch permissions.
         /// </summary>
         public readonly bool Public;
         /// <summary>
@@ -535,12 +535,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string RootDeviceName;
         /// <summary>
-        /// Type of root device (ie: `ebs` or `instance-store`).
+        /// Type of root device (ie: `Ebs` or `instance-store`).
         /// </summary>
         public readonly string RootDeviceType;
         /// <summary>
         /// Snapshot id associated with the root device, if any
-        /// (only applies to `ebs` root devices).
+        /// (only applies to `Ebs` root devices).
         /// </summary>
         public readonly string RootSnapshotId;
         /// <summary>
@@ -548,7 +548,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string SriovNetSupport;
         /// <summary>
-        /// Current state of the AMI. If the state is `available`, the image
+        /// Current state of the AMI. If the state is `Available`, the image
         /// is successfully registered and can be used to launch an instance.
         /// </summary>
         public readonly string State;
@@ -575,8 +575,8 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string UsageOperation;
         /// <summary>
-        /// Type of virtualization of the AMI (ie: `hvm` or
-        /// `paravirtual`).
+        /// Type of virtualization of the AMI (ie: `Hvm` or
+        /// `Paravirtual`).
         /// </summary>
         public readonly string VirtualizationType;
 

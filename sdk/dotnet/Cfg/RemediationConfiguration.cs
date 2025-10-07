@@ -95,7 +95,7 @@ namespace Pulumi.Aws.Cfg
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Remediation is triggered automatically if `true`.
+        /// Remediation is triggered automatically if `True`.
         /// </summary>
         [Output("automatic")]
         public Output<bool?> Automatic { get; private set; } = null!;
@@ -209,7 +209,7 @@ namespace Pulumi.Aws.Cfg
     public sealed class RemediationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Remediation is triggered automatically if `true`.
+        /// Remediation is triggered automatically if `True`.
         /// </summary>
         [Input("automatic")]
         public Input<bool>? Automatic { get; set; }
@@ -297,7 +297,7 @@ namespace Pulumi.Aws.Cfg
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Remediation is triggered automatically if `true`.
+        /// Remediation is triggered automatically if `True`.
         /// </summary>
         [Input("automatic")]
         public Input<bool>? Automatic { get; set; }

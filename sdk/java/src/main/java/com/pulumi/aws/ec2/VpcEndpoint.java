@@ -24,10 +24,10 @@ import javax.annotation.Nullable;
  * Provides a VPC Endpoint resource.
  * 
  * &gt; **NOTE on VPC Endpoints and VPC Endpoint Associations:** The provider provides both standalone VPC Endpoint Associations for
- * Route Tables - (an association between a VPC endpoint and a single `route_table_id`),
- * Security Groups - (an association between a VPC endpoint and a single `security_group_id`),
- * and Subnets - (an association between a VPC endpoint and a single `subnet_id`) and
- * a VPC Endpoint resource with `route_table_ids` and `subnet_ids` attributes.
+ * Route Tables - (an association between a VPC endpoint and a single `routeTableId`),
+ * Security Groups - (an association between a VPC endpoint and a single `securityGroupId`),
+ * and Subnets - (an association between a VPC endpoint and a single `subnetId`) and
+ * a VPC Endpoint resource with `routeTableIds` and `subnetIds` attributes.
  * Do not use the same resource ID in both a VPC Endpoint resource and a VPC Endpoint Association resource.
  * Doing so will cause a conflict of associations and will overwrite the association.
  * 
@@ -308,6 +308,84 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Non-AWS Service
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.VpcEndpoint;
+ * import com.pulumi.aws.ec2.VpcEndpointArgs;
+ * import com.pulumi.aws.route53.Route53Functions;
+ * import com.pulumi.aws.route53.inputs.GetZoneArgs;
+ * import com.pulumi.aws.route53.Record;
+ * import com.pulumi.aws.route53.RecordArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var ptfeService = new VpcEndpoint("ptfeService", VpcEndpointArgs.builder()
+ *             .vpcId(vpcId)
+ *             .serviceName(ptfeServiceConfig)
+ *             .vpcEndpointType("Interface")
+ *             .securityGroupIds(ptfeServiceAwsSecurityGroup.id())
+ *             .subnetIds(subnetIds)
+ *             .privateDnsEnabled(false)
+ *             .build());
+ * 
+ *         final var internal = Route53Functions.getZone(GetZoneArgs.builder()
+ *             .name("vpc.internal.")
+ *             .privateZone(true)
+ *             .vpcId(vpcId)
+ *             .build());
+ * 
+ *         var ptfeServiceRecord = new Record("ptfeServiceRecord", RecordArgs.builder()
+ *             .zoneId(internal.zoneId())
+ *             .name(String.format("ptfe.%s", internal.name()))
+ *             .type("CNAME")
+ *             .ttl(300)
+ *             .records(ptfeService.dnsEntries().applyValue(_dnsEntries -> _dnsEntries[0].dns_name()))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * &gt; **NOTE The `dnsEntry` output is a list of maps:** This provider interpolation support for lists of maps requires the `lookup` and `[]` until full support of lists of maps is available
+ * 
+ * ## Import
+ * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `id` - (String) ID of the VPC endpoint.
+ * 
+ * #### Optional
+ * 
+ * * `account_id` (String) AWS Account where this resource is managed.
+ * 
+ * * `region` (String) Region where this resource is managed.
+ * 
+ * Using `pulumi import`, import VPC Endpoints using the VPC endpoint `id`. For example:
+ * 
+ * console
+ * 
+ * % pulumi import aws_vpc_endpoint.example vpce-3ecf2a57
+ * 
  */
 @ResourceType(type="aws:ec2/vpcEndpoint:VpcEndpoint")
 public class VpcEndpoint extends com.pulumi.resources.CustomResource {
@@ -368,14 +446,14 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
         return this.dnsEntries;
     }
     /**
-     * The DNS options for the endpoint. See dns_options below.
+     * The DNS options for the endpoint. See dnsOptions below.
      * 
      */
     @Export(name="dnsOptions", refs={VpcEndpointDnsOptions.class}, tree="[0]")
     private Output<VpcEndpointDnsOptions> dnsOptions;
 
     /**
-     * @return The DNS options for the endpoint. See dns_options below.
+     * @return The DNS options for the endpoint. See dnsOptions below.
      * 
      */
     public Output<VpcEndpointDnsOptions> dnsOptions() {
@@ -496,14 +574,14 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
         return this.requesterManaged;
     }
     /**
-     * The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+     * The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
      * 
      */
     @Export(name="resourceConfigurationArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resourceConfigurationArn;
 
     /**
-     * @return The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+     * @return The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
      * 
      */
     public Output<Optional<String>> resourceConfigurationArn() {
@@ -540,28 +618,28 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
         return this.securityGroupIds;
     }
     /**
-     * The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+     * The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
      * 
      */
     @Export(name="serviceName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> serviceName;
 
     /**
-     * @return The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+     * @return The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
      * 
      */
     public Output<Optional<String>> serviceName() {
         return Codegen.optional(this.serviceName);
     }
     /**
-     * The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+     * The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
      * 
      */
     @Export(name="serviceNetworkArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> serviceNetworkArn;
 
     /**
-     * @return The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+     * @return The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
      * 
      */
     public Output<Optional<String>> serviceNetworkArn() {
@@ -596,14 +674,14 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
         return this.state;
     }
     /**
-     * Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
+     * Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnetConfiguration below.
      * 
      */
     @Export(name="subnetConfigurations", refs={List.class,VpcEndpointSubnetConfiguration.class}, tree="[0,1]")
     private Output<List<VpcEndpointSubnetConfiguration>> subnetConfigurations;
 
     /**
-     * @return Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
+     * @return Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnetConfiguration below.
      * 
      */
     public Output<List<VpcEndpointSubnetConfiguration>> subnetConfigurations() {
@@ -624,28 +702,28 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
         return this.subnetIds;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

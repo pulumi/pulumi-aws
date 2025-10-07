@@ -452,7 +452,7 @@ namespace Pulumi.Aws.Dlm
         public Output<string> ExecutionRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// See the `policy_details` configuration block. Max of 1.
+        /// See the `PolicyDetails` configuration block. Max of 1.
         /// </summary>
         [Output("policyDetails")]
         public Output<Outputs.LifecyclePolicyPolicyDetails> PolicyDetails { get; private set; } = null!;
@@ -470,13 +470,13 @@ namespace Pulumi.Aws.Dlm
         public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -546,7 +546,7 @@ namespace Pulumi.Aws.Dlm
         public Input<string> ExecutionRoleArn { get; set; } = null!;
 
         /// <summary>
-        /// See the `policy_details` configuration block. Max of 1.
+        /// See the `PolicyDetails` configuration block. Max of 1.
         /// </summary>
         [Input("policyDetails", required: true)]
         public Input<Inputs.LifecyclePolicyPolicyDetailsArgs> PolicyDetails { get; set; } = null!;
@@ -567,7 +567,7 @@ namespace Pulumi.Aws.Dlm
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -608,7 +608,7 @@ namespace Pulumi.Aws.Dlm
         public Input<string>? ExecutionRoleArn { get; set; }
 
         /// <summary>
-        /// See the `policy_details` configuration block. Max of 1.
+        /// See the `PolicyDetails` configuration block. Max of 1.
         /// </summary>
         [Input("policyDetails")]
         public Input<Inputs.LifecyclePolicyPolicyDetailsGetArgs>? PolicyDetails { get; set; }
@@ -629,7 +629,7 @@ namespace Pulumi.Aws.Dlm
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -641,7 +641,7 @@ namespace Pulumi.Aws.Dlm
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

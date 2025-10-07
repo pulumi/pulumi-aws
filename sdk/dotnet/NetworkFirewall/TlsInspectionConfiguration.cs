@@ -261,6 +261,97 @@ namespace Pulumi.Aws.NetworkFirewall
     /// });
     /// ```
     /// 
+    /// ### Outbound with encryption configuration
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Kms.Key("example", new()
+    ///     {
+    ///         Description = "example",
+    ///         DeletionWindowInDays = 7,
+    ///     });
+    /// 
+    ///     var exampleTlsInspectionConfiguration = new Aws.NetworkFirewall.TlsInspectionConfiguration("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         Description = "example",
+    ///         EncryptionConfigurations = new[]
+    ///         {
+    ///             new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationEncryptionConfigurationArgs
+    ///             {
+    ///                 KeyId = example.Arn,
+    ///                 Type = "CUSTOMER_KMS",
+    ///             },
+    ///         },
+    ///         TlsInspectionConfig = new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationTlsInspectionConfigurationArgs
+    ///         {
+    ///             ServerCertificateConfigurations = new[]
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "certificateAuthorityArn", example1.Arn },
+    ///                     { "checkCertificateRevocationStatus", new[]
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "revokedStatusAction", "REJECT" },
+    ///                             { "unknownStatusAction", "PASS" },
+    ///                         },
+    ///                     } },
+    ///                     { "scope", new[]
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "protocols", new[]
+    ///                             {
+    ///                                 6,
+    ///                             } },
+    ///                             { "destinationPorts", new[]
+    ///                             {
+    ///                                 
+    ///                                 {
+    ///                                     { "fromPort", 443 },
+    ///                                     { "toPort", 443 },
+    ///                                 },
+    ///                             } },
+    ///                             { "destination", new[]
+    ///                             {
+    ///                                 
+    ///                                 {
+    ///                                     { "addressDefinition", "0.0.0.0/0" },
+    ///                                 },
+    ///                             } },
+    ///                             { "sourcePorts", new[]
+    ///                             {
+    ///                                 
+    ///                                 {
+    ///                                     { "fromPort", 0 },
+    ///                                     { "toPort", 65535 },
+    ///                                 },
+    ///                             } },
+    ///                             { "source", new[]
+    ///                             {
+    ///                                 
+    ///                                 {
+    ///                                     { "addressDefinition", "0.0.0.0/0" },
+    ///                                 },
+    ///                             } },
+    ///                         },
+    ///                     } },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Combined inbound and outbound
     /// 
     /// ```csharp

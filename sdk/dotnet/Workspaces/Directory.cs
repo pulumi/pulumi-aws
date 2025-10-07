@@ -270,7 +270,7 @@ namespace Pulumi.Aws.Workspaces
     public partial class Directory : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Configuration for Active Directory integration when `workspace_type` is set to `POOLS`. Defined below.
+        /// Configuration for Active Directory integration when `WorkspaceType` is set to `POOLS`. Defined below.
         /// </summary>
         [Output("activeDirectoryConfig")]
         public Output<Outputs.DirectoryActiveDirectoryConfig?> ActiveDirectoryConfig { get; private set; } = null!;
@@ -348,7 +348,7 @@ namespace Pulumi.Aws.Workspaces
         public Output<Outputs.DirectorySamlProperties> SamlProperties { get; private set; } = null!;
 
         /// <summary>
-        /// Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
+        /// Permissions to enable or disable self-service capabilities when `WorkspaceType` is set to `PERSONAL`.. Defined below.
         /// </summary>
         [Output("selfServicePermissions")]
         public Output<Outputs.DirectorySelfServicePermissions> SelfServicePermissions { get; private set; } = null!;
@@ -360,13 +360,13 @@ namespace Pulumi.Aws.Workspaces
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags assigned to the WorkSpaces directory. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -374,7 +374,7 @@ namespace Pulumi.Aws.Workspaces
         /// <summary>
         /// Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
         /// 
-        /// &gt; **Note:** When `workspace_type` is set to `POOLS`, the `directory_id` is automatically generated and cannot be manually set.
+        /// &gt; **Note:** When `WorkspaceType` is set to `POOLS`, the `DirectoryId` is automatically generated and cannot be manually set.
         /// </summary>
         [Output("userIdentityType")]
         public Output<string> UserIdentityType { get; private set; } = null!;
@@ -392,13 +392,13 @@ namespace Pulumi.Aws.Workspaces
         public Output<Outputs.DirectoryWorkspaceCreationProperties> WorkspaceCreationProperties { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+        /// The description of the WorkSpaces directory when `WorkspaceType` is set to `POOLS`.
         /// </summary>
         [Output("workspaceDirectoryDescription")]
         public Output<string?> WorkspaceDirectoryDescription { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+        /// The name of the WorkSpaces directory when `WorkspaceType` is set to `POOLS`.
         /// </summary>
         [Output("workspaceDirectoryName")]
         public Output<string?> WorkspaceDirectoryName { get; private set; } = null!;
@@ -462,7 +462,7 @@ namespace Pulumi.Aws.Workspaces
     public sealed class DirectoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration for Active Directory integration when `workspace_type` is set to `POOLS`. Defined below.
+        /// Configuration for Active Directory integration when `WorkspaceType` is set to `POOLS`. Defined below.
         /// </summary>
         [Input("activeDirectoryConfig")]
         public Input<Inputs.DirectoryActiveDirectoryConfigArgs>? ActiveDirectoryConfig { get; set; }
@@ -504,7 +504,7 @@ namespace Pulumi.Aws.Workspaces
         public Input<Inputs.DirectorySamlPropertiesArgs>? SamlProperties { get; set; }
 
         /// <summary>
-        /// Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
+        /// Permissions to enable or disable self-service capabilities when `WorkspaceType` is set to `PERSONAL`.. Defined below.
         /// </summary>
         [Input("selfServicePermissions")]
         public Input<Inputs.DirectorySelfServicePermissionsArgs>? SelfServicePermissions { get; set; }
@@ -525,7 +525,7 @@ namespace Pulumi.Aws.Workspaces
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags assigned to the WorkSpaces directory. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -536,7 +536,7 @@ namespace Pulumi.Aws.Workspaces
         /// <summary>
         /// Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
         /// 
-        /// &gt; **Note:** When `workspace_type` is set to `POOLS`, the `directory_id` is automatically generated and cannot be manually set.
+        /// &gt; **Note:** When `WorkspaceType` is set to `POOLS`, the `DirectoryId` is automatically generated and cannot be manually set.
         /// </summary>
         [Input("userIdentityType")]
         public Input<string>? UserIdentityType { get; set; }
@@ -554,13 +554,13 @@ namespace Pulumi.Aws.Workspaces
         public Input<Inputs.DirectoryWorkspaceCreationPropertiesArgs>? WorkspaceCreationProperties { get; set; }
 
         /// <summary>
-        /// The description of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+        /// The description of the WorkSpaces directory when `WorkspaceType` is set to `POOLS`.
         /// </summary>
         [Input("workspaceDirectoryDescription")]
         public Input<string>? WorkspaceDirectoryDescription { get; set; }
 
         /// <summary>
-        /// The name of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+        /// The name of the WorkSpaces directory when `WorkspaceType` is set to `POOLS`.
         /// </summary>
         [Input("workspaceDirectoryName")]
         public Input<string>? WorkspaceDirectoryName { get; set; }
@@ -580,7 +580,7 @@ namespace Pulumi.Aws.Workspaces
     public sealed class DirectoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration for Active Directory integration when `workspace_type` is set to `POOLS`. Defined below.
+        /// Configuration for Active Directory integration when `WorkspaceType` is set to `POOLS`. Defined below.
         /// </summary>
         [Input("activeDirectoryConfig")]
         public Input<Inputs.DirectoryActiveDirectoryConfigGetArgs>? ActiveDirectoryConfig { get; set; }
@@ -670,7 +670,7 @@ namespace Pulumi.Aws.Workspaces
         public Input<Inputs.DirectorySamlPropertiesGetArgs>? SamlProperties { get; set; }
 
         /// <summary>
-        /// Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
+        /// Permissions to enable or disable self-service capabilities when `WorkspaceType` is set to `PERSONAL`.. Defined below.
         /// </summary>
         [Input("selfServicePermissions")]
         public Input<Inputs.DirectorySelfServicePermissionsGetArgs>? SelfServicePermissions { get; set; }
@@ -691,7 +691,7 @@ namespace Pulumi.Aws.Workspaces
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags assigned to the WorkSpaces directory. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -703,7 +703,7 @@ namespace Pulumi.Aws.Workspaces
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -714,7 +714,7 @@ namespace Pulumi.Aws.Workspaces
         /// <summary>
         /// Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
         /// 
-        /// &gt; **Note:** When `workspace_type` is set to `POOLS`, the `directory_id` is automatically generated and cannot be manually set.
+        /// &gt; **Note:** When `WorkspaceType` is set to `POOLS`, the `DirectoryId` is automatically generated and cannot be manually set.
         /// </summary>
         [Input("userIdentityType")]
         public Input<string>? UserIdentityType { get; set; }
@@ -732,13 +732,13 @@ namespace Pulumi.Aws.Workspaces
         public Input<Inputs.DirectoryWorkspaceCreationPropertiesGetArgs>? WorkspaceCreationProperties { get; set; }
 
         /// <summary>
-        /// The description of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+        /// The description of the WorkSpaces directory when `WorkspaceType` is set to `POOLS`.
         /// </summary>
         [Input("workspaceDirectoryDescription")]
         public Input<string>? WorkspaceDirectoryDescription { get; set; }
 
         /// <summary>
-        /// The name of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+        /// The name of the WorkSpaces directory when `WorkspaceType` is set to `POOLS`.
         /// </summary>
         [Input("workspaceDirectoryName")]
         public Input<string>? WorkspaceDirectoryName { get; set; }

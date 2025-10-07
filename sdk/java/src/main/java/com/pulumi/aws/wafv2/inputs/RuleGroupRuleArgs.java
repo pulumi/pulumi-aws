@@ -99,14 +99,14 @@ public final class RuleGroupRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See Statement below for details.
+     * The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
      * 
      */
     @Import(name="statement", required=true)
     private Output<RuleGroupRuleStatementArgs> statement;
 
     /**
-     * @return The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See Statement below for details.
+     * @return The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
      * 
      */
     public Output<RuleGroupRuleStatementArgs> statement() {
@@ -274,7 +274,7 @@ public final class RuleGroupRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statement The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See Statement below for details.
+         * @param statement The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class RuleGroupRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statement The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See Statement below for details.
+         * @param statement The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
          * 
          * @return builder
          * 

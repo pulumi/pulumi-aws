@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// &gt; **Note:** All attributes will be stored in the raw state as plain-text.
     /// **Note:** A virtual MFA device cannot be directly associated with an IAM User from the provider.
-    ///   To associate the virtual MFA device with a user and enable it, use the code returned in either `base_32_string_seed` or `qr_code_png` to generate TOTP authentication codes.
+    ///   To associate the virtual MFA device with a user and enable it, use the code returned in either `Base32StringSeed` or `QrCodePng` to generate TOTP authentication codes.
     ///   The authentication codes can then be used with the AWS CLI command [`aws iam enable-mfa-device`](https://docs.aws.amazon.com/cli/latest/reference/iam/enable-mfa-device.html) or the AWS API call [`EnableMFADevice`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_EnableMFADevice.html).
     /// 
     /// ## Example Usage
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Iam
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base_32_string_seed` is base64-encoded.
+        /// The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `Base32StringSeed` is base64-encoded.
         /// </summary>
         [Output("base32StringSeed")]
         public Output<string> Base32StringSeed { get; private set; } = null!;
@@ -79,13 +79,13 @@ namespace Pulumi.Aws.Iam
         public Output<string> QrCodePng { get; private set; } = null!;
 
         /// <summary>
-        /// Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of resource tags for the virtual mfa device. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.Iam
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of resource tags for the virtual mfa device. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.Iam
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base_32_string_seed` is base64-encoded.
+        /// The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `Base32StringSeed` is base64-encoded.
         /// </summary>
         [Input("base32StringSeed")]
         public Input<string>? Base32StringSeed { get; set; }
@@ -214,7 +214,7 @@ namespace Pulumi.Aws.Iam
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of resource tags for the virtual mfa device. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -226,7 +226,7 @@ namespace Pulumi.Aws.Iam
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

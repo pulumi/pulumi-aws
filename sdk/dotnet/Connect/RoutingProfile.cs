@@ -92,7 +92,7 @@ namespace Pulumi.Aws.Connect
         public Output<string> InstanceId { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
+        /// One or more `MediaConcurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `MediaConcurrencies` block is documented below.
         /// </summary>
         [Output("mediaConcurrencies")]
         public Output<ImmutableArray<Outputs.RoutingProfileMediaConcurrency>> MediaConcurrencies { get; private set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Connect
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
+        /// One or more `QueueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `QueueConfigs` block is documented below.
         /// </summary>
         [Output("queueConfigs")]
         public Output<ImmutableArray<Outputs.RoutingProfileQueueConfig>> QueueConfigs { get; private set; } = null!;
@@ -123,13 +123,13 @@ namespace Pulumi.Aws.Connect
 
         /// <summary>
         /// Tags to apply to the Routing Profile. If configured with a provider
-        /// `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.Connect
         private InputList<Inputs.RoutingProfileMediaConcurrencyArgs>? _mediaConcurrencies;
 
         /// <summary>
-        /// One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
+        /// One or more `MediaConcurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `MediaConcurrencies` block is documented below.
         /// </summary>
         public InputList<Inputs.RoutingProfileMediaConcurrencyArgs> MediaConcurrencies
         {
@@ -220,7 +220,7 @@ namespace Pulumi.Aws.Connect
         private InputList<Inputs.RoutingProfileQueueConfigArgs>? _queueConfigs;
 
         /// <summary>
-        /// One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
+        /// One or more `QueueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `QueueConfigs` block is documented below.
         /// </summary>
         public InputList<Inputs.RoutingProfileQueueConfigArgs> QueueConfigs
         {
@@ -239,7 +239,7 @@ namespace Pulumi.Aws.Connect
 
         /// <summary>
         /// Tags to apply to the Routing Profile. If configured with a provider
-        /// `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -283,7 +283,7 @@ namespace Pulumi.Aws.Connect
         private InputList<Inputs.RoutingProfileMediaConcurrencyGetArgs>? _mediaConcurrencies;
 
         /// <summary>
-        /// One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
+        /// One or more `MediaConcurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `MediaConcurrencies` block is documented below.
         /// </summary>
         public InputList<Inputs.RoutingProfileMediaConcurrencyGetArgs> MediaConcurrencies
         {
@@ -301,7 +301,7 @@ namespace Pulumi.Aws.Connect
         private InputList<Inputs.RoutingProfileQueueConfigGetArgs>? _queueConfigs;
 
         /// <summary>
-        /// One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
+        /// One or more `QueueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `QueueConfigs` block is documented below.
         /// </summary>
         public InputList<Inputs.RoutingProfileQueueConfigGetArgs> QueueConfigs
         {
@@ -326,7 +326,7 @@ namespace Pulumi.Aws.Connect
 
         /// <summary>
         /// Tags to apply to the Routing Profile. If configured with a provider
-        /// `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -338,7 +338,7 @@ namespace Pulumi.Aws.Connect
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

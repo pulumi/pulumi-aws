@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> EndDate { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates the way in which the Capacity Reservation ends. Specify either `unlimited` or `limited`.
+        /// Indicates the way in which the Capacity Reservation ends. Specify either `Unlimited` or `Limited`.
         /// </summary>
         [Output("endDateType")]
         public Output<string?> EndDateType { get; private set; } = null!;
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.Ec2
         public Output<int> InstanceCount { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
+        /// Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `Open` or `Targeted`.
         /// </summary>
         [Output("instanceMatchCriteria")]
         public Output<string?> InstanceMatchCriteria { get; private set; } = null!;
@@ -129,19 +129,19 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
+        /// Indicates the tenancy of the Capacity Reservation. Specify either `Default` or `Dedicated`.
         /// </summary>
         [Output("tenancy")]
         public Output<string?> Tenancy { get; private set; } = null!;
@@ -211,7 +211,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? EndDate { get; set; }
 
         /// <summary>
-        /// Indicates the way in which the Capacity Reservation ends. Specify either `unlimited` or `limited`.
+        /// Indicates the way in which the Capacity Reservation ends. Specify either `Unlimited` or `Limited`.
         /// </summary>
         [Input("endDateType")]
         public Input<string>? EndDateType { get; set; }
@@ -229,7 +229,7 @@ namespace Pulumi.Aws.Ec2
         public Input<int> InstanceCount { get; set; } = null!;
 
         /// <summary>
-        /// Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
+        /// Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `Open` or `Targeted`.
         /// </summary>
         [Input("instanceMatchCriteria")]
         public Input<string>? InstanceMatchCriteria { get; set; }
@@ -268,7 +268,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -277,7 +277,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
+        /// Indicates the tenancy of the Capacity Reservation. Specify either `Default` or `Dedicated`.
         /// </summary>
         [Input("tenancy")]
         public InputUnion<string, Pulumi.Aws.Ec2.Tenancy>? Tenancy { get; set; }
@@ -315,7 +315,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? EndDate { get; set; }
 
         /// <summary>
-        /// Indicates the way in which the Capacity Reservation ends. Specify either `unlimited` or `limited`.
+        /// Indicates the way in which the Capacity Reservation ends. Specify either `Unlimited` or `Limited`.
         /// </summary>
         [Input("endDateType")]
         public Input<string>? EndDateType { get; set; }
@@ -333,7 +333,7 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? InstanceCount { get; set; }
 
         /// <summary>
-        /// Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
+        /// Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `Open` or `Targeted`.
         /// </summary>
         [Input("instanceMatchCriteria")]
         public Input<string>? InstanceMatchCriteria { get; set; }
@@ -378,7 +378,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -390,7 +390,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -399,7 +399,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
+        /// Indicates the tenancy of the Capacity Reservation. Specify either `Default` or `Dedicated`.
         /// </summary>
         [Input("tenancy")]
         public InputUnion<string, Pulumi.Aws.Ec2.Tenancy>? Tenancy { get; set; }

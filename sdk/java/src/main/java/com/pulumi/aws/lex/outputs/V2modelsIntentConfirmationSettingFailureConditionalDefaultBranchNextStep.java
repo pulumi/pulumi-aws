@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStep {
     /**
-     * @return Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
+     * @return Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
      * 
      */
     private @Nullable V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepDialogAction dialogAction;
@@ -32,7 +32,7 @@ public final class V2modelsIntentConfirmationSettingFailureConditionalDefaultBra
 
     private V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStep() {}
     /**
-     * @return Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
+     * @return Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
      * 
      */
     public Optional<V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepDialogAction> dialogAction() {

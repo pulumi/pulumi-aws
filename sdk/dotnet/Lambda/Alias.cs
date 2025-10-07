@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string> FunctionVersion { get; private set; } = null!;
 
         /// <summary>
-        /// ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`.
+        /// ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `Uri`.
         /// </summary>
         [Output("invokeArn")]
         public Output<string> InvokeArn { get; private set; } = null!;
@@ -293,7 +293,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? FunctionVersion { get; set; }
 
         /// <summary>
-        /// ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`.
+        /// ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `Uri`.
         /// </summary>
         [Input("invokeArn")]
         public Input<string>? InvokeArn { get; set; }

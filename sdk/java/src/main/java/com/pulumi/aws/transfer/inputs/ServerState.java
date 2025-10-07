@@ -53,14 +53,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The directory service ID of the directory service you want to connect to with an `identity_provider_type` of `AWS_DIRECTORY_SERVICE`.
+     * The directory service ID of the directory service you want to connect to with an `identityProviderType` of `AWS_DIRECTORY_SERVICE`.
      * 
      */
     @Import(name="directoryId")
     private @Nullable Output<String> directoryId;
 
     /**
-     * @return The directory service ID of the directory service you want to connect to with an `identity_provider_type` of `AWS_DIRECTORY_SERVICE`.
+     * @return The directory service ID of the directory service you want to connect to with an `identityProviderType` of `AWS_DIRECTORY_SERVICE`.
      * 
      */
     public Optional<Output<String>> directoryId() {
@@ -98,14 +98,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` Block below for details.
+     * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
      * 
      */
     @Import(name="endpointDetails")
     private @Nullable Output<ServerEndpointDetailsArgs> endpointDetails;
 
     /**
-     * @return The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` Block below for details.
+     * @return The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
      * 
      */
     public Optional<Output<ServerEndpointDetailsArgs>> endpointDetails() {
@@ -128,14 +128,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identity_provider_type`.
+     * A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identityProviderType`.
      * 
      */
     @Import(name="forceDestroy")
     private @Nullable Output<Boolean> forceDestroy;
 
     /**
-     * @return A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identity_provider_type`.
+     * @return A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identityProviderType`.
      * 
      */
     public Optional<Output<Boolean>> forceDestroy() {
@@ -143,14 +143,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN for a lambda function to use for the Identity provider with an `identity_provider_type` of `AWS_LAMBDA`.
+     * The ARN for a lambda function to use for the Identity provider with an `identityProviderType` of `AWS_LAMBDA`.
      * 
      */
     @Import(name="function")
     private @Nullable Output<String> function;
 
     /**
-     * @return The ARN for a lambda function to use for the Identity provider with an `identity_provider_type` of `AWS_LAMBDA`.
+     * @return The ARN for a lambda function to use for the Identity provider with an `identityProviderType` of `AWS_LAMBDA`.
      * 
      */
     public Optional<Output<String>> function() {
@@ -203,14 +203,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
+     * Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
      * 
      */
     @Import(name="invocationRole")
     private @Nullable Output<String> invocationRole;
 
     /**
-     * @return Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
+     * @return Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
      * 
      */
     public Optional<Output<String>> invocationRole() {
@@ -263,14 +263,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The protocol settings that are configured for your server. See `protocol_details` Block below for details.
+     * The protocol settings that are configured for your server. See `protocolDetails` Block below for details.
      * 
      */
     @Import(name="protocolDetails")
     private @Nullable Output<ServerProtocolDetailsArgs> protocolDetails;
 
     /**
-     * @return The protocol settings that are configured for your server. See `protocol_details` Block below for details.
+     * @return The protocol settings that are configured for your server. See `protocolDetails` Block below for details.
      * 
      */
     public Optional<Output<ServerProtocolDetailsArgs>> protocolDetails() {
@@ -316,14 +316,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` Block below for details.
+     * Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
      * 
      */
     @Import(name="s3StorageOptions")
     private @Nullable Output<ServerS3StorageOptionsArgs> s3StorageOptions;
 
     /**
-     * @return Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` Block below for details.
+     * @return Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
      * 
      */
     public Optional<Output<ServerS3StorageOptionsArgs>> s3StorageOptions() {
@@ -384,14 +384,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * For SFTP-enabled servers with an `identity_provider_type` of `API_GATEWAY` or `AWS_LAMBDA`. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+     * For SFTP-enabled servers with an `identityProviderType` of `API_GATEWAY` or `AWS_LAMBDA`. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
      * 
      */
     @Import(name="sftpAuthenticationMethods")
     private @Nullable Output<String> sftpAuthenticationMethods;
 
     /**
-     * @return For SFTP-enabled servers with an `identity_provider_type` of `API_GATEWAY` or `AWS_LAMBDA`. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+     * @return For SFTP-enabled servers with an `identityProviderType` of `API_GATEWAY` or `AWS_LAMBDA`. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
      * 
      */
     public Optional<Output<String>> sftpAuthenticationMethods() {
@@ -414,14 +414,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -429,14 +429,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -444,14 +444,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+     * URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
      * 
      */
     @Import(name="url")
     private @Nullable Output<String> url;
 
     /**
-     * @return URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+     * @return URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
      * 
      */
     public Optional<Output<String>> url() {
@@ -459,14 +459,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the workflow details. See `workflow_details` Block below for details.
+     * Specifies the workflow details. See `workflowDetails` Block below for details.
      * 
      */
     @Import(name="workflowDetails")
     private @Nullable Output<ServerWorkflowDetailsArgs> workflowDetails;
 
     /**
-     * @return Specifies the workflow details. See `workflow_details` Block below for details.
+     * @return Specifies the workflow details. See `workflowDetails` Block below for details.
      * 
      */
     public Optional<Output<ServerWorkflowDetailsArgs>> workflowDetails() {
@@ -566,7 +566,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param directoryId The directory service ID of the directory service you want to connect to with an `identity_provider_type` of `AWS_DIRECTORY_SERVICE`.
+         * @param directoryId The directory service ID of the directory service you want to connect to with an `identityProviderType` of `AWS_DIRECTORY_SERVICE`.
          * 
          * @return builder
          * 
@@ -577,7 +577,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param directoryId The directory service ID of the directory service you want to connect to with an `identity_provider_type` of `AWS_DIRECTORY_SERVICE`.
+         * @param directoryId The directory service ID of the directory service you want to connect to with an `identityProviderType` of `AWS_DIRECTORY_SERVICE`.
          * 
          * @return builder
          * 
@@ -629,7 +629,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpointDetails The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` Block below for details.
+         * @param endpointDetails The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
          * 
          * @return builder
          * 
@@ -640,7 +640,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpointDetails The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` Block below for details.
+         * @param endpointDetails The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
          * 
          * @return builder
          * 
@@ -671,7 +671,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param forceDestroy A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identity_provider_type`.
+         * @param forceDestroy A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identityProviderType`.
          * 
          * @return builder
          * 
@@ -682,7 +682,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param forceDestroy A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identity_provider_type`.
+         * @param forceDestroy A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identityProviderType`.
          * 
          * @return builder
          * 
@@ -692,7 +692,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param function The ARN for a lambda function to use for the Identity provider with an `identity_provider_type` of `AWS_LAMBDA`.
+         * @param function The ARN for a lambda function to use for the Identity provider with an `identityProviderType` of `AWS_LAMBDA`.
          * 
          * @return builder
          * 
@@ -703,7 +703,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param function The ARN for a lambda function to use for the Identity provider with an `identity_provider_type` of `AWS_LAMBDA`.
+         * @param function The ARN for a lambda function to use for the Identity provider with an `identityProviderType` of `AWS_LAMBDA`.
          * 
          * @return builder
          * 
@@ -776,7 +776,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param invocationRole Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
+         * @param invocationRole Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
          * 
          * @return builder
          * 
@@ -787,7 +787,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param invocationRole Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
+         * @param invocationRole Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
          * 
          * @return builder
          * 
@@ -860,7 +860,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocolDetails The protocol settings that are configured for your server. See `protocol_details` Block below for details.
+         * @param protocolDetails The protocol settings that are configured for your server. See `protocolDetails` Block below for details.
          * 
          * @return builder
          * 
@@ -871,7 +871,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocolDetails The protocol settings that are configured for your server. See `protocol_details` Block below for details.
+         * @param protocolDetails The protocol settings that are configured for your server. See `protocolDetails` Block below for details.
          * 
          * @return builder
          * 
@@ -945,7 +945,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3StorageOptions Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` Block below for details.
+         * @param s3StorageOptions Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
          * 
          * @return builder
          * 
@@ -956,7 +956,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3StorageOptions Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` Block below for details.
+         * @param s3StorageOptions Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
          * 
          * @return builder
          * 
@@ -1025,7 +1025,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sftpAuthenticationMethods For SFTP-enabled servers with an `identity_provider_type` of `API_GATEWAY` or `AWS_LAMBDA`. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+         * @param sftpAuthenticationMethods For SFTP-enabled servers with an `identityProviderType` of `API_GATEWAY` or `AWS_LAMBDA`. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
          * 
          * @return builder
          * 
@@ -1036,7 +1036,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sftpAuthenticationMethods For SFTP-enabled servers with an `identity_provider_type` of `API_GATEWAY` or `AWS_LAMBDA`. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+         * @param sftpAuthenticationMethods For SFTP-enabled servers with an `identityProviderType` of `API_GATEWAY` or `AWS_LAMBDA`. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
          * 
          * @return builder
          * 
@@ -1077,7 +1077,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1088,7 +1088,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1098,7 +1098,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -1109,7 +1109,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -1119,7 +1119,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param url URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+         * @param url URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
          * 
          * @return builder
          * 
@@ -1130,7 +1130,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param url URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+         * @param url URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
          * 
          * @return builder
          * 
@@ -1140,7 +1140,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workflowDetails Specifies the workflow details. See `workflow_details` Block below for details.
+         * @param workflowDetails Specifies the workflow details. See `workflowDetails` Block below for details.
          * 
          * @return builder
          * 
@@ -1151,7 +1151,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workflowDetails Specifies the workflow details. See `workflow_details` Block below for details.
+         * @param workflowDetails Specifies the workflow details. See `workflowDetails` Block below for details.
          * 
          * @return builder
          * 

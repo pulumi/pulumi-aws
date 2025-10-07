@@ -70,7 +70,7 @@ namespace Pulumi.Aws.ServiceCatalog
     public partial class AppregistryApplication : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
+        /// A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `Tags` argument of another resource, or merged into a map of existing tags.
         /// </summary>
         [Output("applicationTag")]
         public Output<ImmutableDictionary<string, string>> ApplicationTag { get; private set; } = null!;
@@ -102,13 +102,13 @@ namespace Pulumi.Aws.ServiceCatalog
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags assigned to the Application. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.ServiceCatalog
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags assigned to the Application. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -203,7 +203,7 @@ namespace Pulumi.Aws.ServiceCatalog
         private InputMap<string>? _applicationTag;
 
         /// <summary>
-        /// A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
+        /// A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `Tags` argument of another resource, or merged into a map of existing tags.
         /// </summary>
         public InputMap<string> ApplicationTag
         {
@@ -241,7 +241,7 @@ namespace Pulumi.Aws.ServiceCatalog
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags assigned to the Application. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -253,7 +253,7 @@ namespace Pulumi.Aws.ServiceCatalog
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

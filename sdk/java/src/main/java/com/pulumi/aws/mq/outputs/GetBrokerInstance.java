@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetBrokerInstance {
     /**
-     * @return URL of the ActiveMQ Web Console or the RabbitMQ Management UI depending on `engine_type`.
+     * @return URL of the ActiveMQ Web Console or the RabbitMQ Management UI depending on `engineType`.
      * 
      */
     private String consoleUrl;
@@ -29,7 +29,7 @@ public final class GetBrokerInstance {
 
     private GetBrokerInstance() {}
     /**
-     * @return URL of the ActiveMQ Web Console or the RabbitMQ Management UI depending on `engine_type`.
+     * @return URL of the ActiveMQ Web Console or the RabbitMQ Management UI depending on `engineType`.
      * 
      */
     public String consoleUrl() {

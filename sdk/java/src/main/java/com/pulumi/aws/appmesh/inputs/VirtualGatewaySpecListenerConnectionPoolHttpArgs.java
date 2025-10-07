@@ -32,14 +32,14 @@ public final class VirtualGatewaySpecListenerConnectionPoolHttpArgs extends com.
     }
 
     /**
-     * Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
+     * Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
      * 
      */
     @Import(name="maxPendingRequests")
     private @Nullable Output<Integer> maxPendingRequests;
 
     /**
-     * @return Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
+     * @return Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
      * 
      */
     public Optional<Output<Integer>> maxPendingRequests() {
@@ -93,7 +93,7 @@ public final class VirtualGatewaySpecListenerConnectionPoolHttpArgs extends com.
         }
 
         /**
-         * @param maxPendingRequests Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
+         * @param maxPendingRequests Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class VirtualGatewaySpecListenerConnectionPoolHttpArgs extends com.
         }
 
         /**
-         * @param maxPendingRequests Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
+         * @param maxPendingRequests Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
          * 
          * @return builder
          * 

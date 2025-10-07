@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification {
     /**
-     * @return Whether to enable UDP traffic optimization through ENA Express. Requires `ena_srd_enabled` to be `true`.
+     * @return Whether to enable UDP traffic optimization through ENA Express. Requires `enaSrdEnabled` to be `true`.
      * 
      * NOTE: ENA Express requires [specific instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html#ena-express-requirements) and minimum bandwidth of 25 Gbps.
      * 
@@ -21,7 +21,7 @@ public final class LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpe
 
     private LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification() {}
     /**
-     * @return Whether to enable UDP traffic optimization through ENA Express. Requires `ena_srd_enabled` to be `true`.
+     * @return Whether to enable UDP traffic optimization through ENA Express. Requires `enaSrdEnabled` to be `true`.
      * 
      * NOTE: ENA Express requires [specific instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html#ena-express-requirements) and minimum bandwidth of 25 Gbps.
      * 

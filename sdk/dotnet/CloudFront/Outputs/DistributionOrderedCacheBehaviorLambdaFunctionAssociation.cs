@@ -18,7 +18,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly string EventType;
         /// <summary>
-        /// When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
+        /// When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `True`, `False`.
         /// </summary>
         public readonly bool? IncludeBody;
         /// <summary>

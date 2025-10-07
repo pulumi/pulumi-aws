@@ -20,7 +20,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// <summary>
         /// Name of the parameter.
         /// 
-        /// **Note:** The argument name `map_block_key` may seem out of context, but is necessary for backward compatibility reasons in the provider.
+        /// **Note:** The argument name `MapBlockKey` may seem out of context, but is necessary for backward compatibility reasons in the provider.
         /// </summary>
         public readonly string MapBlockKey;
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly bool? Required;
         /// <summary>
-        /// Data type of the parameter. Valid values: `string`, `number`, `integer`, `boolean`, `array`.
+        /// Data type of the parameter. Valid values: `String`, `Number`, `Integer`, `Boolean`, `Array`.
         /// </summary>
         public readonly string Type;
 

@@ -70,14 +70,14 @@ public final class GetAccessEntryArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
+     * (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
+     * @return (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -185,7 +185,7 @@ public final class GetAccessEntryArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tagsAll (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class GetAccessEntryArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tagsAll (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

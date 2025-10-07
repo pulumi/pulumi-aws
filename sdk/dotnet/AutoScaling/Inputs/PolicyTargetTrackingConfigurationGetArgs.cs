@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
     public sealed class PolicyTargetTrackingConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Customized metric. Conflicts with `predefined_metric_specification`.
+        /// Customized metric. Conflicts with `PredefinedMetricSpecification`.
         /// </summary>
         [Input("customizedMetricSpecification")]
         public Input<Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationGetArgs>? CustomizedMetricSpecification { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public Input<bool>? DisableScaleIn { get; set; }
 
         /// <summary>
-        /// Predefined metric. Conflicts with `customized_metric_specification`.
+        /// Predefined metric. Conflicts with `CustomizedMetricSpecification`.
         /// </summary>
         [Input("predefinedMetricSpecification")]
         public Input<Inputs.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationGetArgs>? PredefinedMetricSpecification { get; set; }

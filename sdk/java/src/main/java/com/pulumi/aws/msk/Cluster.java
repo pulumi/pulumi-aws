@@ -219,7 +219,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### With volume_throughput argument
+ * ### With volumeThroughput argument
  * 
  * <pre>
  * {@code
@@ -441,28 +441,28 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.bootstrapBrokersVpcConnectivityTls;
     }
     /**
-     * Configuration block for the broker nodes of the Kafka cluster. See broker_node_group_info Argument Reference below.
+     * Configuration block for the broker nodes of the Kafka cluster. See brokerNodeGroupInfo Argument Reference below.
      * 
      */
     @Export(name="brokerNodeGroupInfo", refs={ClusterBrokerNodeGroupInfo.class}, tree="[0]")
     private Output<ClusterBrokerNodeGroupInfo> brokerNodeGroupInfo;
 
     /**
-     * @return Configuration block for the broker nodes of the Kafka cluster. See broker_node_group_info Argument Reference below.
+     * @return Configuration block for the broker nodes of the Kafka cluster. See brokerNodeGroupInfo Argument Reference below.
      * 
      */
     public Output<ClusterBrokerNodeGroupInfo> brokerNodeGroupInfo() {
         return this.brokerNodeGroupInfo;
     }
     /**
-     * Configuration block for specifying a client authentication. See client_authentication Argument Reference below.
+     * Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
      * 
      */
     @Export(name="clientAuthentication", refs={ClusterClientAuthentication.class}, tree="[0]")
     private Output</* @Nullable */ ClusterClientAuthentication> clientAuthentication;
 
     /**
-     * @return Configuration block for specifying a client authentication. See client_authentication Argument Reference below.
+     * @return Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
      * 
      */
     public Output<Optional<ClusterClientAuthentication>> clientAuthentication() {
@@ -497,14 +497,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.clusterUuid;
     }
     /**
-     * Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configuration_info Argument Reference below.
+     * Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configurationInfo Argument Reference below.
      * 
      */
     @Export(name="configurationInfo", refs={ClusterConfigurationInfo.class}, tree="[0]")
     private Output</* @Nullable */ ClusterConfigurationInfo> configurationInfo;
 
     /**
-     * @return Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configuration_info Argument Reference below.
+     * @return Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configurationInfo Argument Reference below.
      * 
      */
     public Output<Optional<ClusterConfigurationInfo>> configurationInfo() {
@@ -525,14 +525,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.currentVersion;
     }
     /**
-     * Configuration block for specifying encryption. See encryption_info Argument Reference below.
+     * Configuration block for specifying encryption. See encryptionInfo Argument Reference below.
      * 
      */
     @Export(name="encryptionInfo", refs={ClusterEncryptionInfo.class}, tree="[0]")
     private Output</* @Nullable */ ClusterEncryptionInfo> encryptionInfo;
 
     /**
-     * @return Configuration block for specifying encryption. See encryption_info Argument Reference below.
+     * @return Configuration block for specifying encryption. See encryptionInfo Argument Reference below.
      * 
      */
     public Output<Optional<ClusterEncryptionInfo>> encryptionInfo() {
@@ -567,14 +567,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.kafkaVersion;
     }
     /**
-     * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See logging_info Argument Reference below.
+     * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See loggingInfo Argument Reference below.
      * 
      */
     @Export(name="loggingInfo", refs={ClusterLoggingInfo.class}, tree="[0]")
     private Output</* @Nullable */ ClusterLoggingInfo> loggingInfo;
 
     /**
-     * @return Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See logging_info Argument Reference below.
+     * @return Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See loggingInfo Argument Reference below.
      * 
      */
     public Output<Optional<ClusterLoggingInfo>> loggingInfo() {
@@ -595,14 +595,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.numberOfBrokerNodes;
     }
     /**
-     * Configuration block for JMX and Node monitoring for the MSK cluster. See open_monitoring Argument Reference below.
+     * Configuration block for JMX and Node monitoring for the MSK cluster. See openMonitoring Argument Reference below.
      * 
      */
     @Export(name="openMonitoring", refs={ClusterOpenMonitoring.class}, tree="[0]")
     private Output</* @Nullable */ ClusterOpenMonitoring> openMonitoring;
 
     /**
-     * @return Configuration block for JMX and Node monitoring for the MSK cluster. See open_monitoring Argument Reference below.
+     * @return Configuration block for JMX and Node monitoring for the MSK cluster. See openMonitoring Argument Reference below.
      * 
      */
     public Output<Optional<ClusterOpenMonitoring>> openMonitoring() {
@@ -637,28 +637,28 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.storageMode;
     }
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

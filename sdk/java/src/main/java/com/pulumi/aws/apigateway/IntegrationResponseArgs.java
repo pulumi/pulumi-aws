@@ -78,14 +78,14 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Map of response parameters that can be read from the backend response. For example: `response_parameters = { &#34;method.response.header.X-Some-Header&#34; = &#34;integration.response.header.X-Some-Other-Header&#34; }`.
+     * Map of response parameters that can be read from the backend response. For example: `responseParameters = { &#34;method.response.header.X-Some-Header&#34; = &#34;integration.response.header.X-Some-Other-Header&#34; }`.
      * 
      */
     @Import(name="responseParameters")
     private @Nullable Output<Map<String,String>> responseParameters;
 
     /**
-     * @return Map of response parameters that can be read from the backend response. For example: `response_parameters = { &#34;method.response.header.X-Some-Header&#34; = &#34;integration.response.header.X-Some-Other-Header&#34; }`.
+     * @return Map of response parameters that can be read from the backend response. For example: `responseParameters = { &#34;method.response.header.X-Some-Header&#34; = &#34;integration.response.header.X-Some-Other-Header&#34; }`.
      * 
      */
     public Optional<Output<Map<String,String>>> responseParameters() {
@@ -273,7 +273,7 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param responseParameters Map of response parameters that can be read from the backend response. For example: `response_parameters = { &#34;method.response.header.X-Some-Header&#34; = &#34;integration.response.header.X-Some-Other-Header&#34; }`.
+         * @param responseParameters Map of response parameters that can be read from the backend response. For example: `responseParameters = { &#34;method.response.header.X-Some-Header&#34; = &#34;integration.response.header.X-Some-Other-Header&#34; }`.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param responseParameters Map of response parameters that can be read from the backend response. For example: `response_parameters = { &#34;method.response.header.X-Some-Header&#34; = &#34;integration.response.header.X-Some-Other-Header&#34; }`.
+         * @param responseParameters Map of response parameters that can be read from the backend response. For example: `responseParameters = { &#34;method.response.header.X-Some-Header&#34; = &#34;integration.response.header.X-Some-Other-Header&#34; }`.
          * 
          * @return builder
          * 

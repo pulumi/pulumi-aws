@@ -200,14 +200,14 @@ public class UserPool extends com.pulumi.resources.CustomResource {
         return this.adminCreateUserConfig;
     }
     /**
-     * Attributes supported as an alias for this user pool. Valid values: `phone_number`, `email`, or `preferred_username`. Conflicts with `username_attributes`.
+     * Attributes supported as an alias for this user pool. Valid values: `phoneNumber`, `email`, or `preferredUsername`. Conflicts with `usernameAttributes`.
      * 
      */
     @Export(name="aliasAttributes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> aliasAttributes;
 
     /**
-     * @return Attributes supported as an alias for this user pool. Valid values: `phone_number`, `email`, or `preferred_username`. Conflicts with `username_attributes`.
+     * @return Attributes supported as an alias for this user pool. Valid values: `phoneNumber`, `email`, or `preferredUsername`. Conflicts with `usernameAttributes`.
      * 
      */
     public Output<Optional<List<String>>> aliasAttributes() {
@@ -228,14 +228,14 @@ public class UserPool extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Attributes to be auto-verified. Valid values: `email`, `phone_number`.
+     * Attributes to be auto-verified. Valid values: `email`, `phoneNumber`.
      * 
      */
     @Export(name="autoVerifiedAttributes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> autoVerifiedAttributes;
 
     /**
-     * @return Attributes to be auto-verified. Valid values: `email`, `phone_number`.
+     * @return Attributes to be auto-verified. Valid values: `email`, `phoneNumber`.
      * 
      */
     public Output<Optional<List<String>>> autoVerifiedAttributes() {
@@ -326,42 +326,42 @@ public class UserPool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.emailConfiguration);
     }
     /**
-     * Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
+     * Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `accountRecoverySetting` entries; requires an `emailConfiguration` configuration block. Effective only when `mfaConfiguration` is `ON` or `OPTIONAL`. Detailed below.
      * 
      */
     @Export(name="emailMfaConfiguration", refs={UserPoolEmailMfaConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ UserPoolEmailMfaConfiguration> emailMfaConfiguration;
 
     /**
-     * @return Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
+     * @return Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `accountRecoverySetting` entries; requires an `emailConfiguration` configuration block. Effective only when `mfaConfiguration` is `ON` or `OPTIONAL`. Detailed below.
      * 
      */
     public Output<Optional<UserPoolEmailMfaConfiguration>> emailMfaConfiguration() {
         return Codegen.optional(this.emailMfaConfiguration);
     }
     /**
-     * String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
+     * String representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
      * 
      */
     @Export(name="emailVerificationMessage", refs={String.class}, tree="[0]")
     private Output<String> emailVerificationMessage;
 
     /**
-     * @return String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
+     * @return String representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
      * 
      */
     public Output<String> emailVerificationMessage() {
         return this.emailVerificationMessage;
     }
     /**
-     * String representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
+     * String representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
      * 
      */
     @Export(name="emailVerificationSubject", refs={String.class}, tree="[0]")
     private Output<String> emailVerificationSubject;
 
     /**
-     * @return String representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
+     * @return String representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
      * 
      */
     public Output<String> emailVerificationSubject() {
@@ -424,14 +424,14 @@ public class UserPool extends com.pulumi.resources.CustomResource {
         return this.lastModifiedDate;
     }
     /**
-     * Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured).
+     * Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `emailMfaConfiguration`, `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `emailMfaConfiguration`, `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured).
      * 
      */
     @Export(name="mfaConfiguration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mfaConfiguration;
 
     /**
-     * @return Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured).
+     * @return Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `emailMfaConfiguration`, `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `emailMfaConfiguration`, `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured).
      * 
      */
     public Output<Optional<String>> mfaConfiguration() {
@@ -522,70 +522,70 @@ public class UserPool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.smsAuthenticationMessage);
     }
     /**
-     * Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). SMS MFA is activated only when `mfa_configuration` is set to `ON` or `OPTIONAL` along with this block. Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
+     * Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). SMS MFA is activated only when `mfaConfiguration` is set to `ON` or `OPTIONAL` along with this block. Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
      * 
      */
     @Export(name="smsConfiguration", refs={UserPoolSmsConfiguration.class}, tree="[0]")
     private Output<UserPoolSmsConfiguration> smsConfiguration;
 
     /**
-     * @return Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). SMS MFA is activated only when `mfa_configuration` is set to `ON` or `OPTIONAL` along with this block. Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
+     * @return Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). SMS MFA is activated only when `mfaConfiguration` is set to `ON` or `OPTIONAL` along with this block. Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
      * 
      */
     public Output<UserPoolSmsConfiguration> smsConfiguration() {
         return this.smsConfiguration;
     }
     /**
-     * String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
+     * String representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
      * 
      */
     @Export(name="smsVerificationMessage", refs={String.class}, tree="[0]")
     private Output<String> smsVerificationMessage;
 
     /**
-     * @return String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
+     * @return String representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
      * 
      */
     public Output<String> smsVerificationMessage() {
         return this.smsVerificationMessage;
     }
     /**
-     * Configuration block for software token Mult-Factor Authentication (MFA) settings. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
+     * Configuration block for software token Mult-Factor Authentication (MFA) settings. Effective only when `mfaConfiguration` is `ON` or `OPTIONAL`. Detailed below.
      * 
      */
     @Export(name="softwareTokenMfaConfiguration", refs={UserPoolSoftwareTokenMfaConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ UserPoolSoftwareTokenMfaConfiguration> softwareTokenMfaConfiguration;
 
     /**
-     * @return Configuration block for software token Mult-Factor Authentication (MFA) settings. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
+     * @return Configuration block for software token Mult-Factor Authentication (MFA) settings. Effective only when `mfaConfiguration` is `ON` or `OPTIONAL`. Detailed below.
      * 
      */
     public Output<Optional<UserPoolSoftwareTokenMfaConfiguration>> softwareTokenMfaConfiguration() {
         return Codegen.optional(this.softwareTokenMfaConfiguration);
     }
     /**
-     * Map of tags to assign to the User Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the User Pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the User Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the User Pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -634,14 +634,14 @@ public class UserPool extends com.pulumi.resources.CustomResource {
         return this.userPoolTier;
     }
     /**
-     * Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
+     * Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
      * 
      */
     @Export(name="usernameAttributes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> usernameAttributes;
 
     /**
-     * @return Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
+     * @return Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
      * 
      */
     public Output<Optional<List<String>>> usernameAttributes() {

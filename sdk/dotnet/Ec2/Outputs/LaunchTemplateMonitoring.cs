@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class LaunchTemplateMonitoring
     {
         /// <summary>
-        /// If `true`, the launched EC2 instance will have detailed monitoring enabled.
+        /// If `True`, the launched EC2 instance will have detailed monitoring enabled.
         /// </summary>
         public readonly bool? Enabled;
 

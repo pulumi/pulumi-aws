@@ -18,7 +18,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// </summary>
         public readonly string AccountId;
         /// <summary>
-        /// A Boolean that represents the current state of faster launching for the Windows AMI. Set to `true` to start using Windows faster launching, or `false` to stop using it.
+        /// A Boolean that represents the current state of faster launching for the Windows AMI. Set to `True` to start using Windows faster launching, or `False` to stop using it.
         /// </summary>
         public readonly bool Enabled;
         /// <summary>

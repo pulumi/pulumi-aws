@@ -19,7 +19,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockGetArgs>? Block { get; set; }
 
         /// <summary>
-        /// Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+        /// Instructs AWS WAF to run a Captcha check against the web request. See `Captcha` below for details.
         /// </summary>
         [Input("captcha")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaGetArgs>? Captcha { get; set; }

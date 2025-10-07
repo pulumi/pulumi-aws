@@ -37,7 +37,7 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfiguration {
      */
     private @Nullable List<ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMapping> mixedMeasureMappings;
     /**
-     * @return Configuration block for multi-measure mappings. Only one of `mixed_measure_mappings` or `multi_measure_mappings` can be provided. `multi_measure_mappings` can be used to ingest data as multi measures in the derived table. See below.
+     * @return Configuration block for multi-measure mappings. Only one of `mixedMeasureMappings` or `multiMeasureMappings` can be provided. `multiMeasureMappings` can be used to ingest data as multi measures in the derived table. See below.
      * 
      */
     private @Nullable ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappings multiMeasureMappings;
@@ -82,7 +82,7 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfiguration {
         return this.mixedMeasureMappings == null ? List.of() : this.mixedMeasureMappings;
     }
     /**
-     * @return Configuration block for multi-measure mappings. Only one of `mixed_measure_mappings` or `multi_measure_mappings` can be provided. `multi_measure_mappings` can be used to ingest data as multi measures in the derived table. See below.
+     * @return Configuration block for multi-measure mappings. Only one of `mixedMeasureMappings` or `multiMeasureMappings` can be provided. `multiMeasureMappings` can be used to ingest data as multi measures in the derived table. See below.
      * 
      */
     public Optional<ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappings> multiMeasureMappings() {

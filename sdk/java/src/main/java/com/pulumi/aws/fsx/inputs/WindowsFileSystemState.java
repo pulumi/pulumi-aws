@@ -23,14 +23,14 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
     public static final WindowsFileSystemState Empty = new WindowsFileSystemState();
 
     /**
-     * The ID for an existing Microsoft Active Directory instance that the file system should join when it&#39;s created. Cannot be specified with `self_managed_active_directory`.
+     * The ID for an existing Microsoft Active Directory instance that the file system should join when it&#39;s created. Cannot be specified with `selfManagedActiveDirectory`.
      * 
      */
     @Import(name="activeDirectoryId")
     private @Nullable Output<String> activeDirectoryId;
 
     /**
-     * @return The ID for an existing Microsoft Active Directory instance that the file system should join when it&#39;s created. Cannot be specified with `self_managed_active_directory`.
+     * @return The ID for an existing Microsoft Active Directory instance that the file system should join when it&#39;s created. Cannot be specified with `selfManagedActiveDirectory`.
      * 
      */
     public Optional<Output<String>> activeDirectoryId() {
@@ -68,14 +68,14 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
+     * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `auditLogConfiguration` Block for details.
      * 
      */
     @Import(name="auditLogConfiguration")
     private @Nullable Output<WindowsFileSystemAuditLogConfigurationArgs> auditLogConfiguration;
 
     /**
-     * @return The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
+     * @return The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `auditLogConfiguration` Block for details.
      * 
      */
     public Optional<Output<WindowsFileSystemAuditLogConfigurationArgs>> auditLogConfiguration() {
@@ -158,14 +158,14 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
+     * The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `diskIopsConfiguration` Block for details.
      * 
      */
     @Import(name="diskIopsConfiguration")
     private @Nullable Output<WindowsFileSystemDiskIopsConfigurationArgs> diskIopsConfiguration;
 
     /**
-     * @return The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
+     * @return The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `diskIopsConfiguration` Block for details.
      * 
      */
     public Optional<Output<WindowsFileSystemDiskIopsConfigurationArgs>> diskIopsConfiguration() {
@@ -323,14 +323,14 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See `self_managed_active_directory` Block for details.
+     * Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. See `selfManagedActiveDirectory` Block for details.
      * 
      */
     @Import(name="selfManagedActiveDirectory")
     private @Nullable Output<WindowsFileSystemSelfManagedActiveDirectoryArgs> selfManagedActiveDirectory;
 
     /**
-     * @return Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See `self_managed_active_directory` Block for details.
+     * @return Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. See `selfManagedActiveDirectory` Block for details.
      * 
      */
     public Optional<Output<WindowsFileSystemSelfManagedActiveDirectoryArgs>> selfManagedActiveDirectory() {
@@ -383,14 +383,14 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
+     * A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
      * 
      */
     @Import(name="subnetIds")
     private @Nullable Output<List<String>> subnetIds;
 
     /**
-     * @return A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
+     * @return A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
      * 
      */
     public Optional<Output<List<String>>> subnetIds() {
@@ -398,14 +398,14 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -413,14 +413,14 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -530,7 +530,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param activeDirectoryId The ID for an existing Microsoft Active Directory instance that the file system should join when it&#39;s created. Cannot be specified with `self_managed_active_directory`.
+         * @param activeDirectoryId The ID for an existing Microsoft Active Directory instance that the file system should join when it&#39;s created. Cannot be specified with `selfManagedActiveDirectory`.
          * 
          * @return builder
          * 
@@ -541,7 +541,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param activeDirectoryId The ID for an existing Microsoft Active Directory instance that the file system should join when it&#39;s created. Cannot be specified with `self_managed_active_directory`.
+         * @param activeDirectoryId The ID for an existing Microsoft Active Directory instance that the file system should join when it&#39;s created. Cannot be specified with `selfManagedActiveDirectory`.
          * 
          * @return builder
          * 
@@ -603,7 +603,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param auditLogConfiguration The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
+         * @param auditLogConfiguration The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `auditLogConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -614,7 +614,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param auditLogConfiguration The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
+         * @param auditLogConfiguration The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `auditLogConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -729,7 +729,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param diskIopsConfiguration The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
+         * @param diskIopsConfiguration The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `diskIopsConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -740,7 +740,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param diskIopsConfiguration The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
+         * @param diskIopsConfiguration The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `diskIopsConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -980,7 +980,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param selfManagedActiveDirectory Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See `self_managed_active_directory` Block for details.
+         * @param selfManagedActiveDirectory Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. See `selfManagedActiveDirectory` Block for details.
          * 
          * @return builder
          * 
@@ -991,7 +991,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param selfManagedActiveDirectory Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See `self_managed_active_directory` Block for details.
+         * @param selfManagedActiveDirectory Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. See `selfManagedActiveDirectory` Block for details.
          * 
          * @return builder
          * 
@@ -1064,7 +1064,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param subnetIds A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
+         * @param subnetIds A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
          * 
          * @return builder
          * 
@@ -1075,7 +1075,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param subnetIds A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
+         * @param subnetIds A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
          * 
          * @return builder
          * 
@@ -1085,7 +1085,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param subnetIds A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
+         * @param subnetIds A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
          * 
          * @return builder
          * 
@@ -1095,7 +1095,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tags A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1106,7 +1106,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tags A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1116,7 +1116,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -1127,7 +1127,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

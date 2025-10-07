@@ -135,14 +135,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
+     * Default cache behavior for this distribution (maximum one). Requires either `cachePolicyId` (preferred) or `forwardedValues` (deprecated) be set.
      * 
      */
     @Import(name="defaultCacheBehavior")
     private @Nullable Output<DistributionDefaultCacheBehaviorArgs> defaultCacheBehavior;
 
     /**
-     * @return Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
+     * @return Default cache behavior for this distribution (maximum one). Requires either `cachePolicyId` (preferred) or `forwardedValues` (deprecated) be set.
      * 
      */
     public Optional<Output<DistributionDefaultCacheBehaviorArgs>> defaultCacheBehavior() {
@@ -315,14 +315,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more origin_group for this distribution (multiples allowed).
+     * One or more originGroup for this distribution (multiples allowed).
      * 
      */
     @Import(name="originGroups")
     private @Nullable Output<List<DistributionOriginGroupArgs>> originGroups;
 
     /**
-     * @return One or more origin_group for this distribution (multiples allowed).
+     * @return One or more originGroup for this distribution (multiples allowed).
      * 
      */
     public Optional<Output<List<DistributionOriginGroupArgs>>> originGroups() {
@@ -420,14 +420,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -435,14 +435,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -748,7 +748,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultCacheBehavior Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
+         * @param defaultCacheBehavior Default cache behavior for this distribution (maximum one). Requires either `cachePolicyId` (preferred) or `forwardedValues` (deprecated) be set.
          * 
          * @return builder
          * 
@@ -759,7 +759,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultCacheBehavior Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
+         * @param defaultCacheBehavior Default cache behavior for this distribution (maximum one). Requires either `cachePolicyId` (preferred) or `forwardedValues` (deprecated) be set.
          * 
          * @return builder
          * 
@@ -1010,7 +1010,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param originGroups One or more origin_group for this distribution (multiples allowed).
+         * @param originGroups One or more originGroup for this distribution (multiples allowed).
          * 
          * @return builder
          * 
@@ -1021,7 +1021,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param originGroups One or more origin_group for this distribution (multiples allowed).
+         * @param originGroups One or more originGroup for this distribution (multiples allowed).
          * 
          * @return builder
          * 
@@ -1031,7 +1031,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param originGroups One or more origin_group for this distribution (multiples allowed).
+         * @param originGroups One or more originGroup for this distribution (multiples allowed).
          * 
          * @return builder
          * 
@@ -1177,7 +1177,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1188,7 +1188,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1198,7 +1198,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -1209,7 +1209,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

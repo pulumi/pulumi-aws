@@ -13,18 +13,81 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// The following shows outputting all COIP Pool Ids.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = Aws.Ec2.GetCoipPools.Invoke();
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["foo"] = foo.Apply(getCoipPoolsResult =&gt; getCoipPoolsResult.Ids),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetCoipPoolsResult> InvokeAsync(GetCoipPoolsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCoipPoolsResult>("aws:ec2/getCoipPools:getCoipPools", args ?? new GetCoipPoolsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// The following shows outputting all COIP Pool Ids.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = Aws.Ec2.GetCoipPools.Invoke();
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["foo"] = foo.Apply(getCoipPoolsResult =&gt; getCoipPoolsResult.Ids),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetCoipPoolsResult> Invoke(GetCoipPoolsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCoipPoolsResult>("aws:ec2/getCoipPools:getCoipPools", args ?? new GetCoipPoolsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// The following shows outputting all COIP Pool Ids.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = Aws.Ec2.GetCoipPools.Invoke();
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["foo"] = foo.Apply(getCoipPoolsResult =&gt; getCoipPoolsResult.Ids),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetCoipPoolsResult> Invoke(GetCoipPoolsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCoipPoolsResult>("aws:ec2/getCoipPools:getCoipPools", args ?? new GetCoipPoolsInvokeArgs(), options.WithDefaults());
@@ -39,7 +102,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Custom filter block as described below.
         /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
+        /// More complex filters can be expressed using one or more `Filter` sub-blocks,
         /// which take the following arguments:
         /// </summary>
         public List<Inputs.GetCoipPoolsFilterArgs> Filters
@@ -81,7 +144,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Custom filter block as described below.
         /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
+        /// More complex filters can be expressed using one or more `Filter` sub-blocks,
         /// which take the following arguments:
         /// </summary>
         public InputList<Inputs.GetCoipPoolsFilterInputArgs> Filters

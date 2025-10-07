@@ -17,14 +17,14 @@ public final class SecretRotationRotationRulesArgs extends com.pulumi.resources.
     public static final SecretRotationRotationRulesArgs Empty = new SecretRotationRotationRulesArgs();
 
     /**
-     * Specifies the number of days between automatic scheduled rotations of the secret. Either `automatically_after_days` or `schedule_expression` must be specified.
+     * Specifies the number of days between automatic scheduled rotations of the secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
      * 
      */
     @Import(name="automaticallyAfterDays")
     private @Nullable Output<Integer> automaticallyAfterDays;
 
     /**
-     * @return Specifies the number of days between automatic scheduled rotations of the secret. Either `automatically_after_days` or `schedule_expression` must be specified.
+     * @return Specifies the number of days between automatic scheduled rotations of the secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
      * 
      */
     public Optional<Output<Integer>> automaticallyAfterDays() {
@@ -47,14 +47,14 @@ public final class SecretRotationRotationRulesArgs extends com.pulumi.resources.
     }
 
     /**
-     * A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automatically_after_days` or `schedule_expression` must be specified.
+     * A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
      * 
      */
     @Import(name="scheduleExpression")
     private @Nullable Output<String> scheduleExpression;
 
     /**
-     * @return A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automatically_after_days` or `schedule_expression` must be specified.
+     * @return A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
      * 
      */
     public Optional<Output<String>> scheduleExpression() {
@@ -88,7 +88,7 @@ public final class SecretRotationRotationRulesArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param automaticallyAfterDays Specifies the number of days between automatic scheduled rotations of the secret. Either `automatically_after_days` or `schedule_expression` must be specified.
+         * @param automaticallyAfterDays Specifies the number of days between automatic scheduled rotations of the secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class SecretRotationRotationRulesArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param automaticallyAfterDays Specifies the number of days between automatic scheduled rotations of the secret. Either `automatically_after_days` or `schedule_expression` must be specified.
+         * @param automaticallyAfterDays Specifies the number of days between automatic scheduled rotations of the secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class SecretRotationRotationRulesArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param scheduleExpression A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automatically_after_days` or `schedule_expression` must be specified.
+         * @param scheduleExpression A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class SecretRotationRotationRulesArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param scheduleExpression A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automatically_after_days` or `schedule_expression` must be specified.
+         * @param scheduleExpression A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
          * 
          * @return builder
          * 

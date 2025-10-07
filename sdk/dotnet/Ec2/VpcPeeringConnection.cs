@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Ec2
     /// Provides a resource to manage a VPC peering connection.
     /// 
     /// &gt; **Note:** Modifying the VPC Peering Connection options requires peering to be active. An automatic activation
-    /// can be done using the `auto_accept` attribute. Alternatively, the VPC Peering
+    /// can be done using the `AutoAccept` attribute. Alternatively, the VPC Peering
     /// Connection has to be made active manually using other means. See notes below for
     /// more information.
     /// 
     /// &gt; **NOTE on VPC Peering Connections and VPC Peering Connection Options:** This provider provides
     /// both a standalone VPC Peering Connection Options and a VPC Peering Connection
-    /// resource with `accepter` and `requester` attributes. Do not manage options for the same VPC peering
+    /// resource with `Accepter` and `Requester` attributes. Do not manage options for the same VPC peering
     /// connection in both a VPC Peering Connection resource and a VPC Peering Connection Options resource.
     /// Doing so will cause a conflict of options and will overwrite the options.
     /// Using a VPC Peering Connection Options resource decouples management of the connection options from
@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Ec2
     /// VPC Peering Connections use the `aws.ec2.VpcPeeringConnection` resource to manage the requester's side of the
     /// connection and use the `aws.ec2.VpcPeeringConnectionAccepter` resource to manage the accepter's side of the connection.
     /// 
-    /// &gt; **Note:** Creating multiple `aws.ec2.VpcPeeringConnection` resources with the same `peer_vpc_id` and `vpc_id` will not produce an error. Instead, AWS will return the connection `id` that already exists, resulting in multiple `aws.ec2.VpcPeeringConnection` resources with the same `id`.
+    /// &gt; **Note:** Creating multiple `aws.ec2.VpcPeeringConnection` resources with the same `PeerVpcId` and `VpcId` will not produce an error. Instead, AWS will return the connection `Id` that already exists, resulting in multiple `aws.ec2.VpcPeeringConnection` resources with the same `Id`.
     /// 
     /// ## Example Usage
     /// 
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Notes
     /// 
-    /// If both VPCs are not in the same AWS account and region do not enable the `auto_accept` attribute.
+    /// If both VPCs are not in the same AWS account and region do not enable the `AutoAccept` attribute.
     /// The accepter can manage its side of the connection using the `aws.ec2.VpcPeeringConnectionAccepter` resource
     /// or accept the connection manually using the AWS Management Console, AWS CLI, through SDKs, etc.
     /// 
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> PeerOwnerId { get; private set; } = null!;
 
         /// <summary>
-        /// The region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`,
+        /// The region of the accepter VPC of the VPC Peering Connection. `AutoAccept` must be `False`,
         /// and use the `aws.ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
         /// </summary>
         [Output("peerRegion")]
@@ -215,13 +215,13 @@ namespace Pulumi.Aws.Ec2
         public Output<Outputs.VpcPeeringConnectionRequester> Requester { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -299,7 +299,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PeerOwnerId { get; set; }
 
         /// <summary>
-        /// The region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`,
+        /// The region of the accepter VPC of the VPC Peering Connection. `AutoAccept` must be `False`,
         /// and use the `aws.ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
         /// </summary>
         [Input("peerRegion")]
@@ -328,7 +328,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -377,7 +377,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PeerOwnerId { get; set; }
 
         /// <summary>
-        /// The region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`,
+        /// The region of the accepter VPC of the VPC Peering Connection. `AutoAccept` must be `False`,
         /// and use the `aws.ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
         /// </summary>
         [Input("peerRegion")]
@@ -406,7 +406,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -418,7 +418,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

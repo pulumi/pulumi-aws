@@ -86,14 +86,14 @@ public class Application extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
+     * Information about whether file upload functionality is activated or deactivated for your end user. See `attachmentsConfiguration` below.
      * 
      */
     @Export(name="attachmentsConfiguration", refs={ApplicationAttachmentsConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ApplicationAttachmentsConfiguration> attachmentsConfiguration;
 
     /**
-     * @return Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
+     * @return Information about whether file upload functionality is activated or deactivated for your end user. See `attachmentsConfiguration` below.
      * 
      */
     public Output<Optional<ApplicationAttachmentsConfiguration>> attachmentsConfiguration() {
@@ -128,14 +128,14 @@ public class Application extends com.pulumi.resources.CustomResource {
         return this.displayName;
     }
     /**
-     * Information about encryption configuration. See `encryption_configuration` below.
+     * Information about encryption configuration. See `encryptionConfiguration` below.
      * 
      */
     @Export(name="encryptionConfiguration", refs={ApplicationEncryptionConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ApplicationEncryptionConfiguration> encryptionConfiguration;
 
     /**
-     * @return Information about encryption configuration. See `encryption_configuration` below.
+     * @return Information about encryption configuration. See `encryptionConfiguration` below.
      * 
      */
     public Output<Optional<ApplicationEncryptionConfiguration>> encryptionConfiguration() {
@@ -208,14 +208,14 @@ public class Application extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

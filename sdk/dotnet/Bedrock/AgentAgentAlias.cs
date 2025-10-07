@@ -14,6 +14,116 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// ## Example Usage
     /// 
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var currentGetPartition = Aws.GetPartition.Invoke();
+    /// 
+    ///     var currentGetRegion = Aws.GetRegion.Invoke();
+    /// 
+    ///     var exampleAgentTrust = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "bedrock.amazonaws.com",
+    ///                         },
+    ///                         Type = "Service",
+    ///                     },
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Values = new[]
+    ///                         {
+    ///                             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///                         },
+    ///                         Variable = "aws:SourceAccount",
+    ///                     },
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "ArnLike",
+    ///                         Values = new[]
+    ///                         {
+    ///                             $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:bedrock:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:agent/*",
+    ///                         },
+    ///                         Variable = "AWS:SourceArn",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAgentPermissions = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "bedrock:InvokeModel",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:bedrock:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}::foundation-model/anthropic.claude-v2",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var example = new Aws.Iam.Role("example", new()
+    ///     {
+    ///         AssumeRolePolicy = exampleAgentTrust.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         NamePrefix = "AmazonBedrockExecutionRoleForAgents_",
+    ///     });
+    /// 
+    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("example", new()
+    ///     {
+    ///         Policy = exampleAgentPermissions.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Role = example.Id,
+    ///     });
+    /// 
+    ///     var exampleAgentAgent = new Aws.Bedrock.AgentAgent("example", new()
+    ///     {
+    ///         AgentName = "my-agent-name",
+    ///         AgentResourceRoleArn = example.Arn,
+    ///         IdleTtl = 500,
+    ///         FoundationModel = "anthropic.claude-v2",
+    ///     });
+    /// 
+    ///     var exampleAgentAgentAlias = new Aws.Bedrock.AgentAgentAlias("example", new()
+    ///     {
+    ///         AgentAliasName = "my-agent-alias",
+    ///         AgentId = exampleAgentAgent.AgentId,
+    ///         Description = "Test Alias",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Agents for Amazon Bedrock Agent Alias using the alias ID and the agent ID separated by `,`. For example:
@@ -64,19 +174,19 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Details about the routing configuration of the alias. See `routing_configuration` Block for details.
+        /// Details about the routing configuration of the alias. See `RoutingConfiguration` Block for details.
         /// </summary>
         [Output("routingConfigurations")]
         public Output<ImmutableArray<Outputs.AgentAgentAliasRoutingConfiguration>> RoutingConfigurations { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -160,7 +270,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentAgentAliasRoutingConfigurationArgs>? _routingConfigurations;
 
         /// <summary>
-        /// Details about the routing configuration of the alias. See `routing_configuration` Block for details.
+        /// Details about the routing configuration of the alias. See `RoutingConfiguration` Block for details.
         /// </summary>
         public InputList<Inputs.AgentAgentAliasRoutingConfigurationArgs> RoutingConfigurations
         {
@@ -172,7 +282,7 @@ namespace Pulumi.Aws.Bedrock
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -233,7 +343,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentAgentAliasRoutingConfigurationGetArgs>? _routingConfigurations;
 
         /// <summary>
-        /// Details about the routing configuration of the alias. See `routing_configuration` Block for details.
+        /// Details about the routing configuration of the alias. See `RoutingConfiguration` Block for details.
         /// </summary>
         public InputList<Inputs.AgentAgentAliasRoutingConfigurationGetArgs> RoutingConfigurations
         {
@@ -245,7 +355,7 @@ namespace Pulumi.Aws.Bedrock
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -257,7 +367,7 @@ namespace Pulumi.Aws.Bedrock
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

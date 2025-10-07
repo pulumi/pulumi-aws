@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AssessmentScope {
     /**
-     * @return Amazon Web Services accounts that are in scope for the assessment. See `aws_accounts` below.
+     * @return Amazon Web Services accounts that are in scope for the assessment. See `awsAccounts` below.
      * 
      */
     private @Nullable List<AssessmentScopeAwsAccount> awsAccounts;
     /**
-     * @return Amazon Web Services services that are included in the scope of the assessment. See `aws_services` below.
+     * @return Amazon Web Services services that are included in the scope of the assessment. See `awsServices` below.
      * 
      */
     private @Nullable List<AssessmentScopeAwsService> awsServices;
 
     private AssessmentScope() {}
     /**
-     * @return Amazon Web Services accounts that are in scope for the assessment. See `aws_accounts` below.
+     * @return Amazon Web Services accounts that are in scope for the assessment. See `awsAccounts` below.
      * 
      */
     public List<AssessmentScopeAwsAccount> awsAccounts() {
         return this.awsAccounts == null ? List.of() : this.awsAccounts;
     }
     /**
-     * @return Amazon Web Services services that are included in the scope of the assessment. See `aws_services` below.
+     * @return Amazon Web Services services that are included in the scope of the assessment. See `awsServices` below.
      * 
      */
     public List<AssessmentScopeAwsService> awsServices() {

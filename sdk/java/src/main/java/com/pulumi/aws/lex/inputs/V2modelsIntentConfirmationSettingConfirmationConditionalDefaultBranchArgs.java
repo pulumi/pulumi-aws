@@ -17,14 +17,14 @@ public final class V2modelsIntentConfirmationSettingConfirmationConditionalDefau
     public static final V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchArgs Empty = new V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchArgs();
 
     /**
-     * Configuration block for the next step in the conversation. See `next_step`.
+     * Configuration block for the next step in the conversation. See `nextStep`.
      * 
      */
     @Import(name="nextStep")
     private @Nullable Output<V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepArgs> nextStep;
 
     /**
-     * @return Configuration block for the next step in the conversation. See `next_step`.
+     * @return Configuration block for the next step in the conversation. See `nextStep`.
      * 
      */
     public Optional<Output<V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepArgs>> nextStep() {
@@ -72,7 +72,7 @@ public final class V2modelsIntentConfirmationSettingConfirmationConditionalDefau
         }
 
         /**
-         * @param nextStep Configuration block for the next step in the conversation. See `next_step`.
+         * @param nextStep Configuration block for the next step in the conversation. See `nextStep`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class V2modelsIntentConfirmationSettingConfirmationConditionalDefau
         }
 
         /**
-         * @param nextStep Configuration block for the next step in the conversation. See `next_step`.
+         * @param nextStep Configuration block for the next step in the conversation. See `nextStep`.
          * 
          * @return builder
          * 

@@ -32,14 +32,14 @@ public final class ConnectorCapacityArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Details about a fixed capacity allocated to a connector. See `provisioned_capacity` Block for details.
+     * Details about a fixed capacity allocated to a connector. See `provisionedCapacity` Block for details.
      * 
      */
     @Import(name="provisionedCapacity")
     private @Nullable Output<ConnectorCapacityProvisionedCapacityArgs> provisionedCapacity;
 
     /**
-     * @return Details about a fixed capacity allocated to a connector. See `provisioned_capacity` Block for details.
+     * @return Details about a fixed capacity allocated to a connector. See `provisionedCapacity` Block for details.
      * 
      */
     public Optional<Output<ConnectorCapacityProvisionedCapacityArgs>> provisionedCapacity() {
@@ -93,7 +93,7 @@ public final class ConnectorCapacityArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param provisionedCapacity Details about a fixed capacity allocated to a connector. See `provisioned_capacity` Block for details.
+         * @param provisionedCapacity Details about a fixed capacity allocated to a connector. See `provisionedCapacity` Block for details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ConnectorCapacityArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param provisionedCapacity Details about a fixed capacity allocated to a connector. See `provisioned_capacity` Block for details.
+         * @param provisionedCapacity Details about a fixed capacity allocated to a connector. See `provisionedCapacity` Block for details.
          * 
          * @return builder
          * 

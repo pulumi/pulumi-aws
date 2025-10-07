@@ -71,7 +71,7 @@ public final class ContactsEmailContactState extends com.pulumi.resources.Resour
 
     /**
      * Map of tags to assign to the resource. If configured with a provider
-     * `default_tags` configuration block
+     * `defaultTags` configuration block
      * present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -80,7 +80,7 @@ public final class ContactsEmailContactState extends com.pulumi.resources.Resour
 
     /**
      * @return Map of tags to assign to the resource. If configured with a provider
-     * `default_tags` configuration block
+     * `defaultTags` configuration block
      * present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -90,7 +90,7 @@ public final class ContactsEmailContactState extends com.pulumi.resources.Resour
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider
-     * `default_tags` configuration block.
+     * `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
@@ -98,7 +98,7 @@ public final class ContactsEmailContactState extends com.pulumi.resources.Resour
 
     /**
      * @return Map of tags assigned to the resource, including those inherited from the provider
-     * `default_tags` configuration block.
+     * `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -206,7 +206,7 @@ public final class ContactsEmailContactState extends com.pulumi.resources.Resour
 
         /**
          * @param tags Map of tags to assign to the resource. If configured with a provider
-         * `default_tags` configuration block
+         * `defaultTags` configuration block
          * present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
@@ -219,7 +219,7 @@ public final class ContactsEmailContactState extends com.pulumi.resources.Resour
 
         /**
          * @param tags Map of tags to assign to the resource. If configured with a provider
-         * `default_tags` configuration block
+         * `defaultTags` configuration block
          * present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
@@ -231,7 +231,7 @@ public final class ContactsEmailContactState extends com.pulumi.resources.Resour
 
         /**
          * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider
-         * `default_tags` configuration block.
+         * `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class ContactsEmailContactState extends com.pulumi.resources.Resour
 
         /**
          * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider
-         * `default_tags` configuration block.
+         * `defaultTags` configuration block.
          * 
          * @return builder
          * 

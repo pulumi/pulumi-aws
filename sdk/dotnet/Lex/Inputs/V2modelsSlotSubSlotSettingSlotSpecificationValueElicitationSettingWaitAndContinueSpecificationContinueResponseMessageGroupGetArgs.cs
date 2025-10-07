@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Lex.Inputs
     {
         /// <summary>
         /// Configuration block for the primary message that Amazon Lex should send to the user.
-        /// See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+        /// See the `aws.lex.V2modelsIntent` resource for details on the `Message` argument reference - they are identical.
         /// </summary>
         [Input("message", required: true)]
         public Input<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageGetArgs> Message { get; set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Lex.Inputs
         /// <summary>
         /// Configuration blocks for message variations to send to the user.
         /// When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
-        /// See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+        /// See the `aws.lex.V2modelsIntent` resource for details on the `Variation` argument reference - they are identical.
         /// </summary>
         public InputList<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationGetArgs> Variations
         {

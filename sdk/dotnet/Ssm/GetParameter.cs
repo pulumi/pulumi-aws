@@ -166,7 +166,7 @@ namespace Pulumi.Aws.Ssm
         public string? Region { get; set; }
 
         /// <summary>
-        /// Whether to return decrypted `SecureString` value. Defaults to `true`.
+        /// Whether to return decrypted `SecureString` value. Defaults to `True`.
         /// </summary>
         [Input("withDecryption")]
         public bool? WithDecryption { get; set; }
@@ -192,7 +192,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Whether to return decrypted `SecureString` value. Defaults to `true`.
+        /// Whether to return decrypted `SecureString` value. Defaults to `True`.
         /// </summary>
         [Input("withDecryption")]
         public Input<bool>? WithDecryption { get; set; }
@@ -229,7 +229,7 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
+        /// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `Type`.
         /// </summary>
         public readonly string Value;
         /// <summary>

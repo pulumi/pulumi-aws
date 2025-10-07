@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Emr.Outputs
     public sealed class ClusterMasterInstanceFleetInstanceTypeConfig
     {
         /// <summary>
-        /// Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        /// Bid price for each EC2 Spot instance type as defined by `InstanceType`. Expressed in USD. If neither `BidPrice` nor `BidPriceAsPercentageOfOnDemandPrice` is provided, `BidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
         /// </summary>
         public readonly string? BidPrice;
         /// <summary>
-        /// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        /// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `InstanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `BidPrice` nor `BidPriceAsPercentageOfOnDemandPrice` is provided, `BidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
         /// </summary>
         public readonly double? BidPriceAsPercentageOfOnDemandPrice;
         /// <summary>
-        /// Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+        /// Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `Configuration` blocks.
         /// </summary>
         public readonly ImmutableArray<Outputs.ClusterMasterInstanceFleetInstanceTypeConfigConfiguration> Configurations;
         /// <summary>

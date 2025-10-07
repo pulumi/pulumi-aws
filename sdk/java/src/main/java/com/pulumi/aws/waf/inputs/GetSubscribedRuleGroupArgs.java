@@ -18,7 +18,7 @@ public final class GetSubscribedRuleGroupArgs extends com.pulumi.resources.Invok
     /**
      * Name of the WAF rule group.
      * 
-     * At least one of `name` or `metric_name` must be configured.
+     * At least one of `name` or `metricName` must be configured.
      * 
      */
     @Import(name="metricName")
@@ -27,7 +27,7 @@ public final class GetSubscribedRuleGroupArgs extends com.pulumi.resources.Invok
     /**
      * @return Name of the WAF rule group.
      * 
-     * At least one of `name` or `metric_name` must be configured.
+     * At least one of `name` or `metricName` must be configured.
      * 
      */
     public Optional<Output<String>> metricName() {
@@ -77,7 +77,7 @@ public final class GetSubscribedRuleGroupArgs extends com.pulumi.resources.Invok
         /**
          * @param metricName Name of the WAF rule group.
          * 
-         * At least one of `name` or `metric_name` must be configured.
+         * At least one of `name` or `metricName` must be configured.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class GetSubscribedRuleGroupArgs extends com.pulumi.resources.Invok
         /**
          * @param metricName Name of the WAF rule group.
          * 
-         * At least one of `name` or `metric_name` must be configured.
+         * At least one of `name` or `metricName` must be configured.
          * 
          * @return builder
          * 

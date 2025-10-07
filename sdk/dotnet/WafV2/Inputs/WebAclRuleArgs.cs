@@ -13,19 +13,19 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Action that AWS WAF should take on a web request when it matches the rule's statement. This is used only for rules whose **statements do not reference a rule group**. See `action` for details.
+        /// Action that AWS WAF should take on a web request when it matches the rule's statement. This is used only for rules whose **statements do not reference a rule group**. See `Action` for details.
         /// </summary>
         [Input("action")]
         public Input<Inputs.WebAclRuleActionArgs>? Action { get; set; }
 
         /// <summary>
-        /// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+        /// Specifies how AWS WAF should handle CAPTCHA evaluations. See `CaptchaConfig` below for details.
         /// </summary>
         [Input("captchaConfig")]
         public Input<Inputs.WebAclRuleCaptchaConfigArgs>? CaptchaConfig { get; set; }
 
         /// <summary>
-        /// Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challenge_config` below for details.
+        /// Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `ChallengeConfig` below for details.
         /// </summary>
         [Input("challengeConfig")]
         public Input<Inputs.WebAclRuleChallengeConfigArgs>? ChallengeConfig { get; set; }
@@ -37,13 +37,13 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Override action to apply to the rules in a rule group. Used only for rule **statements that reference a rule group**, like `rule_group_reference_statement` and `managed_rule_group_statement`. See `override_action` below for details.
+        /// Override action to apply to the rules in a rule group. Used only for rule **statements that reference a rule group**, like `RuleGroupReferenceStatement` and `ManagedRuleGroupStatement`. See `OverrideAction` below for details.
         /// </summary>
         [Input("overrideAction")]
         public Input<Inputs.WebAclRuleOverrideActionArgs>? OverrideAction { get; set; }
 
         /// <summary>
-        /// If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `rules` in order based on the value of `priority`. AWS WAF processes rules with lower priority first.
+        /// If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `Rules` in order based on the value of `Priority`. AWS WAF processes rules with lower priority first.
         /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
@@ -52,7 +52,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<Inputs.WebAclRuleRuleLabelArgs>? _ruleLabels;
 
         /// <summary>
-        /// Labels to apply to web requests that match the rule match statement. See `rule_label` below for details.
+        /// Labels to apply to web requests that match the rule match statement. See `RuleLabel` below for details.
         /// </summary>
         public InputList<Inputs.WebAclRuleRuleLabelArgs> RuleLabels
         {
@@ -61,13 +61,13 @@ namespace Pulumi.Aws.WafV2.Inputs
         }
 
         /// <summary>
-        /// The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See `statement` below for details.
+        /// The AWS WAF processing statement for the rule, for example `ByteMatchStatement` or `GeoMatchStatement`. See `Statement` below for details.
         /// </summary>
         [Input("statement", required: true)]
         public Input<Inputs.WebAclRuleStatementArgs> Statement { get; set; } = null!;
 
         /// <summary>
-        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
+        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `VisibilityConfig` below for details.
         /// </summary>
         [Input("visibilityConfig", required: true)]
         public Input<Inputs.WebAclRuleVisibilityConfigArgs> VisibilityConfig { get; set; } = null!;

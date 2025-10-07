@@ -105,14 +105,14 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByt
     }
 
     /**
-     * Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+     * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
      * 
      */
     @Import(name="ja3Fingerprint")
     private @Nullable Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3FingerprintArgs> ja3Fingerprint;
 
     /**
-     * @return Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+     * @return Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
      * 
      */
     public Optional<Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3FingerprintArgs>> ja3Fingerprint() {
@@ -120,14 +120,14 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByt
     }
 
     /**
-     * Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
+     * Inspect the JA4 fingerprint. See `ja4Fingerprint` below for details.
      * 
      */
     @Import(name="ja4Fingerprint")
     private @Nullable Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4FingerprintArgs> ja4Fingerprint;
 
     /**
-     * @return Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
+     * @return Inspect the JA4 fingerprint. See `ja4Fingerprint` below for details.
      * 
      */
     public Optional<Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4FingerprintArgs>> ja4Fingerprint() {
@@ -402,7 +402,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByt
         }
 
         /**
-         * @param ja3Fingerprint Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+         * @param ja3Fingerprint Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
          * 
          * @return builder
          * 
@@ -413,7 +413,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByt
         }
 
         /**
-         * @param ja3Fingerprint Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+         * @param ja3Fingerprint Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
          * 
          * @return builder
          * 
@@ -423,7 +423,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByt
         }
 
         /**
-         * @param ja4Fingerprint Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
+         * @param ja4Fingerprint Inspect the JA4 fingerprint. See `ja4Fingerprint` below for details.
          * 
          * @return builder
          * 
@@ -434,7 +434,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByt
         }
 
         /**
-         * @param ja4Fingerprint Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
+         * @param ja4Fingerprint Inspect the JA4 fingerprint. See `ja4Fingerprint` below for details.
          * 
          * @return builder
          * 

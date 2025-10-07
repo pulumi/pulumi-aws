@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Amp.Outputs
     public sealed class ScraperDestination
     {
         /// <summary>
-        /// Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
+        /// Configuration block for an Amazon Managed Prometheus workspace destination. See `Amp`.
         /// </summary>
         public readonly Outputs.ScraperDestinationAmp? Amp;
 

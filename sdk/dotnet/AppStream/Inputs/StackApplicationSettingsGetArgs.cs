@@ -20,7 +20,7 @@ namespace Pulumi.Aws.AppStream.Inputs
 
         /// <summary>
         /// Name of the settings group.
-        /// Required when `enabled` is `true`.
+        /// Required when `Enabled` is `True`.
         /// Can be up to 100 characters.
         /// </summary>
         [Input("settingsGroup")]

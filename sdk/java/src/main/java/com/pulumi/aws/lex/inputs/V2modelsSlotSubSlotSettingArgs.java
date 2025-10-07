@@ -34,7 +34,7 @@ public final class V2modelsSlotSubSlotSettingArgs extends com.pulumi.resources.R
 
     /**
      * Specifications for the constituent sub slots of a composite slot.
-     * See the `slot_specification` argument reference below.
+     * See the `slotSpecification` argument reference below.
      * 
      */
     @Import(name="slotSpecifications")
@@ -42,7 +42,7 @@ public final class V2modelsSlotSubSlotSettingArgs extends com.pulumi.resources.R
 
     /**
      * @return Specifications for the constituent sub slots of a composite slot.
-     * See the `slot_specification` argument reference below.
+     * See the `slotSpecification` argument reference below.
      * 
      */
     public Optional<Output<List<V2modelsSlotSubSlotSettingSlotSpecificationArgs>>> slotSpecifications() {
@@ -97,7 +97,7 @@ public final class V2modelsSlotSubSlotSettingArgs extends com.pulumi.resources.R
 
         /**
          * @param slotSpecifications Specifications for the constituent sub slots of a composite slot.
-         * See the `slot_specification` argument reference below.
+         * See the `slotSpecification` argument reference below.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class V2modelsSlotSubSlotSettingArgs extends com.pulumi.resources.R
 
         /**
          * @param slotSpecifications Specifications for the constituent sub slots of a composite slot.
-         * See the `slot_specification` argument reference below.
+         * See the `slotSpecification` argument reference below.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class V2modelsSlotSubSlotSettingArgs extends com.pulumi.resources.R
 
         /**
          * @param slotSpecifications Specifications for the constituent sub slots of a composite slot.
-         * See the `slot_specification` argument reference below.
+         * See the `slotSpecification` argument reference below.
          * 
          * @return builder
          * 

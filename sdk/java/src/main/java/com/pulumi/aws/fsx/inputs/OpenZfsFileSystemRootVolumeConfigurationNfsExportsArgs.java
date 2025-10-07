@@ -16,14 +16,14 @@ public final class OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs extend
     public static final OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs Empty = new OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs();
 
     /**
-     * A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `client_configurations` Block for details.
+     * A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `clientConfigurations` Block for details.
      * 
      */
     @Import(name="clientConfigurations", required=true)
     private Output<List<OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs>> clientConfigurations;
 
     /**
-     * @return A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `client_configurations` Block for details.
+     * @return A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `clientConfigurations` Block for details.
      * 
      */
     public Output<List<OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs>> clientConfigurations() {
@@ -55,7 +55,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs extend
         }
 
         /**
-         * @param clientConfigurations A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `client_configurations` Block for details.
+         * @param clientConfigurations A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `clientConfigurations` Block for details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs extend
         }
 
         /**
-         * @param clientConfigurations A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `client_configurations` Block for details.
+         * @param clientConfigurations A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `clientConfigurations` Block for details.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs extend
         }
 
         /**
-         * @param clientConfigurations A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `client_configurations` Block for details.
+         * @param clientConfigurations A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `clientConfigurations` Block for details.
          * 
          * @return builder
          * 

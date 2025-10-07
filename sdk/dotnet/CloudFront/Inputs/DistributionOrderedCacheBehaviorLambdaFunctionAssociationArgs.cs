@@ -19,7 +19,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public Input<string> EventType { get; set; } = null!;
 
         /// <summary>
-        /// When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
+        /// When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `True`, `False`.
         /// </summary>
         [Input("includeBody")]
         public Input<bool>? IncludeBody { get; set; }

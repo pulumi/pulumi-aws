@@ -93,7 +93,7 @@ namespace Pulumi.Aws.SecretsManager
         public Output<bool?> BlockPublicPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `aws.secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
+        /// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `aws.secretsmanager.Secret`, where `Policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `Policy` is required.
         /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.SecretsManager
         public Input<bool>? BlockPublicPolicy { get; set; }
 
         /// <summary>
-        /// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `aws.secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
+        /// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `aws.secretsmanager.Secret`, where `Policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `Policy` is required.
         /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.Aws.SecretsManager
         public Input<bool>? BlockPublicPolicy { get; set; }
 
         /// <summary>
-        /// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `aws.secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
+        /// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `aws.secretsmanager.Secret`, where `Policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `Policy` is required.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }

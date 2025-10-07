@@ -34,7 +34,7 @@ public final class FrameworkArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
+     * Configuration block(s) for the control sets that are associated with the framework. See `controlSets` Block below for details.
      * 
      * The following arguments are optional:
      * 
@@ -43,7 +43,7 @@ public final class FrameworkArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<FrameworkControlSetArgs>> controlSets;
 
     /**
-     * @return Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
+     * @return Configuration block(s) for the control sets that are associated with the framework. See `controlSets` Block below for details.
      * 
      * The following arguments are optional:
      * 
@@ -98,14 +98,14 @@ public final class FrameworkArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the framework. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the framework. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the framework. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the framework. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -163,7 +163,7 @@ public final class FrameworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param controlSets Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
+         * @param controlSets Configuration block(s) for the control sets that are associated with the framework. See `controlSets` Block below for details.
          * 
          * The following arguments are optional:
          * 
@@ -176,7 +176,7 @@ public final class FrameworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param controlSets Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
+         * @param controlSets Configuration block(s) for the control sets that are associated with the framework. See `controlSets` Block below for details.
          * 
          * The following arguments are optional:
          * 
@@ -188,7 +188,7 @@ public final class FrameworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param controlSets Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
+         * @param controlSets Configuration block(s) for the control sets that are associated with the framework. See `controlSets` Block below for details.
          * 
          * The following arguments are optional:
          * 
@@ -263,7 +263,7 @@ public final class FrameworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the framework. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the framework. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class FrameworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the framework. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the framework. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

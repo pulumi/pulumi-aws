@@ -122,7 +122,7 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// Engine type for the reserved cache node.
-        /// Valid values are `redis`, `valkey` and `memcached`.
+        /// Valid values are `Redis`, `Valkey` and `Memcached`.
         /// </summary>
         [Input("productDescription", required: true)]
         public string ProductDescription { get; set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// Engine type for the reserved cache node.
-        /// Valid values are `redis`, `valkey` and `memcached`.
+        /// Valid values are `Redis`, `Valkey` and `Memcached`.
         /// </summary>
         [Input("productDescription", required: true)]
         public Input<string> ProductDescription { get; set; } = null!;

@@ -26,11 +26,11 @@ namespace Pulumi.Aws.ElasticTranscoder.Outputs
         /// </summary>
         public readonly string? Channels;
         /// <summary>
-        /// The audio codec for the output file. Valid values are `AAC`, `flac`, `mp2`, `mp3`, `pcm`, and `vorbis`.
+        /// The audio codec for the output file. Valid values are `AAC`, `Flac`, `Mp2`, `Mp3`, `Pcm`, and `Vorbis`.
         /// </summary>
         public readonly string? Codec;
         /// <summary>
-        /// The sample rate of the audio stream in the output file, in hertz. Valid values are: `auto`, `22050`, `32000`, `44100`, `48000`, `96000`
+        /// The sample rate of the audio stream in the output file, in hertz. Valid values are: `Auto`, `22050`, `32000`, `44100`, `48000`, `96000`
         /// </summary>
         public readonly string? SampleRate;
 

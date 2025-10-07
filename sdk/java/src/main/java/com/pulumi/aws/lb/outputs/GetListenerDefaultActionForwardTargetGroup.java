@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetListenerDefaultActionForwardTargetGroup {
     /**
-     * @return ARN of the listener. Required if `load_balancer_arn` and `port` is not set.
+     * @return ARN of the listener. Required if `loadBalancerArn` and `port` is not set.
      * 
      */
     private String arn;
@@ -20,7 +20,7 @@ public final class GetListenerDefaultActionForwardTargetGroup {
 
     private GetListenerDefaultActionForwardTargetGroup() {}
     /**
-     * @return ARN of the listener. Required if `load_balancer_arn` and `port` is not set.
+     * @return ARN of the listener. Required if `loadBalancerArn` and `port` is not set.
      * 
      */
     public String arn() {
