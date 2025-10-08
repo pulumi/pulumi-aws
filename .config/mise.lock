@@ -70,13 +70,13 @@ version = "1.22.22"
 backend = "npm:yarn"
 
 [[tools.pulumi]]
-version = "3.190.0"
+version = "3.199.0"
 backend = "aqua:pulumi/pulumi"
 
 [tools.pulumi.platforms.linux-x64]
-checksum = "sha512:1847aaa3c3c0202cff9cbd3f547c5965abb2b2f83199b47c36c23121d7c860662b6d817226709fc3eadd24551a30ab656699d2eb992d2085bb90db6c195c2379"
-size = 92837374
-url = "https://github.com/pulumi/pulumi/releases/download/v3.190.0/pulumi-v3.190.0-linux-x64.tar.gz"
+checksum = "sha512:a706eab83f2c2f8580aca9bc8ed45bc25fb397bb692ee2d8fedc60c8d92c53193f6994c70c696aa183ef53d86ac1b35e294cc294f4dd1d0e9307582376fe19d6"
+size = 93861516
+url = "https://github.com/pulumi/pulumi/releases/download/v3.199.0/pulumi-v3.199.0-linux-x64.tar.gz"
 
 [[tools.python]]
 version = "3.11.8"
