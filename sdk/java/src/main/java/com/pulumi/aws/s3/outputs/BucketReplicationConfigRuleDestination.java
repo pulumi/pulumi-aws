@@ -22,7 +22,7 @@ public final class BucketReplicationConfigRuleDestination {
      */
     private @Nullable BucketReplicationConfigRuleDestinationAccessControlTranslation accessControlTranslation;
     /**
-     * @return Account ID to specify the replica ownership. Must be used in conjunction with `access_control_translation` override configuration.
+     * @return Account ID to specify the replica ownership. Must be used in conjunction with `accessControlTranslation` override configuration.
      * 
      */
     private @Nullable String account;
@@ -32,7 +32,7 @@ public final class BucketReplicationConfigRuleDestination {
      */
     private String bucket;
     /**
-     * @return Configuration block that provides information about encryption. See below. If `source_selection_criteria` is specified, you must specify this element.
+     * @return Configuration block that provides information about encryption. See below. If `sourceSelectionCriteria` is specified, you must specify this element.
      * 
      */
     private @Nullable BucketReplicationConfigRuleDestinationEncryptionConfiguration encryptionConfiguration;
@@ -61,7 +61,7 @@ public final class BucketReplicationConfigRuleDestination {
         return Optional.ofNullable(this.accessControlTranslation);
     }
     /**
-     * @return Account ID to specify the replica ownership. Must be used in conjunction with `access_control_translation` override configuration.
+     * @return Account ID to specify the replica ownership. Must be used in conjunction with `accessControlTranslation` override configuration.
      * 
      */
     public Optional<String> account() {
@@ -75,7 +75,7 @@ public final class BucketReplicationConfigRuleDestination {
         return this.bucket;
     }
     /**
-     * @return Configuration block that provides information about encryption. See below. If `source_selection_criteria` is specified, you must specify this element.
+     * @return Configuration block that provides information about encryption. See below. If `sourceSelectionCriteria` is specified, you must specify this element.
      * 
      */
     public Optional<BucketReplicationConfigRuleDestinationEncryptionConfiguration> encryptionConfiguration() {

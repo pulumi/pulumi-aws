@@ -17,7 +17,7 @@ public final class RepositoryCreationTemplateEncryptionConfiguration {
      */
     private @Nullable String encryptionType;
     /**
-     * @return The ARN of the KMS key to use when `encryption_type` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+     * @return The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
      * 
      */
     private @Nullable String kmsKey;
@@ -31,7 +31,7 @@ public final class RepositoryCreationTemplateEncryptionConfiguration {
         return Optional.ofNullable(this.encryptionType);
     }
     /**
-     * @return The ARN of the KMS key to use when `encryption_type` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+     * @return The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
      * 
      */
     public Optional<String> kmsKey() {

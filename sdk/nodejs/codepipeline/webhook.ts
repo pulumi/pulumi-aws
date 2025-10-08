@@ -9,6 +9,99 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CodePipeline Webhook.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as github from "@pulumi/github";
+ *
+ * const bar = new aws.codepipeline.Pipeline("bar", {
+ *     name: "tf-test-pipeline",
+ *     roleArn: barAwsIamRole.arn,
+ *     artifactStores: [{
+ *         location: barAwsS3Bucket.bucket,
+ *         type: "S3",
+ *         encryptionKey: {
+ *             id: s3kmskey.arn,
+ *             type: "KMS",
+ *         },
+ *     }],
+ *     stages: [
+ *         {
+ *             name: "Source",
+ *             actions: [{
+ *                 name: "Source",
+ *                 category: "Source",
+ *                 owner: "ThirdParty",
+ *                 provider: "GitHub",
+ *                 version: "1",
+ *                 outputArtifacts: ["test"],
+ *                 configuration: {
+ *                     Owner: "my-organization",
+ *                     Repo: "test",
+ *                     Branch: "master",
+ *                 },
+ *             }],
+ *         },
+ *         {
+ *             name: "Build",
+ *             actions: [{
+ *                 name: "Build",
+ *                 category: "Build",
+ *                 owner: "AWS",
+ *                 provider: "CodeBuild",
+ *                 inputArtifacts: ["test"],
+ *                 version: "1",
+ *                 configuration: {
+ *                     ProjectName: "test",
+ *                 },
+ *             }],
+ *         },
+ *     ],
+ * });
+ * const webhookSecret = "super-secret";
+ * const barWebhook = new aws.codepipeline.Webhook("bar", {
+ *     name: "test-webhook-github-bar",
+ *     authentication: "GITHUB_HMAC",
+ *     targetAction: "Source",
+ *     targetPipeline: bar.name,
+ *     authenticationConfiguration: {
+ *         secretToken: webhookSecret,
+ *     },
+ *     filters: [{
+ *         jsonPath: "$.ref",
+ *         matchEquals: "refs/heads/{Branch}",
+ *     }],
+ * });
+ * // Wire the CodePipeline webhook into a GitHub repository.
+ * const barRepositoryWebhook = new github.RepositoryWebhook("bar", {
+ *     repository: repo.name,
+ *     name: "web",
+ *     configuration: {
+ *         url: barWebhook.url,
+ *         contentType: "json",
+ *         insecureSsl: true,
+ *         secret: webhookSecret,
+ *     },
+ *     events: ["push"],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * - `arn` (String) Amazon Resource Name (ARN) of the CodePipeline webhook.
+ *
+ * Using `pulumi import`, import CodePipeline Webhooks using their ARN. For example:
+ *
+ * console
+ *
+ * % pulumi import aws_codepipeline_webhook.example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
  */
 export class Webhook extends pulumi.CustomResource {
     /**

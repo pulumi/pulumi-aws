@@ -50,14 +50,14 @@ public final class GetTagsPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Configuration block for the value by which you want to sort the data. `sort_by` block below for details.
+     * Configuration block for the value by which you want to sort the data. `sortBy` block below for details.
      * 
      */
     @Import(name="sortBies")
     private @Nullable List<GetTagsSortBy> sortBies;
 
     /**
-     * @return Configuration block for the value by which you want to sort the data. `sort_by` block below for details.
+     * @return Configuration block for the value by which you want to sort the data. `sortBy` block below for details.
      * 
      */
     public Optional<List<GetTagsSortBy>> sortBies() {
@@ -80,14 +80,14 @@ public final class GetTagsPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Configuration block for the start and end dates for retrieving the dimension values. See `time_period` block below for details.
+     * Configuration block for the start and end dates for retrieving the dimension values. See `timePeriod` block below for details.
      * 
      */
     @Import(name="timePeriod", required=true)
     private GetTagsTimePeriod timePeriod;
 
     /**
-     * @return Configuration block for the start and end dates for retrieving the dimension values. See `time_period` block below for details.
+     * @return Configuration block for the start and end dates for retrieving the dimension values. See `timePeriod` block below for details.
      * 
      */
     public GetTagsTimePeriod timePeriod() {
@@ -145,7 +145,7 @@ public final class GetTagsPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param sortBies Configuration block for the value by which you want to sort the data. `sort_by` block below for details.
+         * @param sortBies Configuration block for the value by which you want to sort the data. `sortBy` block below for details.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class GetTagsPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param sortBies Configuration block for the value by which you want to sort the data. `sort_by` block below for details.
+         * @param sortBies Configuration block for the value by which you want to sort the data. `sortBy` block below for details.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class GetTagsPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param timePeriod Configuration block for the start and end dates for retrieving the dimension values. See `time_period` block below for details.
+         * @param timePeriod Configuration block for the start and end dates for retrieving the dimension values. See `timePeriod` block below for details.
          * 
          * @return builder
          * 

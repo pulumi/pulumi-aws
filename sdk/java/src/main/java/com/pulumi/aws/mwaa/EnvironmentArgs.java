@@ -21,14 +21,14 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
     public static final EnvironmentArgs Empty = new EnvironmentArgs();
 
     /**
-     * The `airflow_configuration_options` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
+     * The `airflowConfigurationOptions` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
      * 
      */
     @Import(name="airflowConfigurationOptions")
     private @Nullable Output<Map<String,String>> airflowConfigurationOptions;
 
     /**
-     * @return The `airflow_configuration_options` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
+     * @return The `airflowConfigurationOptions` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
      * 
      */
     public Optional<Output<Map<String,String>>> airflowConfigurationOptions() {
@@ -126,14 +126,14 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
+     * The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `loggingConfiguration` Block for details.
      * 
      */
     @Import(name="loggingConfiguration")
     private @Nullable Output<EnvironmentLoggingConfigurationArgs> loggingConfiguration;
 
     /**
-     * @return The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
+     * @return The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `loggingConfiguration` Block for details.
      * 
      */
     public Optional<Output<EnvironmentLoggingConfigurationArgs>> loggingConfiguration() {
@@ -141,14 +141,14 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
+     * The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
      * 
      */
     @Import(name="maxWebservers")
     private @Nullable Output<Integer> maxWebservers;
 
     /**
-     * @return The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
+     * @return The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
      * 
      */
     public Optional<Output<Integer>> maxWebservers() {
@@ -171,14 +171,14 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
+     * The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
      * 
      */
     @Import(name="minWebservers")
     private @Nullable Output<Integer> minWebservers;
 
     /**
-     * @return The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
+     * @return The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
      * 
      */
     public Optional<Output<Integer>> minWebservers() {
@@ -216,14 +216,14 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
+     * Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `networkConfiguration` Block for details.
      * 
      */
     @Import(name="networkConfiguration", required=true)
     private Output<EnvironmentNetworkConfigurationArgs> networkConfiguration;
 
     /**
-     * @return Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
+     * @return Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `networkConfiguration` Block for details.
      * 
      */
     public Output<EnvironmentNetworkConfigurationArgs> networkConfiguration() {
@@ -246,14 +246,14 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then plugins_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+     * The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then pluginsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      * 
      */
     @Import(name="pluginsS3Path")
     private @Nullable Output<String> pluginsS3Path;
 
     /**
-     * @return The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then plugins_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+     * @return The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then pluginsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      * 
      */
     public Optional<Output<String>> pluginsS3Path() {
@@ -291,14 +291,14 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+     * The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirementsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      * 
      */
     @Import(name="requirementsS3Path")
     private @Nullable Output<String> requirementsS3Path;
 
     /**
-     * @return The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+     * @return The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirementsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      * 
      */
     public Optional<Output<String>> requirementsS3Path() {
@@ -366,14 +366,14 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -476,7 +476,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param airflowConfigurationOptions The `airflow_configuration_options` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
+         * @param airflowConfigurationOptions The `airflowConfigurationOptions` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
          * 
          * @return builder
          * 
@@ -487,7 +487,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param airflowConfigurationOptions The `airflow_configuration_options` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
+         * @param airflowConfigurationOptions The `airflowConfigurationOptions` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
          * 
          * @return builder
          * 
@@ -623,7 +623,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loggingConfiguration The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
+         * @param loggingConfiguration The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `loggingConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -634,7 +634,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loggingConfiguration The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
+         * @param loggingConfiguration The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `loggingConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -644,7 +644,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxWebservers The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
+         * @param maxWebservers The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
          * 
          * @return builder
          * 
@@ -655,7 +655,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxWebservers The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
+         * @param maxWebservers The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
          * 
          * @return builder
          * 
@@ -686,7 +686,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minWebservers The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
+         * @param minWebservers The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
          * 
          * @return builder
          * 
@@ -697,7 +697,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minWebservers The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
+         * @param minWebservers The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
          * 
          * @return builder
          * 
@@ -749,7 +749,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkConfiguration Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
+         * @param networkConfiguration Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `networkConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -760,7 +760,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkConfiguration Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
+         * @param networkConfiguration Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `networkConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -791,7 +791,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pluginsS3Path The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then plugins_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+         * @param pluginsS3Path The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then pluginsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
          * 
          * @return builder
          * 
@@ -802,7 +802,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pluginsS3Path The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then plugins_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+         * @param pluginsS3Path The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then pluginsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
          * 
          * @return builder
          * 
@@ -854,7 +854,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requirementsS3Path The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+         * @param requirementsS3Path The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirementsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
          * 
          * @return builder
          * 
@@ -865,7 +865,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requirementsS3Path The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+         * @param requirementsS3Path The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirementsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
          * 
          * @return builder
          * 
@@ -959,7 +959,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -970,7 +970,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

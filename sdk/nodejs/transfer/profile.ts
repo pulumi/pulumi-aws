@@ -9,6 +9,19 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Basic
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.transfer.Profile("example", {
+ *     as2Id: "example",
+ *     certificateIds: [exampleAwsTransferCertificate.certificateId],
+ *     usage: "LOCAL",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Transfer AS2 Profile using the `profile_id`. For example:

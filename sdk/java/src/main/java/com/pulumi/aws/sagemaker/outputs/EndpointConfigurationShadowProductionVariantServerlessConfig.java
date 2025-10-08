@@ -23,7 +23,7 @@ public final class EndpointConfigurationShadowProductionVariantServerlessConfig 
      */
     private Integer memorySizeInMb;
     /**
-     * @return The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
+     * @return The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
      * 
      */
     private @Nullable Integer provisionedConcurrency;
@@ -44,7 +44,7 @@ public final class EndpointConfigurationShadowProductionVariantServerlessConfig 
         return this.memorySizeInMb;
     }
     /**
-     * @return The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
+     * @return The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
      * 
      */
     public Optional<Integer> provisionedConcurrency() {

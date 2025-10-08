@@ -49,7 +49,7 @@ namespace Pulumi.Aws.ServiceCatalog
     public partial class ServiceAction : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
+        /// Language code. Valid values are `En` (English), `Jp` (Japanese), and `Zh` (Chinese). Default is `En`.
         /// </summary>
         [Output("acceptLanguage")]
         public Output<string?> AcceptLanguage { get; private set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.ServiceCatalog
     public sealed class ServiceActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
+        /// Language code. Valid values are `En` (English), `Jp` (Japanese), and `Zh` (Chinese). Default is `En`.
         /// </summary>
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.ServiceCatalog
     public sealed class ServiceActionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
+        /// Language code. Valid values are `En` (English), `Jp` (Japanese), and `Zh` (Chinese). Default is `En`.
         /// </summary>
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }

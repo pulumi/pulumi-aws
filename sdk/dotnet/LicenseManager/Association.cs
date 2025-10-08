@@ -12,7 +12,7 @@ namespace Pulumi.Aws.LicenseManager
     /// <summary>
     /// Provides a License Manager association.
     /// 
-    /// &gt; **Note:** License configurations can also be associated with launch templates by specifying the `license_specifications` block for an `aws.ec2.LaunchTemplate`.
+    /// &gt; **Note:** License configurations can also be associated with launch templates by specifying the `LicenseSpecifications` block for an `aws.ec2.LaunchTemplate`.
     /// 
     /// ## Example Usage
     /// 

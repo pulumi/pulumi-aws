@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Lex
 
         /// <summary>
         /// Whether the slot returns multiple values in one response.
-        /// See the `multiple_values_setting` argument reference below.
+        /// See the `MultipleValuesSetting` argument reference below.
         /// </summary>
         [Output("multipleValuesSettings")]
         public Output<ImmutableArray<Outputs.V2modelsSlotMultipleValuesSetting>> MultipleValuesSettings { get; private set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Lex
 
         /// <summary>
         /// Determines how slot values are used in Amazon CloudWatch logs.
-        /// See the `obfuscation_setting` argument reference below.
+        /// See the `ObfuscationSetting` argument reference below.
         /// </summary>
         [Output("obfuscationSettings")]
         public Output<ImmutableArray<Outputs.V2modelsSlotObfuscationSetting>> ObfuscationSettings { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Lex
 
         /// <summary>
         /// Specifications for the constituent sub slots and the expression for the composite slot.
-        /// See the `sub_slot_setting` argument reference below.
+        /// See the `SubSlotSetting` argument reference below.
         /// </summary>
         [Output("subSlotSettings")]
         public Output<ImmutableArray<Outputs.V2modelsSlotSubSlotSetting>> SubSlotSettings { get; private set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.Lex
 
         /// <summary>
         /// Whether the slot returns multiple values in one response.
-        /// See the `multiple_values_setting` argument reference below.
+        /// See the `MultipleValuesSetting` argument reference below.
         /// </summary>
         public InputList<Inputs.V2modelsSlotMultipleValuesSettingArgs> MultipleValuesSettings
         {
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.Lex
 
         /// <summary>
         /// Determines how slot values are used in Amazon CloudWatch logs.
-        /// See the `obfuscation_setting` argument reference below.
+        /// See the `ObfuscationSetting` argument reference below.
         /// </summary>
         public InputList<Inputs.V2modelsSlotObfuscationSettingArgs> ObfuscationSettings
         {
@@ -227,7 +227,7 @@ namespace Pulumi.Aws.Lex
 
         /// <summary>
         /// Specifications for the constituent sub slots and the expression for the composite slot.
-        /// See the `sub_slot_setting` argument reference below.
+        /// See the `SubSlotSetting` argument reference below.
         /// </summary>
         public InputList<Inputs.V2modelsSlotSubSlotSettingArgs> SubSlotSettings
         {
@@ -284,7 +284,7 @@ namespace Pulumi.Aws.Lex
 
         /// <summary>
         /// Whether the slot returns multiple values in one response.
-        /// See the `multiple_values_setting` argument reference below.
+        /// See the `MultipleValuesSetting` argument reference below.
         /// </summary>
         public InputList<Inputs.V2modelsSlotMultipleValuesSettingGetArgs> MultipleValuesSettings
         {
@@ -303,7 +303,7 @@ namespace Pulumi.Aws.Lex
 
         /// <summary>
         /// Determines how slot values are used in Amazon CloudWatch logs.
-        /// See the `obfuscation_setting` argument reference below.
+        /// See the `ObfuscationSetting` argument reference below.
         /// </summary>
         public InputList<Inputs.V2modelsSlotObfuscationSettingGetArgs> ObfuscationSettings
         {
@@ -334,7 +334,7 @@ namespace Pulumi.Aws.Lex
 
         /// <summary>
         /// Specifications for the constituent sub slots and the expression for the composite slot.
-        /// See the `sub_slot_setting` argument reference below.
+        /// See the `SubSlotSetting` argument reference below.
         /// </summary>
         public InputList<Inputs.V2modelsSlotSubSlotSettingGetArgs> SubSlotSettings
         {

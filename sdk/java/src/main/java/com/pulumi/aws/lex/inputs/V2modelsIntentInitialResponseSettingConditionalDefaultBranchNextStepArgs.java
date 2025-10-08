@@ -19,14 +19,14 @@ public final class V2modelsIntentInitialResponseSettingConditionalDefaultBranchN
     public static final V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepArgs Empty = new V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepArgs();
 
     /**
-     * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
+     * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
      * 
      */
     @Import(name="dialogAction")
     private @Nullable Output<V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepDialogActionArgs> dialogAction;
 
     /**
-     * @return Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
+     * @return Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
      * 
      */
     public Optional<Output<V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepDialogActionArgs>> dialogAction() {
@@ -90,7 +90,7 @@ public final class V2modelsIntentInitialResponseSettingConditionalDefaultBranchN
         }
 
         /**
-         * @param dialogAction Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
+         * @param dialogAction Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class V2modelsIntentInitialResponseSettingConditionalDefaultBranchN
         }
 
         /**
-         * @param dialogAction Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
+         * @param dialogAction Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
          * 
          * @return builder
          * 

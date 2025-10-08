@@ -29,6 +29,69 @@ import javax.annotation.Nullable;
  * If you need to delete a cluster, you have to remove its HSM modules first.
  * To initialize cluster, you have to add an HSM instance to the cluster, then sign CSR and upload it.
  * 
+ * ## Example Usage
+ * 
+ * The following example below creates a CloudHSM cluster.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2.Subnet;
+ * import com.pulumi.aws.ec2.SubnetArgs;
+ * import com.pulumi.aws.cloudhsmv2.Cluster;
+ * import com.pulumi.aws.cloudhsmv2.ClusterArgs;
+ * import com.pulumi.codegen.internal.KeyedValue;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+ *             .build());
+ * 
+ *         var cloudhsmV2Vpc = new Vpc("cloudhsmV2Vpc", VpcArgs.builder()
+ *             .cidrBlock("10.0.0.0/16")
+ *             .tags(Map.of("Name", "example-aws_cloudhsm_v2_cluster"))
+ *             .build());
+ * 
+ *         for (var i = 0; i < 2; i++) {
+ *             new Subnet("cloudhsmV2Subnets-" + i, SubnetArgs.builder()
+ *                 .vpcId(cloudhsmV2Vpc.id())
+ *                 .cidrBlock(subnets[range.value()])
+ *                 .mapPublicIpOnLaunch(false)
+ *                 .availabilityZone(available.names()[range.value()])
+ *                 .tags(Map.of("Name", "example-aws_cloudhsm_v2_cluster"))
+ *                 .build());
+ * 
+ *         
+ * }
+ *         var cloudhsmV2Cluster = new Cluster("cloudhsmV2Cluster", ClusterArgs.builder()
+ *             .hsmType("hsm1.medium")
+ *             .subnetIds(cloudhsmV2Subnets.stream().map(element -> element.id()).collect(toList()))
+ *             .tags(Map.of("Name", "example-aws_cloudhsm_v2_cluster"))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import CloudHSM v2 Clusters using the cluster `id`. For example:
@@ -97,14 +160,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.hsmType;
     }
     /**
-     * The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
+     * The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsmType` is `hsm2m.medium`.
      * 
      */
     @Export(name="mode", refs={String.class}, tree="[0]")
     private Output<String> mode;
 
     /**
-     * @return The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
+     * @return The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsmType` is `hsm2m.medium`.
      * 
      */
     public Output<String> mode() {
@@ -167,28 +230,28 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.subnetIds;
     }
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

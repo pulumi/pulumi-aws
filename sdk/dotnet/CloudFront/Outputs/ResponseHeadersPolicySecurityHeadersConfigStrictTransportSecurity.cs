@@ -26,7 +26,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly bool Override;
         /// <summary>
-        /// Whether CloudFront includes the `preload` directive in the `Strict-Transport-Security` HTTP response header.
+        /// Whether CloudFront includes the `Preload` directive in the `Strict-Transport-Security` HTTP response header.
         /// </summary>
         public readonly bool? Preload;
 

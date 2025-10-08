@@ -512,14 +512,14 @@ public class Permission extends com.pulumi.resources.CustomResource {
         return this.statementId;
     }
     /**
-     * Statement identifier prefix. Conflicts with `statement_id`
+     * Statement identifier prefix. Conflicts with `statementId`
      * 
      */
     @Export(name="statementIdPrefix", refs={String.class}, tree="[0]")
     private Output<String> statementIdPrefix;
 
     /**
-     * @return Statement identifier prefix. Conflicts with `statement_id`
+     * @return Statement identifier prefix. Conflicts with `statementId`
      * 
      */
     public Output<String> statementIdPrefix() {

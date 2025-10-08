@@ -12,38 +12,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class UserPoolClientTokenValidityUnits {
     /**
-     * @return Time unit in for the value in `access_token_validity`, defaults to `hours`.
+     * @return Time unit in for the value in `accessTokenValidity`, defaults to `hours`.
      * 
      */
     private @Nullable String accessToken;
     /**
-     * @return Time unit in for the value in `id_token_validity`, defaults to `hours`.
+     * @return Time unit in for the value in `idTokenValidity`, defaults to `hours`.
      * 
      */
     private @Nullable String idToken;
     /**
-     * @return Time unit in for the value in `refresh_token_validity`, defaults to `days`.
+     * @return Time unit in for the value in `refreshTokenValidity`, defaults to `days`.
      * 
      */
     private @Nullable String refreshToken;
 
     private UserPoolClientTokenValidityUnits() {}
     /**
-     * @return Time unit in for the value in `access_token_validity`, defaults to `hours`.
+     * @return Time unit in for the value in `accessTokenValidity`, defaults to `hours`.
      * 
      */
     public Optional<String> accessToken() {
         return Optional.ofNullable(this.accessToken);
     }
     /**
-     * @return Time unit in for the value in `id_token_validity`, defaults to `hours`.
+     * @return Time unit in for the value in `idTokenValidity`, defaults to `hours`.
      * 
      */
     public Optional<String> idToken() {
         return Optional.ofNullable(this.idToken);
     }
     /**
-     * @return Time unit in for the value in `refresh_token_validity`, defaults to `days`.
+     * @return Time unit in for the value in `refreshTokenValidity`, defaults to `days`.
      * 
      */
     public Optional<String> refreshToken() {

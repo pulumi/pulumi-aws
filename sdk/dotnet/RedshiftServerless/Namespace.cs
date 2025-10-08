@@ -53,7 +53,7 @@ namespace Pulumi.Aws.RedshiftServerless
 
         /// <summary>
         /// The password of the administrator for the first database created in the namespace.
-        /// Conflicts with `manage_admin_password` and `admin_user_password_wo`.
+        /// Conflicts with `ManageAdminPassword` and `AdminUserPasswordWo`.
         /// </summary>
         [Output("adminUserPassword")]
         public Output<string?> AdminUserPassword { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.Aws.RedshiftServerless
         public Output<string> DbName { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
+        /// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `DefaultIamRoleArn`, it also must be part of `IamRoles`.
         /// </summary>
         [Output("defaultIamRoleArn")]
         public Output<string?> DefaultIamRoleArn { get; private set; } = null!;
@@ -95,14 +95,14 @@ namespace Pulumi.Aws.RedshiftServerless
         public Output<string> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
+        /// The types of logs the namespace can export. Available export types are `Userlog`, `Connectionlog`, and `Useractivitylog`.
         /// </summary>
         [Output("logExports")]
         public Output<ImmutableArray<string>> LogExports { get; private set; } = null!;
 
         /// <summary>
         /// Whether to use AWS SecretManager to manage namespace's admin credentials.
-        /// Conflicts with `admin_user_password` and `admin_user_password_wo`.
+        /// Conflicts with `AdminUserPassword` and `AdminUserPasswordWo`.
         /// </summary>
         [Output("manageAdminPassword")]
         public Output<bool?> ManageAdminPassword { get; private set; } = null!;
@@ -126,13 +126,13 @@ namespace Pulumi.Aws.RedshiftServerless
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.Aws.RedshiftServerless
 
         /// <summary>
         /// The password of the administrator for the first database created in the namespace.
-        /// Conflicts with `manage_admin_password` and `admin_user_password_wo`.
+        /// Conflicts with `ManageAdminPassword` and `AdminUserPasswordWo`.
         /// </summary>
         public Input<string>? AdminUserPassword
         {
@@ -234,7 +234,7 @@ namespace Pulumi.Aws.RedshiftServerless
         public Input<string>? DbName { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
+        /// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `DefaultIamRoleArn`, it also must be part of `IamRoles`.
         /// </summary>
         [Input("defaultIamRoleArn")]
         public Input<string>? DefaultIamRoleArn { get; set; }
@@ -261,7 +261,7 @@ namespace Pulumi.Aws.RedshiftServerless
         private InputList<string>? _logExports;
 
         /// <summary>
-        /// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
+        /// The types of logs the namespace can export. Available export types are `Userlog`, `Connectionlog`, and `Useractivitylog`.
         /// </summary>
         public InputList<string> LogExports
         {
@@ -271,7 +271,7 @@ namespace Pulumi.Aws.RedshiftServerless
 
         /// <summary>
         /// Whether to use AWS SecretManager to manage namespace's admin credentials.
-        /// Conflicts with `admin_user_password` and `admin_user_password_wo`.
+        /// Conflicts with `AdminUserPassword` and `AdminUserPasswordWo`.
         /// </summary>
         [Input("manageAdminPassword")]
         public Input<bool>? ManageAdminPassword { get; set; }
@@ -292,7 +292,7 @@ namespace Pulumi.Aws.RedshiftServerless
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -325,7 +325,7 @@ namespace Pulumi.Aws.RedshiftServerless
 
         /// <summary>
         /// The password of the administrator for the first database created in the namespace.
-        /// Conflicts with `manage_admin_password` and `admin_user_password_wo`.
+        /// Conflicts with `ManageAdminPassword` and `AdminUserPasswordWo`.
         /// </summary>
         public Input<string>? AdminUserPassword
         {
@@ -366,7 +366,7 @@ namespace Pulumi.Aws.RedshiftServerless
         public Input<string>? DbName { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
+        /// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `DefaultIamRoleArn`, it also must be part of `IamRoles`.
         /// </summary>
         [Input("defaultIamRoleArn")]
         public Input<string>? DefaultIamRoleArn { get; set; }
@@ -393,7 +393,7 @@ namespace Pulumi.Aws.RedshiftServerless
         private InputList<string>? _logExports;
 
         /// <summary>
-        /// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
+        /// The types of logs the namespace can export. Available export types are `Userlog`, `Connectionlog`, and `Useractivitylog`.
         /// </summary>
         public InputList<string> LogExports
         {
@@ -403,7 +403,7 @@ namespace Pulumi.Aws.RedshiftServerless
 
         /// <summary>
         /// Whether to use AWS SecretManager to manage namespace's admin credentials.
-        /// Conflicts with `admin_user_password` and `admin_user_password_wo`.
+        /// Conflicts with `AdminUserPassword` and `AdminUserPasswordWo`.
         /// </summary>
         [Input("manageAdminPassword")]
         public Input<bool>? ManageAdminPassword { get; set; }
@@ -430,7 +430,7 @@ namespace Pulumi.Aws.RedshiftServerless
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -442,7 +442,7 @@ namespace Pulumi.Aws.RedshiftServerless
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

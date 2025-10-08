@@ -17,7 +17,7 @@ namespace Pulumi.Aws.DocDB
     /// Instances and DocumentDB manages the replication. You can use the [count][3]
     /// meta-parameter to make multiple instances and join them all to the same DocumentDB
     /// Cluster, or you may specify different Cluster Instance resources with various
-    /// `instance_class` sizes.
+    /// `InstanceClass` sizes.
     /// 
     /// ## Example Usage
     /// 
@@ -69,7 +69,7 @@ namespace Pulumi.Aws.DocDB
     {
         /// <summary>
         /// Specifies whether any database modifications
-        /// are applied immediately, or during the next maintenance window. Default is`false`.
+        /// are applied immediately, or during the next maintenance window. Default is`False`.
         /// </summary>
         [Output("applyImmediately")]
         public Output<bool?> ApplyImmediately { get; private set; } = null!;
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.DocDB
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
+        /// This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `True`.
         /// </summary>
         [Output("autoMinorVersionUpgrade")]
         public Output<bool?> AutoMinorVersionUpgrade { get; private set; } = null!;
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.DocDB
         public Output<string> ClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// Copy all DB instance `tags` to snapshots. Default is `false`.
+        /// Copy all DB instance `Tags` to snapshots. Default is `False`.
         /// </summary>
         [Output("copyTagsToSnapshot")]
         public Output<bool?> CopyTagsToSnapshot { get; private set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.Aws.DocDB
         public Output<string> DbiResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
+        /// A value that indicates whether to enable Performance Insights for the DB Instance. Default `False`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
         /// </summary>
         [Output("enablePerformanceInsights")]
         public Output<bool?> EnablePerformanceInsights { get; private set; } = null!;
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.DocDB
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
+        /// The name of the database engine to be used for the DocumentDB instance. Defaults to `Docdb`. Valid Values: `Docdb`.
         /// </summary>
         [Output("engine")]
         public Output<string?> Engine { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.DocDB
         public Output<string> Identifier { get; private set; } = null!;
 
         /// <summary>
-        /// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
+        /// Creates a unique identifier beginning with the specified prefix. Conflicts with `Identifier`.
         /// </summary>
         [Output("identifierPrefix")]
         public Output<string> IdentifierPrefix { get; private set; } = null!;
@@ -240,13 +240,13 @@ namespace Pulumi.Aws.DocDB
         public Output<bool> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the instance. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -305,13 +305,13 @@ namespace Pulumi.Aws.DocDB
     {
         /// <summary>
         /// Specifies whether any database modifications
-        /// are applied immediately, or during the next maintenance window. Default is`false`.
+        /// are applied immediately, or during the next maintenance window. Default is`False`.
         /// </summary>
         [Input("applyImmediately")]
         public Input<bool>? ApplyImmediately { get; set; }
 
         /// <summary>
-        /// This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
+        /// This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `True`.
         /// </summary>
         [Input("autoMinorVersionUpgrade")]
         public Input<bool>? AutoMinorVersionUpgrade { get; set; }
@@ -335,19 +335,19 @@ namespace Pulumi.Aws.DocDB
         public Input<string> ClusterIdentifier { get; set; } = null!;
 
         /// <summary>
-        /// Copy all DB instance `tags` to snapshots. Default is `false`.
+        /// Copy all DB instance `Tags` to snapshots. Default is `False`.
         /// </summary>
         [Input("copyTagsToSnapshot")]
         public Input<bool>? CopyTagsToSnapshot { get; set; }
 
         /// <summary>
-        /// A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
+        /// A value that indicates whether to enable Performance Insights for the DB Instance. Default `False`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
         /// </summary>
         [Input("enablePerformanceInsights")]
         public Input<bool>? EnablePerformanceInsights { get; set; }
 
         /// <summary>
-        /// The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
+        /// The name of the database engine to be used for the DocumentDB instance. Defaults to `Docdb`. Valid Values: `Docdb`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -359,7 +359,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? Identifier { get; set; }
 
         /// <summary>
-        /// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
+        /// Creates a unique identifier beginning with the specified prefix. Conflicts with `Identifier`.
         /// </summary>
         [Input("identifierPrefix")]
         public Input<string>? IdentifierPrefix { get; set; }
@@ -422,7 +422,7 @@ namespace Pulumi.Aws.DocDB
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the instance. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -440,7 +440,7 @@ namespace Pulumi.Aws.DocDB
     {
         /// <summary>
         /// Specifies whether any database modifications
-        /// are applied immediately, or during the next maintenance window. Default is`false`.
+        /// are applied immediately, or during the next maintenance window. Default is`False`.
         /// </summary>
         [Input("applyImmediately")]
         public Input<bool>? ApplyImmediately { get; set; }
@@ -452,7 +452,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
+        /// This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `True`.
         /// </summary>
         [Input("autoMinorVersionUpgrade")]
         public Input<bool>? AutoMinorVersionUpgrade { get; set; }
@@ -476,7 +476,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? ClusterIdentifier { get; set; }
 
         /// <summary>
-        /// Copy all DB instance `tags` to snapshots. Default is `false`.
+        /// Copy all DB instance `Tags` to snapshots. Default is `False`.
         /// </summary>
         [Input("copyTagsToSnapshot")]
         public Input<bool>? CopyTagsToSnapshot { get; set; }
@@ -494,7 +494,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? DbiResourceId { get; set; }
 
         /// <summary>
-        /// A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
+        /// A value that indicates whether to enable Performance Insights for the DB Instance. Default `False`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
         /// </summary>
         [Input("enablePerformanceInsights")]
         public Input<bool>? EnablePerformanceInsights { get; set; }
@@ -506,7 +506,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
+        /// The name of the database engine to be used for the DocumentDB instance. Defaults to `Docdb`. Valid Values: `Docdb`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -524,7 +524,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? Identifier { get; set; }
 
         /// <summary>
-        /// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
+        /// Creates a unique identifier beginning with the specified prefix. Conflicts with `Identifier`.
         /// </summary>
         [Input("identifierPrefix")]
         public Input<string>? IdentifierPrefix { get; set; }
@@ -614,7 +614,7 @@ namespace Pulumi.Aws.DocDB
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the instance. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -626,7 +626,7 @@ namespace Pulumi.Aws.DocDB
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

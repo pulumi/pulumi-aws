@@ -12,9 +12,9 @@ namespace Pulumi.Aws.DynamoDB
     /// <summary>
     /// Provides a DynamoDB table replica resource for [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html).
     /// 
-    /// &gt; **Note:** Use `lifecycle` `ignore_changes` for `replica` in the associated aws.dynamodb.Table configuration.
+    /// &gt; **Note:** Use `Lifecycle` `IgnoreChanges` for `Replica` in the associated aws.dynamodb.Table configuration.
     /// 
-    /// &gt; **Note:** Do not use the `replica` configuration block of aws.dynamodb.Table together with this resource as the two configuration options are mutually exclusive.
+    /// &gt; **Note:** Do not use the `Replica` configuration block of aws.dynamodb.Table together with this resource as the two configuration options are mutually exclusive.
     /// 
     /// ## Example Usage
     /// 
@@ -98,7 +98,7 @@ namespace Pulumi.Aws.DynamoDB
         public Output<string> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enable Point In Time Recovery for the table replica. Default is `false`.
+        /// Whether to enable Point In Time Recovery for the table replica. Default is `False`.
         /// </summary>
         [Output("pointInTimeRecovery")]
         public Output<bool?> PointInTimeRecovery { get; private set; } = null!;
@@ -116,13 +116,13 @@ namespace Pulumi.Aws.DynamoDB
         public Output<string?> TableClassOverride { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to populate on the created table. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// Whether to enable Point In Time Recovery for the table replica. Default is `false`.
+        /// Whether to enable Point In Time Recovery for the table replica. Default is `False`.
         /// </summary>
         [Input("pointInTimeRecovery")]
         public Input<bool>? PointInTimeRecovery { get; set; }
@@ -215,7 +215,7 @@ namespace Pulumi.Aws.DynamoDB
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to populate on the created table. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -258,7 +258,7 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// Whether to enable Point In Time Recovery for the table replica. Default is `false`.
+        /// Whether to enable Point In Time Recovery for the table replica. Default is `False`.
         /// </summary>
         [Input("pointInTimeRecovery")]
         public Input<bool>? PointInTimeRecovery { get; set; }
@@ -279,7 +279,7 @@ namespace Pulumi.Aws.DynamoDB
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to populate on the created table. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -291,7 +291,7 @@ namespace Pulumi.Aws.DynamoDB
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

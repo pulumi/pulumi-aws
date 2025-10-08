@@ -14,15 +14,15 @@ namespace Pulumi.Aws.GlobalAccelerator.Outputs
     public sealed class CustomRoutingAcceleratorAttributes
     {
         /// <summary>
-        /// Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
+        /// Indicates whether flow logs are enabled. Defaults to `False`. Valid values: `True`, `False`.
         /// </summary>
         public readonly bool? FlowLogsEnabled;
         /// <summary>
-        /// The name of the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
+        /// The name of the Amazon S3 bucket for the flow logs. Required if `FlowLogsEnabled` is `True`.
         /// </summary>
         public readonly string? FlowLogsS3Bucket;
         /// <summary>
-        /// The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
+        /// The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `FlowLogsEnabled` is `True`.
         /// </summary>
         public readonly string? FlowLogsS3Prefix;
 

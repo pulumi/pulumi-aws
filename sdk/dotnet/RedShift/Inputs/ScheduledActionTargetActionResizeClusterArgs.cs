@@ -13,7 +13,7 @@ namespace Pulumi.Aws.RedShift.Inputs
     public sealed class ScheduledActionTargetActionResizeClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
+        /// A boolean value indicating whether the resize operation is using the classic resize process. Default: `False`.
         /// </summary>
         [Input("classic")]
         public Input<bool>? Classic { get; set; }

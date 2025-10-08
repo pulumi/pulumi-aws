@@ -23,7 +23,7 @@ public final class GetUserHierarchyGroupHierarchyPathLevelThree {
     /**
      * @return Returns information on a specific hierarchy group by name
      * 
-     * &gt; **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
+     * &gt; **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
      * 
      */
     private String name;
@@ -46,7 +46,7 @@ public final class GetUserHierarchyGroupHierarchyPathLevelThree {
     /**
      * @return Returns information on a specific hierarchy group by name
      * 
-     * &gt; **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
+     * &gt; **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
      * 
      */
     public String name() {

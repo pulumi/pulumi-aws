@@ -19,7 +19,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public Input<bool> ForwardWhenQueryArgProfileIsUnknown { get; set; } = null!;
 
         /// <summary>
-        /// Object that contains an attribute `items` that contains the list ofrofiles specified for query argument-profile mapping for field-level encryption. see Query Arg Profile.
+        /// Object that contains an attribute `Items` that contains the list ofrofiles specified for query argument-profile mapping for field-level encryption. see Query Arg Profile.
         /// </summary>
         [Input("queryArgProfiles")]
         public Input<Inputs.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs>? QueryArgProfiles { get; set; }

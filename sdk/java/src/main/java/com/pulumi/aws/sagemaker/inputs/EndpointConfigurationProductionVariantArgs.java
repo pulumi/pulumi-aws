@@ -190,14 +190,14 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
     }
 
     /**
-     * Sets how the endpoint routes incoming traffic. See routing_config below.
+     * Sets how the endpoint routes incoming traffic. See routingConfig below.
      * 
      */
     @Import(name="routingConfigs")
     private @Nullable Output<List<EndpointConfigurationProductionVariantRoutingConfigArgs>> routingConfigs;
 
     /**
-     * @return Sets how the endpoint routes incoming traffic. See routing_config below.
+     * @return Sets how the endpoint routes incoming traffic. See routingConfig below.
      * 
      */
     public Optional<Output<List<EndpointConfigurationProductionVariantRoutingConfigArgs>>> routingConfigs() {
@@ -519,7 +519,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
-         * @param routingConfigs Sets how the endpoint routes incoming traffic. See routing_config below.
+         * @param routingConfigs Sets how the endpoint routes incoming traffic. See routingConfig below.
          * 
          * @return builder
          * 
@@ -530,7 +530,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
-         * @param routingConfigs Sets how the endpoint routes incoming traffic. See routing_config below.
+         * @param routingConfigs Sets how the endpoint routes incoming traffic. See routingConfig below.
          * 
          * @return builder
          * 
@@ -540,7 +540,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
-         * @param routingConfigs Sets how the endpoint routes incoming traffic. See routing_config below.
+         * @param routingConfigs Sets how the endpoint routes incoming traffic. See routingConfig below.
          * 
          * @return builder
          * 

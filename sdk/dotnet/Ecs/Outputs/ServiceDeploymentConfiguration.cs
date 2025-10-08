@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ecs.Outputs
     public sealed class ServiceDeploymentConfiguration
     {
         /// <summary>
-        /// Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Only used when `strategy` is set to `BLUE_GREEN`.
+        /// Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Only used when `Strategy` is set to `BLUE_GREEN`.
         /// </summary>
         public readonly string? BakeTimeInMinutes;
         /// <summary>

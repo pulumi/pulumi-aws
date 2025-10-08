@@ -16,14 +16,14 @@ public final class LicenseAssociationState extends com.pulumi.resources.Resource
     public static final LicenseAssociationState Empty = new LicenseAssociationState();
 
     /**
-     * If `license_type` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
+     * If `licenseType` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
      * 
      */
     @Import(name="freeTrialExpiration")
     private @Nullable Output<String> freeTrialExpiration;
 
     /**
-     * @return If `license_type` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
+     * @return If `licenseType` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
      * 
      */
     public Optional<Output<String>> freeTrialExpiration() {
@@ -46,14 +46,14 @@ public final class LicenseAssociationState extends com.pulumi.resources.Resource
     }
 
     /**
-     * If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
+     * If `licenseType` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
      * 
      */
     @Import(name="licenseExpiration")
     private @Nullable Output<String> licenseExpiration;
 
     /**
-     * @return If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
+     * @return If `licenseType` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
      * 
      */
     public Optional<Output<String>> licenseExpiration() {
@@ -135,7 +135,7 @@ public final class LicenseAssociationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param freeTrialExpiration If `license_type` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
+         * @param freeTrialExpiration If `licenseType` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class LicenseAssociationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param freeTrialExpiration If `license_type` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
+         * @param freeTrialExpiration If `licenseType` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class LicenseAssociationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param licenseExpiration If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
+         * @param licenseExpiration If `licenseType` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class LicenseAssociationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param licenseExpiration If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
+         * @param licenseExpiration If `licenseType` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
          * 
          * @return builder
          * 

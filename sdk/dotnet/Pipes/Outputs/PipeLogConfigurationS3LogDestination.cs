@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Pipes.Outputs
         /// </summary>
         public readonly string BucketOwner;
         /// <summary>
-        /// EventBridge format for the log records. Valid values `json`, `plain` and `w3c`.
+        /// EventBridge format for the log records. Valid values `Json`, `Plain` and `W3c`.
         /// </summary>
         public readonly string? OutputFormat;
         /// <summary>

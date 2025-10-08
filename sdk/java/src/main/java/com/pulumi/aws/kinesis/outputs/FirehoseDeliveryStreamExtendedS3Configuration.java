@@ -37,12 +37,12 @@ public final class FirehoseDeliveryStreamExtendedS3Configuration {
      */
     private @Nullable String customTimeZone;
     /**
-     * @return Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. See `data_format_conversion_configuration` block below for details.
+     * @return Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. See `dataFormatConversionConfiguration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration dataFormatConversionConfiguration;
     /**
-     * @return The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamic_partitioning_configuration` block below for details.
+     * @return The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamicPartitioningConfiguration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration dynamicPartitioningConfiguration;
@@ -68,13 +68,13 @@ public final class FirehoseDeliveryStreamExtendedS3Configuration {
      */
     private @Nullable String prefix;
     /**
-     * @return The data processing configuration.  See `processing_configuration` block below for details.
+     * @return The data processing configuration.  See `processingConfiguration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration processingConfiguration;
     private String roleArn;
     /**
-     * @return The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
+     * @return The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
      * 
      */
     private @Nullable FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration s3BackupConfiguration;
@@ -116,14 +116,14 @@ public final class FirehoseDeliveryStreamExtendedS3Configuration {
         return Optional.ofNullable(this.customTimeZone);
     }
     /**
-     * @return Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. See `data_format_conversion_configuration` block below for details.
+     * @return Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. See `dataFormatConversionConfiguration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration> dataFormatConversionConfiguration() {
         return Optional.ofNullable(this.dataFormatConversionConfiguration);
     }
     /**
-     * @return The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamic_partitioning_configuration` block below for details.
+     * @return The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamicPartitioningConfiguration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration> dynamicPartitioningConfiguration() {
@@ -159,7 +159,7 @@ public final class FirehoseDeliveryStreamExtendedS3Configuration {
         return Optional.ofNullable(this.prefix);
     }
     /**
-     * @return The data processing configuration.  See `processing_configuration` block below for details.
+     * @return The data processing configuration.  See `processingConfiguration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration> processingConfiguration() {
@@ -169,7 +169,7 @@ public final class FirehoseDeliveryStreamExtendedS3Configuration {
         return this.roleArn;
     }
     /**
-     * @return The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
+     * @return The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
      * 
      */
     public Optional<FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration> s3BackupConfiguration() {

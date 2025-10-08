@@ -64,7 +64,7 @@ namespace Pulumi.Aws.SecurityHub
         public Output<string?> Email { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
+        /// Boolean whether to invite the account to Security Hub as a member. Defaults to `False`.
         /// </summary>
         [Output("invite")]
         public Output<bool?> Invite { get; private set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.Aws.SecurityHub
         public Input<string>? Email { get; set; }
 
         /// <summary>
-        /// Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
+        /// Boolean whether to invite the account to Security Hub as a member. Defaults to `False`.
         /// </summary>
         [Input("invite")]
         public Input<bool>? Invite { get; set; }
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.SecurityHub
         public Input<string>? Email { get; set; }
 
         /// <summary>
-        /// Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
+        /// Boolean whether to invite the account to Security Hub as a member. Defaults to `False`.
         /// </summary>
         [Input("invite")]
         public Input<bool>? Invite { get; set; }

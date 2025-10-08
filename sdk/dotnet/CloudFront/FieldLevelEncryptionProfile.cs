@@ -90,7 +90,7 @@ namespace Pulumi.Aws.CloudFront
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
+        /// The encryption entities config block for field-level encryption profiles that contains an attribute `Items` which includes the encryption key and field pattern specifications.
         /// </summary>
         [Output("encryptionEntities")]
         public Output<Outputs.FieldLevelEncryptionProfileEncryptionEntities> EncryptionEntities { get; private set; } = null!;
@@ -160,7 +160,7 @@ namespace Pulumi.Aws.CloudFront
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
+        /// The encryption entities config block for field-level encryption profiles that contains an attribute `Items` which includes the encryption key and field pattern specifications.
         /// </summary>
         [Input("encryptionEntities", required: true)]
         public Input<Inputs.FieldLevelEncryptionProfileEncryptionEntitiesArgs> EncryptionEntities { get; set; } = null!;
@@ -198,7 +198,7 @@ namespace Pulumi.Aws.CloudFront
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
+        /// The encryption entities config block for field-level encryption profiles that contains an attribute `Items` which includes the encryption key and field pattern specifications.
         /// </summary>
         [Input("encryptionEntities")]
         public Input<Inputs.FieldLevelEncryptionProfileEncryptionEntitiesGetArgs>? EncryptionEntities { get; set; }

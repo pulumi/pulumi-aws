@@ -18,7 +18,7 @@ public final class DataSourceHttpConfigAuthorizationConfig {
      */
     private @Nullable String authorizationType;
     /**
-     * @return Identity and Access Management (IAM) settings. See `aws_iam_config` Block for details.
+     * @return Identity and Access Management (IAM) settings. See `awsIamConfig` Block for details.
      * 
      */
     private @Nullable DataSourceHttpConfigAuthorizationConfigAwsIamConfig awsIamConfig;
@@ -32,7 +32,7 @@ public final class DataSourceHttpConfigAuthorizationConfig {
         return Optional.ofNullable(this.authorizationType);
     }
     /**
-     * @return Identity and Access Management (IAM) settings. See `aws_iam_config` Block for details.
+     * @return Identity and Access Management (IAM) settings. See `awsIamConfig` Block for details.
      * 
      */
     public Optional<DataSourceHttpConfigAuthorizationConfigAwsIamConfig> awsIamConfig() {

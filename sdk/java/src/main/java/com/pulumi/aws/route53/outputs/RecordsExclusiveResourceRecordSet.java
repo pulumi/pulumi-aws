@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
 public final class RecordsExclusiveResourceRecordSet {
     /**
      * @return Alias target block.
-     * See `alias_target` below.
+     * See `aliasTarget` below.
      * 
      */
     private @Nullable RecordsExclusiveResourceRecordSetAliasTarget aliasTarget;
@@ -42,7 +42,7 @@ public final class RecordsExclusiveResourceRecordSet {
     private @Nullable RecordsExclusiveResourceRecordSetGeolocation geolocation;
     /**
      * @return Geoproximity location block.
-     * See `geoproximity_location` below.
+     * See `geoproximityLocation` below.
      * 
      */
     private @Nullable RecordsExclusiveResourceRecordSetGeoproximityLocation geoproximityLocation;
@@ -66,13 +66,13 @@ public final class RecordsExclusiveResourceRecordSet {
     private @Nullable String region;
     /**
      * @return Information about the resource records to act upon.
-     * See `resource_records` below.
+     * See `resourceRecords` below.
      * 
      */
     private @Nullable List<RecordsExclusiveResourceRecordSetResourceRecord> resourceRecords;
     /**
      * @return An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
-     * Required if using `cidr_routing_config`, `failover`, `geolocation`,`geoproximity_location`, `multivalue_answer`, `region`, or `weight`.
+     * Required if using `cidrRoutingConfig`, `failover`, `geolocation`,`geoproximityLocation`, `multivalueAnswer`, `region`, or `weight`.
      * 
      */
     private @Nullable String setIdentifier;
@@ -88,7 +88,7 @@ public final class RecordsExclusiveResourceRecordSet {
      * 
      * The following arguments are optional:
      * 
-     * &gt; Exactly one of `resource_records` or `alias_target` must be specified.
+     * &gt; Exactly one of `resourceRecords` or `aliasTarget` must be specified.
      * 
      */
     private @Nullable String type;
@@ -101,7 +101,7 @@ public final class RecordsExclusiveResourceRecordSet {
     private RecordsExclusiveResourceRecordSet() {}
     /**
      * @return Alias target block.
-     * See `alias_target` below.
+     * See `aliasTarget` below.
      * 
      */
     public Optional<RecordsExclusiveResourceRecordSetAliasTarget> aliasTarget() {
@@ -129,7 +129,7 @@ public final class RecordsExclusiveResourceRecordSet {
     }
     /**
      * @return Geoproximity location block.
-     * See `geoproximity_location` below.
+     * See `geoproximityLocation` below.
      * 
      */
     public Optional<RecordsExclusiveResourceRecordSetGeoproximityLocation> geoproximityLocation() {
@@ -163,7 +163,7 @@ public final class RecordsExclusiveResourceRecordSet {
     }
     /**
      * @return Information about the resource records to act upon.
-     * See `resource_records` below.
+     * See `resourceRecords` below.
      * 
      */
     public List<RecordsExclusiveResourceRecordSetResourceRecord> resourceRecords() {
@@ -171,7 +171,7 @@ public final class RecordsExclusiveResourceRecordSet {
     }
     /**
      * @return An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
-     * Required if using `cidr_routing_config`, `failover`, `geolocation`,`geoproximity_location`, `multivalue_answer`, `region`, or `weight`.
+     * Required if using `cidrRoutingConfig`, `failover`, `geolocation`,`geoproximityLocation`, `multivalueAnswer`, `region`, or `weight`.
      * 
      */
     public Optional<String> setIdentifier() {
@@ -193,7 +193,7 @@ public final class RecordsExclusiveResourceRecordSet {
      * 
      * The following arguments are optional:
      * 
-     * &gt; Exactly one of `resource_records` or `alias_target` must be specified.
+     * &gt; Exactly one of `resourceRecords` or `aliasTarget` must be specified.
      * 
      */
     public Optional<String> type() {

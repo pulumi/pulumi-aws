@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Batch.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+        /// Type and amount of resources to assign to a container. The supported resources include `Memory`, `Cpu`, and `nvidia.com/gpu`.
         /// </summary>
         [Input("resources")]
         public Input<Inputs.JobDefinitionEksPropertiesPodPropertiesContainerResourcesGetArgs>? Resources { get; set; }

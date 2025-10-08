@@ -244,6 +244,77 @@ namespace Pulumi.Aws.AppSync
     /// });
     /// ```
     /// 
+    /// ### Associate Web ACL (v2)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.AppSync.GraphQLApi("example", new()
+    ///     {
+    ///         AuthenticationType = "API_KEY",
+    ///         Name = "example",
+    ///     });
+    /// 
+    ///     var exampleWebAcl = new Aws.WafV2.WebAcl("example", new()
+    ///     {
+    ///         Name = "managed-rule-example",
+    ///         Description = "Example of a managed rule.",
+    ///         Scope = "REGIONAL",
+    ///         DefaultAction = new Aws.WafV2.Inputs.WebAclDefaultActionArgs
+    ///         {
+    ///             Allow = null,
+    ///         },
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.WafV2.Inputs.WebAclRuleArgs
+    ///             {
+    ///                 Name = "rule-1",
+    ///                 Priority = 1,
+    ///                 OverrideAction = new Aws.WafV2.Inputs.WebAclRuleOverrideActionArgs
+    ///                 {
+    ///                     Block = new[]
+    ///                     {
+    ///                         null,
+    ///                     },
+    ///                 },
+    ///                 Statement = new Aws.WafV2.Inputs.WebAclRuleStatementArgs
+    ///                 {
+    ///                     ManagedRuleGroupStatement = new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementArgs
+    ///                     {
+    ///                         Name = "AWSManagedRulesCommonRuleSet",
+    ///                         VendorName = "AWS",
+    ///                     },
+    ///                 },
+    ///                 VisibilityConfig = new Aws.WafV2.Inputs.WebAclRuleVisibilityConfigArgs
+    ///                 {
+    ///                     CloudwatchMetricsEnabled = false,
+    ///                     MetricName = "friendly-rule-metric-name",
+    ///                     SampledRequestsEnabled = false,
+    ///                 },
+    ///             },
+    ///         },
+    ///         VisibilityConfig = new Aws.WafV2.Inputs.WebAclVisibilityConfigArgs
+    ///         {
+    ///             CloudwatchMetricsEnabled = false,
+    ///             MetricName = "friendly-metric-name",
+    ///             SampledRequestsEnabled = false,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleWebAclAssociation = new Aws.WafV2.WebAclAssociation("example", new()
+    ///     {
+    ///         ResourceArn = example.Arn,
+    ///         WebAclArn = exampleWebAcl.Arn,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### GraphQL run complexity, query depth, and introspection
     /// 
     /// ```csharp
@@ -278,13 +349,13 @@ namespace Pulumi.Aws.AppSync
     public partial class GraphQLApi : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
+        /// One or more additional authentication providers for the GraphQL API. See `AdditionalAuthenticationProvider` Block for details.
         /// </summary>
         [Output("additionalAuthenticationProviders")]
         public Output<ImmutableArray<Outputs.GraphQLApiAdditionalAuthenticationProvider>> AdditionalAuthenticationProviders { get; private set; } = null!;
 
         /// <summary>
-        /// API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
+        /// API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `MergedApiExecutionRoleArn` to be set.
         /// </summary>
         [Output("apiType")]
         public Output<string?> ApiType { get; private set; } = null!;
@@ -302,7 +373,7 @@ namespace Pulumi.Aws.AppSync
         public Output<string> AuthenticationType { get; private set; } = null!;
 
         /// <summary>
-        /// Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
+        /// Enables and controls the enhanced metrics feature. See `EnhancedMetricsConfig` Block for details.
         /// </summary>
         [Output("enhancedMetricsConfig")]
         public Output<Outputs.GraphQLApiEnhancedMetricsConfig?> EnhancedMetricsConfig { get; private set; } = null!;
@@ -314,19 +385,19 @@ namespace Pulumi.Aws.AppSync
         public Output<string?> IntrospectionConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
+        /// Nested argument containing Lambda authorizer configuration. See `LambdaAuthorizerConfig` Block for details.
         /// </summary>
         [Output("lambdaAuthorizerConfig")]
         public Output<Outputs.GraphQLApiLambdaAuthorizerConfig?> LambdaAuthorizerConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Nested argument containing logging configuration. See `log_config` Block for details.
+        /// Nested argument containing logging configuration. See `LogConfig` Block for details.
         /// </summary>
         [Output("logConfig")]
         public Output<Outputs.GraphQLApiLogConfig?> LogConfig { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the execution role when `api_type` is set to `MERGED`.
+        /// ARN of the execution role when `ApiType` is set to `MERGED`.
         /// </summary>
         [Output("mergedApiExecutionRoleArn")]
         public Output<string?> MergedApiExecutionRoleArn { get; private set; } = null!;
@@ -340,7 +411,7 @@ namespace Pulumi.Aws.AppSync
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
+        /// Nested argument containing OpenID Connect configuration. See `OpenidConnectConfig` Block for details.
         /// </summary>
         [Output("openidConnectConfig")]
         public Output<Outputs.GraphQLApiOpenidConnectConfig?> OpenidConnectConfig { get; private set; } = null!;
@@ -372,13 +443,13 @@ namespace Pulumi.Aws.AppSync
         public Output<string?> Schema { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -390,7 +461,7 @@ namespace Pulumi.Aws.AppSync
         public Output<ImmutableDictionary<string, string>> Uris { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
+        /// Amazon Cognito User Pool configuration. See `UserPoolConfig` Block for details.
         /// </summary>
         [Output("userPoolConfig")]
         public Output<Outputs.GraphQLApiUserPoolConfig?> UserPoolConfig { get; private set; } = null!;
@@ -457,7 +528,7 @@ namespace Pulumi.Aws.AppSync
         private InputList<Inputs.GraphQLApiAdditionalAuthenticationProviderArgs>? _additionalAuthenticationProviders;
 
         /// <summary>
-        /// One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
+        /// One or more additional authentication providers for the GraphQL API. See `AdditionalAuthenticationProvider` Block for details.
         /// </summary>
         public InputList<Inputs.GraphQLApiAdditionalAuthenticationProviderArgs> AdditionalAuthenticationProviders
         {
@@ -466,7 +537,7 @@ namespace Pulumi.Aws.AppSync
         }
 
         /// <summary>
-        /// API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
+        /// API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `MergedApiExecutionRoleArn` to be set.
         /// </summary>
         [Input("apiType")]
         public Input<string>? ApiType { get; set; }
@@ -478,7 +549,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string> AuthenticationType { get; set; } = null!;
 
         /// <summary>
-        /// Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
+        /// Enables and controls the enhanced metrics feature. See `EnhancedMetricsConfig` Block for details.
         /// </summary>
         [Input("enhancedMetricsConfig")]
         public Input<Inputs.GraphQLApiEnhancedMetricsConfigArgs>? EnhancedMetricsConfig { get; set; }
@@ -490,19 +561,19 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? IntrospectionConfig { get; set; }
 
         /// <summary>
-        /// Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
+        /// Nested argument containing Lambda authorizer configuration. See `LambdaAuthorizerConfig` Block for details.
         /// </summary>
         [Input("lambdaAuthorizerConfig")]
         public Input<Inputs.GraphQLApiLambdaAuthorizerConfigArgs>? LambdaAuthorizerConfig { get; set; }
 
         /// <summary>
-        /// Nested argument containing logging configuration. See `log_config` Block for details.
+        /// Nested argument containing logging configuration. See `LogConfig` Block for details.
         /// </summary>
         [Input("logConfig")]
         public Input<Inputs.GraphQLApiLogConfigArgs>? LogConfig { get; set; }
 
         /// <summary>
-        /// ARN of the execution role when `api_type` is set to `MERGED`.
+        /// ARN of the execution role when `ApiType` is set to `MERGED`.
         /// </summary>
         [Input("mergedApiExecutionRoleArn")]
         public Input<string>? MergedApiExecutionRoleArn { get; set; }
@@ -516,7 +587,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
+        /// Nested argument containing OpenID Connect configuration. See `OpenidConnectConfig` Block for details.
         /// </summary>
         [Input("openidConnectConfig")]
         public Input<Inputs.GraphQLApiOpenidConnectConfigArgs>? OpenidConnectConfig { get; set; }
@@ -551,7 +622,7 @@ namespace Pulumi.Aws.AppSync
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -560,7 +631,7 @@ namespace Pulumi.Aws.AppSync
         }
 
         /// <summary>
-        /// Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
+        /// Amazon Cognito User Pool configuration. See `UserPoolConfig` Block for details.
         /// </summary>
         [Input("userPoolConfig")]
         public Input<Inputs.GraphQLApiUserPoolConfigArgs>? UserPoolConfig { get; set; }
@@ -589,7 +660,7 @@ namespace Pulumi.Aws.AppSync
         private InputList<Inputs.GraphQLApiAdditionalAuthenticationProviderGetArgs>? _additionalAuthenticationProviders;
 
         /// <summary>
-        /// One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
+        /// One or more additional authentication providers for the GraphQL API. See `AdditionalAuthenticationProvider` Block for details.
         /// </summary>
         public InputList<Inputs.GraphQLApiAdditionalAuthenticationProviderGetArgs> AdditionalAuthenticationProviders
         {
@@ -598,7 +669,7 @@ namespace Pulumi.Aws.AppSync
         }
 
         /// <summary>
-        /// API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
+        /// API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `MergedApiExecutionRoleArn` to be set.
         /// </summary>
         [Input("apiType")]
         public Input<string>? ApiType { get; set; }
@@ -616,7 +687,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? AuthenticationType { get; set; }
 
         /// <summary>
-        /// Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
+        /// Enables and controls the enhanced metrics feature. See `EnhancedMetricsConfig` Block for details.
         /// </summary>
         [Input("enhancedMetricsConfig")]
         public Input<Inputs.GraphQLApiEnhancedMetricsConfigGetArgs>? EnhancedMetricsConfig { get; set; }
@@ -628,19 +699,19 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? IntrospectionConfig { get; set; }
 
         /// <summary>
-        /// Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
+        /// Nested argument containing Lambda authorizer configuration. See `LambdaAuthorizerConfig` Block for details.
         /// </summary>
         [Input("lambdaAuthorizerConfig")]
         public Input<Inputs.GraphQLApiLambdaAuthorizerConfigGetArgs>? LambdaAuthorizerConfig { get; set; }
 
         /// <summary>
-        /// Nested argument containing logging configuration. See `log_config` Block for details.
+        /// Nested argument containing logging configuration. See `LogConfig` Block for details.
         /// </summary>
         [Input("logConfig")]
         public Input<Inputs.GraphQLApiLogConfigGetArgs>? LogConfig { get; set; }
 
         /// <summary>
-        /// ARN of the execution role when `api_type` is set to `MERGED`.
+        /// ARN of the execution role when `ApiType` is set to `MERGED`.
         /// </summary>
         [Input("mergedApiExecutionRoleArn")]
         public Input<string>? MergedApiExecutionRoleArn { get; set; }
@@ -654,7 +725,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
+        /// Nested argument containing OpenID Connect configuration. See `OpenidConnectConfig` Block for details.
         /// </summary>
         [Input("openidConnectConfig")]
         public Input<Inputs.GraphQLApiOpenidConnectConfigGetArgs>? OpenidConnectConfig { get; set; }
@@ -689,7 +760,7 @@ namespace Pulumi.Aws.AppSync
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -701,7 +772,7 @@ namespace Pulumi.Aws.AppSync
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -722,7 +793,7 @@ namespace Pulumi.Aws.AppSync
         }
 
         /// <summary>
-        /// Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
+        /// Amazon Cognito User Pool configuration. See `UserPoolConfig` Block for details.
         /// </summary>
         [Input("userPoolConfig")]
         public Input<Inputs.GraphQLApiUserPoolConfigGetArgs>? UserPoolConfig { get; set; }

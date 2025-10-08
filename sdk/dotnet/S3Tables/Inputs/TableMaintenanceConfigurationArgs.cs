@@ -14,14 +14,14 @@ namespace Pulumi.Aws.S3Tables.Inputs
     {
         /// <summary>
         /// A single Iceberg compaction settings object.
-        /// See `iceberg_compaction` below.
+        /// See `IcebergCompaction` below.
         /// </summary>
         [Input("icebergCompaction", required: true)]
         public Input<Inputs.TableMaintenanceConfigurationIcebergCompactionArgs> IcebergCompaction { get; set; } = null!;
 
         /// <summary>
         /// A single Iceberg snapshot management settings object.
-        /// See `iceberg_snapshot_management` below.
+        /// See `IcebergSnapshotManagement` below.
         /// </summary>
         [Input("icebergSnapshotManagement", required: true)]
         public Input<Inputs.TableMaintenanceConfigurationIcebergSnapshotManagementArgs> IcebergSnapshotManagement { get; set; } = null!;

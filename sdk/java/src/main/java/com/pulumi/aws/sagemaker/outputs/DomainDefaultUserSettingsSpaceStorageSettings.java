@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DomainDefaultUserSettingsSpaceStorageSettings {
     /**
-     * @return The default EBS storage settings for a private space. See `default_ebs_storage_settings` Block below.
+     * @return The default EBS storage settings for a private space. See `defaultEbsStorageSettings` Block below.
      * 
      */
     private @Nullable DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings defaultEbsStorageSettings;
 
     private DomainDefaultUserSettingsSpaceStorageSettings() {}
     /**
-     * @return The default EBS storage settings for a private space. See `default_ebs_storage_settings` Block below.
+     * @return The default EBS storage settings for a private space. See `defaultEbsStorageSettings` Block below.
      * 
      */
     public Optional<DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings> defaultEbsStorageSettings() {

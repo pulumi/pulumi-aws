@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Start port (or ICMP type number if protocol is `icmp` or `icmpv6`).
+        /// Start port (or ICMP type number if protocol is `Icmp` or `Icmpv6`).
         /// </summary>
         public readonly int FromPort;
         /// <summary>
@@ -34,11 +34,11 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly ImmutableArray<string> PrefixListIds;
         /// <summary>
-        /// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+        /// Protocol. If you select a protocol of `-1` (semantically equivalent to `All`, which is not a valid value here), you must specify a `FromPort` and `ToPort` equal to 0. The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
         /// 
         /// The following arguments are optional:
         /// 
-        /// &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `security_groups` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
+        /// &gt; **Note** Although `CidrBlocks`, `Ipv6CidrBlocks`, `PrefixListIds`, and `SecurityGroups` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         /// </summary>
         public readonly string Protocol;
         /// <summary>
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly bool? Self;
         /// <summary>
-        /// End range port (or ICMP code if protocol is `icmp`).
+        /// End range port (or ICMP code if protocol is `Icmp`).
         /// </summary>
         public readonly int ToPort;
 

@@ -16,14 +16,14 @@ public final class RuleGroupRuleGroupRuleVariablesPortSetArgs extends com.pulumi
     public static final RuleGroupRuleGroupRuleVariablesPortSetArgs Empty = new RuleGroupRuleGroupRuleVariablesPortSetArgs();
 
     /**
-     * An unique alphanumeric string to identify the `port_set`.
+     * An unique alphanumeric string to identify the `portSet`.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return An unique alphanumeric string to identify the `port_set`.
+     * @return An unique alphanumeric string to identify the `portSet`.
      * 
      */
     public Output<String> key() {
@@ -71,7 +71,7 @@ public final class RuleGroupRuleGroupRuleVariablesPortSetArgs extends com.pulumi
         }
 
         /**
-         * @param key An unique alphanumeric string to identify the `port_set`.
+         * @param key An unique alphanumeric string to identify the `portSet`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class RuleGroupRuleGroupRuleVariablesPortSetArgs extends com.pulumi
         }
 
         /**
-         * @param key An unique alphanumeric string to identify the `port_set`.
+         * @param key An unique alphanumeric string to identify the `portSet`.
          * 
          * @return builder
          * 

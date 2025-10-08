@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly int? BufferingSize;
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+        /// The CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions? CloudwatchLoggingOptions;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string IndexName;
         /// <summary>
-        /// The data processing configuration.  See `processing_configuration` block below for details.
+        /// The data processing configuration.  See `ProcessingConfiguration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration? ProcessingConfiguration;
         /// <summary>
@@ -50,11 +50,11 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string? S3BackupMode;
         /// <summary>
-        /// The S3 Configuration. See `s3_configuration` block below for details.
+        /// The S3 Configuration. See `S3Configuration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration S3Configuration;
         /// <summary>
-        /// The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpc_config` block below for details.
+        /// The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `VpcConfig` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig? VpcConfig;
 

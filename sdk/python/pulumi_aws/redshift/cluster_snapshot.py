@@ -269,6 +269,22 @@ class ClusterSnapshot(pulumi.CustomResource):
         """
         Creates a Redshift cluster snapshot
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.redshift.ClusterSnapshot("example",
+            cluster_snapshot_name="example",
+            cluster_snapshot_content=json.dumps({
+                "AllowDBUserOverride": "1",
+                "Client_ID": "ExampleClientID",
+                "App_ID": "example",
+            }))
+        ```
+
         ## Import
 
         Using `pulumi import`, import Redshift Cluster Snapshots using `snapshot_identifier`. For example:
@@ -293,6 +309,22 @@ class ClusterSnapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a Redshift cluster snapshot
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.redshift.ClusterSnapshot("example",
+            cluster_snapshot_name="example",
+            cluster_snapshot_content=json.dumps({
+                "AllowDBUserOverride": "1",
+                "Client_ID": "ExampleClientID",
+                "App_ID": "example",
+            }))
+        ```
 
         ## Import
 

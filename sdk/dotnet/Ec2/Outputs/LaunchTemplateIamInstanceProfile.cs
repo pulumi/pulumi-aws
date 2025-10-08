@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class LaunchTemplateIamInstanceProfile
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
+        /// The Amazon Resource Name (ARN) of the instance profile. Conflicts with `Name`.
         /// </summary>
         public readonly string? Arn;
         /// <summary>

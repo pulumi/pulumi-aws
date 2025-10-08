@@ -82,7 +82,7 @@ public final class LogDeliveryConfigurationLogConfigurationArgs extends com.pulu
     /**
      * Configuration for S3 delivery. See S3 Configuration below.
      * 
-     * &gt; **Note:** At least one destination configuration (`cloud_watch_logs_configuration`, `firehose_configuration`, or `s3_configuration`) must be specified for each log configuration.
+     * &gt; **Note:** At least one destination configuration (`cloudWatchLogsConfiguration`, `firehoseConfiguration`, or `s3Configuration`) must be specified for each log configuration.
      * 
      */
     @Import(name="s3Configuration")
@@ -91,7 +91,7 @@ public final class LogDeliveryConfigurationLogConfigurationArgs extends com.pulu
     /**
      * @return Configuration for S3 delivery. See S3 Configuration below.
      * 
-     * &gt; **Note:** At least one destination configuration (`cloud_watch_logs_configuration`, `firehose_configuration`, or `s3_configuration`) must be specified for each log configuration.
+     * &gt; **Note:** At least one destination configuration (`cloudWatchLogsConfiguration`, `firehoseConfiguration`, or `s3Configuration`) must be specified for each log configuration.
      * 
      */
     public Optional<Output<LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs>> s3Configuration() {
@@ -213,7 +213,7 @@ public final class LogDeliveryConfigurationLogConfigurationArgs extends com.pulu
         /**
          * @param s3Configuration Configuration for S3 delivery. See S3 Configuration below.
          * 
-         * &gt; **Note:** At least one destination configuration (`cloud_watch_logs_configuration`, `firehose_configuration`, or `s3_configuration`) must be specified for each log configuration.
+         * &gt; **Note:** At least one destination configuration (`cloudWatchLogsConfiguration`, `firehoseConfiguration`, or `s3Configuration`) must be specified for each log configuration.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class LogDeliveryConfigurationLogConfigurationArgs extends com.pulu
         /**
          * @param s3Configuration Configuration for S3 delivery. See S3 Configuration below.
          * 
-         * &gt; **Note:** At least one destination configuration (`cloud_watch_logs_configuration`, `firehose_configuration`, or `s3_configuration`) must be specified for each log configuration.
+         * &gt; **Note:** At least one destination configuration (`cloudWatchLogsConfiguration`, `firehoseConfiguration`, or `s3Configuration`) must be specified for each log configuration.
          * 
          * @return builder
          * 

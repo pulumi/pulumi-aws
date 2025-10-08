@@ -274,7 +274,7 @@ namespace Pulumi.Aws
     public sealed class GetAvailabilityZoneArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
+        /// Set to `True` to include all Availability Zones and Local Zones regardless of your opt in status.
         /// </summary>
         [Input("allAvailabilityZones")]
         public bool? AllAvailabilityZones { get; set; }
@@ -328,7 +328,7 @@ namespace Pulumi.Aws
     public sealed class GetAvailabilityZoneInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
+        /// Set to `True` to include all Availability Zones and Local Zones regardless of your opt in status.
         /// </summary>
         [Input("allAvailabilityZones")]
         public Input<bool>? AllAvailabilityZones { get; set; }
@@ -400,7 +400,7 @@ namespace Pulumi.Aws
         public readonly string Name;
         /// <summary>
         /// Part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
-        /// For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone.
+        /// For Availability Zones this is usually a single letter, for example `A` for the `us-west-2a` zone.
         /// For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
         /// </summary>
         public readonly string NameSuffix;

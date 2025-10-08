@@ -18,14 +18,14 @@ public final class GetBudgetArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetBudgetArgs Empty = new GetBudgetArgs();
 
     /**
-     * The ID of the target account for budget. Will use current user&#39;s account_id by default if omitted.
+     * The ID of the target account for budget. Will use current user&#39;s accountId by default if omitted.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The ID of the target account for budget. Will use current user&#39;s account_id by default if omitted.
+     * @return The ID of the target account for budget. Will use current user&#39;s accountId by default if omitted.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -109,7 +109,7 @@ public final class GetBudgetArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param accountId The ID of the target account for budget. Will use current user&#39;s account_id by default if omitted.
+         * @param accountId The ID of the target account for budget. Will use current user&#39;s accountId by default if omitted.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class GetBudgetArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param accountId The ID of the target account for budget. Will use current user&#39;s account_id by default if omitted.
+         * @param accountId The ID of the target account for budget. Will use current user&#39;s accountId by default if omitted.
          * 
          * @return builder
          * 

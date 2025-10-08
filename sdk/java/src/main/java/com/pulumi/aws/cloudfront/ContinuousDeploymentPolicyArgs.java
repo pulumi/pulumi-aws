@@ -34,14 +34,14 @@ public final class ContinuousDeploymentPolicyArgs extends com.pulumi.resources.R
     }
 
     /**
-     * CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
+     * CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
      * 
      */
     @Import(name="stagingDistributionDnsNames")
     private @Nullable Output<ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs> stagingDistributionDnsNames;
 
     /**
-     * @return CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
+     * @return CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
      * 
      */
     public Optional<Output<ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs>> stagingDistributionDnsNames() {
@@ -49,14 +49,14 @@ public final class ContinuousDeploymentPolicyArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
+     * Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.
      * 
      */
     @Import(name="trafficConfig")
     private @Nullable Output<ContinuousDeploymentPolicyTrafficConfigArgs> trafficConfig;
 
     /**
-     * @return Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
+     * @return Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.
      * 
      */
     public Optional<Output<ContinuousDeploymentPolicyTrafficConfigArgs>> trafficConfig() {
@@ -111,7 +111,7 @@ public final class ContinuousDeploymentPolicyArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param stagingDistributionDnsNames CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
+         * @param stagingDistributionDnsNames CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class ContinuousDeploymentPolicyArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param stagingDistributionDnsNames CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
+         * @param stagingDistributionDnsNames CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class ContinuousDeploymentPolicyArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param trafficConfig Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
+         * @param trafficConfig Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class ContinuousDeploymentPolicyArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param trafficConfig Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
+         * @param trafficConfig Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.
          * 
          * @return builder
          * 

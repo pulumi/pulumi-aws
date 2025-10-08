@@ -139,7 +139,7 @@ public final class SecurityProfileState extends com.pulumi.resources.ResourceArg
 
     /**
      * Tags to apply to the Security Profile. If configured with a provider
-     * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
@@ -147,7 +147,7 @@ public final class SecurityProfileState extends com.pulumi.resources.ResourceArg
 
     /**
      * @return Tags to apply to the Security Profile. If configured with a provider
-     * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -155,14 +155,14 @@ public final class SecurityProfileState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -382,7 +382,7 @@ public final class SecurityProfileState extends com.pulumi.resources.ResourceArg
 
         /**
          * @param tags Tags to apply to the Security Profile. If configured with a provider
-         * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -394,7 +394,7 @@ public final class SecurityProfileState extends com.pulumi.resources.ResourceArg
 
         /**
          * @param tags Tags to apply to the Security Profile. If configured with a provider
-         * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -404,7 +404,7 @@ public final class SecurityProfileState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -415,7 +415,7 @@ public final class SecurityProfileState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

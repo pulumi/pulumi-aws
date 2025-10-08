@@ -120,7 +120,7 @@ namespace Pulumi.Aws.Lex
         public Output<Outputs.V2modelsBotLocaleTimeouts?> Timeouts { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
+        /// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `VoiceSettings`.
         /// </summary>
         [Output("voiceSettings")]
         public Output<Outputs.V2modelsBotLocaleVoiceSettings?> VoiceSettings { get; private set; } = null!;
@@ -219,7 +219,7 @@ namespace Pulumi.Aws.Lex
         public Input<Inputs.V2modelsBotLocaleTimeoutsArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
+        /// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `VoiceSettings`.
         /// </summary>
         [Input("voiceSettings")]
         public Input<Inputs.V2modelsBotLocaleVoiceSettingsArgs>? VoiceSettings { get; set; }
@@ -280,7 +280,7 @@ namespace Pulumi.Aws.Lex
         public Input<Inputs.V2modelsBotLocaleTimeoutsGetArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
+        /// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `VoiceSettings`.
         /// </summary>
         [Input("voiceSettings")]
         public Input<Inputs.V2modelsBotLocaleVoiceSettingsGetArgs>? VoiceSettings { get; set; }

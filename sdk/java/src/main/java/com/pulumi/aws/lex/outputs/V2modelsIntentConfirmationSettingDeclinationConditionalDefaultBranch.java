@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranch {
     /**
-     * @return Configuration block for the next step in the conversation. See `next_step`.
+     * @return Configuration block for the next step in the conversation. See `nextStep`.
      * 
      */
     private @Nullable V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStep nextStep;
@@ -25,7 +25,7 @@ public final class V2modelsIntentConfirmationSettingDeclinationConditionalDefaul
 
     private V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranch() {}
     /**
-     * @return Configuration block for the next step in the conversation. See `next_step`.
+     * @return Configuration block for the next step in the conversation. See `nextStep`.
      * 
      */
     public Optional<V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStep> nextStep() {

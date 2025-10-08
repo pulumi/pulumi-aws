@@ -12,7 +12,7 @@ namespace Pulumi.Aws.LightSail
     /// <summary>
     /// Manages a Lightsail domain entry (DNS record). Use this resource to define how DNS queries for your domain are handled.
     /// 
-    /// &gt; **NOTE on `id`:** In an effort to simplify imports, this resource `id` field has been updated to the standard resource id separator, a comma (`,`). For backward compatibility, the previous separator (underscore `_`) can still be used to read and import existing resources. When state is refreshed, the `id` will be updated to use the new standard separator. The previous separator will be deprecated in a future major release.
+    /// &gt; **NOTE on `Id`:** In an effort to simplify imports, this resource `Id` field has been updated to the standard resource id separator, a comma (`,`). For backward compatibility, the previous separator (underscore `_`) can still be used to read and import existing resources. When state is refreshed, the `Id` will be updated to use the new standard separator. The previous separator will be deprecated in a future major release.
     /// 
     /// ## Example Usage
     /// 
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.LightSail
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the entry should be an alias. Default: `false`.
+        /// Whether the entry should be an alias. Default: `False`.
         /// </summary>
         [Output("isAlias")]
         public Output<bool?> IsAlias { get; private set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.LightSail
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
-        /// Whether the entry should be an alias. Default: `false`.
+        /// Whether the entry should be an alias. Default: `False`.
         /// </summary>
         [Input("isAlias")]
         public Input<bool>? IsAlias { get; set; }
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.LightSail
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
-        /// Whether the entry should be an alias. Default: `false`.
+        /// Whether the entry should be an alias. Default: `False`.
         /// </summary>
         [Input("isAlias")]
         public Input<bool>? IsAlias { get; set; }

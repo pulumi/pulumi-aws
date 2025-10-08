@@ -487,6 +487,62 @@ class Analysis(pulumi.CustomResource):
             })
         ```
 
+        ### With Definition
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.quicksight.Analysis("example",
+            analysis_id="example-id",
+            name="example-name",
+            definition={
+                "dataSetIdentifiersDeclarations": [{
+                    "dataSetArn": dataset["arn"],
+                    "identifier": "1",
+                }],
+                "sheets": [{
+                    "title": "Example",
+                    "sheetId": "Example1",
+                    "visuals": [{
+                        "lineChartVisual": {
+                            "visualId": "LineChart",
+                            "title": {
+                                "formatText": {
+                                    "plainText": "Line Chart Example",
+                                },
+                            },
+                            "chartConfiguration": {
+                                "fieldWells": {
+                                    "lineChartAggregatedFieldWells": {
+                                        "categories": [{
+                                            "categoricalDimensionField": {
+                                                "fieldId": "1",
+                                                "column": {
+                                                    "dataSetIdentifier": "1",
+                                                    "columnName": "Column1",
+                                                },
+                                            },
+                                        }],
+                                        "values": [{
+                                            "categoricalMeasureField": {
+                                                "fieldId": "2",
+                                                "column": {
+                                                    "dataSetIdentifier": "1",
+                                                    "columnName": "Column1",
+                                                },
+                                                "aggregationFunction": "COUNT",
+                                            },
+                                        }],
+                                    },
+                                },
+                            },
+                        },
+                    }],
+                }],
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import a QuickSight Analysis using the AWS account ID and analysis ID separated by a comma (`,`). For example:
@@ -537,6 +593,62 @@ class Analysis(pulumi.CustomResource):
                         "data_set_placeholder": "1",
                     }],
                 },
+            })
+        ```
+
+        ### With Definition
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.quicksight.Analysis("example",
+            analysis_id="example-id",
+            name="example-name",
+            definition={
+                "dataSetIdentifiersDeclarations": [{
+                    "dataSetArn": dataset["arn"],
+                    "identifier": "1",
+                }],
+                "sheets": [{
+                    "title": "Example",
+                    "sheetId": "Example1",
+                    "visuals": [{
+                        "lineChartVisual": {
+                            "visualId": "LineChart",
+                            "title": {
+                                "formatText": {
+                                    "plainText": "Line Chart Example",
+                                },
+                            },
+                            "chartConfiguration": {
+                                "fieldWells": {
+                                    "lineChartAggregatedFieldWells": {
+                                        "categories": [{
+                                            "categoricalDimensionField": {
+                                                "fieldId": "1",
+                                                "column": {
+                                                    "dataSetIdentifier": "1",
+                                                    "columnName": "Column1",
+                                                },
+                                            },
+                                        }],
+                                        "values": [{
+                                            "categoricalMeasureField": {
+                                                "fieldId": "2",
+                                                "column": {
+                                                    "dataSetIdentifier": "1",
+                                                    "columnName": "Column1",
+                                                },
+                                                "aggregationFunction": "COUNT",
+                                            },
+                                        }],
+                                    },
+                                },
+                            },
+                        },
+                    }],
+                }],
             })
         ```
 

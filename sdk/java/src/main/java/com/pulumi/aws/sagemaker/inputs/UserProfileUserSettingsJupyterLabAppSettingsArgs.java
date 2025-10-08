@@ -22,14 +22,14 @@ public final class UserProfileUserSettingsJupyterLabAppSettingsArgs extends com.
     public static final UserProfileUserSettingsJupyterLabAppSettingsArgs Empty = new UserProfileUserSettingsJupyterLabAppSettingsArgs();
 
     /**
-     * Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+     * Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
      * 
      */
     @Import(name="appLifecycleManagement")
     private @Nullable Output<UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs> appLifecycleManagement;
 
     /**
-     * @return Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+     * @return Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
      * 
      */
     public Optional<Output<UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs>> appLifecycleManagement() {
@@ -89,14 +89,14 @@ public final class UserProfileUserSettingsJupyterLabAppSettingsArgs extends com.
     }
 
     /**
-     * The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+     * The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
      * 
      */
     @Import(name="emrSettings")
     private @Nullable Output<UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgs> emrSettings;
 
     /**
-     * @return The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+     * @return The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
      * 
      */
     public Optional<Output<UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgs>> emrSettings() {
@@ -149,7 +149,7 @@ public final class UserProfileUserSettingsJupyterLabAppSettingsArgs extends com.
         }
 
         /**
-         * @param appLifecycleManagement Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+         * @param appLifecycleManagement Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class UserProfileUserSettingsJupyterLabAppSettingsArgs extends com.
         }
 
         /**
-         * @param appLifecycleManagement Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+         * @param appLifecycleManagement Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class UserProfileUserSettingsJupyterLabAppSettingsArgs extends com.
         }
 
         /**
-         * @param emrSettings The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+         * @param emrSettings The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class UserProfileUserSettingsJupyterLabAppSettingsArgs extends com.
         }
 
         /**
-         * @param emrSettings The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+         * @param emrSettings The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
          * 
          * @return builder
          * 

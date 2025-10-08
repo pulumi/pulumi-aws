@@ -13,12 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration {
     /**
-     * @return A list of security controls that are disabled in the configuration policy Security Hub enables all other controls (including newly released controls) other than the listed controls. Conflicts with `enabled_control_identifiers`.
+     * @return A list of security controls that are disabled in the configuration policy Security Hub enables all other controls (including newly released controls) other than the listed controls. Conflicts with `enabledControlIdentifiers`.
      * 
      */
     private @Nullable List<String> disabledControlIdentifiers;
     /**
-     * @return A list of security controls that are enabled in the configuration policy. Security Hub disables all other controls (including newly released controls) other than the listed controls. Conflicts with `disabled_control_identifiers`.
+     * @return A list of security controls that are enabled in the configuration policy. Security Hub disables all other controls (including newly released controls) other than the listed controls. Conflicts with `disabledControlIdentifiers`.
      * 
      */
     private @Nullable List<String> enabledControlIdentifiers;
@@ -30,14 +30,14 @@ public final class ConfigurationPolicyConfigurationPolicySecurityControlsConfigu
 
     private ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration() {}
     /**
-     * @return A list of security controls that are disabled in the configuration policy Security Hub enables all other controls (including newly released controls) other than the listed controls. Conflicts with `enabled_control_identifiers`.
+     * @return A list of security controls that are disabled in the configuration policy Security Hub enables all other controls (including newly released controls) other than the listed controls. Conflicts with `enabledControlIdentifiers`.
      * 
      */
     public List<String> disabledControlIdentifiers() {
         return this.disabledControlIdentifiers == null ? List.of() : this.disabledControlIdentifiers;
     }
     /**
-     * @return A list of security controls that are enabled in the configuration policy. Security Hub disables all other controls (including newly released controls) other than the listed controls. Conflicts with `disabled_control_identifiers`.
+     * @return A list of security controls that are enabled in the configuration policy. Security Hub disables all other controls (including newly released controls) other than the listed controls. Conflicts with `disabledControlIdentifiers`.
      * 
      */
     public List<String> enabledControlIdentifiers() {

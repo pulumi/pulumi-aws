@@ -178,14 +178,14 @@ public class LbCertificate extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
+     * Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
      * 
      */
     @Export(name="subjectAlternativeNames", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subjectAlternativeNames;
 
     /**
-     * @return Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
+     * @return Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
      * 
      */
     public Output<List<String>> subjectAlternativeNames() {

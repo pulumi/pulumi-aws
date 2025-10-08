@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly int MaxConnections;
         /// <summary>
-        /// Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
+        /// Number of overflowing requests after `MaxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
         /// </summary>
         public readonly int? MaxPendingRequests;
 

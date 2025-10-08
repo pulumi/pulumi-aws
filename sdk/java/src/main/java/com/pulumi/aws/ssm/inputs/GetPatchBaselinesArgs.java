@@ -19,14 +19,14 @@ public final class GetPatchBaselinesArgs extends com.pulumi.resources.InvokeArgs
     public static final GetPatchBaselinesArgs Empty = new GetPatchBaselinesArgs();
 
     /**
-     * Only return baseline identities where `default_baseline` is `true`.
+     * Only return baseline identities where `defaultBaseline` is `true`.
      * 
      */
     @Import(name="defaultBaselines")
     private @Nullable Output<Boolean> defaultBaselines;
 
     /**
-     * @return Only return baseline identities where `default_baseline` is `true`.
+     * @return Only return baseline identities where `defaultBaseline` is `true`.
      * 
      */
     public Optional<Output<Boolean>> defaultBaselines() {
@@ -90,7 +90,7 @@ public final class GetPatchBaselinesArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param defaultBaselines Only return baseline identities where `default_baseline` is `true`.
+         * @param defaultBaselines Only return baseline identities where `defaultBaseline` is `true`.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class GetPatchBaselinesArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param defaultBaselines Only return baseline identities where `default_baseline` is `true`.
+         * @param defaultBaselines Only return baseline identities where `defaultBaseline` is `true`.
          * 
          * @return builder
          * 

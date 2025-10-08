@@ -9,6 +9,25 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = new aws.workspacesweb.Portal("example", {displayName: "example"});
+ * const exampleTrustStore = new aws.workspacesweb.TrustStore("example", {certificateList: [std.file({
+ *     input: "certificate.pem",
+ * }).then(invoke => std.base64encode({
+ *     input: invoke.result,
+ * })).then(invoke => invoke.result)]});
+ * const exampleTrustStoreAssociation = new aws.workspacesweb.TrustStoreAssociation("example", {
+ *     trustStoreArn: exampleTrustStore.trustStoreArn,
+ *     portalArn: example.portalArn,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import WorkSpaces Web Trust Store Association using the `trust_store_arn,portal_arn`. For example:

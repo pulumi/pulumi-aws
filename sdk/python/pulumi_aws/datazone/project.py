@@ -354,6 +354,20 @@ class Project(pulumi.CustomResource):
         """
         Resource for managing an AWS DataZone Project.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.datazone.Project("test",
+            domain_id=test_aws_datazone_domain["id"],
+            glossary_terms=["2N8w6XJCwZf"],
+            name="name",
+            description="desc",
+            skip_deletion_check=True)
+        ```
+
         ### Basic Usage
 
         ```python
@@ -392,6 +406,20 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS DataZone Project.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.datazone.Project("test",
+            domain_id=test_aws_datazone_domain["id"],
+            glossary_terms=["2N8w6XJCwZf"],
+            name="name",
+            description="desc",
+            skip_deletion_check=True)
+        ```
 
         ### Basic Usage
 

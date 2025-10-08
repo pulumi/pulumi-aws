@@ -123,7 +123,7 @@ namespace Pulumi.Aws.ElasticTranscoder
         public Output<Outputs.PresetAudioCodecOptions> AudioCodecOptions { get; private set; } = null!;
 
         /// <summary>
-        /// The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
+        /// The container type for the output file. Valid values are `Flac`, `Flv`, `Fmp4`, `Gif`, `Mp3`, `Mp4`, `Mpg`, `Mxf`, `Oga`, `Ogg`, `Ts`, and `Webm`.
         /// </summary>
         [Output("container")]
         public Output<string> Container { get; private set; } = null!;
@@ -234,7 +234,7 @@ namespace Pulumi.Aws.ElasticTranscoder
         public Input<Inputs.PresetAudioCodecOptionsArgs>? AudioCodecOptions { get; set; }
 
         /// <summary>
-        /// The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
+        /// The container type for the output file. Valid values are `Flac`, `Flv`, `Fmp4`, `Gif`, `Mp3`, `Mp4`, `Mpg`, `Mxf`, `Oga`, `Ogg`, `Ts`, and `Webm`.
         /// </summary>
         [Input("container", required: true)]
         public Input<string> Container { get; set; } = null!;
@@ -325,7 +325,7 @@ namespace Pulumi.Aws.ElasticTranscoder
         public Input<Inputs.PresetAudioCodecOptionsGetArgs>? AudioCodecOptions { get; set; }
 
         /// <summary>
-        /// The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
+        /// The container type for the output file. Valid values are `Flac`, `Flv`, `Fmp4`, `Gif`, `Mp3`, `Mp4`, `Mpg`, `Mxf`, `Oga`, `Ogg`, `Ts`, and `Webm`.
         /// </summary>
         [Input("container")]
         public Input<string>? Container { get; set; }

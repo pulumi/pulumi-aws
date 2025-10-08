@@ -349,14 +349,14 @@ public class Function extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.runtime);
     }
     /**
-     * Describes a Sync configuration for a resolver. See `sync_config` Block for details.
+     * Describes a Sync configuration for a resolver. See `syncConfig` Block for details.
      * 
      */
     @Export(name="syncConfig", refs={FunctionSyncConfig.class}, tree="[0]")
     private Output</* @Nullable */ FunctionSyncConfig> syncConfig;
 
     /**
-     * @return Describes a Sync configuration for a resolver. See `sync_config` Block for details.
+     * @return Describes a Sync configuration for a resolver. See `syncConfig` Block for details.
      * 
      */
     public Output<Optional<FunctionSyncConfig>> syncConfig() {

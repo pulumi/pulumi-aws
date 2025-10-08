@@ -37,11 +37,11 @@ namespace Pulumi.Aws.Ec2
     /// ## Notes
     /// 
     /// On VPC creation, the AWS API always creates an initial Main Route Table. This
-    /// resource records the ID of that Route Table under `original_route_table_id`.
-    /// The "Delete" action for a `main_route_table_association` consists of resetting
+    /// resource records the ID of that Route Table under `OriginalRouteTableId`.
+    /// The "Delete" action for a `MainRouteTableAssociation` consists of resetting
     /// this original table as the Main Route Table for the VPC. You'll see this
     /// additional Route Table in the AWS console; it must remain intact in order for
-    /// the `main_route_table_association` delete to work properly.
+    /// the `MainRouteTableAssociation` delete to work properly.
     /// </summary>
     [AwsResourceType("aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation")]
     public partial class MainRouteTableAssociation : global::Pulumi.CustomResource

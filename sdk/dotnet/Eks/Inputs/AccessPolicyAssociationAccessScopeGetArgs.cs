@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Eks.Inputs
         }
 
         /// <summary>
-        /// Valid values are `namespace` or `cluster`.
+        /// Valid values are `Namespace` or `Cluster`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

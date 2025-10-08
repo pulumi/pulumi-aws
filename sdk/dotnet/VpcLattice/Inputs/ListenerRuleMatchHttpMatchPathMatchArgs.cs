@@ -14,14 +14,14 @@ namespace Pulumi.Aws.VpcLattice.Inputs
     {
         /// <summary>
         /// Indicates whether the match is case sensitive.
-        /// Default is `false`.
+        /// Default is `False`.
         /// </summary>
         [Input("caseSensitive")]
         public Input<bool>? CaseSensitive { get; set; }
 
         /// <summary>
         /// The header match type.
-        /// See Path Match `match` Block for details.
+        /// See Path Match `Match` Block for details.
         /// </summary>
         [Input("match", required: true)]
         public Input<Inputs.ListenerRuleMatchHttpMatchPathMatchMatchArgs> Match { get; set; } = null!;

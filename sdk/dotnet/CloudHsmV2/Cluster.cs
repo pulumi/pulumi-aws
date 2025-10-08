@@ -17,9 +17,61 @@ namespace Pulumi.Aws.CloudHsmV2
     /// CloudHSM API Reference][2].
     /// 
     /// &gt; **NOTE:** A CloudHSM Cluster can take several minutes to set up.
-    /// Practically no single attribute can be updated, except for `tags`.
+    /// Practically no single attribute can be updated, except for `Tags`.
     /// If you need to delete a cluster, you have to remove its HSM modules first.
     /// To initialize cluster, you have to add an HSM instance to the cluster, then sign CSR and upload it.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// The following example below creates a CloudHSM cluster.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var available = Aws.GetAvailabilityZones.Invoke();
+    /// 
+    ///     var cloudhsmV2Vpc = new Aws.Ec2.Vpc("cloudhsm_v2_vpc", new()
+    ///     {
+    ///         CidrBlock = "10.0.0.0/16",
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "example-aws_cloudhsm_v2_cluster" },
+    ///         },
+    ///     });
+    /// 
+    ///     var cloudhsmV2Subnets = new List&lt;Aws.Ec2.Subnet&gt;();
+    ///     for (var rangeIndex = 0; rangeIndex &lt; 2; rangeIndex++)
+    ///     {
+    ///         var range = new { Value = rangeIndex };
+    ///         cloudhsmV2Subnets.Add(new Aws.Ec2.Subnet($"cloudhsm_v2_subnets-{range.Value}", new()
+    ///         {
+    ///             VpcId = cloudhsmV2Vpc.Id,
+    ///             CidrBlock = subnets[range.Value],
+    ///             MapPublicIpOnLaunch = false,
+    ///             AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names)[range.Value],
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "example-aws_cloudhsm_v2_cluster" },
+    ///             },
+    ///         }));
+    ///     }
+    ///     var cloudhsmV2Cluster = new Aws.CloudHsmV2.Cluster("cloudhsm_v2_cluster", new()
+    ///     {
+    ///         HsmType = "hsm1.medium",
+    ///         SubnetIds = cloudhsmV2Subnets.Select(__item =&gt; __item.Id).ToList(),
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "example-aws_cloudhsm_v2_cluster" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -57,7 +109,7 @@ namespace Pulumi.Aws.CloudHsmV2
         public Output<string> HsmType { get; private set; } = null!;
 
         /// <summary>
-        /// The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
+        /// The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `HsmType` is `hsm2m.medium`.
         /// </summary>
         [Output("mode")]
         public Output<string> Mode { get; private set; } = null!;
@@ -87,13 +139,13 @@ namespace Pulumi.Aws.CloudHsmV2
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -157,7 +209,7 @@ namespace Pulumi.Aws.CloudHsmV2
         public Input<string> HsmType { get; set; } = null!;
 
         /// <summary>
-        /// The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
+        /// The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `HsmType` is `hsm2m.medium`.
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
@@ -190,7 +242,7 @@ namespace Pulumi.Aws.CloudHsmV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -237,7 +289,7 @@ namespace Pulumi.Aws.CloudHsmV2
         public Input<string>? HsmType { get; set; }
 
         /// <summary>
-        /// The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
+        /// The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `HsmType` is `hsm2m.medium`.
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
@@ -276,7 +328,7 @@ namespace Pulumi.Aws.CloudHsmV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -288,7 +340,7 @@ namespace Pulumi.Aws.CloudHsmV2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

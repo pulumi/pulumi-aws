@@ -18,14 +18,14 @@ public final class ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatial
     public static final ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisArgs Empty = new ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisArgs();
 
     /**
-     * Partition key used for partitioning, which can be a default measure_name or a customer defined partition key.
+     * Partition key used for partitioning, which can be a default measureName or a customer defined partition key.
      * 
      */
     @Import(name="partitionKeys")
     private @Nullable Output<List<String>> partitionKeys;
 
     /**
-     * @return Partition key used for partitioning, which can be a default measure_name or a customer defined partition key.
+     * @return Partition key used for partitioning, which can be a default measureName or a customer defined partition key.
      * 
      */
     public Optional<Output<List<String>>> partitionKeys() {
@@ -89,7 +89,7 @@ public final class ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatial
         }
 
         /**
-         * @param partitionKeys Partition key used for partitioning, which can be a default measure_name or a customer defined partition key.
+         * @param partitionKeys Partition key used for partitioning, which can be a default measureName or a customer defined partition key.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatial
         }
 
         /**
-         * @param partitionKeys Partition key used for partitioning, which can be a default measure_name or a customer defined partition key.
+         * @param partitionKeys Partition key used for partitioning, which can be a default measureName or a customer defined partition key.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatial
         }
 
         /**
-         * @param partitionKeys Partition key used for partitioning, which can be a default measure_name or a customer defined partition key.
+         * @param partitionKeys Partition key used for partitioning, which can be a default measureName or a customer defined partition key.
          * 
          * @return builder
          * 

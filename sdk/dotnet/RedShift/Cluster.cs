@@ -70,13 +70,13 @@ namespace Pulumi.Aws.RedShift
     public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
+        /// If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `True`.
         /// </summary>
         [Output("allowVersionUpgrade")]
         public Output<bool?> AllowVersionUpgrade { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+        /// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `False`.
         /// </summary>
         [Output("applyImmediately")]
         public Output<bool?> ApplyImmediately { get; private set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.RedShift
         /// <summary>
         /// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
         /// No longer supported by the AWS API.
-        /// Always returns `auto`.
+        /// Always returns `Auto`.
         /// </summary>
         [Output("aquaConfigurationStatus")]
         public Output<string> AquaConfigurationStatus { get; private set; } = null!;
@@ -102,13 +102,13 @@ namespace Pulumi.Aws.RedShift
         public Output<int?> AutomatedSnapshotRetentionPeriod { get; private set; } = null!;
 
         /// <summary>
-        /// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
+        /// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `AvailabilityZoneRelocationEnabled` is `True`.
         /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
-        /// If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
+        /// If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `False`. Available for use on clusters from the RA3 instance family.
         /// </summary>
         [Output("availabilityZoneRelocationEnabled")]
         public Output<bool?> AvailabilityZoneRelocationEnabled { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// The name of the first database to be created when the cluster is created.
-        /// If you do not provide a name, Amazon Redshift will create a default database called `dev`.
+        /// If you do not provide a name, Amazon Redshift will create a default database called `Dev`.
         /// </summary>
         [Output("databaseName")]
         public Output<string> DatabaseName { get; private set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// If true , the data in the cluster is encrypted at rest.
-        /// Default is `true`.
+        /// Default is `True`.
         /// </summary>
         [Output("encrypted")]
         public Output<string?> Encrypted { get; private set; } = null!;
@@ -213,7 +213,7 @@ namespace Pulumi.Aws.RedShift
         public Output<bool> EnhancedVpcRouting { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
+        /// The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `SkipFinalSnapshot` must be false.
         /// </summary>
         [Output("finalSnapshotIdentifier")]
         public Output<string?> FinalSnapshotIdentifier { get; private set; } = null!;
@@ -225,21 +225,21 @@ namespace Pulumi.Aws.RedShift
         public Output<ImmutableArray<string>> IamRoles { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
+        /// The ARN for the KMS encryption key. When specifying `KmsKeyId`, `Encrypted` needs to be set to true.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
+        /// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `Current`.
         /// </summary>
         [Output("maintenanceTrackName")]
         public Output<string?> MaintenanceTrackName { get; private set; } = null!;
 
         /// <summary>
         /// Whether to use AWS SecretsManager to manage the cluster admin credentials.
-        /// Conflicts with `master_password` and `master_password_wo`.
-        /// One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        /// Conflicts with `MasterPassword` and `MasterPasswordWo`.
+        /// One of `MasterPassword` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided.
         /// </summary>
         [Output("manageMasterPassword")]
         public Output<bool?> ManageMasterPassword { get; private set; } = null!;
@@ -252,8 +252,8 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// Password for the master DB user.
-        /// Conflicts with `manage_master_password` and `master_password_wo`.
-        /// One of `master_password`, `master_password_wo` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        /// Conflicts with `ManageMasterPassword` and `MasterPasswordWo`.
+        /// One of `MasterPassword`, `MasterPasswordWo` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided.
         /// Note that this may show up in logs, and it will be stored in the state file.
         /// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
         /// </summary>
@@ -319,7 +319,7 @@ namespace Pulumi.Aws.RedShift
         public Output<string> PreferredMaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
-        /// If true, the cluster can be accessed from a public network. Default is `false`.
+        /// If true, the cluster can be accessed from a public network. Default is `False`.
         /// </summary>
         [Output("publiclyAccessible")]
         public Output<bool?> PubliclyAccessible { get; private set; } = null!;
@@ -337,7 +337,7 @@ namespace Pulumi.Aws.RedShift
         public Output<bool?> SkipFinalSnapshot { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
+        /// The ARN of the snapshot from which to create the new cluster. Conflicts with `SnapshotIdentifier`.
         /// </summary>
         [Output("snapshotArn")]
         public Output<string?> SnapshotArn { get; private set; } = null!;
@@ -349,13 +349,13 @@ namespace Pulumi.Aws.RedShift
         public Output<string?> SnapshotClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
+        /// The name of the snapshot from which to create the new cluster.  Conflicts with `SnapshotArn`.
         /// </summary>
         [Output("snapshotIdentifier")]
         public Output<string?> SnapshotIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// For more detailed documentation about each argument, refer to
         /// the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
@@ -364,7 +364,7 @@ namespace Pulumi.Aws.RedShift
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -426,13 +426,13 @@ namespace Pulumi.Aws.RedShift
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
+        /// If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `True`.
         /// </summary>
         [Input("allowVersionUpgrade")]
         public Input<bool>? AllowVersionUpgrade { get; set; }
 
         /// <summary>
-        /// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+        /// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `False`.
         /// </summary>
         [Input("applyImmediately")]
         public Input<bool>? ApplyImmediately { get; set; }
@@ -440,7 +440,7 @@ namespace Pulumi.Aws.RedShift
         /// <summary>
         /// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
         /// No longer supported by the AWS API.
-        /// Always returns `auto`.
+        /// Always returns `Auto`.
         /// </summary>
         [Input("aquaConfigurationStatus")]
         public Input<string>? AquaConfigurationStatus { get; set; }
@@ -452,13 +452,13 @@ namespace Pulumi.Aws.RedShift
         public Input<int>? AutomatedSnapshotRetentionPeriod { get; set; }
 
         /// <summary>
-        /// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
+        /// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `AvailabilityZoneRelocationEnabled` is `True`.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
+        /// If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `False`. Available for use on clusters from the RA3 instance family.
         /// </summary>
         [Input("availabilityZoneRelocationEnabled")]
         public Input<bool>? AvailabilityZoneRelocationEnabled { get; set; }
@@ -496,7 +496,7 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// The name of the first database to be created when the cluster is created.
-        /// If you do not provide a name, Amazon Redshift will create a default database called `dev`.
+        /// If you do not provide a name, Amazon Redshift will create a default database called `Dev`.
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
@@ -515,7 +515,7 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// If true , the data in the cluster is encrypted at rest.
-        /// Default is `true`.
+        /// Default is `True`.
         /// </summary>
         [Input("encrypted")]
         public Input<string>? Encrypted { get; set; }
@@ -527,7 +527,7 @@ namespace Pulumi.Aws.RedShift
         public Input<bool>? EnhancedVpcRouting { get; set; }
 
         /// <summary>
-        /// The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
+        /// The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `SkipFinalSnapshot` must be false.
         /// </summary>
         [Input("finalSnapshotIdentifier")]
         public Input<string>? FinalSnapshotIdentifier { get; set; }
@@ -545,21 +545,21 @@ namespace Pulumi.Aws.RedShift
         }
 
         /// <summary>
-        /// The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
+        /// The ARN for the KMS encryption key. When specifying `KmsKeyId`, `Encrypted` needs to be set to true.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
+        /// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `Current`.
         /// </summary>
         [Input("maintenanceTrackName")]
         public Input<string>? MaintenanceTrackName { get; set; }
 
         /// <summary>
         /// Whether to use AWS SecretsManager to manage the cluster admin credentials.
-        /// Conflicts with `master_password` and `master_password_wo`.
-        /// One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        /// Conflicts with `MasterPassword` and `MasterPasswordWo`.
+        /// One of `MasterPassword` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided.
         /// </summary>
         [Input("manageMasterPassword")]
         public Input<bool>? ManageMasterPassword { get; set; }
@@ -575,8 +575,8 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// Password for the master DB user.
-        /// Conflicts with `manage_master_password` and `master_password_wo`.
-        /// One of `master_password`, `master_password_wo` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        /// Conflicts with `ManageMasterPassword` and `MasterPasswordWo`.
+        /// One of `MasterPassword`, `MasterPasswordWo` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided.
         /// Note that this may show up in logs, and it will be stored in the state file.
         /// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
         /// </summary>
@@ -643,7 +643,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? PreferredMaintenanceWindow { get; set; }
 
         /// <summary>
-        /// If true, the cluster can be accessed from a public network. Default is `false`.
+        /// If true, the cluster can be accessed from a public network. Default is `False`.
         /// </summary>
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
@@ -661,7 +661,7 @@ namespace Pulumi.Aws.RedShift
         public Input<bool>? SkipFinalSnapshot { get; set; }
 
         /// <summary>
-        /// The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
+        /// The ARN of the snapshot from which to create the new cluster. Conflicts with `SnapshotIdentifier`.
         /// </summary>
         [Input("snapshotArn")]
         public Input<string>? SnapshotArn { get; set; }
@@ -673,7 +673,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? SnapshotClusterIdentifier { get; set; }
 
         /// <summary>
-        /// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
+        /// The name of the snapshot from which to create the new cluster.  Conflicts with `SnapshotArn`.
         /// </summary>
         [Input("snapshotIdentifier")]
         public Input<string>? SnapshotIdentifier { get; set; }
@@ -682,7 +682,7 @@ namespace Pulumi.Aws.RedShift
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// For more detailed documentation about each argument, refer to
         /// the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
@@ -714,13 +714,13 @@ namespace Pulumi.Aws.RedShift
     public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
+        /// If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `True`.
         /// </summary>
         [Input("allowVersionUpgrade")]
         public Input<bool>? AllowVersionUpgrade { get; set; }
 
         /// <summary>
-        /// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+        /// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `False`.
         /// </summary>
         [Input("applyImmediately")]
         public Input<bool>? ApplyImmediately { get; set; }
@@ -728,7 +728,7 @@ namespace Pulumi.Aws.RedShift
         /// <summary>
         /// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
         /// No longer supported by the AWS API.
-        /// Always returns `auto`.
+        /// Always returns `Auto`.
         /// </summary>
         [Input("aquaConfigurationStatus")]
         public Input<string>? AquaConfigurationStatus { get; set; }
@@ -746,13 +746,13 @@ namespace Pulumi.Aws.RedShift
         public Input<int>? AutomatedSnapshotRetentionPeriod { get; set; }
 
         /// <summary>
-        /// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
+        /// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `AvailabilityZoneRelocationEnabled` is `True`.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
+        /// If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `False`. Available for use on clusters from the RA3 instance family.
         /// </summary>
         [Input("availabilityZoneRelocationEnabled")]
         public Input<bool>? AvailabilityZoneRelocationEnabled { get; set; }
@@ -820,7 +820,7 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// The name of the first database to be created when the cluster is created.
-        /// If you do not provide a name, Amazon Redshift will create a default database called `dev`.
+        /// If you do not provide a name, Amazon Redshift will create a default database called `Dev`.
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
@@ -845,7 +845,7 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// If true , the data in the cluster is encrypted at rest.
-        /// Default is `true`.
+        /// Default is `True`.
         /// </summary>
         [Input("encrypted")]
         public Input<string>? Encrypted { get; set; }
@@ -863,7 +863,7 @@ namespace Pulumi.Aws.RedShift
         public Input<bool>? EnhancedVpcRouting { get; set; }
 
         /// <summary>
-        /// The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
+        /// The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `SkipFinalSnapshot` must be false.
         /// </summary>
         [Input("finalSnapshotIdentifier")]
         public Input<string>? FinalSnapshotIdentifier { get; set; }
@@ -881,21 +881,21 @@ namespace Pulumi.Aws.RedShift
         }
 
         /// <summary>
-        /// The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
+        /// The ARN for the KMS encryption key. When specifying `KmsKeyId`, `Encrypted` needs to be set to true.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
+        /// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `Current`.
         /// </summary>
         [Input("maintenanceTrackName")]
         public Input<string>? MaintenanceTrackName { get; set; }
 
         /// <summary>
         /// Whether to use AWS SecretsManager to manage the cluster admin credentials.
-        /// Conflicts with `master_password` and `master_password_wo`.
-        /// One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        /// Conflicts with `MasterPassword` and `MasterPasswordWo`.
+        /// One of `MasterPassword` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided.
         /// </summary>
         [Input("manageMasterPassword")]
         public Input<bool>? ManageMasterPassword { get; set; }
@@ -911,8 +911,8 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// Password for the master DB user.
-        /// Conflicts with `manage_master_password` and `master_password_wo`.
-        /// One of `master_password`, `master_password_wo` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        /// Conflicts with `ManageMasterPassword` and `MasterPasswordWo`.
+        /// One of `MasterPassword`, `MasterPasswordWo` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided.
         /// Note that this may show up in logs, and it will be stored in the state file.
         /// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
         /// </summary>
@@ -985,7 +985,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? PreferredMaintenanceWindow { get; set; }
 
         /// <summary>
-        /// If true, the cluster can be accessed from a public network. Default is `false`.
+        /// If true, the cluster can be accessed from a public network. Default is `False`.
         /// </summary>
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
@@ -1003,7 +1003,7 @@ namespace Pulumi.Aws.RedShift
         public Input<bool>? SkipFinalSnapshot { get; set; }
 
         /// <summary>
-        /// The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
+        /// The ARN of the snapshot from which to create the new cluster. Conflicts with `SnapshotIdentifier`.
         /// </summary>
         [Input("snapshotArn")]
         public Input<string>? SnapshotArn { get; set; }
@@ -1015,7 +1015,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? SnapshotClusterIdentifier { get; set; }
 
         /// <summary>
-        /// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
+        /// The name of the snapshot from which to create the new cluster.  Conflicts with `SnapshotArn`.
         /// </summary>
         [Input("snapshotIdentifier")]
         public Input<string>? SnapshotIdentifier { get; set; }
@@ -1024,7 +1024,7 @@ namespace Pulumi.Aws.RedShift
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// For more detailed documentation about each argument, refer to
         /// the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
@@ -1039,7 +1039,7 @@ namespace Pulumi.Aws.RedShift
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

@@ -13,31 +13,31 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleStatementRateBasedStatementCustomKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Use an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key. See RateLimit `asn` below for details.
+        /// Use an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key. See RateLimit `Asn` below for details.
         /// </summary>
         [Input("asn")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyAsnArgs>? Asn { get; set; }
 
         /// <summary>
-        /// Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
+        /// Use the value of a cookie in the request as an aggregate key. See RateLimit `Cookie` below for details.
         /// </summary>
         [Input("cookie")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyCookieArgs>? Cookie { get; set; }
 
         /// <summary>
-        /// Use the first IP address in an HTTP header as an aggregate key. See `forwarded_ip` below for details.
+        /// Use the first IP address in an HTTP header as an aggregate key. See `ForwardedIp` below for details.
         /// </summary>
         [Input("forwardedIp")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyForwardedIpArgs>? ForwardedIp { get; set; }
 
         /// <summary>
-        /// Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
+        /// Use the value of a header in the request as an aggregate key. See RateLimit `Header` below for details.
         /// </summary>
         [Input("header")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs>? Header { get; set; }
 
         /// <summary>
-        /// Use the request's HTTP method as an aggregate key. See RateLimit `http_method` below for details.
+        /// Use the request's HTTP method as an aggregate key. See RateLimit `HttpMethod` below for details.
         /// </summary>
         [Input("httpMethod")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyHttpMethodArgs>? HttpMethod { get; set; }
@@ -61,25 +61,25 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyJa4FingerprintArgs>? Ja4Fingerprint { get; set; }
 
         /// <summary>
-        /// Use the specified label namespace as an aggregate key. See RateLimit `label_namespace` below for details.
+        /// Use the specified label namespace as an aggregate key. See RateLimit `LabelNamespace` below for details.
         /// </summary>
         [Input("labelNamespace")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs>? LabelNamespace { get; set; }
 
         /// <summary>
-        /// Use the specified query argument as an aggregate key. See RateLimit `query_argument` below for details.
+        /// Use the specified query argument as an aggregate key. See RateLimit `QueryArgument` below for details.
         /// </summary>
         [Input("queryArgument")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs>? QueryArgument { get; set; }
 
         /// <summary>
-        /// Use the request's query string as an aggregate key. See RateLimit `query_string` below for details.
+        /// Use the request's query string as an aggregate key. See RateLimit `QueryString` below for details.
         /// </summary>
         [Input("queryString")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryStringArgs>? QueryString { get; set; }
 
         /// <summary>
-        /// Use the request's URI path as an aggregate key. See RateLimit `uri_path` below for details.
+        /// Use the request's URI path as an aggregate key. See RateLimit `UriPath` below for details.
         /// </summary>
         [Input("uriPath")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyUriPathArgs>? UriPath { get; set; }

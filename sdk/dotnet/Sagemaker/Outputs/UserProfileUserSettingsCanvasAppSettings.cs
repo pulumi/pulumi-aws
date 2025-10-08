@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly Outputs.UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings? DirectDeploySettings;
         /// <summary>
-        /// The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emr_serverless_settings` Block below.
+        /// The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `EmrServerlessSettings` Block below.
         /// </summary>
         public readonly Outputs.UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings? EmrServerlessSettings;
         public readonly Outputs.UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings? GenerativeAiSettings;

@@ -50,7 +50,7 @@ public final class TargetGroupConfigHealthCheckArgs extends com.pulumi.resources
 
     /**
      * The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
-     * * ` healthy_threshold_count  ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
+     * * ` healthyThresholdCount  ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
      * 
      */
     @Import(name="healthCheckTimeoutSeconds")
@@ -58,7 +58,7 @@ public final class TargetGroupConfigHealthCheckArgs extends com.pulumi.resources
 
     /**
      * @return The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
-     * * ` healthy_threshold_count  ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
+     * * ` healthyThresholdCount  ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
      * 
      */
     public Optional<Output<Integer>> healthCheckTimeoutSeconds() {
@@ -239,7 +239,7 @@ public final class TargetGroupConfigHealthCheckArgs extends com.pulumi.resources
 
         /**
          * @param healthCheckTimeoutSeconds The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
-         * * ` healthy_threshold_count  ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
+         * * ` healthyThresholdCount  ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class TargetGroupConfigHealthCheckArgs extends com.pulumi.resources
 
         /**
          * @param healthCheckTimeoutSeconds The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
-         * * ` healthy_threshold_count  ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
+         * * ` healthyThresholdCount  ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
          * 
          * @return builder
          * 

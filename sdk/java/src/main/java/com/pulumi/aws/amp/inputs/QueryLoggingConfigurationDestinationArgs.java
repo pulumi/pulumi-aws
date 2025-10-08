@@ -17,14 +17,14 @@ public final class QueryLoggingConfigurationDestinationArgs extends com.pulumi.r
     public static final QueryLoggingConfigurationDestinationArgs Empty = new QueryLoggingConfigurationDestinationArgs();
 
     /**
-     * Configuration block for CloudWatch Logs destination. See `cloudwatch_logs`.
+     * Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
      * 
      */
     @Import(name="cloudwatchLogs")
     private @Nullable Output<QueryLoggingConfigurationDestinationCloudwatchLogsArgs> cloudwatchLogs;
 
     /**
-     * @return Configuration block for CloudWatch Logs destination. See `cloudwatch_logs`.
+     * @return Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
      * 
      */
     public Optional<Output<QueryLoggingConfigurationDestinationCloudwatchLogsArgs>> cloudwatchLogs() {
@@ -72,7 +72,7 @@ public final class QueryLoggingConfigurationDestinationArgs extends com.pulumi.r
         }
 
         /**
-         * @param cloudwatchLogs Configuration block for CloudWatch Logs destination. See `cloudwatch_logs`.
+         * @param cloudwatchLogs Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class QueryLoggingConfigurationDestinationArgs extends com.pulumi.r
         }
 
         /**
-         * @param cloudwatchLogs Configuration block for CloudWatch Logs destination. See `cloudwatch_logs`.
+         * @param cloudwatchLogs Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
          * 
          * @return builder
          * 

@@ -19,6 +19,91 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Basic Example
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+ * import com.pulumi.aws.inputs.GetPartitionArgs;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
+ * import com.pulumi.aws.s3control.MultiRegionAccessPoint;
+ * import com.pulumi.aws.s3control.MultiRegionAccessPointArgs;
+ * import com.pulumi.aws.s3control.inputs.MultiRegionAccessPointDetailsArgs;
+ * import com.pulumi.aws.s3control.MultiRegionAccessPointPolicy;
+ * import com.pulumi.aws.s3control.MultiRegionAccessPointPolicyArgs;
+ * import com.pulumi.aws.s3control.inputs.MultiRegionAccessPointPolicyDetailsArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.SplitArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
+ * 
+ *         final var currentGetPartition = AwsFunctions.getPartition(GetPartitionArgs.builder()
+ *             .build());
+ * 
+ *         var fooBucket = new Bucket("fooBucket", BucketArgs.builder()
+ *             .bucket("example-bucket-foo")
+ *             .build());
+ * 
+ *         var example = new MultiRegionAccessPoint("example", MultiRegionAccessPointArgs.builder()
+ *             .details(MultiRegionAccessPointDetailsArgs.builder()
+ *                 .name("example")
+ *                 .regions(MultiRegionAccessPointDetailsRegionArgs.builder()
+ *                     .bucket(fooBucket.id())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleMultiRegionAccessPointPolicy = new MultiRegionAccessPointPolicy("exampleMultiRegionAccessPointPolicy", MultiRegionAccessPointPolicyArgs.builder()
+ *             .details(MultiRegionAccessPointPolicyDetailsArgs.builder()
+ *                 .name(StdFunctions.split(SplitArgs.builder()
+ *                     .separator(":")
+ *                     .text(example.id())
+ *                     .build()).applyValue(_invoke -> _invoke.result())[1])
+ *                 .policy(example.alias().applyValue(_alias -> serializeJson(
+ *                     jsonObject(
+ *                         jsonProperty("Version", "2012-10-17"),
+ *                         jsonProperty("Statement", jsonArray(jsonObject(
+ *                             jsonProperty("Sid", "Example"),
+ *                             jsonProperty("Effect", "Allow"),
+ *                             jsonProperty("Principal", jsonObject(
+ *                                 jsonProperty("AWS", current.accountId())
+ *                             )),
+ *                             jsonProperty("Action", jsonArray(
+ *                                 "s3:GetObject", 
+ *                                 "s3:PutObject"
+ *                             )),
+ *                             jsonProperty("Resource", String.format("arn:%s:s3::%s:accesspoint/%s/object/*", currentGetPartition.partition(),current.accountId(),_alias))
+ *                         )))
+ *                     ))))
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Multi-Region Access Point Policies using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`). For example:

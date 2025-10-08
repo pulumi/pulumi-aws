@@ -12,6 +12,31 @@ namespace Pulumi.Aws.DataZone
     /// <summary>
     /// Resource for managing an AWS DataZone Project.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.DataZone.Project("test", new()
+    ///     {
+    ///         DomainId = testAwsDatazoneDomain.Id,
+    ///         GlossaryTerms = new[]
+    ///         {
+    ///             "2N8w6XJCwZf",
+    ///         },
+    ///         Name = "name",
+    ///         Description = "desc",
+    ///         SkipDeletionCheck = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetSerialConsoleAccessResult
     {
         /// <summary>
-        /// Whether or not serial console access is enabled. Returns as `true` or `false`.
+        /// Whether or not serial console access is enabled. Returns as `True` or `False`.
         /// </summary>
         public readonly bool Enabled;
         /// <summary>

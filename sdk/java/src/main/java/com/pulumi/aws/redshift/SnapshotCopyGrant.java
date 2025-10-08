@@ -20,6 +20,48 @@ import javax.annotation.Nullable;
  * 
  * Note that the grant must exist in the destination region, and not in the region of the cluster.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.redshift.SnapshotCopyGrant;
+ * import com.pulumi.aws.redshift.SnapshotCopyGrantArgs;
+ * import com.pulumi.aws.redshift.Cluster;
+ * import com.pulumi.aws.redshift.ClusterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new SnapshotCopyGrant("test", SnapshotCopyGrantArgs.builder()
+ *             .snapshotCopyGrantName("my-grant")
+ *             .build());
+ * 
+ *         var testCluster = new Cluster("testCluster", ClusterArgs.builder()
+ *             .snapshotCopy(List.of(Map.ofEntries(
+ *                 Map.entry("destinationRegion", "us-east-2"),
+ *                 Map.entry("grantName", test.snapshotCopyGrantName())
+ *             )))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Redshift Snapshot Copy Grants by name. For example:
@@ -88,28 +130,28 @@ public class SnapshotCopyGrant extends com.pulumi.resources.CustomResource {
         return this.snapshotCopyGrantName;
     }
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Msk.Outputs
     public sealed class ClusterLoggingInfoBrokerLogs
     {
         /// <summary>
-        /// Configuration block for Cloudwatch Logs settings. See logging_info broker_logs cloudwatch_logs Argument Reference below.
+        /// Configuration block for Cloudwatch Logs settings. See LoggingInfo broker_logs CloudwatchLogs Argument Reference below.
         /// </summary>
         public readonly Outputs.ClusterLoggingInfoBrokerLogsCloudwatchLogs? CloudwatchLogs;
         /// <summary>
-        /// Configuration block for Kinesis Data Firehose settings. See logging_info broker_logs firehose Argument Reference below.
+        /// Configuration block for Kinesis Data Firehose settings. See LoggingInfo broker_logs firehose Argument Reference below.
         /// </summary>
         public readonly Outputs.ClusterLoggingInfoBrokerLogsFirehose? Firehose;
         /// <summary>
-        /// Configuration block for S3 settings. See logging_info broker_logs s3 Argument Reference below.
+        /// Configuration block for S3 settings. See LoggingInfo broker_logs s3 Argument Reference below.
         /// </summary>
         public readonly Outputs.ClusterLoggingInfoBrokerLogsS3? S3;
 

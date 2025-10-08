@@ -116,7 +116,7 @@ namespace Pulumi.Aws.DirectConnect
         public Output<string> ProviderName { get; private set; } = null!;
 
         /// <summary>
-        /// (**Deprecated**) The AWS Region where the connection is located. Use `connection_region` instead.
+        /// (**Deprecated**) The AWS Region where the connection is located. Use `ConnectionRegion` instead.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -296,7 +296,7 @@ namespace Pulumi.Aws.DirectConnect
         public Input<string>? ProviderName { get; set; }
 
         /// <summary>
-        /// (**Deprecated**) The AWS Region where the connection is located. Use `connection_region` instead.
+        /// (**Deprecated**) The AWS Region where the connection is located. Use `ConnectionRegion` instead.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

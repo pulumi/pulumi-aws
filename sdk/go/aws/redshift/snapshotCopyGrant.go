@@ -16,6 +16,43 @@ import (
 //
 // Note that the grant must exist in the destination region, and not in the region of the cluster.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshift"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			test, err := redshift.NewSnapshotCopyGrant(ctx, "test", &redshift.SnapshotCopyGrantArgs{
+//				SnapshotCopyGrantName: pulumi.String("my-grant"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = redshift.NewCluster(ctx, "test", &redshift.ClusterArgs{
+//				SnapshotCopy: []map[string]interface{}{
+//					map[string]interface{}{
+//						"destinationRegion": "us-east-2",
+//						"grantName":         test.SnapshotCopyGrantName,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Redshift Snapshot Copy Grants by name. For example:

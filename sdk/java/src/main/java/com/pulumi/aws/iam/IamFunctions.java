@@ -2510,7 +2510,7 @@ public final class IamFunctions {
      * 
      * ### Example with Both Source and Override Documents
      * 
-     * You can also combine `source_policy_documents` and `override_policy_documents` in the same document.
+     * You can also combine `sourcePolicyDocuments` and `overridePolicyDocuments` in the same document.
      * 
      * <pre>
      * {@code
@@ -2564,7 +2564,7 @@ public final class IamFunctions {
      * 
      * ### Example of Merging Source Documents
      * 
-     * Multiple documents can be combined using the `source_policy_documents` or `override_policy_documents` attributes. `source_policy_documents` requires that all documents have unique Sids, while `override_policy_documents` will iteratively override matching Sids.
+     * Multiple documents can be combined using the `sourcePolicyDocuments` or `overridePolicyDocuments` attributes. `sourcePolicyDocuments` requires that all documents have unique Sids, while `overridePolicyDocuments` will iteratively override matching Sids.
      * 
      * <pre>
      * {@code
@@ -3005,7 +3005,7 @@ public final class IamFunctions {
      * 
      * ### Example with Both Source and Override Documents
      * 
-     * You can also combine `source_policy_documents` and `override_policy_documents` in the same document.
+     * You can also combine `sourcePolicyDocuments` and `overridePolicyDocuments` in the same document.
      * 
      * <pre>
      * {@code
@@ -3059,7 +3059,7 @@ public final class IamFunctions {
      * 
      * ### Example of Merging Source Documents
      * 
-     * Multiple documents can be combined using the `source_policy_documents` or `override_policy_documents` attributes. `source_policy_documents` requires that all documents have unique Sids, while `override_policy_documents` will iteratively override matching Sids.
+     * Multiple documents can be combined using the `sourcePolicyDocuments` or `overridePolicyDocuments` attributes. `sourcePolicyDocuments` requires that all documents have unique Sids, while `overridePolicyDocuments` will iteratively override matching Sids.
      * 
      * <pre>
      * {@code
@@ -3500,7 +3500,7 @@ public final class IamFunctions {
      * 
      * ### Example with Both Source and Override Documents
      * 
-     * You can also combine `source_policy_documents` and `override_policy_documents` in the same document.
+     * You can also combine `sourcePolicyDocuments` and `overridePolicyDocuments` in the same document.
      * 
      * <pre>
      * {@code
@@ -3554,7 +3554,7 @@ public final class IamFunctions {
      * 
      * ### Example of Merging Source Documents
      * 
-     * Multiple documents can be combined using the `source_policy_documents` or `override_policy_documents` attributes. `source_policy_documents` requires that all documents have unique Sids, while `override_policy_documents` will iteratively override matching Sids.
+     * Multiple documents can be combined using the `sourcePolicyDocuments` or `overridePolicyDocuments` attributes. `sourcePolicyDocuments` requires that all documents have unique Sids, while `overridePolicyDocuments` will iteratively override matching Sids.
      * 
      * <pre>
      * {@code
@@ -3995,7 +3995,7 @@ public final class IamFunctions {
      * 
      * ### Example with Both Source and Override Documents
      * 
-     * You can also combine `source_policy_documents` and `override_policy_documents` in the same document.
+     * You can also combine `sourcePolicyDocuments` and `overridePolicyDocuments` in the same document.
      * 
      * <pre>
      * {@code
@@ -4049,7 +4049,7 @@ public final class IamFunctions {
      * 
      * ### Example of Merging Source Documents
      * 
-     * Multiple documents can be combined using the `source_policy_documents` or `override_policy_documents` attributes. `source_policy_documents` requires that all documents have unique Sids, while `override_policy_documents` will iteratively override matching Sids.
+     * Multiple documents can be combined using the `sourcePolicyDocuments` or `overridePolicyDocuments` attributes. `sourcePolicyDocuments` requires that all documents have unique Sids, while `overridePolicyDocuments` will iteratively override matching Sids.
      * 
      * <pre>
      * {@code
@@ -4490,7 +4490,7 @@ public final class IamFunctions {
      * 
      * ### Example with Both Source and Override Documents
      * 
-     * You can also combine `source_policy_documents` and `override_policy_documents` in the same document.
+     * You can also combine `sourcePolicyDocuments` and `overridePolicyDocuments` in the same document.
      * 
      * <pre>
      * {@code
@@ -4544,7 +4544,7 @@ public final class IamFunctions {
      * 
      * ### Example of Merging Source Documents
      * 
-     * Multiple documents can be combined using the `source_policy_documents` or `override_policy_documents` attributes. `source_policy_documents` requires that all documents have unique Sids, while `override_policy_documents` will iteratively override matching Sids.
+     * Multiple documents can be combined using the `sourcePolicyDocuments` or `overridePolicyDocuments` attributes. `sourcePolicyDocuments` requires that all documents have unique Sids, while `overridePolicyDocuments` will iteratively override matching Sids.
      * 
      * <pre>
      * {@code
@@ -4985,7 +4985,7 @@ public final class IamFunctions {
      * 
      * ### Example with Both Source and Override Documents
      * 
-     * You can also combine `source_policy_documents` and `override_policy_documents` in the same document.
+     * You can also combine `sourcePolicyDocuments` and `overridePolicyDocuments` in the same document.
      * 
      * <pre>
      * {@code
@@ -5039,7 +5039,7 @@ public final class IamFunctions {
      * 
      * ### Example of Merging Source Documents
      * 
-     * Multiple documents can be combined using the `source_policy_documents` or `override_policy_documents` attributes. `source_policy_documents` requires that all documents have unique Sids, while `override_policy_documents` will iteratively override matching Sids.
+     * Multiple documents can be combined using the `sourcePolicyDocuments` or `overridePolicyDocuments` attributes. `sourcePolicyDocuments` requires that all documents have unique Sids, while `overridePolicyDocuments` will iteratively override matching Sids.
      * 
      * <pre>
      * {@code
@@ -5480,7 +5480,7 @@ public final class IamFunctions {
      * 
      * ### Example with Both Source and Override Documents
      * 
-     * You can also combine `source_policy_documents` and `override_policy_documents` in the same document.
+     * You can also combine `sourcePolicyDocuments` and `overridePolicyDocuments` in the same document.
      * 
      * <pre>
      * {@code
@@ -5534,7 +5534,7 @@ public final class IamFunctions {
      * 
      * ### Example of Merging Source Documents
      * 
-     * Multiple documents can be combined using the `source_policy_documents` or `override_policy_documents` attributes. `source_policy_documents` requires that all documents have unique Sids, while `override_policy_documents` will iteratively override matching Sids.
+     * Multiple documents can be combined using the `sourcePolicyDocuments` or `overridePolicyDocuments` attributes. `sourcePolicyDocuments` requires that all documents have unique Sids, while `overridePolicyDocuments` will iteratively override matching Sids.
      * 
      * <pre>
      * {@code
@@ -5733,7 +5733,7 @@ public final class IamFunctions {
      * }
      * </pre>
      * 
-     * If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `depends_on` inside any resource which would require those credentials, to ensure that the policy check will run first:
+     * If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `dependsOn` inside any resource which would require those credentials, to ensure that the policy check will run first:
      * 
      * <pre>
      * {@code
@@ -5866,7 +5866,7 @@ public final class IamFunctions {
      * }
      * </pre>
      * 
-     * When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it&#39;s important to use `depends_on` to make sure that the needed policy has been fully created or updated before running the simulation.
+     * When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it&#39;s important to use `dependsOn` to make sure that the needed policy has been fully created or updated before running the simulation.
      * 
      */
     public static Output<GetPrincipalPolicySimulationInvokeResult> getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs args) {
@@ -5927,7 +5927,7 @@ public final class IamFunctions {
      * }
      * </pre>
      * 
-     * If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `depends_on` inside any resource which would require those credentials, to ensure that the policy check will run first:
+     * If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `dependsOn` inside any resource which would require those credentials, to ensure that the policy check will run first:
      * 
      * <pre>
      * {@code
@@ -6060,7 +6060,7 @@ public final class IamFunctions {
      * }
      * </pre>
      * 
-     * When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it&#39;s important to use `depends_on` to make sure that the needed policy has been fully created or updated before running the simulation.
+     * When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it&#39;s important to use `dependsOn` to make sure that the needed policy has been fully created or updated before running the simulation.
      * 
      */
     public static CompletableFuture<GetPrincipalPolicySimulationInvokeResult> getPrincipalPolicySimulationPlain(GetPrincipalPolicySimulationPlainArgs args) {
@@ -6121,7 +6121,7 @@ public final class IamFunctions {
      * }
      * </pre>
      * 
-     * If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `depends_on` inside any resource which would require those credentials, to ensure that the policy check will run first:
+     * If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `dependsOn` inside any resource which would require those credentials, to ensure that the policy check will run first:
      * 
      * <pre>
      * {@code
@@ -6254,7 +6254,7 @@ public final class IamFunctions {
      * }
      * </pre>
      * 
-     * When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it&#39;s important to use `depends_on` to make sure that the needed policy has been fully created or updated before running the simulation.
+     * When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it&#39;s important to use `dependsOn` to make sure that the needed policy has been fully created or updated before running the simulation.
      * 
      */
     public static Output<GetPrincipalPolicySimulationInvokeResult> getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs args, InvokeOptions options) {
@@ -6315,7 +6315,7 @@ public final class IamFunctions {
      * }
      * </pre>
      * 
-     * If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `depends_on` inside any resource which would require those credentials, to ensure that the policy check will run first:
+     * If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `dependsOn` inside any resource which would require those credentials, to ensure that the policy check will run first:
      * 
      * <pre>
      * {@code
@@ -6448,7 +6448,7 @@ public final class IamFunctions {
      * }
      * </pre>
      * 
-     * When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it&#39;s important to use `depends_on` to make sure that the needed policy has been fully created or updated before running the simulation.
+     * When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it&#39;s important to use `dependsOn` to make sure that the needed policy has been fully created or updated before running the simulation.
      * 
      */
     public static Output<GetPrincipalPolicySimulationInvokeResult> getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs args, InvokeOutputOptions options) {
@@ -6509,7 +6509,7 @@ public final class IamFunctions {
      * }
      * </pre>
      * 
-     * If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `depends_on` inside any resource which would require those credentials, to ensure that the policy check will run first:
+     * If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `dependsOn` inside any resource which would require those credentials, to ensure that the policy check will run first:
      * 
      * <pre>
      * {@code
@@ -6642,7 +6642,7 @@ public final class IamFunctions {
      * }
      * </pre>
      * 
-     * When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it&#39;s important to use `depends_on` to make sure that the needed policy has been fully created or updated before running the simulation.
+     * When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it&#39;s important to use `dependsOn` to make sure that the needed policy has been fully created or updated before running the simulation.
      * 
      */
     public static CompletableFuture<GetPrincipalPolicySimulationInvokeResult> getPrincipalPolicySimulationPlain(GetPrincipalPolicySimulationPlainArgs args, InvokeOptions options) {
@@ -8700,7 +8700,7 @@ public final class IamFunctions {
         return Deployment.getInstance().invokeAsync("aws:iam/getServerCertificate:getServerCertificate", TypeShape.of(GetServerCertificateResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * This data source provides information on the IAM source role of an STS assumed role. For non-role ARNs, this data source simply passes the ARN through in `issuer_arn`.
+     * This data source provides information on the IAM source role of an STS assumed role. For non-role ARNs, this data source simply passes the ARN through in `issuerArn`.
      * 
      * For some AWS resources, multiple types of principals are allowed in the same argument (e.g., IAM users and IAM roles). However, these arguments often do not allow assumed-role (i.e., STS, temporary credential) principals. Given an STS ARN, this data source provides the ARN for the source IAM role.
      * 
@@ -8741,7 +8741,7 @@ public final class IamFunctions {
      * 
      * ### Find the Runner&#39;s Source Role
      * 
-     * Combined with `aws.getCallerIdentity`, you can get the current user&#39;s source IAM role ARN (`issuer_arn`) if you&#39;re using an assumed role. If you&#39;re not using an assumed role, the caller&#39;s (e.g., an IAM user&#39;s) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
+     * Combined with `aws.getCallerIdentity`, you can get the current user&#39;s source IAM role ARN (`issuerArn`) if you&#39;re using an assumed role. If you&#39;re not using an assumed role, the caller&#39;s (e.g., an IAM user&#39;s) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
      * 
      * <pre>
      * {@code
@@ -8784,7 +8784,7 @@ public final class IamFunctions {
         return getSessionContext(args, InvokeOptions.Empty);
     }
     /**
-     * This data source provides information on the IAM source role of an STS assumed role. For non-role ARNs, this data source simply passes the ARN through in `issuer_arn`.
+     * This data source provides information on the IAM source role of an STS assumed role. For non-role ARNs, this data source simply passes the ARN through in `issuerArn`.
      * 
      * For some AWS resources, multiple types of principals are allowed in the same argument (e.g., IAM users and IAM roles). However, these arguments often do not allow assumed-role (i.e., STS, temporary credential) principals. Given an STS ARN, this data source provides the ARN for the source IAM role.
      * 
@@ -8825,7 +8825,7 @@ public final class IamFunctions {
      * 
      * ### Find the Runner&#39;s Source Role
      * 
-     * Combined with `aws.getCallerIdentity`, you can get the current user&#39;s source IAM role ARN (`issuer_arn`) if you&#39;re using an assumed role. If you&#39;re not using an assumed role, the caller&#39;s (e.g., an IAM user&#39;s) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
+     * Combined with `aws.getCallerIdentity`, you can get the current user&#39;s source IAM role ARN (`issuerArn`) if you&#39;re using an assumed role. If you&#39;re not using an assumed role, the caller&#39;s (e.g., an IAM user&#39;s) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
      * 
      * <pre>
      * {@code
@@ -8868,7 +8868,7 @@ public final class IamFunctions {
         return getSessionContextPlain(args, InvokeOptions.Empty);
     }
     /**
-     * This data source provides information on the IAM source role of an STS assumed role. For non-role ARNs, this data source simply passes the ARN through in `issuer_arn`.
+     * This data source provides information on the IAM source role of an STS assumed role. For non-role ARNs, this data source simply passes the ARN through in `issuerArn`.
      * 
      * For some AWS resources, multiple types of principals are allowed in the same argument (e.g., IAM users and IAM roles). However, these arguments often do not allow assumed-role (i.e., STS, temporary credential) principals. Given an STS ARN, this data source provides the ARN for the source IAM role.
      * 
@@ -8909,7 +8909,7 @@ public final class IamFunctions {
      * 
      * ### Find the Runner&#39;s Source Role
      * 
-     * Combined with `aws.getCallerIdentity`, you can get the current user&#39;s source IAM role ARN (`issuer_arn`) if you&#39;re using an assumed role. If you&#39;re not using an assumed role, the caller&#39;s (e.g., an IAM user&#39;s) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
+     * Combined with `aws.getCallerIdentity`, you can get the current user&#39;s source IAM role ARN (`issuerArn`) if you&#39;re using an assumed role. If you&#39;re not using an assumed role, the caller&#39;s (e.g., an IAM user&#39;s) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
      * 
      * <pre>
      * {@code
@@ -8952,7 +8952,7 @@ public final class IamFunctions {
         return Deployment.getInstance().invoke("aws:iam/getSessionContext:getSessionContext", TypeShape.of(GetSessionContextResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * This data source provides information on the IAM source role of an STS assumed role. For non-role ARNs, this data source simply passes the ARN through in `issuer_arn`.
+     * This data source provides information on the IAM source role of an STS assumed role. For non-role ARNs, this data source simply passes the ARN through in `issuerArn`.
      * 
      * For some AWS resources, multiple types of principals are allowed in the same argument (e.g., IAM users and IAM roles). However, these arguments often do not allow assumed-role (i.e., STS, temporary credential) principals. Given an STS ARN, this data source provides the ARN for the source IAM role.
      * 
@@ -8993,7 +8993,7 @@ public final class IamFunctions {
      * 
      * ### Find the Runner&#39;s Source Role
      * 
-     * Combined with `aws.getCallerIdentity`, you can get the current user&#39;s source IAM role ARN (`issuer_arn`) if you&#39;re using an assumed role. If you&#39;re not using an assumed role, the caller&#39;s (e.g., an IAM user&#39;s) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
+     * Combined with `aws.getCallerIdentity`, you can get the current user&#39;s source IAM role ARN (`issuerArn`) if you&#39;re using an assumed role. If you&#39;re not using an assumed role, the caller&#39;s (e.g., an IAM user&#39;s) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
      * 
      * <pre>
      * {@code
@@ -9036,7 +9036,7 @@ public final class IamFunctions {
         return Deployment.getInstance().invoke("aws:iam/getSessionContext:getSessionContext", TypeShape.of(GetSessionContextResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * This data source provides information on the IAM source role of an STS assumed role. For non-role ARNs, this data source simply passes the ARN through in `issuer_arn`.
+     * This data source provides information on the IAM source role of an STS assumed role. For non-role ARNs, this data source simply passes the ARN through in `issuerArn`.
      * 
      * For some AWS resources, multiple types of principals are allowed in the same argument (e.g., IAM users and IAM roles). However, these arguments often do not allow assumed-role (i.e., STS, temporary credential) principals. Given an STS ARN, this data source provides the ARN for the source IAM role.
      * 
@@ -9077,7 +9077,7 @@ public final class IamFunctions {
      * 
      * ### Find the Runner&#39;s Source Role
      * 
-     * Combined with `aws.getCallerIdentity`, you can get the current user&#39;s source IAM role ARN (`issuer_arn`) if you&#39;re using an assumed role. If you&#39;re not using an assumed role, the caller&#39;s (e.g., an IAM user&#39;s) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
+     * Combined with `aws.getCallerIdentity`, you can get the current user&#39;s source IAM role ARN (`issuerArn`) if you&#39;re using an assumed role. If you&#39;re not using an assumed role, the caller&#39;s (e.g., an IAM user&#39;s) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
      * 
      * <pre>
      * {@code

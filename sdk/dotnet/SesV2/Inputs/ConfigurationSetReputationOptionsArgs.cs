@@ -19,7 +19,7 @@ namespace Pulumi.Aws.SesV2.Inputs
         public Input<string>? LastFreshStart { get; set; }
 
         /// <summary>
-        /// If `true`, tracking of reputation metrics is enabled for the configuration set. If `false`, tracking of reputation metrics is disabled for the configuration set.
+        /// If `True`, tracking of reputation metrics is enabled for the configuration set. If `False`, tracking of reputation metrics is disabled for the configuration set.
         /// </summary>
         [Input("reputationMetricsEnabled")]
         public Input<bool>? ReputationMetricsEnabled { get; set; }

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CloudSearch.Inputs
     public sealed class DomainIndexFieldArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The analysis scheme you want to use for a `text` field. The analysis scheme specifies the language-specific text processing options that are used during indexing.
+        /// The analysis scheme you want to use for a `Text` field. The analysis scheme specifies the language-specific text processing options that are used during indexing.
         /// </summary>
         [Input("analysisScheme")]
         public Input<string>? AnalysisScheme { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.CloudSearch.Inputs
         public Input<bool>? Highlight { get; set; }
 
         /// <summary>
-        /// A unique name for the field. Field names must begin with a letter and be at least 1 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+        /// A unique name for the field. Field names must begin with a letter and be at least 1 and no more than 64 characters long. The allowed characters are: `A`-`Z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `Score` is reserved and cannot be used as a field name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.CloudSearch.Inputs
         public Input<string>? SourceFields { get; set; }
 
         /// <summary>
-        /// The field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `literal`, `literal-array`, `text`, `text-array`.
+        /// The field type. Valid values: `Date`, `date-array`, `Double`, `double-array`, `Int`, `int-array`, `Literal`, `literal-array`, `Text`, `text-array`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

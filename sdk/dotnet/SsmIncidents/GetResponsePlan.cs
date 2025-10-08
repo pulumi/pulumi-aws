@@ -15,6 +15,24 @@ namespace Pulumi.Aws.SsmIncidents
         /// Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = new Aws.SsmIncidents.ResponsePlan("example", new()
+        ///     {
+        ///         Arn = "exampleARN",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetResponsePlanResult> InvokeAsync(GetResponsePlanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResponsePlanResult>("aws:ssmincidents/getResponsePlan:getResponsePlan", args ?? new GetResponsePlanArgs(), options.WithDefaults());
@@ -23,6 +41,24 @@ namespace Pulumi.Aws.SsmIncidents
         /// Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = new Aws.SsmIncidents.ResponsePlan("example", new()
+        ///     {
+        ///         Arn = "exampleARN",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetResponsePlanResult> Invoke(GetResponsePlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResponsePlanResult>("aws:ssmincidents/getResponsePlan:getResponsePlan", args ?? new GetResponsePlanInvokeArgs(), options.WithDefaults());
@@ -31,6 +67,24 @@ namespace Pulumi.Aws.SsmIncidents
         /// Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = new Aws.SsmIncidents.ResponsePlan("example", new()
+        ///     {
+        ///         Arn = "exampleARN",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetResponsePlanResult> Invoke(GetResponsePlanInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetResponsePlanResult>("aws:ssmincidents/getResponsePlan:getResponsePlan", args ?? new GetResponsePlanInvokeArgs(), options.WithDefaults());

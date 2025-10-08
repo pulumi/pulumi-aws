@@ -35,7 +35,7 @@ public final class GetQueueArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Returns information on a specific Queue by name
      * 
-     * &gt; **NOTE:** `instance_id` and one of either `name` or `queue_id` is required.
+     * &gt; **NOTE:** `instanceId` and one of either `name` or `queueId` is required.
      * 
      */
     @Import(name="name")
@@ -44,7 +44,7 @@ public final class GetQueueArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return Returns information on a specific Queue by name
      * 
-     * &gt; **NOTE:** `instance_id` and one of either `name` or `queue_id` is required.
+     * &gt; **NOTE:** `instanceId` and one of either `name` or `queueId` is required.
      * 
      */
     public Optional<Output<String>> name() {
@@ -148,7 +148,7 @@ public final class GetQueueArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param name Returns information on a specific Queue by name
          * 
-         * &gt; **NOTE:** `instance_id` and one of either `name` or `queue_id` is required.
+         * &gt; **NOTE:** `instanceId` and one of either `name` or `queueId` is required.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class GetQueueArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param name Returns information on a specific Queue by name
          * 
-         * &gt; **NOTE:** `instance_id` and one of either `name` or `queue_id` is required.
+         * &gt; **NOTE:** `instanceId` and one of either `name` or `queueId` is required.
          * 
          * @return builder
          * 

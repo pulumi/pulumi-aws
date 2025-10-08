@@ -1047,6 +1047,10 @@ public final class Ec2Functions {
      * an input variable and needs to, for example, determine the CIDR block of that
      * COIP Pool.
      * 
+     * ## Example Usage
+     * 
+     * The following example returns a specific coip pool ID
+     * 
      */
     public static Output<GetCoipPoolResult> getCoipPool() {
         return getCoipPool(GetCoipPoolArgs.Empty, InvokeOptions.Empty);
@@ -1057,6 +1061,10 @@ public final class Ec2Functions {
      * This data source can prove useful when a module accepts a coip pool id as
      * an input variable and needs to, for example, determine the CIDR block of that
      * COIP Pool.
+     * 
+     * ## Example Usage
+     * 
+     * The following example returns a specific coip pool ID
      * 
      */
     public static CompletableFuture<GetCoipPoolResult> getCoipPoolPlain() {
@@ -1069,6 +1077,10 @@ public final class Ec2Functions {
      * an input variable and needs to, for example, determine the CIDR block of that
      * COIP Pool.
      * 
+     * ## Example Usage
+     * 
+     * The following example returns a specific coip pool ID
+     * 
      */
     public static Output<GetCoipPoolResult> getCoipPool(GetCoipPoolArgs args) {
         return getCoipPool(args, InvokeOptions.Empty);
@@ -1079,6 +1091,10 @@ public final class Ec2Functions {
      * This data source can prove useful when a module accepts a coip pool id as
      * an input variable and needs to, for example, determine the CIDR block of that
      * COIP Pool.
+     * 
+     * ## Example Usage
+     * 
+     * The following example returns a specific coip pool ID
      * 
      */
     public static CompletableFuture<GetCoipPoolResult> getCoipPoolPlain(GetCoipPoolPlainArgs args) {
@@ -1091,6 +1107,10 @@ public final class Ec2Functions {
      * an input variable and needs to, for example, determine the CIDR block of that
      * COIP Pool.
      * 
+     * ## Example Usage
+     * 
+     * The following example returns a specific coip pool ID
+     * 
      */
     public static Output<GetCoipPoolResult> getCoipPool(GetCoipPoolArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getCoipPool:getCoipPool", TypeShape.of(GetCoipPoolResult.class), args, Utilities.withVersion(options));
@@ -1101,6 +1121,10 @@ public final class Ec2Functions {
      * This data source can prove useful when a module accepts a coip pool id as
      * an input variable and needs to, for example, determine the CIDR block of that
      * COIP Pool.
+     * 
+     * ## Example Usage
+     * 
+     * The following example returns a specific coip pool ID
      * 
      */
     public static Output<GetCoipPoolResult> getCoipPool(GetCoipPoolArgs args, InvokeOutputOptions options) {
@@ -1113,12 +1137,51 @@ public final class Ec2Functions {
      * an input variable and needs to, for example, determine the CIDR block of that
      * COIP Pool.
      * 
+     * ## Example Usage
+     * 
+     * The following example returns a specific coip pool ID
+     * 
      */
     public static CompletableFuture<GetCoipPoolResult> getCoipPoolPlain(GetCoipPoolPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getCoipPool:getCoipPool", TypeShape.of(GetCoipPoolResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
+     * 
+     * ## Example Usage
+     * 
+     * The following shows outputting all COIP Pool Ids.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCoipPoolsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = Ec2Functions.getCoipPools(GetCoipPoolsArgs.builder()
+     *             .build());
+     * 
+     *         ctx.export("foo", foo.ids());
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static Output<GetCoipPoolsResult> getCoipPools() {
@@ -1127,12 +1190,82 @@ public final class Ec2Functions {
     /**
      * Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
      * 
+     * ## Example Usage
+     * 
+     * The following shows outputting all COIP Pool Ids.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCoipPoolsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = Ec2Functions.getCoipPools(GetCoipPoolsArgs.builder()
+     *             .build());
+     * 
+     *         ctx.export("foo", foo.ids());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static CompletableFuture<GetCoipPoolsResult> getCoipPoolsPlain() {
         return getCoipPoolsPlain(GetCoipPoolsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
+     * 
+     * ## Example Usage
+     * 
+     * The following shows outputting all COIP Pool Ids.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCoipPoolsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = Ec2Functions.getCoipPools(GetCoipPoolsArgs.builder()
+     *             .build());
+     * 
+     *         ctx.export("foo", foo.ids());
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static Output<GetCoipPoolsResult> getCoipPools(GetCoipPoolsArgs args) {
@@ -1141,12 +1274,82 @@ public final class Ec2Functions {
     /**
      * Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
      * 
+     * ## Example Usage
+     * 
+     * The following shows outputting all COIP Pool Ids.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCoipPoolsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = Ec2Functions.getCoipPools(GetCoipPoolsArgs.builder()
+     *             .build());
+     * 
+     *         ctx.export("foo", foo.ids());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static CompletableFuture<GetCoipPoolsResult> getCoipPoolsPlain(GetCoipPoolsPlainArgs args) {
         return getCoipPoolsPlain(args, InvokeOptions.Empty);
     }
     /**
      * Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
+     * 
+     * ## Example Usage
+     * 
+     * The following shows outputting all COIP Pool Ids.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCoipPoolsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = Ec2Functions.getCoipPools(GetCoipPoolsArgs.builder()
+     *             .build());
+     * 
+     *         ctx.export("foo", foo.ids());
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static Output<GetCoipPoolsResult> getCoipPools(GetCoipPoolsArgs args, InvokeOptions options) {
@@ -1155,12 +1358,82 @@ public final class Ec2Functions {
     /**
      * Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
      * 
+     * ## Example Usage
+     * 
+     * The following shows outputting all COIP Pool Ids.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCoipPoolsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = Ec2Functions.getCoipPools(GetCoipPoolsArgs.builder()
+     *             .build());
+     * 
+     *         ctx.export("foo", foo.ids());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetCoipPoolsResult> getCoipPools(GetCoipPoolsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getCoipPools:getCoipPools", TypeShape.of(GetCoipPoolsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
+     * 
+     * ## Example Usage
+     * 
+     * The following shows outputting all COIP Pool Ids.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCoipPoolsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = Ec2Functions.getCoipPools(GetCoipPoolsArgs.builder()
+     *             .build());
+     * 
+     *         ctx.export("foo", foo.ids());
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetCoipPoolsResult> getCoipPoolsPlain(GetCoipPoolsPlainArgs args, InvokeOptions options) {
@@ -5877,7 +6150,7 @@ public final class Ec2Functions {
     /**
      * Previews a CIDR from an IPAM address pool. Only works for private IPv4.
      * 
-     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignore_changes` if this is undesirable.
+     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignoreChanges` if this is undesirable.
      * 
      * ## Example Usage
      * 
@@ -5929,7 +6202,7 @@ public final class Ec2Functions {
     /**
      * Previews a CIDR from an IPAM address pool. Only works for private IPv4.
      * 
-     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignore_changes` if this is undesirable.
+     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignoreChanges` if this is undesirable.
      * 
      * ## Example Usage
      * 
@@ -5981,7 +6254,7 @@ public final class Ec2Functions {
     /**
      * Previews a CIDR from an IPAM address pool. Only works for private IPv4.
      * 
-     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignore_changes` if this is undesirable.
+     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignoreChanges` if this is undesirable.
      * 
      * ## Example Usage
      * 
@@ -6033,7 +6306,7 @@ public final class Ec2Functions {
     /**
      * Previews a CIDR from an IPAM address pool. Only works for private IPv4.
      * 
-     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignore_changes` if this is undesirable.
+     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignoreChanges` if this is undesirable.
      * 
      * ## Example Usage
      * 
@@ -6085,7 +6358,7 @@ public final class Ec2Functions {
     /**
      * Previews a CIDR from an IPAM address pool. Only works for private IPv4.
      * 
-     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignore_changes` if this is undesirable.
+     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignoreChanges` if this is undesirable.
      * 
      * ## Example Usage
      * 
@@ -8150,12 +8423,16 @@ public final class Ec2Functions {
     /**
      * Provides details about an EC2 Local Gateway Virtual Interface. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetLocalGatewayVirtualInterfaceResult> getLocalGatewayVirtualInterface() {
         return getLocalGatewayVirtualInterface(GetLocalGatewayVirtualInterfaceArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Provides details about an EC2 Local Gateway Virtual Interface. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetLocalGatewayVirtualInterfaceResult> getLocalGatewayVirtualInterfacePlain() {
@@ -8164,12 +8441,16 @@ public final class Ec2Functions {
     /**
      * Provides details about an EC2 Local Gateway Virtual Interface. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetLocalGatewayVirtualInterfaceResult> getLocalGatewayVirtualInterface(GetLocalGatewayVirtualInterfaceArgs args) {
         return getLocalGatewayVirtualInterface(args, InvokeOptions.Empty);
     }
     /**
      * Provides details about an EC2 Local Gateway Virtual Interface. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetLocalGatewayVirtualInterfaceResult> getLocalGatewayVirtualInterfacePlain(GetLocalGatewayVirtualInterfacePlainArgs args) {
@@ -8178,6 +8459,8 @@ public final class Ec2Functions {
     /**
      * Provides details about an EC2 Local Gateway Virtual Interface. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetLocalGatewayVirtualInterfaceResult> getLocalGatewayVirtualInterface(GetLocalGatewayVirtualInterfaceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getLocalGatewayVirtualInterface:getLocalGatewayVirtualInterface", TypeShape.of(GetLocalGatewayVirtualInterfaceResult.class), args, Utilities.withVersion(options));
@@ -8185,12 +8468,16 @@ public final class Ec2Functions {
     /**
      * Provides details about an EC2 Local Gateway Virtual Interface. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetLocalGatewayVirtualInterfaceResult> getLocalGatewayVirtualInterface(GetLocalGatewayVirtualInterfaceArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getLocalGatewayVirtualInterface:getLocalGatewayVirtualInterface", TypeShape.of(GetLocalGatewayVirtualInterfaceResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides details about an EC2 Local Gateway Virtual Interface. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetLocalGatewayVirtualInterfaceResult> getLocalGatewayVirtualInterfacePlain(GetLocalGatewayVirtualInterfacePlainArgs args, InvokeOptions options) {
@@ -9641,12 +9928,20 @@ public final class Ec2Functions {
     /**
      * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
      * 
+     * ## Example Usage
+     * 
+     * The following returns all managed prefix lists filtered by tags
+     * 
      */
     public static Output<GetManagedPrefixListsResult> getManagedPrefixLists() {
         return getManagedPrefixLists(GetManagedPrefixListsArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
+     * 
+     * ## Example Usage
+     * 
+     * The following returns all managed prefix lists filtered by tags
      * 
      */
     public static CompletableFuture<GetManagedPrefixListsResult> getManagedPrefixListsPlain() {
@@ -9655,12 +9950,20 @@ public final class Ec2Functions {
     /**
      * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
      * 
+     * ## Example Usage
+     * 
+     * The following returns all managed prefix lists filtered by tags
+     * 
      */
     public static Output<GetManagedPrefixListsResult> getManagedPrefixLists(GetManagedPrefixListsArgs args) {
         return getManagedPrefixLists(args, InvokeOptions.Empty);
     }
     /**
      * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
+     * 
+     * ## Example Usage
+     * 
+     * The following returns all managed prefix lists filtered by tags
      * 
      */
     public static CompletableFuture<GetManagedPrefixListsResult> getManagedPrefixListsPlain(GetManagedPrefixListsPlainArgs args) {
@@ -9669,6 +9972,10 @@ public final class Ec2Functions {
     /**
      * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
      * 
+     * ## Example Usage
+     * 
+     * The following returns all managed prefix lists filtered by tags
+     * 
      */
     public static Output<GetManagedPrefixListsResult> getManagedPrefixLists(GetManagedPrefixListsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getManagedPrefixLists:getManagedPrefixLists", TypeShape.of(GetManagedPrefixListsResult.class), args, Utilities.withVersion(options));
@@ -9676,12 +9983,20 @@ public final class Ec2Functions {
     /**
      * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
      * 
+     * ## Example Usage
+     * 
+     * The following returns all managed prefix lists filtered by tags
+     * 
      */
     public static Output<GetManagedPrefixListsResult> getManagedPrefixLists(GetManagedPrefixListsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getManagedPrefixLists:getManagedPrefixLists", TypeShape.of(GetManagedPrefixListsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
+     * 
+     * ## Example Usage
+     * 
+     * The following returns all managed prefix lists filtered by tags
      * 
      */
     public static CompletableFuture<GetManagedPrefixListsResult> getManagedPrefixListsPlain(GetManagedPrefixListsPlainArgs args, InvokeOptions options) {
@@ -10208,12 +10523,20 @@ public final class Ec2Functions {
     /**
      * This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
      * 
+     * ## Example Usage
+     * 
+     * The following returns all NAT gateways in a specified VPC that are marked as available
+     * 
      */
     public static Output<GetNatGatewaysResult> getNatGateways() {
         return getNatGateways(GetNatGatewaysArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
+     * 
+     * ## Example Usage
+     * 
+     * The following returns all NAT gateways in a specified VPC that are marked as available
      * 
      */
     public static CompletableFuture<GetNatGatewaysResult> getNatGatewaysPlain() {
@@ -10222,12 +10545,20 @@ public final class Ec2Functions {
     /**
      * This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
      * 
+     * ## Example Usage
+     * 
+     * The following returns all NAT gateways in a specified VPC that are marked as available
+     * 
      */
     public static Output<GetNatGatewaysResult> getNatGateways(GetNatGatewaysArgs args) {
         return getNatGateways(args, InvokeOptions.Empty);
     }
     /**
      * This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
+     * 
+     * ## Example Usage
+     * 
+     * The following returns all NAT gateways in a specified VPC that are marked as available
      * 
      */
     public static CompletableFuture<GetNatGatewaysResult> getNatGatewaysPlain(GetNatGatewaysPlainArgs args) {
@@ -10236,6 +10567,10 @@ public final class Ec2Functions {
     /**
      * This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
      * 
+     * ## Example Usage
+     * 
+     * The following returns all NAT gateways in a specified VPC that are marked as available
+     * 
      */
     public static Output<GetNatGatewaysResult> getNatGateways(GetNatGatewaysArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getNatGateways:getNatGateways", TypeShape.of(GetNatGatewaysResult.class), args, Utilities.withVersion(options));
@@ -10243,12 +10578,20 @@ public final class Ec2Functions {
     /**
      * This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
      * 
+     * ## Example Usage
+     * 
+     * The following returns all NAT gateways in a specified VPC that are marked as available
+     * 
      */
     public static Output<GetNatGatewaysResult> getNatGateways(GetNatGatewaysArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getNatGateways:getNatGateways", TypeShape.of(GetNatGatewaysResult.class), args, Utilities.withVersion(options));
     }
     /**
      * This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
+     * 
+     * ## Example Usage
+     * 
+     * The following returns all NAT gateways in a specified VPC that are marked as available
      * 
      */
     public static CompletableFuture<GetNatGatewaysResult> getNatGatewaysPlain(GetNatGatewaysPlainArgs args, InvokeOptions options) {
@@ -22958,6 +23301,8 @@ public final class Ec2Functions {
      * Note: To use this data source in a count, the resources should exist before trying to access
      * the data source.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetVpcPeeringConnectionsResult> getVpcPeeringConnections() {
         return getVpcPeeringConnections(GetVpcPeeringConnectionsArgs.Empty, InvokeOptions.Empty);
@@ -22968,6 +23313,8 @@ public final class Ec2Functions {
      * 
      * Note: To use this data source in a count, the resources should exist before trying to access
      * the data source.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetVpcPeeringConnectionsResult> getVpcPeeringConnectionsPlain() {
@@ -22980,6 +23327,8 @@ public final class Ec2Functions {
      * Note: To use this data source in a count, the resources should exist before trying to access
      * the data source.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetVpcPeeringConnectionsResult> getVpcPeeringConnections(GetVpcPeeringConnectionsArgs args) {
         return getVpcPeeringConnections(args, InvokeOptions.Empty);
@@ -22990,6 +23339,8 @@ public final class Ec2Functions {
      * 
      * Note: To use this data source in a count, the resources should exist before trying to access
      * the data source.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetVpcPeeringConnectionsResult> getVpcPeeringConnectionsPlain(GetVpcPeeringConnectionsPlainArgs args) {
@@ -23002,6 +23353,8 @@ public final class Ec2Functions {
      * Note: To use this data source in a count, the resources should exist before trying to access
      * the data source.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetVpcPeeringConnectionsResult> getVpcPeeringConnections(GetVpcPeeringConnectionsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getVpcPeeringConnections:getVpcPeeringConnections", TypeShape.of(GetVpcPeeringConnectionsResult.class), args, Utilities.withVersion(options));
@@ -23013,6 +23366,8 @@ public final class Ec2Functions {
      * Note: To use this data source in a count, the resources should exist before trying to access
      * the data source.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetVpcPeeringConnectionsResult> getVpcPeeringConnections(GetVpcPeeringConnectionsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getVpcPeeringConnections:getVpcPeeringConnections", TypeShape.of(GetVpcPeeringConnectionsResult.class), args, Utilities.withVersion(options));
@@ -23023,6 +23378,8 @@ public final class Ec2Functions {
      * 
      * Note: To use this data source in a count, the resources should exist before trying to access
      * the data source.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetVpcPeeringConnectionsResult> getVpcPeeringConnectionsPlain(GetVpcPeeringConnectionsPlainArgs args, InvokeOptions options) {

@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Ssm
         public string Path { get; set; } = null!;
 
         /// <summary>
-        /// Whether to retrieve all parameters within the hirerachy. Defaults to `false`.
+        /// Whether to retrieve all parameters within the hirerachy. Defaults to `False`.
         /// </summary>
         [Input("recursive")]
         public bool? Recursive { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Ssm
         public string? Region { get; set; }
 
         /// <summary>
-        /// Whether to retrieve all parameters in the hierarchy, particularly those of `SecureString` type, with their value decrypted. Defaults to `true`.
+        /// Whether to retrieve all parameters in the hierarchy, particularly those of `SecureString` type, with their value decrypted. Defaults to `True`.
         /// </summary>
         [Input("withDecryption")]
         public bool? WithDecryption { get; set; }
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string> Path { get; set; } = null!;
 
         /// <summary>
-        /// Whether to retrieve all parameters within the hirerachy. Defaults to `false`.
+        /// Whether to retrieve all parameters within the hirerachy. Defaults to `False`.
         /// </summary>
         [Input("recursive")]
         public Input<bool>? Recursive { get; set; }
@@ -75,7 +75,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Whether to retrieve all parameters in the hierarchy, particularly those of `SecureString` type, with their value decrypted. Defaults to `true`.
+        /// Whether to retrieve all parameters in the hierarchy, particularly those of `SecureString` type, with their value decrypted. Defaults to `True`.
         /// </summary>
         [Input("withDecryption")]
         public Input<bool>? WithDecryption { get; set; }
@@ -110,7 +110,7 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         public readonly ImmutableArray<string> Types;
         /// <summary>
-        /// A list that contains the retrieved parameter values. **Note:** This value is always marked as sensitive in the pulumi preview output, regardless of whether any retrieved parameters are of `SecureString` type. Use the `nonsensitive` function to override the behavior at your own risk and discretion, if you are certain that there are no sensitive values being retrieved.
+        /// A list that contains the retrieved parameter values. **Note:** This value is always marked as sensitive in the pulumi preview output, regardless of whether any retrieved parameters are of `SecureString` type. Use the `Nonsensitive` function to override the behavior at your own risk and discretion, if you are certain that there are no sensitive values being retrieved.
         /// </summary>
         public readonly ImmutableArray<string> Values;
         public readonly bool? WithDecryption;

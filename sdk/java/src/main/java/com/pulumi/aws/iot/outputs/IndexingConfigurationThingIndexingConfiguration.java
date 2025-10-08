@@ -27,7 +27,7 @@ public final class IndexingConfigurationThingIndexingConfiguration {
      */
     private @Nullable String deviceDefenderIndexingMode;
     /**
-     * @return Required if `named_shadow_indexing_mode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
+     * @return Required if `namedShadowIndexingMode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
      * 
      */
     private @Nullable IndexingConfigurationThingIndexingConfigurationFilter filter;
@@ -68,7 +68,7 @@ public final class IndexingConfigurationThingIndexingConfiguration {
         return Optional.ofNullable(this.deviceDefenderIndexingMode);
     }
     /**
-     * @return Required if `named_shadow_indexing_mode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
+     * @return Required if `namedShadowIndexingMode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
      * 
      */
     public Optional<IndexingConfigurationThingIndexingConfigurationFilter> filter() {

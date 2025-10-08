@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Lex.Inputs
         private InputList<Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButtonGetArgs>? _buttons;
 
         /// <summary>
-        /// Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+        /// Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `Button`.
         /// </summary>
         public InputList<Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButtonGetArgs> Buttons
         {

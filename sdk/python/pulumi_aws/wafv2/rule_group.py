@@ -487,6 +487,228 @@ class RuleGroup(pulumi.CustomResource):
             })
         ```
 
+        ### Complex
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.wafv2.IpSet("test",
+            name="test",
+            scope="REGIONAL",
+            ip_address_version="IPV4",
+            addresses=[
+                "1.1.1.1/32",
+                "2.2.2.2/32",
+            ])
+        test_regex_pattern_set = aws.wafv2.RegexPatternSet("test",
+            name="test",
+            scope="REGIONAL",
+            regular_expressions=[{
+                "regex_string": "one",
+            }])
+        example = aws.wafv2.RuleGroup("example",
+            name="complex-example",
+            description="An rule group containing all statements",
+            scope="REGIONAL",
+            capacity=500,
+            rules=[
+                {
+                    "name": "rule-1",
+                    "priority": 1,
+                    "action": {
+                        "block": {},
+                    },
+                    "statement": {
+                        "not_statement": {
+                            "statements": [{
+                                "and_statement": {
+                                    "statements": [
+                                        {
+                                            "geo_match_statement": {
+                                                "country_codes": ["US"],
+                                            },
+                                        },
+                                        {
+                                            "byte_match_statement": {
+                                                "positional_constraint": "CONTAINS",
+                                                "search_string": "word",
+                                                "field_to_match": {
+                                                    "all_query_arguments": {},
+                                                },
+                                                "text_transformations": [
+                                                    {
+                                                        "priority": 5,
+                                                        "type": "CMD_LINE",
+                                                    },
+                                                    {
+                                                        "priority": 2,
+                                                        "type": "LOWERCASE",
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ],
+                                },
+                            }],
+                        },
+                    },
+                    "visibility_config": {
+                        "cloudwatch_metrics_enabled": False,
+                        "metric_name": "rule-1",
+                        "sampled_requests_enabled": False,
+                    },
+                },
+                {
+                    "name": "rule-2",
+                    "priority": 2,
+                    "action": {
+                        "count": {},
+                    },
+                    "statement": {
+                        "or_statement": {
+                            "statements": [
+                                {
+                                    "regex_match_statement": {
+                                        "regex_string": "a-z?",
+                                        "field_to_match": {
+                                            "single_header": {
+                                                "name": "user-agent",
+                                            },
+                                        },
+                                        "text_transformations": [{
+                                            "priority": 6,
+                                            "type": "NONE",
+                                        }],
+                                    },
+                                },
+                                {
+                                    "sqli_match_statement": {
+                                        "field_to_match": {
+                                            "body": {},
+                                        },
+                                        "text_transformations": [
+                                            {
+                                                "priority": 5,
+                                                "type": "URL_DECODE",
+                                            },
+                                            {
+                                                "priority": 4,
+                                                "type": "HTML_ENTITY_DECODE",
+                                            },
+                                            {
+                                                "priority": 3,
+                                                "type": "COMPRESS_WHITE_SPACE",
+                                            },
+                                        ],
+                                    },
+                                },
+                                {
+                                    "xss_match_statement": {
+                                        "field_to_match": {
+                                            "method": {},
+                                        },
+                                        "text_transformations": [{
+                                            "priority": 2,
+                                            "type": "NONE",
+                                        }],
+                                    },
+                                },
+                            ],
+                        },
+                    },
+                    "visibility_config": {
+                        "cloudwatch_metrics_enabled": False,
+                        "metric_name": "rule-2",
+                        "sampled_requests_enabled": False,
+                    },
+                    "captcha_config": {
+                        "immunity_time_property": {
+                            "immunity_time": 240,
+                        },
+                    },
+                },
+                {
+                    "name": "rule-3",
+                    "priority": 3,
+                    "action": {
+                        "block": {},
+                    },
+                    "statement": {
+                        "size_constraint_statement": {
+                            "comparison_operator": "GT",
+                            "size": 100,
+                            "field_to_match": {
+                                "single_query_argument": {
+                                    "name": "username",
+                                },
+                            },
+                            "text_transformations": [{
+                                "priority": 5,
+                                "type": "NONE",
+                            }],
+                        },
+                    },
+                    "visibility_config": {
+                        "cloudwatch_metrics_enabled": False,
+                        "metric_name": "rule-3",
+                        "sampled_requests_enabled": False,
+                    },
+                },
+                {
+                    "name": "rule-4",
+                    "priority": 4,
+                    "action": {
+                        "block": {},
+                    },
+                    "statement": {
+                        "or_statement": {
+                            "statements": [
+                                {
+                                    "ip_set_reference_statement": {
+                                        "arn": test.arn,
+                                    },
+                                },
+                                {
+                                    "regex_pattern_set_reference_statement": {
+                                        "arn": test_regex_pattern_set.arn,
+                                        "field_to_match": {
+                                            "single_header": {
+                                                "name": "referer",
+                                            },
+                                        },
+                                        "text_transformations": [{
+                                            "priority": 2,
+                                            "type": "NONE",
+                                        }],
+                                    },
+                                },
+                            ],
+                        },
+                    },
+                    "visibility_config": {
+                        "cloudwatch_metrics_enabled": False,
+                        "metric_name": "rule-4",
+                        "sampled_requests_enabled": False,
+                    },
+                },
+            ],
+            visibility_config={
+                "cloudwatch_metrics_enabled": False,
+                "metric_name": "friendly-metric-name",
+                "sampled_requests_enabled": False,
+            },
+            captcha_config=[{
+                "immunityTimeProperty": [{
+                    "immunityTime": 120,
+                }],
+            }],
+            tags={
+                "Name": "example-and-statement",
+                "Code": "123456",
+            })
+        ```
+
         ### Using rules_json
 
         ```python
@@ -597,6 +819,228 @@ class RuleGroup(pulumi.CustomResource):
                 "cloudwatch_metrics_enabled": False,
                 "metric_name": "friendly-metric-name",
                 "sampled_requests_enabled": False,
+            })
+        ```
+
+        ### Complex
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.wafv2.IpSet("test",
+            name="test",
+            scope="REGIONAL",
+            ip_address_version="IPV4",
+            addresses=[
+                "1.1.1.1/32",
+                "2.2.2.2/32",
+            ])
+        test_regex_pattern_set = aws.wafv2.RegexPatternSet("test",
+            name="test",
+            scope="REGIONAL",
+            regular_expressions=[{
+                "regex_string": "one",
+            }])
+        example = aws.wafv2.RuleGroup("example",
+            name="complex-example",
+            description="An rule group containing all statements",
+            scope="REGIONAL",
+            capacity=500,
+            rules=[
+                {
+                    "name": "rule-1",
+                    "priority": 1,
+                    "action": {
+                        "block": {},
+                    },
+                    "statement": {
+                        "not_statement": {
+                            "statements": [{
+                                "and_statement": {
+                                    "statements": [
+                                        {
+                                            "geo_match_statement": {
+                                                "country_codes": ["US"],
+                                            },
+                                        },
+                                        {
+                                            "byte_match_statement": {
+                                                "positional_constraint": "CONTAINS",
+                                                "search_string": "word",
+                                                "field_to_match": {
+                                                    "all_query_arguments": {},
+                                                },
+                                                "text_transformations": [
+                                                    {
+                                                        "priority": 5,
+                                                        "type": "CMD_LINE",
+                                                    },
+                                                    {
+                                                        "priority": 2,
+                                                        "type": "LOWERCASE",
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ],
+                                },
+                            }],
+                        },
+                    },
+                    "visibility_config": {
+                        "cloudwatch_metrics_enabled": False,
+                        "metric_name": "rule-1",
+                        "sampled_requests_enabled": False,
+                    },
+                },
+                {
+                    "name": "rule-2",
+                    "priority": 2,
+                    "action": {
+                        "count": {},
+                    },
+                    "statement": {
+                        "or_statement": {
+                            "statements": [
+                                {
+                                    "regex_match_statement": {
+                                        "regex_string": "a-z?",
+                                        "field_to_match": {
+                                            "single_header": {
+                                                "name": "user-agent",
+                                            },
+                                        },
+                                        "text_transformations": [{
+                                            "priority": 6,
+                                            "type": "NONE",
+                                        }],
+                                    },
+                                },
+                                {
+                                    "sqli_match_statement": {
+                                        "field_to_match": {
+                                            "body": {},
+                                        },
+                                        "text_transformations": [
+                                            {
+                                                "priority": 5,
+                                                "type": "URL_DECODE",
+                                            },
+                                            {
+                                                "priority": 4,
+                                                "type": "HTML_ENTITY_DECODE",
+                                            },
+                                            {
+                                                "priority": 3,
+                                                "type": "COMPRESS_WHITE_SPACE",
+                                            },
+                                        ],
+                                    },
+                                },
+                                {
+                                    "xss_match_statement": {
+                                        "field_to_match": {
+                                            "method": {},
+                                        },
+                                        "text_transformations": [{
+                                            "priority": 2,
+                                            "type": "NONE",
+                                        }],
+                                    },
+                                },
+                            ],
+                        },
+                    },
+                    "visibility_config": {
+                        "cloudwatch_metrics_enabled": False,
+                        "metric_name": "rule-2",
+                        "sampled_requests_enabled": False,
+                    },
+                    "captcha_config": {
+                        "immunity_time_property": {
+                            "immunity_time": 240,
+                        },
+                    },
+                },
+                {
+                    "name": "rule-3",
+                    "priority": 3,
+                    "action": {
+                        "block": {},
+                    },
+                    "statement": {
+                        "size_constraint_statement": {
+                            "comparison_operator": "GT",
+                            "size": 100,
+                            "field_to_match": {
+                                "single_query_argument": {
+                                    "name": "username",
+                                },
+                            },
+                            "text_transformations": [{
+                                "priority": 5,
+                                "type": "NONE",
+                            }],
+                        },
+                    },
+                    "visibility_config": {
+                        "cloudwatch_metrics_enabled": False,
+                        "metric_name": "rule-3",
+                        "sampled_requests_enabled": False,
+                    },
+                },
+                {
+                    "name": "rule-4",
+                    "priority": 4,
+                    "action": {
+                        "block": {},
+                    },
+                    "statement": {
+                        "or_statement": {
+                            "statements": [
+                                {
+                                    "ip_set_reference_statement": {
+                                        "arn": test.arn,
+                                    },
+                                },
+                                {
+                                    "regex_pattern_set_reference_statement": {
+                                        "arn": test_regex_pattern_set.arn,
+                                        "field_to_match": {
+                                            "single_header": {
+                                                "name": "referer",
+                                            },
+                                        },
+                                        "text_transformations": [{
+                                            "priority": 2,
+                                            "type": "NONE",
+                                        }],
+                                    },
+                                },
+                            ],
+                        },
+                    },
+                    "visibility_config": {
+                        "cloudwatch_metrics_enabled": False,
+                        "metric_name": "rule-4",
+                        "sampled_requests_enabled": False,
+                    },
+                },
+            ],
+            visibility_config={
+                "cloudwatch_metrics_enabled": False,
+                "metric_name": "friendly-metric-name",
+                "sampled_requests_enabled": False,
+            },
+            captcha_config=[{
+                "immunityTimeProperty": [{
+                    "immunityTime": 120,
+                }],
+            }],
+            tags={
+                "Name": "example-and-statement",
+                "Code": "123456",
             })
         ```
 

@@ -87,13 +87,13 @@ namespace Pulumi.Aws.Vpc
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
+        /// Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `Enable`, `Disable`, `Reset`
         /// </summary>
         [Output("persistRoutes")]
         public Output<string> PersistRoutes { get; private set; } = null!;
 
         /// <summary>
-        /// The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persist_routes` is enabled.
+        /// The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `PersistRoutes` is enabled.
         /// </summary>
         [Output("persistRoutesDuration")]
         public Output<int?> PersistRoutesDuration { get; private set; } = null!;
@@ -123,13 +123,13 @@ namespace Pulumi.Aws.Vpc
         public Output<string> SnsTopicArn { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -192,13 +192,13 @@ namespace Pulumi.Aws.Vpc
         public Input<int> AmazonSideAsn { get; set; } = null!;
 
         /// <summary>
-        /// Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
+        /// Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `Enable`, `Disable`, `Reset`
         /// </summary>
         [Input("persistRoutes")]
         public Input<string>? PersistRoutes { get; set; }
 
         /// <summary>
-        /// The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persist_routes` is enabled.
+        /// The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `PersistRoutes` is enabled.
         /// </summary>
         [Input("persistRoutesDuration")]
         public Input<int>? PersistRoutesDuration { get; set; }
@@ -219,7 +219,7 @@ namespace Pulumi.Aws.Vpc
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -253,13 +253,13 @@ namespace Pulumi.Aws.Vpc
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
+        /// Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `Enable`, `Disable`, `Reset`
         /// </summary>
         [Input("persistRoutes")]
         public Input<string>? PersistRoutes { get; set; }
 
         /// <summary>
-        /// The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persist_routes` is enabled.
+        /// The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `PersistRoutes` is enabled.
         /// </summary>
         [Input("persistRoutesDuration")]
         public Input<int>? PersistRoutesDuration { get; set; }
@@ -292,7 +292,7 @@ namespace Pulumi.Aws.Vpc
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -304,7 +304,7 @@ namespace Pulumi.Aws.Vpc
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

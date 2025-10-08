@@ -156,7 +156,7 @@ namespace Pulumi.Aws.CodeStarConnections
         /// <summary>
         /// CodeStar Connection name.
         /// 
-        /// &gt; **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
+        /// &gt; **NOTE:** When both `Arn` and `Name` are specified, `Arn` takes precedence.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.CodeStarConnections
         /// <summary>
         /// CodeStar Connection name.
         /// 
-        /// &gt; **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
+        /// &gt; **NOTE:** When both `Arn` and `Name` are specified, `Arn` takes precedence.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -247,7 +247,7 @@ namespace Pulumi.Aws.CodeStarConnections
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket`, `GitHub` and `GitLab`. For connections to GitHub Enterprise Server or GitLab Self-Managed instances, you must create an aws.codestarconnections.Host resource and use `host_arn` instead.
+        /// Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket`, `GitHub` and `GitLab`. For connections to GitHub Enterprise Server or GitLab Self-Managed instances, you must create an aws.codestarconnections.Host resource and use `HostArn` instead.
         /// </summary>
         public readonly string ProviderType;
         public readonly string Region;

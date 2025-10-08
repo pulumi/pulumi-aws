@@ -243,14 +243,14 @@ public class Directory extends com.pulumi.resources.CustomResource {
         return this.accessUrl;
     }
     /**
-     * The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
+     * The alias for the directory (must be unique amongst all aliases in AWS). Required for `enableSso`.
      * 
      */
     @Export(name="alias", refs={String.class}, tree="[0]")
     private Output<String> alias;
 
     /**
-     * @return The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
+     * @return The alias for the directory (must be unique amongst all aliases in AWS). Required for `enableSso`.
      * 
      */
     public Output<String> alias() {
@@ -425,28 +425,28 @@ public class Directory extends com.pulumi.resources.CustomResource {
         return this.size;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Grafana
     public partial class RoleAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The AWS SSO group ids to be assigned the role given in `role`.
+        /// The AWS SSO group ids to be assigned the role given in `Role`.
         /// </summary>
         [Output("groupIds")]
         public Output<ImmutableArray<string>> GroupIds { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Grafana
         public Output<string> Role { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS SSO user ids to be assigned the role given in `role`.
+        /// The AWS SSO user ids to be assigned the role given in `Role`.
         /// </summary>
         [Output("userIds")]
         public Output<ImmutableArray<string>> UserIds { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.Grafana
         private InputList<string>? _groupIds;
 
         /// <summary>
-        /// The AWS SSO group ids to be assigned the role given in `role`.
+        /// The AWS SSO group ids to be assigned the role given in `Role`.
         /// </summary>
         public InputList<string> GroupIds
         {
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.Grafana
         private InputList<string>? _userIds;
 
         /// <summary>
-        /// The AWS SSO user ids to be assigned the role given in `role`.
+        /// The AWS SSO user ids to be assigned the role given in `Role`.
         /// </summary>
         public InputList<string> UserIds
         {
@@ -209,7 +209,7 @@ namespace Pulumi.Aws.Grafana
         private InputList<string>? _groupIds;
 
         /// <summary>
-        /// The AWS SSO group ids to be assigned the role given in `role`.
+        /// The AWS SSO group ids to be assigned the role given in `Role`.
         /// </summary>
         public InputList<string> GroupIds
         {
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.Grafana
         private InputList<string>? _userIds;
 
         /// <summary>
-        /// The AWS SSO user ids to be assigned the role given in `role`.
+        /// The AWS SSO user ids to be assigned the role given in `Role`.
         /// </summary>
         public InputList<string> UserIds
         {

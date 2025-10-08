@@ -14,27 +14,27 @@ namespace Pulumi.Aws.SecurityHub.Outputs
     public sealed class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter
     {
         /// <summary>
-        /// The bool `value` for a Boolean-typed Security Hub Control Parameter.
+        /// The bool `Value` for a Boolean-typed Security Hub Control Parameter.
         /// </summary>
         public readonly Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBool? Bool;
         /// <summary>
-        /// The float `value` for a Double-typed Security Hub Control Parameter.
+        /// The float `Value` for a Double-typed Security Hub Control Parameter.
         /// </summary>
         public readonly Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDouble? Double;
         /// <summary>
-        /// The string `value` for a Enum-typed Security Hub Control Parameter.
+        /// The string `Value` for a Enum-typed Security Hub Control Parameter.
         /// </summary>
         public readonly Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnum? Enum;
         /// <summary>
-        /// The string list `value` for a EnumList-typed Security Hub Control Parameter.
+        /// The string list `Value` for a EnumList-typed Security Hub Control Parameter.
         /// </summary>
         public readonly Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumList? EnumList;
         /// <summary>
-        /// The int `value` for a Int-typed Security Hub Control Parameter.
+        /// The int `Value` for a Int-typed Security Hub Control Parameter.
         /// </summary>
         public readonly Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInt? Int;
         /// <summary>
-        /// The int list `value` for a IntList-typed Security Hub Control Parameter.
+        /// The int list `Value` for a IntList-typed Security Hub Control Parameter.
         /// </summary>
         public readonly Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntList? IntList;
         /// <summary>
@@ -42,11 +42,11 @@ namespace Pulumi.Aws.SecurityHub.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The string `value` for a String-typed Security Hub Control Parameter.
+        /// The string `Value` for a String-typed Security Hub Control Parameter.
         /// </summary>
         public readonly Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterString? String;
         /// <summary>
-        /// The string list `value` for a StringList-typed Security Hub Control Parameter.
+        /// The string list `Value` for a StringList-typed Security Hub Control Parameter.
         /// </summary>
         public readonly Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringList? StringList;
         /// <summary>

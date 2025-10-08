@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Rds.Outputs
         /// </summary>
         public readonly string? SecretArn;
         /// <summary>
-        /// The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+        /// The status of the secret. Valid Values: `Creating` | `Active` | `Rotating` | `Impaired`.
         /// </summary>
         public readonly string? SecretStatus;
 

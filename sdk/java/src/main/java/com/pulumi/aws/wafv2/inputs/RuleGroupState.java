@@ -52,14 +52,14 @@ public final class RuleGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+     * Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
      * 
      */
     @Import(name="customResponseBodies")
     private @Nullable Output<List<RuleGroupCustomResponseBodyArgs>> customResponseBodies;
 
     /**
-     * @return Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+     * @return Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
      * 
      */
     public Optional<Output<List<RuleGroupCustomResponseBodyArgs>>> customResponseBodies() {
@@ -149,14 +149,14 @@ public final class RuleGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rules_json` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
+     * Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rulesJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
      * 
      */
     @Import(name="rulesJson")
     private @Nullable Output<String> rulesJson;
 
     /**
-     * @return Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rules_json` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
+     * @return Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rulesJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
      * 
      */
     public Optional<Output<String>> rulesJson() {
@@ -179,14 +179,14 @@ public final class RuleGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -194,14 +194,14 @@ public final class RuleGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -303,7 +303,7 @@ public final class RuleGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customResponseBodies Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+         * @param customResponseBodies Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
          * 
          * @return builder
          * 
@@ -314,7 +314,7 @@ public final class RuleGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customResponseBodies Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+         * @param customResponseBodies Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class RuleGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customResponseBodies Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+         * @param customResponseBodies Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
          * 
          * @return builder
          * 
@@ -458,7 +458,7 @@ public final class RuleGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rulesJson Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rules_json` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
+         * @param rulesJson Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rulesJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
          * 
          * @return builder
          * 
@@ -469,7 +469,7 @@ public final class RuleGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rulesJson Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rules_json` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
+         * @param rulesJson Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rulesJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
          * 
          * @return builder
          * 
@@ -500,7 +500,7 @@ public final class RuleGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -511,7 +511,7 @@ public final class RuleGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -521,7 +521,7 @@ public final class RuleGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -532,7 +532,7 @@ public final class RuleGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

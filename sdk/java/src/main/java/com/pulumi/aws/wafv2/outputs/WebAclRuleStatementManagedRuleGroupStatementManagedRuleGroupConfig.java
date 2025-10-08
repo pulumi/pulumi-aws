@@ -23,7 +23,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet awsManagedRulesAcfpRuleSet;
     /**
-     * @return Configuration for using the anti-DDoS managed rule group. See `aws_managed_rules_anti_ddos_rule_set` for more details.
+     * @return Configuration for using the anti-DDoS managed rule group. See `awsManagedRulesAntiDdosRuleSet` for more details.
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSet awsManagedRulesAntiDdosRuleSet;
@@ -33,7 +33,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet awsManagedRulesAtpRuleSet;
     /**
-     * @return Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See `aws_managed_rules_bot_control_rule_set` for more details
+     * @return Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See `awsManagedRulesBotControlRuleSet` for more details
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet awsManagedRulesBotControlRuleSet;
@@ -43,7 +43,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      */
     private @Nullable String loginPath;
     /**
-     * @return Details about your login page password field. See `password_field` for more details.
+     * @return Details about your login page password field. See `passwordField` for more details.
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordField passwordField;
@@ -53,7 +53,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      */
     private @Nullable String payloadType;
     /**
-     * @return Details about your login page username field. See `username_field` for more details.
+     * @return Details about your login page username field. See `usernameField` for more details.
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameField usernameField;
@@ -67,7 +67,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         return Optional.ofNullable(this.awsManagedRulesAcfpRuleSet);
     }
     /**
-     * @return Configuration for using the anti-DDoS managed rule group. See `aws_managed_rules_anti_ddos_rule_set` for more details.
+     * @return Configuration for using the anti-DDoS managed rule group. See `awsManagedRulesAntiDdosRuleSet` for more details.
      * 
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSet> awsManagedRulesAntiDdosRuleSet() {
@@ -81,7 +81,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         return Optional.ofNullable(this.awsManagedRulesAtpRuleSet);
     }
     /**
-     * @return Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See `aws_managed_rules_bot_control_rule_set` for more details
+     * @return Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See `awsManagedRulesBotControlRuleSet` for more details
      * 
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet> awsManagedRulesBotControlRuleSet() {
@@ -95,7 +95,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         return Optional.ofNullable(this.loginPath);
     }
     /**
-     * @return Details about your login page password field. See `password_field` for more details.
+     * @return Details about your login page password field. See `passwordField` for more details.
      * 
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordField> passwordField() {
@@ -109,7 +109,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         return Optional.ofNullable(this.payloadType);
     }
     /**
-     * @return Details about your login page username field. See `username_field` for more details.
+     * @return Details about your login page username field. See `usernameField` for more details.
      * 
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameField> usernameField() {

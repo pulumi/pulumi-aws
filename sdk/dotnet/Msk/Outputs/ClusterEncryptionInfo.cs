@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Msk.Outputs
         /// </summary>
         public readonly string? EncryptionAtRestKmsKeyArn;
         /// <summary>
-        /// Configuration block to specify encryption in transit. See encryption_info encryption_in_transit Argument Reference below.
+        /// Configuration block to specify encryption in transit. See EncryptionInfo encryption_in_transit Argument Reference below.
         /// </summary>
         public readonly Outputs.ClusterEncryptionInfoEncryptionInTransit? EncryptionInTransit;
 

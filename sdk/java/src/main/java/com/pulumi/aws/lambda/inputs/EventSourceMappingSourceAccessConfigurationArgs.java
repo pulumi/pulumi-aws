@@ -30,14 +30,14 @@ public final class EventSourceMappingSourceAccessConfigurationArgs extends com.p
     }
 
     /**
-     * URI for this configuration. For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnet_id` is the value you would find in an aws.ec2.Subnet resource&#39;s id attribute. For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `security_group_id` is the value you would find in an aws.ec2.SecurityGroup resource&#39;s id attribute.
+     * URI for this configuration. For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnetId` is the value you would find in an aws.ec2.Subnet resource&#39;s id attribute. For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `securityGroupId` is the value you would find in an aws.ec2.SecurityGroup resource&#39;s id attribute.
      * 
      */
     @Import(name="uri", required=true)
     private Output<String> uri;
 
     /**
-     * @return URI for this configuration. For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnet_id` is the value you would find in an aws.ec2.Subnet resource&#39;s id attribute. For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `security_group_id` is the value you would find in an aws.ec2.SecurityGroup resource&#39;s id attribute.
+     * @return URI for this configuration. For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnetId` is the value you would find in an aws.ec2.Subnet resource&#39;s id attribute. For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `securityGroupId` is the value you would find in an aws.ec2.SecurityGroup resource&#39;s id attribute.
      * 
      */
     public Output<String> uri() {
@@ -91,7 +91,7 @@ public final class EventSourceMappingSourceAccessConfigurationArgs extends com.p
         }
 
         /**
-         * @param uri URI for this configuration. For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnet_id` is the value you would find in an aws.ec2.Subnet resource&#39;s id attribute. For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `security_group_id` is the value you would find in an aws.ec2.SecurityGroup resource&#39;s id attribute.
+         * @param uri URI for this configuration. For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnetId` is the value you would find in an aws.ec2.Subnet resource&#39;s id attribute. For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `securityGroupId` is the value you would find in an aws.ec2.SecurityGroup resource&#39;s id attribute.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class EventSourceMappingSourceAccessConfigurationArgs extends com.p
         }
 
         /**
-         * @param uri URI for this configuration. For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnet_id` is the value you would find in an aws.ec2.Subnet resource&#39;s id attribute. For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `security_group_id` is the value you would find in an aws.ec2.SecurityGroup resource&#39;s id attribute.
+         * @param uri URI for this configuration. For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnetId` is the value you would find in an aws.ec2.Subnet resource&#39;s id attribute. For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `securityGroupId` is the value you would find in an aws.ec2.SecurityGroup resource&#39;s id attribute.
          * 
          * @return builder
          * 

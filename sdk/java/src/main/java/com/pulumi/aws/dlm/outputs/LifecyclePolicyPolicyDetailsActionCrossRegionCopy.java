@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LifecyclePolicyPolicyDetailsActionCrossRegionCopy {
     /**
-     * @return The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
+     * @return The encryption settings for the copied snapshot. See the `encryptionConfiguration` block. Max of 1 per action.
      * 
      */
     private LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration encryptionConfiguration;
@@ -24,7 +24,7 @@ public final class LifecyclePolicyPolicyDetailsActionCrossRegionCopy {
 
     private LifecyclePolicyPolicyDetailsActionCrossRegionCopy() {}
     /**
-     * @return The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
+     * @return The encryption settings for the copied snapshot. See the `encryptionConfiguration` block. Max of 1 per action.
      * 
      */
     public LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration encryptionConfiguration() {

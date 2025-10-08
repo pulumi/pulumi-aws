@@ -25,13 +25,13 @@ public final class AnalyticsApplicationInputs {
      */
     private @Nullable String id;
     /**
-     * @return The Kinesis Firehose configuration for the streaming source. Conflicts with `kinesis_stream`.
+     * @return The Kinesis Firehose configuration for the streaming source. Conflicts with `kinesisStream`.
      * See Kinesis Firehose below for more details.
      * 
      */
     private @Nullable AnalyticsApplicationInputsKinesisFirehose kinesisFirehose;
     /**
-     * @return The Kinesis Stream configuration for the streaming source. Conflicts with `kinesis_firehose`.
+     * @return The Kinesis Stream configuration for the streaming source. Conflicts with `kinesisFirehose`.
      * See Kinesis Stream below for more details.
      * 
      */
@@ -75,7 +75,7 @@ public final class AnalyticsApplicationInputs {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return The Kinesis Firehose configuration for the streaming source. Conflicts with `kinesis_stream`.
+     * @return The Kinesis Firehose configuration for the streaming source. Conflicts with `kinesisStream`.
      * See Kinesis Firehose below for more details.
      * 
      */
@@ -83,7 +83,7 @@ public final class AnalyticsApplicationInputs {
         return Optional.ofNullable(this.kinesisFirehose);
     }
     /**
-     * @return The Kinesis Stream configuration for the streaming source. Conflicts with `kinesis_firehose`.
+     * @return The Kinesis Stream configuration for the streaming source. Conflicts with `kinesisFirehose`.
      * See Kinesis Stream below for more details.
      * 
      */

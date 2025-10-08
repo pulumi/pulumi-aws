@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Drs.Outputs
         /// </summary>
         public readonly int Interval;
         /// <summary>
-        /// Duration to retain a snapshot for, in the chosen `units`.
+        /// Duration to retain a snapshot for, in the chosen `Units`.
         /// </summary>
         public readonly int RetentionDuration;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Drs.Outputs
         /// </summary>
         public readonly int? RuleId;
         /// <summary>
-        /// Units used to measure the `interval` and `retention_duration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
+        /// Units used to measure the `Interval` and `RetentionDuration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
         /// </summary>
         public readonly string Units;
 

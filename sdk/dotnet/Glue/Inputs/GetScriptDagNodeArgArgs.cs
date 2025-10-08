@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Glue.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Boolean if the value is used as a parameter. Defaults to `false`.
+        /// Boolean if the value is used as a parameter. Defaults to `False`.
         /// </summary>
         [Input("param")]
         public Input<bool>? Param { get; set; }

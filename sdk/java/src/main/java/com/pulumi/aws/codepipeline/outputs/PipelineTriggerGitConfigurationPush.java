@@ -19,7 +19,7 @@ public final class PipelineTriggerGitConfigurationPush {
      */
     private @Nullable PipelineTriggerGitConfigurationPushBranches branches;
     /**
-     * @return The field that specifies to filter on file paths for the push trigger configuration. A `file_paths` block is documented below.
+     * @return The field that specifies to filter on file paths for the push trigger configuration. A `filePaths` block is documented below.
      * 
      */
     private @Nullable PipelineTriggerGitConfigurationPushFilePaths filePaths;
@@ -38,7 +38,7 @@ public final class PipelineTriggerGitConfigurationPush {
         return Optional.ofNullable(this.branches);
     }
     /**
-     * @return The field that specifies to filter on file paths for the push trigger configuration. A `file_paths` block is documented below.
+     * @return The field that specifies to filter on file paths for the push trigger configuration. A `filePaths` block is documented below.
      * 
      */
     public Optional<PipelineTriggerGitConfigurationPushFilePaths> filePaths() {

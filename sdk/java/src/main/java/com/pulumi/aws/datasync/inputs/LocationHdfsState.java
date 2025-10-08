@@ -81,14 +81,14 @@ public final class LocationHdfsState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
+     * The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberosKeytabBase64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKeytabBase64`) is required.
      * 
      */
     @Import(name="kerberosKeytab")
     private @Nullable Output<String> kerberosKeytab;
 
     /**
-     * @return The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
+     * @return The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberosKeytabBase64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKeytabBase64`) is required.
      * 
      */
     public Optional<Output<String>> kerberosKeytab() {
@@ -96,14 +96,14 @@ public final class LocationHdfsState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
+     * Use instead of `kerberosKeytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKeytab`) is required.
      * 
      */
     @Import(name="kerberosKeytabBase64")
     private @Nullable Output<String> kerberosKeytabBase64;
 
     /**
-     * @return Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
+     * @return Use instead of `kerberosKeytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKeytab`) is required.
      * 
      */
     public Optional<Output<String>> kerberosKeytabBase64() {
@@ -111,14 +111,14 @@ public final class LocationHdfsState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
+     * The krb5.conf file that contains the Kerberos configuration information. Use `kerberosKrb5ConfBase64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKrb5ConfBase64`) is required.
      * 
      */
     @Import(name="kerberosKrb5Conf")
     private @Nullable Output<String> kerberosKrb5Conf;
 
     /**
-     * @return The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
+     * @return The krb5.conf file that contains the Kerberos configuration information. Use `kerberosKrb5ConfBase64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKrb5ConfBase64`) is required.
      * 
      */
     public Optional<Output<String>> kerberosKrb5Conf() {
@@ -126,14 +126,14 @@ public final class LocationHdfsState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
+     * Use instead of `kerberosKrb5Conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKrb5Conf`) is required.
      * 
      */
     @Import(name="kerberosKrb5ConfBase64")
     private @Nullable Output<String> kerberosKrb5ConfBase64;
 
     /**
-     * @return Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
+     * @return Use instead of `kerberosKrb5Conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKrb5Conf`) is required.
      * 
      */
     public Optional<Output<String>> kerberosKrb5ConfBase64() {
@@ -141,14 +141,14 @@ public final class LocationHdfsState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+     * The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
      * 
      */
     @Import(name="kerberosPrincipal")
     private @Nullable Output<String> kerberosPrincipal;
 
     /**
-     * @return The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+     * @return The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
      * 
      */
     public Optional<Output<String>> kerberosPrincipal() {
@@ -186,14 +186,14 @@ public final class LocationHdfsState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn&#39;t specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
+     * The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qopConfiguration` isn&#39;t specified, `rpcProtection` and `dataTransferProtection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
      * 
      */
     @Import(name="qopConfiguration")
     private @Nullable Output<LocationHdfsQopConfigurationArgs> qopConfiguration;
 
     /**
-     * @return The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn&#39;t specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
+     * @return The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qopConfiguration` isn&#39;t specified, `rpcProtection` and `dataTransferProtection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
      * 
      */
     public Optional<Output<LocationHdfsQopConfigurationArgs>> qopConfiguration() {
@@ -231,14 +231,14 @@ public final class LocationHdfsState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authentication_type`, this parameter is required.
+     * The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authenticationType`, this parameter is required.
      * 
      */
     @Import(name="simpleUser")
     private @Nullable Output<String> simpleUser;
 
     /**
-     * @return The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authentication_type`, this parameter is required.
+     * @return The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authenticationType`, this parameter is required.
      * 
      */
     public Optional<Output<String>> simpleUser() {
@@ -261,14 +261,14 @@ public final class LocationHdfsState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -276,14 +276,14 @@ public final class LocationHdfsState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -434,7 +434,7 @@ public final class LocationHdfsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kerberosKeytab The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
+         * @param kerberosKeytab The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberosKeytabBase64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKeytabBase64`) is required.
          * 
          * @return builder
          * 
@@ -445,7 +445,7 @@ public final class LocationHdfsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kerberosKeytab The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
+         * @param kerberosKeytab The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberosKeytabBase64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKeytabBase64`) is required.
          * 
          * @return builder
          * 
@@ -455,7 +455,7 @@ public final class LocationHdfsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kerberosKeytabBase64 Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
+         * @param kerberosKeytabBase64 Use instead of `kerberosKeytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKeytab`) is required.
          * 
          * @return builder
          * 
@@ -466,7 +466,7 @@ public final class LocationHdfsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kerberosKeytabBase64 Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
+         * @param kerberosKeytabBase64 Use instead of `kerberosKeytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKeytab`) is required.
          * 
          * @return builder
          * 
@@ -476,7 +476,7 @@ public final class LocationHdfsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kerberosKrb5Conf The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
+         * @param kerberosKrb5Conf The krb5.conf file that contains the Kerberos configuration information. Use `kerberosKrb5ConfBase64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKrb5ConfBase64`) is required.
          * 
          * @return builder
          * 
@@ -487,7 +487,7 @@ public final class LocationHdfsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kerberosKrb5Conf The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
+         * @param kerberosKrb5Conf The krb5.conf file that contains the Kerberos configuration information. Use `kerberosKrb5ConfBase64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKrb5ConfBase64`) is required.
          * 
          * @return builder
          * 
@@ -497,7 +497,7 @@ public final class LocationHdfsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kerberosKrb5ConfBase64 Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
+         * @param kerberosKrb5ConfBase64 Use instead of `kerberosKrb5Conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKrb5Conf`) is required.
          * 
          * @return builder
          * 
@@ -508,7 +508,7 @@ public final class LocationHdfsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kerberosKrb5ConfBase64 Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
+         * @param kerberosKrb5ConfBase64 Use instead of `kerberosKrb5Conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authenticationType`, this parameter (or `kerberosKrb5Conf`) is required.
          * 
          * @return builder
          * 
@@ -518,7 +518,7 @@ public final class LocationHdfsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kerberosPrincipal The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+         * @param kerberosPrincipal The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
          * 
          * @return builder
          * 
@@ -529,7 +529,7 @@ public final class LocationHdfsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kerberosPrincipal The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+         * @param kerberosPrincipal The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
          * 
          * @return builder
          * 
@@ -591,7 +591,7 @@ public final class LocationHdfsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param qopConfiguration The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn&#39;t specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
+         * @param qopConfiguration The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qopConfiguration` isn&#39;t specified, `rpcProtection` and `dataTransferProtection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
          * 
          * @return builder
          * 
@@ -602,7 +602,7 @@ public final class LocationHdfsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param qopConfiguration The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn&#39;t specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
+         * @param qopConfiguration The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qopConfiguration` isn&#39;t specified, `rpcProtection` and `dataTransferProtection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
          * 
          * @return builder
          * 
@@ -654,7 +654,7 @@ public final class LocationHdfsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param simpleUser The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authentication_type`, this parameter is required.
+         * @param simpleUser The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authenticationType`, this parameter is required.
          * 
          * @return builder
          * 
@@ -665,7 +665,7 @@ public final class LocationHdfsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param simpleUser The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authentication_type`, this parameter is required.
+         * @param simpleUser The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authenticationType`, this parameter is required.
          * 
          * @return builder
          * 
@@ -696,7 +696,7 @@ public final class LocationHdfsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -707,7 +707,7 @@ public final class LocationHdfsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -717,7 +717,7 @@ public final class LocationHdfsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -728,7 +728,7 @@ public final class LocationHdfsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

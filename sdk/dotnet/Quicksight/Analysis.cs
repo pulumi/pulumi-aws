@@ -48,6 +48,101 @@ namespace Pulumi.Aws.Quicksight
     /// });
     /// ```
     /// 
+    /// ### With Definition
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Quicksight.Analysis("example", new()
+    ///     {
+    ///         AnalysisId = "example-id",
+    ///         Name = "example-name",
+    ///         Definition = 
+    ///         {
+    ///             { "dataSetIdentifiersDeclarations", new[]
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "dataSetArn", dataset.Arn },
+    ///                     { "identifier", "1" },
+    ///                 },
+    ///             } },
+    ///             { "sheets", new[]
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "title", "Example" },
+    ///                     { "sheetId", "Example1" },
+    ///                     { "visuals", new[]
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "lineChartVisual", 
+    ///                             {
+    ///                                 { "visualId", "LineChart" },
+    ///                                 { "title", 
+    ///                                 {
+    ///                                     { "formatText", 
+    ///                                     {
+    ///                                         { "plainText", "Line Chart Example" },
+    ///                                     } },
+    ///                                 } },
+    ///                                 { "chartConfiguration", 
+    ///                                 {
+    ///                                     { "fieldWells", 
+    ///                                     {
+    ///                                         { "lineChartAggregatedFieldWells", 
+    ///                                         {
+    ///                                             { "categories", new[]
+    ///                                             {
+    ///                                                 
+    ///                                                 {
+    ///                                                     { "categoricalDimensionField", 
+    ///                                                     {
+    ///                                                         { "fieldId", "1" },
+    ///                                                         { "column", 
+    ///                                                         {
+    ///                                                             { "dataSetIdentifier", "1" },
+    ///                                                             { "columnName", "Column1" },
+    ///                                                         } },
+    ///                                                     } },
+    ///                                                 },
+    ///                                             } },
+    ///                                             { "values", new[]
+    ///                                             {
+    ///                                                 
+    ///                                                 {
+    ///                                                     { "categoricalMeasureField", 
+    ///                                                     {
+    ///                                                         { "fieldId", "2" },
+    ///                                                         { "column", 
+    ///                                                         {
+    ///                                                             { "dataSetIdentifier", "1" },
+    ///                                                             { "columnName", "Column1" },
+    ///                                                         } },
+    ///                                                         { "aggregationFunction", "COUNT" },
+    ///                                                     } },
+    ///                                                 },
+    ///                                             } },
+    ///                                         } },
+    ///                                     } },
+    ///                                 } },
+    ///                             } },
+    ///                         },
+    ///                     } },
+    ///                 },
+    ///             } },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a QuickSight Analysis using the AWS account ID and analysis ID separated by a comma (`,`). For example:
@@ -122,7 +217,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        /// The entity that you are using as a source when you create the analysis (template). Only one of `Definition` or `SourceEntity` should be configured. See source_entity.
         /// </summary>
         [Output("sourceEntity")]
         public Output<Outputs.AnalysisSourceEntity?> SourceEntity { get; private set; } = null!;
@@ -134,13 +229,13 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -245,7 +340,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        /// The entity that you are using as a source when you create the analysis (template). Only one of `Definition` or `SourceEntity` should be configured. See source_entity.
         /// </summary>
         [Input("sourceEntity")]
         public Input<Inputs.AnalysisSourceEntityArgs>? SourceEntity { get; set; }
@@ -254,7 +349,7 @@ namespace Pulumi.Aws.Quicksight
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -345,7 +440,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        /// The entity that you are using as a source when you create the analysis (template). Only one of `Definition` or `SourceEntity` should be configured. See source_entity.
         /// </summary>
         [Input("sourceEntity")]
         public Input<Inputs.AnalysisSourceEntityGetArgs>? SourceEntity { get; set; }
@@ -360,7 +455,7 @@ namespace Pulumi.Aws.Quicksight
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -372,7 +467,7 @@ namespace Pulumi.Aws.Quicksight
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

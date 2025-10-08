@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// 
-    /// &gt; **Note:** One of either `cidr_block` or `ipv6_cidr_block` is required.
+    /// &gt; **Note:** One of either `CidrBlock` or `Ipv6CidrBlock` is required.
     /// 
     /// ## Import
     /// 
@@ -77,7 +77,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> CidrBlock { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
+        /// Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `False`.
         /// </summary>
         [Output("egress")]
         public Output<bool?> Egress { get; private set; } = null!;
@@ -91,9 +91,9 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
         /// 
-        /// &gt; **NOTE:** If the value of `protocol` is `-1` or `all`, the `from_port` and `to_port` values will be ignored and the rule will apply to all ports.
+        /// &gt; **NOTE:** If the value of `Protocol` is `-1` or `All`, the `FromPort` and `ToPort` values will be ignored and the rule will apply to all ports.
         /// 
-        /// &gt; **NOTE:** If the value of `icmp_type` is `-1` (which results in a wildcard ICMP type), the `icmp_code` must also be set to `-1` (wildcard ICMP code).
+        /// &gt; **NOTE:** If the value of `IcmpType` is `-1` (which results in a wildcard ICMP type), the `IcmpCode` must also be set to `-1` (wildcard ICMP code).
         /// 
         /// &gt; Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
         /// </summary>
@@ -131,7 +131,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
+        /// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `Allow` | `Deny`
         /// </summary>
         [Output("ruleAction")]
         public Output<string> RuleAction { get; private set; } = null!;
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? CidrBlock { get; set; }
 
         /// <summary>
-        /// Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
+        /// Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `False`.
         /// </summary>
         [Input("egress")]
         public Input<bool>? Egress { get; set; }
@@ -215,9 +215,9 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
         /// 
-        /// &gt; **NOTE:** If the value of `protocol` is `-1` or `all`, the `from_port` and `to_port` values will be ignored and the rule will apply to all ports.
+        /// &gt; **NOTE:** If the value of `Protocol` is `-1` or `All`, the `FromPort` and `ToPort` values will be ignored and the rule will apply to all ports.
         /// 
-        /// &gt; **NOTE:** If the value of `icmp_type` is `-1` (which results in a wildcard ICMP type), the `icmp_code` must also be set to `-1` (wildcard ICMP code).
+        /// &gt; **NOTE:** If the value of `IcmpType` is `-1` (which results in a wildcard ICMP type), the `IcmpCode` must also be set to `-1` (wildcard ICMP code).
         /// 
         /// &gt; Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
         /// </summary>
@@ -255,7 +255,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
+        /// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `Allow` | `Deny`
         /// </summary>
         [Input("ruleAction", required: true)]
         public Input<string> RuleAction { get; set; } = null!;
@@ -287,7 +287,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? CidrBlock { get; set; }
 
         /// <summary>
-        /// Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
+        /// Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `False`.
         /// </summary>
         [Input("egress")]
         public Input<bool>? Egress { get; set; }
@@ -301,9 +301,9 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
         /// 
-        /// &gt; **NOTE:** If the value of `protocol` is `-1` or `all`, the `from_port` and `to_port` values will be ignored and the rule will apply to all ports.
+        /// &gt; **NOTE:** If the value of `Protocol` is `-1` or `All`, the `FromPort` and `ToPort` values will be ignored and the rule will apply to all ports.
         /// 
-        /// &gt; **NOTE:** If the value of `icmp_type` is `-1` (which results in a wildcard ICMP type), the `icmp_code` must also be set to `-1` (wildcard ICMP code).
+        /// &gt; **NOTE:** If the value of `IcmpType` is `-1` (which results in a wildcard ICMP type), the `IcmpCode` must also be set to `-1` (wildcard ICMP code).
         /// 
         /// &gt; Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
         /// </summary>
@@ -341,7 +341,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
+        /// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `Allow` | `Deny`
         /// </summary>
         [Input("ruleAction")]
         public Input<string>? RuleAction { get; set; }

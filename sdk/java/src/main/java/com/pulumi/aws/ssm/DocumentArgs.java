@@ -20,14 +20,14 @@ public final class DocumentArgs extends com.pulumi.resources.ResourceArgs {
     public static final DocumentArgs Empty = new DocumentArgs();
 
     /**
-     * One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
+     * One or more configuration blocks describing attachments sources to a version of a document. See `attachmentsSource` block below for details.
      * 
      */
     @Import(name="attachmentsSources")
     private @Nullable Output<List<DocumentAttachmentsSourceArgs>> attachmentsSources;
 
     /**
-     * @return One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
+     * @return One or more configuration blocks describing attachments sources to a version of a document. See `attachmentsSource` block below for details.
      * 
      */
     public Optional<Output<List<DocumentAttachmentsSourceArgs>>> attachmentsSources() {
@@ -125,14 +125,14 @@ public final class DocumentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -203,7 +203,7 @@ public final class DocumentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param attachmentsSources One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
+         * @param attachmentsSources One or more configuration blocks describing attachments sources to a version of a document. See `attachmentsSource` block below for details.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class DocumentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param attachmentsSources One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
+         * @param attachmentsSources One or more configuration blocks describing attachments sources to a version of a document. See `attachmentsSource` block below for details.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class DocumentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param attachmentsSources One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
+         * @param attachmentsSources One or more configuration blocks describing attachments sources to a version of a document. See `attachmentsSource` block below for details.
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class DocumentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -371,7 +371,7 @@ public final class DocumentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

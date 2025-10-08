@@ -19,14 +19,14 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
     public static final PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs Empty = new PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs();
 
     /**
-     * Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
+     * Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
      * 
      */
     @Import(name="expression")
     private @Nullable Output<String> expression;
 
     /**
-     * @return Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
+     * @return Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
      * 
      */
     public Optional<Output<String>> expression() {
@@ -64,14 +64,14 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
     }
 
     /**
-     * Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
+     * Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metricStat`, but not both.
      * 
      */
     @Import(name="metricStat")
     private @Nullable Output<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgs> metricStat;
 
     /**
-     * @return Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
+     * @return Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metricStat`, but not both.
      * 
      */
     public Optional<Output<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgs>> metricStat() {
@@ -122,7 +122,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param expression Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
+         * @param expression Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param expression Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
+         * @param expression Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param metricStat Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
+         * @param metricStat Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metricStat`, but not both.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param metricStat Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
+         * @param metricStat Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metricStat`, but not both.
          * 
          * @return builder
          * 

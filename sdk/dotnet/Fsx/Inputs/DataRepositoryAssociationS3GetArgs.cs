@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Fsx.Inputs
     public sealed class DataRepositoryAssociationS3GetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
+        /// Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `Events` configuration block.
         /// </summary>
         [Input("autoExportPolicy")]
         public Input<Inputs.DataRepositoryAssociationS3AutoExportPolicyGetArgs>? AutoExportPolicy { get; set; }
 
         /// <summary>
-        /// Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
+        /// Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `Events` configuration block.
         /// </summary>
         [Input("autoImportPolicy")]
         public Input<Inputs.DataRepositoryAssociationS3AutoImportPolicyGetArgs>? AutoImportPolicy { get; set; }

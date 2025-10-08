@@ -31,9 +31,9 @@ import javax.annotation.Nullable;
 /**
  * Provides a DynamoDB table resource.
  * 
- * &gt; **Note:** It is recommended to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) for `read_capacity` and/or `write_capacity` if there&#39;s `autoscaling policy` attached to the table.
+ * &gt; **Note:** It is recommended to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) for `readCapacity` and/or `writeCapacity` if there&#39;s `autoscaling policy` attached to the table.
  * 
- * &gt; **Note:** When using aws.dynamodb.TableReplica with this resource, use `lifecycle` `ignore_changes` for `replica`, _e.g._, `lifecycle { ignore_changes = [replica] }`.
+ * &gt; **Note:** When using aws.dynamodb.TableReplica with this resource, use `lifecycle` `ignoreChanges` for `replica`, _e.g._, `lifecycle { ignoreChanges = [replica] }`.
  * 
  * ## DynamoDB Table attributes
  * 
@@ -179,7 +179,7 @@ import javax.annotation.Nullable;
  * 
  * **Note** Please see detailed information, restrictions, caveats etc on the [AWS Support Page](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/multi-region-strong-consistency-gt.html).
  * 
- * Consistency Mode (`consistency_mode`) is a new argument on the embedded `replica` that allows you to configure consistency mode for Global Tables.
+ * Consistency Mode (`consistencyMode`) is a new argument on the embedded `replica` that allows you to configure consistency mode for Global Tables.
  * 
  * <pre>
  * {@code
@@ -339,14 +339,14 @@ public class Table extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
+     * Set of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. See below.
      * 
      */
     @Export(name="attributes", refs={List.class,TableAttribute.class}, tree="[0,1]")
     private Output<List<TableAttribute>> attributes;
 
     /**
-     * @return Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
+     * @return Set of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. See below.
      * 
      */
     public Output<List<TableAttribute>> attributes() {
@@ -497,14 +497,14 @@ public class Table extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.rangeKey);
     }
     /**
-     * Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
+     * Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
      * 
      */
     @Export(name="readCapacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> readCapacity;
 
     /**
-     * @return Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
+     * @return Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
      * 
      */
     public Output<Integer> readCapacity() {
@@ -609,14 +609,14 @@ public class Table extends com.pulumi.resources.CustomResource {
         return this.serverSideEncryption;
     }
     /**
-     * ARN of the Table Stream. Only available when `stream_enabled = true`
+     * ARN of the Table Stream. Only available when `streamEnabled = true`
      * 
      */
     @Export(name="streamArn", refs={String.class}, tree="[0]")
     private Output<String> streamArn;
 
     /**
-     * @return ARN of the Table Stream. Only available when `stream_enabled = true`
+     * @return ARN of the Table Stream. Only available when `streamEnabled = true`
      * 
      */
     public Output<String> streamArn() {
@@ -637,14 +637,14 @@ public class Table extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.streamEnabled);
     }
     /**
-     * Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
+     * Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
      * 
      */
     @Export(name="streamLabel", refs={String.class}, tree="[0]")
     private Output<String> streamLabel;
 
     /**
-     * @return Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
+     * @return Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
      * 
      */
     public Output<String> streamLabel() {
@@ -683,28 +683,28 @@ public class Table extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tableClass);
     }
     /**
-     * A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -739,14 +739,14 @@ public class Table extends com.pulumi.resources.CustomResource {
         return this.warmThroughput;
     }
     /**
-     * Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
+     * Number of write units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
      * 
      */
     @Export(name="writeCapacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> writeCapacity;
 
     /**
-     * @return Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
+     * @return Number of write units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
      * 
      */
     public Output<Integer> writeCapacity() {

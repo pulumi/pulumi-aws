@@ -17,14 +17,14 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocat
     public static final GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation Empty = new GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation();
 
     /**
-     * ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
+     * ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asnRanges`
      * 
      */
     @Import(name="asn")
     private @Nullable String asn;
 
     /**
-     * @return ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
+     * @return ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asnRanges`
      * 
      */
     public Optional<String> asn() {
@@ -32,14 +32,14 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocat
     }
 
     /**
-     * The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `inside_cidr_blocks`.
+     * The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `insideCidrBlocks`.
      * 
      */
     @Import(name="insideCidrBlocks")
     private @Nullable List<String> insideCidrBlocks;
 
     /**
-     * @return The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `inside_cidr_blocks`.
+     * @return The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `insideCidrBlocks`.
      * 
      */
     public Optional<List<String>> insideCidrBlocks() {
@@ -80,7 +80,7 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocat
         }
 
         /**
-         * @param asn ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
+         * @param asn ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asnRanges`
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocat
         }
 
         /**
-         * @param insideCidrBlocks The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `inside_cidr_blocks`.
+         * @param insideCidrBlocks The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `insideCidrBlocks`.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocat
         }
 
         /**
-         * @param insideCidrBlocks The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `inside_cidr_blocks`.
+         * @param insideCidrBlocks The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `insideCidrBlocks`.
          * 
          * @return builder
          * 

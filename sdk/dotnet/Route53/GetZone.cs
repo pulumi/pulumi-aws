@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Route53
         public string? Name { get; set; }
 
         /// <summary>
-        /// Used with `name` field to get a private Hosted Zone.
+        /// Used with `Name` field to get a private Hosted Zone.
         /// </summary>
         [Input("privateZone")]
         public bool? PrivateZone { get; set; }
@@ -154,11 +154,11 @@ namespace Pulumi.Aws.Route53
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
+        /// Used with `Name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
         /// 
         /// The arguments of this data source act as filters for querying the available
-        /// Hosted Zone. You have to use `zone_id` or `name`, not both of them. The given filter must match exactly one
-        /// Hosted Zone. If you use `name` field for private Hosted Zone, you need to add `private_zone` field to `true`.
+        /// Hosted Zone. You have to use `ZoneId` or `Name`, not both of them. The given filter must match exactly one
+        /// Hosted Zone. If you use `Name` field for private Hosted Zone, you need to add `PrivateZone` field to `True`.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
-        /// Used with `name` field to get a private Hosted Zone associated with the vpc_id (in this case, private_zone is not mandatory).
+        /// Used with `Name` field to get a private Hosted Zone associated with the VpcId (in this case, PrivateZone is not mandatory).
         /// </summary>
         [Input("vpcId")]
         public string? VpcId { get; set; }
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.Route53
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Used with `name` field to get a private Hosted Zone.
+        /// Used with `Name` field to get a private Hosted Zone.
         /// </summary>
         [Input("privateZone")]
         public Input<bool>? PrivateZone { get; set; }
@@ -202,11 +202,11 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
+        /// Used with `Name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
         /// 
         /// The arguments of this data source act as filters for querying the available
-        /// Hosted Zone. You have to use `zone_id` or `name`, not both of them. The given filter must match exactly one
-        /// Hosted Zone. If you use `name` field for private Hosted Zone, you need to add `private_zone` field to `true`.
+        /// Hosted Zone. You have to use `ZoneId` or `Name`, not both of them. The given filter must match exactly one
+        /// Hosted Zone. If you use `Name` field for private Hosted Zone, you need to add `PrivateZone` field to `True`.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -215,7 +215,7 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
-        /// Used with `name` field to get a private Hosted Zone associated with the vpc_id (in this case, private_zone is not mandatory).
+        /// Used with `Name` field to get a private Hosted Zone associated with the VpcId (in this case, PrivateZone is not mandatory).
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

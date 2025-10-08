@@ -16,6 +16,125 @@ import (
 //
 // ## Example Usage
 //
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{
+// }, nil);
+// if err != nil {
+// return err
+// }
+// currentGetPartition, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{
+// }, nil);
+// if err != nil {
+// return err
+// }
+// currentGetRegion, err := aws.GetRegion(ctx, &aws.GetRegionArgs{
+// }, nil);
+// if err != nil {
+// return err
+// }
+// exampleAgentTrust, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Actions: []string{
+// "sts:AssumeRole",
+// },
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Identifiers: []string{
+// "bedrock.amazonaws.com",
+// },
+// Type: "Service",
+// },
+// },
+// Conditions: []iam.GetPolicyDocumentStatementCondition{
+// {
+// Test: "StringEquals",
+// Values: interface{}{
+// current.AccountId,
+// },
+// Variable: "aws:SourceAccount",
+// },
+// {
+// Test: "ArnLike",
+// Values: []string{
+// fmt.Sprintf("arn:%v:bedrock:%v:%v:agent/*", currentGetPartition.Partition, currentGetRegion.Region, current.AccountId),
+// },
+// Variable: "AWS:SourceArn",
+// },
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// exampleAgentPermissions, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Actions: []string{
+// "bedrock:InvokeModel",
+// },
+// Resources: []string{
+// fmt.Sprintf("arn:%v:bedrock:%v::foundation-model/anthropic.claude-v2", currentGetPartition.Partition, currentGetRegion.Region),
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+// AssumeRolePolicy: pulumi.String(exampleAgentTrust.Json),
+// NamePrefix: pulumi.String("AmazonBedrockExecutionRoleForAgents_"),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
+// Policy: pulumi.String(exampleAgentPermissions.Json),
+// Role: example.ID(),
+// })
+// if err != nil {
+// return err
+// }
+// exampleAgentAgent, err := bedrock.NewAgentAgent(ctx, "example", &bedrock.AgentAgentArgs{
+// AgentName: pulumi.String("my-agent-name"),
+// AgentResourceRoleArn: example.Arn,
+// IdleTtl: 500,
+// FoundationModel: pulumi.String("anthropic.claude-v2"),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = bedrock.NewAgentAgentAlias(ctx, "example", &bedrock.AgentAgentAliasArgs{
+// AgentAliasName: pulumi.String("my-agent-alias"),
+// AgentId: exampleAgentAgent.AgentId,
+// Description: pulumi.String("Test Alias"),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Agents for Amazon Bedrock Agent Alias using the alias ID and the agent ID separated by `,`. For example:

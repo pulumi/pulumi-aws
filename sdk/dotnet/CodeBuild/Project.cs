@@ -334,7 +334,7 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// ### Runner Project
     /// 
-    /// While no special configuration is required for `aws.codebuild.Project` to create a project as a Runner Project, an `aws.codebuild.Webhook` resource with an appropriate `filter_group` is required.
+    /// While no special configuration is required for `aws.codebuild.Project` to create a project as a Runner Project, an `aws.codebuild.Webhook` resource with an appropriate `FilterGroup` is required.
     /// See the `aws.codebuild.Webhook` resource documentation example for more details.
     /// 
     /// ## Import
@@ -368,13 +368,13 @@ namespace Pulumi.Aws.CodeBuild
 
         /// <summary>
         /// Generates a publicly-accessible URL for the projects build badge. Available as
-        /// `badge_url` attribute when enabled.
+        /// `BadgeUrl` attribute when enabled.
         /// </summary>
         [Output("badgeEnabled")]
         public Output<bool?> BadgeEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// URL of the build badge when `badge_enabled` is enabled.
+        /// URL of the build badge when `BadgeEnabled` is enabled.
         /// </summary>
         [Output("badgeUrl")]
         public Output<string> BadgeUrl { get; private set; } = null!;
@@ -387,7 +387,7 @@ namespace Pulumi.Aws.CodeBuild
 
         /// <summary>
         /// Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out
-        /// any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is
+        /// any related build that does not get marked as completed. The default is 60 minutes. The `BuildTimeout` property is
         /// not available on the `Lambda` compute type.
         /// </summary>
         [Output("buildTimeout")]
@@ -459,7 +459,7 @@ namespace Pulumi.Aws.CodeBuild
 
         /// <summary>
         /// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
-        /// times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
+        /// times out. The default is 8 hours. The `QueuedTimeout` property is not available on the `Lambda` compute type.
         /// </summary>
         [Output("queuedTimeout")]
         public Output<int?> QueuedTimeout { get; private set; } = null!;
@@ -473,7 +473,7 @@ namespace Pulumi.Aws.CodeBuild
         /// <summary>
         /// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
         /// Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
-        /// `project_visibility` is `PUBLIC_READ`.
+        /// `ProjectVisibility` is `PUBLIC_READ`.
         /// </summary>
         [Output("resourceAccessRole")]
         public Output<string?> ResourceAccessRole { get; private set; } = null!;
@@ -520,7 +520,7 @@ namespace Pulumi.Aws.CodeBuild
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider 
-        /// `default_tags` configuration block
+        /// `DefaultTags` configuration block
         /// present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -528,7 +528,7 @@ namespace Pulumi.Aws.CodeBuild
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider 
-        /// `default_tags` configuration block.
+        /// `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -593,7 +593,7 @@ namespace Pulumi.Aws.CodeBuild
 
         /// <summary>
         /// Generates a publicly-accessible URL for the projects build badge. Available as
-        /// `badge_url` attribute when enabled.
+        /// `BadgeUrl` attribute when enabled.
         /// </summary>
         [Input("badgeEnabled")]
         public Input<bool>? BadgeEnabled { get; set; }
@@ -606,7 +606,7 @@ namespace Pulumi.Aws.CodeBuild
 
         /// <summary>
         /// Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out
-        /// any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is
+        /// any related build that does not get marked as completed. The default is 60 minutes. The `BuildTimeout` property is
         /// not available on the `Lambda` compute type.
         /// </summary>
         [Input("buildTimeout")]
@@ -678,7 +678,7 @@ namespace Pulumi.Aws.CodeBuild
 
         /// <summary>
         /// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
-        /// times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
+        /// times out. The default is 8 hours. The `QueuedTimeout` property is not available on the `Lambda` compute type.
         /// </summary>
         [Input("queuedTimeout")]
         public Input<int>? QueuedTimeout { get; set; }
@@ -692,7 +692,7 @@ namespace Pulumi.Aws.CodeBuild
         /// <summary>
         /// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
         /// Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
-        /// `project_visibility` is `PUBLIC_READ`.
+        /// `ProjectVisibility` is `PUBLIC_READ`.
         /// </summary>
         [Input("resourceAccessRole")]
         public Input<string>? ResourceAccessRole { get; set; }
@@ -760,7 +760,7 @@ namespace Pulumi.Aws.CodeBuild
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider 
-        /// `default_tags` configuration block
+        /// `DefaultTags` configuration block
         /// present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
@@ -797,13 +797,13 @@ namespace Pulumi.Aws.CodeBuild
 
         /// <summary>
         /// Generates a publicly-accessible URL for the projects build badge. Available as
-        /// `badge_url` attribute when enabled.
+        /// `BadgeUrl` attribute when enabled.
         /// </summary>
         [Input("badgeEnabled")]
         public Input<bool>? BadgeEnabled { get; set; }
 
         /// <summary>
-        /// URL of the build badge when `badge_enabled` is enabled.
+        /// URL of the build badge when `BadgeEnabled` is enabled.
         /// </summary>
         [Input("badgeUrl")]
         public Input<string>? BadgeUrl { get; set; }
@@ -816,7 +816,7 @@ namespace Pulumi.Aws.CodeBuild
 
         /// <summary>
         /// Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out
-        /// any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is
+        /// any related build that does not get marked as completed. The default is 60 minutes. The `BuildTimeout` property is
         /// not available on the `Lambda` compute type.
         /// </summary>
         [Input("buildTimeout")]
@@ -894,7 +894,7 @@ namespace Pulumi.Aws.CodeBuild
 
         /// <summary>
         /// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
-        /// times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
+        /// times out. The default is 8 hours. The `QueuedTimeout` property is not available on the `Lambda` compute type.
         /// </summary>
         [Input("queuedTimeout")]
         public Input<int>? QueuedTimeout { get; set; }
@@ -908,7 +908,7 @@ namespace Pulumi.Aws.CodeBuild
         /// <summary>
         /// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
         /// Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
-        /// `project_visibility` is `PUBLIC_READ`.
+        /// `ProjectVisibility` is `PUBLIC_READ`.
         /// </summary>
         [Input("resourceAccessRole")]
         public Input<string>? ResourceAccessRole { get; set; }
@@ -976,7 +976,7 @@ namespace Pulumi.Aws.CodeBuild
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider 
-        /// `default_tags` configuration block
+        /// `DefaultTags` configuration block
         /// present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
@@ -990,7 +990,7 @@ namespace Pulumi.Aws.CodeBuild
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider 
-        /// `default_tags` configuration block.
+        /// `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

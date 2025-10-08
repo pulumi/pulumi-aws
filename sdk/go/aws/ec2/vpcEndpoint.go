@@ -264,6 +264,86 @@ import (
 //	}
 //
 // ```
+//
+// ### Non-AWS Service
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// ptfeService, err := ec2.NewVpcEndpoint(ctx, "ptfe_service", &ec2.VpcEndpointArgs{
+// VpcId: pulumi.Any(vpcId),
+// ServiceName: pulumi.Any(ptfeServiceConfig),
+// VpcEndpointType: pulumi.String("Interface"),
+// SecurityGroupIds: pulumi.StringArray{
+// ptfeServiceAwsSecurityGroup.Id,
+// },
+// SubnetIds: pulumi.StringArray{
+// subnetIds,
+// },
+// PrivateDnsEnabled: pulumi.Bool(false),
+// })
+// if err != nil {
+// return err
+// }
+// internal, err := route53.LookupZone(ctx, &route53.LookupZoneArgs{
+// Name: pulumi.StringRef("vpc.internal."),
+// PrivateZone: pulumi.BoolRef(true),
+// VpcId: pulumi.StringRef(vpcId),
+// }, nil);
+// if err != nil {
+// return err
+// }
+// _, err = route53.NewRecord(ctx, "ptfe_service", &route53.RecordArgs{
+// ZoneId: pulumi.String(internal.ZoneId),
+// Name: pulumi.Sprintf("ptfe.%v", internal.Name),
+// Type: pulumi.String(route53.RecordTypeCNAME),
+// Ttl: pulumi.Int(300),
+// Records: pulumi.StringArray{
+// pulumi.String(ptfeService.DnsEntries.ApplyT(func(dnsEntries []ec2.VpcEndpointDnsEntry) (interface{}, error) {
+// return dnsEntries[0].Dns_name, nil
+// }).(pulumi.Interface{}Output)),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
+// > **NOTE The `dnsEntry` output is a list of maps:** This provider interpolation support for lists of maps requires the `lookup` and `[]` until full support of lists of maps is available
+//
+// ## Import
+//
+// ### Identity Schema
+//
+// #### Required
+//
+// * `id` - (String) ID of the VPC endpoint.
+//
+// #### Optional
+//
+// * `account_id` (String) AWS Account where this resource is managed.
+//
+// * `region` (String) Region where this resource is managed.
+//
+// Using `pulumi import`, import VPC Endpoints using the VPC endpoint `id`. For example:
+//
+// console
+//
+// % pulumi import aws_vpc_endpoint.example vpce-3ecf2a57
 type VpcEndpoint struct {
 	pulumi.CustomResourceState
 

@@ -23,14 +23,14 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
     public static final OntapVolumeArgs Empty = new OntapVolumeArgs();
 
     /**
-     * The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
+     * The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregateConfiguration` Block] for details.
      * 
      */
     @Import(name="aggregateConfiguration")
     private @Nullable Output<OntapVolumeAggregateConfigurationArgs> aggregateConfiguration;
 
     /**
-     * @return The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
+     * @return The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregateConfiguration` Block] for details.
      * 
      */
     public Optional<Output<OntapVolumeAggregateConfigurationArgs>> aggregateConfiguration() {
@@ -83,14 +83,14 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the location in the storage virtual machine&#39;s namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
+     * Specifies the location in the storage virtual machine&#39;s namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
      * 
      */
     @Import(name="junctionPath")
     private @Nullable Output<String> junctionPath;
 
     /**
-     * @return Specifies the location in the storage virtual machine&#39;s namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
+     * @return Specifies the location in the storage virtual machine&#39;s namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
      * 
      */
     public Optional<Output<String>> junctionPath() {
@@ -158,14 +158,14 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+     * Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
      * 
      */
     @Import(name="sizeInBytes")
     private @Nullable Output<String> sizeInBytes;
 
     /**
-     * @return Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+     * @return Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
      * 
      */
     public Optional<Output<String>> sizeInBytes() {
@@ -173,14 +173,14 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+     * Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
      * 
      */
     @Import(name="sizeInMegabytes")
     private @Nullable Output<Integer> sizeInMegabytes;
 
     /**
-     * @return Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+     * @return Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
      * 
      */
     public Optional<Output<Integer>> sizeInMegabytes() {
@@ -203,14 +203,14 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The SnapLock configuration for an FSx for ONTAP volume. See `snaplock_configuration` Block for details.
+     * The SnapLock configuration for an FSx for ONTAP volume. See `snaplockConfiguration` Block for details.
      * 
      */
     @Import(name="snaplockConfiguration")
     private @Nullable Output<OntapVolumeSnaplockConfigurationArgs> snaplockConfiguration;
 
     /**
-     * @return The SnapLock configuration for an FSx for ONTAP volume. See `snaplock_configuration` Block for details.
+     * @return The SnapLock configuration for an FSx for ONTAP volume. See `snaplockConfiguration` Block for details.
      * 
      */
     public Optional<Output<OntapVolumeSnaplockConfigurationArgs>> snaplockConfiguration() {
@@ -267,14 +267,14 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -282,14 +282,14 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The data tiering policy for an FSx for ONTAP volume. See `tiering_policy` Block for details.
+     * The data tiering policy for an FSx for ONTAP volume. See `tieringPolicy` Block for details.
      * 
      */
     @Import(name="tieringPolicy")
     private @Nullable Output<OntapVolumeTieringPolicyArgs> tieringPolicy;
 
     /**
-     * @return The data tiering policy for an FSx for ONTAP volume. See `tiering_policy` Block for details.
+     * @return The data tiering policy for an FSx for ONTAP volume. See `tieringPolicy` Block for details.
      * 
      */
     public Optional<Output<OntapVolumeTieringPolicyArgs>> tieringPolicy() {
@@ -370,7 +370,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param aggregateConfiguration The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
+         * @param aggregateConfiguration The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregateConfiguration` Block] for details.
          * 
          * @return builder
          * 
@@ -381,7 +381,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param aggregateConfiguration The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
+         * @param aggregateConfiguration The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregateConfiguration` Block] for details.
          * 
          * @return builder
          * 
@@ -454,7 +454,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param junctionPath Specifies the location in the storage virtual machine&#39;s namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
+         * @param junctionPath Specifies the location in the storage virtual machine&#39;s namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
          * 
          * @return builder
          * 
@@ -465,7 +465,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param junctionPath Specifies the location in the storage virtual machine&#39;s namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
+         * @param junctionPath Specifies the location in the storage virtual machine&#39;s namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
          * 
          * @return builder
          * 
@@ -559,7 +559,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sizeInBytes Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+         * @param sizeInBytes Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
          * 
          * @return builder
          * 
@@ -570,7 +570,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sizeInBytes Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+         * @param sizeInBytes Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
          * 
          * @return builder
          * 
@@ -580,7 +580,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sizeInMegabytes Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+         * @param sizeInMegabytes Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
          * 
          * @return builder
          * 
@@ -591,7 +591,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sizeInMegabytes Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+         * @param sizeInMegabytes Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
          * 
          * @return builder
          * 
@@ -622,7 +622,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snaplockConfiguration The SnapLock configuration for an FSx for ONTAP volume. See `snaplock_configuration` Block for details.
+         * @param snaplockConfiguration The SnapLock configuration for an FSx for ONTAP volume. See `snaplockConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -633,7 +633,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snaplockConfiguration The SnapLock configuration for an FSx for ONTAP volume. See `snaplock_configuration` Block for details.
+         * @param snaplockConfiguration The SnapLock configuration for an FSx for ONTAP volume. See `snaplockConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -710,7 +710,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -721,7 +721,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -731,7 +731,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tieringPolicy The data tiering policy for an FSx for ONTAP volume. See `tiering_policy` Block for details.
+         * @param tieringPolicy The data tiering policy for an FSx for ONTAP volume. See `tieringPolicy` Block for details.
          * 
          * @return builder
          * 
@@ -742,7 +742,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tieringPolicy The data tiering policy for an FSx for ONTAP volume. See `tiering_policy` Block for details.
+         * @param tieringPolicy The data tiering policy for an FSx for ONTAP volume. See `tieringPolicy` Block for details.
          * 
          * @return builder
          * 

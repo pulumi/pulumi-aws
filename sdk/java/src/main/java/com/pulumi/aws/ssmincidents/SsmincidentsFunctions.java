@@ -324,6 +324,39 @@ public final class SsmincidentsFunctions {
      * 
      * ## Example Usage
      * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssmincidents.ResponsePlan;
+     * import com.pulumi.aws.ssmincidents.ResponsePlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new ResponsePlan("example", ResponsePlanArgs.builder()
+     *             .arn("exampleARN")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetResponsePlanResult> getResponsePlan(GetResponsePlanArgs args) {
         return getResponsePlan(args, InvokeOptions.Empty);
@@ -332,6 +365,39 @@ public final class SsmincidentsFunctions {
      * Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssmincidents.ResponsePlan;
+     * import com.pulumi.aws.ssmincidents.ResponsePlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new ResponsePlan("example", ResponsePlanArgs.builder()
+     *             .arn("exampleARN")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetResponsePlanResult> getResponsePlanPlain(GetResponsePlanPlainArgs args) {
@@ -342,6 +408,39 @@ public final class SsmincidentsFunctions {
      * 
      * ## Example Usage
      * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssmincidents.ResponsePlan;
+     * import com.pulumi.aws.ssmincidents.ResponsePlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new ResponsePlan("example", ResponsePlanArgs.builder()
+     *             .arn("exampleARN")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetResponsePlanResult> getResponsePlan(GetResponsePlanArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ssmincidents/getResponsePlan:getResponsePlan", TypeShape.of(GetResponsePlanResult.class), args, Utilities.withVersion(options));
@@ -351,6 +450,39 @@ public final class SsmincidentsFunctions {
      * 
      * ## Example Usage
      * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssmincidents.ResponsePlan;
+     * import com.pulumi.aws.ssmincidents.ResponsePlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new ResponsePlan("example", ResponsePlanArgs.builder()
+     *             .arn("exampleARN")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetResponsePlanResult> getResponsePlan(GetResponsePlanArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:ssmincidents/getResponsePlan:getResponsePlan", TypeShape.of(GetResponsePlanResult.class), args, Utilities.withVersion(options));
@@ -359,6 +491,39 @@ public final class SsmincidentsFunctions {
      * Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssmincidents.ResponsePlan;
+     * import com.pulumi.aws.ssmincidents.ResponsePlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new ResponsePlan("example", ResponsePlanArgs.builder()
+     *             .arn("exampleARN")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetResponsePlanResult> getResponsePlanPlain(GetResponsePlanPlainArgs args, InvokeOptions options) {

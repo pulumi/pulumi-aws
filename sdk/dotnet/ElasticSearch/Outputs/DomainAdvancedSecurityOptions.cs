@@ -18,7 +18,7 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
+        /// Whether the internal user database is enabled. If not set, defaults to `False` by the AWS API.
         /// </summary>
         public readonly bool? InternalUserDatabaseEnabled;
         /// <summary>

@@ -349,7 +349,7 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         public readonly string OutpostArn;
         /// <summary>
-        /// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
+        /// Value from an Amazon-maintained list (`Amazon`, `aws-marketplace`, `Microsoft`) of snapshot owners.
         /// </summary>
         public readonly string OwnerAlias;
         /// <summary>

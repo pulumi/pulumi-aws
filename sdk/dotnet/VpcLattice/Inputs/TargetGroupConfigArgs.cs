@@ -25,7 +25,7 @@ namespace Pulumi.Aws.VpcLattice.Inputs
         public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
-        /// The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
+        /// The version of the event structure that the Lambda function receives. Supported only if `Type` is `LAMBDA`. Valid Values are `V1` | `V2`.
         /// </summary>
         [Input("lambdaEventStructureVersion")]
         public Input<string>? LambdaEventStructureVersion { get; set; }

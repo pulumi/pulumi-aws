@@ -17,7 +17,7 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingSubSlot {
     private String name;
     /**
      * @return Unique identifier assigned to a slot type.
-     * This refers to either a built-in slot type or the unique `slot_type_id` of a custom slot type.
+     * This refers to either a built-in slot type or the unique `slotTypeId` of a custom slot type.
      * 
      */
     private String slotTypeId;
@@ -32,7 +32,7 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingSubSlot {
     }
     /**
      * @return Unique identifier assigned to a slot type.
-     * This refers to either a built-in slot type or the unique `slot_type_id` of a custom slot type.
+     * This refers to either a built-in slot type or the unique `slotTypeId` of a custom slot type.
      * 
      */
     public String slotTypeId() {

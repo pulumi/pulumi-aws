@@ -57,7 +57,7 @@ namespace Pulumi.Aws.RedShift
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The action that Amazon Redshift takes when the limit is reached. The default is `log`. Valid values are `log`, `emit-metric`, and `disable`.
+        /// The action that Amazon Redshift takes when the limit is reached. The default is `Log`. Valid values are `Log`, `emit-metric`, and `Disable`.
         /// </summary>
         [Output("breachAction")]
         public Output<string?> BreachAction { get; private set; } = null!;
@@ -69,19 +69,19 @@ namespace Pulumi.Aws.RedShift
         public Output<string> ClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Redshift feature that you want to limit. Valid values are `spectrum`, `concurrency-scaling`, and `cross-region-datasharing`.
+        /// The Amazon Redshift feature that you want to limit. Valid values are `Spectrum`, `concurrency-scaling`, and `cross-region-datasharing`.
         /// </summary>
         [Output("featureType")]
         public Output<string> FeatureType { get; private set; } = null!;
 
         /// <summary>
-        /// The type of limit. Depending on the feature type, this can be based on a time duration or data size. If FeatureType is `spectrum`, then LimitType must be `data-scanned`. If FeatureType is `concurrency-scaling`, then LimitType must be `time`. If FeatureType is `cross-region-datasharing`, then LimitType must be `data-scanned`. Valid values are `data-scanned`, and `time`.
+        /// The type of limit. Depending on the feature type, this can be based on a time duration or data size. If FeatureType is `Spectrum`, then LimitType must be `data-scanned`. If FeatureType is `concurrency-scaling`, then LimitType must be `Time`. If FeatureType is `cross-region-datasharing`, then LimitType must be `data-scanned`. Valid values are `data-scanned`, and `Time`.
         /// </summary>
         [Output("limitType")]
         public Output<string> LimitType { get; private set; } = null!;
 
         /// <summary>
-        /// The time period that the amount applies to. A weekly period begins on Sunday. The default is `monthly`. Valid values are `daily`, `weekly`, and `monthly`.
+        /// The time period that the amount applies to. A weekly period begins on Sunday. The default is `Monthly`. Valid values are `Daily`, `Weekly`, and `Monthly`.
         /// </summary>
         [Output("period")]
         public Output<string?> Period { get; private set; } = null!;
@@ -93,13 +93,13 @@ namespace Pulumi.Aws.RedShift
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.RedShift
         public Input<int> Amount { get; set; } = null!;
 
         /// <summary>
-        /// The action that Amazon Redshift takes when the limit is reached. The default is `log`. Valid values are `log`, `emit-metric`, and `disable`.
+        /// The action that Amazon Redshift takes when the limit is reached. The default is `Log`. Valid values are `Log`, `emit-metric`, and `Disable`.
         /// </summary>
         [Input("breachAction")]
         public Input<string>? BreachAction { get; set; }
@@ -169,19 +169,19 @@ namespace Pulumi.Aws.RedShift
         public Input<string> ClusterIdentifier { get; set; } = null!;
 
         /// <summary>
-        /// The Amazon Redshift feature that you want to limit. Valid values are `spectrum`, `concurrency-scaling`, and `cross-region-datasharing`.
+        /// The Amazon Redshift feature that you want to limit. Valid values are `Spectrum`, `concurrency-scaling`, and `cross-region-datasharing`.
         /// </summary>
         [Input("featureType", required: true)]
         public Input<string> FeatureType { get; set; } = null!;
 
         /// <summary>
-        /// The type of limit. Depending on the feature type, this can be based on a time duration or data size. If FeatureType is `spectrum`, then LimitType must be `data-scanned`. If FeatureType is `concurrency-scaling`, then LimitType must be `time`. If FeatureType is `cross-region-datasharing`, then LimitType must be `data-scanned`. Valid values are `data-scanned`, and `time`.
+        /// The type of limit. Depending on the feature type, this can be based on a time duration or data size. If FeatureType is `Spectrum`, then LimitType must be `data-scanned`. If FeatureType is `concurrency-scaling`, then LimitType must be `Time`. If FeatureType is `cross-region-datasharing`, then LimitType must be `data-scanned`. Valid values are `data-scanned`, and `Time`.
         /// </summary>
         [Input("limitType", required: true)]
         public Input<string> LimitType { get; set; } = null!;
 
         /// <summary>
-        /// The time period that the amount applies to. A weekly period begins on Sunday. The default is `monthly`. Valid values are `daily`, `weekly`, and `monthly`.
+        /// The time period that the amount applies to. A weekly period begins on Sunday. The default is `Monthly`. Valid values are `Daily`, `Weekly`, and `Monthly`.
         /// </summary>
         [Input("period")]
         public Input<string>? Period { get; set; }
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.RedShift
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -225,7 +225,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The action that Amazon Redshift takes when the limit is reached. The default is `log`. Valid values are `log`, `emit-metric`, and `disable`.
+        /// The action that Amazon Redshift takes when the limit is reached. The default is `Log`. Valid values are `Log`, `emit-metric`, and `Disable`.
         /// </summary>
         [Input("breachAction")]
         public Input<string>? BreachAction { get; set; }
@@ -237,19 +237,19 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? ClusterIdentifier { get; set; }
 
         /// <summary>
-        /// The Amazon Redshift feature that you want to limit. Valid values are `spectrum`, `concurrency-scaling`, and `cross-region-datasharing`.
+        /// The Amazon Redshift feature that you want to limit. Valid values are `Spectrum`, `concurrency-scaling`, and `cross-region-datasharing`.
         /// </summary>
         [Input("featureType")]
         public Input<string>? FeatureType { get; set; }
 
         /// <summary>
-        /// The type of limit. Depending on the feature type, this can be based on a time duration or data size. If FeatureType is `spectrum`, then LimitType must be `data-scanned`. If FeatureType is `concurrency-scaling`, then LimitType must be `time`. If FeatureType is `cross-region-datasharing`, then LimitType must be `data-scanned`. Valid values are `data-scanned`, and `time`.
+        /// The type of limit. Depending on the feature type, this can be based on a time duration or data size. If FeatureType is `Spectrum`, then LimitType must be `data-scanned`. If FeatureType is `concurrency-scaling`, then LimitType must be `Time`. If FeatureType is `cross-region-datasharing`, then LimitType must be `data-scanned`. Valid values are `data-scanned`, and `Time`.
         /// </summary>
         [Input("limitType")]
         public Input<string>? LimitType { get; set; }
 
         /// <summary>
-        /// The time period that the amount applies to. A weekly period begins on Sunday. The default is `monthly`. Valid values are `daily`, `weekly`, and `monthly`.
+        /// The time period that the amount applies to. A weekly period begins on Sunday. The default is `Monthly`. Valid values are `Daily`, `Weekly`, and `Monthly`.
         /// </summary>
         [Input("period")]
         public Input<string>? Period { get; set; }
@@ -264,7 +264,7 @@ namespace Pulumi.Aws.RedShift
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -276,7 +276,7 @@ namespace Pulumi.Aws.RedShift
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

@@ -33,6 +33,63 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### With Definition
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.quicksight.Analysis("example", {
+ *     analysisId: "example-id",
+ *     name: "example-name",
+ *     definition: {
+ *         dataSetIdentifiersDeclarations: [{
+ *             dataSetArn: dataset.arn,
+ *             identifier: "1",
+ *         }],
+ *         sheets: [{
+ *             title: "Example",
+ *             sheetId: "Example1",
+ *             visuals: [{
+ *                 lineChartVisual: {
+ *                     visualId: "LineChart",
+ *                     title: {
+ *                         formatText: {
+ *                             plainText: "Line Chart Example",
+ *                         },
+ *                     },
+ *                     chartConfiguration: {
+ *                         fieldWells: {
+ *                             lineChartAggregatedFieldWells: {
+ *                                 categories: [{
+ *                                     categoricalDimensionField: {
+ *                                         fieldId: "1",
+ *                                         column: {
+ *                                             dataSetIdentifier: "1",
+ *                                             columnName: "Column1",
+ *                                         },
+ *                                     },
+ *                                 }],
+ *                                 values: [{
+ *                                     categoricalMeasureField: {
+ *                                         fieldId: "2",
+ *                                         column: {
+ *                                             dataSetIdentifier: "1",
+ *                                             columnName: "Column1",
+ *                                         },
+ *                                         aggregationFunction: "COUNT",
+ *                                     },
+ *                                 }],
+ *                             },
+ *                         },
+ *                     },
+ *                 },
+ *             }],
+ *         }],
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import a QuickSight Analysis using the AWS account ID and analysis ID separated by a comma (`,`). For example:

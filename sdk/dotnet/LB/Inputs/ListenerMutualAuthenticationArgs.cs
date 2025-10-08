@@ -13,20 +13,20 @@ namespace Pulumi.Aws.LB.Inputs
     public sealed class ListenerMutualAuthenticationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Valid values are `off` and `on`.
+        /// Valid values are `Off` and `On`.
         /// </summary>
         [Input("advertiseTrustStoreCaNames")]
         public Input<string>? AdvertiseTrustStoreCaNames { get; set; }
 
         /// <summary>
         /// Whether client certificate expiry is ignored.
-        /// Default is `false`.
+        /// Default is `False`.
         /// </summary>
         [Input("ignoreClientCertificateExpiry")]
         public Input<bool>? IgnoreClientCertificateExpiry { get; set; }
 
         /// <summary>
-        /// Valid values are `off`, `passthrough`, and `verify`.
+        /// Valid values are `Off`, `Passthrough`, and `Verify`.
         /// </summary>
         [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;

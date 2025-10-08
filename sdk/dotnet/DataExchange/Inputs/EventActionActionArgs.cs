@@ -14,7 +14,7 @@ namespace Pulumi.Aws.DataExchange.Inputs
     {
         /// <summary>
         /// Configuration for an Export Revision to S3 action.
-        /// Described in `export_revision_to_s3` Configuration Block
+        /// Described in `ExportRevisionToS3` Configuration Block
         /// </summary>
         [Input("exportRevisionToS3")]
         public Input<Inputs.EventActionActionExportRevisionToS3Args>? ExportRevisionToS3 { get; set; }

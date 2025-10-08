@@ -124,7 +124,7 @@ namespace Pulumi.Aws.Amplify
         public Output<ImmutableArray<Outputs.DomainAssociationSubDomain>> SubDomains { get; private set; } = null!;
 
         /// <summary>
-        /// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
+        /// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `False` will skip the process. Default: `True`.
         /// </summary>
         [Output("waitForVerification")]
         public Output<bool?> WaitForVerification { get; private set; } = null!;
@@ -218,7 +218,7 @@ namespace Pulumi.Aws.Amplify
         }
 
         /// <summary>
-        /// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
+        /// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `False` will skip the process. Default: `True`.
         /// </summary>
         [Input("waitForVerification")]
         public Input<bool>? WaitForVerification { get; set; }
@@ -286,7 +286,7 @@ namespace Pulumi.Aws.Amplify
         }
 
         /// <summary>
-        /// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
+        /// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `False` will skip the process. Default: `True`.
         /// </summary>
         [Input("waitForVerification")]
         public Input<bool>? WaitForVerification { get; set; }

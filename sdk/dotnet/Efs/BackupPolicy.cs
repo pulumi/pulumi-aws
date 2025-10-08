@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Efs
     public partial class BackupPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A backup_policy object (documented below).
+        /// A BackupPolicy object (documented below).
         /// </summary>
         [Output("backupPolicy")]
         public Output<Outputs.BackupPolicyBackupPolicy> BackupPolicyDetails { get; private set; } = null!;
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.Efs
     public sealed class BackupPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A backup_policy object (documented below).
+        /// A BackupPolicy object (documented below).
         /// </summary>
         [Input("backupPolicy", required: true)]
         public Input<Inputs.BackupPolicyBackupPolicyArgs> BackupPolicyDetails { get; set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.Efs
     public sealed class BackupPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A backup_policy object (documented below).
+        /// A BackupPolicy object (documented below).
         /// </summary>
         [Input("backupPolicy")]
         public Input<Inputs.BackupPolicyBackupPolicyGetArgs>? BackupPolicyDetails { get; set; }

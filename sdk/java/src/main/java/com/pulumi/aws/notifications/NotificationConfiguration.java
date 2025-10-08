@@ -178,7 +178,7 @@ public class NotificationConfiguration extends com.pulumi.resources.CustomResour
     }
     /**
      * Map of tags to assign to the resource. A tag is a string-to-string map of key-value pairs. If
-     * configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those
+     * configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those
      * defined at the provider-level.
      * 
      */
@@ -187,7 +187,7 @@ public class NotificationConfiguration extends com.pulumi.resources.CustomResour
 
     /**
      * @return Map of tags to assign to the resource. A tag is a string-to-string map of key-value pairs. If
-     * configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those
+     * configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those
      * defined at the provider-level.
      * 
      */
@@ -195,7 +195,7 @@ public class NotificationConfiguration extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags`
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags`
      * configuration block.
      * 
      */
@@ -203,7 +203,7 @@ public class NotificationConfiguration extends com.pulumi.resources.CustomResour
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags`
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags`
      * configuration block.
      * 
      */

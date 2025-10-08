@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Kendra.Inputs
         }
 
         /// <summary>
-        /// Whether to use documents you indexed directly using the `BatchPutDocument API`. Defaults to `false`.
+        /// Whether to use documents you indexed directly using the `BatchPutDocument API`. Defaults to `False`.
         /// </summary>
         [Input("directPutContent")]
         public Input<bool>? DirectPutContent { get; set; }

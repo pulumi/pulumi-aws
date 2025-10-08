@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceObservabilityConfiguration {
     /**
-     * @return ARN of the observability configuration that is associated with the service. Specified only when `observability_enabled` is `true`.
+     * @return ARN of the observability configuration that is associated with the service. Specified only when `observabilityEnabled` is `true`.
      * 
      */
     private @Nullable String observabilityConfigurationArn;
@@ -26,7 +26,7 @@ public final class ServiceObservabilityConfiguration {
 
     private ServiceObservabilityConfiguration() {}
     /**
-     * @return ARN of the observability configuration that is associated with the service. Specified only when `observability_enabled` is `true`.
+     * @return ARN of the observability configuration that is associated with the service. Specified only when `observabilityEnabled` is `true`.
      * 
      */
     public Optional<String> observabilityConfigurationArn() {

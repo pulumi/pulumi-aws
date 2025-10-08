@@ -582,6 +582,70 @@ import (
 //
 // ```
 //
+// ### Auto Scaling group with Traffic Sources
+//
+// ## Waiting for Capacity
+//
+// A newly-created ASG is initially empty and begins to scale to `minSize` (or
+// `desiredCapacity`, if specified) by launching instances using the provided
+// Launch Configuration. These instances take time to launch and boot.
+//
+// On ASG Update, changes to these values also take time to result in the target
+// number of instances providing service.
+//
+// This provider provides two mechanisms to help consistently manage ASG scale up
+// time across dependent resources.
+//
+// #### Waiting for ASG Capacity
+//
+// The first is default behavior. This provider waits after ASG creation for
+// `minSize` (or `desiredCapacity`, if specified) healthy instances to show up
+// in the ASG before continuing.
+//
+// If `minSize` or `desiredCapacity` are changed in a subsequent update,
+// this provider will also wait for the correct number of healthy instances before
+// continuing.
+//
+// This provider considers an instance "healthy" when the ASG reports `HealthStatus:
+// "Healthy"` and `LifecycleState: "InService"`. See the [AWS AutoScaling
+// Docs](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html)
+// for more information on an ASG's lifecycle.
+//
+// This provider will wait for healthy instances for up to
+// `waitForCapacityTimeout`. If ASG creation is taking more than a few minutes,
+// it's worth investigating for scaling activity errors, which can be caused by
+// problems with the selected Launch Configuration.
+//
+// Setting `waitForCapacityTimeout` to `"0"` disables ASG Capacity waiting.
+//
+// #### Waiting for ELB Capacity
+//
+// The second mechanism is optional, and affects ASGs with attached ELBs specified
+// via the `loadBalancers` attribute or with ALBs specified with `targetGroupArns`.
+//
+// The `minElbCapacity` parameter causes the provider to wait for at least the
+// requested number of instances to show up `"InService"` in all attached ELBs
+// during ASG creation. It has no effect on ASG updates.
+//
+// If `waitForElbCapacity` is set, the provider will wait for exactly that number
+// of Instances to be `"InService"` in all attached ELBs on both creation and
+// updates.
+//
+// These parameters can be used to ensure that service is being provided before
+// the provider moves on. If new instances don't pass the ELB's health checks for any
+// reason, the apply will time out, and the ASG will be marked as
+// tainted (i.e., marked to be destroyed in a follow up run).
+//
+// As with ASG Capacity, the provider will wait for up to `waitForCapacityTimeout`
+// for the proper number of instances to be healthy.
+//
+// #### Troubleshooting Capacity Waiting Timeouts
+//
+// If ASG creation takes more than a few minutes, this could indicate one of a
+// number of configuration problems. See the [AWS Docs on Load Balancer
+// Troubleshooting](https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-troubleshooting.html)
+// for more information.
+//
 // ## Import
 //
 // Using `pulumi import`, import Auto Scaling Groups using the `name`. For example:

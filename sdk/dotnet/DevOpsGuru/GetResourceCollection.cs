@@ -136,16 +136,16 @@ namespace Pulumi.Aws.DevOpsGuru
     public sealed class GetResourceCollectionResult
     {
         /// <summary>
-        /// A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
+        /// A collection of AWS CloudFormation stacks. See `Cloudformation` below for additional details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetResourceCollectionCloudformationResult> Cloudformations;
         /// <summary>
-        /// Type of AWS resource collection to create (same value as `type`).
+        /// Type of AWS resource collection to create (same value as `Type`).
         /// </summary>
         public readonly string Id;
         public readonly string Region;
         /// <summary>
-        /// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
+        /// AWS tags used to filter the resources in the resource collection. See `Tags` below for additional details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetResourceCollectionTagResult> Tags;
         public readonly string Type;

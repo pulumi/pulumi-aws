@@ -19,7 +19,7 @@ namespace Pulumi.Aws.ServiceCatalog.Inputs
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// Whether to ignore `value` and keep the previous parameter value. Ignored when initially provisioning a product.
+        /// Whether to ignore `Value` and keep the previous parameter value. Ignored when initially provisioning a product.
         /// </summary>
         [Input("usePreviousValue")]
         public Input<bool>? UsePreviousValue { get; set; }

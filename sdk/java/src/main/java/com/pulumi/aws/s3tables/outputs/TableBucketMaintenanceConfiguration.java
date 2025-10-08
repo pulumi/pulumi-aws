@@ -12,7 +12,7 @@ import java.util.Objects;
 public final class TableBucketMaintenanceConfiguration {
     /**
      * @return A single Iceberg unreferenced file removal settings object.
-     * See `iceberg_unreferenced_file_removal` below.
+     * See `icebergUnreferencedFileRemoval` below.
      * 
      */
     private TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval icebergUnreferencedFileRemoval;
@@ -20,7 +20,7 @@ public final class TableBucketMaintenanceConfiguration {
     private TableBucketMaintenanceConfiguration() {}
     /**
      * @return A single Iceberg unreferenced file removal settings object.
-     * See `iceberg_unreferenced_file_removal` below.
+     * See `icebergUnreferencedFileRemoval` below.
      * 
      */
     public TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval icebergUnreferencedFileRemoval() {

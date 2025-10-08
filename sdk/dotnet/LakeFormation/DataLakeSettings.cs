@@ -234,7 +234,7 @@ namespace Pulumi.Aws.LakeFormation
         /// <summary>
         /// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
         /// 
-        /// &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, `parameters`, and/or `trusted_resource_owners` results in the setting being cleared.
+        /// &gt; **NOTE:** Although optional, not including `Admins`, `CreateDatabaseDefaultPermissions`, `CreateTableDefaultPermissions`, `Parameters`, and/or `TrustedResourceOwners` results in the setting being cleared.
         /// </summary>
         [Output("trustedResourceOwners")]
         public Output<ImmutableArray<string>> TrustedResourceOwners { get; private set; } = null!;
@@ -399,7 +399,7 @@ namespace Pulumi.Aws.LakeFormation
         /// <summary>
         /// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
         /// 
-        /// &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, `parameters`, and/or `trusted_resource_owners` results in the setting being cleared.
+        /// &gt; **NOTE:** Although optional, not including `Admins`, `CreateDatabaseDefaultPermissions`, `CreateTableDefaultPermissions`, `Parameters`, and/or `TrustedResourceOwners` results in the setting being cleared.
         /// </summary>
         public InputList<string> TrustedResourceOwners
         {
@@ -529,7 +529,7 @@ namespace Pulumi.Aws.LakeFormation
         /// <summary>
         /// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
         /// 
-        /// &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, `parameters`, and/or `trusted_resource_owners` results in the setting being cleared.
+        /// &gt; **NOTE:** Although optional, not including `Admins`, `CreateDatabaseDefaultPermissions`, `CreateTableDefaultPermissions`, `Parameters`, and/or `TrustedResourceOwners` results in the setting being cleared.
         /// </summary>
         public InputList<string> TrustedResourceOwners
         {

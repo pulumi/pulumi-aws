@@ -102,14 +102,14 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a source_type must also be specified.
+     * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a sourceType must also be specified.
      * 
      */
     @Import(name="sourceIds")
     private @Nullable Output<List<String>> sourceIds;
 
     /**
-     * @return A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a source_type must also be specified.
+     * @return A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a sourceType must also be specified.
      * 
      */
     public Optional<Output<List<String>>> sourceIds() {
@@ -132,14 +132,14 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -303,7 +303,7 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param sourceIds A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a source_type must also be specified.
+         * @param sourceIds A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a sourceType must also be specified.
          * 
          * @return builder
          * 
@@ -314,7 +314,7 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param sourceIds A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a source_type must also be specified.
+         * @param sourceIds A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a sourceType must also be specified.
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param sourceIds A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a source_type must also be specified.
+         * @param sourceIds A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a sourceType must also be specified.
          * 
          * @return builder
          * 
@@ -355,7 +355,7 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

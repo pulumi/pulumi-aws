@@ -17,14 +17,14 @@ public final class AnalyzerConfigurationUnusedAccessArgs extends com.pulumi.reso
     public static final AnalyzerConfigurationUnusedAccessArgs Empty = new AnalyzerConfigurationUnusedAccessArgs();
 
     /**
-     * Information about analysis rules for the analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule. See `analysis_rule` Block for Unused Access Analyzer for details.
+     * Information about analysis rules for the analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule. See `analysisRule` Block for Unused Access Analyzer for details.
      * 
      */
     @Import(name="analysisRule")
     private @Nullable Output<AnalyzerConfigurationUnusedAccessAnalysisRuleArgs> analysisRule;
 
     /**
-     * @return Information about analysis rules for the analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule. See `analysis_rule` Block for Unused Access Analyzer for details.
+     * @return Information about analysis rules for the analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule. See `analysisRule` Block for Unused Access Analyzer for details.
      * 
      */
     public Optional<Output<AnalyzerConfigurationUnusedAccessAnalysisRuleArgs>> analysisRule() {
@@ -72,7 +72,7 @@ public final class AnalyzerConfigurationUnusedAccessArgs extends com.pulumi.reso
         }
 
         /**
-         * @param analysisRule Information about analysis rules for the analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule. See `analysis_rule` Block for Unused Access Analyzer for details.
+         * @param analysisRule Information about analysis rules for the analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule. See `analysisRule` Block for Unused Access Analyzer for details.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class AnalyzerConfigurationUnusedAccessArgs extends com.pulumi.reso
         }
 
         /**
-         * @param analysisRule Information about analysis rules for the analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule. See `analysis_rule` Block for Unused Access Analyzer for details.
+         * @param analysisRule Information about analysis rules for the analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule. See `analysisRule` Block for Unused Access Analyzer for details.
          * 
          * @return builder
          * 

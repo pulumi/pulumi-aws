@@ -111,14 +111,14 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
     }
 
     /**
-     * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * @return Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -328,7 +328,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
         }
 
         /**
-         * @param name Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+         * @param name Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
         }
 
         /**
-         * @param name Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+         * @param name Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
          * 
          * @return builder
          * 

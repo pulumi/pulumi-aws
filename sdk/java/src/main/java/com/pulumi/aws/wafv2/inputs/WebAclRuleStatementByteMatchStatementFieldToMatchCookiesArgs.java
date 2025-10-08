@@ -17,14 +17,14 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatchCookiesArgs 
     public static final WebAclRuleStatementByteMatchStatementFieldToMatchCookiesArgs Empty = new WebAclRuleStatementByteMatchStatementFieldToMatchCookiesArgs();
 
     /**
-     * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+     * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
      * 
      */
     @Import(name="matchPatterns", required=true)
     private Output<List<WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternArgs>> matchPatterns;
 
     /**
-     * @return The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+     * @return The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
      * 
      */
     public Output<List<WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternArgs>> matchPatterns() {
@@ -88,7 +88,7 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatchCookiesArgs 
         }
 
         /**
-         * @param matchPatterns The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         * @param matchPatterns The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatchCookiesArgs 
         }
 
         /**
-         * @param matchPatterns The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         * @param matchPatterns The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatchCookiesArgs 
         }
 
         /**
-         * @param matchPatterns The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         * @param matchPatterns The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
          * 
          * @return builder
          * 

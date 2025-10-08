@@ -21,7 +21,7 @@ public final class PolicyPredictiveScalingPolicyConfiguration {
      */
     private @Nullable String maxCapacityBreachBehavior;
     /**
-     * @return Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. Required if the `max_capacity_breach_behavior` argument is set to `IncreaseMaxCapacity`, and cannot be used otherwise.
+     * @return Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. Required if the `maxCapacityBreachBehavior` argument is set to `IncreaseMaxCapacity`, and cannot be used otherwise.
      * 
      */
     private @Nullable Integer maxCapacityBuffer;
@@ -50,7 +50,7 @@ public final class PolicyPredictiveScalingPolicyConfiguration {
         return Optional.ofNullable(this.maxCapacityBreachBehavior);
     }
     /**
-     * @return Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. Required if the `max_capacity_breach_behavior` argument is set to `IncreaseMaxCapacity`, and cannot be used otherwise.
+     * @return Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. Required if the `maxCapacityBreachBehavior` argument is set to `IncreaseMaxCapacity`, and cannot be used otherwise.
      * 
      */
     public Optional<Integer> maxCapacityBuffer() {

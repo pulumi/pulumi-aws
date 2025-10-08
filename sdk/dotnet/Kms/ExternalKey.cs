@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Kms
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
+        /// Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `True` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `False`.
         /// </summary>
         [Output("bypassPolicyLockoutSafetyCheck")]
         public Output<bool?> BypassPolicyLockoutSafetyCheck { get; private set; } = null!;
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Kms
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
+        /// Specifies whether the key is enabled. Keys pending import can only be `False`. Imported keys default to `True` unless expired.
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.Aws.Kms
         public Output<string> KeyUsage { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+        /// Indicates whether the KMS key is a multi-Region (`True`) or regional (`False`) key. Defaults to `False`.
         /// </summary>
         [Output("multiRegion")]
         public Output<bool> MultiRegion { get; private set; } = null!;
@@ -121,13 +121,13 @@ namespace Pulumi.Aws.Kms
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A key-value map of tags to assign to the key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A key-value map of tags to assign to the key. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.Kms
     public sealed class ExternalKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
+        /// Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `True` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `False`.
         /// </summary>
         [Input("bypassPolicyLockoutSafetyCheck")]
         public Input<bool>? BypassPolicyLockoutSafetyCheck { get; set; }
@@ -207,7 +207,7 @@ namespace Pulumi.Aws.Kms
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
+        /// Specifies whether the key is enabled. Keys pending import can only be `False`. Imported keys default to `True` unless expired.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -241,7 +241,7 @@ namespace Pulumi.Aws.Kms
         public Input<string>? KeyUsage { get; set; }
 
         /// <summary>
-        /// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+        /// Indicates whether the KMS key is a multi-Region (`True`) or regional (`False`) key. Defaults to `False`.
         /// </summary>
         [Input("multiRegion")]
         public Input<bool>? MultiRegion { get; set; }
@@ -262,7 +262,7 @@ namespace Pulumi.Aws.Kms
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A key-value map of tags to assign to the key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A key-value map of tags to assign to the key. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -291,7 +291,7 @@ namespace Pulumi.Aws.Kms
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
+        /// Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `True` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `False`.
         /// </summary>
         [Input("bypassPolicyLockoutSafetyCheck")]
         public Input<bool>? BypassPolicyLockoutSafetyCheck { get; set; }
@@ -309,7 +309,7 @@ namespace Pulumi.Aws.Kms
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
+        /// Specifies whether the key is enabled. Keys pending import can only be `False`. Imported keys default to `True` unless expired.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -355,7 +355,7 @@ namespace Pulumi.Aws.Kms
         public Input<string>? KeyUsage { get; set; }
 
         /// <summary>
-        /// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+        /// Indicates whether the KMS key is a multi-Region (`True`) or regional (`False`) key. Defaults to `False`.
         /// </summary>
         [Input("multiRegion")]
         public Input<bool>? MultiRegion { get; set; }
@@ -376,7 +376,7 @@ namespace Pulumi.Aws.Kms
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A key-value map of tags to assign to the key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A key-value map of tags to assign to the key. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -388,7 +388,7 @@ namespace Pulumi.Aws.Kms
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

@@ -14,6 +14,96 @@ namespace Pulumi.Aws.WorkSpacesWeb
     /// 
     /// ## Example Usage
     /// 
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var examplePortal = new Aws.WorkSpacesWeb.Portal("example", new()
+    ///     {
+    ///         DisplayName = "example",
+    ///     });
+    /// 
+    ///     var exampleBucket = new Aws.S3.Bucket("example", new()
+    ///     {
+    ///         BucketName = "example-session-logs",
+    ///         ForceDestroy = true,
+    ///     });
+    /// 
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "workspaces-web.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "s3:PutObject",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     $"{exampleBucket.Arn}/*",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleBucketPolicy = new Aws.S3.BucketPolicy("example", new()
+    ///     {
+    ///         Bucket = exampleBucket.Id,
+    ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var exampleSessionLogger = new Aws.WorkSpacesWeb.SessionLogger("example", new()
+    ///     {
+    ///         DisplayName = "example",
+    ///         EventFilter = new Aws.WorkSpacesWeb.Inputs.SessionLoggerEventFilterArgs
+    ///         {
+    ///             All = null[0],
+    ///         },
+    ///         LogConfiguration = new Aws.WorkSpacesWeb.Inputs.SessionLoggerLogConfigurationArgs
+    ///         {
+    ///             S3 = new Aws.WorkSpacesWeb.Inputs.SessionLoggerLogConfigurationS3Args
+    ///             {
+    ///                 Bucket = exampleBucket.Id,
+    ///                 FolderStructure = "Flat",
+    ///                 LogFileFormat = "Json",
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleBucketPolicy,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSessionLoggerAssociation = new Aws.WorkSpacesWeb.SessionLoggerAssociation("example", new()
+    ///     {
+    ///         PortalArn = examplePortal.PortalArn,
+    ///         SessionLoggerArn = exampleSessionLogger.SessionLoggerArn,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WorkSpaces Web Session Logger Association using the `session_logger_arn,portal_arn`. For example:

@@ -177,7 +177,7 @@ namespace Pulumi.Aws.LicenseManager
         public readonly string LicenseName;
         /// <summary>
         /// Product name.
-        /// * `product_sku ` - Product SKU.
+        /// * `ProductSku ` - Product SKU.
         /// </summary>
         public readonly string ProductName;
         public readonly string ProductSku;

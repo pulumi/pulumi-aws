@@ -89,7 +89,7 @@ namespace Pulumi.Aws.Glue
     {
         /// <summary>
         /// Concatenation of the catalog ID and connection name. For example, if your account ID is
-        /// `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
+        /// `123456789123` and the connection name is `Conn` then the ID is `123456789123:conn`.
         /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.Glue
     {
         /// <summary>
         /// Concatenation of the catalog ID and connection name. For example, if your account ID is
-        /// `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
+        /// `123456789123` and the connection name is `Conn` then the ID is `123456789123:conn`.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

@@ -140,7 +140,7 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Managed rules that are available for the specified Amazon Web Services resource. See `managed_rules reference` below for details.
+        /// Managed rules that are available for the specified Amazon Web Services resource. See `ManagedRules reference` below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetContributorManagedInsightRulesManagedRuleResult> ManagedRules;
         public readonly string Region;

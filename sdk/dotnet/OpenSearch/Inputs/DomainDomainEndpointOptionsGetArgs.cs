@@ -31,7 +31,7 @@ namespace Pulumi.Aws.OpenSearch.Inputs
         public Input<bool>? CustomEndpointEnabled { get; set; }
 
         /// <summary>
-        /// Whether or not to require HTTPS. Defaults to `true`.
+        /// Whether or not to require HTTPS. Defaults to `True`.
         /// </summary>
         [Input("enforceHttps")]
         public Input<bool>? EnforceHttps { get; set; }

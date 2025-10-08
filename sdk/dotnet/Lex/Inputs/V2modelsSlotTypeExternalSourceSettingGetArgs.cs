@@ -17,7 +17,7 @@ namespace Pulumi.Aws.Lex.Inputs
 
         /// <summary>
         /// Settings required for a slot type based on a grammar that you provide.
-        /// See `grammar_slot_type_setting` argument reference below.
+        /// See `GrammarSlotTypeSetting` argument reference below.
         /// </summary>
         public InputList<Inputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingGetArgs> GrammarSlotTypeSettings
         {

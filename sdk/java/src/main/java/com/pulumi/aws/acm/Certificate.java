@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  * Private certificates created using this resource are eligible for managed renewal if they have been exported or associated with another AWS service.
  * See [managed renewal documentation](https://docs.aws.amazon.com/acm/latest/userguide/managed-renewal.html) for more information.
  * By default, a certificate is valid for 395 days and the managed renewal process will start 60 days before expiration.
- * To renew the certificate earlier than 60 days before expiration, configure `early_renewal_duration`.
+ * To renew the certificate earlier than 60 days before expiration, configure `earlyRenewalDuration`.
  * 
  * ## Example Usage
  * 
@@ -156,6 +156,24 @@ import javax.annotation.Nullable;
  * }
  * }
  * </pre>
+ * 
+ * ### Referencing domainValidationOptions With forEach Based Resources
+ * 
+ * See the `aws.acm.CertificateValidation` resource for a full example of performing DNS validation.
+ * 
+ * ## Import
+ * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * - `arn` (String) ARN of the certificate.
+ * 
+ * Using `pulumi import`, import certificates using their ARN. For example:
+ * 
+ * console
+ * 
+ * % pulumi import aws_acm_certificate.example arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
  * 
  */
 @ResourceType(type="aws:acm/certificate:Certificate")
@@ -271,14 +289,14 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return this.options;
     }
     /**
-     * `true` if a Private certificate eligible for managed renewal is within the `early_renewal_duration` period.
+     * `true` if a Private certificate eligible for managed renewal is within the `earlyRenewalDuration` period.
      * 
      */
     @Export(name="pendingRenewal", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> pendingRenewal;
 
     /**
-     * @return `true` if a Private certificate eligible for managed renewal is within the `early_renewal_duration` period.
+     * @return `true` if a Private certificate eligible for managed renewal is within the `earlyRenewalDuration` period.
      * 
      */
     public Output<Boolean> pendingRenewal() {
@@ -355,28 +373,28 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return this.subjectAlternativeNames;
     }
     /**
-     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Route53.Inputs
     {
         /// <summary>
         /// Alias target block.
-        /// See `alias_target` below.
+        /// See `AliasTarget` below.
         /// </summary>
         [Input("aliasTarget")]
         public Input<Inputs.RecordsExclusiveResourceRecordSetAliasTargetGetArgs>? AliasTarget { get; set; }
@@ -32,14 +32,14 @@ namespace Pulumi.Aws.Route53.Inputs
 
         /// <summary>
         /// Geolocation block to control how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
-        /// See `geolocation` below.
+        /// See `Geolocation` below.
         /// </summary>
         [Input("geolocation")]
         public Input<Inputs.RecordsExclusiveResourceRecordSetGeolocationGetArgs>? Geolocation { get; set; }
 
         /// <summary>
         /// Geoproximity location block.
-        /// See `geoproximity_location` below.
+        /// See `GeoproximityLocation` below.
         /// </summary>
         [Input("geoproximityLocation")]
         public Input<Inputs.RecordsExclusiveResourceRecordSetGeoproximityLocationGetArgs>? GeoproximityLocation { get; set; }
@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Route53.Inputs
 
         /// <summary>
         /// Information about the resource records to act upon.
-        /// See `resource_records` below.
+        /// See `ResourceRecords` below.
         /// </summary>
         public InputList<Inputs.RecordsExclusiveResourceRecordSetResourceRecordGetArgs> ResourceRecords
         {
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Route53.Inputs
 
         /// <summary>
         /// An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
-        /// Required if using `cidr_routing_config`, `failover`, `geolocation`,`geoproximity_location`, `multivalue_answer`, `region`, or `weight`.
+        /// Required if using `CidrRoutingConfig`, `Failover`, `Geolocation`,`GeoproximityLocation`, `MultivalueAnswer`, `Region`, or `Weight`.
         /// </summary>
         [Input("setIdentifier")]
         public Input<string>? SetIdentifier { get; set; }
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.Route53.Inputs
         /// 
         /// The following arguments are optional:
         /// 
-        /// &gt; Exactly one of `resource_records` or `alias_target` must be specified.
+        /// &gt; Exactly one of `ResourceRecords` or `AliasTarget` must be specified.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

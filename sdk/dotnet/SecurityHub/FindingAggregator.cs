@@ -44,7 +44,7 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// ### All Regions Except Specified Regions Usage
     /// 
-    /// The following example will enable the aggregator for every region except those specified in `specified_regions`.
+    /// The following example will enable the aggregator for every region except those specified in `SpecifiedRegions`.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -77,7 +77,7 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// ### Specified Regions Usage
     /// 
-    /// The following example will enable the aggregator for every region specified in `specified_regions`.
+    /// The following example will enable the aggregator for every region specified in `SpecifiedRegions`.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -160,7 +160,7 @@ namespace Pulumi.Aws.SecurityHub
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
+        /// List of regions to include or exclude (required if `LinkingMode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
         /// </summary>
         [Output("specifiedRegions")]
         public Output<ImmutableArray<string>> SpecifiedRegions { get; private set; } = null!;
@@ -227,7 +227,7 @@ namespace Pulumi.Aws.SecurityHub
         private InputList<string>? _specifiedRegions;
 
         /// <summary>
-        /// List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
+        /// List of regions to include or exclude (required if `LinkingMode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
         /// </summary>
         public InputList<string> SpecifiedRegions
         {
@@ -259,7 +259,7 @@ namespace Pulumi.Aws.SecurityHub
         private InputList<string>? _specifiedRegions;
 
         /// <summary>
-        /// List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
+        /// List of regions to include or exclude (required if `LinkingMode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
         /// </summary>
         public InputList<string> SpecifiedRegions
         {

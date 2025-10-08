@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AccessAnalyzer.Outputs
     public sealed class AnalyzerConfigurationUnusedAccessAnalysisRule
     {
         /// <summary>
-        /// List of rules for the analyzer containing criteria to exclude from analysis. Entities that meet the rule criteria will not generate findings. See `exclusion` Block for details.
+        /// List of rules for the analyzer containing criteria to exclude from analysis. Entities that meet the rule criteria will not generate findings. See `Exclusion` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalyzerConfigurationUnusedAccessAnalysisRuleExclusion> Exclusions;
 

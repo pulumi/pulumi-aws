@@ -19,14 +19,14 @@ public final class GetClusterCredentialsPlainArgs extends com.pulumi.resources.I
     public static final GetClusterCredentialsPlainArgs Empty = new GetClusterCredentialsPlainArgs();
 
     /**
-     * Create a database user with the name specified for the user named in `db_user` if one does not exist.
+     * Create a database user with the name specified for the user named in `dbUser` if one does not exist.
      * 
      */
     @Import(name="autoCreate")
     private @Nullable Boolean autoCreate;
 
     /**
-     * @return Create a database user with the name specified for the user named in `db_user` if one does not exist.
+     * @return Create a database user with the name specified for the user named in `dbUser` if one does not exist.
      * 
      */
     public Optional<Boolean> autoCreate() {
@@ -49,14 +49,14 @@ public final class GetClusterCredentialsPlainArgs extends com.pulumi.resources.I
     }
 
     /**
-     * List of the names of existing database groups that the user named in `db_user` will join for the current session, in addition to any group memberships for an existing user. If not specified, a new user is added only to `PUBLIC`.
+     * List of the names of existing database groups that the user named in `dbUser` will join for the current session, in addition to any group memberships for an existing user. If not specified, a new user is added only to `PUBLIC`.
      * 
      */
     @Import(name="dbGroups")
     private @Nullable List<String> dbGroups;
 
     /**
-     * @return List of the names of existing database groups that the user named in `db_user` will join for the current session, in addition to any group memberships for an existing user. If not specified, a new user is added only to `PUBLIC`.
+     * @return List of the names of existing database groups that the user named in `dbUser` will join for the current session, in addition to any group memberships for an existing user. If not specified, a new user is added only to `PUBLIC`.
      * 
      */
     public Optional<List<String>> dbGroups() {
@@ -64,14 +64,14 @@ public final class GetClusterCredentialsPlainArgs extends com.pulumi.resources.I
     }
 
     /**
-     * Name of a database that DbUser is authorized to log on to. If `db_name` is not specified, `db_user` can log on to any existing database.
+     * Name of a database that DbUser is authorized to log on to. If `dbName` is not specified, `dbUser` can log on to any existing database.
      * 
      */
     @Import(name="dbName")
     private @Nullable String dbName;
 
     /**
-     * @return Name of a database that DbUser is authorized to log on to. If `db_name` is not specified, `db_user` can log on to any existing database.
+     * @return Name of a database that DbUser is authorized to log on to. If `dbName` is not specified, `dbUser` can log on to any existing database.
      * 
      */
     public Optional<String> dbName() {
@@ -79,14 +79,14 @@ public final class GetClusterCredentialsPlainArgs extends com.pulumi.resources.I
     }
 
     /**
-     * Name of a database user. If a user name matching `db_user` exists in the database, the temporary user credentials have the same permissions as the  existing user. If `db_user` doesn&#39;t exist in the database and `auto_create` is `True`, a new user is created using the value for `db_user` with `PUBLIC` permissions.  If a database user matching the value for `db_user` doesn&#39;t exist and `not` is `False`, then the command succeeds but the connection attempt will fail because the user doesn&#39;t exist in the database.
+     * Name of a database user. If a user name matching `dbUser` exists in the database, the temporary user credentials have the same permissions as the  existing user. If `dbUser` doesn&#39;t exist in the database and `autoCreate` is `True`, a new user is created using the value for `dbUser` with `PUBLIC` permissions.  If a database user matching the value for `dbUser` doesn&#39;t exist and `not` is `False`, then the command succeeds but the connection attempt will fail because the user doesn&#39;t exist in the database.
      * 
      */
     @Import(name="dbUser", required=true)
     private String dbUser;
 
     /**
-     * @return Name of a database user. If a user name matching `db_user` exists in the database, the temporary user credentials have the same permissions as the  existing user. If `db_user` doesn&#39;t exist in the database and `auto_create` is `True`, a new user is created using the value for `db_user` with `PUBLIC` permissions.  If a database user matching the value for `db_user` doesn&#39;t exist and `not` is `False`, then the command succeeds but the connection attempt will fail because the user doesn&#39;t exist in the database.
+     * @return Name of a database user. If a user name matching `dbUser` exists in the database, the temporary user credentials have the same permissions as the  existing user. If `dbUser` doesn&#39;t exist in the database and `autoCreate` is `True`, a new user is created using the value for `dbUser` with `PUBLIC` permissions.  If a database user matching the value for `dbUser` doesn&#39;t exist and `not` is `False`, then the command succeeds but the connection attempt will fail because the user doesn&#39;t exist in the database.
      * 
      */
     public String dbUser() {
@@ -154,7 +154,7 @@ public final class GetClusterCredentialsPlainArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param autoCreate Create a database user with the name specified for the user named in `db_user` if one does not exist.
+         * @param autoCreate Create a database user with the name specified for the user named in `dbUser` if one does not exist.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class GetClusterCredentialsPlainArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param dbGroups List of the names of existing database groups that the user named in `db_user` will join for the current session, in addition to any group memberships for an existing user. If not specified, a new user is added only to `PUBLIC`.
+         * @param dbGroups List of the names of existing database groups that the user named in `dbUser` will join for the current session, in addition to any group memberships for an existing user. If not specified, a new user is added only to `PUBLIC`.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class GetClusterCredentialsPlainArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param dbGroups List of the names of existing database groups that the user named in `db_user` will join for the current session, in addition to any group memberships for an existing user. If not specified, a new user is added only to `PUBLIC`.
+         * @param dbGroups List of the names of existing database groups that the user named in `dbUser` will join for the current session, in addition to any group memberships for an existing user. If not specified, a new user is added only to `PUBLIC`.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class GetClusterCredentialsPlainArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param dbName Name of a database that DbUser is authorized to log on to. If `db_name` is not specified, `db_user` can log on to any existing database.
+         * @param dbName Name of a database that DbUser is authorized to log on to. If `dbName` is not specified, `dbUser` can log on to any existing database.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class GetClusterCredentialsPlainArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param dbUser Name of a database user. If a user name matching `db_user` exists in the database, the temporary user credentials have the same permissions as the  existing user. If `db_user` doesn&#39;t exist in the database and `auto_create` is `True`, a new user is created using the value for `db_user` with `PUBLIC` permissions.  If a database user matching the value for `db_user` doesn&#39;t exist and `not` is `False`, then the command succeeds but the connection attempt will fail because the user doesn&#39;t exist in the database.
+         * @param dbUser Name of a database user. If a user name matching `dbUser` exists in the database, the temporary user credentials have the same permissions as the  existing user. If `dbUser` doesn&#39;t exist in the database and `autoCreate` is `True`, a new user is created using the value for `dbUser` with `PUBLIC` permissions.  If a database user matching the value for `dbUser` doesn&#39;t exist and `not` is `False`, then the command succeeds but the connection attempt will fail because the user doesn&#39;t exist in the database.
          * 
          * @return builder
          * 

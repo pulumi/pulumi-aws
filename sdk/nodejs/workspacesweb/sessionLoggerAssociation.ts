@@ -9,6 +9,53 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const examplePortal = new aws.workspacesweb.Portal("example", {displayName: "example"});
+ * const exampleBucket = new aws.s3.Bucket("example", {
+ *     bucket: "example-session-logs",
+ *     forceDestroy: true,
+ * });
+ * const example = aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["workspaces-web.amazonaws.com"],
+ *         }],
+ *         actions: ["s3:PutObject"],
+ *         resources: [pulumi.interpolate`${exampleBucket.arn}/*`],
+ *     }],
+ * });
+ * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
+ *     bucket: exampleBucket.id,
+ *     policy: example.apply(example => example.json),
+ * });
+ * const exampleSessionLogger = new aws.workspacesweb.SessionLogger("example", {
+ *     displayName: "example",
+ *     eventFilter: {
+ *         all: {}[0],
+ *     },
+ *     logConfiguration: {
+ *         s3: {
+ *             bucket: exampleBucket.id,
+ *             folderStructure: "Flat",
+ *             logFileFormat: "Json",
+ *         },
+ *     },
+ * }, {
+ *     dependsOn: [exampleBucketPolicy],
+ * });
+ * const exampleSessionLoggerAssociation = new aws.workspacesweb.SessionLoggerAssociation("example", {
+ *     portalArn: examplePortal.portalArn,
+ *     sessionLoggerArn: exampleSessionLogger.sessionLoggerArn,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import WorkSpaces Web Session Logger Association using the `session_logger_arn,portal_arn`. For example:

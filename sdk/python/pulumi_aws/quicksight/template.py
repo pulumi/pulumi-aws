@@ -437,6 +437,71 @@ class Template(pulumi.CustomResource):
             })
         ```
 
+        ### With Definition
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.quicksight.Template("example",
+            template_id="example-id",
+            name="example-name",
+            version_description="version",
+            definition={
+                "dataSetConfigurations": [{
+                    "dataSetSchema": {
+                        "columnSchemaLists": [
+                            {
+                                "name": "Column1",
+                                "dataType": "STRING",
+                            },
+                            {
+                                "name": "Column2",
+                                "dataType": "INTEGER",
+                            },
+                        ],
+                    },
+                    "placeholder": "1",
+                }],
+                "sheets": [{
+                    "title": "Test",
+                    "sheetId": "Test1",
+                    "visuals": [{
+                        "barChartVisual": {
+                            "visualId": "BarChart",
+                            "chartConfiguration": {
+                                "fieldWells": {
+                                    "barChartAggregatedFieldWells": {
+                                        "categories": [{
+                                            "categoricalDimensionField": {
+                                                "fieldId": "1",
+                                                "column": {
+                                                    "columnName": "Column1",
+                                                    "dataSetIdentifier": "1",
+                                                },
+                                            },
+                                        }],
+                                        "values": [{
+                                            "numericalMeasureField": {
+                                                "fieldId": "2",
+                                                "column": {
+                                                    "columnName": "Column2",
+                                                    "dataSetIdentifier": "1",
+                                                },
+                                                "aggregationFunction": {
+                                                    "simpleNumericalAggregation": "SUM",
+                                                },
+                                            },
+                                        }],
+                                    },
+                                },
+                            },
+                        },
+                    }],
+                }],
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import a QuickSight Template using the AWS account ID and template ID separated by a comma (`,`). For example:
@@ -482,6 +547,71 @@ class Template(pulumi.CustomResource):
                 "source_template": {
                     "arn": source["arn"],
                 },
+            })
+        ```
+
+        ### With Definition
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.quicksight.Template("example",
+            template_id="example-id",
+            name="example-name",
+            version_description="version",
+            definition={
+                "dataSetConfigurations": [{
+                    "dataSetSchema": {
+                        "columnSchemaLists": [
+                            {
+                                "name": "Column1",
+                                "dataType": "STRING",
+                            },
+                            {
+                                "name": "Column2",
+                                "dataType": "INTEGER",
+                            },
+                        ],
+                    },
+                    "placeholder": "1",
+                }],
+                "sheets": [{
+                    "title": "Test",
+                    "sheetId": "Test1",
+                    "visuals": [{
+                        "barChartVisual": {
+                            "visualId": "BarChart",
+                            "chartConfiguration": {
+                                "fieldWells": {
+                                    "barChartAggregatedFieldWells": {
+                                        "categories": [{
+                                            "categoricalDimensionField": {
+                                                "fieldId": "1",
+                                                "column": {
+                                                    "columnName": "Column1",
+                                                    "dataSetIdentifier": "1",
+                                                },
+                                            },
+                                        }],
+                                        "values": [{
+                                            "numericalMeasureField": {
+                                                "fieldId": "2",
+                                                "column": {
+                                                    "columnName": "Column2",
+                                                    "dataSetIdentifier": "1",
+                                                },
+                                                "aggregationFunction": {
+                                                    "simpleNumericalAggregation": "SUM",
+                                                },
+                                            },
+                                        }],
+                                    },
+                                },
+                            },
+                        },
+                    }],
+                }],
             })
         ```
 

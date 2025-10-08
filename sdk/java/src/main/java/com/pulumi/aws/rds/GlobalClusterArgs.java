@@ -49,14 +49,14 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
+     * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `sourceDbClusterIdentifier`.
      * 
      */
     @Import(name="engine")
     private @Nullable Output<String> engine;
 
     /**
-     * @return Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
+     * @return Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `sourceDbClusterIdentifier`.
      * 
      */
     public Optional<Output<String>> engine() {
@@ -79,14 +79,14 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.
+     * Engine version of the Aurora global database. The `engine`, `engineVersion`, and `instanceClass` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignoreChanges` for `engineVersion` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.
      * 
      */
     @Import(name="engineVersion")
     private @Nullable Output<String> engineVersion;
 
     /**
-     * @return Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.
+     * @return Engine version of the Aurora global database. The `engine`, `engineVersion`, and `instanceClass` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignoreChanges` for `engineVersion` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.
      * 
      */
     public Optional<Output<String>> engineVersion() {
@@ -94,14 +94,14 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.
+     * Enable to remove DB Cluster members from Global Cluster on destroy. Required with `sourceDbClusterIdentifier`.
      * 
      */
     @Import(name="forceDestroy")
     private @Nullable Output<Boolean> forceDestroy;
 
     /**
-     * @return Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.
+     * @return Enable to remove DB Cluster members from Global Cluster on destroy. Required with `sourceDbClusterIdentifier`.
      * 
      */
     public Optional<Output<Boolean>> forceDestroy() {
@@ -143,14 +143,14 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engine_version`. This allows upgrading the engine version of the Global Cluster.
+     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
      * 
      */
     @Import(name="sourceDbClusterIdentifier")
     private @Nullable Output<String> sourceDbClusterIdentifier;
 
     /**
-     * @return Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engine_version`. This allows upgrading the engine version of the Global Cluster.
+     * @return Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
      * 
      */
     public Optional<Output<String>> sourceDbClusterIdentifier() {
@@ -158,14 +158,14 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+     * Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     @Import(name="storageEncrypted")
     private @Nullable Output<Boolean> storageEncrypted;
 
     /**
-     * @return Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+     * @return Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     public Optional<Output<Boolean>> storageEncrypted() {
@@ -173,18 +173,18 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
-     * &gt; When both `source_db_cluster_identifier` and `engine`/`engine_version` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engine_version` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
+     * &gt; When both `sourceDbClusterIdentifier` and `engine`/`engineVersion` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engineVersion` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
-     * &gt; When both `source_db_cluster_identifier` and `engine`/`engine_version` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engine_version` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
+     * &gt; When both `sourceDbClusterIdentifier` and `engine`/`engineVersion` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engineVersion` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -268,7 +268,7 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engine Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
+         * @param engine Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `sourceDbClusterIdentifier`.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engine Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
+         * @param engine Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `sourceDbClusterIdentifier`.
          * 
          * @return builder
          * 
@@ -310,7 +310,7 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineVersion Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.
+         * @param engineVersion Engine version of the Aurora global database. The `engine`, `engineVersion`, and `instanceClass` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignoreChanges` for `engineVersion` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineVersion Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.
+         * @param engineVersion Engine version of the Aurora global database. The `engine`, `engineVersion`, and `instanceClass` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignoreChanges` for `engineVersion` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.
          * 
          * @return builder
          * 
@@ -331,7 +331,7 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param forceDestroy Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.
+         * @param forceDestroy Enable to remove DB Cluster members from Global Cluster on destroy. Required with `sourceDbClusterIdentifier`.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param forceDestroy Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.
+         * @param forceDestroy Enable to remove DB Cluster members from Global Cluster on destroy. Required with `sourceDbClusterIdentifier`.
          * 
          * @return builder
          * 
@@ -398,7 +398,7 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceDbClusterIdentifier Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engine_version`. This allows upgrading the engine version of the Global Cluster.
+         * @param sourceDbClusterIdentifier Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
          * 
          * @return builder
          * 
@@ -409,7 +409,7 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceDbClusterIdentifier Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engine_version`. This allows upgrading the engine version of the Global Cluster.
+         * @param sourceDbClusterIdentifier Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
          * 
          * @return builder
          * 
@@ -419,7 +419,7 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageEncrypted Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+         * @param storageEncrypted Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
          * 
          * @return builder
          * 
@@ -430,7 +430,7 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageEncrypted Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+         * @param storageEncrypted Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
          * 
          * @return builder
          * 
@@ -440,9 +440,9 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
-         * &gt; When both `source_db_cluster_identifier` and `engine`/`engine_version` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engine_version` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
+         * &gt; When both `sourceDbClusterIdentifier` and `engine`/`engineVersion` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engineVersion` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
          * 
          * @return builder
          * 
@@ -453,9 +453,9 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
-         * &gt; When both `source_db_cluster_identifier` and `engine`/`engine_version` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engine_version` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
+         * &gt; When both `sourceDbClusterIdentifier` and `engine`/`engineVersion` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engineVersion` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
          * 
          * @return builder
          * 

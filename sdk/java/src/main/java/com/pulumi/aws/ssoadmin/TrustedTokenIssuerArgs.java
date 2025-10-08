@@ -79,14 +79,14 @@ public final class TrustedTokenIssuerArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -94,14 +94,14 @@ public final class TrustedTokenIssuerArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trusted_token_issuer_type`. Documented below.
+     * A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
      * 
      */
     @Import(name="trustedTokenIssuerConfiguration")
     private @Nullable Output<TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs> trustedTokenIssuerConfiguration;
 
     /**
-     * @return A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trusted_token_issuer_type`. Documented below.
+     * @return A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
      * 
      */
     public Optional<Output<TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs>> trustedTokenIssuerConfiguration() {
@@ -242,7 +242,7 @@ public final class TrustedTokenIssuerArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class TrustedTokenIssuerArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class TrustedTokenIssuerArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param trustedTokenIssuerConfiguration A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trusted_token_issuer_type`. Documented below.
+         * @param trustedTokenIssuerConfiguration A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class TrustedTokenIssuerArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param trustedTokenIssuerConfiguration A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trusted_token_issuer_type`. Documented below.
+         * @param trustedTokenIssuerConfiguration A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
          * 
          * @return builder
          * 

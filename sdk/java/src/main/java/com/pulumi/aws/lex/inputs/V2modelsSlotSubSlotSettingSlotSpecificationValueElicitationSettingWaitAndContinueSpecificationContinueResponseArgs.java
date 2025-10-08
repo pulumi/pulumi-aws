@@ -35,7 +35,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
     /**
      * Configuration blocks for responses that Amazon Lex can send to the user.
      * Amazon Lex chooses the actual response to send at runtime.
-     * See `message_group`.
+     * See `messageGroup`.
      * 
      */
     @Import(name="messageGroups")
@@ -44,7 +44,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
     /**
      * @return Configuration blocks for responses that Amazon Lex can send to the user.
      * Amazon Lex chooses the actual response to send at runtime.
-     * See `message_group`.
+     * See `messageGroup`.
      * 
      */
     public Optional<Output<List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgs>>> messageGroups() {
@@ -100,7 +100,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
         /**
          * @param messageGroups Configuration blocks for responses that Amazon Lex can send to the user.
          * Amazon Lex chooses the actual response to send at runtime.
-         * See `message_group`.
+         * See `messageGroup`.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
         /**
          * @param messageGroups Configuration blocks for responses that Amazon Lex can send to the user.
          * Amazon Lex chooses the actual response to send at runtime.
-         * See `message_group`.
+         * See `messageGroup`.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
         /**
          * @param messageGroups Configuration blocks for responses that Amazon Lex can send to the user.
          * Amazon Lex chooses the actual response to send at runtime.
-         * See `message_group`.
+         * See `messageGroup`.
          * 
          * @return builder
          * 

@@ -26,7 +26,7 @@ public final class OptionGroupOption {
      */
     private String optionName;
     /**
-     * @return The option settings to apply. See `option_settings` Block below for more details.
+     * @return The option settings to apply. See `optionSettings` Block below for more details.
      * 
      */
     private @Nullable List<OptionGroupOptionOptionSetting> optionSettings;
@@ -62,7 +62,7 @@ public final class OptionGroupOption {
         return this.optionName;
     }
     /**
-     * @return The option settings to apply. See `option_settings` Block below for more details.
+     * @return The option settings to apply. See `optionSettings` Block below for more details.
      * 
      */
     public List<OptionGroupOptionOptionSetting> optionSettings() {

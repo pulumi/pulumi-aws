@@ -30,7 +30,7 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** The AWS account that this provider uses to create this resource *must* have authorized CodeBuild to access Bitbucket/GitHub&#39;s OAuth API in each applicable region. This is a manual step that must be done *before* creating webhooks with this resource. If OAuth is not configured, AWS will return an error similar to `ResourceNotFoundException: Could not find access token for server type github`. More information can be found in the CodeBuild User Guide for [Bitbucket](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-bitbucket-pull-request.html) and [GitHub](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-pull-request.html).
  * 
- * &gt; **Note:** Further managing the automatically created Bitbucket/GitHub webhook with the `bitbucket_hook`/`github_repository_webhook` resource is only possible with importing that resource after creation of the `aws.codebuild.Webhook` resource. The CodeBuild API does not ever provide the `secret` attribute for the `aws.codebuild.Webhook` resource in this scenario.
+ * &gt; **Note:** Further managing the automatically created Bitbucket/GitHub webhook with the `bitbucketHook`/`githubRepositoryWebhook` resource is only possible with importing that resource after creation of the `aws.codebuild.Webhook` resource. The CodeBuild API does not ever provide the `secret` attribute for the `aws.codebuild.Webhook` resource in this scenario.
  * 
  * <pre>
  * {@code
@@ -68,6 +68,59 @@ import javax.annotation.Nullable;
  *                         .type("BASE_REF")
  *                         .pattern("master")
  *                         .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### GitHub Enterprise
+ * 
+ * When working with [GitHub Enterprise](https://enterprise.github.com/) source CodeBuild webhooks, the GHE repository webhook must be separately managed (e.g., manually or with the `githubRepositoryWebhook` resource).
+ * 
+ * More information creating webhooks with GitHub Enterprise can be found in the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-enterprise.html).
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.codebuild.Webhook;
+ * import com.pulumi.aws.codebuild.WebhookArgs;
+ * import com.pulumi.github.RepositoryWebhook;
+ * import com.pulumi.github.RepositoryWebhookArgs;
+ * import com.pulumi.github.inputs.RepositoryWebhookConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Webhook("example", WebhookArgs.builder()
+ *             .projectName(exampleAwsCodebuildProject.name())
+ *             .build());
+ * 
+ *         var exampleRepositoryWebhook = new RepositoryWebhook("exampleRepositoryWebhook", RepositoryWebhookArgs.builder()
+ *             .active(true)
+ *             .events("push")
+ *             .name("example")
+ *             .repository(exampleGithubRepository.name())
+ *             .configuration(RepositoryWebhookConfigurationArgs.builder()
+ *                 .url(example.payloadUrl())
+ *                 .secret(example.secret())
+ *                 .contentType("json")
+ *                 .insecureSsl(false)
  *                 .build())
  *             .build());
  * 
@@ -132,14 +185,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:codebuild/webhook:Webhook")
 public class Webhook extends com.pulumi.resources.CustomResource {
     /**
-     * A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
+     * A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filterGroup` over `branchFilter`.
      * 
      */
     @Export(name="branchFilter", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> branchFilter;
 
     /**
-     * @return A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
+     * @return A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filterGroup` over `branchFilter`.
      * 
      */
     public Output<Optional<String>> branchFilter() {
@@ -160,28 +213,28 @@ public class Webhook extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.buildType);
     }
     /**
-     * Information about the webhook&#39;s trigger. See filter_group for details.
+     * Information about the webhook&#39;s trigger. See filterGroup for details.
      * 
      */
     @Export(name="filterGroups", refs={List.class,WebhookFilterGroup.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WebhookFilterGroup>> filterGroups;
 
     /**
-     * @return Information about the webhook&#39;s trigger. See filter_group for details.
+     * @return Information about the webhook&#39;s trigger. See filterGroup for details.
      * 
      */
     public Output<Optional<List<WebhookFilterGroup>>> filterGroups() {
         return Codegen.optional(this.filterGroups);
     }
     /**
-     * If true, CodeBuild doesn&#39;t create a webhook in GitHub and instead returns `payload_url` and `secret` values for the webhook. The `payload_url` and `secret` values in the output can be used to manually create a webhook within GitHub.
+     * If true, CodeBuild doesn&#39;t create a webhook in GitHub and instead returns `payloadUrl` and `secret` values for the webhook. The `payloadUrl` and `secret` values in the output can be used to manually create a webhook within GitHub.
      * 
      */
     @Export(name="manualCreation", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> manualCreation;
 
     /**
-     * @return If true, CodeBuild doesn&#39;t create a webhook in GitHub and instead returns `payload_url` and `secret` values for the webhook. The `payload_url` and `secret` values in the output can be used to manually create a webhook within GitHub.
+     * @return If true, CodeBuild doesn&#39;t create a webhook in GitHub and instead returns `payloadUrl` and `secret` values for the webhook. The `payloadUrl` and `secret` values in the output can be used to manually create a webhook within GitHub.
      * 
      */
     public Output<Optional<Boolean>> manualCreation() {
@@ -216,14 +269,14 @@ public class Webhook extends com.pulumi.resources.CustomResource {
         return this.projectName;
     }
     /**
-     * Defines comment-based approval requirements for triggering builds on pull requests. See pull_request_build_policy for details.
+     * Defines comment-based approval requirements for triggering builds on pull requests. See pullRequestBuildPolicy for details.
      * 
      */
     @Export(name="pullRequestBuildPolicy", refs={WebhookPullRequestBuildPolicy.class}, tree="[0]")
     private Output<WebhookPullRequestBuildPolicy> pullRequestBuildPolicy;
 
     /**
-     * @return Defines comment-based approval requirements for triggering builds on pull requests. See pull_request_build_policy for details.
+     * @return Defines comment-based approval requirements for triggering builds on pull requests. See pullRequestBuildPolicy for details.
      * 
      */
     public Output<WebhookPullRequestBuildPolicy> pullRequestBuildPolicy() {
@@ -244,14 +297,14 @@ public class Webhook extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Scope configuration for global or organization webhooks. See scope_configuration for details.
+     * Scope configuration for global or organization webhooks. See scopeConfiguration for details.
      * 
      */
     @Export(name="scopeConfiguration", refs={WebhookScopeConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ WebhookScopeConfiguration> scopeConfiguration;
 
     /**
-     * @return Scope configuration for global or organization webhooks. See scope_configuration for details.
+     * @return Scope configuration for global or organization webhooks. See scopeConfiguration for details.
      * 
      */
     public Output<Optional<WebhookScopeConfiguration>> scopeConfiguration() {

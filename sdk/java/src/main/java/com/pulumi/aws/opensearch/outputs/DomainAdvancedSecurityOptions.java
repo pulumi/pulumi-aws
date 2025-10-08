@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DomainAdvancedSecurityOptions {
     /**
-     * @return Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advanced_security_options` are enabled. _Can only be enabled on an existing domain._
+     * @return Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advancedSecurityOptions` are enabled. _Can only be enabled on an existing domain._
      * 
      */
     private @Nullable Boolean anonymousAuthEnabled;
@@ -36,7 +36,7 @@ public final class DomainAdvancedSecurityOptions {
 
     private DomainAdvancedSecurityOptions() {}
     /**
-     * @return Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advanced_security_options` are enabled. _Can only be enabled on an existing domain._
+     * @return Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advancedSecurityOptions` are enabled. _Can only be enabled on an existing domain._
      * 
      */
     public Optional<Boolean> anonymousAuthEnabled() {

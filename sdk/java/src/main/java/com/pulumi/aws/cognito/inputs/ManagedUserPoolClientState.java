@@ -37,14 +37,14 @@ public final class ManagedUserPoolClientState extends com.pulumi.resources.Resou
     }
 
     /**
-     * List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+     * List of allowed OAuth flows, including `code`, `implicit`, and `clientCredentials`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
      * 
      */
     @Import(name="allowedOauthFlows")
     private @Nullable Output<List<String>> allowedOauthFlows;
 
     /**
-     * @return List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+     * @return List of allowed OAuth flows, including `code`, `implicit`, and `clientCredentials`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
      * 
      */
     public Optional<Output<List<String>>> allowedOauthFlows() {
@@ -52,14 +52,14 @@ public final class ManagedUserPoolClientState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
+     * Whether the client is allowed to use OAuth 2.0 features. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure the following arguments: `callbackUrls`, `logoutUrls`, `allowedOauthScopes` and `allowedOauthFlows`.
      * 
      */
     @Import(name="allowedOauthFlowsUserPoolClient")
     private @Nullable Output<Boolean> allowedOauthFlowsUserPoolClient;
 
     /**
-     * @return Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
+     * @return Whether the client is allowed to use OAuth 2.0 features. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure the following arguments: `callbackUrls`, `logoutUrls`, `allowedOauthScopes` and `allowedOauthFlows`.
      * 
      */
     public Optional<Output<Boolean>> allowedOauthFlowsUserPoolClient() {
@@ -67,14 +67,14 @@ public final class ManagedUserPoolClientState extends com.pulumi.resources.Resou
     }
 
     /**
-     * List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+     * List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
      * 
      */
     @Import(name="allowedOauthScopes")
     private @Nullable Output<List<String>> allowedOauthScopes;
 
     /**
-     * @return List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+     * @return List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
      * 
      */
     public Optional<Output<List<String>>> allowedOauthScopes() {
@@ -97,14 +97,14 @@ public final class ManagedUserPoolClientState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
+     * Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `authSessionValidity` are between `3` and `15`, with a default value of `3`.
      * 
      */
     @Import(name="authSessionValidity")
     private @Nullable Output<Integer> authSessionValidity;
 
     /**
-     * @return Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
+     * @return Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `authSessionValidity` are between `3` and `15`, with a default value of `3`.
      * 
      */
     public Optional<Output<Integer>> authSessionValidity() {
@@ -112,14 +112,14 @@ public final class ManagedUserPoolClientState extends com.pulumi.resources.Resou
     }
 
     /**
-     * List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+     * List of allowed callback URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
      * 
      */
     @Import(name="callbackUrls")
     private @Nullable Output<List<String>> callbackUrls;
 
     /**
-     * @return List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+     * @return List of allowed callback URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
      * 
      */
     public Optional<Output<List<String>>> callbackUrls() {
@@ -217,14 +217,14 @@ public final class ManagedUserPoolClientState extends com.pulumi.resources.Resou
     }
 
     /**
-     * List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+     * List of allowed logout URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
      * 
      */
     @Import(name="logoutUrls")
     private @Nullable Output<List<String>> logoutUrls;
 
     /**
-     * @return List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+     * @return List of allowed logout URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
      * 
      */
     public Optional<Output<List<String>>> logoutUrls() {
@@ -356,14 +356,14 @@ public final class ManagedUserPoolClientState extends com.pulumi.resources.Resou
     }
 
     /**
-     * List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
+     * List of provider names for the identity providers that are supported on this client. It uses the `providerName` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
      * 
      */
     @Import(name="supportedIdentityProviders")
     private @Nullable Output<List<String>> supportedIdentityProviders;
 
     /**
-     * @return List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
+     * @return List of provider names for the identity providers that are supported on this client. It uses the `providerName` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
      * 
      */
     public Optional<Output<List<String>>> supportedIdentityProviders() {
@@ -486,7 +486,7 @@ public final class ManagedUserPoolClientState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param allowedOauthFlows List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+         * @param allowedOauthFlows List of allowed OAuth flows, including `code`, `implicit`, and `clientCredentials`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
          * 
          * @return builder
          * 
@@ -497,7 +497,7 @@ public final class ManagedUserPoolClientState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param allowedOauthFlows List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+         * @param allowedOauthFlows List of allowed OAuth flows, including `code`, `implicit`, and `clientCredentials`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
          * 
          * @return builder
          * 
@@ -507,7 +507,7 @@ public final class ManagedUserPoolClientState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param allowedOauthFlows List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+         * @param allowedOauthFlows List of allowed OAuth flows, including `code`, `implicit`, and `clientCredentials`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
          * 
          * @return builder
          * 
@@ -517,7 +517,7 @@ public final class ManagedUserPoolClientState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param allowedOauthFlowsUserPoolClient Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
+         * @param allowedOauthFlowsUserPoolClient Whether the client is allowed to use OAuth 2.0 features. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure the following arguments: `callbackUrls`, `logoutUrls`, `allowedOauthScopes` and `allowedOauthFlows`.
          * 
          * @return builder
          * 
@@ -528,7 +528,7 @@ public final class ManagedUserPoolClientState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param allowedOauthFlowsUserPoolClient Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
+         * @param allowedOauthFlowsUserPoolClient Whether the client is allowed to use OAuth 2.0 features. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure the following arguments: `callbackUrls`, `logoutUrls`, `allowedOauthScopes` and `allowedOauthFlows`.
          * 
          * @return builder
          * 
@@ -538,7 +538,7 @@ public final class ManagedUserPoolClientState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param allowedOauthScopes List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+         * @param allowedOauthScopes List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
          * 
          * @return builder
          * 
@@ -549,7 +549,7 @@ public final class ManagedUserPoolClientState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param allowedOauthScopes List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+         * @param allowedOauthScopes List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
          * 
          * @return builder
          * 
@@ -559,7 +559,7 @@ public final class ManagedUserPoolClientState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param allowedOauthScopes List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+         * @param allowedOauthScopes List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
          * 
          * @return builder
          * 
@@ -590,7 +590,7 @@ public final class ManagedUserPoolClientState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param authSessionValidity Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
+         * @param authSessionValidity Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `authSessionValidity` are between `3` and `15`, with a default value of `3`.
          * 
          * @return builder
          * 
@@ -601,7 +601,7 @@ public final class ManagedUserPoolClientState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param authSessionValidity Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
+         * @param authSessionValidity Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `authSessionValidity` are between `3` and `15`, with a default value of `3`.
          * 
          * @return builder
          * 
@@ -611,7 +611,7 @@ public final class ManagedUserPoolClientState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param callbackUrls List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+         * @param callbackUrls List of allowed callback URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
          * 
          * @return builder
          * 
@@ -622,7 +622,7 @@ public final class ManagedUserPoolClientState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param callbackUrls List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+         * @param callbackUrls List of allowed callback URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
          * 
          * @return builder
          * 
@@ -632,7 +632,7 @@ public final class ManagedUserPoolClientState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param callbackUrls List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+         * @param callbackUrls List of allowed callback URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
          * 
          * @return builder
          * 
@@ -778,7 +778,7 @@ public final class ManagedUserPoolClientState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param logoutUrls List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+         * @param logoutUrls List of allowed logout URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
          * 
          * @return builder
          * 
@@ -789,7 +789,7 @@ public final class ManagedUserPoolClientState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param logoutUrls List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+         * @param logoutUrls List of allowed logout URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
          * 
          * @return builder
          * 
@@ -799,7 +799,7 @@ public final class ManagedUserPoolClientState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param logoutUrls List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+         * @param logoutUrls List of allowed logout URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
          * 
          * @return builder
          * 
@@ -991,7 +991,7 @@ public final class ManagedUserPoolClientState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param supportedIdentityProviders List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
+         * @param supportedIdentityProviders List of provider names for the identity providers that are supported on this client. It uses the `providerName` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
          * 
          * @return builder
          * 
@@ -1002,7 +1002,7 @@ public final class ManagedUserPoolClientState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param supportedIdentityProviders List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
+         * @param supportedIdentityProviders List of provider names for the identity providers that are supported on this client. It uses the `providerName` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
          * 
          * @return builder
          * 
@@ -1012,7 +1012,7 @@ public final class ManagedUserPoolClientState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param supportedIdentityProviders List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
+         * @param supportedIdentityProviders List of provider names for the identity providers that are supported on this client. It uses the `providerName` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
          * 
          * @return builder
          * 

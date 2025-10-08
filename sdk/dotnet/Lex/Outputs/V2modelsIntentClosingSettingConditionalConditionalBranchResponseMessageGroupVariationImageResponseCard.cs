@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Lex.Outputs
     public sealed class V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard
     {
         /// <summary>
-        /// Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+        /// Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `Button`.
         /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButton> Buttons;
         /// <summary>

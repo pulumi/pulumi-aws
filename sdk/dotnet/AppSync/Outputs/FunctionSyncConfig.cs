@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppSync.Outputs
         /// </summary>
         public readonly string? ConflictHandler;
         /// <summary>
-        /// Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See `lambda_conflict_handler_config` Block for details.
+        /// Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See `LambdaConflictHandlerConfig` Block for details.
         /// </summary>
         public readonly Outputs.FunctionSyncConfigLambdaConflictHandlerConfig? LambdaConflictHandlerConfig;
 

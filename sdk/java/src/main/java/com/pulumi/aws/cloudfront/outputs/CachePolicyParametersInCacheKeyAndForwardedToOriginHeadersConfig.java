@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig {
     /**
-     * @return Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `header_behavior` are `none` and `whitelist`.
+     * @return Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `headerBehavior` are `none` and `whitelist`.
      * 
      */
     private @Nullable String headerBehavior;
@@ -25,7 +25,7 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersCon
 
     private CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig() {}
     /**
-     * @return Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `header_behavior` are `none` and `whitelist`.
+     * @return Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `headerBehavior` are `none` and `whitelist`.
      * 
      */
     public Optional<String> headerBehavior() {

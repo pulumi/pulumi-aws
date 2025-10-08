@@ -18,14 +18,14 @@ public final class KeyPairArgs extends com.pulumi.resources.ResourceArgs {
     public static final KeyPairArgs Empty = new KeyPairArgs();
 
     /**
-     * The name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
+     * The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
      * 
      */
     @Import(name="keyName")
     private @Nullable Output<String> keyName;
 
     /**
-     * @return The name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
+     * @return The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
      * 
      */
     public Optional<Output<String>> keyName() {
@@ -33,14 +33,14 @@ public final class KeyPairArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `key_name`. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
+     * Creates a unique name beginning with the specified prefix. Conflicts with `keyName`. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
      * 
      */
     @Import(name="keyNamePrefix")
     private @Nullable Output<String> keyNamePrefix;
 
     /**
-     * @return Creates a unique name beginning with the specified prefix. Conflicts with `key_name`. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
+     * @return Creates a unique name beginning with the specified prefix. Conflicts with `keyName`. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
      * 
      */
     public Optional<Output<String>> keyNamePrefix() {
@@ -78,14 +78,14 @@ public final class KeyPairArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -121,7 +121,7 @@ public final class KeyPairArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyName The name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
+         * @param keyName The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class KeyPairArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyName The name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
+         * @param keyName The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class KeyPairArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyNamePrefix Creates a unique name beginning with the specified prefix. Conflicts with `key_name`. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
+         * @param keyNamePrefix Creates a unique name beginning with the specified prefix. Conflicts with `keyName`. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class KeyPairArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyNamePrefix Creates a unique name beginning with the specified prefix. Conflicts with `key_name`. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
+         * @param keyNamePrefix Creates a unique name beginning with the specified prefix. Conflicts with `keyName`. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class KeyPairArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class KeyPairArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

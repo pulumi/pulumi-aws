@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Iam.Inputs
         private List<Inputs.GetPolicyDocumentStatementNotPrincipalArgs>? _notPrincipals;
 
         /// <summary>
-        /// Like `principals` except these are principals that the statement does *not* apply to.
+        /// Like `Principals` except these are principals that the statement does *not* apply to.
         /// </summary>
         public List<Inputs.GetPolicyDocumentStatementNotPrincipalArgs> NotPrincipals
         {
@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Iam.Inputs
         private List<string>? _notResources;
 
         /// <summary>
-        /// List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed. Conflicts with `resources`.
+        /// List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed. Conflicts with `Resources`.
         /// </summary>
         public List<string> NotResources
         {
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Iam.Inputs
         private List<string>? _resources;
 
         /// <summary>
-        /// List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `not_resources`.
+        /// List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `NotResources`.
         /// </summary>
         public List<string> Resources
         {

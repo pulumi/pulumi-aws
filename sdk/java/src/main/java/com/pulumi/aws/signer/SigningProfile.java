@@ -149,42 +149,42 @@ public class SigningProfile extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Revocation information for a signing profile. See `revocation_record` Block below for details.
+     * Revocation information for a signing profile. See `revocationRecord` Block below for details.
      * 
      */
     @Export(name="revocationRecords", refs={List.class,SigningProfileRevocationRecord.class}, tree="[0,1]")
     private Output<List<SigningProfileRevocationRecord>> revocationRecords;
 
     /**
-     * @return Revocation information for a signing profile. See `revocation_record` Block below for details.
+     * @return Revocation information for a signing profile. See `revocationRecord` Block below for details.
      * 
      */
     public Output<List<SigningProfileRevocationRecord>> revocationRecords() {
         return this.revocationRecords;
     }
     /**
-     * The validity period for a signing job. See `signature_validity_period` Block below for details.
+     * The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
      * 
      */
     @Export(name="signatureValidityPeriod", refs={SigningProfileSignatureValidityPeriod.class}, tree="[0]")
     private Output<SigningProfileSignatureValidityPeriod> signatureValidityPeriod;
 
     /**
-     * @return The validity period for a signing job. See `signature_validity_period` Block below for details.
+     * @return The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
      * 
      */
     public Output<SigningProfileSignatureValidityPeriod> signatureValidityPeriod() {
         return this.signatureValidityPeriod;
     }
     /**
-     * The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
+     * The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
      * 
      */
     @Export(name="signingMaterial", refs={SigningProfileSigningMaterial.class}, tree="[0]")
     private Output<SigningProfileSigningMaterial> signingMaterial;
 
     /**
-     * @return The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
+     * @return The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
      * 
      */
     public Output<SigningProfileSigningMaterial> signingMaterial() {
@@ -219,28 +219,28 @@ public class SigningProfile extends com.pulumi.resources.CustomResource {
         return this.status;
     }
     /**
-     * A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

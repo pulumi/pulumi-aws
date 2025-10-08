@@ -27,14 +27,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     public static final InstanceArgs Empty = new InstanceArgs();
 
     /**
-     * The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
+     * The allocated storage in gibibytes. If `maxAllocatedStorage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicateSourceDb` is set, the value is ignored during the creation of the instance.
      * 
      */
     @Import(name="allocatedStorage")
     private @Nullable Output<Integer> allocatedStorage;
 
     /**
-     * @return The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
+     * @return The allocated storage in gibibytes. If `maxAllocatedStorage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicateSourceDb` is set, the value is ignored during the creation of the instance.
      * 
      */
     public Optional<Output<Integer>> allocatedStorage() {
@@ -157,7 +157,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The daily time range (in UTC) during which automated backups are created if they are enabled.
-     * Example: &#34;09:46-10:16&#34;. Must not overlap with `maintenance_window`.
+     * Example: &#34;09:46-10:16&#34;. Must not overlap with `maintenanceWindow`.
      * 
      */
     @Import(name="backupWindow")
@@ -165,7 +165,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The daily time range (in UTC) during which automated backups are created if they are enabled.
-     * Example: &#34;09:46-10:16&#34;. Must not overlap with `maintenance_window`.
+     * Example: &#34;09:46-10:16&#34;. Must not overlap with `maintenanceWindow`.
      * 
      */
     public Optional<Output<String>> backupWindow() {
@@ -174,7 +174,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-     * See `blue_green_update` below.
+     * See `blueGreenUpdate` below.
      * 
      */
     @Import(name="blueGreenUpdate")
@@ -182,7 +182,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-     * See `blue_green_update` below.
+     * See `blueGreenUpdate` below.
      * 
      */
     public Optional<Output<InstanceBlueGreenUpdateArgs>> blueGreenUpdate() {
@@ -209,7 +209,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
      * This can&#39;t be changed.
      * See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html) or
      * [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
-     * Cannot be set  with `replicate_source_db`, `restore_to_point_in_time`, `s3_import`, or `snapshot_identifier`.
+     * Cannot be set  with `replicateSourceDb`, `restoreToPointInTime`, `s3Import`, or `snapshotIdentifier`.
      * 
      */
     @Import(name="characterSetName")
@@ -220,7 +220,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
      * This can&#39;t be changed.
      * See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html) or
      * [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
-     * Cannot be set  with `replicate_source_db`, `restore_to_point_in_time`, `s3_import`, or `snapshot_identifier`.
+     * Cannot be set  with `replicateSourceDb`, `restoreToPointInTime`, `s3Import`, or `snapshotIdentifier`.
      * 
      */
     public Optional<Output<String>> characterSetName() {
@@ -263,7 +263,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
      * For more detailed documentation about each argument, refer to the [AWS official
      * documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
      * 
-     * &gt; **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
+     * &gt; **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
      * Replicate database managed by the provider will promote the database to a fully
      * standalone database.
      * 
@@ -277,7 +277,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
      * For more detailed documentation about each argument, refer to the [AWS official
      * documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
      * 
-     * &gt; **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
+     * &gt; **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
      * Replicate database managed by the provider will promote the database to a fully
      * standalone database.
      * 
@@ -387,14 +387,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
+     * The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domainFqdn`, `domainOu`, `domainAuthSecretArn` and a `domainDnsIps`.
      * 
      */
     @Import(name="domain")
     private @Nullable Output<String> domain;
 
     /**
-     * @return The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
+     * @return The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domainFqdn`, `domainOu`, `domainAuthSecretArn` and a `domainDnsIps`.
      * 
      */
     public Optional<Output<String>> domain() {
@@ -402,14 +402,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
+     * The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domainIamRoleName`.
      * 
      */
     @Import(name="domainAuthSecretArn")
     private @Nullable Output<String> domainAuthSecretArn;
 
     /**
-     * @return The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
+     * @return The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domainIamRoleName`.
      * 
      */
     public Optional<Output<String>> domainAuthSecretArn() {
@@ -417,14 +417,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn&#39;t a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
+     * The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn&#39;t a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domainIamRoleName`.
      * 
      */
     @Import(name="domainDnsIps")
     private @Nullable Output<List<String>> domainDnsIps;
 
     /**
-     * @return The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn&#39;t a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
+     * @return The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn&#39;t a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domainIamRoleName`.
      * 
      */
     public Optional<Output<List<String>>> domainDnsIps() {
@@ -432,14 +432,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
+     * The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domainIamRoleName`.
      * 
      */
     @Import(name="domainFqdn")
     private @Nullable Output<String> domainFqdn;
 
     /**
-     * @return The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
+     * @return The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domainIamRoleName`.
      * 
      */
     public Optional<Output<String>> domainFqdn() {
@@ -447,14 +447,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
+     * The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domainFqdn`, `domainOu`, `domainAuthSecretArn` and a `domainDnsIps`.
      * 
      */
     @Import(name="domainIamRoleName")
     private @Nullable Output<String> domainIamRoleName;
 
     /**
-     * @return The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
+     * @return The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domainFqdn`, `domainOu`, `domainAuthSecretArn` and a `domainDnsIps`.
      * 
      */
     public Optional<Output<String>> domainIamRoleName() {
@@ -462,14 +462,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
+     * The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domainIamRoleName`.
      * 
      */
     @Import(name="domainOu")
     private @Nullable Output<String> domainOu;
 
     /**
-     * @return The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
+     * @return The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domainIamRoleName`.
      * 
      */
     public Optional<Output<String>> domainOu() {
@@ -522,14 +522,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
+     * The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
      * 
      */
     @Import(name="engineVersion")
     private @Nullable Output<String> engineVersion;
 
     /**
-     * @return The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
+     * @return The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
      * 
      */
     public Optional<Output<String>> engineVersion() {
@@ -538,7 +538,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The name of your final DB snapshot
-     * when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
+     * when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
      * set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
      * 
      */
@@ -547,7 +547,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The name of your final DB snapshot
-     * when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
+     * when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
      * set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
      * 
      */
@@ -573,14 +573,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
+     * The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
      * 
      */
     @Import(name="identifier")
     private @Nullable Output<String> identifier;
 
     /**
-     * @return The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
+     * @return The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
      * 
      */
     public Optional<Output<String>> identifier() {
@@ -619,8 +619,8 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The amount of provisioned IOPS. Setting this implies a
-     * storage_type of &#34;io1&#34; or &#34;io2&#34;. Can only be set when `storage_type` is `&#34;io1&#34;`, `&#34;io2` or `&#34;gp3&#34;`.
-     * Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
+     * storageType of &#34;io1&#34; or &#34;io2&#34;. Can only be set when `storageType` is `&#34;io1&#34;`, `&#34;io2` or `&#34;gp3&#34;`.
+     * Cannot be specified for gp3 storage if the `allocatedStorage` value is below a per-`engine` threshold.
      * See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
      * 
      */
@@ -629,8 +629,8 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The amount of provisioned IOPS. Setting this implies a
-     * storage_type of &#34;io1&#34; or &#34;io2&#34;. Can only be set when `storage_type` is `&#34;io1&#34;`, `&#34;io2` or `&#34;gp3&#34;`.
-     * Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
+     * storageType of &#34;io1&#34; or &#34;io2&#34;. Can only be set when `storageType` is `&#34;io1&#34;`, `&#34;io2` or `&#34;gp3&#34;`.
+     * Cannot be specified for gp3 storage if the `allocatedStorage` value is below a per-`engine` threshold.
      * See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
      * 
      */
@@ -704,14 +704,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `password_wo` is provided.
+     * Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `passwordWo` is provided.
      * 
      */
     @Import(name="manageMasterUserPassword")
     private @Nullable Output<Boolean> manageMasterUserPassword;
 
     /**
-     * @return Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `password_wo` is provided.
+     * @return Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `passwordWo` is provided.
      * 
      */
     public Optional<Output<Boolean>> manageMasterUserPassword() {
@@ -734,14 +734,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `max_allocated_storage` to **greater than or equal to** `allocated_storage`. Setting `max_allocated_storage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocated_storage` will be automatically ignored as the storage can dynamically scale.
+     * Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `maxAllocatedStorage` to **greater than or equal to** `allocatedStorage`. Setting `maxAllocatedStorage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocatedStorage` will be automatically ignored as the storage can dynamically scale.
      * 
      */
     @Import(name="maxAllocatedStorage")
     private @Nullable Output<Integer> maxAllocatedStorage;
 
     /**
-     * @return Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `max_allocated_storage` to **greater than or equal to** `allocated_storage`. Setting `max_allocated_storage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocated_storage` will be automatically ignored as the storage can dynamically scale.
+     * @return Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `maxAllocatedStorage` to **greater than or equal to** `allocatedStorage`. Setting `maxAllocatedStorage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocatedStorage` will be automatically ignored as the storage can dynamically scale.
      * 
      */
     public Optional<Output<Integer>> maxAllocatedStorage() {
@@ -870,14 +870,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
+     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
      * 
      */
     @Import(name="password")
     private @Nullable Output<String> password;
 
     /**
-     * @return Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
+     * @return Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
      * 
      */
     public Optional<Output<String>> password() {
@@ -900,14 +900,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
+     * The ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true. Once KMS key is set, it can never be changed.
      * 
      */
     @Import(name="performanceInsightsKmsKeyId")
     private @Nullable Output<String> performanceInsightsKmsKeyId;
 
     /**
-     * @return The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
+     * @return The ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true. Once KMS key is set, it can never be changed.
      * 
      */
     public Optional<Output<String>> performanceInsightsKmsKeyId() {
@@ -915,14 +915,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to &#39;7&#39;.
+     * Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to &#39;7&#39;.
      * 
      */
     @Import(name="performanceInsightsRetentionPeriod")
     private @Nullable Output<Integer> performanceInsightsRetentionPeriod;
 
     /**
-     * @return Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to &#39;7&#39;.
+     * @return Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to &#39;7&#39;.
      * 
      */
     public Optional<Output<Integer>> performanceInsightsRetentionPeriod() {
@@ -995,10 +995,10 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Specifies that this resource is a Replica database, and to use this value as the source database.
-     * If replicating an Amazon RDS Database Instance in the same region, use the `identifier` of the source DB, unless also specifying the `db_subnet_group_name`.
-     * If specifying the `db_subnet_group_name` in the same region, use the `arn` of the source DB.
+     * If replicating an Amazon RDS Database Instance in the same region, use the `identifier` of the source DB, unless also specifying the `dbSubnetGroupName`.
+     * If specifying the `dbSubnetGroupName` in the same region, use the `arn` of the source DB.
      * If replicating an Instance in a different region, use the `arn` of the source DB.
-     * Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kms_key_id`.
+     * Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kmsKeyId`.
      * See [DB Instance Replication][instance-replication] and [Working with PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html) for more information on using Replication.
      * 
      */
@@ -1007,10 +1007,10 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Specifies that this resource is a Replica database, and to use this value as the source database.
-     * If replicating an Amazon RDS Database Instance in the same region, use the `identifier` of the source DB, unless also specifying the `db_subnet_group_name`.
-     * If specifying the `db_subnet_group_name` in the same region, use the `arn` of the source DB.
+     * If replicating an Amazon RDS Database Instance in the same region, use the `identifier` of the source DB, unless also specifying the `dbSubnetGroupName`.
+     * If specifying the `dbSubnetGroupName` in the same region, use the `arn` of the source DB.
      * If replicating an Instance in a different region, use the `arn` of the source DB.
-     * Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kms_key_id`.
+     * Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kmsKeyId`.
      * See [DB Instance Replication][instance-replication] and [Working with PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html) for more information on using Replication.
      * 
      */
@@ -1056,7 +1056,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
      * Determines whether a final DB snapshot is
      * created before the DB instance is deleted. If true is specified, no DBSnapshot
      * is created. If false is specified, a DB snapshot is created before the DB
-     * instance is deleted, using the value from `final_snapshot_identifier`. Default
+     * instance is deleted, using the value from `finalSnapshotIdentifier`. Default
      * is `false`.
      * 
      */
@@ -1067,7 +1067,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
      * @return Determines whether a final DB snapshot is
      * created before the DB instance is deleted. If true is specified, no DBSnapshot
      * is created. If false is specified, a DB snapshot is created before the DB
-     * instance is deleted, using the value from `final_snapshot_identifier`. Default
+     * instance is deleted, using the value from `finalSnapshotIdentifier`. Default
      * is `false`.
      * 
      */
@@ -1095,7 +1095,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies whether the DB instance is
      * encrypted. Note that if you are creating a cross-region read replica this field
-     * is ignored and you should instead declare `kms_key_id` with a valid ARN. The
+     * is ignored and you should instead declare `kmsKeyId` with a valid ARN. The
      * default is `false` if not specified.
      * 
      */
@@ -1105,7 +1105,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies whether the DB instance is
      * encrypted. Note that if you are creating a cross-region read replica this field
-     * is ignored and you should instead declare `kms_key_id` with a valid ARN. The
+     * is ignored and you should instead declare `kmsKeyId` with a valid ARN. The
      * default is `false` if not specified.
      * 
      */
@@ -1114,14 +1114,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The storage throughput value for the DB instance. Can only be set when `storage_type` is `&#34;gp3&#34;`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
+     * The storage throughput value for the DB instance. Can only be set when `storageType` is `&#34;gp3&#34;`. Cannot be specified if the `allocatedStorage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
      * 
      */
     @Import(name="storageThroughput")
     private @Nullable Output<Integer> storageThroughput;
 
     /**
-     * @return The storage throughput value for the DB instance. Can only be set when `storage_type` is `&#34;gp3&#34;`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
+     * @return The storage throughput value for the DB instance. Can only be set when `storageType` is `&#34;gp3&#34;`. Cannot be specified if the `allocatedStorage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
      * 
      */
     public Optional<Output<Integer>> storageThroughput() {
@@ -1150,14 +1150,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -1189,7 +1189,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Whether to upgrade the storage file system configuration on the read replica.
-     * Can only be set with `replicate_source_db`.
+     * Can only be set with `replicateSourceDb`.
      * 
      */
     @Import(name="upgradeStorageConfig")
@@ -1197,7 +1197,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Whether to upgrade the storage file system configuration on the read replica.
-     * Can only be set with `replicate_source_db`.
+     * Can only be set with `replicateSourceDb`.
      * 
      */
     public Optional<Output<Boolean>> upgradeStorageConfig() {
@@ -1205,7 +1205,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Required unless a `snapshot_identifier` or `replicate_source_db`
+     * (Required unless a `snapshotIdentifier` or `replicateSourceDb`
      * is provided) Username for the master DB user. Cannot be specified for a replica.
      * 
      */
@@ -1213,7 +1213,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> username;
 
     /**
-     * @return (Required unless a `snapshot_identifier` or `replicate_source_db`
+     * @return (Required unless a `snapshotIdentifier` or `replicateSourceDb`
      * is provided) Username for the master DB user. Cannot be specified for a replica.
      * 
      */
@@ -1332,7 +1332,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allocatedStorage The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
+         * @param allocatedStorage The allocated storage in gibibytes. If `maxAllocatedStorage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicateSourceDb` is set, the value is ignored during the creation of the instance.
          * 
          * @return builder
          * 
@@ -1343,7 +1343,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allocatedStorage The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
+         * @param allocatedStorage The allocated storage in gibibytes. If `maxAllocatedStorage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicateSourceDb` is set, the value is ignored during the creation of the instance.
          * 
          * @return builder
          * 
@@ -1504,7 +1504,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param backupWindow The daily time range (in UTC) during which automated backups are created if they are enabled.
-         * Example: &#34;09:46-10:16&#34;. Must not overlap with `maintenance_window`.
+         * Example: &#34;09:46-10:16&#34;. Must not overlap with `maintenanceWindow`.
          * 
          * @return builder
          * 
@@ -1516,7 +1516,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param backupWindow The daily time range (in UTC) during which automated backups are created if they are enabled.
-         * Example: &#34;09:46-10:16&#34;. Must not overlap with `maintenance_window`.
+         * Example: &#34;09:46-10:16&#34;. Must not overlap with `maintenanceWindow`.
          * 
          * @return builder
          * 
@@ -1527,7 +1527,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param blueGreenUpdate Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-         * See `blue_green_update` below.
+         * See `blueGreenUpdate` below.
          * 
          * @return builder
          * 
@@ -1539,7 +1539,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param blueGreenUpdate Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-         * See `blue_green_update` below.
+         * See `blueGreenUpdate` below.
          * 
          * @return builder
          * 
@@ -1574,7 +1574,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
          * This can&#39;t be changed.
          * See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html) or
          * [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
-         * Cannot be set  with `replicate_source_db`, `restore_to_point_in_time`, `s3_import`, or `snapshot_identifier`.
+         * Cannot be set  with `replicateSourceDb`, `restoreToPointInTime`, `s3Import`, or `snapshotIdentifier`.
          * 
          * @return builder
          * 
@@ -1589,7 +1589,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
          * This can&#39;t be changed.
          * See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html) or
          * [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
-         * Cannot be set  with `replicate_source_db`, `restore_to_point_in_time`, `s3_import`, or `snapshot_identifier`.
+         * Cannot be set  with `replicateSourceDb`, `restoreToPointInTime`, `s3Import`, or `snapshotIdentifier`.
          * 
          * @return builder
          * 
@@ -1646,7 +1646,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
          * For more detailed documentation about each argument, refer to the [AWS official
          * documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
          * 
-         * &gt; **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
+         * &gt; **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
          * Replicate database managed by the provider will promote the database to a fully
          * standalone database.
          * 
@@ -1664,7 +1664,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
          * For more detailed documentation about each argument, refer to the [AWS official
          * documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
          * 
-         * &gt; **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
+         * &gt; **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
          * Replicate database managed by the provider will promote the database to a fully
          * standalone database.
          * 
@@ -1812,7 +1812,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domain The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
+         * @param domain The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domainFqdn`, `domainOu`, `domainAuthSecretArn` and a `domainDnsIps`.
          * 
          * @return builder
          * 
@@ -1823,7 +1823,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domain The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
+         * @param domain The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domainFqdn`, `domainOu`, `domainAuthSecretArn` and a `domainDnsIps`.
          * 
          * @return builder
          * 
@@ -1833,7 +1833,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainAuthSecretArn The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
+         * @param domainAuthSecretArn The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domainIamRoleName`.
          * 
          * @return builder
          * 
@@ -1844,7 +1844,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainAuthSecretArn The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
+         * @param domainAuthSecretArn The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domainIamRoleName`.
          * 
          * @return builder
          * 
@@ -1854,7 +1854,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainDnsIps The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn&#39;t a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
+         * @param domainDnsIps The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn&#39;t a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domainIamRoleName`.
          * 
          * @return builder
          * 
@@ -1865,7 +1865,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainDnsIps The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn&#39;t a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
+         * @param domainDnsIps The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn&#39;t a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domainIamRoleName`.
          * 
          * @return builder
          * 
@@ -1875,7 +1875,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainDnsIps The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn&#39;t a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
+         * @param domainDnsIps The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn&#39;t a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domainIamRoleName`.
          * 
          * @return builder
          * 
@@ -1885,7 +1885,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainFqdn The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
+         * @param domainFqdn The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domainIamRoleName`.
          * 
          * @return builder
          * 
@@ -1896,7 +1896,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainFqdn The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
+         * @param domainFqdn The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domainIamRoleName`.
          * 
          * @return builder
          * 
@@ -1906,7 +1906,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainIamRoleName The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
+         * @param domainIamRoleName The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domainFqdn`, `domainOu`, `domainAuthSecretArn` and a `domainDnsIps`.
          * 
          * @return builder
          * 
@@ -1917,7 +1917,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainIamRoleName The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
+         * @param domainIamRoleName The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domainFqdn`, `domainOu`, `domainAuthSecretArn` and a `domainDnsIps`.
          * 
          * @return builder
          * 
@@ -1927,7 +1927,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainOu The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
+         * @param domainOu The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domainIamRoleName`.
          * 
          * @return builder
          * 
@@ -1938,7 +1938,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainOu The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
+         * @param domainOu The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domainIamRoleName`.
          * 
          * @return builder
          * 
@@ -2021,7 +2021,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineVersion The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
+         * @param engineVersion The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
          * 
          * @return builder
          * 
@@ -2032,7 +2032,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineVersion The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
+         * @param engineVersion The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
          * 
          * @return builder
          * 
@@ -2043,7 +2043,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param finalSnapshotIdentifier The name of your final DB snapshot
-         * when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
+         * when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
          * set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
          * 
          * @return builder
@@ -2056,7 +2056,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param finalSnapshotIdentifier The name of your final DB snapshot
-         * when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
+         * when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
          * set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
          * 
          * @return builder
@@ -2090,7 +2090,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identifier The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
+         * @param identifier The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
          * 
          * @return builder
          * 
@@ -2101,7 +2101,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identifier The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
+         * @param identifier The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
          * 
          * @return builder
          * 
@@ -2174,8 +2174,8 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param iops The amount of provisioned IOPS. Setting this implies a
-         * storage_type of &#34;io1&#34; or &#34;io2&#34;. Can only be set when `storage_type` is `&#34;io1&#34;`, `&#34;io2` or `&#34;gp3&#34;`.
-         * Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
+         * storageType of &#34;io1&#34; or &#34;io2&#34;. Can only be set when `storageType` is `&#34;io1&#34;`, `&#34;io2` or `&#34;gp3&#34;`.
+         * Cannot be specified for gp3 storage if the `allocatedStorage` value is below a per-`engine` threshold.
          * See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
          * 
          * @return builder
@@ -2188,8 +2188,8 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param iops The amount of provisioned IOPS. Setting this implies a
-         * storage_type of &#34;io1&#34; or &#34;io2&#34;. Can only be set when `storage_type` is `&#34;io1&#34;`, `&#34;io2` or `&#34;gp3&#34;`.
-         * Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
+         * storageType of &#34;io1&#34; or &#34;io2&#34;. Can only be set when `storageType` is `&#34;io1&#34;`, `&#34;io2` or `&#34;gp3&#34;`.
+         * Cannot be specified for gp3 storage if the `allocatedStorage` value is below a per-`engine` threshold.
          * See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
          * 
          * @return builder
@@ -2283,7 +2283,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param manageMasterUserPassword Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `password_wo` is provided.
+         * @param manageMasterUserPassword Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `passwordWo` is provided.
          * 
          * @return builder
          * 
@@ -2294,7 +2294,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param manageMasterUserPassword Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `password_wo` is provided.
+         * @param manageMasterUserPassword Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `passwordWo` is provided.
          * 
          * @return builder
          * 
@@ -2325,7 +2325,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxAllocatedStorage Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `max_allocated_storage` to **greater than or equal to** `allocated_storage`. Setting `max_allocated_storage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocated_storage` will be automatically ignored as the storage can dynamically scale.
+         * @param maxAllocatedStorage Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `maxAllocatedStorage` to **greater than or equal to** `allocatedStorage`. Setting `maxAllocatedStorage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocatedStorage` will be automatically ignored as the storage can dynamically scale.
          * 
          * @return builder
          * 
@@ -2336,7 +2336,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxAllocatedStorage Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `max_allocated_storage` to **greater than or equal to** `allocated_storage`. Setting `max_allocated_storage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocated_storage` will be automatically ignored as the storage can dynamically scale.
+         * @param maxAllocatedStorage Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `maxAllocatedStorage` to **greater than or equal to** `allocatedStorage`. Setting `maxAllocatedStorage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocatedStorage` will be automatically ignored as the storage can dynamically scale.
          * 
          * @return builder
          * 
@@ -2509,7 +2509,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
+         * @param password Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
          * 
          * @return builder
          * 
@@ -2520,7 +2520,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
+         * @param password Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
          * 
          * @return builder
          * 
@@ -2551,7 +2551,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param performanceInsightsKmsKeyId The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
+         * @param performanceInsightsKmsKeyId The ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true. Once KMS key is set, it can never be changed.
          * 
          * @return builder
          * 
@@ -2562,7 +2562,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param performanceInsightsKmsKeyId The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
+         * @param performanceInsightsKmsKeyId The ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true. Once KMS key is set, it can never be changed.
          * 
          * @return builder
          * 
@@ -2572,7 +2572,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param performanceInsightsRetentionPeriod Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to &#39;7&#39;.
+         * @param performanceInsightsRetentionPeriod Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to &#39;7&#39;.
          * 
          * @return builder
          * 
@@ -2583,7 +2583,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param performanceInsightsRetentionPeriod Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to &#39;7&#39;.
+         * @param performanceInsightsRetentionPeriod Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to &#39;7&#39;.
          * 
          * @return builder
          * 
@@ -2682,10 +2682,10 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param replicateSourceDb Specifies that this resource is a Replica database, and to use this value as the source database.
-         * If replicating an Amazon RDS Database Instance in the same region, use the `identifier` of the source DB, unless also specifying the `db_subnet_group_name`.
-         * If specifying the `db_subnet_group_name` in the same region, use the `arn` of the source DB.
+         * If replicating an Amazon RDS Database Instance in the same region, use the `identifier` of the source DB, unless also specifying the `dbSubnetGroupName`.
+         * If specifying the `dbSubnetGroupName` in the same region, use the `arn` of the source DB.
          * If replicating an Instance in a different region, use the `arn` of the source DB.
-         * Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kms_key_id`.
+         * Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kmsKeyId`.
          * See [DB Instance Replication][instance-replication] and [Working with PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html) for more information on using Replication.
          * 
          * @return builder
@@ -2698,10 +2698,10 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param replicateSourceDb Specifies that this resource is a Replica database, and to use this value as the source database.
-         * If replicating an Amazon RDS Database Instance in the same region, use the `identifier` of the source DB, unless also specifying the `db_subnet_group_name`.
-         * If specifying the `db_subnet_group_name` in the same region, use the `arn` of the source DB.
+         * If replicating an Amazon RDS Database Instance in the same region, use the `identifier` of the source DB, unless also specifying the `dbSubnetGroupName`.
+         * If specifying the `dbSubnetGroupName` in the same region, use the `arn` of the source DB.
          * If replicating an Instance in a different region, use the `arn` of the source DB.
-         * Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kms_key_id`.
+         * Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kmsKeyId`.
          * See [DB Instance Replication][instance-replication] and [Working with PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html) for more information on using Replication.
          * 
          * @return builder
@@ -2761,7 +2761,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
          * @param skipFinalSnapshot Determines whether a final DB snapshot is
          * created before the DB instance is deleted. If true is specified, no DBSnapshot
          * is created. If false is specified, a DB snapshot is created before the DB
-         * instance is deleted, using the value from `final_snapshot_identifier`. Default
+         * instance is deleted, using the value from `finalSnapshotIdentifier`. Default
          * is `false`.
          * 
          * @return builder
@@ -2776,7 +2776,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
          * @param skipFinalSnapshot Determines whether a final DB snapshot is
          * created before the DB instance is deleted. If true is specified, no DBSnapshot
          * is created. If false is specified, a DB snapshot is created before the DB
-         * instance is deleted, using the value from `final_snapshot_identifier`. Default
+         * instance is deleted, using the value from `finalSnapshotIdentifier`. Default
          * is `false`.
          * 
          * @return builder
@@ -2812,7 +2812,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param storageEncrypted Specifies whether the DB instance is
          * encrypted. Note that if you are creating a cross-region read replica this field
-         * is ignored and you should instead declare `kms_key_id` with a valid ARN. The
+         * is ignored and you should instead declare `kmsKeyId` with a valid ARN. The
          * default is `false` if not specified.
          * 
          * @return builder
@@ -2826,7 +2826,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param storageEncrypted Specifies whether the DB instance is
          * encrypted. Note that if you are creating a cross-region read replica this field
-         * is ignored and you should instead declare `kms_key_id` with a valid ARN. The
+         * is ignored and you should instead declare `kmsKeyId` with a valid ARN. The
          * default is `false` if not specified.
          * 
          * @return builder
@@ -2837,7 +2837,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageThroughput The storage throughput value for the DB instance. Can only be set when `storage_type` is `&#34;gp3&#34;`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
+         * @param storageThroughput The storage throughput value for the DB instance. Can only be set when `storageType` is `&#34;gp3&#34;`. Cannot be specified if the `allocatedStorage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
          * 
          * @return builder
          * 
@@ -2848,7 +2848,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageThroughput The storage throughput value for the DB instance. Can only be set when `storage_type` is `&#34;gp3&#34;`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
+         * @param storageThroughput The storage throughput value for the DB instance. Can only be set when `storageType` is `&#34;gp3&#34;`. Cannot be specified if the `allocatedStorage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
          * 
          * @return builder
          * 
@@ -2911,7 +2911,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -2922,7 +2922,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -2962,7 +2962,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param upgradeStorageConfig Whether to upgrade the storage file system configuration on the read replica.
-         * Can only be set with `replicate_source_db`.
+         * Can only be set with `replicateSourceDb`.
          * 
          * @return builder
          * 
@@ -2974,7 +2974,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param upgradeStorageConfig Whether to upgrade the storage file system configuration on the read replica.
-         * Can only be set with `replicate_source_db`.
+         * Can only be set with `replicateSourceDb`.
          * 
          * @return builder
          * 
@@ -2984,7 +2984,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param username (Required unless a `snapshot_identifier` or `replicate_source_db`
+         * @param username (Required unless a `snapshotIdentifier` or `replicateSourceDb`
          * is provided) Username for the master DB user. Cannot be specified for a replica.
          * 
          * @return builder
@@ -2996,7 +2996,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param username (Required unless a `snapshot_identifier` or `replicate_source_db`
+         * @param username (Required unless a `snapshotIdentifier` or `replicateSourceDb`
          * is provided) Username for the master DB user. Cannot be specified for a replica.
          * 
          * @return builder

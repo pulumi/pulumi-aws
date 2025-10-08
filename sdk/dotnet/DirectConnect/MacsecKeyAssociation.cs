@@ -14,8 +14,8 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// Creating this resource will also create a resource of type `aws.secretsmanager.Secret` which is managed by Direct Connect. While you can import this resource into your state, because this secret is managed by Direct Connect, you will not be able to make any modifications to it. See [How AWS Direct Connect uses AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/integrating_how-services-use-secrets_directconnect.html) for details.
     /// 
-    /// &gt; **Note:** All arguments including `ckn` and `cak` will be stored in the raw state as plain-text.
-    /// **Note:** The `secret_arn` argument can only be used to reference a previously created MACSec key. You cannot associate a Secrets Manager secret created outside of the `aws.directconnect.MacsecKeyAssociation` resource.
+    /// &gt; **Note:** All arguments including `Ckn` and `Cak` will be stored in the raw state as plain-text.
+    /// **Note:** The `SecretArn` argument can only be used to reference a previously created MACSec key. You cannot associate a Secrets Manager secret created outside of the `aws.directconnect.MacsecKeyAssociation` resource.
     /// 
     /// ## Example Usage
     /// 
@@ -77,13 +77,13 @@ namespace Pulumi.Aws.DirectConnect
     public partial class MacsecKeyAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
+        /// The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `Ckn`.
         /// </summary>
         [Output("cak")]
         public Output<string?> Cak { get; private set; } = null!;
 
         /// <summary>
-        /// The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
+        /// The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `Cak`.
         /// </summary>
         [Output("ckn")]
         public Output<string> Ckn { get; private set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.Aws.DirectConnect
         /// <summary>
         /// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
         /// 
-        /// &gt; **Note:** `ckn` and `cak` are mutually exclusive with `secret_arn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secret_arn`. If you use the `secret_arn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
+        /// &gt; **Note:** `Ckn` and `Cak` are mutually exclusive with `SecretArn` - these arguments cannot be used together. If you use `Ckn` and `Cak`, you should not use `SecretArn`. If you use the `SecretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `Ckn` or `Cak`.
         /// </summary>
         [Output("secretArn")]
         public Output<string> SecretArn { get; private set; } = null!;
@@ -167,13 +167,13 @@ namespace Pulumi.Aws.DirectConnect
     public sealed class MacsecKeyAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
+        /// The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `Ckn`.
         /// </summary>
         [Input("cak")]
         public Input<string>? Cak { get; set; }
 
         /// <summary>
-        /// The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
+        /// The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `Cak`.
         /// </summary>
         [Input("ckn")]
         public Input<string>? Ckn { get; set; }
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.DirectConnect
         /// <summary>
         /// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
         /// 
-        /// &gt; **Note:** `ckn` and `cak` are mutually exclusive with `secret_arn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secret_arn`. If you use the `secret_arn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
+        /// &gt; **Note:** `Ckn` and `Cak` are mutually exclusive with `SecretArn` - these arguments cannot be used together. If you use `Ckn` and `Cak`, you should not use `SecretArn`. If you use the `SecretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `Ckn` or `Cak`.
         /// </summary>
         [Input("secretArn")]
         public Input<string>? SecretArn { get; set; }
@@ -207,13 +207,13 @@ namespace Pulumi.Aws.DirectConnect
     public sealed class MacsecKeyAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
+        /// The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `Ckn`.
         /// </summary>
         [Input("cak")]
         public Input<string>? Cak { get; set; }
 
         /// <summary>
-        /// The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
+        /// The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `Cak`.
         /// </summary>
         [Input("ckn")]
         public Input<string>? Ckn { get; set; }
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.DirectConnect
         /// <summary>
         /// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
         /// 
-        /// &gt; **Note:** `ckn` and `cak` are mutually exclusive with `secret_arn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secret_arn`. If you use the `secret_arn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
+        /// &gt; **Note:** `Ckn` and `Cak` are mutually exclusive with `SecretArn` - these arguments cannot be used together. If you use `Ckn` and `Cak`, you should not use `SecretArn`. If you use the `SecretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `Ckn` or `Cak`.
         /// </summary>
         [Input("secretArn")]
         public Input<string>? SecretArn { get; set; }

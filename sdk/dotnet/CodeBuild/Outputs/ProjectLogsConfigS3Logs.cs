@@ -22,7 +22,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// </summary>
         public readonly string? BucketOwnerAccess;
         /// <summary>
-        /// Whether to disable encrypting S3 logs. Defaults to `false`.
+        /// Whether to disable encrypting S3 logs. Defaults to `False`.
         /// </summary>
         public readonly bool? EncryptionDisabled;
         /// <summary>

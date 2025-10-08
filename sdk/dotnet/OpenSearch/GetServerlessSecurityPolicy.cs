@@ -103,7 +103,7 @@ namespace Pulumi.Aws.OpenSearch
         public string? Region { get; set; }
 
         /// <summary>
-        /// Type of security policy. One of `encryption` or `network`.
+        /// Type of security policy. One of `Encryption` or `Network`.
         /// </summary>
         [Input("type", required: true)]
         public string Type { get; set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.OpenSearch
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Type of security policy. One of `encryption` or `network`.
+        /// Type of security policy. One of `Encryption` or `Network`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

@@ -63,11 +63,11 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly int? GopClosedCadence;
         /// <summary>
-        /// GOP size in units of either frames of seconds per `gop_size_units`.
+        /// GOP size in units of either frames of seconds per `GopSizeUnits`.
         /// </summary>
         public readonly double? GopSize;
         /// <summary>
-        /// Indicates if the `gop_size` is specified in frames or seconds.
+        /// Indicates if the `GopSize` is specified in frames or seconds.
         /// </summary>
         public readonly string? GopSizeUnits;
         /// <summary>

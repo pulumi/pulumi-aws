@@ -63,6 +63,54 @@ import (
 //
 // ```
 //
+// ### GitHub Enterprise
+//
+// When working with [GitHub Enterprise](https://enterprise.github.com/) source CodeBuild webhooks, the GHE repository webhook must be separately managed (e.g., manually or with the `githubRepositoryWebhook` resource).
+//
+// More information creating webhooks with GitHub Enterprise can be found in the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-enterprise.html).
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codebuild"
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := codebuild.NewWebhook(ctx, "example", &codebuild.WebhookArgs{
+//				ProjectName: pulumi.Any(exampleAwsCodebuildProject.Name),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewRepositoryWebhook(ctx, "example", &github.RepositoryWebhookArgs{
+//				Active: pulumi.Bool(true),
+//				Events: pulumi.StringArray{
+//					pulumi.String("push"),
+//				},
+//				Name:       "example",
+//				Repository: pulumi.Any(exampleGithubRepository.Name),
+//				Configuration: &github.RepositoryWebhookConfigurationArgs{
+//					Url:         example.PayloadUrl,
+//					Secret:      example.Secret,
+//					ContentType: pulumi.String("json"),
+//					InsecureSsl: pulumi.Bool(false),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### For CodeBuild Runner Project
 //
 // To create a CodeBuild project as a Runner Project, the following `codebuild.Webhook` resource is required for the project.

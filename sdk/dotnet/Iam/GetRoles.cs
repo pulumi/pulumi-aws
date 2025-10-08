@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// ### Roles filtered by name regex
         /// 
-        /// Roles whose role-name contains `project`
+        /// Roles whose role-name contains `Project`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -133,7 +133,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// ### Roles filtered by name regex
         /// 
-        /// Roles whose role-name contains `project`
+        /// Roles whose role-name contains `Project`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// ### Roles filtered by name regex
         /// 
-        /// Roles whose role-name contains `project`
+        /// Roles whose role-name contains `Project`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;

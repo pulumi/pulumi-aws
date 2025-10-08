@@ -858,6 +858,46 @@ class KxCluster(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.finspace.KxCluster("example",
+            name="my-tf-kx-cluster",
+            environment_id=example_aws_finspace_kx_environment["id"],
+            type="HDB",
+            release_label="1.0",
+            az_mode="SINGLE",
+            availability_zone_id="use1-az2",
+            capacity_configuration={
+                "node_type": "kx.s.2xlarge",
+                "node_count": 2,
+            },
+            vpc_configuration={
+                "vpc_id": test["id"],
+                "security_group_ids": [example_aws_security_group["id"]],
+                "subnet_ids": [example_aws_subnet["id"]],
+                "ip_address_type": "IP_V4",
+            },
+            cache_storage_configurations=[{
+                "type": "CACHE_1000",
+                "size": 1200,
+            }],
+            databases=[{
+                "database_name": example_aws_finspace_kx_database["name"],
+                "cache_configuration": [{
+                    "cacheType": "CACHE_1000",
+                    "dbPaths": "/",
+                }],
+            }],
+            code={
+                "s3_bucket": test_aws_s3_bucket["id"],
+                "s3_key": object["key"],
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import an AWS FinSpace Kx Cluster using the `id` (environment ID and cluster name, comma-delimited). For example:
@@ -909,6 +949,46 @@ class KxCluster(pulumi.CustomResource):
         Resource for managing an AWS FinSpace Kx Cluster.
 
         ## Example Usage
+
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.finspace.KxCluster("example",
+            name="my-tf-kx-cluster",
+            environment_id=example_aws_finspace_kx_environment["id"],
+            type="HDB",
+            release_label="1.0",
+            az_mode="SINGLE",
+            availability_zone_id="use1-az2",
+            capacity_configuration={
+                "node_type": "kx.s.2xlarge",
+                "node_count": 2,
+            },
+            vpc_configuration={
+                "vpc_id": test["id"],
+                "security_group_ids": [example_aws_security_group["id"]],
+                "subnet_ids": [example_aws_subnet["id"]],
+                "ip_address_type": "IP_V4",
+            },
+            cache_storage_configurations=[{
+                "type": "CACHE_1000",
+                "size": 1200,
+            }],
+            databases=[{
+                "database_name": example_aws_finspace_kx_database["name"],
+                "cache_configuration": [{
+                    "cacheType": "CACHE_1000",
+                    "dbPaths": "/",
+                }],
+            }],
+            code={
+                "s3_bucket": test_aws_s3_bucket["id"],
+                "s3_key": object["key"],
+            })
+        ```
 
         ## Import
 

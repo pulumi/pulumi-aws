@@ -15,7 +15,7 @@ public final class FeatureGroupFeatureDefinition {
     private @Nullable FeatureGroupFeatureDefinitionCollectionConfig collectionConfig;
     private @Nullable String collectionType;
     /**
-     * @return The name of a feature. `feature_name` cannot be any of the following: `is_deleted`, `write_time`, `api_invocation_time`.
+     * @return The name of a feature. `featureName` cannot be any of the following: `isDeleted`, `writeTime`, `apiInvocationTime`.
      * 
      */
     private @Nullable String featureName;
@@ -33,7 +33,7 @@ public final class FeatureGroupFeatureDefinition {
         return Optional.ofNullable(this.collectionType);
     }
     /**
-     * @return The name of a feature. `feature_name` cannot be any of the following: `is_deleted`, `write_time`, `api_invocation_time`.
+     * @return The name of a feature. `featureName` cannot be any of the following: `isDeleted`, `writeTime`, `apiInvocationTime`.
      * 
      */
     public Optional<String> featureName() {

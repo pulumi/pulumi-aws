@@ -13,7 +13,7 @@ namespace Pulumi.Aws.S3Tables.Inputs
     public sealed class TableEncryptionConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of a KMS Key to be used with `aws:kms` `sse_algorithm`
+        /// The ARN of a KMS Key to be used with `aws:kms` `SseAlgorithm`
         /// </summary>
         [Input("kmsKeyArn", required: true)]
         public Input<string> KmsKeyArn { get; set; } = null!;

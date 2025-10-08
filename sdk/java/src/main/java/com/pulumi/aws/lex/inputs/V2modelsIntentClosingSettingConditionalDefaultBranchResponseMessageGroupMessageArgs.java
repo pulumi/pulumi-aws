@@ -19,14 +19,14 @@ public final class V2modelsIntentClosingSettingConditionalDefaultBranchResponseM
     public static final V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessageArgs Empty = new V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessageArgs();
 
     /**
-     * Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+     * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
      * 
      */
     @Import(name="customPayload")
     private @Nullable Output<V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessageCustomPayloadArgs> customPayload;
 
     /**
-     * @return Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+     * @return Configuration block for a message in a custom format defined by the client application. See `customPayload`.
      * 
      */
     public Optional<Output<V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessageCustomPayloadArgs>> customPayload() {
@@ -34,14 +34,14 @@ public final class V2modelsIntentClosingSettingConditionalDefaultBranchResponseM
     }
 
     /**
-     * Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+     * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
      * 
      */
     @Import(name="imageResponseCard")
     private @Nullable Output<V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardArgs> imageResponseCard;
 
     /**
-     * @return Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+     * @return Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
      * 
      */
     public Optional<Output<V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardArgs>> imageResponseCard() {
@@ -49,14 +49,14 @@ public final class V2modelsIntentClosingSettingConditionalDefaultBranchResponseM
     }
 
     /**
-     * Configuration block for a message in plain text format. See `plain_text_message`.
+     * Configuration block for a message in plain text format. See `plainTextMessage`.
      * 
      */
     @Import(name="plainTextMessage")
     private @Nullable Output<V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessageArgs> plainTextMessage;
 
     /**
-     * @return Configuration block for a message in plain text format. See `plain_text_message`.
+     * @return Configuration block for a message in plain text format. See `plainTextMessage`.
      * 
      */
     public Optional<Output<V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessageArgs>> plainTextMessage() {
@@ -64,14 +64,14 @@ public final class V2modelsIntentClosingSettingConditionalDefaultBranchResponseM
     }
 
     /**
-     * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+     * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
      * 
      */
     @Import(name="ssmlMessage")
     private @Nullable Output<V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessageSsmlMessageArgs> ssmlMessage;
 
     /**
-     * @return Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+     * @return Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
      * 
      */
     public Optional<Output<V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessageSsmlMessageArgs>> ssmlMessage() {
@@ -106,7 +106,7 @@ public final class V2modelsIntentClosingSettingConditionalDefaultBranchResponseM
         }
 
         /**
-         * @param customPayload Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+         * @param customPayload Configuration block for a message in a custom format defined by the client application. See `customPayload`.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class V2modelsIntentClosingSettingConditionalDefaultBranchResponseM
         }
 
         /**
-         * @param customPayload Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+         * @param customPayload Configuration block for a message in a custom format defined by the client application. See `customPayload`.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class V2modelsIntentClosingSettingConditionalDefaultBranchResponseM
         }
 
         /**
-         * @param imageResponseCard Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+         * @param imageResponseCard Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class V2modelsIntentClosingSettingConditionalDefaultBranchResponseM
         }
 
         /**
-         * @param imageResponseCard Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+         * @param imageResponseCard Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class V2modelsIntentClosingSettingConditionalDefaultBranchResponseM
         }
 
         /**
-         * @param plainTextMessage Configuration block for a message in plain text format. See `plain_text_message`.
+         * @param plainTextMessage Configuration block for a message in plain text format. See `plainTextMessage`.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class V2modelsIntentClosingSettingConditionalDefaultBranchResponseM
         }
 
         /**
-         * @param plainTextMessage Configuration block for a message in plain text format. See `plain_text_message`.
+         * @param plainTextMessage Configuration block for a message in plain text format. See `plainTextMessage`.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class V2modelsIntentClosingSettingConditionalDefaultBranchResponseM
         }
 
         /**
-         * @param ssmlMessage Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+         * @param ssmlMessage Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class V2modelsIntentClosingSettingConditionalDefaultBranchResponseM
         }
 
         /**
-         * @param ssmlMessage Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+         * @param ssmlMessage Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
          * 
          * @return builder
          * 

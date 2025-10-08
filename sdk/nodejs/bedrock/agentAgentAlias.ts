@@ -12,6 +12,63 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getCallerIdentity({});
+ * const currentGetPartition = aws.getPartition({});
+ * const currentGetRegion = aws.getRegion({});
+ * const exampleAgentTrust = Promise.all([current, currentGetPartition, currentGetRegion, current]).then(([current, currentGetPartition, currentGetRegion, current1]) => aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: ["sts:AssumeRole"],
+ *         principals: [{
+ *             identifiers: ["bedrock.amazonaws.com"],
+ *             type: "Service",
+ *         }],
+ *         conditions: [
+ *             {
+ *                 test: "StringEquals",
+ *                 values: [current.accountId],
+ *                 variable: "aws:SourceAccount",
+ *             },
+ *             {
+ *                 test: "ArnLike",
+ *                 values: [`arn:${currentGetPartition.partition}:bedrock:${currentGetRegion.region}:${current1.accountId}:agent/*`],
+ *                 variable: "AWS:SourceArn",
+ *             },
+ *         ],
+ *     }],
+ * }));
+ * const exampleAgentPermissions = Promise.all([currentGetPartition, currentGetRegion]).then(([currentGetPartition, currentGetRegion]) => aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: ["bedrock:InvokeModel"],
+ *         resources: [`arn:${currentGetPartition.partition}:bedrock:${currentGetRegion.region}::foundation-model/anthropic.claude-v2`],
+ *     }],
+ * }));
+ * const example = new aws.iam.Role("example", {
+ *     assumeRolePolicy: exampleAgentTrust.then(exampleAgentTrust => exampleAgentTrust.json),
+ *     namePrefix: "AmazonBedrockExecutionRoleForAgents_",
+ * });
+ * const exampleRolePolicy = new aws.iam.RolePolicy("example", {
+ *     policy: exampleAgentPermissions.then(exampleAgentPermissions => exampleAgentPermissions.json),
+ *     role: example.id,
+ * });
+ * const exampleAgentAgent = new aws.bedrock.AgentAgent("example", {
+ *     agentName: "my-agent-name",
+ *     agentResourceRoleArn: example.arn,
+ *     idleTtl: 500,
+ *     foundationModel: "anthropic.claude-v2",
+ * });
+ * const exampleAgentAgentAlias = new aws.bedrock.AgentAgentAlias("example", {
+ *     agentAliasName: "my-agent-alias",
+ *     agentId: exampleAgentAgent.agentId,
+ *     description: "Test Alias",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Agents for Amazon Bedrock Agent Alias using the alias ID and the agent ID separated by `,`. For example:

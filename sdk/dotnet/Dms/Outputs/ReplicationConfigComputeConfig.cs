@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly int? MinCapacityUnits;
         /// <summary>
-        /// Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
+        /// Specifies if the replication instance is a multi-az deployment. You cannot set the `AvailabilityZone` parameter if the `MultiAz` parameter is set to `True`.
         /// </summary>
         public readonly bool? MultiAz;
         /// <summary>

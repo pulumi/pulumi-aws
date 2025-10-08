@@ -19,6 +19,42 @@ import * as utilities from "../utilities";
  * If you need to delete a cluster, you have to remove its HSM modules first.
  * To initialize cluster, you have to add an HSM instance to the cluster, then sign CSR and upload it.
  *
+ * ## Example Usage
+ *
+ * The following example below creates a CloudHSM cluster.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const available = aws.getAvailabilityZones({});
+ * const cloudhsmV2Vpc = new aws.ec2.Vpc("cloudhsm_v2_vpc", {
+ *     cidrBlock: "10.0.0.0/16",
+ *     tags: {
+ *         Name: "example-aws_cloudhsm_v2_cluster",
+ *     },
+ * });
+ * const cloudhsmV2Subnets: aws.ec2.Subnet[] = [];
+ * for (const range = {value: 0}; range.value < 2; range.value++) {
+ *     cloudhsmV2Subnets.push(new aws.ec2.Subnet(`cloudhsm_v2_subnets-${range.value}`, {
+ *         vpcId: cloudhsmV2Vpc.id,
+ *         cidrBlock: subnets[range.value],
+ *         mapPublicIpOnLaunch: false,
+ *         availabilityZone: available.then(available => available.names[range.value]),
+ *         tags: {
+ *             Name: "example-aws_cloudhsm_v2_cluster",
+ *         },
+ *     }));
+ * }
+ * const cloudhsmV2Cluster = new aws.cloudhsmv2.Cluster("cloudhsm_v2_cluster", {
+ *     hsmType: "hsm1.medium",
+ *     subnetIds: cloudhsmV2Subnets.map(__item => __item.id),
+ *     tags: {
+ *         Name: "example-aws_cloudhsm_v2_cluster",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import CloudHSM v2 Clusters using the cluster `id`. For example:

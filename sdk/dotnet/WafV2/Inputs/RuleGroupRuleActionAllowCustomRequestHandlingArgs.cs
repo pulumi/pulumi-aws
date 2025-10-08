@@ -16,7 +16,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<Inputs.RuleGroupRuleActionAllowCustomRequestHandlingInsertHeaderArgs>? _insertHeaders;
 
         /// <summary>
-        /// The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+        /// The `InsertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
         /// </summary>
         public InputList<Inputs.RuleGroupRuleActionAllowCustomRequestHandlingInsertHeaderArgs> InsertHeaders
         {

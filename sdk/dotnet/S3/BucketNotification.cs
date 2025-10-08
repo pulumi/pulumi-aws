@@ -490,7 +490,7 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// 
-    /// For JSON syntax, use an array instead of defining the `queue` key twice.
+    /// For JSON syntax, use an array instead of defining the `Queue` key twice.
     /// 
     /// ### Emit events to EventBridge
     /// 
@@ -536,7 +536,7 @@ namespace Pulumi.Aws.S3
         public Output<string> Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enable Amazon EventBridge notifications. Defaults to `false`.
+        /// Whether to enable Amazon EventBridge notifications. Defaults to `False`.
         /// </summary>
         [Output("eventbridge")]
         public Output<bool?> Eventbridge { get; private set; } = null!;
@@ -620,7 +620,7 @@ namespace Pulumi.Aws.S3
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
-        /// Whether to enable Amazon EventBridge notifications. Defaults to `false`.
+        /// Whether to enable Amazon EventBridge notifications. Defaults to `False`.
         /// </summary>
         [Input("eventbridge")]
         public Input<bool>? Eventbridge { get; set; }
@@ -684,7 +684,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Bucket { get; set; }
 
         /// <summary>
-        /// Whether to enable Amazon EventBridge notifications. Defaults to `false`.
+        /// Whether to enable Amazon EventBridge notifications. Defaults to `False`.
         /// </summary>
         [Input("eventbridge")]
         public Input<bool>? Eventbridge { get; set; }

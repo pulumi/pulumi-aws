@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Cfg
     /// <summary>
     /// Provides an AWS Config Delivery Channel.
     /// 
-    /// &gt; **Note:** Delivery Channel requires a Configuration Recorder to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
+    /// &gt; **Note:** Delivery Channel requires a Configuration Recorder to be present. Use of `DependsOn` (as shown below) is recommended to avoid race conditions.
     /// 
     /// ## Example Usage
     /// 
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.Cfg
     public partial class DeliveryChannel : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
+        /// The name of the delivery channel. Defaults to `Default`. Changing it recreates the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -210,7 +210,7 @@ namespace Pulumi.Aws.Cfg
     public sealed class DeliveryChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
+        /// The name of the delivery channel. Defaults to `Default`. Changing it recreates the resource.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -260,7 +260,7 @@ namespace Pulumi.Aws.Cfg
     public sealed class DeliveryChannelState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
+        /// The name of the delivery channel. Defaults to `Default`. Changing it recreates the resource.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

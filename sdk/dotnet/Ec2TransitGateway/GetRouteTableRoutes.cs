@@ -141,7 +141,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Identifier of EC2 Transit Gateway Route Table.
         /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
+        /// More complex filters can be expressed using one or more `Filter` sub-blocks,
         /// which take the following arguments:
         /// </summary>
         [Input("transitGatewayRouteTableId", required: true)]
@@ -176,7 +176,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Identifier of EC2 Transit Gateway Route Table.
         /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
+        /// More complex filters can be expressed using one or more `Filter` sub-blocks,
         /// which take the following arguments:
         /// </summary>
         [Input("transitGatewayRouteTableId", required: true)]

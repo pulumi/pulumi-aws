@@ -22,7 +22,7 @@ namespace Pulumi.Aws.EcrPublic.Inputs
         private InputList<string>? _architectures;
 
         /// <summary>
-        /// The system architecture that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported architectures will appear as badges on the repository and are used as search filters: `ARM`, `ARM 64`, `x86`, `x86-64`
+        /// The system architecture that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported architectures will appear as badges on the repository and are used as search filters: `ARM`, `ARM 64`, `X86`, `x86-64`
         /// </summary>
         public InputList<string> Architectures
         {

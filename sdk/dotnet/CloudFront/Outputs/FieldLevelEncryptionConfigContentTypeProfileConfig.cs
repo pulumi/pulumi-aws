@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     public sealed class FieldLevelEncryptionConfigContentTypeProfileConfig
     {
         /// <summary>
-        /// Object that contains an attribute `items` that contains the list of configurations for a field-level encryption content type-profile. See Content Type Profile.
+        /// Object that contains an attribute `Items` that contains the list of configurations for a field-level encryption content type-profile. See Content Type Profile.
         /// </summary>
         public readonly Outputs.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles ContentTypeProfiles;
         /// <summary>

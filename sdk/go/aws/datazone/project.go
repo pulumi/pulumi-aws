@@ -14,6 +14,38 @@ import (
 
 // Resource for managing an AWS DataZone Project.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datazone"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datazone.NewProject(ctx, "test", &datazone.ProjectArgs{
+//				DomainId: testAwsDatazoneDomain.Id,
+//				GlossaryTerms: pulumi.StringArray{
+//					pulumi.String("2N8w6XJCwZf"),
+//				},
+//				Name:              pulumi.String("name"),
+//				Description:       pulumi.String("desc"),
+//				SkipDeletionCheck: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### Basic Usage
 //
 // ```go

@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Lex.Inputs
 
         /// <summary>
         /// Specifications for the constituent sub slots of a composite slot.
-        /// See the `slot_specification` argument reference below.
+        /// See the `SlotSpecification` argument reference below.
         /// </summary>
         public InputList<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationGetArgs> SlotSpecifications
         {

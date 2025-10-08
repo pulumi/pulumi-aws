@@ -12,6 +12,93 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.m2.Environment("test", {
+ *     name: "test-env",
+ *     engineType: "bluage",
+ *     instanceType: "M2.m5.large",
+ *     securityGroups: ["sg-01234567890abcdef"],
+ *     subnetIds: [
+ *         "subnet-01234567890abcdef",
+ *         "subnet-01234567890abcdea",
+ *     ],
+ * });
+ * ```
+ *
+ * ### High Availability
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.m2.Environment("test", {
+ *     name: "test-env",
+ *     engineType: "bluage",
+ *     instanceType: "M2.m5.large",
+ *     securityGroups: ["sg-01234567890abcdef"],
+ *     subnetIds: [
+ *         "subnet-01234567890abcdef",
+ *         "subnet-01234567890abcdea",
+ *     ],
+ *     highAvailabilityConfig: {
+ *         desiredCapacity: 2,
+ *     },
+ * });
+ * ```
+ *
+ * ### EFS Filesystem
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.m2.Environment("test", {
+ *     name: "test-env",
+ *     engineType: "bluage",
+ *     instanceType: "M2.m5.large",
+ *     securityGroups: ["sg-01234567890abcdef"],
+ *     subnetIds: [
+ *         "subnet-01234567890abcdef",
+ *         "subnet-01234567890abcdea",
+ *     ],
+ *     storageConfiguration: {
+ *         efs: {
+ *             fileSystemId: "fs-01234567890abcdef",
+ *             mountPoint: "/m2/mount/example",
+ *         },
+ *     },
+ * });
+ * ```
+ *
+ * ### FSX Filesystem
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.m2.Environment("test", {
+ *     name: "test-env",
+ *     engineType: "bluage",
+ *     instanceType: "M2.m5.large",
+ *     securityGroups: ["sg-01234567890abcdef"],
+ *     subnetIds: [
+ *         "subnet-01234567890abcdef",
+ *         "subnet-01234567890abcdea",
+ *     ],
+ *     storageConfiguration: {
+ *         fsx: {
+ *             fileSystemId: "fs-01234567890abcdef",
+ *             mountPoint: "/m2/mount/example",
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Mainframe Modernization Environment using the `01234567890abcdef012345678`. For example:

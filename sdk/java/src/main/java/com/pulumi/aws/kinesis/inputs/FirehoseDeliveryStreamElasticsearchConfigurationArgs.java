@@ -52,14 +52,14 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
     }
 
     /**
-     * The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+     * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     @Import(name="cloudwatchLoggingOptions")
     private @Nullable Output<FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgs> cloudwatchLoggingOptions;
 
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgs>> cloudwatchLoggingOptions() {
@@ -67,14 +67,14 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
     }
 
     /**
-     * The endpoint to use when communicating with the cluster. Conflicts with `domain_arn`.
+     * The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
      * 
      */
     @Import(name="clusterEndpoint")
     private @Nullable Output<String> clusterEndpoint;
 
     /**
-     * @return The endpoint to use when communicating with the cluster. Conflicts with `domain_arn`.
+     * @return The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
      * 
      */
     public Optional<Output<String>> clusterEndpoint() {
@@ -82,14 +82,14 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
     }
 
     /**
-     * The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `cluster_endpoint`.
+     * The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
      * 
      */
     @Import(name="domainArn")
     private @Nullable Output<String> domainArn;
 
     /**
-     * @return The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `cluster_endpoint`.
+     * @return The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
      * 
      */
     public Optional<Output<String>> domainArn() {
@@ -127,14 +127,14 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
     }
 
     /**
-     * The data processing configuration.  See `processing_configuration` block below for details.
+     * The data processing configuration.  See `processingConfiguration` block below for details.
      * 
      */
     @Import(name="processingConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs> processingConfiguration;
 
     /**
-     * @return The data processing configuration.  See `processing_configuration` block below for details.
+     * @return The data processing configuration.  See `processingConfiguration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs>> processingConfiguration() {
@@ -187,14 +187,14 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
     }
 
     /**
-     * The S3 Configuration. See `s3_configuration` block below for details.
+     * The S3 Configuration. See `s3Configuration` block below for details.
      * 
      */
     @Import(name="s3Configuration", required=true)
     private Output<FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs> s3Configuration;
 
     /**
-     * @return The S3 Configuration. See `s3_configuration` block below for details.
+     * @return The S3 Configuration. See `s3Configuration` block below for details.
      * 
      */
     public Output<FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs> s3Configuration() {
@@ -217,14 +217,14 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
     }
 
     /**
-     * The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpc_config` block below for details.
+     * The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpcConfig` block below for details.
      * 
      */
     @Import(name="vpcConfig")
     private @Nullable Output<FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs> vpcConfig;
 
     /**
-     * @return The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpc_config` block below for details.
+     * @return The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpcConfig` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs>> vpcConfig() {
@@ -311,7 +311,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
         }
 
         /**
-         * @param clusterEndpoint The endpoint to use when communicating with the cluster. Conflicts with `domain_arn`.
+         * @param clusterEndpoint The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
         }
 
         /**
-         * @param clusterEndpoint The endpoint to use when communicating with the cluster. Conflicts with `domain_arn`.
+         * @param clusterEndpoint The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
         }
 
         /**
-         * @param domainArn The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `cluster_endpoint`.
+         * @param domainArn The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
         }
 
         /**
-         * @param domainArn The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `cluster_endpoint`.
+         * @param domainArn The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
         }
 
         /**
-         * @param processingConfiguration The data processing configuration.  See `processing_configuration` block below for details.
+         * @param processingConfiguration The data processing configuration.  See `processingConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -427,7 +427,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
         }
 
         /**
-         * @param processingConfiguration The data processing configuration.  See `processing_configuration` block below for details.
+         * @param processingConfiguration The data processing configuration.  See `processingConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -500,7 +500,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
         }
 
         /**
-         * @param s3Configuration The S3 Configuration. See `s3_configuration` block below for details.
+         * @param s3Configuration The S3 Configuration. See `s3Configuration` block below for details.
          * 
          * @return builder
          * 
@@ -511,7 +511,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
         }
 
         /**
-         * @param s3Configuration The S3 Configuration. See `s3_configuration` block below for details.
+         * @param s3Configuration The S3 Configuration. See `s3Configuration` block below for details.
          * 
          * @return builder
          * 
@@ -542,7 +542,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
         }
 
         /**
-         * @param vpcConfig The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpc_config` block below for details.
+         * @param vpcConfig The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpcConfig` block below for details.
          * 
          * @return builder
          * 
@@ -553,7 +553,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
         }
 
         /**
-         * @param vpcConfig The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpc_config` block below for details.
+         * @param vpcConfig The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpcConfig` block below for details.
          * 
          * @return builder
          * 

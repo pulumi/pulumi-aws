@@ -170,13 +170,13 @@ namespace Pulumi.Aws.CloudFront
         public Output<string> LastModifiedTime { get; private set; } = null!;
 
         /// <summary>
-        /// CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
+        /// CloudFront domain name of the staging distribution. See `StagingDistributionDnsNames`.
         /// </summary>
         [Output("stagingDistributionDnsNames")]
         public Output<Outputs.ContinuousDeploymentPolicyStagingDistributionDnsNames?> StagingDistributionDnsNames { get; private set; } = null!;
 
         /// <summary>
-        /// Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
+        /// Parameters for routing production traffic from primary to staging distributions. See `TrafficConfig`.
         /// </summary>
         [Output("trafficConfig")]
         public Output<Outputs.ContinuousDeploymentPolicyTrafficConfig?> TrafficConfig { get; private set; } = null!;
@@ -234,13 +234,13 @@ namespace Pulumi.Aws.CloudFront
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
+        /// CloudFront domain name of the staging distribution. See `StagingDistributionDnsNames`.
         /// </summary>
         [Input("stagingDistributionDnsNames")]
         public Input<Inputs.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs>? StagingDistributionDnsNames { get; set; }
 
         /// <summary>
-        /// Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
+        /// Parameters for routing production traffic from primary to staging distributions. See `TrafficConfig`.
         /// </summary>
         [Input("trafficConfig")]
         public Input<Inputs.ContinuousDeploymentPolicyTrafficConfigArgs>? TrafficConfig { get; set; }
@@ -278,13 +278,13 @@ namespace Pulumi.Aws.CloudFront
         public Input<string>? LastModifiedTime { get; set; }
 
         /// <summary>
-        /// CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
+        /// CloudFront domain name of the staging distribution. See `StagingDistributionDnsNames`.
         /// </summary>
         [Input("stagingDistributionDnsNames")]
         public Input<Inputs.ContinuousDeploymentPolicyStagingDistributionDnsNamesGetArgs>? StagingDistributionDnsNames { get; set; }
 
         /// <summary>
-        /// Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
+        /// Parameters for routing production traffic from primary to staging distributions. See `TrafficConfig`.
         /// </summary>
         [Input("trafficConfig")]
         public Input<Inputs.ContinuousDeploymentPolicyTrafficConfigGetArgs>? TrafficConfig { get; set; }

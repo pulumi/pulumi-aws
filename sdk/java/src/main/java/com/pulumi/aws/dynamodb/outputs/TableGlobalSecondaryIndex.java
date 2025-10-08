@@ -37,7 +37,7 @@ public final class TableGlobalSecondaryIndex {
      */
     private @Nullable TableGlobalSecondaryIndexOnDemandThroughput onDemandThroughput;
     /**
-     * @return One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
+     * @return One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
      * 
      */
     private String projectionType;
@@ -47,7 +47,7 @@ public final class TableGlobalSecondaryIndex {
      */
     private @Nullable String rangeKey;
     /**
-     * @return Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * @return Number of read units for this index. Must be set if billingMode is set to PROVISIONED.
      * 
      */
     private @Nullable Integer readCapacity;
@@ -57,7 +57,7 @@ public final class TableGlobalSecondaryIndex {
      */
     private @Nullable TableGlobalSecondaryIndexWarmThroughput warmThroughput;
     /**
-     * @return Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * @return Number of write units for this index. Must be set if billingMode is set to PROVISIONED.
      * 
      */
     private @Nullable Integer writeCapacity;
@@ -92,7 +92,7 @@ public final class TableGlobalSecondaryIndex {
         return Optional.ofNullable(this.onDemandThroughput);
     }
     /**
-     * @return One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
+     * @return One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
      * 
      */
     public String projectionType() {
@@ -106,7 +106,7 @@ public final class TableGlobalSecondaryIndex {
         return Optional.ofNullable(this.rangeKey);
     }
     /**
-     * @return Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * @return Number of read units for this index. Must be set if billingMode is set to PROVISIONED.
      * 
      */
     public Optional<Integer> readCapacity() {
@@ -120,7 +120,7 @@ public final class TableGlobalSecondaryIndex {
         return Optional.ofNullable(this.warmThroughput);
     }
     /**
-     * @return Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * @return Number of write units for this index. Must be set if billingMode is set to PROVISIONED.
      * 
      */
     public Optional<Integer> writeCapacity() {

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.IdentityStore.Inputs
     public sealed class UserPhoneNumbersGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// When `true`, this is the primary phone number associated with the user.
+        /// When `True`, this is the primary phone number associated with the user.
         /// </summary>
         [Input("primary")]
         public Input<bool>? Primary { get; set; }

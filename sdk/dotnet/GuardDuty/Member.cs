@@ -68,7 +68,7 @@ namespace Pulumi.Aws.GuardDuty
         public Output<string> DetectorId { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean whether an email notification is sent to the accounts. Defaults to `false`.
+        /// Boolean whether an email notification is sent to the accounts. Defaults to `False`.
         /// </summary>
         [Output("disableEmailNotification")]
         public Output<bool?> DisableEmailNotification { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.Aws.GuardDuty
         public Output<string?> InvitationMessage { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
+        /// Boolean whether to invite the account to GuardDuty as a member. Defaults to `False`. To detect if an invitation needs to be (re-)sent, the this provider state value is `True` based on a `RelationshipStatus` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
         /// </summary>
         [Output("invite")]
         public Output<bool?> Invite { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.GuardDuty
         public Input<string> DetectorId { get; set; } = null!;
 
         /// <summary>
-        /// Boolean whether an email notification is sent to the accounts. Defaults to `false`.
+        /// Boolean whether an email notification is sent to the accounts. Defaults to `False`.
         /// </summary>
         [Input("disableEmailNotification")]
         public Input<bool>? DisableEmailNotification { get; set; }
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.GuardDuty
         public Input<string>? InvitationMessage { get; set; }
 
         /// <summary>
-        /// Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
+        /// Boolean whether to invite the account to GuardDuty as a member. Defaults to `False`. To detect if an invitation needs to be (re-)sent, the this provider state value is `True` based on a `RelationshipStatus` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
         /// </summary>
         [Input("invite")]
         public Input<bool>? Invite { get; set; }
@@ -212,7 +212,7 @@ namespace Pulumi.Aws.GuardDuty
         public Input<string>? DetectorId { get; set; }
 
         /// <summary>
-        /// Boolean whether an email notification is sent to the accounts. Defaults to `false`.
+        /// Boolean whether an email notification is sent to the accounts. Defaults to `False`.
         /// </summary>
         [Input("disableEmailNotification")]
         public Input<bool>? DisableEmailNotification { get; set; }
@@ -230,7 +230,7 @@ namespace Pulumi.Aws.GuardDuty
         public Input<string>? InvitationMessage { get; set; }
 
         /// <summary>
-        /// Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
+        /// Boolean whether to invite the account to GuardDuty as a member. Defaults to `False`. To detect if an invitation needs to be (re-)sent, the this provider state value is `True` based on a `RelationshipStatus` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
         /// </summary>
         [Input("invite")]
         public Input<bool>? Invite { get; set; }

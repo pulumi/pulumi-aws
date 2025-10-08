@@ -39,6 +39,50 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// });
     /// ```
+    /// 
+    /// ## Extended Threat Detection for EKS
+    /// 
+    /// To enable GuardDuty [Extended Threat Detection](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html) for EKS, you need at least one of these features enabled: [EKS Protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html) or [Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring-configuration.html). For maximum detection coverage, enabling both is recommended to enhance detection capabilities.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.GuardDuty.Detector("example", new()
+    ///     {
+    ///         Enable = true,
+    ///     });
+    /// 
+    ///     var eksProtection = new Aws.GuardDuty.DetectorFeature("eks_protection", new()
+    ///     {
+    ///         DetectorId = example.Id,
+    ///         AccountId = "123456789012",
+    ///         Name = "EKS_AUDIT_LOGS",
+    ///         Status = "ENABLED",
+    ///     });
+    /// 
+    ///     var eksRuntimeMonitoring = new Aws.GuardDuty.DetectorFeature("eks_runtime_monitoring", new()
+    ///     {
+    ///         DetectorId = example.Id,
+    ///         AccountId = "123456789012",
+    ///         Name = "EKS_RUNTIME_MONITORING",
+    ///         Status = "ENABLED",
+    ///         AdditionalConfigurations = new[]
+    ///         {
+    ///             new Aws.GuardDuty.Inputs.DetectorFeatureAdditionalConfigurationArgs
+    ///             {
+    ///                 Name = "EKS_ADDON_MANAGEMENT",
+    ///                 Status = "ENABLED",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [AwsResourceType("aws:guardduty/memberDetectorFeature:MemberDetectorFeature")]
     public partial class MemberDetectorFeature : global::Pulumi.CustomResource

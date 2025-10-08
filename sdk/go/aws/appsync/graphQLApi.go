@@ -307,6 +307,79 @@ import (
 //
 // ```
 //
+// ### Associate Web ACL (v2)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appsync"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/wafv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
+//				AuthenticationType: pulumi.String("API_KEY"),
+//				Name:               pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleWebAcl, err := wafv2.NewWebAcl(ctx, "example", &wafv2.WebAclArgs{
+//				Name:        pulumi.String("managed-rule-example"),
+//				Description: pulumi.String("Example of a managed rule."),
+//				Scope:       pulumi.String("REGIONAL"),
+//				DefaultAction: &wafv2.WebAclDefaultActionArgs{
+//					Allow: &wafv2.WebAclDefaultActionAllowArgs{},
+//				},
+//				Rules: wafv2.WebAclRuleArray{
+//					&wafv2.WebAclRuleArgs{
+//						Name:     pulumi.String("rule-1"),
+//						Priority: pulumi.Int(1),
+//						OverrideAction: &wafv2.WebAclRuleOverrideActionArgs{
+//							Block: []map[string]interface{}{
+//								map[string]interface{}{},
+//							},
+//						},
+//						Statement: &wafv2.WebAclRuleStatementArgs{
+//							ManagedRuleGroupStatement: &wafv2.WebAclRuleStatementManagedRuleGroupStatementArgs{
+//								Name:       pulumi.String("AWSManagedRulesCommonRuleSet"),
+//								VendorName: pulumi.String("AWS"),
+//							},
+//						},
+//						VisibilityConfig: &wafv2.WebAclRuleVisibilityConfigArgs{
+//							CloudwatchMetricsEnabled: pulumi.Bool(false),
+//							MetricName:               pulumi.String("friendly-rule-metric-name"),
+//							SampledRequestsEnabled:   pulumi.Bool(false),
+//						},
+//					},
+//				},
+//				VisibilityConfig: &wafv2.WebAclVisibilityConfigArgs{
+//					CloudwatchMetricsEnabled: pulumi.Bool(false),
+//					MetricName:               pulumi.String("friendly-metric-name"),
+//					SampledRequestsEnabled:   pulumi.Bool(false),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = wafv2.NewWebAclAssociation(ctx, "example", &wafv2.WebAclAssociationArgs{
+//				ResourceArn: example.Arn,
+//				WebAclArn:   exampleWebAcl.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### GraphQL run complexity, query depth, and introspection
 //
 // ```go

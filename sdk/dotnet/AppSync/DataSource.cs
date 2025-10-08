@@ -147,31 +147,31 @@ namespace Pulumi.Aws.AppSync
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// DynamoDB settings. See `dynamodb_config` Block for details.
+        /// DynamoDB settings. See `DynamodbConfig` Block for details.
         /// </summary>
         [Output("dynamodbConfig")]
         public Output<Outputs.DataSourceDynamodbConfig?> DynamodbConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Elasticsearch settings. See `elasticsearch_config` Block for details.
+        /// Amazon Elasticsearch settings. See `ElasticsearchConfig` Block for details.
         /// </summary>
         [Output("elasticsearchConfig")]
         public Output<Outputs.DataSourceElasticsearchConfig?> ElasticsearchConfig { get; private set; } = null!;
 
         /// <summary>
-        /// AWS EventBridge settings. See `event_bridge_config` Block for details.
+        /// AWS EventBridge settings. See `EventBridgeConfig` Block for details.
         /// </summary>
         [Output("eventBridgeConfig")]
         public Output<Outputs.DataSourceEventBridgeConfig?> EventBridgeConfig { get; private set; } = null!;
 
         /// <summary>
-        /// HTTP settings. See `http_config` Block for details.
+        /// HTTP settings. See `HttpConfig` Block for details.
         /// </summary>
         [Output("httpConfig")]
         public Output<Outputs.DataSourceHttpConfig?> HttpConfig { get; private set; } = null!;
 
         /// <summary>
-        /// AWS Lambda settings. See `lambda_config` Block for details.
+        /// AWS Lambda settings. See `LambdaConfig` Block for details.
         /// </summary>
         [Output("lambdaConfig")]
         public Output<Outputs.DataSourceLambdaConfig?> LambdaConfig { get; private set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.AppSync
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon OpenSearch Service settings. See `opensearchservice_config` Block for details.
+        /// Amazon OpenSearch Service settings. See `OpensearchserviceConfig` Block for details.
         /// </summary>
         [Output("opensearchserviceConfig")]
         public Output<Outputs.DataSourceOpensearchserviceConfig?> OpensearchserviceConfig { get; private set; } = null!;
@@ -195,13 +195,13 @@ namespace Pulumi.Aws.AppSync
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// AWS RDS settings. See `relational_database_config` Block for details.
+        /// AWS RDS settings. See `RelationalDatabaseConfig` Block for details.
         /// </summary>
         [Output("relationalDatabaseConfig")]
         public Output<Outputs.DataSourceRelationalDatabaseConfig?> RelationalDatabaseConfig { get; private set; } = null!;
 
         /// <summary>
-        /// IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
+        /// IAM service role ARN for the data source. Required if `Type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
         /// </summary>
         [Output("serviceRoleArn")]
         public Output<string?> ServiceRoleArn { get; private set; } = null!;
@@ -271,31 +271,31 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// DynamoDB settings. See `dynamodb_config` Block for details.
+        /// DynamoDB settings. See `DynamodbConfig` Block for details.
         /// </summary>
         [Input("dynamodbConfig")]
         public Input<Inputs.DataSourceDynamodbConfigArgs>? DynamodbConfig { get; set; }
 
         /// <summary>
-        /// Amazon Elasticsearch settings. See `elasticsearch_config` Block for details.
+        /// Amazon Elasticsearch settings. See `ElasticsearchConfig` Block for details.
         /// </summary>
         [Input("elasticsearchConfig")]
         public Input<Inputs.DataSourceElasticsearchConfigArgs>? ElasticsearchConfig { get; set; }
 
         /// <summary>
-        /// AWS EventBridge settings. See `event_bridge_config` Block for details.
+        /// AWS EventBridge settings. See `EventBridgeConfig` Block for details.
         /// </summary>
         [Input("eventBridgeConfig")]
         public Input<Inputs.DataSourceEventBridgeConfigArgs>? EventBridgeConfig { get; set; }
 
         /// <summary>
-        /// HTTP settings. See `http_config` Block for details.
+        /// HTTP settings. See `HttpConfig` Block for details.
         /// </summary>
         [Input("httpConfig")]
         public Input<Inputs.DataSourceHttpConfigArgs>? HttpConfig { get; set; }
 
         /// <summary>
-        /// AWS Lambda settings. See `lambda_config` Block for details.
+        /// AWS Lambda settings. See `LambdaConfig` Block for details.
         /// </summary>
         [Input("lambdaConfig")]
         public Input<Inputs.DataSourceLambdaConfigArgs>? LambdaConfig { get; set; }
@@ -307,7 +307,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Amazon OpenSearch Service settings. See `opensearchservice_config` Block for details.
+        /// Amazon OpenSearch Service settings. See `OpensearchserviceConfig` Block for details.
         /// </summary>
         [Input("opensearchserviceConfig")]
         public Input<Inputs.DataSourceOpensearchserviceConfigArgs>? OpensearchserviceConfig { get; set; }
@@ -319,13 +319,13 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// AWS RDS settings. See `relational_database_config` Block for details.
+        /// AWS RDS settings. See `RelationalDatabaseConfig` Block for details.
         /// </summary>
         [Input("relationalDatabaseConfig")]
         public Input<Inputs.DataSourceRelationalDatabaseConfigArgs>? RelationalDatabaseConfig { get; set; }
 
         /// <summary>
-        /// IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
+        /// IAM service role ARN for the data source. Required if `Type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
         /// </summary>
         [Input("serviceRoleArn")]
         public Input<string>? ServiceRoleArn { get; set; }
@@ -363,31 +363,31 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// DynamoDB settings. See `dynamodb_config` Block for details.
+        /// DynamoDB settings. See `DynamodbConfig` Block for details.
         /// </summary>
         [Input("dynamodbConfig")]
         public Input<Inputs.DataSourceDynamodbConfigGetArgs>? DynamodbConfig { get; set; }
 
         /// <summary>
-        /// Amazon Elasticsearch settings. See `elasticsearch_config` Block for details.
+        /// Amazon Elasticsearch settings. See `ElasticsearchConfig` Block for details.
         /// </summary>
         [Input("elasticsearchConfig")]
         public Input<Inputs.DataSourceElasticsearchConfigGetArgs>? ElasticsearchConfig { get; set; }
 
         /// <summary>
-        /// AWS EventBridge settings. See `event_bridge_config` Block for details.
+        /// AWS EventBridge settings. See `EventBridgeConfig` Block for details.
         /// </summary>
         [Input("eventBridgeConfig")]
         public Input<Inputs.DataSourceEventBridgeConfigGetArgs>? EventBridgeConfig { get; set; }
 
         /// <summary>
-        /// HTTP settings. See `http_config` Block for details.
+        /// HTTP settings. See `HttpConfig` Block for details.
         /// </summary>
         [Input("httpConfig")]
         public Input<Inputs.DataSourceHttpConfigGetArgs>? HttpConfig { get; set; }
 
         /// <summary>
-        /// AWS Lambda settings. See `lambda_config` Block for details.
+        /// AWS Lambda settings. See `LambdaConfig` Block for details.
         /// </summary>
         [Input("lambdaConfig")]
         public Input<Inputs.DataSourceLambdaConfigGetArgs>? LambdaConfig { get; set; }
@@ -399,7 +399,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Amazon OpenSearch Service settings. See `opensearchservice_config` Block for details.
+        /// Amazon OpenSearch Service settings. See `OpensearchserviceConfig` Block for details.
         /// </summary>
         [Input("opensearchserviceConfig")]
         public Input<Inputs.DataSourceOpensearchserviceConfigGetArgs>? OpensearchserviceConfig { get; set; }
@@ -411,13 +411,13 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// AWS RDS settings. See `relational_database_config` Block for details.
+        /// AWS RDS settings. See `RelationalDatabaseConfig` Block for details.
         /// </summary>
         [Input("relationalDatabaseConfig")]
         public Input<Inputs.DataSourceRelationalDatabaseConfigGetArgs>? RelationalDatabaseConfig { get; set; }
 
         /// <summary>
-        /// IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
+        /// IAM service role ARN for the data source. Required if `Type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
         /// </summary>
         [Input("serviceRoleArn")]
         public Input<string>? ServiceRoleArn { get; set; }

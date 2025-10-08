@@ -71,6 +71,270 @@ import (
 //
 // ```
 //
+// ### Complex
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/wafv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			test, err := wafv2.NewIpSet(ctx, "test", &wafv2.IpSetArgs{
+//				Name:             pulumi.String("test"),
+//				Scope:            pulumi.String("REGIONAL"),
+//				IpAddressVersion: pulumi.String("IPV4"),
+//				Addresses: pulumi.StringArray{
+//					pulumi.String("1.1.1.1/32"),
+//					pulumi.String("2.2.2.2/32"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testRegexPatternSet, err := wafv2.NewRegexPatternSet(ctx, "test", &wafv2.RegexPatternSetArgs{
+//				Name:  pulumi.String("test"),
+//				Scope: pulumi.String("REGIONAL"),
+//				RegularExpressions: wafv2.RegexPatternSetRegularExpressionArray{
+//					&wafv2.RegexPatternSetRegularExpressionArgs{
+//						RegexString: pulumi.String("one"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = wafv2.NewRuleGroup(ctx, "example", &wafv2.RuleGroupArgs{
+//				Name:        pulumi.String("complex-example"),
+//				Description: pulumi.String("An rule group containing all statements"),
+//				Scope:       pulumi.String("REGIONAL"),
+//				Capacity:    pulumi.Int(500),
+//				Rules: wafv2.RuleGroupRuleArray{
+//					&wafv2.RuleGroupRuleArgs{
+//						Name:     pulumi.String("rule-1"),
+//						Priority: pulumi.Int(1),
+//						Action: &wafv2.RuleGroupRuleActionArgs{
+//							Block: &wafv2.RuleGroupRuleActionBlockArgs{},
+//						},
+//						Statement: &wafv2.RuleGroupRuleStatementArgs{
+//							NotStatement: &wafv2.RuleGroupRuleStatementNotStatementArgs{
+//								Statements: wafv2.RuleGroupRuleStatementArray{
+//									&wafv2.RuleGroupRuleStatementArgs{
+//										AndStatement: &wafv2.RuleGroupRuleStatementAndStatementArgs{
+//											Statements: wafv2.RuleGroupRuleStatementArray{
+//												&wafv2.RuleGroupRuleStatementArgs{
+//													GeoMatchStatement: &wafv2.RuleGroupRuleStatementGeoMatchStatementArgs{
+//														CountryCodes: pulumi.StringArray{
+//															pulumi.String("US"),
+//														},
+//													},
+//												},
+//												&wafv2.RuleGroupRuleStatementArgs{
+//													ByteMatchStatement: &wafv2.RuleGroupRuleStatementByteMatchStatementArgs{
+//														PositionalConstraint: pulumi.String("CONTAINS"),
+//														SearchString:         pulumi.String("word"),
+//														FieldToMatch: &wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchArgs{
+//															AllQueryArguments: &wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchAllQueryArgumentsArgs{},
+//														},
+//														TextTransformations: wafv2.RuleGroupRuleStatementByteMatchStatementTextTransformationArray{
+//															&wafv2.RuleGroupRuleStatementByteMatchStatementTextTransformationArgs{
+//																Priority: pulumi.Int(5),
+//																Type:     pulumi.String("CMD_LINE"),
+//															},
+//															&wafv2.RuleGroupRuleStatementByteMatchStatementTextTransformationArgs{
+//																Priority: pulumi.Int(2),
+//																Type:     pulumi.String("LOWERCASE"),
+//															},
+//														},
+//													},
+//												},
+//											},
+//										},
+//									},
+//								},
+//							},
+//						},
+//						VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
+//							CloudwatchMetricsEnabled: pulumi.Bool(false),
+//							MetricName:               pulumi.String("rule-1"),
+//							SampledRequestsEnabled:   pulumi.Bool(false),
+//						},
+//					},
+//					&wafv2.RuleGroupRuleArgs{
+//						Name:     pulumi.String("rule-2"),
+//						Priority: pulumi.Int(2),
+//						Action: &wafv2.RuleGroupRuleActionArgs{
+//							Count: &wafv2.RuleGroupRuleActionCountArgs{},
+//						},
+//						Statement: &wafv2.RuleGroupRuleStatementArgs{
+//							OrStatement: &wafv2.RuleGroupRuleStatementOrStatementArgs{
+//								Statements: wafv2.RuleGroupRuleStatementArray{
+//									&wafv2.RuleGroupRuleStatementArgs{
+//										RegexMatchStatement: &wafv2.RuleGroupRuleStatementRegexMatchStatementArgs{
+//											RegexString: pulumi.String("a-z?"),
+//											FieldToMatch: &wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs{
+//												SingleHeader: &wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeaderArgs{
+//													Name: pulumi.String("user-agent"),
+//												},
+//											},
+//											TextTransformations: wafv2.RuleGroupRuleStatementRegexMatchStatementTextTransformationArray{
+//												&wafv2.RuleGroupRuleStatementRegexMatchStatementTextTransformationArgs{
+//													Priority: pulumi.Int(6),
+//													Type:     pulumi.String("NONE"),
+//												},
+//											},
+//										},
+//									},
+//									&wafv2.RuleGroupRuleStatementArgs{
+//										SqliMatchStatement: &wafv2.RuleGroupRuleStatementSqliMatchStatementArgs{
+//											FieldToMatch: &wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchArgs{
+//												Body: &wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchBodyArgs{},
+//											},
+//											TextTransformations: wafv2.RuleGroupRuleStatementSqliMatchStatementTextTransformationArray{
+//												&wafv2.RuleGroupRuleStatementSqliMatchStatementTextTransformationArgs{
+//													Priority: pulumi.Int(5),
+//													Type:     pulumi.String("URL_DECODE"),
+//												},
+//												&wafv2.RuleGroupRuleStatementSqliMatchStatementTextTransformationArgs{
+//													Priority: pulumi.Int(4),
+//													Type:     pulumi.String("HTML_ENTITY_DECODE"),
+//												},
+//												&wafv2.RuleGroupRuleStatementSqliMatchStatementTextTransformationArgs{
+//													Priority: pulumi.Int(3),
+//													Type:     pulumi.String("COMPRESS_WHITE_SPACE"),
+//												},
+//											},
+//										},
+//									},
+//									&wafv2.RuleGroupRuleStatementArgs{
+//										XssMatchStatement: &wafv2.RuleGroupRuleStatementXssMatchStatementArgs{
+//											FieldToMatch: &wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchArgs{
+//												Method: &wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchMethodArgs{},
+//											},
+//											TextTransformations: wafv2.RuleGroupRuleStatementXssMatchStatementTextTransformationArray{
+//												&wafv2.RuleGroupRuleStatementXssMatchStatementTextTransformationArgs{
+//													Priority: pulumi.Int(2),
+//													Type:     pulumi.String("NONE"),
+//												},
+//											},
+//										},
+//									},
+//								},
+//							},
+//						},
+//						VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
+//							CloudwatchMetricsEnabled: pulumi.Bool(false),
+//							MetricName:               pulumi.String("rule-2"),
+//							SampledRequestsEnabled:   pulumi.Bool(false),
+//						},
+//						CaptchaConfig: &wafv2.RuleGroupRuleCaptchaConfigArgs{
+//							ImmunityTimeProperty: &wafv2.RuleGroupRuleCaptchaConfigImmunityTimePropertyArgs{
+//								ImmunityTime: pulumi.Int(240),
+//							},
+//						},
+//					},
+//					&wafv2.RuleGroupRuleArgs{
+//						Name:     pulumi.String("rule-3"),
+//						Priority: pulumi.Int(3),
+//						Action: &wafv2.RuleGroupRuleActionArgs{
+//							Block: &wafv2.RuleGroupRuleActionBlockArgs{},
+//						},
+//						Statement: &wafv2.RuleGroupRuleStatementArgs{
+//							SizeConstraintStatement: &wafv2.RuleGroupRuleStatementSizeConstraintStatementArgs{
+//								ComparisonOperator: pulumi.String("GT"),
+//								Size:               pulumi.Int(100),
+//								FieldToMatch: &wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs{
+//									SingleQueryArgument: &wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs{
+//										Name: pulumi.String("username"),
+//									},
+//								},
+//								TextTransformations: wafv2.RuleGroupRuleStatementSizeConstraintStatementTextTransformationArray{
+//									&wafv2.RuleGroupRuleStatementSizeConstraintStatementTextTransformationArgs{
+//										Priority: pulumi.Int(5),
+//										Type:     pulumi.String("NONE"),
+//									},
+//								},
+//							},
+//						},
+//						VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
+//							CloudwatchMetricsEnabled: pulumi.Bool(false),
+//							MetricName:               pulumi.String("rule-3"),
+//							SampledRequestsEnabled:   pulumi.Bool(false),
+//						},
+//					},
+//					&wafv2.RuleGroupRuleArgs{
+//						Name:     pulumi.String("rule-4"),
+//						Priority: pulumi.Int(4),
+//						Action: &wafv2.RuleGroupRuleActionArgs{
+//							Block: &wafv2.RuleGroupRuleActionBlockArgs{},
+//						},
+//						Statement: &wafv2.RuleGroupRuleStatementArgs{
+//							OrStatement: &wafv2.RuleGroupRuleStatementOrStatementArgs{
+//								Statements: wafv2.RuleGroupRuleStatementArray{
+//									&wafv2.RuleGroupRuleStatementArgs{
+//										IpSetReferenceStatement: &wafv2.RuleGroupRuleStatementIpSetReferenceStatementArgs{
+//											Arn: test.Arn,
+//										},
+//									},
+//									&wafv2.RuleGroupRuleStatementArgs{
+//										RegexPatternSetReferenceStatement: &wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs{
+//											Arn: testRegexPatternSet.Arn,
+//											FieldToMatch: &wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs{
+//												SingleHeader: &wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs{
+//													Name: pulumi.String("referer"),
+//												},
+//											},
+//											TextTransformations: wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformationArray{
+//												&wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformationArgs{
+//													Priority: pulumi.Int(2),
+//													Type:     pulumi.String("NONE"),
+//												},
+//											},
+//										},
+//									},
+//								},
+//							},
+//						},
+//						VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
+//							CloudwatchMetricsEnabled: pulumi.Bool(false),
+//							MetricName:               pulumi.String("rule-4"),
+//							SampledRequestsEnabled:   pulumi.Bool(false),
+//						},
+//					},
+//				},
+//				VisibilityConfig: &wafv2.RuleGroupVisibilityConfigArgs{
+//					CloudwatchMetricsEnabled: pulumi.Bool(false),
+//					MetricName:               pulumi.String("friendly-metric-name"),
+//					SampledRequestsEnabled:   pulumi.Bool(false),
+//				},
+//				CaptchaConfig: []map[string]interface{}{
+//					map[string]interface{}{
+//						"immunityTimeProperty": []map[string]interface{}{
+//							map[string]interface{}{
+//								"immunityTime": 120,
+//							},
+//						},
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example-and-statement"),
+//					"Code": pulumi.String("123456"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### Using rulesJson
 //
 // ```go

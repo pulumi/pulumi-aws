@@ -14,8 +14,8 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// you to deploy and manage applications in the AWS cloud without worrying about
     /// the infrastructure that runs those applications.
     /// 
-    /// Environments are often things such as `development`, `integration`, or
-    /// `production`.
+    /// Environments are often things such as `Development`, `Integration`, or
+    /// `Production`.
     /// 
     /// ## Example Usage
     /// 
@@ -48,12 +48,12 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// Some options can be stack-specific, check [AWS Docs](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html)
     /// for supported options and examples.
     /// 
-    /// The `setting` and `all_settings` mappings support the following format:
+    /// The `Setting` and `AllSettings` mappings support the following format:
     /// 
-    /// * `namespace` - (Required) Unique namespace identifying the option's associated AWS resource
-    /// * `name` - (Required) Name of the configuration option
-    /// * `value` - (Required) Value for the configuration option
-    /// * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
+    /// * `Namespace` - (Required) Unique namespace identifying the option's associated AWS resource
+    /// * `Name` - (Required) Name of the configuration option
+    /// * `Value` - (Required) Value for the configuration option
+    /// * `Resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
     /// 
     /// ### Example With Options
     /// 
@@ -109,7 +109,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
     {
         /// <summary>
         /// List of all option settings configured in this Environment. These
-        /// are a combination of default settings and their overrides from `setting` in
+        /// are a combination of default settings and their overrides from `Setting` in
         /// the configuration.
         /// </summary>
         [Output("allSettings")]
@@ -191,7 +191,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// <summary>
         /// The time between polling the AWS API to
         /// check if changes have been applied. Use this to adjust the rate of API calls
-        /// for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
+        /// for any `Create` or `Update` action. Minimum `10s`, maximum `180s`. Omit this to
         /// use the default behavior, which is an exponential backoff
         /// </summary>
         [Output("pollInterval")]
@@ -225,13 +225,13 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public Output<string> SolutionStackName { get; private set; } = null!;
 
         /// <summary>
-        /// A set of tags to apply to the Environment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A set of tags to apply to the Environment. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -355,7 +355,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// <summary>
         /// The time between polling the AWS API to
         /// check if changes have been applied. Use this to adjust the rate of API calls
-        /// for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
+        /// for any `Create` or `Update` action. Minimum `10s`, maximum `180s`. Omit this to
         /// use the default behavior, which is an exponential backoff
         /// </summary>
         [Input("pollInterval")]
@@ -392,7 +392,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A set of tags to apply to the Environment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A set of tags to apply to the Environment. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -443,7 +443,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
 
         /// <summary>
         /// List of all option settings configured in this Environment. These
-        /// are a combination of default settings and their overrides from `setting` in
+        /// are a combination of default settings and their overrides from `Setting` in
         /// the configuration.
         /// </summary>
         public InputList<Inputs.EnvironmentAllSettingGetArgs> AllSettings
@@ -552,7 +552,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// <summary>
         /// The time between polling the AWS API to
         /// check if changes have been applied. Use this to adjust the rate of API calls
-        /// for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
+        /// for any `Create` or `Update` action. Minimum `10s`, maximum `180s`. Omit this to
         /// use the default behavior, which is an exponential backoff
         /// </summary>
         [Input("pollInterval")]
@@ -601,7 +601,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A set of tags to apply to the Environment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A set of tags to apply to the Environment. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -613,7 +613,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

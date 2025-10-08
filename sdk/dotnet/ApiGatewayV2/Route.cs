@@ -94,7 +94,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string> ApiId { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
+        /// Boolean whether an API key is required for the route. Defaults to `False`. Supported only for WebSocket APIs.
         /// </summary>
         [Output("apiKeyRequired")]
         public Output<bool?> ApiKeyRequired { get; private set; } = null!;
@@ -221,7 +221,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
-        /// Boolean whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
+        /// Boolean whether an API key is required for the route. Defaults to `False`. Supported only for WebSocket APIs.
         /// </summary>
         [Input("apiKeyRequired")]
         public Input<bool>? ApiKeyRequired { get; set; }
@@ -328,7 +328,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? ApiId { get; set; }
 
         /// <summary>
-        /// Boolean whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
+        /// Boolean whether an API key is required for the route. Defaults to `False`. Supported only for WebSocket APIs.
         /// </summary>
         [Input("apiKeyRequired")]
         public Input<bool>? ApiKeyRequired { get; set; }

@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Backup
         public Output<string> BackupVaultName { get; private set; } = null!;
 
         /// <summary>
-        /// The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
+        /// The number of days before the lock date. If omitted creates a vault lock in `Governance` mode, otherwise it will create a vault lock in `Compliance` mode.
         /// </summary>
         [Output("changeableForDays")]
         public Output<int?> ChangeableForDays { get; private set; } = null!;
@@ -133,7 +133,7 @@ namespace Pulumi.Aws.Backup
         public Input<string> BackupVaultName { get; set; } = null!;
 
         /// <summary>
-        /// The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
+        /// The number of days before the lock date. If omitted creates a vault lock in `Governance` mode, otherwise it will create a vault lock in `Compliance` mode.
         /// </summary>
         [Input("changeableForDays")]
         public Input<int>? ChangeableForDays { get; set; }
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.Backup
         public Input<string>? BackupVaultName { get; set; }
 
         /// <summary>
-        /// The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
+        /// The number of days before the lock date. If omitted creates a vault lock in `Governance` mode, otherwise it will create a vault lock in `Compliance` mode.
         /// </summary>
         [Input("changeableForDays")]
         public Input<int>? ChangeableForDays { get; set; }

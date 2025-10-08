@@ -76,7 +76,7 @@ public final class EndpointConfigurationShadowProductionVariant {
      */
     private String modelName;
     /**
-     * @return Sets how the endpoint routes incoming traffic. See routing_config below.
+     * @return Sets how the endpoint routes incoming traffic. See routingConfig below.
      * 
      */
     private @Nullable List<EndpointConfigurationShadowProductionVariantRoutingConfig> routingConfigs;
@@ -175,7 +175,7 @@ public final class EndpointConfigurationShadowProductionVariant {
         return this.modelName;
     }
     /**
-     * @return Sets how the endpoint routes incoming traffic. See routing_config below.
+     * @return Sets how the endpoint routes incoming traffic. See routingConfig below.
      * 
      */
     public List<EndpointConfigurationShadowProductionVariantRoutingConfig> routingConfigs() {

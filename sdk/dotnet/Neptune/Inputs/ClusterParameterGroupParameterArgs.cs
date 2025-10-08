@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Neptune.Inputs
     public sealed class ClusterParameterGroupParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
+        /// Valid values are `Immediate` and `pending-reboot`. Defaults to `pending-reboot`.
         /// </summary>
         [Input("applyMethod")]
         public Input<string>? ApplyMethod { get; set; }

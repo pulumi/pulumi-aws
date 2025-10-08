@@ -13,13 +13,13 @@ namespace Pulumi.Aws.LB.Inputs
     public sealed class TargetGroupTargetGroupHealthDnsFailoverArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The minimum number of targets that must be healthy. If the number of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to the maximum number of targets. The default is `off`.
+        /// The minimum number of targets that must be healthy. If the number of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `Off` or an integer from `1` to the maximum number of targets. The default is `Off`.
         /// </summary>
         [Input("minimumHealthyTargetsCount")]
         public Input<string>? MinimumHealthyTargetsCount { get; set; }
 
         /// <summary>
-        /// The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to `100`. The default is `off`.
+        /// The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `Off` or an integer from `1` to `100`. The default is `Off`.
         /// </summary>
         [Input("minimumHealthyTargetsPercentage")]
         public Input<string>? MinimumHealthyTargetsPercentage { get; set; }

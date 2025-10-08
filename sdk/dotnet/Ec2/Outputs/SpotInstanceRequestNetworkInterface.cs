@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class SpotInstanceRequestNetworkInterface
     {
         /// <summary>
-        /// Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
+        /// Whether or not to delete the network interface on instance termination. Defaults to `False`. Currently, the only valid value is `False`, as this is only supported when creating new network interfaces when launching an instance.
         /// </summary>
         public readonly bool? DeleteOnTermination;
         /// <summary>

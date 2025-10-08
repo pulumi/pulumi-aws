@@ -38,7 +38,7 @@ public final class GetListenerRuleArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * ARN of the Listener Rule.
-     * Either `arn` or `listener_arn` must be set.
+     * Either `arn` or `listenerArn` must be set.
      * 
      */
     @Import(name="arn")
@@ -46,7 +46,7 @@ public final class GetListenerRuleArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * @return ARN of the Listener Rule.
-     * Either `arn` or `listener_arn` must be set.
+     * Either `arn` or `listenerArn` must be set.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -72,7 +72,7 @@ public final class GetListenerRuleArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * ARN of the associated Listener.
-     * Either `arn` or `listener_arn` must be set.
+     * Either `arn` or `listenerArn` must be set.
      * 
      */
     @Import(name="listenerArn")
@@ -80,7 +80,7 @@ public final class GetListenerRuleArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * @return ARN of the associated Listener.
-     * Either `arn` or `listener_arn` must be set.
+     * Either `arn` or `listenerArn` must be set.
      * 
      */
     public Optional<Output<String>> listenerArn() {
@@ -89,7 +89,7 @@ public final class GetListenerRuleArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * Priority of the Listener Rule within the Listener.
-     * Must be set if `listener_arn` is set, otherwise must not be set.
+     * Must be set if `listenerArn` is set, otherwise must not be set.
      * 
      */
     @Import(name="priority")
@@ -97,7 +97,7 @@ public final class GetListenerRuleArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * @return Priority of the Listener Rule within the Listener.
-     * Must be set if `listener_arn` is set, otherwise must not be set.
+     * Must be set if `listenerArn` is set, otherwise must not be set.
      * 
      */
     public Optional<Output<Integer>> priority() {
@@ -184,7 +184,7 @@ public final class GetListenerRuleArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param arn ARN of the Listener Rule.
-         * Either `arn` or `listener_arn` must be set.
+         * Either `arn` or `listenerArn` must be set.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class GetListenerRuleArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param arn ARN of the Listener Rule.
-         * Either `arn` or `listener_arn` must be set.
+         * Either `arn` or `listenerArn` must be set.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class GetListenerRuleArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param listenerArn ARN of the associated Listener.
-         * Either `arn` or `listener_arn` must be set.
+         * Either `arn` or `listenerArn` must be set.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class GetListenerRuleArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param listenerArn ARN of the associated Listener.
-         * Either `arn` or `listener_arn` must be set.
+         * Either `arn` or `listenerArn` must be set.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class GetListenerRuleArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param priority Priority of the Listener Rule within the Listener.
-         * Must be set if `listener_arn` is set, otherwise must not be set.
+         * Must be set if `listenerArn` is set, otherwise must not be set.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class GetListenerRuleArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param priority Priority of the Listener Rule within the Listener.
-         * Must be set if `listener_arn` is set, otherwise must not be set.
+         * Must be set if `listenerArn` is set, otherwise must not be set.
          * 
          * @return builder
          * 

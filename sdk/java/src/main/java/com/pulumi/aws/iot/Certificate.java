@@ -190,9 +190,9 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.caPem);
     }
     /**
-     * The certificate to be registered. If `ca_pem` is unspecified, review
+     * The certificate to be registered. If `caPem` is unspecified, review
      * [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
-     * If `ca_pem` is specified, review
+     * If `caPem` is specified, review
      * [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
      * for more information on registering a certificate.
      * 
@@ -201,9 +201,9 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     private Output<String> certificatePem;
 
     /**
-     * @return The certificate to be registered. If `ca_pem` is unspecified, review
+     * @return The certificate to be registered. If `caPem` is unspecified, review
      * [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
-     * If `ca_pem` is specified, review
+     * If `caPem` is specified, review
      * [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
      * for more information on registering a certificate.
      * 

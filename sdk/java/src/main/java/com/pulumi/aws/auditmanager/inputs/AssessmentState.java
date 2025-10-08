@@ -37,14 +37,14 @@ public final class AssessmentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Assessment report storage destination configuration. See `assessment_reports_destination` below.
+     * Assessment report storage destination configuration. See `assessmentReportsDestination` below.
      * 
      */
     @Import(name="assessmentReportsDestination")
     private @Nullable Output<AssessmentAssessmentReportsDestinationArgs> assessmentReportsDestination;
 
     /**
-     * @return Assessment report storage destination configuration. See `assessment_reports_destination` below.
+     * @return Assessment report storage destination configuration. See `assessmentReportsDestination` below.
      * 
      */
     public Optional<Output<AssessmentAssessmentReportsDestinationArgs>> assessmentReportsDestination() {
@@ -176,14 +176,14 @@ public final class AssessmentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the assessment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the assessment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the assessment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the assessment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -254,7 +254,7 @@ public final class AssessmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param assessmentReportsDestination Assessment report storage destination configuration. See `assessment_reports_destination` below.
+         * @param assessmentReportsDestination Assessment report storage destination configuration. See `assessmentReportsDestination` below.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class AssessmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param assessmentReportsDestination Assessment report storage destination configuration. See `assessment_reports_destination` below.
+         * @param assessmentReportsDestination Assessment report storage destination configuration. See `assessmentReportsDestination` below.
          * 
          * @return builder
          * 
@@ -467,7 +467,7 @@ public final class AssessmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the assessment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the assessment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -478,7 +478,7 @@ public final class AssessmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the assessment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the assessment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

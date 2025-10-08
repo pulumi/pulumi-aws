@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Lex.Outputs
     public sealed class V2modelsSlotMultipleValuesSetting
     {
         /// <summary>
-        /// Whether a slot can return multiple values. When `true`, the slot may return more than one value in a response. When `false`, the slot returns only a single value. Multi-value slots are only available in the `en-US` locale.
+        /// Whether a slot can return multiple values. When `True`, the slot may return more than one value in a response. When `False`, the slot returns only a single value. Multi-value slots are only available in the `en-US` locale.
         /// </summary>
         public readonly bool? AllowMultipleValues;
 

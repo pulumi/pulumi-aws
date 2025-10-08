@@ -21,12 +21,12 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// <summary>
         /// Configuration block that contains information that defines how the build project
         /// reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub
-        /// Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
+        /// Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `BuildStatusConfig` blocks are documented below.
         /// </summary>
         public readonly Outputs.ProjectSecondarySourceBuildStatusConfig? BuildStatusConfig;
         /// <summary>
         /// The build spec declaration to use for this build project's related builds. This must be set
-        /// when `type` is `NO_SOURCE`. It can either be a path to a file residing in the repository to be built or a local file
+        /// when `Type` is `NO_SOURCE`. It can either be a path to a file residing in the repository to be built or a local file
         /// path leveraging the `file()` built-in.
         /// </summary>
         public readonly string? Buildspec;
