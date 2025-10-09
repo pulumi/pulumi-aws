@@ -105,7 +105,7 @@ jobs:
     - name: Upload Provider Binaries
       run: aws s3 cp dist s3://get.pulumi.com/releases/plugins/ --recursive
     - name: Create GH Release
-      uses: softprops/action-gh-release@6cbd405e2c4e67a21c47fa9e383d020e4e28b836 # v2
+      uses: softprops/action-gh-release@aec2ec56f94eb8180ceec724245f64ef008b89f5 # v2
       if: inputs.isPrerelease == false
       with:
         tag_name: v${{ inputs.version }}
@@ -229,7 +229,7 @@ jobs:
         name: Fetch secrets from ESC
         uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
       - name: Dispatch Metadata build
-        uses: peter-evans/repository-dispatch@ff45666b9427631e3450c54a1bcbee4d9ff4d7c0 # v3
+        uses: peter-evans/repository-dispatch@5fc4efd1a4797ddb68ffd0714a238564e4cc0e6f # v4
         with:
           token: ${{ steps.esc-secrets.outputs.PULUMI_BOT_TOKEN }}
           repository: pulumi/registry
