@@ -8,8 +8,10 @@ backend = "github:pulumi/pulumictl"
 
 [tools."github:pulumi/pulumictl".platforms.linux-x64]
 checksum = "blake3:c128dd74993f779c613296fe7cd21c20cbd323f24e59cb76e007620660b60348"
+name = "pulumictl-v0.0.50-linux-amd64.tar.gz"
 size = 27744219
 url = "https://github.com/pulumi/pulumictl/releases/download/v0.0.50/pulumictl-v0.0.50-linux-amd64.tar.gz"
+url_api = ""
 
 [[tools."github:pulumi/schema-tools"]]
 version = "0.6.0"
@@ -17,8 +19,10 @@ backend = "github:pulumi/schema-tools"
 
 [tools."github:pulumi/schema-tools".platforms.linux-x64]
 checksum = "blake3:82dfe616fee18b4258f6e3d2dc3c4e9f14afd43a0a4cc33eff2d2a04088d6ca3"
+name = "schema-tools-v0.6.0-linux-amd64.tar.gz"
 size = 14282746
 url = "https://github.com/pulumi/schema-tools/releases/download/v0.6.0/schema-tools-v0.6.0-linux-amd64.tar.gz"
+url_api = ""
 
 [[tools.go]]
 version = "1.24.6"
