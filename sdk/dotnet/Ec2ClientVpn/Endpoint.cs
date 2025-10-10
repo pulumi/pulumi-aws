@@ -71,7 +71,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Output<ImmutableArray<Outputs.EndpointAuthenticationOption>> AuthenticationOptions { get; private set; } = null!;
 
         /// <summary>
-        /// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater. When `traffic_ip_address_type` is set to `ipv6`, it must not be specified. Otherwise, it is required.
+        /// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater. When `TrafficIpAddressType` is set to `Ipv6`, it must not be specified. Otherwise, it is required.
         /// </summary>
         [Output("clientCidrBlock")]
         public Output<string?> ClientCidrBlock { get; private set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
+        /// Indicates whether the client VPN session is disconnected after the maximum `SessionTimeoutHours` is reached. If `True`, users are prompted to reconnect client VPN. If `False`, client VPN attempts to reconnect automatically. The default value is `False`.
         /// </summary>
         [Output("disconnectOnSessionTimeout")]
         public Output<bool> DisconnectOnSessionTimeout { get; private set; } = null!;
@@ -125,7 +125,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Output<ImmutableArray<string>> DnsServers { get; private set; } = null!;
 
         /// <summary>
-        /// IP address type for the Client VPN endpoint. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`.
+        /// IP address type for the Client VPN endpoint. Valid values are `Ipv4`, `Ipv6`, or `dual-stack`. Defaults to `Ipv4`.
         /// </summary>
         [Output("endpointIpAddressType")]
         public Output<string> EndpointIpAddressType { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
+        /// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `Enabled` or `Disabled`. Default value is `Disabled`.
         /// </summary>
         [Output("selfServicePortal")]
         public Output<string?> SelfServicePortal { get; private set; } = null!;
@@ -167,31 +167,31 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Output<int?> SessionTimeoutHours { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
+        /// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `False`.
         /// </summary>
         [Output("splitTunnel")]
         public Output<bool?> SplitTunnel { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A mapping of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// IP address type for traffic within the Client VPN tunnel. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`. When it is set to `ipv6`, `client_cidr_block` must not be specified.
+        /// IP address type for traffic within the Client VPN tunnel. Valid values are `Ipv4`, `Ipv6`, or `dual-stack`. Defaults to `Ipv4`. When it is set to `Ipv6`, `ClientCidrBlock` must not be specified.
         /// </summary>
         [Output("trafficIpAddressType")]
         public Output<string> TrafficIpAddressType { get; private set; } = null!;
 
         /// <summary>
-        /// The transport protocol to be used by the VPN session. Default value is `udp`.
+        /// The transport protocol to be used by the VPN session. Default value is `Udp`.
         /// </summary>
         [Output("transportProtocol")]
         public Output<string?> TransportProtocol { get; private set; } = null!;
@@ -267,7 +267,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         }
 
         /// <summary>
-        /// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater. When `traffic_ip_address_type` is set to `ipv6`, it must not be specified. Otherwise, it is required.
+        /// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater. When `TrafficIpAddressType` is set to `Ipv6`, it must not be specified. Otherwise, it is required.
         /// </summary>
         [Input("clientCidrBlock")]
         public Input<string>? ClientCidrBlock { get; set; }
@@ -303,7 +303,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
+        /// Indicates whether the client VPN session is disconnected after the maximum `SessionTimeoutHours` is reached. If `True`, users are prompted to reconnect client VPN. If `False`, client VPN attempts to reconnect automatically. The default value is `False`.
         /// </summary>
         [Input("disconnectOnSessionTimeout")]
         public Input<bool>? DisconnectOnSessionTimeout { get; set; }
@@ -321,7 +321,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         }
 
         /// <summary>
-        /// IP address type for the Client VPN endpoint. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`.
+        /// IP address type for the Client VPN endpoint. Valid values are `Ipv4`, `Ipv6`, or `dual-stack`. Defaults to `Ipv4`.
         /// </summary>
         [Input("endpointIpAddressType")]
         public Input<string>? EndpointIpAddressType { get; set; }
@@ -345,7 +345,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         }
 
         /// <summary>
-        /// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
+        /// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `Enabled` or `Disabled`. Default value is `Disabled`.
         /// </summary>
         [Input("selfServicePortal")]
         public Input<string>? SelfServicePortal { get; set; }
@@ -363,7 +363,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Input<int>? SessionTimeoutHours { get; set; }
 
         /// <summary>
-        /// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
+        /// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `False`.
         /// </summary>
         [Input("splitTunnel")]
         public Input<bool>? SplitTunnel { get; set; }
@@ -372,7 +372,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A mapping of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -381,13 +381,13 @@ namespace Pulumi.Aws.Ec2ClientVpn
         }
 
         /// <summary>
-        /// IP address type for traffic within the Client VPN tunnel. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`. When it is set to `ipv6`, `client_cidr_block` must not be specified.
+        /// IP address type for traffic within the Client VPN tunnel. Valid values are `Ipv4`, `Ipv6`, or `dual-stack`. Defaults to `Ipv4`. When it is set to `Ipv6`, `ClientCidrBlock` must not be specified.
         /// </summary>
         [Input("trafficIpAddressType")]
         public Input<string>? TrafficIpAddressType { get; set; }
 
         /// <summary>
-        /// The transport protocol to be used by the VPN session. Default value is `udp`.
+        /// The transport protocol to be used by the VPN session. Default value is `Udp`.
         /// </summary>
         [Input("transportProtocol")]
         public Input<string>? TransportProtocol { get; set; }
@@ -431,7 +431,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         }
 
         /// <summary>
-        /// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater. When `traffic_ip_address_type` is set to `ipv6`, it must not be specified. Otherwise, it is required.
+        /// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater. When `TrafficIpAddressType` is set to `Ipv6`, it must not be specified. Otherwise, it is required.
         /// </summary>
         [Input("clientCidrBlock")]
         public Input<string>? ClientCidrBlock { get; set; }
@@ -467,7 +467,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
+        /// Indicates whether the client VPN session is disconnected after the maximum `SessionTimeoutHours` is reached. If `True`, users are prompted to reconnect client VPN. If `False`, client VPN attempts to reconnect automatically. The default value is `False`.
         /// </summary>
         [Input("disconnectOnSessionTimeout")]
         public Input<bool>? DisconnectOnSessionTimeout { get; set; }
@@ -491,7 +491,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         }
 
         /// <summary>
-        /// IP address type for the Client VPN endpoint. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`.
+        /// IP address type for the Client VPN endpoint. Valid values are `Ipv4`, `Ipv6`, or `dual-stack`. Defaults to `Ipv4`.
         /// </summary>
         [Input("endpointIpAddressType")]
         public Input<string>? EndpointIpAddressType { get; set; }
@@ -515,7 +515,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         }
 
         /// <summary>
-        /// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
+        /// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `Enabled` or `Disabled`. Default value is `Disabled`.
         /// </summary>
         [Input("selfServicePortal")]
         public Input<string>? SelfServicePortal { get; set; }
@@ -539,7 +539,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Input<int>? SessionTimeoutHours { get; set; }
 
         /// <summary>
-        /// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
+        /// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `False`.
         /// </summary>
         [Input("splitTunnel")]
         public Input<bool>? SplitTunnel { get; set; }
@@ -548,7 +548,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A mapping of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -560,7 +560,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -569,13 +569,13 @@ namespace Pulumi.Aws.Ec2ClientVpn
         }
 
         /// <summary>
-        /// IP address type for traffic within the Client VPN tunnel. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`. When it is set to `ipv6`, `client_cidr_block` must not be specified.
+        /// IP address type for traffic within the Client VPN tunnel. Valid values are `Ipv4`, `Ipv6`, or `dual-stack`. Defaults to `Ipv4`. When it is set to `Ipv6`, `ClientCidrBlock` must not be specified.
         /// </summary>
         [Input("trafficIpAddressType")]
         public Input<string>? TrafficIpAddressType { get; set; }
 
         /// <summary>
-        /// The transport protocol to be used by the VPN session. Default value is `udp`.
+        /// The transport protocol to be used by the VPN session. Default value is `Udp`.
         /// </summary>
         [Input("transportProtocol")]
         public Input<string>? TransportProtocol { get; set; }

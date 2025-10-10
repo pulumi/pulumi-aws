@@ -158,14 +158,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -192,14 +192,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
+     * Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
      * 
      */
     @Import(name="taskReportConfig")
     private @Nullable Output<TaskTaskReportConfigArgs> taskReportConfig;
 
     /**
-     * @return Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
+     * @return Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
      * 
      */
     public Optional<Output<TaskTaskReportConfigArgs>> taskReportConfig() {
@@ -431,7 +431,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -442,7 +442,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -477,7 +477,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param taskReportConfig Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
+         * @param taskReportConfig Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
          * 
          * @return builder
          * 
@@ -488,7 +488,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param taskReportConfig Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
+         * @param taskReportConfig Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
          * 
          * @return builder
          * 

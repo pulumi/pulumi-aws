@@ -17,14 +17,14 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationSourceC
     public static final AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs Empty = new AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs();
 
     /**
-     * List of one or more seed URLs to crawl. See `seed_urls` block for details.
+     * List of one or more seed URLs to crawl. See `seedUrls` block for details.
      * 
      */
     @Import(name="seedUrls")
     private @Nullable Output<List<AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgs>> seedUrls;
 
     /**
-     * @return List of one or more seed URLs to crawl. See `seed_urls` block for details.
+     * @return List of one or more seed URLs to crawl. See `seedUrls` block for details.
      * 
      */
     public Optional<Output<List<AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgs>>> seedUrls() {
@@ -56,7 +56,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationSourceC
         }
 
         /**
-         * @param seedUrls List of one or more seed URLs to crawl. See `seed_urls` block for details.
+         * @param seedUrls List of one or more seed URLs to crawl. See `seedUrls` block for details.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationSourceC
         }
 
         /**
-         * @param seedUrls List of one or more seed URLs to crawl. See `seed_urls` block for details.
+         * @param seedUrls List of one or more seed URLs to crawl. See `seedUrls` block for details.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationSourceC
         }
 
         /**
-         * @param seedUrls List of one or more seed URLs to crawl. See `seed_urls` block for details.
+         * @param seedUrls List of one or more seed URLs to crawl. See `seedUrls` block for details.
          * 
          * @return builder
          * 

@@ -215,14 +215,14 @@ public class AgentKnowledgeBase extends com.pulumi.resources.CustomResource {
         return this.failureReasons;
     }
     /**
-     * Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
+     * Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
      * 
      */
     @Export(name="knowledgeBaseConfiguration", refs={AgentKnowledgeBaseKnowledgeBaseConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ AgentKnowledgeBaseKnowledgeBaseConfiguration> knowledgeBaseConfiguration;
 
     /**
-     * @return Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
+     * @return Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
      * 
      */
     public Output<Optional<AgentKnowledgeBaseKnowledgeBaseConfiguration>> knowledgeBaseConfiguration() {
@@ -271,7 +271,7 @@ public class AgentKnowledgeBase extends com.pulumi.resources.CustomResource {
         return this.roleArn;
     }
     /**
-     * Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
+     * Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
      * 
      * The following arguments are optional:
      * 
@@ -280,7 +280,7 @@ public class AgentKnowledgeBase extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ AgentKnowledgeBaseStorageConfiguration> storageConfiguration;
 
     /**
-     * @return Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
+     * @return Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
      * 
      * The following arguments are optional:
      * 
@@ -289,28 +289,28 @@ public class AgentKnowledgeBase extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.storageConfiguration);
     }
     /**
-     * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

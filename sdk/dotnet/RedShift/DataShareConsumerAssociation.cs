@@ -70,19 +70,19 @@ namespace Pulumi.Aws.RedShift
         public Output<bool?> AllowWrites { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the datashare is associated with the entire account. Conflicts with `consumer_arn` and `consumer_region`.
+        /// Whether the datashare is associated with the entire account. Conflicts with `ConsumerArn` and `ConsumerRegion`.
         /// </summary>
         [Output("associateEntireAccount")]
         public Output<bool?> AssociateEntireAccount { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associate_entire_account` and `consumer_region`.
+        /// Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `AssociateEntireAccount` and `ConsumerRegion`.
         /// </summary>
         [Output("consumerArn")]
         public Output<string?> ConsumerArn { get; private set; } = null!;
 
         /// <summary>
-        /// From a datashare consumer account, associates a datashare with all existing and future namespaces in the specified AWS Region. Conflicts with `associate_entire_account` and `consumer_arn`.
+        /// From a datashare consumer account, associates a datashare with all existing and future namespaces in the specified AWS Region. Conflicts with `AssociateEntireAccount` and `ConsumerArn`.
         /// </summary>
         [Output("consumerRegion")]
         public Output<string?> ConsumerRegion { get; private set; } = null!;
@@ -166,19 +166,19 @@ namespace Pulumi.Aws.RedShift
         public Input<bool>? AllowWrites { get; set; }
 
         /// <summary>
-        /// Whether the datashare is associated with the entire account. Conflicts with `consumer_arn` and `consumer_region`.
+        /// Whether the datashare is associated with the entire account. Conflicts with `ConsumerArn` and `ConsumerRegion`.
         /// </summary>
         [Input("associateEntireAccount")]
         public Input<bool>? AssociateEntireAccount { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associate_entire_account` and `consumer_region`.
+        /// Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `AssociateEntireAccount` and `ConsumerRegion`.
         /// </summary>
         [Input("consumerArn")]
         public Input<string>? ConsumerArn { get; set; }
 
         /// <summary>
-        /// From a datashare consumer account, associates a datashare with all existing and future namespaces in the specified AWS Region. Conflicts with `associate_entire_account` and `consumer_arn`.
+        /// From a datashare consumer account, associates a datashare with all existing and future namespaces in the specified AWS Region. Conflicts with `AssociateEntireAccount` and `ConsumerArn`.
         /// </summary>
         [Input("consumerRegion")]
         public Input<string>? ConsumerRegion { get; set; }
@@ -212,19 +212,19 @@ namespace Pulumi.Aws.RedShift
         public Input<bool>? AllowWrites { get; set; }
 
         /// <summary>
-        /// Whether the datashare is associated with the entire account. Conflicts with `consumer_arn` and `consumer_region`.
+        /// Whether the datashare is associated with the entire account. Conflicts with `ConsumerArn` and `ConsumerRegion`.
         /// </summary>
         [Input("associateEntireAccount")]
         public Input<bool>? AssociateEntireAccount { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associate_entire_account` and `consumer_region`.
+        /// Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `AssociateEntireAccount` and `ConsumerRegion`.
         /// </summary>
         [Input("consumerArn")]
         public Input<string>? ConsumerArn { get; set; }
 
         /// <summary>
-        /// From a datashare consumer account, associates a datashare with all existing and future namespaces in the specified AWS Region. Conflicts with `associate_entire_account` and `consumer_arn`.
+        /// From a datashare consumer account, associates a datashare with all existing and future namespaces in the specified AWS Region. Conflicts with `AssociateEntireAccount` and `ConsumerArn`.
         /// </summary>
         [Input("consumerRegion")]
         public Input<string>? ConsumerRegion { get; set; }

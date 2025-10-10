@@ -16,7 +16,7 @@ public final class TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfi
      */
     private String claimAttributePath;
     /**
-     * @return Specifies path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by this JMESPath expression is compared against the attribute mapped by `claim_attribute_path` when a trusted token issuer token is exchanged for an IAM Identity Center token.
+     * @return Specifies path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by this JMESPath expression is compared against the attribute mapped by `claimAttributePath` when a trusted token issuer token is exchanged for an IAM Identity Center token.
      * 
      */
     private String identityStoreAttributePath;
@@ -40,7 +40,7 @@ public final class TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfi
         return this.claimAttributePath;
     }
     /**
-     * @return Specifies path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by this JMESPath expression is compared against the attribute mapped by `claim_attribute_path` when a trusted token issuer token is exchanged for an IAM Identity Center token.
+     * @return Specifies path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by this JMESPath expression is compared against the attribute mapped by `claimAttributePath` when a trusted token issuer token is exchanged for an IAM Identity Center token.
      * 
      */
     public String identityStoreAttributePath() {

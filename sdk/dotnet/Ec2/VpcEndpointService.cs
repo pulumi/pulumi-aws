@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// &gt; **NOTE on VPC Endpoint Services and VPC Endpoint Service Allowed Principals:** This provider provides
     /// both a standalone VPC Endpoint Service Allowed Principal resource
-    /// and a VPC Endpoint Service resource with an `allowed_principals` attribute. Do not use the same principal ARN in both
+    /// and a VPC Endpoint Service resource with an `AllowedPrincipals` attribute. Do not use the same principal ARN in both
     /// a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
     /// and will overwrite the association.
     /// 
@@ -77,7 +77,7 @@ namespace Pulumi.Aws.Ec2
     public partial class VpcEndpointService : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
+        /// Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `True` or `False`.
         /// </summary>
         [Output("acceptanceRequired")]
         public Output<bool> AcceptanceRequired { get; private set; } = null!;
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> GatewayLoadBalancerArns { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not the service manages its VPC endpoints - `true` or `false`.
+        /// Whether or not the service manages its VPC endpoints - `True` or `False`.
         /// </summary>
         [Output("managesVpcEndpoints")]
         public Output<bool> ManagesVpcEndpoints { get; private set; } = null!;
@@ -155,13 +155,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string> ServiceType { get; private set; } = null!;
 
         /// <summary>
-        /// Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+        /// Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `Verified`.
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// The supported IP address types. The possible values are `ipv4` and `ipv6`.
+        /// The supported IP address types. The possible values are `Ipv4` and `Ipv6`.
         /// </summary>
         [Output("supportedIpAddressTypes")]
         public Output<ImmutableArray<string>> SupportedIpAddressTypes { get; private set; } = null!;
@@ -173,13 +173,13 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> SupportedRegions { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -231,7 +231,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpcEndpointServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
+        /// Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `True` or `False`.
         /// </summary>
         [Input("acceptanceRequired", required: true)]
         public Input<bool> AcceptanceRequired { get; set; } = null!;
@@ -288,7 +288,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _supportedIpAddressTypes;
 
         /// <summary>
-        /// The supported IP address types. The possible values are `ipv4` and `ipv6`.
+        /// The supported IP address types. The possible values are `Ipv4` and `Ipv6`.
         /// </summary>
         public InputList<string> SupportedIpAddressTypes
         {
@@ -312,7 +312,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -329,7 +329,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpcEndpointServiceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
+        /// Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `True` or `False`.
         /// </summary>
         [Input("acceptanceRequired")]
         public Input<bool>? AcceptanceRequired { get; set; }
@@ -389,7 +389,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Whether or not the service manages its VPC endpoints - `true` or `false`.
+        /// Whether or not the service manages its VPC endpoints - `True` or `False`.
         /// </summary>
         [Input("managesVpcEndpoints")]
         public Input<bool>? ManagesVpcEndpoints { get; set; }
@@ -443,7 +443,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? ServiceType { get; set; }
 
         /// <summary>
-        /// Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+        /// Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `Verified`.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
@@ -452,7 +452,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _supportedIpAddressTypes;
 
         /// <summary>
-        /// The supported IP address types. The possible values are `ipv4` and `ipv6`.
+        /// The supported IP address types. The possible values are `Ipv4` and `Ipv6`.
         /// </summary>
         public InputList<string> SupportedIpAddressTypes
         {
@@ -476,7 +476,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -488,7 +488,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

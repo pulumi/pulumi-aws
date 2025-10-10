@@ -16,7 +16,7 @@ namespace Pulumi.Aws.ServiceDiscovery.Inputs
         private InputList<Inputs.ServiceDnsConfigDnsRecordGetArgs>? _dnsRecords;
 
         /// <summary>
-        /// An array that contains one DnsRecord object for each resource record set. See `dns_records` Block for details.
+        /// An array that contains one DnsRecord object for each resource record set. See `DnsRecords` Block for details.
         /// </summary>
         public InputList<Inputs.ServiceDnsConfigDnsRecordGetArgs> DnsRecords
         {

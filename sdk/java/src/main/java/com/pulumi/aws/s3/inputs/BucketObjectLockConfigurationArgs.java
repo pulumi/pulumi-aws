@@ -20,10 +20,10 @@ public final class BucketObjectLockConfigurationArgs extends com.pulumi.resource
      * Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
      * 
      * @deprecated
-     * object_lock_enabled is deprecated. Use the top-level parameter object_lock_enabled instead.
+     * object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
      * 
      */
-    @Deprecated /* object_lock_enabled is deprecated. Use the top-level parameter object_lock_enabled instead. */
+    @Deprecated /* object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead. */
     @Import(name="objectLockEnabled")
     private @Nullable Output<String> objectLockEnabled;
 
@@ -31,10 +31,10 @@ public final class BucketObjectLockConfigurationArgs extends com.pulumi.resource
      * @return Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
      * 
      * @deprecated
-     * object_lock_enabled is deprecated. Use the top-level parameter object_lock_enabled instead.
+     * object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
      * 
      */
-    @Deprecated /* object_lock_enabled is deprecated. Use the top-level parameter object_lock_enabled instead. */
+    @Deprecated /* object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead. */
     public Optional<Output<String>> objectLockEnabled() {
         return Optional.ofNullable(this.objectLockEnabled);
     }
@@ -93,10 +93,10 @@ public final class BucketObjectLockConfigurationArgs extends com.pulumi.resource
          * @return builder
          * 
          * @deprecated
-         * object_lock_enabled is deprecated. Use the top-level parameter object_lock_enabled instead.
+         * object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
          * 
          */
-        @Deprecated /* object_lock_enabled is deprecated. Use the top-level parameter object_lock_enabled instead. */
+        @Deprecated /* object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead. */
         public Builder objectLockEnabled(@Nullable Output<String> objectLockEnabled) {
             $.objectLockEnabled = objectLockEnabled;
             return this;
@@ -108,10 +108,10 @@ public final class BucketObjectLockConfigurationArgs extends com.pulumi.resource
          * @return builder
          * 
          * @deprecated
-         * object_lock_enabled is deprecated. Use the top-level parameter object_lock_enabled instead.
+         * object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
          * 
          */
-        @Deprecated /* object_lock_enabled is deprecated. Use the top-level parameter object_lock_enabled instead. */
+        @Deprecated /* object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead. */
         public Builder objectLockEnabled(String objectLockEnabled) {
             return objectLockEnabled(Output.of(objectLockEnabled));
         }

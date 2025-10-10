@@ -26,9 +26,9 @@ import javax.annotation.Nullable;
  * - **Custom Rule Groups**: User-created rule groups that you manage within your AWS account
  * - **Managed Rule Groups**: Pre-configured rule groups provided by AWS or third-party vendors
  * 
- * !&gt; **Warning:** Verify the rule names in your `rule_action_override`s carefully. With managed rule groups, WAF silently ignores any override that uses an invalid rule name. With customer-owned rule groups, invalid rule names in your overrides will cause web ACL updates to fail. An invalid rule name is any name that doesn&#39;t exactly match the case-sensitive name of an existing rule in the rule group.
+ * !&gt; **Warning:** Verify the rule names in your `ruleActionOverride`s carefully. With managed rule groups, WAF silently ignores any override that uses an invalid rule name. With customer-owned rule groups, invalid rule names in your overrides will cause web ACL updates to fail. An invalid rule name is any name that doesn&#39;t exactly match the case-sensitive name of an existing rule in the rule group.
  * 
- * !&gt; **Warning:** Using this resource will cause the associated Web ACL resource to show configuration drift in the `rule` argument unless you add `lifecycle { ignore_changes = [rule] }` to the Web ACL resource configuration. This is because this resource modifies the Web ACL&#39;s rules outside of the Web ACL resource&#39;s direct management.
+ * !&gt; **Warning:** Using this resource will cause the associated Web ACL resource to show configuration drift in the `rule` argument unless you add `lifecycle { ignoreChanges = [rule] }` to the Web ACL resource configuration. This is because this resource modifies the Web ACL&#39;s rules outside of the Web ACL resource&#39;s direct management.
  * 
  * &gt; **Note:** This resource creates a rule within the Web ACL that references the entire Rule Group. The rule group&#39;s individual rules are evaluated as a unit when requests are processed by the Web ACL.
  * ## Example Usage
@@ -345,14 +345,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:wafv2/webAclRuleGroupAssociation:WebAclRuleGroupAssociation")
 public class WebAclRuleGroupAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * Managed Rule Group configuration. One of `rule_group_reference` or `managed_rule_group` is required. Conflicts with `rule_group_reference`. See below.
+     * Managed Rule Group configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `ruleGroupReference`. See below.
      * 
      */
     @Export(name="managedRuleGroup", refs={WebAclRuleGroupAssociationManagedRuleGroup.class}, tree="[0]")
     private Output</* @Nullable */ WebAclRuleGroupAssociationManagedRuleGroup> managedRuleGroup;
 
     /**
-     * @return Managed Rule Group configuration. One of `rule_group_reference` or `managed_rule_group` is required. Conflicts with `rule_group_reference`. See below.
+     * @return Managed Rule Group configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `ruleGroupReference`. See below.
      * 
      */
     public Output<Optional<WebAclRuleGroupAssociationManagedRuleGroup>> managedRuleGroup() {
@@ -401,14 +401,14 @@ public class WebAclRuleGroupAssociation extends com.pulumi.resources.CustomResou
         return this.region;
     }
     /**
-     * Custom Rule Group reference configuration. One of `rule_group_reference` or `managed_rule_group` is required. Conflicts with `managed_rule_group`. See below.
+     * Custom Rule Group reference configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `managedRuleGroup`. See below.
      * 
      */
     @Export(name="ruleGroupReference", refs={WebAclRuleGroupAssociationRuleGroupReference.class}, tree="[0]")
     private Output</* @Nullable */ WebAclRuleGroupAssociationRuleGroupReference> ruleGroupReference;
 
     /**
-     * @return Custom Rule Group reference configuration. One of `rule_group_reference` or `managed_rule_group` is required. Conflicts with `managed_rule_group`. See below.
+     * @return Custom Rule Group reference configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `managedRuleGroup`. See below.
      * 
      */
     public Output<Optional<WebAclRuleGroupAssociationRuleGroupReference>> ruleGroupReference() {

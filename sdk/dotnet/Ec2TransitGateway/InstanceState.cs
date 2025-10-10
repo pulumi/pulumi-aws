@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public partial class InstanceState : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
+        /// Whether to request a forced stop when `State` is `Stopped`. Otherwise (_i.e._, `State` is `Running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `False`.
         /// </summary>
         [Output("force")]
         public Output<bool?> Force { get; private set; } = null!;
@@ -101,7 +101,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// State of the instance. Valid values are `stopped`, `running`.
+        /// State of the instance. Valid values are `Stopped`, `Running`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -155,7 +155,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public sealed class InstanceStateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
+        /// Whether to request a forced stop when `State` is `Stopped`. Otherwise (_i.e._, `State` is `Running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `False`.
         /// </summary>
         [Input("force")]
         public Input<bool>? Force { get; set; }
@@ -173,7 +173,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// State of the instance. Valid values are `stopped`, `running`.
+        /// State of the instance. Valid values are `Stopped`, `Running`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public sealed class InstanceStateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
+        /// Whether to request a forced stop when `State` is `Stopped`. Otherwise (_i.e._, `State` is `Running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `False`.
         /// </summary>
         [Input("force")]
         public Input<bool>? Force { get; set; }
@@ -207,7 +207,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// State of the instance. Valid values are `stopped`, `running`.
+        /// State of the instance. Valid values are `Stopped`, `Running`.
         /// 
         /// The following arguments are optional:
         /// </summary>

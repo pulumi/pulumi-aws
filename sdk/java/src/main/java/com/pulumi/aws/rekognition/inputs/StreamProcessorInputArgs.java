@@ -16,14 +16,14 @@ public final class StreamProcessorInputArgs extends com.pulumi.resources.Resourc
     public static final StreamProcessorInputArgs Empty = new StreamProcessorInputArgs();
 
     /**
-     * Kinesis input stream. See `kinesis_video_stream`.
+     * Kinesis input stream. See `kinesisVideoStream`.
      * 
      */
     @Import(name="kinesisVideoStream")
     private @Nullable Output<StreamProcessorInputKinesisVideoStreamArgs> kinesisVideoStream;
 
     /**
-     * @return Kinesis input stream. See `kinesis_video_stream`.
+     * @return Kinesis input stream. See `kinesisVideoStream`.
      * 
      */
     public Optional<Output<StreamProcessorInputKinesisVideoStreamArgs>> kinesisVideoStream() {
@@ -55,7 +55,7 @@ public final class StreamProcessorInputArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param kinesisVideoStream Kinesis input stream. See `kinesis_video_stream`.
+         * @param kinesisVideoStream Kinesis input stream. See `kinesisVideoStream`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class StreamProcessorInputArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param kinesisVideoStream Kinesis input stream. See `kinesis_video_stream`.
+         * @param kinesisVideoStream Kinesis input stream. See `kinesisVideoStream`.
          * 
          * @return builder
          * 

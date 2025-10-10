@@ -17,14 +17,14 @@ public final class KeyspaceReplicationSpecificationArgs extends com.pulumi.resou
     public static final KeyspaceReplicationSpecificationArgs Empty = new KeyspaceReplicationSpecificationArgs();
 
     /**
-     * Replication regions. If `replication_strategy` is `MULTI_REGION`, `region_list` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
+     * Replication regions. If `replicationStrategy` is `MULTI_REGION`, `regionList` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
      * 
      */
     @Import(name="regionLists")
     private @Nullable Output<List<String>> regionLists;
 
     /**
-     * @return Replication regions. If `replication_strategy` is `MULTI_REGION`, `region_list` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
+     * @return Replication regions. If `replicationStrategy` is `MULTI_REGION`, `regionList` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
      * 
      */
     public Optional<Output<List<String>>> regionLists() {
@@ -72,7 +72,7 @@ public final class KeyspaceReplicationSpecificationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param regionLists Replication regions. If `replication_strategy` is `MULTI_REGION`, `region_list` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
+         * @param regionLists Replication regions. If `replicationStrategy` is `MULTI_REGION`, `regionList` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class KeyspaceReplicationSpecificationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param regionLists Replication regions. If `replication_strategy` is `MULTI_REGION`, `region_list` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
+         * @param regionLists Replication regions. If `replicationStrategy` is `MULTI_REGION`, `regionList` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class KeyspaceReplicationSpecificationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param regionLists Replication regions. If `replication_strategy` is `MULTI_REGION`, `region_list` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
+         * @param regionLists Replication regions. If `replicationStrategy` is `MULTI_REGION`, `regionList` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
          * 
          * @return builder
          * 

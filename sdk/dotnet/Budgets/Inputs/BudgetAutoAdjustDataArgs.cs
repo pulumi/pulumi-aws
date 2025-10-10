@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Budgets.Inputs
         public Input<string> AutoAdjustType { get; set; } = null!;
 
         /// <summary>
-        /// (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+        /// (Optional) - Configuration block of Historical Options. Required for `AutoAdjustType` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
         /// </summary>
         [Input("historicalOptions")]
         public Input<Inputs.BudgetAutoAdjustDataHistoricalOptionsArgs>? HistoricalOptions { get; set; }

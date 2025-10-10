@@ -124,14 +124,14 @@ public final class MountTargetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * IPv6 address to use. Valid only when `ip_address_type` is set to `IPV6_ONLY` or `DUAL_STACK`.
+     * IPv6 address to use. Valid only when `ipAddressType` is set to `IPV6_ONLY` or `DUAL_STACK`.
      * 
      */
     @Import(name="ipv6Address")
     private @Nullable Output<String> ipv6Address;
 
     /**
-     * @return IPv6 address to use. Valid only when `ip_address_type` is set to `IPV6_ONLY` or `DUAL_STACK`.
+     * @return IPv6 address to use. Valid only when `ipAddressType` is set to `IPV6_ONLY` or `DUAL_STACK`.
      * 
      */
     public Optional<Output<String>> ipv6Address() {
@@ -417,7 +417,7 @@ public final class MountTargetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipv6Address IPv6 address to use. Valid only when `ip_address_type` is set to `IPV6_ONLY` or `DUAL_STACK`.
+         * @param ipv6Address IPv6 address to use. Valid only when `ipAddressType` is set to `IPV6_ONLY` or `DUAL_STACK`.
          * 
          * @return builder
          * 
@@ -428,7 +428,7 @@ public final class MountTargetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipv6Address IPv6 address to use. Valid only when `ip_address_type` is set to `IPV6_ONLY` or `DUAL_STACK`.
+         * @param ipv6Address IPv6 address to use. Valid only when `ipAddressType` is set to `IPV6_ONLY` or `DUAL_STACK`.
          * 
          * @return builder
          * 

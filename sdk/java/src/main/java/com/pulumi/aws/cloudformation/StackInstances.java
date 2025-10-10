@@ -189,14 +189,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cloudformation/stackInstances:StackInstances")
 public class StackInstances extends com.pulumi.resources.CustomResource {
     /**
-     * Accounts where you want to create stack instances in the specified `regions`. You can specify either `accounts` or `deployment_targets`, but not both.
+     * Accounts where you want to create stack instances in the specified `regions`. You can specify either `accounts` or `deploymentTargets`, but not both.
      * 
      */
     @Export(name="accounts", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> accounts;
 
     /**
-     * @return Accounts where you want to create stack instances in the specified `regions`. You can specify either `accounts` or `deployment_targets`, but not both.
+     * @return Accounts where you want to create stack instances in the specified `regions`. You can specify either `accounts` or `deploymentTargets`, but not both.
      * 
      */
     public Output<List<String>> accounts() {
@@ -217,28 +217,28 @@ public class StackInstances extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.callAs);
     }
     /**
-     * AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deployment_targets below.
+     * AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deploymentTargets below.
      * 
      */
     @Export(name="deploymentTargets", refs={StackInstancesDeploymentTargets.class}, tree="[0]")
     private Output</* @Nullable */ StackInstancesDeploymentTargets> deploymentTargets;
 
     /**
-     * @return AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deployment_targets below.
+     * @return AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deploymentTargets below.
      * 
      */
     public Output<Optional<StackInstancesDeploymentTargets>> deploymentTargets() {
         return Codegen.optional(this.deploymentTargets);
     }
     /**
-     * Preferences for how AWS CloudFormation performs a stack set operation. See operation_preferences below.
+     * Preferences for how AWS CloudFormation performs a stack set operation. See operationPreferences below.
      * 
      */
     @Export(name="operationPreferences", refs={StackInstancesOperationPreferences.class}, tree="[0]")
     private Output</* @Nullable */ StackInstancesOperationPreferences> operationPreferences;
 
     /**
-     * @return Preferences for how AWS CloudFormation performs a stack set operation. See operation_preferences below.
+     * @return Preferences for how AWS CloudFormation performs a stack set operation. See operationPreferences below.
      * 
      */
     public Output<Optional<StackInstancesOperationPreferences>> operationPreferences() {
@@ -287,28 +287,28 @@ public class StackInstances extends com.pulumi.resources.CustomResource {
         return this.regions;
     }
     /**
-     * Whether to remove the stack instances from the stack set, but not delete the stacks. You can&#39;t reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retain_stacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
+     * Whether to remove the stack instances from the stack set, but not delete the stacks. You can&#39;t reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retainStacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
      * 
      */
     @Export(name="retainStacks", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> retainStacks;
 
     /**
-     * @return Whether to remove the stack instances from the stack set, but not delete the stacks. You can&#39;t reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retain_stacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
+     * @return Whether to remove the stack instances from the stack set, but not delete the stacks. You can&#39;t reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retainStacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> retainStacks() {
         return Codegen.optional(this.retainStacks);
     }
     /**
-     * List of stack instances created from an organizational unit deployment target. This may not always be set depending on whether CloudFormation returns summaries for your configuration. See `stack_instance_summaries`.
+     * List of stack instances created from an organizational unit deployment target. This may not always be set depending on whether CloudFormation returns summaries for your configuration. See `stackInstanceSummaries`.
      * 
      */
     @Export(name="stackInstanceSummaries", refs={List.class,StackInstancesStackInstanceSummary.class}, tree="[0,1]")
     private Output<List<StackInstancesStackInstanceSummary>> stackInstanceSummaries;
 
     /**
-     * @return List of stack instances created from an organizational unit deployment target. This may not always be set depending on whether CloudFormation returns summaries for your configuration. See `stack_instance_summaries`.
+     * @return List of stack instances created from an organizational unit deployment target. This may not always be set depending on whether CloudFormation returns summaries for your configuration. See `stackInstanceSummaries`.
      * 
      */
     public Output<List<StackInstancesStackInstanceSummary>> stackInstanceSummaries() {

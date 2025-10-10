@@ -61,8 +61,8 @@ import javax.annotation.Nullable;
  * 
  * Normally, when referencing an origin access identity in CloudFront, you need to
  * prefix the ID with the `origin-access-identity/cloudfront/` special path.
- * The `cloudfront_access_identity_path` allows this to be circumvented.
- * The below snippet demonstrates use with the `s3_origin_config` structure for the
+ * The `cloudfrontAccessIdentityPath` allows this to be circumvented.
+ * The below snippet demonstrates use with the `s3OriginConfig` structure for the
  * `aws.cloudfront.Distribution` resource:
  * 
  * <pre>
@@ -104,10 +104,10 @@ import javax.annotation.Nullable;
  * 
  * ### Updating your bucket policy
  * 
- * Note that the AWS API may translate the `s3_canonical_user_id` `CanonicalUser`
+ * Note that the AWS API may translate the `s3CanonicalUserId` `CanonicalUser`
  * principal into an `AWS` IAM ARN principal when supplied in an
  * `aws.s3.Bucket` bucket policy, causing spurious diffs. If
- * you see this behavior, use the `iam_arn` instead:
+ * you see this behavior, use the `iamArn` instead:
  * 
  * <pre>
  * {@code

@@ -106,14 +106,14 @@ public class UserLoginProfile extends com.pulumi.resources.CustomResource {
         return this.keyFingerprint;
     }
     /**
-     * The plain text password, only available when `pgp_key` is not provided.
+     * The plain text password, only available when `pgpKey` is not provided.
      * 
      */
     @Export(name="password", refs={String.class}, tree="[0]")
     private Output<String> password;
 
     /**
-     * @return The plain text password, only available when `pgp_key` is not provided.
+     * @return The plain text password, only available when `pgpKey` is not provided.
      * 
      */
     public Output<String> password() {

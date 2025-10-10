@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class InstanceInstanceMarketOptionsSpotOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
+        /// The behavior when a Spot Instance is interrupted. Valid values include `Hibernate`, `Stop`, `Terminate` . The default is `Terminate`.
         /// </summary>
         [Input("instanceInterruptionBehavior")]
         public Input<string>? InstanceInterruptionBehavior { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? MaxPrice { get; set; }
 
         /// <summary>
-        /// The Spot Instance request type. Valid values include `one-time`, `persistent`. Persistent Spot Instance requests are only supported when the instance interruption behavior is either hibernate or stop. The default is `one-time`.
+        /// The Spot Instance request type. Valid values include `one-time`, `Persistent`. Persistent Spot Instance requests are only supported when the instance interruption behavior is either hibernate or stop. The default is `one-time`.
         /// </summary>
         [Input("spotInstanceType")]
         public Input<string>? SpotInstanceType { get; set; }

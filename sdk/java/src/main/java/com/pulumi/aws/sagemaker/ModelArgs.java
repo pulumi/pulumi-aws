@@ -24,14 +24,14 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
     public static final ModelArgs Empty = new ModelArgs();
 
     /**
-     * Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
+     * Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
      * 
      */
     @Import(name="containers")
     private @Nullable Output<List<ModelContainerArgs>> containers;
 
     /**
-     * @return Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
+     * @return Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
      * 
      */
     public Optional<Output<List<ModelContainerArgs>>> containers() {
@@ -129,14 +129,14 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -191,7 +191,7 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param containers Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
+         * @param containers Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param containers Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
+         * @param containers Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param containers Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
+         * @param containers Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
          * 
          * @return builder
          * 
@@ -348,7 +348,7 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

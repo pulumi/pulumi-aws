@@ -48,7 +48,7 @@ public final class MetricAlarmMetricQuery {
      */
     private @Nullable Integer period;
     /**
-     * @return Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
+     * @return Specify exactly one `metricQuery` to be `true` to use that `metricQuery` result as the alarm.
      * 
      * &gt; **NOTE:**  You must specify either `metric` or `expression`. Not both.
      * 
@@ -101,7 +101,7 @@ public final class MetricAlarmMetricQuery {
         return Optional.ofNullable(this.period);
     }
     /**
-     * @return Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
+     * @return Specify exactly one `metricQuery` to be `true` to use that `metricQuery` result as the alarm.
      * 
      * &gt; **NOTE:**  You must specify either `metric` or `expression`. Not both.
      * 

@@ -12,7 +12,7 @@ namespace Pulumi.Aws.S3
     /// <summary>
     /// Provides an S3 bucket request payment configuration resource. For more information, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html).
     /// 
-    /// &gt; **NOTE:** Destroying an `aws.s3.BucketRequestPaymentConfiguration` resource resets the bucket's `payer` to the S3 default: the bucket owner.
+    /// &gt; **NOTE:** Destroying an `aws.s3.BucketRequestPaymentConfiguration` resource resets the bucket's `Payer` to the S3 default: the bucket owner.
     /// 
     /// &gt; This resource cannot be used with S3 directory buckets.
     /// 

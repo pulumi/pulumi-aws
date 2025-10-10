@@ -56,14 +56,14 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
+     * Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
      * 
      */
     @Import(name="authToken")
     private @Nullable Output<String> authToken;
 
     /**
-     * @return Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
+     * @return Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
      * 
      */
     public Optional<Output<String>> authToken() {
@@ -71,14 +71,14 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `auth_token` is set.
+     * Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `authToken` is set.
      * 
      */
     @Import(name="authTokenUpdateStrategy")
     private @Nullable Output<String> authTokenUpdateStrategy;
 
     /**
-     * @return Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `auth_token` is set.
+     * @return Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `authToken` is set.
      * 
      */
     public Optional<Output<String>> authTokenUpdateStrategy() {
@@ -105,14 +105,14 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+     * Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
      * 
      */
     @Import(name="automaticFailoverEnabled")
     private @Nullable Output<Boolean> automaticFailoverEnabled;
 
     /**
-     * @return Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+     * @return Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> automaticFailoverEnabled() {
@@ -189,7 +189,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
      * If the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
      * 
      */
     @Import(name="engineVersion")
@@ -201,7 +201,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
      * If the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
      * 
      */
     public Optional<Output<String>> engineVersion() {
@@ -224,14 +224,14 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter cannot be set.
+     * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter cannot be set.
      * 
      */
     @Import(name="globalReplicationGroupId")
     private @Nullable Output<String> globalReplicationGroupId;
 
     /**
-     * @return The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter cannot be set.
+     * @return The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter cannot be set.
      * 
      */
     public Optional<Output<String>> globalReplicationGroupId() {
@@ -254,14 +254,14 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
+     * The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
+     * @return The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -300,7 +300,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
 
     /**
      * Specifies whether to enable Multi-AZ Support for the replication group.
-     * If `true`, `automatic_failover_enabled` must also be enabled.
+     * If `true`, `automaticFailoverEnabled` must also be enabled.
      * Defaults to `false`.
      * 
      */
@@ -309,7 +309,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
 
     /**
      * @return Specifies whether to enable Multi-AZ Support for the replication group.
-     * If `true`, `automatic_failover_enabled` must also be enabled.
+     * If `true`, `automaticFailoverEnabled` must also be enabled.
      * Defaults to `false`.
      * 
      */
@@ -318,14 +318,14 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
+     * The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
      * 
      */
     @Import(name="networkType")
     private @Nullable Output<String> networkType;
 
     /**
-     * @return The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
+     * @return The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
      * 
      */
     public Optional<Output<String>> networkType() {
@@ -335,8 +335,8 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
     /**
      * Instance class to be used.
      * See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
-     * Required unless `global_replication_group_id` is set.
-     * Cannot be set if `global_replication_group_id` is set.
+     * Required unless `globalReplicationGroupId` is set.
+     * Cannot be set if `globalReplicationGroupId` is set.
      * 
      */
     @Import(name="nodeType")
@@ -345,8 +345,8 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
     /**
      * @return Instance class to be used.
      * See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
-     * Required unless `global_replication_group_id` is set.
-     * Cannot be set if `global_replication_group_id` is set.
+     * Required unless `globalReplicationGroupId` is set.
+     * Cannot be set if `globalReplicationGroupId` is set.
      * 
      */
     public Optional<Output<String>> nodeType() {
@@ -370,9 +370,9 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
 
     /**
      * Number of cache clusters (primary and replicas) this replication group will have.
-     * If `automatic_failover_enabled` or `multi_az_enabled` are `true`, must be at least 2.
+     * If `automaticFailoverEnabled` or `multiAzEnabled` are `true`, must be at least 2.
      * Updates will occur before other modifications.
-     * Conflicts with `num_node_groups` and `replicas_per_node_group`.
+     * Conflicts with `numNodeGroups` and `replicasPerNodeGroup`.
      * Defaults to `1`.
      * 
      */
@@ -381,9 +381,9 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
 
     /**
      * @return Number of cache clusters (primary and replicas) this replication group will have.
-     * If `automatic_failover_enabled` or `multi_az_enabled` are `true`, must be at least 2.
+     * If `automaticFailoverEnabled` or `multiAzEnabled` are `true`, must be at least 2.
      * Updates will occur before other modifications.
-     * Conflicts with `num_node_groups` and `replicas_per_node_group`.
+     * Conflicts with `numNodeGroups` and `replicasPerNodeGroup`.
      * Defaults to `1`.
      * 
      */
@@ -394,7 +394,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
     /**
      * Number of node groups (shards) for this Redis replication group.
      * Changing this number will trigger a resizing operation before other settings modifications.
-     * Conflicts with `num_cache_clusters`.
+     * Conflicts with `numCacheClusters`.
      * 
      */
     @Import(name="numNodeGroups")
@@ -403,7 +403,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
     /**
      * @return Number of node groups (shards) for this Redis replication group.
      * Changing this number will trigger a resizing operation before other settings modifications.
-     * Conflicts with `num_cache_clusters`.
+     * Conflicts with `numCacheClusters`.
      * 
      */
     public Optional<Output<Integer>> numNodeGroups() {
@@ -474,8 +474,8 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
      * Number of replica nodes in each node group.
      * Changing this number will trigger a resizing operation before other settings modifications.
      * Valid values are 0 to 5.
-     * Conflicts with `num_cache_clusters`.
-     * Can only be set if `num_node_groups` is set.
+     * Conflicts with `numCacheClusters`.
+     * Can only be set if `numNodeGroups` is set.
      * 
      */
     @Import(name="replicasPerNodeGroup")
@@ -485,8 +485,8 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
      * @return Number of replica nodes in each node group.
      * Changing this number will trigger a resizing operation before other settings modifications.
      * Valid values are 0 to 5.
-     * Conflicts with `num_cache_clusters`.
-     * Can only be set if `num_node_groups` is set.
+     * Conflicts with `numCacheClusters`.
+     * Can only be set if `numNodeGroups` is set.
      * 
      */
     public Optional<Output<Integer>> replicasPerNodeGroup() {
@@ -558,14 +558,14 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
+     * Name of a snapshot from which to restore data into the new node group. Changing the `snapshotName` forces a new resource.
      * 
      */
     @Import(name="snapshotName")
     private @Nullable Output<String> snapshotName;
 
     /**
-     * @return Name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
+     * @return Name of a snapshot from which to restore data into the new node group. Changing the `snapshotName` forces a new resource.
      * 
      */
     public Optional<Output<String>> snapshotName() {
@@ -573,14 +573,14 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshot_retention_limit` is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
+     * Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshotRetentionLimit` is set to zero (0), backups are turned off. Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
      * 
      */
     @Import(name="snapshotRetentionLimit")
     private @Nullable Output<Integer> snapshotRetentionLimit;
 
     /**
-     * @return Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshot_retention_limit` is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
+     * @return Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshotRetentionLimit` is set to zero (0), backups are turned off. Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
      * 
      */
     public Optional<Output<Integer>> snapshotRetentionLimit() {
@@ -618,14 +618,14 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -634,7 +634,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
 
     /**
      * Whether to enable encryption in transit.
-     * Changing this argument with an `engine_version` &lt; `7.0.5` will force a replacement.
+     * Changing this argument with an `engineVersion` &lt; `7.0.5` will force a replacement.
      * Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
      * 
      */
@@ -643,7 +643,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
 
     /**
      * @return Whether to enable encryption in transit.
-     * Changing this argument with an `engine_version` &lt; `7.0.5` will force a replacement.
+     * Changing this argument with an `engineVersion` &lt; `7.0.5` will force a replacement.
      * Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
      * 
      */
@@ -797,7 +797,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param authToken Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
+         * @param authToken Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
          * 
          * @return builder
          * 
@@ -808,7 +808,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param authToken Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
+         * @param authToken Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
          * 
          * @return builder
          * 
@@ -818,7 +818,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param authTokenUpdateStrategy Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `auth_token` is set.
+         * @param authTokenUpdateStrategy Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `authToken` is set.
          * 
          * @return builder
          * 
@@ -829,7 +829,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param authTokenUpdateStrategy Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `auth_token` is set.
+         * @param authTokenUpdateStrategy Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `authToken` is set.
          * 
          * @return builder
          * 
@@ -864,7 +864,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param automaticFailoverEnabled Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+         * @param automaticFailoverEnabled Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -875,7 +875,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param automaticFailoverEnabled Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+         * @param automaticFailoverEnabled Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -978,7 +978,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
          * If the version is 6, the major and minor version can be set, e.g., `6.2`,
          * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
          * Otherwise, specify the full version desired, e.g., `5.0.6`.
-         * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
+         * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
          * 
          * @return builder
          * 
@@ -994,7 +994,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
          * If the version is 6, the major and minor version can be set, e.g., `6.2`,
          * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
          * Otherwise, specify the full version desired, e.g., `5.0.6`.
-         * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
+         * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
          * 
          * @return builder
          * 
@@ -1025,7 +1025,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param globalReplicationGroupId The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter cannot be set.
+         * @param globalReplicationGroupId The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter cannot be set.
          * 
          * @return builder
          * 
@@ -1036,7 +1036,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param globalReplicationGroupId The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter cannot be set.
+         * @param globalReplicationGroupId The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter cannot be set.
          * 
          * @return builder
          * 
@@ -1067,7 +1067,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param kmsKeyId The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
+         * @param kmsKeyId The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
          * 
          * @return builder
          * 
@@ -1078,7 +1078,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param kmsKeyId The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
+         * @param kmsKeyId The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
          * 
          * @return builder
          * 
@@ -1141,7 +1141,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param multiAzEnabled Specifies whether to enable Multi-AZ Support for the replication group.
-         * If `true`, `automatic_failover_enabled` must also be enabled.
+         * If `true`, `automaticFailoverEnabled` must also be enabled.
          * Defaults to `false`.
          * 
          * @return builder
@@ -1154,7 +1154,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param multiAzEnabled Specifies whether to enable Multi-AZ Support for the replication group.
-         * If `true`, `automatic_failover_enabled` must also be enabled.
+         * If `true`, `automaticFailoverEnabled` must also be enabled.
          * Defaults to `false`.
          * 
          * @return builder
@@ -1165,7 +1165,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param networkType The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
+         * @param networkType The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
          * 
          * @return builder
          * 
@@ -1176,7 +1176,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param networkType The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
+         * @param networkType The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
          * 
          * @return builder
          * 
@@ -1188,8 +1188,8 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param nodeType Instance class to be used.
          * See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
-         * Required unless `global_replication_group_id` is set.
-         * Cannot be set if `global_replication_group_id` is set.
+         * Required unless `globalReplicationGroupId` is set.
+         * Cannot be set if `globalReplicationGroupId` is set.
          * 
          * @return builder
          * 
@@ -1202,8 +1202,8 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param nodeType Instance class to be used.
          * See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
-         * Required unless `global_replication_group_id` is set.
-         * Cannot be set if `global_replication_group_id` is set.
+         * Required unless `globalReplicationGroupId` is set.
+         * Cannot be set if `globalReplicationGroupId` is set.
          * 
          * @return builder
          * 
@@ -1235,9 +1235,9 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param numCacheClusters Number of cache clusters (primary and replicas) this replication group will have.
-         * If `automatic_failover_enabled` or `multi_az_enabled` are `true`, must be at least 2.
+         * If `automaticFailoverEnabled` or `multiAzEnabled` are `true`, must be at least 2.
          * Updates will occur before other modifications.
-         * Conflicts with `num_node_groups` and `replicas_per_node_group`.
+         * Conflicts with `numNodeGroups` and `replicasPerNodeGroup`.
          * Defaults to `1`.
          * 
          * @return builder
@@ -1250,9 +1250,9 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param numCacheClusters Number of cache clusters (primary and replicas) this replication group will have.
-         * If `automatic_failover_enabled` or `multi_az_enabled` are `true`, must be at least 2.
+         * If `automaticFailoverEnabled` or `multiAzEnabled` are `true`, must be at least 2.
          * Updates will occur before other modifications.
-         * Conflicts with `num_node_groups` and `replicas_per_node_group`.
+         * Conflicts with `numNodeGroups` and `replicasPerNodeGroup`.
          * Defaults to `1`.
          * 
          * @return builder
@@ -1265,7 +1265,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param numNodeGroups Number of node groups (shards) for this Redis replication group.
          * Changing this number will trigger a resizing operation before other settings modifications.
-         * Conflicts with `num_cache_clusters`.
+         * Conflicts with `numCacheClusters`.
          * 
          * @return builder
          * 
@@ -1278,7 +1278,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param numNodeGroups Number of node groups (shards) for this Redis replication group.
          * Changing this number will trigger a resizing operation before other settings modifications.
-         * Conflicts with `num_cache_clusters`.
+         * Conflicts with `numCacheClusters`.
          * 
          * @return builder
          * 
@@ -1385,8 +1385,8 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
          * @param replicasPerNodeGroup Number of replica nodes in each node group.
          * Changing this number will trigger a resizing operation before other settings modifications.
          * Valid values are 0 to 5.
-         * Conflicts with `num_cache_clusters`.
-         * Can only be set if `num_node_groups` is set.
+         * Conflicts with `numCacheClusters`.
+         * Can only be set if `numNodeGroups` is set.
          * 
          * @return builder
          * 
@@ -1400,8 +1400,8 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
          * @param replicasPerNodeGroup Number of replica nodes in each node group.
          * Changing this number will trigger a resizing operation before other settings modifications.
          * Valid values are 0 to 5.
-         * Conflicts with `num_cache_clusters`.
-         * Can only be set if `num_node_groups` is set.
+         * Conflicts with `numCacheClusters`.
+         * Can only be set if `numNodeGroups` is set.
          * 
          * @return builder
          * 
@@ -1529,7 +1529,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param snapshotName Name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
+         * @param snapshotName Name of a snapshot from which to restore data into the new node group. Changing the `snapshotName` forces a new resource.
          * 
          * @return builder
          * 
@@ -1540,7 +1540,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param snapshotName Name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
+         * @param snapshotName Name of a snapshot from which to restore data into the new node group. Changing the `snapshotName` forces a new resource.
          * 
          * @return builder
          * 
@@ -1550,7 +1550,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param snapshotRetentionLimit Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshot_retention_limit` is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
+         * @param snapshotRetentionLimit Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshotRetentionLimit` is set to zero (0), backups are turned off. Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
          * 
          * @return builder
          * 
@@ -1561,7 +1561,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param snapshotRetentionLimit Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshot_retention_limit` is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
+         * @param snapshotRetentionLimit Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshotRetentionLimit` is set to zero (0), backups are turned off. Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
          * 
          * @return builder
          * 
@@ -1613,7 +1613,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1624,7 +1624,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1635,7 +1635,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param transitEncryptionEnabled Whether to enable encryption in transit.
-         * Changing this argument with an `engine_version` &lt; `7.0.5` will force a replacement.
+         * Changing this argument with an `engineVersion` &lt; `7.0.5` will force a replacement.
          * Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
          * 
          * @return builder
@@ -1648,7 +1648,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param transitEncryptionEnabled Whether to enable encryption in transit.
-         * Changing this argument with an `engine_version` &lt; `7.0.5` will force a replacement.
+         * Changing this argument with an `engineVersion` &lt; `7.0.5` will force a replacement.
          * Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
          * 
          * @return builder

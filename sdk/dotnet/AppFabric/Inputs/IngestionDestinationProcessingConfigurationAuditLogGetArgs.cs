@@ -13,13 +13,13 @@ namespace Pulumi.Aws.AppFabric.Inputs
     public sealed class IngestionDestinationProcessingConfigurationAuditLogGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
+        /// The format in which the audit logs need to be formatted. Valid values: `Json`, `Parquet`.
         /// </summary>
         [Input("format", required: true)]
         public Input<string> Format { get; set; } = null!;
 
         /// <summary>
-        /// The event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
+        /// The event schema in which the audit logs need to be formatted. Valid values: `Ocsf`, `Raw`.
         /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;

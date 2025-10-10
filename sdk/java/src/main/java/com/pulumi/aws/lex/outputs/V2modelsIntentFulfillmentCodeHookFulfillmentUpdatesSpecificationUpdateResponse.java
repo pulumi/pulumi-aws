@@ -26,7 +26,7 @@ public final class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificat
      */
     private Integer frequencyInSeconds;
     /**
-     * @return Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `message_group`.
+     * @return Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `messageGroup`.
      * 
      */
     private @Nullable List<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroup> messageGroups;
@@ -47,7 +47,7 @@ public final class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificat
         return this.frequencyInSeconds;
     }
     /**
-     * @return Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `message_group`.
+     * @return Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `messageGroup`.
      * 
      */
     public List<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroup> messageGroups() {

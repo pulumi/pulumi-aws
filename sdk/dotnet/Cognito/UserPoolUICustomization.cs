@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Cognito
     public partial class UserPoolUICustomization : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
+        /// The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `Css` and/or `ImageFile` settings will be used for every client that has no UI customization set previously.
         /// </summary>
         [Output("clientId")]
         public Output<string?> ClientId { get; private set; } = null!;
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.Cognito
         public Output<string> CreationDate { get; private set; } = null!;
 
         /// <summary>
-        /// The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
+        /// The CSS values in the UI customization, provided as a String. At least one of `Css` or `ImageFile` is required.
         /// </summary>
         [Output("css")]
         public Output<string?> Css { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.Cognito
         public Output<string> CssVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
+        /// The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `Css` or `ImageFile` is required.
         /// </summary>
         [Output("imageFile")]
         public Output<string?> ImageFile { get; private set; } = null!;
@@ -205,19 +205,19 @@ namespace Pulumi.Aws.Cognito
     public sealed class UserPoolUICustomizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
+        /// The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `Css` and/or `ImageFile` settings will be used for every client that has no UI customization set previously.
         /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
         /// <summary>
-        /// The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
+        /// The CSS values in the UI customization, provided as a String. At least one of `Css` or `ImageFile` is required.
         /// </summary>
         [Input("css")]
         public Input<string>? Css { get; set; }
 
         /// <summary>
-        /// The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
+        /// The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `Css` or `ImageFile` is required.
         /// </summary>
         [Input("imageFile")]
         public Input<string>? ImageFile { get; set; }
@@ -243,7 +243,7 @@ namespace Pulumi.Aws.Cognito
     public sealed class UserPoolUICustomizationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
+        /// The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `Css` and/or `ImageFile` settings will be used for every client that has no UI customization set previously.
         /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
@@ -255,7 +255,7 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? CreationDate { get; set; }
 
         /// <summary>
-        /// The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
+        /// The CSS values in the UI customization, provided as a String. At least one of `Css` or `ImageFile` is required.
         /// </summary>
         [Input("css")]
         public Input<string>? Css { get; set; }
@@ -267,7 +267,7 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? CssVersion { get; set; }
 
         /// <summary>
-        /// The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
+        /// The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `Css` or `ImageFile` is required.
         /// </summary>
         [Input("imageFile")]
         public Input<string>? ImageFile { get; set; }

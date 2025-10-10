@@ -340,44 +340,44 @@ public class Listener extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
+     * Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
      * 
      */
     @Export(name="serviceArn", refs={String.class}, tree="[0]")
     private Output<String> serviceArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
+     * @return Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
      * 
      */
     public Output<String> serviceArn() {
         return this.serviceArn;
     }
     /**
-     * ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
-     * &gt; **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.
+     * ID of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
+     * &gt; **NOTE:** You must specify one of the following arguments: `serviceArn` or `serviceIdentifier`.
      * 
      */
     @Export(name="serviceIdentifier", refs={String.class}, tree="[0]")
     private Output<String> serviceIdentifier;
 
     /**
-     * @return ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
-     * &gt; **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.
+     * @return ID of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
+     * &gt; **NOTE:** You must specify one of the following arguments: `serviceArn` or `serviceIdentifier`.
      * 
      */
     public Output<String> serviceIdentifier() {
         return this.serviceIdentifier;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

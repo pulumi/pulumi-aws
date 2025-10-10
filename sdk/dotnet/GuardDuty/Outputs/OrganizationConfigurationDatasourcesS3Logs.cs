@@ -14,7 +14,7 @@ namespace Pulumi.Aws.GuardDuty.Outputs
     public sealed class OrganizationConfigurationDatasourcesS3Logs
     {
         /// <summary>
-        /// Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
+        /// Set to `True` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `False`
         /// </summary>
         public readonly bool AutoEnable;
 

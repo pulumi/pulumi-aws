@@ -18,7 +18,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// </summary>
         public readonly string? AmiAccountId;
         /// <summary>
-        /// Data type of the SSM parameter. Valid values are `text` and `aws:ec2:image`. AWS recommends using `aws:ec2:image`.
+        /// Data type of the SSM parameter. Valid values are `Text` and `aws:ec2:image`. AWS recommends using `aws:ec2:image`.
         /// </summary>
         public readonly string? DataType;
         /// <summary>

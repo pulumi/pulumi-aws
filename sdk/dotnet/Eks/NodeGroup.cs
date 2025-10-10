@@ -222,25 +222,25 @@ namespace Pulumi.Aws.Eks
         public Output<ImmutableDictionary<string, string>?> Labels { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
+        /// Configuration block with Launch Template settings. See `LaunchTemplate` below for details. Conflicts with `RemoteAccess`.
         /// </summary>
         [Output("launchTemplate")]
         public Output<Outputs.NodeGroupLaunchTemplate?> LaunchTemplate { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
+        /// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `NodeGroupNamePrefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
         /// </summary>
         [Output("nodeGroupName")]
         public Output<string> NodeGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `NodeGroupName`.
         /// </summary>
         [Output("nodeGroupNamePrefix")]
         public Output<string> NodeGroupNamePrefix { get; private set; } = null!;
 
         /// <summary>
-        /// The node auto repair configuration for the node group. See `node_repair_config` below for details.
+        /// The node auto repair configuration for the node group. See `NodeRepairConfig` below for details.
         /// </summary>
         [Output("nodeRepairConfig")]
         public Output<Outputs.NodeGroupNodeRepairConfig> NodeRepairConfig { get; private set; } = null!;
@@ -264,7 +264,7 @@ namespace Pulumi.Aws.Eks
         public Output<string> ReleaseVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
+        /// Configuration block with remote access settings. See `RemoteAccess` below for details. Conflicts with `LaunchTemplate`.
         /// </summary>
         [Output("remoteAccess")]
         public Output<Outputs.NodeGroupRemoteAccess?> RemoteAccess { get; private set; } = null!;
@@ -276,7 +276,7 @@ namespace Pulumi.Aws.Eks
         public Output<ImmutableArray<Outputs.NodeGroupResource>> Resources { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block with scaling settings. See `scaling_config` below for details.
+        /// Configuration block with scaling settings. See `ScalingConfig` below for details.
         /// </summary>
         [Output("scalingConfig")]
         public Output<Outputs.NodeGroupScalingConfig> ScalingConfig { get; private set; } = null!;
@@ -296,13 +296,13 @@ namespace Pulumi.Aws.Eks
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -314,7 +314,7 @@ namespace Pulumi.Aws.Eks
         public Output<ImmutableArray<Outputs.NodeGroupTaint>> Taints { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block with update settings. See `update_config` below for details.
+        /// Configuration block with update settings. See `UpdateConfig` below for details.
         /// </summary>
         [Output("updateConfig")]
         public Output<Outputs.NodeGroupUpdateConfig> UpdateConfig { get; private set; } = null!;
@@ -426,25 +426,25 @@ namespace Pulumi.Aws.Eks
         }
 
         /// <summary>
-        /// Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
+        /// Configuration block with Launch Template settings. See `LaunchTemplate` below for details. Conflicts with `RemoteAccess`.
         /// </summary>
         [Input("launchTemplate")]
         public Input<Inputs.NodeGroupLaunchTemplateArgs>? LaunchTemplate { get; set; }
 
         /// <summary>
-        /// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
+        /// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `NodeGroupNamePrefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
         /// </summary>
         [Input("nodeGroupName")]
         public Input<string>? NodeGroupName { get; set; }
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `NodeGroupName`.
         /// </summary>
         [Input("nodeGroupNamePrefix")]
         public Input<string>? NodeGroupNamePrefix { get; set; }
 
         /// <summary>
-        /// The node auto repair configuration for the node group. See `node_repair_config` below for details.
+        /// The node auto repair configuration for the node group. See `NodeRepairConfig` below for details.
         /// </summary>
         [Input("nodeRepairConfig")]
         public Input<Inputs.NodeGroupNodeRepairConfigArgs>? NodeRepairConfig { get; set; }
@@ -468,13 +468,13 @@ namespace Pulumi.Aws.Eks
         public Input<string>? ReleaseVersion { get; set; }
 
         /// <summary>
-        /// Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
+        /// Configuration block with remote access settings. See `RemoteAccess` below for details. Conflicts with `LaunchTemplate`.
         /// </summary>
         [Input("remoteAccess")]
         public Input<Inputs.NodeGroupRemoteAccessArgs>? RemoteAccess { get; set; }
 
         /// <summary>
-        /// Configuration block with scaling settings. See `scaling_config` below for details.
+        /// Configuration block with scaling settings. See `ScalingConfig` below for details.
         /// </summary>
         [Input("scalingConfig", required: true)]
         public Input<Inputs.NodeGroupScalingConfigArgs> ScalingConfig { get; set; } = null!;
@@ -497,7 +497,7 @@ namespace Pulumi.Aws.Eks
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -518,7 +518,7 @@ namespace Pulumi.Aws.Eks
         }
 
         /// <summary>
-        /// Configuration block with update settings. See `update_config` below for details.
+        /// Configuration block with update settings. See `UpdateConfig` below for details.
         /// </summary>
         [Input("updateConfig")]
         public Input<Inputs.NodeGroupUpdateConfigArgs>? UpdateConfig { get; set; }
@@ -598,25 +598,25 @@ namespace Pulumi.Aws.Eks
         }
 
         /// <summary>
-        /// Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
+        /// Configuration block with Launch Template settings. See `LaunchTemplate` below for details. Conflicts with `RemoteAccess`.
         /// </summary>
         [Input("launchTemplate")]
         public Input<Inputs.NodeGroupLaunchTemplateGetArgs>? LaunchTemplate { get; set; }
 
         /// <summary>
-        /// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
+        /// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `NodeGroupNamePrefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
         /// </summary>
         [Input("nodeGroupName")]
         public Input<string>? NodeGroupName { get; set; }
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `NodeGroupName`.
         /// </summary>
         [Input("nodeGroupNamePrefix")]
         public Input<string>? NodeGroupNamePrefix { get; set; }
 
         /// <summary>
-        /// The node auto repair configuration for the node group. See `node_repair_config` below for details.
+        /// The node auto repair configuration for the node group. See `NodeRepairConfig` below for details.
         /// </summary>
         [Input("nodeRepairConfig")]
         public Input<Inputs.NodeGroupNodeRepairConfigGetArgs>? NodeRepairConfig { get; set; }
@@ -640,7 +640,7 @@ namespace Pulumi.Aws.Eks
         public Input<string>? ReleaseVersion { get; set; }
 
         /// <summary>
-        /// Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
+        /// Configuration block with remote access settings. See `RemoteAccess` below for details. Conflicts with `LaunchTemplate`.
         /// </summary>
         [Input("remoteAccess")]
         public Input<Inputs.NodeGroupRemoteAccessGetArgs>? RemoteAccess { get; set; }
@@ -658,7 +658,7 @@ namespace Pulumi.Aws.Eks
         }
 
         /// <summary>
-        /// Configuration block with scaling settings. See `scaling_config` below for details.
+        /// Configuration block with scaling settings. See `ScalingConfig` below for details.
         /// </summary>
         [Input("scalingConfig")]
         public Input<Inputs.NodeGroupScalingConfigGetArgs>? ScalingConfig { get; set; }
@@ -687,7 +687,7 @@ namespace Pulumi.Aws.Eks
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -699,7 +699,7 @@ namespace Pulumi.Aws.Eks
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -720,7 +720,7 @@ namespace Pulumi.Aws.Eks
         }
 
         /// <summary>
-        /// Configuration block with update settings. See `update_config` below for details.
+        /// Configuration block with update settings. See `UpdateConfig` below for details.
         /// </summary>
         [Input("updateConfig")]
         public Input<Inputs.NodeGroupUpdateConfigGetArgs>? UpdateConfig { get; set; }

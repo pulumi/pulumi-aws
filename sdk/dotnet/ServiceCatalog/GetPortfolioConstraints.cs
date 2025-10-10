@@ -94,7 +94,7 @@ namespace Pulumi.Aws.ServiceCatalog
     public sealed class GetPortfolioConstraintsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        /// Language code. Valid values: `En` (English), `Jp` (Japanese), `Zh` (Chinese). Default value is `En`.
         /// </summary>
         [Input("acceptLanguage")]
         public string? AcceptLanguage { get; set; }
@@ -128,7 +128,7 @@ namespace Pulumi.Aws.ServiceCatalog
     public sealed class GetPortfolioConstraintsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        /// Language code. Valid values: `En` (English), `Jp` (Japanese), `Zh` (Chinese). Default value is `En`.
         /// </summary>
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }

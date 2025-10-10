@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetDataSharesResult {
     /**
-     * @return An array of all data shares in the current region. See `data_shares` below.
+     * @return An array of all data shares in the current region. See `dataShares` below.
      * 
      */
     private List<GetDataSharesDataShare> dataShares;
@@ -26,7 +26,7 @@ public final class GetDataSharesResult {
 
     private GetDataSharesResult() {}
     /**
-     * @return An array of all data shares in the current region. See `data_shares` below.
+     * @return An array of all data shares in the current region. See `dataShares` below.
      * 
      */
     public List<GetDataSharesDataShare> dataShares() {

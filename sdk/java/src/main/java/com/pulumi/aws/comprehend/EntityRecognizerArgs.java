@@ -36,7 +36,7 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
 
     /**
      * Configuration for the training and testing data.
-     * See the `input_data_config` Configuration Block section below.
+     * See the `inputDataConfig` Configuration Block section below.
      * 
      */
     @Import(name="inputDataConfig", required=true)
@@ -44,7 +44,7 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
 
     /**
      * @return Configuration for the training and testing data.
-     * See the `input_data_config` Configuration Block section below.
+     * See the `inputDataConfig` Configuration Block section below.
      * 
      */
     public Output<EntityRecognizerInputDataConfigArgs> inputDataConfig() {
@@ -122,14 +122,14 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -143,7 +143,7 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
      * If explicitly set to `&#34;&#34;`, no version name will be set.
      * Has a maximum length of 63 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-     * Conflicts with `version_name_prefix`.
+     * Conflicts with `versionNamePrefix`.
      * 
      */
     @Import(name="versionName")
@@ -156,7 +156,7 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
      * If explicitly set to `&#34;&#34;`, no version name will be set.
      * Has a maximum length of 63 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-     * Conflicts with `version_name_prefix`.
+     * Conflicts with `versionNamePrefix`.
      * 
      */
     public Optional<Output<String>> versionName() {
@@ -167,7 +167,7 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
      * Creates a unique version name beginning with the specified prefix.
      * Has a maximum length of 37 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-     * Conflicts with `version_name`.
+     * Conflicts with `versionName`.
      * 
      */
     @Import(name="versionNamePrefix")
@@ -177,7 +177,7 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
      * @return Creates a unique version name beginning with the specified prefix.
      * Has a maximum length of 37 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-     * Conflicts with `version_name`.
+     * Conflicts with `versionName`.
      * 
      */
     public Optional<Output<String>> versionNamePrefix() {
@@ -201,7 +201,7 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
 
     /**
      * Configuration parameters for VPC to contain Entity Recognizer resources.
-     * See the `vpc_config` Configuration Block section below.
+     * See the `vpcConfig` Configuration Block section below.
      * 
      */
     @Import(name="vpcConfig")
@@ -209,7 +209,7 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
 
     /**
      * @return Configuration parameters for VPC to contain Entity Recognizer resources.
-     * See the `vpc_config` Configuration Block section below.
+     * See the `vpcConfig` Configuration Block section below.
      * 
      */
     public Optional<Output<EntityRecognizerVpcConfigArgs>> vpcConfig() {
@@ -273,7 +273,7 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param inputDataConfig Configuration for the training and testing data.
-         * See the `input_data_config` Configuration Block section below.
+         * See the `inputDataConfig` Configuration Block section below.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param inputDataConfig Configuration for the training and testing data.
-         * See the `input_data_config` Configuration Block section below.
+         * See the `inputDataConfig` Configuration Block section below.
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -400,7 +400,7 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
          * If explicitly set to `&#34;&#34;`, no version name will be set.
          * Has a maximum length of 63 characters.
          * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-         * Conflicts with `version_name_prefix`.
+         * Conflicts with `versionNamePrefix`.
          * 
          * @return builder
          * 
@@ -433,7 +433,7 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
          * If explicitly set to `&#34;&#34;`, no version name will be set.
          * Has a maximum length of 63 characters.
          * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-         * Conflicts with `version_name_prefix`.
+         * Conflicts with `versionNamePrefix`.
          * 
          * @return builder
          * 
@@ -446,7 +446,7 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
          * @param versionNamePrefix Creates a unique version name beginning with the specified prefix.
          * Has a maximum length of 37 characters.
          * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-         * Conflicts with `version_name`.
+         * Conflicts with `versionName`.
          * 
          * @return builder
          * 
@@ -460,7 +460,7 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
          * @param versionNamePrefix Creates a unique version name beginning with the specified prefix.
          * Has a maximum length of 37 characters.
          * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-         * Conflicts with `version_name`.
+         * Conflicts with `versionName`.
          * 
          * @return builder
          * 
@@ -492,7 +492,7 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param vpcConfig Configuration parameters for VPC to contain Entity Recognizer resources.
-         * See the `vpc_config` Configuration Block section below.
+         * See the `vpcConfig` Configuration Block section below.
          * 
          * @return builder
          * 
@@ -504,7 +504,7 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param vpcConfig Configuration parameters for VPC to contain Entity Recognizer resources.
-         * See the `vpc_config` Configuration Block section below.
+         * See the `vpcConfig` Configuration Block section below.
          * 
          * @return builder
          * 

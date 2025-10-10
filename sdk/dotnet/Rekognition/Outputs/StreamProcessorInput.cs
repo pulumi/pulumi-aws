@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Rekognition.Outputs
     public sealed class StreamProcessorInput
     {
         /// <summary>
-        /// Kinesis input stream. See `kinesis_video_stream`.
+        /// Kinesis input stream. See `KinesisVideoStream`.
         /// </summary>
         public readonly Outputs.StreamProcessorInputKinesisVideoStream? KinesisVideoStream;
 

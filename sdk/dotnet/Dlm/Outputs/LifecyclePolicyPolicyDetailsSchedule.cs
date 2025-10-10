@@ -14,27 +14,27 @@ namespace Pulumi.Aws.Dlm.Outputs
     public sealed class LifecyclePolicyPolicyDetailsSchedule
     {
         /// <summary>
-        /// Specifies a snapshot archiving rule for a schedule. See `archive_rule` block.
+        /// Specifies a snapshot archiving rule for a schedule. See `ArchiveRule` block.
         /// </summary>
         public readonly Outputs.LifecyclePolicyPolicyDetailsScheduleArchiveRule? ArchiveRule;
         public readonly bool? CopyTags;
         /// <summary>
-        /// See the `create_rule` block. Max of 1 per schedule.
+        /// See the `CreateRule` block. Max of 1 per schedule.
         /// </summary>
         public readonly Outputs.LifecyclePolicyPolicyDetailsScheduleCreateRule CreateRule;
         /// <summary>
-        /// See the `cross_region_copy_rule` block. Max of 3 per schedule.
+        /// See the `CrossRegionCopyRule` block. Max of 3 per schedule.
         /// </summary>
         public readonly ImmutableArray<Outputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule> CrossRegionCopyRules;
         public readonly Outputs.LifecyclePolicyPolicyDetailsScheduleDeprecateRule? DeprecateRule;
         /// <summary>
-        /// See the `fast_restore_rule` block. Max of 1 per schedule.
+        /// See the `FastRestoreRule` block. Max of 1 per schedule.
         /// </summary>
         public readonly Outputs.LifecyclePolicyPolicyDetailsScheduleFastRestoreRule? FastRestoreRule;
         public readonly string Name;
         public readonly Outputs.LifecyclePolicyPolicyDetailsScheduleRetainRule RetainRule;
         /// <summary>
-        /// See the `share_rule` block. Max of 1 per schedule.
+        /// See the `ShareRule` block. Max of 1 per schedule.
         /// </summary>
         public readonly Outputs.LifecyclePolicyPolicyDetailsScheduleShareRule? ShareRule;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Dlm.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? TagsToAdd;
         /// <summary>
-        /// A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resource_types` is `INSTANCE`.
+        /// A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `ResourceTypes` is `INSTANCE`.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? VariableTags;
 

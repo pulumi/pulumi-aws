@@ -26,7 +26,7 @@ namespace Pulumi.Aws.SecretsManager
     {
         /// <summary>
         /// If true, all deprecated secret versions are included in the response.
-        /// If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
+        /// If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `False`.
         /// </summary>
         [Input("includeDeprecated")]
         public bool? IncludeDeprecated { get; set; }
@@ -53,7 +53,7 @@ namespace Pulumi.Aws.SecretsManager
     {
         /// <summary>
         /// If true, all deprecated secret versions are included in the response.
-        /// If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
+        /// If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `False`.
         /// </summary>
         [Input("includeDeprecated")]
         public Input<bool>? IncludeDeprecated { get; set; }

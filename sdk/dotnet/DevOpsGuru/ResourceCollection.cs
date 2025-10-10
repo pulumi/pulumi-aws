@@ -94,7 +94,7 @@ namespace Pulumi.Aws.DevOpsGuru
     /// 
     /// ### Tags All Resources
     /// 
-    /// To analyze all resources with the `app_boundary_key` regardless of the corresponding tag value, set `tag_values` to `["*"]`.
+    /// To analyze all resources with the `AppBoundaryKey` regardless of the corresponding tag value, set `TagValues` to `["*"]`.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -132,7 +132,7 @@ namespace Pulumi.Aws.DevOpsGuru
     public partial class ResourceCollection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
+        /// A collection of AWS CloudFormation stacks. See `Cloudformation` below for additional details.
         /// </summary>
         [Output("cloudformation")]
         public Output<Outputs.ResourceCollectionCloudformation?> Cloudformation { get; private set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.DevOpsGuru
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
+        /// AWS tags used to filter the resources in the resource collection. See `Tags` below for additional details.
         /// </summary>
         [Output("tags")]
         public Output<Outputs.ResourceCollectionTags?> Tags { get; private set; } = null!;
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.DevOpsGuru
     public sealed class ResourceCollectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
+        /// A collection of AWS CloudFormation stacks. See `Cloudformation` below for additional details.
         /// </summary>
         [Input("cloudformation")]
         public Input<Inputs.ResourceCollectionCloudformationArgs>? Cloudformation { get; set; }
@@ -216,7 +216,7 @@ namespace Pulumi.Aws.DevOpsGuru
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
+        /// AWS tags used to filter the resources in the resource collection. See `Tags` below for additional details.
         /// </summary>
         [Input("tags")]
         public Input<Inputs.ResourceCollectionTagsArgs>? Tags { get; set; }
@@ -238,7 +238,7 @@ namespace Pulumi.Aws.DevOpsGuru
     public sealed class ResourceCollectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
+        /// A collection of AWS CloudFormation stacks. See `Cloudformation` below for additional details.
         /// </summary>
         [Input("cloudformation")]
         public Input<Inputs.ResourceCollectionCloudformationGetArgs>? Cloudformation { get; set; }
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.DevOpsGuru
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
+        /// AWS tags used to filter the resources in the resource collection. See `Tags` below for additional details.
         /// </summary>
         [Input("tags")]
         public Input<Inputs.ResourceCollectionTagsGetArgs>? Tags { get; set; }

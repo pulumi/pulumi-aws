@@ -33,14 +33,14 @@ public final class BudgetAutoAdjustDataArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+     * (Optional) - Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
      * 
      */
     @Import(name="historicalOptions")
     private @Nullable Output<BudgetAutoAdjustDataHistoricalOptionsArgs> historicalOptions;
 
     /**
-     * @return (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+     * @return (Optional) - Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
      * 
      */
     public Optional<Output<BudgetAutoAdjustDataHistoricalOptionsArgs>> historicalOptions() {
@@ -110,7 +110,7 @@ public final class BudgetAutoAdjustDataArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param historicalOptions (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+         * @param historicalOptions (Optional) - Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class BudgetAutoAdjustDataArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param historicalOptions (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+         * @param historicalOptions (Optional) - Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
          * 
          * @return builder
          * 

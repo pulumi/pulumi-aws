@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Lex.Outputs
         public readonly string? Expression;
         /// <summary>
         /// Specifications for the constituent sub slots of a composite slot.
-        /// See the `slot_specification` argument reference below.
+        /// See the `SlotSpecification` argument reference below.
         /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsSlotSubSlotSettingSlotSpecification> SlotSpecifications;
 

@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class ConnectorKafkaCluster {
     /**
-     * @return The Apache Kafka cluster to which the connector is connected. See `apache_kafka_cluster` Block for details.
+     * @return The Apache Kafka cluster to which the connector is connected. See `apacheKafkaCluster` Block for details.
      * 
      */
     private ConnectorKafkaClusterApacheKafkaCluster apacheKafkaCluster;
 
     private ConnectorKafkaCluster() {}
     /**
-     * @return The Apache Kafka cluster to which the connector is connected. See `apache_kafka_cluster` Block for details.
+     * @return The Apache Kafka cluster to which the connector is connected. See `apacheKafkaCluster` Block for details.
      * 
      */
     public ConnectorKafkaClusterApacheKafkaCluster apacheKafkaCluster() {

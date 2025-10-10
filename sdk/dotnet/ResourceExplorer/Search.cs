@@ -164,11 +164,11 @@ namespace Pulumi.Aws.ResourceExplorer
         /// </summary>
         public readonly string Region;
         /// <summary>
-        /// Number of resources that match the query. See `resource_count` below.
+        /// Number of resources that match the query. See `ResourceCount` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.SearchResourceCountResult> ResourceCounts;
         /// <summary>
-        /// List of structures that describe the resources that match the query. See `resources` below.
+        /// List of structures that describe the resources that match the query. See `Resources` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.SearchResourceResult> Resources;
         public readonly string ViewArn;

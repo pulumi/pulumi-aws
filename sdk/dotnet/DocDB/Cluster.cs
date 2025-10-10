@@ -13,13 +13,13 @@ namespace Pulumi.Aws.DocDB
     /// Manages a DocumentDB Cluster.
     /// 
     /// Changes to a DocumentDB Cluster can occur when you manually change a
-    /// parameter, such as `port`, and are reflected in the next maintenance
+    /// parameter, such as `Port`, and are reflected in the next maintenance
     /// window. Because of this, this provider may report a difference in its planning
     /// phase because a modification has not yet taken place. You can use the
-    /// `apply_immediately` flag to instruct the service to apply the change immediately
+    /// `ApplyImmediately` flag to instruct the service to apply the change immediately
     /// (see documentation below).
     /// 
-    /// &gt; **Note:** using `apply_immediately` can result in a brief downtime as the server reboots.
+    /// &gt; **Note:** using `ApplyImmediately` can result in a brief downtime as the server reboots.
     /// 
     /// ## Example Usage
     /// 
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.DocDB
         /// <summary>
         /// Specifies whether any cluster modifications
         /// are applied immediately, or during the next maintenance window. Default is
-        /// `false`.
+        /// `False`.
         /// </summary>
         [Output("applyImmediately")]
         public Output<bool?> ApplyImmediately { get; private set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.DocDB
         /// <summary>
         /// A list of EC2 Availability Zones that instances in the DB cluster can be created in.
         /// DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-        /// We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
+        /// We recommend specifying 3 AZs or using the `Lifecycle` configuration block `IgnoreChanges` argument if necessary.
         /// </summary>
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.Aws.DocDB
         public Output<string> ClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+        /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `ClusterIdentifier`.
         /// </summary>
         [Output("clusterIdentifierPrefix")]
         public Output<string> ClusterIdentifierPrefix { get; private set; } = null!;
@@ -127,14 +127,14 @@ namespace Pulumi.Aws.DocDB
         public Output<string> DbSubnetGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `false`.
+        /// A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `False`.
         /// </summary>
         [Output("deletionProtection")]
         public Output<bool?> DeletionProtection { get; private set; } = null!;
 
         /// <summary>
         /// List of log types to export to cloudwatch. If omitted, no logs will be exported.
-        /// The following log types are supported: `audit`, `profiler`.
+        /// The following log types are supported: `Audit`, `Profiler`.
         /// </summary>
         [Output("enabledCloudwatchLogsExports")]
         public Output<ImmutableArray<string>> EnabledCloudwatchLogsExports { get; private set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.Aws.DocDB
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
+        /// The name of the database engine to be used for this DB cluster. Defaults to `Docdb`. Valid values: `Docdb`.
         /// </summary>
         [Output("engine")]
         public Output<string?> Engine { get; private set; } = null!;
@@ -178,20 +178,20 @@ namespace Pulumi.Aws.DocDB
         public Output<string> HostedZoneId { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+        /// The ARN for the KMS encryption key. When specifying `KmsKeyId`, `StorageEncrypted` needs to be set to true.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
+        /// Set to `True` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `MasterPassword` or `MasterPasswordWo` is provided.
         /// </summary>
         [Output("manageMasterUserPassword")]
         public Output<bool?> ManageMasterUserPassword { get; private set; } = null!;
 
         /// <summary>
         /// Password for the master DB user. Note that this may
-        /// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
+        /// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `MasterPasswordWo` and `ManageMasterUserPassword`.
         /// </summary>
         [Output("masterPassword")]
         public Output<string?> MasterPassword { get; private set; } = null!;
@@ -237,7 +237,7 @@ namespace Pulumi.Aws.DocDB
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+        /// A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `Identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
         /// </summary>
         [Output("restoreToPointInTime")]
         public Output<Outputs.ClusterRestoreToPointInTime?> RestoreToPointInTime { get; private set; } = null!;
@@ -249,7 +249,7 @@ namespace Pulumi.Aws.DocDB
         public Output<Outputs.ClusterServerlessV2ScalingConfiguration?> ServerlessV2ScalingConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+        /// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `FinalSnapshotIdentifier`. Default is `False`.
         /// </summary>
         [Output("skipFinalSnapshot")]
         public Output<bool?> SkipFinalSnapshot { get; private set; } = null!;
@@ -261,25 +261,25 @@ namespace Pulumi.Aws.DocDB
         public Output<string?> SnapshotIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the DB cluster is encrypted. The default is `false`.
+        /// Specifies whether the DB cluster is encrypted. The default is `False`.
         /// </summary>
         [Output("storageEncrypted")]
         public Output<bool?> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
+        /// The storage type to associate with the DB cluster. Valid values: `Standard`, `Iopt1`.
         /// </summary>
         [Output("storageType")]
         public Output<string?> StorageType { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the DB cluster. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -353,7 +353,7 @@ namespace Pulumi.Aws.DocDB
         /// <summary>
         /// Specifies whether any cluster modifications
         /// are applied immediately, or during the next maintenance window. Default is
-        /// `false`.
+        /// `False`.
         /// </summary>
         [Input("applyImmediately")]
         public Input<bool>? ApplyImmediately { get; set; }
@@ -364,7 +364,7 @@ namespace Pulumi.Aws.DocDB
         /// <summary>
         /// A list of EC2 Availability Zones that instances in the DB cluster can be created in.
         /// DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-        /// We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
+        /// We recommend specifying 3 AZs or using the `Lifecycle` configuration block `IgnoreChanges` argument if necessary.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -385,7 +385,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? ClusterIdentifier { get; set; }
 
         /// <summary>
-        /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+        /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `ClusterIdentifier`.
         /// </summary>
         [Input("clusterIdentifierPrefix")]
         public Input<string>? ClusterIdentifierPrefix { get; set; }
@@ -415,7 +415,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? DbSubnetGroupName { get; set; }
 
         /// <summary>
-        /// A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `false`.
+        /// A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `False`.
         /// </summary>
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
@@ -425,7 +425,7 @@ namespace Pulumi.Aws.DocDB
 
         /// <summary>
         /// List of log types to export to cloudwatch. If omitted, no logs will be exported.
-        /// The following log types are supported: `audit`, `profiler`.
+        /// The following log types are supported: `Audit`, `Profiler`.
         /// </summary>
         public InputList<string> EnabledCloudwatchLogsExports
         {
@@ -434,7 +434,7 @@ namespace Pulumi.Aws.DocDB
         }
 
         /// <summary>
-        /// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
+        /// The name of the database engine to be used for this DB cluster. Defaults to `Docdb`. Valid values: `Docdb`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -460,13 +460,13 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? GlobalClusterIdentifier { get; set; }
 
         /// <summary>
-        /// The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+        /// The ARN for the KMS encryption key. When specifying `KmsKeyId`, `StorageEncrypted` needs to be set to true.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
+        /// Set to `True` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `MasterPassword` or `MasterPasswordWo` is provided.
         /// </summary>
         [Input("manageMasterUserPassword")]
         public Input<bool>? ManageMasterUserPassword { get; set; }
@@ -476,7 +476,7 @@ namespace Pulumi.Aws.DocDB
 
         /// <summary>
         /// Password for the master DB user. Note that this may
-        /// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
+        /// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `MasterPasswordWo` and `ManageMasterUserPassword`.
         /// </summary>
         public Input<string>? MasterPassword
         {
@@ -520,7 +520,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+        /// A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `Identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
         /// </summary>
         [Input("restoreToPointInTime")]
         public Input<Inputs.ClusterRestoreToPointInTimeArgs>? RestoreToPointInTime { get; set; }
@@ -532,7 +532,7 @@ namespace Pulumi.Aws.DocDB
         public Input<Inputs.ClusterServerlessV2ScalingConfigurationArgs>? ServerlessV2ScalingConfiguration { get; set; }
 
         /// <summary>
-        /// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+        /// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `FinalSnapshotIdentifier`. Default is `False`.
         /// </summary>
         [Input("skipFinalSnapshot")]
         public Input<bool>? SkipFinalSnapshot { get; set; }
@@ -544,13 +544,13 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? SnapshotIdentifier { get; set; }
 
         /// <summary>
-        /// Specifies whether the DB cluster is encrypted. The default is `false`.
+        /// Specifies whether the DB cluster is encrypted. The default is `False`.
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
 
         /// <summary>
-        /// The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
+        /// The storage type to associate with the DB cluster. Valid values: `Standard`, `Iopt1`.
         /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }
@@ -559,7 +559,7 @@ namespace Pulumi.Aws.DocDB
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the DB cluster. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -600,7 +600,7 @@ namespace Pulumi.Aws.DocDB
         /// <summary>
         /// Specifies whether any cluster modifications
         /// are applied immediately, or during the next maintenance window. Default is
-        /// `false`.
+        /// `False`.
         /// </summary>
         [Input("applyImmediately")]
         public Input<bool>? ApplyImmediately { get; set; }
@@ -617,7 +617,7 @@ namespace Pulumi.Aws.DocDB
         /// <summary>
         /// A list of EC2 Availability Zones that instances in the DB cluster can be created in.
         /// DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-        /// We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
+        /// We recommend specifying 3 AZs or using the `Lifecycle` configuration block `IgnoreChanges` argument if necessary.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -638,7 +638,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? ClusterIdentifier { get; set; }
 
         /// <summary>
-        /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+        /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `ClusterIdentifier`.
         /// </summary>
         [Input("clusterIdentifierPrefix")]
         public Input<string>? ClusterIdentifierPrefix { get; set; }
@@ -674,7 +674,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? DbSubnetGroupName { get; set; }
 
         /// <summary>
-        /// A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `false`.
+        /// A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `False`.
         /// </summary>
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
@@ -684,7 +684,7 @@ namespace Pulumi.Aws.DocDB
 
         /// <summary>
         /// List of log types to export to cloudwatch. If omitted, no logs will be exported.
-        /// The following log types are supported: `audit`, `profiler`.
+        /// The following log types are supported: `Audit`, `Profiler`.
         /// </summary>
         public InputList<string> EnabledCloudwatchLogsExports
         {
@@ -699,7 +699,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
+        /// The name of the database engine to be used for this DB cluster. Defaults to `Docdb`. Valid values: `Docdb`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -731,13 +731,13 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? HostedZoneId { get; set; }
 
         /// <summary>
-        /// The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+        /// The ARN for the KMS encryption key. When specifying `KmsKeyId`, `StorageEncrypted` needs to be set to true.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
+        /// Set to `True` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `MasterPassword` or `MasterPasswordWo` is provided.
         /// </summary>
         [Input("manageMasterUserPassword")]
         public Input<bool>? ManageMasterUserPassword { get; set; }
@@ -747,7 +747,7 @@ namespace Pulumi.Aws.DocDB
 
         /// <summary>
         /// Password for the master DB user. Note that this may
-        /// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
+        /// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `MasterPasswordWo` and `ManageMasterUserPassword`.
         /// </summary>
         public Input<string>? MasterPassword
         {
@@ -805,7 +805,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+        /// A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `Identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
         /// </summary>
         [Input("restoreToPointInTime")]
         public Input<Inputs.ClusterRestoreToPointInTimeGetArgs>? RestoreToPointInTime { get; set; }
@@ -817,7 +817,7 @@ namespace Pulumi.Aws.DocDB
         public Input<Inputs.ClusterServerlessV2ScalingConfigurationGetArgs>? ServerlessV2ScalingConfiguration { get; set; }
 
         /// <summary>
-        /// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+        /// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `FinalSnapshotIdentifier`. Default is `False`.
         /// </summary>
         [Input("skipFinalSnapshot")]
         public Input<bool>? SkipFinalSnapshot { get; set; }
@@ -829,13 +829,13 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? SnapshotIdentifier { get; set; }
 
         /// <summary>
-        /// Specifies whether the DB cluster is encrypted. The default is `false`.
+        /// Specifies whether the DB cluster is encrypted. The default is `False`.
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
 
         /// <summary>
-        /// The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
+        /// The storage type to associate with the DB cluster. Valid values: `Standard`, `Iopt1`.
         /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }
@@ -844,7 +844,7 @@ namespace Pulumi.Aws.DocDB
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the DB cluster. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -856,7 +856,7 @@ namespace Pulumi.Aws.DocDB
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

@@ -18,14 +18,14 @@ public final class UserHierarchyStructureArgs extends com.pulumi.resources.Resou
     public static final UserHierarchyStructureArgs Empty = new UserHierarchyStructureArgs();
 
     /**
-     * A block that defines the hierarchy structure&#39;s levels. The `hierarchy_structure` block is documented below.
+     * A block that defines the hierarchy structure&#39;s levels. The `hierarchyStructure` block is documented below.
      * 
      */
     @Import(name="hierarchyStructure", required=true)
     private Output<UserHierarchyStructureHierarchyStructureArgs> hierarchyStructure;
 
     /**
-     * @return A block that defines the hierarchy structure&#39;s levels. The `hierarchy_structure` block is documented below.
+     * @return A block that defines the hierarchy structure&#39;s levels. The `hierarchyStructure` block is documented below.
      * 
      */
     public Output<UserHierarchyStructureHierarchyStructureArgs> hierarchyStructure() {
@@ -89,7 +89,7 @@ public final class UserHierarchyStructureArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param hierarchyStructure A block that defines the hierarchy structure&#39;s levels. The `hierarchy_structure` block is documented below.
+         * @param hierarchyStructure A block that defines the hierarchy structure&#39;s levels. The `hierarchyStructure` block is documented below.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class UserHierarchyStructureArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param hierarchyStructure A block that defines the hierarchy structure&#39;s levels. The `hierarchy_structure` block is documented below.
+         * @param hierarchyStructure A block that defines the hierarchy structure&#39;s levels. The `hierarchyStructure` block is documented below.
          * 
          * @return builder
          * 

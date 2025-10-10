@@ -50,14 +50,14 @@ public final class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificat
     }
 
     /**
-     * Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `message_group`.
+     * Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `messageGroup`.
      * 
      */
     @Import(name="messageGroups")
     private @Nullable Output<List<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupArgs>> messageGroups;
 
     /**
-     * @return Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `message_group`.
+     * @return Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `messageGroup`.
      * 
      */
     public Optional<Output<List<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupArgs>>> messageGroups() {
@@ -133,7 +133,7 @@ public final class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificat
         }
 
         /**
-         * @param messageGroups Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `message_group`.
+         * @param messageGroups Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `messageGroup`.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificat
         }
 
         /**
-         * @param messageGroups Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `message_group`.
+         * @param messageGroups Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `messageGroup`.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificat
         }
 
         /**
-         * @param messageGroups Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `message_group`.
+         * @param messageGroups Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `messageGroup`.
          * 
          * @return builder
          * 

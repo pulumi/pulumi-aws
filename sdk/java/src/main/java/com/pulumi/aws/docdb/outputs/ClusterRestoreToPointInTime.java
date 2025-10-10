@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterRestoreToPointInTime {
     /**
-     * @return The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
+     * @return The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
      * 
      */
     private @Nullable String restoreToTime;
@@ -29,14 +29,14 @@ public final class ClusterRestoreToPointInTime {
      */
     private String sourceClusterIdentifier;
     /**
-     * @return A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_to_time`.
+     * @return A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreToTime`.
      * 
      */
     private @Nullable Boolean useLatestRestorableTime;
 
     private ClusterRestoreToPointInTime() {}
     /**
-     * @return The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
+     * @return The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
      * 
      */
     public Optional<String> restoreToTime() {
@@ -57,7 +57,7 @@ public final class ClusterRestoreToPointInTime {
         return this.sourceClusterIdentifier;
     }
     /**
-     * @return A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_to_time`.
+     * @return A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreToTime`.
      * 
      */
     public Optional<Boolean> useLatestRestorableTime() {

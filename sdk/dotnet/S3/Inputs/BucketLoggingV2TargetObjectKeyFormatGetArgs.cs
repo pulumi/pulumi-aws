@@ -13,13 +13,13 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketLoggingV2TargetObjectKeyFormatGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Partitioned S3 key for log objects, in the form `[target_prefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. Conflicts with `simple_prefix`. See below.
+        /// Partitioned S3 key for log objects, in the form `[TargetPrefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. Conflicts with `SimplePrefix`. See below.
         /// </summary>
         [Input("partitionedPrefix")]
         public Input<Inputs.BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixGetArgs>? PartitionedPrefix { get; set; }
 
         /// <summary>
-        /// Use the simple format for S3 keys for log objects, in the form `[target_prefix][YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. To use, set `simple_prefix {}`. Conflicts with `partitioned_prefix`.
+        /// Use the simple format for S3 keys for log objects, in the form `[TargetPrefix][YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. To use, set `SimplePrefix {}`. Conflicts with `PartitionedPrefix`.
         /// </summary>
         [Input("simplePrefix")]
         public Input<Inputs.BucketLoggingV2TargetObjectKeyFormatSimplePrefixGetArgs>? SimplePrefix { get; set; }

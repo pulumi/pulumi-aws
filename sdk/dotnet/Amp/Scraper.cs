@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Amp
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for the managed scraper to send metrics to. See `destination`.
+        /// Configuration block for the managed scraper to send metrics to. See `Destination`.
         /// </summary>
         [Output("destination")]
         public Output<Outputs.ScraperDestination?> Destination { get; private set; } = null!;
@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Amp
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
+        /// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `RoleConfiguration` below.
         /// </summary>
         [Output("roleConfiguration")]
         public Output<Outputs.ScraperRoleConfiguration?> RoleConfiguration { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Amp
         public Output<string> ScrapeConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block to specify where the managed scraper will collect metrics from. See `source`.
+        /// Configuration block to specify where the managed scraper will collect metrics from. See `Source`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Amp
         public Input<string>? Alias { get; set; }
 
         /// <summary>
-        /// Configuration block for the managed scraper to send metrics to. See `destination`.
+        /// Configuration block for the managed scraper to send metrics to. See `Destination`.
         /// </summary>
         [Input("destination")]
         public Input<Inputs.ScraperDestinationArgs>? Destination { get; set; }
@@ -146,7 +146,7 @@ namespace Pulumi.Aws.Amp
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
+        /// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `RoleConfiguration` below.
         /// </summary>
         [Input("roleConfiguration")]
         public Input<Inputs.ScraperRoleConfigurationArgs>? RoleConfiguration { get; set; }
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.Amp
         public Input<string> ScrapeConfiguration { get; set; } = null!;
 
         /// <summary>
-        /// Configuration block to specify where the managed scraper will collect metrics from. See `source`.
+        /// Configuration block to specify where the managed scraper will collect metrics from. See `Source`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -197,7 +197,7 @@ namespace Pulumi.Aws.Amp
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Configuration block for the managed scraper to send metrics to. See `destination`.
+        /// Configuration block for the managed scraper to send metrics to. See `Destination`.
         /// </summary>
         [Input("destination")]
         public Input<Inputs.ScraperDestinationGetArgs>? Destination { get; set; }
@@ -215,7 +215,7 @@ namespace Pulumi.Aws.Amp
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
+        /// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `RoleConfiguration` below.
         /// </summary>
         [Input("roleConfiguration")]
         public Input<Inputs.ScraperRoleConfigurationGetArgs>? RoleConfiguration { get; set; }
@@ -227,7 +227,7 @@ namespace Pulumi.Aws.Amp
         public Input<string>? ScrapeConfiguration { get; set; }
 
         /// <summary>
-        /// Configuration block to specify where the managed scraper will collect metrics from. See `source`.
+        /// Configuration block to specify where the managed scraper will collect metrics from. See `Source`.
         /// 
         /// The following arguments are optional:
         /// </summary>

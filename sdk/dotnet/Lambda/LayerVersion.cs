@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// For information about Lambda Layers and how to use them, see [AWS Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
     /// 
-    /// &gt; **Note:** Setting `skip_destroy` to `true` means that the AWS Provider will not destroy any layer version, even when running `pulumi destroy`. Layer versions are thus intentional dangling resources that are not managed by Pulumi and may incur extra expense in your AWS account.
+    /// &gt; **Note:** Setting `SkipDestroy` to `True` means that the AWS Provider will not destroy any layer version, even when running `pulumi destroy`. Layer versions are thus intentional dangling resources that are not managed by Pulumi and may incur extra expense in your AWS account.
     /// 
     /// ## Example Usage
     /// 
@@ -111,9 +111,9 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// ## Specifying the Deployment Package
     /// 
-    /// AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatible_runtimes` this layer specifies. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) for the valid values of `compatible_runtimes`.
+    /// AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `CompatibleRuntimes` this layer specifies. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) for the valid values of `CompatibleRuntimes`.
     /// 
-    /// Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or indirectly via Amazon S3 (using the `s3_bucket`, `s3_key` and `s3_object_version` arguments). When providing the deployment package via S3 it may be useful to use the `aws.s3.BucketObjectv2` resource to upload it.
+    /// Once you have created your deployment package you can specify it either directly as a local file (using the `Filename` argument) or indirectly via Amazon S3 (using the `S3Bucket`, `S3Key` and `S3ObjectVersion` arguments). When providing the deployment package via S3 it may be useful to use the `aws.s3.BucketObjectv2` resource to upload it.
     /// 
     /// For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading large files efficiently.
     /// 
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string> CodeSha256 { get; private set; } = null!;
 
         /// <summary>
-        /// List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x86_64` and `arm64` can be specified.
+        /// List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `X8664` and `Arm64` can be specified.
         /// </summary>
         [Output("compatibleArchitectures")]
         public Output<ImmutableArray<string>> CompatibleArchitectures { get; private set; } = null!;
@@ -197,19 +197,19 @@ namespace Pulumi.Aws.Lambda
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+        /// S3 bucket location containing the function's deployment package. Conflicts with `Filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
         /// </summary>
         [Output("s3Bucket")]
         public Output<string?> S3Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// S3 key of an object containing the function's deployment package. Conflicts with `filename`.
+        /// S3 key of an object containing the function's deployment package. Conflicts with `Filename`.
         /// </summary>
         [Output("s3Key")]
         public Output<string?> S3Key { get; private set; } = null!;
 
         /// <summary>
-        /// Object version containing the function's deployment package. Conflicts with `filename`.
+        /// Object version containing the function's deployment package. Conflicts with `Filename`.
         /// </summary>
         [Output("s3ObjectVersion")]
         public Output<string?> S3ObjectVersion { get; private set; } = null!;
@@ -227,13 +227,13 @@ namespace Pulumi.Aws.Lambda
         public Output<string> SigningProfileVersionArn { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
+        /// Whether to retain the old version of a previously deployed Lambda Layer. Default is `False`. When this is not set to `True`, changing any of `CompatibleArchitectures`, `CompatibleRuntimes`, `Description`, `Filename`, `LayerName`, `LicenseInfo`, `S3Bucket`, `S3Key`, `S3ObjectVersion`, or `SourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
         /// </summary>
         [Output("skipDestroy")]
         public Output<bool?> SkipDestroy { get; private set; } = null!;
 
         /// <summary>
-        /// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256("file.zip")` or `base64sha256(file("file.zip"))`, where "file.zip" is the local filename of the lambda layer source archive.
+        /// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `Filename` or `S3Key`. The usual way to set this is `filebase64sha256("file.zip")` or `base64sha256(file("file.zip"))`, where "file.zip" is the local filename of the lambda layer source archive.
         /// </summary>
         [Output("sourceCodeHash")]
         public Output<string> SourceCodeHash { get; private set; } = null!;
@@ -306,7 +306,7 @@ namespace Pulumi.Aws.Lambda
         private InputList<string>? _compatibleArchitectures;
 
         /// <summary>
-        /// List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x86_64` and `arm64` can be specified.
+        /// List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `X8664` and `Arm64` can be specified.
         /// </summary>
         public InputList<string> CompatibleArchitectures
         {
@@ -353,31 +353,31 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+        /// S3 bucket location containing the function's deployment package. Conflicts with `Filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
         /// </summary>
         [Input("s3Bucket")]
         public Input<string>? S3Bucket { get; set; }
 
         /// <summary>
-        /// S3 key of an object containing the function's deployment package. Conflicts with `filename`.
+        /// S3 key of an object containing the function's deployment package. Conflicts with `Filename`.
         /// </summary>
         [Input("s3Key")]
         public Input<string>? S3Key { get; set; }
 
         /// <summary>
-        /// Object version containing the function's deployment package. Conflicts with `filename`.
+        /// Object version containing the function's deployment package. Conflicts with `Filename`.
         /// </summary>
         [Input("s3ObjectVersion")]
         public Input<string>? S3ObjectVersion { get; set; }
 
         /// <summary>
-        /// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
+        /// Whether to retain the old version of a previously deployed Lambda Layer. Default is `False`. When this is not set to `True`, changing any of `CompatibleArchitectures`, `CompatibleRuntimes`, `Description`, `Filename`, `LayerName`, `LicenseInfo`, `S3Bucket`, `S3Key`, `S3ObjectVersion`, or `SourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
         /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
 
         /// <summary>
-        /// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256("file.zip")` or `base64sha256(file("file.zip"))`, where "file.zip" is the local filename of the lambda layer source archive.
+        /// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `Filename` or `S3Key`. The usual way to set this is `filebase64sha256("file.zip")` or `base64sha256(file("file.zip"))`, where "file.zip" is the local filename of the lambda layer source archive.
         /// </summary>
         [Input("sourceCodeHash")]
         public Input<string>? SourceCodeHash { get; set; }
@@ -412,7 +412,7 @@ namespace Pulumi.Aws.Lambda
         private InputList<string>? _compatibleArchitectures;
 
         /// <summary>
-        /// List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x86_64` and `arm64` can be specified.
+        /// List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `X8664` and `Arm64` can be specified.
         /// </summary>
         public InputList<string> CompatibleArchitectures
         {
@@ -471,19 +471,19 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+        /// S3 bucket location containing the function's deployment package. Conflicts with `Filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
         /// </summary>
         [Input("s3Bucket")]
         public Input<string>? S3Bucket { get; set; }
 
         /// <summary>
-        /// S3 key of an object containing the function's deployment package. Conflicts with `filename`.
+        /// S3 key of an object containing the function's deployment package. Conflicts with `Filename`.
         /// </summary>
         [Input("s3Key")]
         public Input<string>? S3Key { get; set; }
 
         /// <summary>
-        /// Object version containing the function's deployment package. Conflicts with `filename`.
+        /// Object version containing the function's deployment package. Conflicts with `Filename`.
         /// </summary>
         [Input("s3ObjectVersion")]
         public Input<string>? S3ObjectVersion { get; set; }
@@ -501,13 +501,13 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? SigningProfileVersionArn { get; set; }
 
         /// <summary>
-        /// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
+        /// Whether to retain the old version of a previously deployed Lambda Layer. Default is `False`. When this is not set to `True`, changing any of `CompatibleArchitectures`, `CompatibleRuntimes`, `Description`, `Filename`, `LayerName`, `LicenseInfo`, `S3Bucket`, `S3Key`, `S3ObjectVersion`, or `SourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
         /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
 
         /// <summary>
-        /// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256("file.zip")` or `base64sha256(file("file.zip"))`, where "file.zip" is the local filename of the lambda layer source archive.
+        /// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `Filename` or `S3Key`. The usual way to set this is `filebase64sha256("file.zip")` or `base64sha256(file("file.zip"))`, where "file.zip" is the local filename of the lambda layer source archive.
         /// </summary>
         [Input("sourceCodeHash")]
         public Input<string>? SourceCodeHash { get; set; }

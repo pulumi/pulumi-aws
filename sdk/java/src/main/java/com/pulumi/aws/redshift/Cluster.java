@@ -188,14 +188,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.automatedSnapshotRetentionPeriod);
     }
     /**
-     * The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
+     * The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availabilityZoneRelocationEnabled` is `true`.
      * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
     /**
-     * @return The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
+     * @return The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availabilityZoneRelocationEnabled` is `true`.
      * 
      */
     public Output<String> availabilityZone() {
@@ -446,14 +446,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.enhancedVpcRouting;
     }
     /**
-     * The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
+     * The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skipFinalSnapshot` must be false.
      * 
      */
     @Export(name="finalSnapshotIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> finalSnapshotIdentifier;
 
     /**
-     * @return The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
+     * @return The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skipFinalSnapshot` must be false.
      * 
      */
     public Output<Optional<String>> finalSnapshotIdentifier() {
@@ -474,14 +474,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.iamRoles;
     }
     /**
-     * The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
+     * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
-     * @return The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
+     * @return The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
      * 
      */
     public Output<String> kmsKeyId() {
@@ -503,8 +503,8 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     }
     /**
      * Whether to use AWS SecretsManager to manage the cluster admin credentials.
-     * Conflicts with `master_password` and `master_password_wo`.
-     * One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+     * Conflicts with `masterPassword` and `masterPasswordWo`.
+     * One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
      * 
      */
     @Export(name="manageMasterPassword", refs={Boolean.class}, tree="[0]")
@@ -512,8 +512,8 @@ public class Cluster extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Whether to use AWS SecretsManager to manage the cluster admin credentials.
-     * Conflicts with `master_password` and `master_password_wo`.
-     * One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+     * Conflicts with `masterPassword` and `masterPasswordWo`.
+     * One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
      * 
      */
     public Output<Optional<Boolean>> manageMasterPassword() {
@@ -535,8 +535,8 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     }
     /**
      * Password for the master DB user.
-     * Conflicts with `manage_master_password` and `master_password_wo`.
-     * One of `master_password`, `master_password_wo` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+     * Conflicts with `manageMasterPassword` and `masterPasswordWo`.
+     * One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
      * Note that this may show up in logs, and it will be stored in the state file.
      * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
      * 
@@ -546,8 +546,8 @@ public class Cluster extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Password for the master DB user.
-     * Conflicts with `manage_master_password` and `master_password_wo`.
-     * One of `master_password`, `master_password_wo` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+     * Conflicts with `manageMasterPassword` and `masterPasswordWo`.
+     * One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
      * Note that this may show up in logs, and it will be stored in the state file.
      * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
      * 
@@ -732,14 +732,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.skipFinalSnapshot);
     }
     /**
-     * The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
+     * The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshotIdentifier`.
      * 
      */
     @Export(name="snapshotArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> snapshotArn;
 
     /**
-     * @return The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
+     * @return The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshotIdentifier`.
      * 
      */
     public Output<Optional<String>> snapshotArn() {
@@ -760,21 +760,21 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.snapshotClusterIdentifier);
     }
     /**
-     * The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
+     * The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
      * 
      */
     @Export(name="snapshotIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> snapshotIdentifier;
 
     /**
-     * @return The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
+     * @return The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
      * 
      */
     public Output<Optional<String>> snapshotIdentifier() {
         return Codegen.optional(this.snapshotIdentifier);
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      * For more detailed documentation about each argument, refer to
      * the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
@@ -784,7 +784,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      * For more detailed documentation about each argument, refer to
      * the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
@@ -794,14 +794,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

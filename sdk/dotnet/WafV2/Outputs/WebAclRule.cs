@@ -14,15 +14,15 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRule
     {
         /// <summary>
-        /// Action that AWS WAF should take on a web request when it matches the rule's statement. This is used only for rules whose **statements do not reference a rule group**. See `action` for details.
+        /// Action that AWS WAF should take on a web request when it matches the rule's statement. This is used only for rules whose **statements do not reference a rule group**. See `Action` for details.
         /// </summary>
         public readonly Outputs.WebAclRuleAction? Action;
         /// <summary>
-        /// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+        /// Specifies how AWS WAF should handle CAPTCHA evaluations. See `CaptchaConfig` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleCaptchaConfig? CaptchaConfig;
         /// <summary>
-        /// Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challenge_config` below for details.
+        /// Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `ChallengeConfig` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleChallengeConfig? ChallengeConfig;
         /// <summary>
@@ -30,23 +30,23 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Override action to apply to the rules in a rule group. Used only for rule **statements that reference a rule group**, like `rule_group_reference_statement` and `managed_rule_group_statement`. See `override_action` below for details.
+        /// Override action to apply to the rules in a rule group. Used only for rule **statements that reference a rule group**, like `RuleGroupReferenceStatement` and `ManagedRuleGroupStatement`. See `OverrideAction` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleOverrideAction? OverrideAction;
         /// <summary>
-        /// If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `rules` in order based on the value of `priority`. AWS WAF processes rules with lower priority first.
+        /// If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `Rules` in order based on the value of `Priority`. AWS WAF processes rules with lower priority first.
         /// </summary>
         public readonly int Priority;
         /// <summary>
-        /// Labels to apply to web requests that match the rule match statement. See `rule_label` below for details.
+        /// Labels to apply to web requests that match the rule match statement. See `RuleLabel` below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleRuleLabel> RuleLabels;
         /// <summary>
-        /// The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See `statement` below for details.
+        /// The AWS WAF processing statement for the rule, for example `ByteMatchStatement` or `GeoMatchStatement`. See `Statement` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatement Statement;
         /// <summary>
-        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
+        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `VisibilityConfig` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleVisibilityConfig VisibilityConfig;
 

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Fis.Inputs
         public Input<string>? AccountTargeting { get; set; }
 
         /// <summary>
-        /// Specifies the empty target resolution mode for experiment options. Supports `fail` and `skip`.
+        /// Specifies the empty target resolution mode for experiment options. Supports `Fail` and `Skip`.
         /// </summary>
         [Input("emptyTargetResolutionMode")]
         public Input<string>? EmptyTargetResolutionMode { get; set; }

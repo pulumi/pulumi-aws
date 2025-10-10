@@ -161,7 +161,7 @@ namespace Pulumi.Aws.Glue
         public Output<string> DatabaseName { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for a partition index. See `partition_index` below.
+        /// Configuration block for a partition index. See `PartitionIndex` below.
         /// </summary>
         [Output("partitionIndex")]
         public Output<Outputs.PartitionIndexPartitionIndex> PartitionIndexConfig { get; private set; } = null!;
@@ -237,7 +237,7 @@ namespace Pulumi.Aws.Glue
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// Configuration block for a partition index. See `partition_index` below.
+        /// Configuration block for a partition index. See `PartitionIndex` below.
         /// </summary>
         [Input("partitionIndex", required: true)]
         public Input<Inputs.PartitionIndexPartitionIndexArgs> PartitionIndexConfig { get; set; } = null!;
@@ -275,7 +275,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
-        /// Configuration block for a partition index. See `partition_index` below.
+        /// Configuration block for a partition index. See `PartitionIndex` below.
         /// </summary>
         [Input("partitionIndex")]
         public Input<Inputs.PartitionIndexPartitionIndexGetArgs>? PartitionIndexConfig { get; set; }

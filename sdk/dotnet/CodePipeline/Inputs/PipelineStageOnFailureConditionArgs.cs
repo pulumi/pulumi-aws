@@ -22,7 +22,7 @@ namespace Pulumi.Aws.CodePipeline.Inputs
         private InputList<Inputs.PipelineStageOnFailureConditionRuleArgs>? _rules;
 
         /// <summary>
-        /// The rules that make up the condition. Defined as a `rule` block below.
+        /// The rules that make up the condition. Defined as a `Rule` block below.
         /// </summary>
         public InputList<Inputs.PipelineStageOnFailureConditionRuleArgs> Rules
         {

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CodePipeline.Outputs
     public sealed class PipelineStageOnFailure
     {
         /// <summary>
-        /// The conditions that are failure conditions. Defined as a `condition` block below.
+        /// The conditions that are failure conditions. Defined as a `Condition` block below.
         /// </summary>
         public readonly Outputs.PipelineStageOnFailureCondition? Condition;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.CodePipeline.Outputs
         /// </summary>
         public readonly string? Result;
         /// <summary>
-        /// The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retry_configuration` block below.
+        /// The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `RetryConfiguration` block below.
         /// </summary>
         public readonly Outputs.PipelineStageOnFailureRetryConfiguration? RetryConfiguration;
 

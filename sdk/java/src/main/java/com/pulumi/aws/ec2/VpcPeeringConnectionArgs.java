@@ -70,7 +70,7 @@ public final class VpcPeeringConnectionArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`,
+     * The region of the accepter VPC of the VPC Peering Connection. `autoAccept` must be `false`,
      * and use the `aws.ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
      * 
      */
@@ -78,7 +78,7 @@ public final class VpcPeeringConnectionArgs extends com.pulumi.resources.Resourc
     private @Nullable Output<String> peerRegion;
 
     /**
-     * @return The region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`,
+     * @return The region of the accepter VPC of the VPC Peering Connection. `autoAccept` must be `false`,
      * and use the `aws.ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
      * 
      */
@@ -134,14 +134,14 @@ public final class VpcPeeringConnectionArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -263,7 +263,7 @@ public final class VpcPeeringConnectionArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param peerRegion The region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`,
+         * @param peerRegion The region of the accepter VPC of the VPC Peering Connection. `autoAccept` must be `false`,
          * and use the `aws.ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
          * 
          * @return builder
@@ -275,7 +275,7 @@ public final class VpcPeeringConnectionArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param peerRegion The region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`,
+         * @param peerRegion The region of the accepter VPC of the VPC Peering Connection. `autoAccept` must be `false`,
          * and use the `aws.ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
          * 
          * @return builder
@@ -351,7 +351,7 @@ public final class VpcPeeringConnectionArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -362,7 +362,7 @@ public final class VpcPeeringConnectionArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

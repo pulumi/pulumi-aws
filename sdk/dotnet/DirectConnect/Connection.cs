@@ -57,7 +57,7 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// ### Configure encryption mode for MACsec-capable connections
     /// 
-    /// &gt; **NOTE:** You can only specify the `encryption_mode` argument once the connection is in an `Available` state.
+    /// &gt; **NOTE:** You can only specify the `EncryptionMode` argument once the connection is in an `Available` state.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -109,7 +109,7 @@ namespace Pulumi.Aws.DirectConnect
         public Output<string> Bandwidth { get; private set; } = null!;
 
         /// <summary>
-        /// The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `no_encrypt`, `should_encrypt`, and `must_encrypt`.
+        /// The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `NoEncrypt`, `ShouldEncrypt`, and `MustEncrypt`.
         /// </summary>
         [Output("encryptionMode")]
         public Output<string> EncryptionMode { get; private set; } = null!;
@@ -175,9 +175,9 @@ namespace Pulumi.Aws.DirectConnect
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+        /// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `False`.
         /// 
-        /// &gt; **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
+        /// &gt; **NOTE:** Changing the value of `RequestMacsec` will cause the resource to be destroyed and re-created.
         /// </summary>
         [Output("requestMacsec")]
         public Output<bool?> RequestMacsec { get; private set; } = null!;
@@ -189,13 +189,13 @@ namespace Pulumi.Aws.DirectConnect
         public Output<bool?> SkipDestroy { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -259,7 +259,7 @@ namespace Pulumi.Aws.DirectConnect
         public Input<string> Bandwidth { get; set; } = null!;
 
         /// <summary>
-        /// The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `no_encrypt`, `should_encrypt`, and `must_encrypt`.
+        /// The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `NoEncrypt`, `ShouldEncrypt`, and `MustEncrypt`.
         /// </summary>
         [Input("encryptionMode")]
         public Input<string>? EncryptionMode { get; set; }
@@ -289,9 +289,9 @@ namespace Pulumi.Aws.DirectConnect
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+        /// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `False`.
         /// 
-        /// &gt; **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
+        /// &gt; **NOTE:** Changing the value of `RequestMacsec` will cause the resource to be destroyed and re-created.
         /// </summary>
         [Input("requestMacsec")]
         public Input<bool>? RequestMacsec { get; set; }
@@ -306,7 +306,7 @@ namespace Pulumi.Aws.DirectConnect
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -341,7 +341,7 @@ namespace Pulumi.Aws.DirectConnect
         public Input<string>? Bandwidth { get; set; }
 
         /// <summary>
-        /// The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `no_encrypt`, `should_encrypt`, and `must_encrypt`.
+        /// The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `NoEncrypt`, `ShouldEncrypt`, and `MustEncrypt`.
         /// </summary>
         [Input("encryptionMode")]
         public Input<string>? EncryptionMode { get; set; }
@@ -407,9 +407,9 @@ namespace Pulumi.Aws.DirectConnect
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+        /// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `False`.
         /// 
-        /// &gt; **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
+        /// &gt; **NOTE:** Changing the value of `RequestMacsec` will cause the resource to be destroyed and re-created.
         /// </summary>
         [Input("requestMacsec")]
         public Input<bool>? RequestMacsec { get; set; }
@@ -424,7 +424,7 @@ namespace Pulumi.Aws.DirectConnect
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -436,7 +436,7 @@ namespace Pulumi.Aws.DirectConnect
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

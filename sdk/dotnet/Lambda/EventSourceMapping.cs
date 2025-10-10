@@ -342,7 +342,7 @@ namespace Pulumi.Aws.Lambda
     public partial class EventSourceMapping : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Additional configuration block for Amazon Managed Kafka sources. Incompatible with `self_managed_event_source` and `self_managed_kafka_event_source_config`. See below.
+        /// Additional configuration block for Amazon Managed Kafka sources. Incompatible with `SelfManagedEventSource` and `SelfManagedKafkaEventSourceConfig`. See below.
         /// </summary>
         [Output("amazonManagedKafkaEventSourceConfig")]
         public Output<Outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfig> AmazonManagedKafkaEventSourceConfig { get; private set; } = null!;
@@ -360,7 +360,7 @@ namespace Pulumi.Aws.Lambda
         public Output<int?> BatchSize { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to split the batch in two and retry if the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
+        /// Whether to split the batch in two and retry if the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Defaults to `False`.
         /// </summary>
         [Output("bisectBatchOnFunctionError")]
         public Output<bool?> BisectBatchOnFunctionError { get; private set; } = null!;
@@ -378,7 +378,7 @@ namespace Pulumi.Aws.Lambda
         public Output<Outputs.EventSourceMappingDocumentDbEventSourceConfig?> DocumentDbEventSourceConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the mapping is enabled. Defaults to `true`.
+        /// Whether the mapping is enabled. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -396,7 +396,7 @@ namespace Pulumi.Aws.Lambda
         public Output<Outputs.EventSourceMappingFilterCriteria?> FilterCriteria { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
+        /// ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `FunctionName` above.)
         /// </summary>
         [Output("functionArn")]
         public Output<string> FunctionArn { get; private set; } = null!;
@@ -434,7 +434,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string> LastProcessingResult { get; private set; } = null!;
 
         /// <summary>
-        /// Maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
+        /// Maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer until either `MaximumBatchingWindowInSeconds` expires or `BatchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
         /// </summary>
         [Output("maximumBatchingWindowInSeconds")]
         public Output<int?> MaximumBatchingWindowInSeconds { get; private set; } = null!;
@@ -488,19 +488,19 @@ namespace Pulumi.Aws.Lambda
         public Output<Outputs.EventSourceMappingScalingConfig?> ScalingConfig { get; private set; } = null!;
 
         /// <summary>
-        /// For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. See below.
+        /// For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `SourceAccessConfiguration`. See below.
         /// </summary>
         [Output("selfManagedEventSource")]
         public Output<Outputs.EventSourceMappingSelfManagedEventSource?> SelfManagedEventSource { get; private set; } = null!;
 
         /// <summary>
-        /// Additional configuration block for Self Managed Kafka sources. Incompatible with `event_source_arn` and `amazon_managed_kafka_event_source_config`. See below.
+        /// Additional configuration block for Self Managed Kafka sources. Incompatible with `EventSourceArn` and `AmazonManagedKafkaEventSourceConfig`. See below.
         /// </summary>
         [Output("selfManagedKafkaEventSourceConfig")]
         public Output<Outputs.EventSourceMappingSelfManagedKafkaEventSourceConfig> SelfManagedKafkaEventSourceConfig { get; private set; } = null!;
 
         /// <summary>
-        /// For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. See below.
+        /// For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `SelfManagedEventSource`. See below.
         /// </summary>
         [Output("sourceAccessConfigurations")]
         public Output<ImmutableArray<Outputs.EventSourceMappingSourceAccessConfiguration>> SourceAccessConfigurations { get; private set; } = null!;
@@ -512,7 +512,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string?> StartingPosition { get; private set; } = null!;
 
         /// <summary>
-        /// Timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
+        /// Timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `StartingPosition` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
         /// </summary>
         [Output("startingPositionTimestamp")]
         public Output<string?> StartingPositionTimestamp { get; private set; } = null!;
@@ -530,13 +530,13 @@ namespace Pulumi.Aws.Lambda
         public Output<string> StateTransitionReason { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the object. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -606,7 +606,7 @@ namespace Pulumi.Aws.Lambda
     public sealed class EventSourceMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Additional configuration block for Amazon Managed Kafka sources. Incompatible with `self_managed_event_source` and `self_managed_kafka_event_source_config`. See below.
+        /// Additional configuration block for Amazon Managed Kafka sources. Incompatible with `SelfManagedEventSource` and `SelfManagedKafkaEventSourceConfig`. See below.
         /// </summary>
         [Input("amazonManagedKafkaEventSourceConfig")]
         public Input<Inputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs>? AmazonManagedKafkaEventSourceConfig { get; set; }
@@ -618,7 +618,7 @@ namespace Pulumi.Aws.Lambda
         public Input<int>? BatchSize { get; set; }
 
         /// <summary>
-        /// Whether to split the batch in two and retry if the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
+        /// Whether to split the batch in two and retry if the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Defaults to `False`.
         /// </summary>
         [Input("bisectBatchOnFunctionError")]
         public Input<bool>? BisectBatchOnFunctionError { get; set; }
@@ -636,7 +636,7 @@ namespace Pulumi.Aws.Lambda
         public Input<Inputs.EventSourceMappingDocumentDbEventSourceConfigArgs>? DocumentDbEventSourceConfig { get; set; }
 
         /// <summary>
-        /// Whether the mapping is enabled. Defaults to `true`.
+        /// Whether the mapping is enabled. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -680,7 +680,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// Maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
+        /// Maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer until either `MaximumBatchingWindowInSeconds` expires or `BatchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
         /// </summary>
         [Input("maximumBatchingWindowInSeconds")]
         public Input<int>? MaximumBatchingWindowInSeconds { get; set; }
@@ -734,13 +734,13 @@ namespace Pulumi.Aws.Lambda
         public Input<Inputs.EventSourceMappingScalingConfigArgs>? ScalingConfig { get; set; }
 
         /// <summary>
-        /// For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. See below.
+        /// For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `SourceAccessConfiguration`. See below.
         /// </summary>
         [Input("selfManagedEventSource")]
         public Input<Inputs.EventSourceMappingSelfManagedEventSourceArgs>? SelfManagedEventSource { get; set; }
 
         /// <summary>
-        /// Additional configuration block for Self Managed Kafka sources. Incompatible with `event_source_arn` and `amazon_managed_kafka_event_source_config`. See below.
+        /// Additional configuration block for Self Managed Kafka sources. Incompatible with `EventSourceArn` and `AmazonManagedKafkaEventSourceConfig`. See below.
         /// </summary>
         [Input("selfManagedKafkaEventSourceConfig")]
         public Input<Inputs.EventSourceMappingSelfManagedKafkaEventSourceConfigArgs>? SelfManagedKafkaEventSourceConfig { get; set; }
@@ -749,7 +749,7 @@ namespace Pulumi.Aws.Lambda
         private InputList<Inputs.EventSourceMappingSourceAccessConfigurationArgs>? _sourceAccessConfigurations;
 
         /// <summary>
-        /// For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. See below.
+        /// For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `SelfManagedEventSource`. See below.
         /// </summary>
         public InputList<Inputs.EventSourceMappingSourceAccessConfigurationArgs> SourceAccessConfigurations
         {
@@ -764,7 +764,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? StartingPosition { get; set; }
 
         /// <summary>
-        /// Timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
+        /// Timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `StartingPosition` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
         /// </summary>
         [Input("startingPositionTimestamp")]
         public Input<string>? StartingPositionTimestamp { get; set; }
@@ -773,7 +773,7 @@ namespace Pulumi.Aws.Lambda
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the object. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -808,7 +808,7 @@ namespace Pulumi.Aws.Lambda
     public sealed class EventSourceMappingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Additional configuration block for Amazon Managed Kafka sources. Incompatible with `self_managed_event_source` and `self_managed_kafka_event_source_config`. See below.
+        /// Additional configuration block for Amazon Managed Kafka sources. Incompatible with `SelfManagedEventSource` and `SelfManagedKafkaEventSourceConfig`. See below.
         /// </summary>
         [Input("amazonManagedKafkaEventSourceConfig")]
         public Input<Inputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigGetArgs>? AmazonManagedKafkaEventSourceConfig { get; set; }
@@ -826,7 +826,7 @@ namespace Pulumi.Aws.Lambda
         public Input<int>? BatchSize { get; set; }
 
         /// <summary>
-        /// Whether to split the batch in two and retry if the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
+        /// Whether to split the batch in two and retry if the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Defaults to `False`.
         /// </summary>
         [Input("bisectBatchOnFunctionError")]
         public Input<bool>? BisectBatchOnFunctionError { get; set; }
@@ -844,7 +844,7 @@ namespace Pulumi.Aws.Lambda
         public Input<Inputs.EventSourceMappingDocumentDbEventSourceConfigGetArgs>? DocumentDbEventSourceConfig { get; set; }
 
         /// <summary>
-        /// Whether the mapping is enabled. Defaults to `true`.
+        /// Whether the mapping is enabled. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -862,7 +862,7 @@ namespace Pulumi.Aws.Lambda
         public Input<Inputs.EventSourceMappingFilterCriteriaGetArgs>? FilterCriteria { get; set; }
 
         /// <summary>
-        /// ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
+        /// ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `FunctionName` above.)
         /// </summary>
         [Input("functionArn")]
         public Input<string>? FunctionArn { get; set; }
@@ -906,7 +906,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? LastProcessingResult { get; set; }
 
         /// <summary>
-        /// Maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
+        /// Maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer until either `MaximumBatchingWindowInSeconds` expires or `BatchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
         /// </summary>
         [Input("maximumBatchingWindowInSeconds")]
         public Input<int>? MaximumBatchingWindowInSeconds { get; set; }
@@ -960,13 +960,13 @@ namespace Pulumi.Aws.Lambda
         public Input<Inputs.EventSourceMappingScalingConfigGetArgs>? ScalingConfig { get; set; }
 
         /// <summary>
-        /// For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. See below.
+        /// For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `SourceAccessConfiguration`. See below.
         /// </summary>
         [Input("selfManagedEventSource")]
         public Input<Inputs.EventSourceMappingSelfManagedEventSourceGetArgs>? SelfManagedEventSource { get; set; }
 
         /// <summary>
-        /// Additional configuration block for Self Managed Kafka sources. Incompatible with `event_source_arn` and `amazon_managed_kafka_event_source_config`. See below.
+        /// Additional configuration block for Self Managed Kafka sources. Incompatible with `EventSourceArn` and `AmazonManagedKafkaEventSourceConfig`. See below.
         /// </summary>
         [Input("selfManagedKafkaEventSourceConfig")]
         public Input<Inputs.EventSourceMappingSelfManagedKafkaEventSourceConfigGetArgs>? SelfManagedKafkaEventSourceConfig { get; set; }
@@ -975,7 +975,7 @@ namespace Pulumi.Aws.Lambda
         private InputList<Inputs.EventSourceMappingSourceAccessConfigurationGetArgs>? _sourceAccessConfigurations;
 
         /// <summary>
-        /// For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. See below.
+        /// For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `SelfManagedEventSource`. See below.
         /// </summary>
         public InputList<Inputs.EventSourceMappingSourceAccessConfigurationGetArgs> SourceAccessConfigurations
         {
@@ -990,7 +990,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? StartingPosition { get; set; }
 
         /// <summary>
-        /// Timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
+        /// Timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `StartingPosition` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
         /// </summary>
         [Input("startingPositionTimestamp")]
         public Input<string>? StartingPositionTimestamp { get; set; }
@@ -1011,7 +1011,7 @@ namespace Pulumi.Aws.Lambda
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the object. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -1023,7 +1023,7 @@ namespace Pulumi.Aws.Lambda
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

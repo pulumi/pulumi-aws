@@ -17,7 +17,7 @@ public final class GetSessionContextResult {
      */
     private String id;
     /**
-     * @return IAM source role ARN if `arn` corresponds to an STS assumed role. Otherwise, `issuer_arn` is equal to `arn`.
+     * @return IAM source role ARN if `arn` corresponds to an STS assumed role. Otherwise, `issuerArn` is equal to `arn`.
      * 
      */
     private String issuerArn;
@@ -49,7 +49,7 @@ public final class GetSessionContextResult {
         return this.id;
     }
     /**
-     * @return IAM source role ARN if `arn` corresponds to an STS assumed role. Otherwise, `issuer_arn` is equal to `arn`.
+     * @return IAM source role ARN if `arn` corresponds to an STS assumed role. Otherwise, `issuerArn` is equal to `arn`.
      * 
      */
     public String issuerArn() {

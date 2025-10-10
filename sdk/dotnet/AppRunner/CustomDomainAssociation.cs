@@ -12,7 +12,7 @@ namespace Pulumi.Aws.AppRunner
     /// <summary>
     /// Manages an App Runner Custom Domain association.
     /// 
-    /// &gt; **NOTE:** After creation, you must use the information in the `certificate_validation_records` attribute to add CNAME records to your Domain Name System (DNS). For each mapped domain name, add a mapping to the target App Runner subdomain (found in the `dns_target` attribute) and one or more certificate validation records. App Runner then performs DNS validation to verify that you own or control the domain name you associated. App Runner tracks domain validity in a certificate stored in AWS Certificate Manager (ACM).
+    /// &gt; **NOTE:** After creation, you must use the information in the `CertificateValidationRecords` attribute to add CNAME records to your Domain Name System (DNS). For each mapped domain name, add a mapping to the target App Runner subdomain (found in the `DnsTarget` attribute) and one or more certificate validation records. App Runner then performs DNS validation to verify that you own or control the domain name you associated. App Runner tracks domain validity in a certificate stored in AWS Certificate Manager (ACM).
     /// 
     /// ## Example Usage
     /// 
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.AppRunner
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
+        /// Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `True`.
         /// </summary>
         [Output("enableWwwSubdomain")]
         public Output<bool?> EnableWwwSubdomain { get; private set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.Aws.AppRunner
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
-        /// Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
+        /// Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `True`.
         /// </summary>
         [Input("enableWwwSubdomain")]
         public Input<bool>? EnableWwwSubdomain { get; set; }
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.AppRunner
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
-        /// Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
+        /// Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `True`.
         /// </summary>
         [Input("enableWwwSubdomain")]
         public Input<bool>? EnableWwwSubdomain { get; set; }

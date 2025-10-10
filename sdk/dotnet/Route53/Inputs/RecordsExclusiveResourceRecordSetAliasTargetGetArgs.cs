@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Route53.Inputs
         public Input<string> DnsName { get; set; } = null!;
 
         /// <summary>
-        /// Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [the AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health) for additional details.
+        /// Set to `True` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [the AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health) for additional details.
         /// </summary>
         [Input("evaluateTargetHealth", required: true)]
         public Input<bool> EvaluateTargetHealth { get; set; } = null!;

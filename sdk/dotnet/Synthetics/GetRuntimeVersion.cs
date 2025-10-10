@@ -154,7 +154,7 @@ namespace Pulumi.Aws.Synthetics
     public sealed class GetRuntimeVersionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Whether the latest version of the runtime should be fetched. Conflicts with `version`. Valid values: `true`.
+        /// Whether the latest version of the runtime should be fetched. Conflicts with `Version`. Valid values: `True`.
         /// </summary>
         [Input("latest")]
         public bool? Latest { get; set; }
@@ -174,7 +174,7 @@ namespace Pulumi.Aws.Synthetics
         public string? Region { get; set; }
 
         /// <summary>
-        /// Version of the runtime to be fetched (for example, `9.0`). Conflicts with `latest`.
+        /// Version of the runtime to be fetched (for example, `9.0`). Conflicts with `Latest`.
         /// </summary>
         [Input("version")]
         public string? Version { get; set; }
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.Synthetics
     public sealed class GetRuntimeVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Whether the latest version of the runtime should be fetched. Conflicts with `version`. Valid values: `true`.
+        /// Whether the latest version of the runtime should be fetched. Conflicts with `Version`. Valid values: `True`.
         /// </summary>
         [Input("latest")]
         public Input<bool>? Latest { get; set; }
@@ -208,7 +208,7 @@ namespace Pulumi.Aws.Synthetics
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Version of the runtime to be fetched (for example, `9.0`). Conflicts with `latest`.
+        /// Version of the runtime to be fetched (for example, `9.0`). Conflicts with `Latest`.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

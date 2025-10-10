@@ -19,7 +19,7 @@ public final class ExportExportDestinationConfigurationS3Destination {
      */
     private String s3Bucket;
     /**
-     * @return Output configuration for the data export. See the `s3_output_configurations` argument reference below.
+     * @return Output configuration for the data export. See the `s3OutputConfigurations` argument reference below.
      * 
      */
     private @Nullable List<ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration> s3OutputConfigurations;
@@ -43,7 +43,7 @@ public final class ExportExportDestinationConfigurationS3Destination {
         return this.s3Bucket;
     }
     /**
-     * @return Output configuration for the data export. See the `s3_output_configurations` argument reference below.
+     * @return Output configuration for the data export. See the `s3OutputConfigurations` argument reference below.
      * 
      */
     public List<ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration> s3OutputConfigurations() {

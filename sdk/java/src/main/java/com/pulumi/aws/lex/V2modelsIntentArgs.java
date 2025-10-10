@@ -59,14 +59,14 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Configuration block for the response that Amazon Lex sends to the user when the intent is closed. See `closing_setting`.
+     * Configuration block for the response that Amazon Lex sends to the user when the intent is closed. See `closingSetting`.
      * 
      */
     @Import(name="closingSetting")
     private @Nullable Output<V2modelsIntentClosingSettingArgs> closingSetting;
 
     /**
-     * @return Configuration block for the response that Amazon Lex sends to the user when the intent is closed. See `closing_setting`.
+     * @return Configuration block for the response that Amazon Lex sends to the user when the intent is closed. See `closingSetting`.
      * 
      */
     public Optional<Output<V2modelsIntentClosingSettingArgs>> closingSetting() {
@@ -96,14 +96,14 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Configuration block for invoking the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction. See `dialog_code_hook`.
+     * Configuration block for invoking the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction. See `dialogCodeHook`.
      * 
      */
     @Import(name="dialogCodeHook")
     private @Nullable Output<V2modelsIntentDialogCodeHookArgs> dialogCodeHook;
 
     /**
-     * @return Configuration block for invoking the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction. See `dialog_code_hook`.
+     * @return Configuration block for invoking the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction. See `dialogCodeHook`.
      * 
      */
     public Optional<Output<V2modelsIntentDialogCodeHookArgs>> dialogCodeHook() {
@@ -111,14 +111,14 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Configuration block for invoking the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot&#39;s transaction with the user. See `fulfillment_code_hook`.
+     * Configuration block for invoking the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot&#39;s transaction with the user. See `fulfillmentCodeHook`.
      * 
      */
     @Import(name="fulfillmentCodeHook")
     private @Nullable Output<V2modelsIntentFulfillmentCodeHookArgs> fulfillmentCodeHook;
 
     /**
-     * @return Configuration block for invoking the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot&#39;s transaction with the user. See `fulfillment_code_hook`.
+     * @return Configuration block for invoking the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot&#39;s transaction with the user. See `fulfillmentCodeHook`.
      * 
      */
     public Optional<Output<V2modelsIntentFulfillmentCodeHookArgs>> fulfillmentCodeHook() {
@@ -126,14 +126,14 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Configuration block for the response that is sent to the user at the beginning of a conversation, before eliciting slot values. See `initial_response_setting`.
+     * Configuration block for the response that is sent to the user at the beginning of a conversation, before eliciting slot values. See `initialResponseSetting`.
      * 
      */
     @Import(name="initialResponseSetting")
     private @Nullable Output<V2modelsIntentInitialResponseSettingArgs> initialResponseSetting;
 
     /**
-     * @return Configuration block for the response that is sent to the user at the beginning of a conversation, before eliciting slot values. See `initial_response_setting`.
+     * @return Configuration block for the response that is sent to the user at the beginning of a conversation, before eliciting slot values. See `initialResponseSetting`.
      * 
      */
     public Optional<Output<V2modelsIntentInitialResponseSettingArgs>> initialResponseSetting() {
@@ -141,14 +141,14 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `input_context`.
+     * Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `inputContext`.
      * 
      */
     @Import(name="inputContexts")
     private @Nullable Output<List<V2modelsIntentInputContextArgs>> inputContexts;
 
     /**
-     * @return Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `input_context`.
+     * @return Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `inputContext`.
      * 
      */
     public Optional<Output<List<V2modelsIntentInputContextArgs>>> inputContexts() {
@@ -156,14 +156,14 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can&#39;t determine another intent to invoke. See `kendra_configuration`.
+     * Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can&#39;t determine another intent to invoke. See `kendraConfiguration`.
      * 
      */
     @Import(name="kendraConfiguration")
     private @Nullable Output<V2modelsIntentKendraConfigurationArgs> kendraConfiguration;
 
     /**
-     * @return Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can&#39;t determine another intent to invoke. See `kendra_configuration`.
+     * @return Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can&#39;t determine another intent to invoke. See `kendraConfiguration`.
      * 
      */
     public Optional<Output<V2modelsIntentKendraConfigurationArgs>> kendraConfiguration() {
@@ -205,14 +205,14 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `output_context`.
+     * Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `outputContext`.
      * 
      */
     @Import(name="outputContexts")
     private @Nullable Output<List<V2modelsIntentOutputContextArgs>> outputContexts;
 
     /**
-     * @return Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `output_context`.
+     * @return Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `outputContext`.
      * 
      */
     public Optional<Output<List<V2modelsIntentOutputContextArgs>>> outputContexts() {
@@ -250,14 +250,14 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Configuration block for strings that a user might say to signal the intent. See `sample_utterance`.
+     * Configuration block for strings that a user might say to signal the intent. See `sampleUtterance`.
      * 
      */
     @Import(name="sampleUtterances")
     private @Nullable Output<List<V2modelsIntentSampleUtteranceArgs>> sampleUtterances;
 
     /**
-     * @return Configuration block for strings that a user might say to signal the intent. See `sample_utterance`.
+     * @return Configuration block for strings that a user might say to signal the intent. See `sampleUtterance`.
      * 
      */
     public Optional<Output<List<V2modelsIntentSampleUtteranceArgs>>> sampleUtterances() {
@@ -265,14 +265,14 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slot_priority`.
+     * Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slotPriority`.
      * 
      */
     @Import(name="slotPriorities")
     private @Nullable Output<List<V2modelsIntentSlotPriorityArgs>> slotPriorities;
 
     /**
-     * @return Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slot_priority`.
+     * @return Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slotPriority`.
      * 
      */
     public Optional<Output<List<V2modelsIntentSlotPriorityArgs>>> slotPriorities() {
@@ -370,7 +370,7 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param closingSetting Configuration block for the response that Amazon Lex sends to the user when the intent is closed. See `closing_setting`.
+         * @param closingSetting Configuration block for the response that Amazon Lex sends to the user when the intent is closed. See `closingSetting`.
          * 
          * @return builder
          * 
@@ -381,7 +381,7 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param closingSetting Configuration block for the response that Amazon Lex sends to the user when the intent is closed. See `closing_setting`.
+         * @param closingSetting Configuration block for the response that Amazon Lex sends to the user when the intent is closed. See `closingSetting`.
          * 
          * @return builder
          * 
@@ -421,7 +421,7 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param dialogCodeHook Configuration block for invoking the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction. See `dialog_code_hook`.
+         * @param dialogCodeHook Configuration block for invoking the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction. See `dialogCodeHook`.
          * 
          * @return builder
          * 
@@ -432,7 +432,7 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param dialogCodeHook Configuration block for invoking the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction. See `dialog_code_hook`.
+         * @param dialogCodeHook Configuration block for invoking the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction. See `dialogCodeHook`.
          * 
          * @return builder
          * 
@@ -442,7 +442,7 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param fulfillmentCodeHook Configuration block for invoking the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot&#39;s transaction with the user. See `fulfillment_code_hook`.
+         * @param fulfillmentCodeHook Configuration block for invoking the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot&#39;s transaction with the user. See `fulfillmentCodeHook`.
          * 
          * @return builder
          * 
@@ -453,7 +453,7 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param fulfillmentCodeHook Configuration block for invoking the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot&#39;s transaction with the user. See `fulfillment_code_hook`.
+         * @param fulfillmentCodeHook Configuration block for invoking the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot&#39;s transaction with the user. See `fulfillmentCodeHook`.
          * 
          * @return builder
          * 
@@ -463,7 +463,7 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param initialResponseSetting Configuration block for the response that is sent to the user at the beginning of a conversation, before eliciting slot values. See `initial_response_setting`.
+         * @param initialResponseSetting Configuration block for the response that is sent to the user at the beginning of a conversation, before eliciting slot values. See `initialResponseSetting`.
          * 
          * @return builder
          * 
@@ -474,7 +474,7 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param initialResponseSetting Configuration block for the response that is sent to the user at the beginning of a conversation, before eliciting slot values. See `initial_response_setting`.
+         * @param initialResponseSetting Configuration block for the response that is sent to the user at the beginning of a conversation, before eliciting slot values. See `initialResponseSetting`.
          * 
          * @return builder
          * 
@@ -484,7 +484,7 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param inputContexts Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `input_context`.
+         * @param inputContexts Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `inputContext`.
          * 
          * @return builder
          * 
@@ -495,7 +495,7 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param inputContexts Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `input_context`.
+         * @param inputContexts Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `inputContext`.
          * 
          * @return builder
          * 
@@ -505,7 +505,7 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param inputContexts Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `input_context`.
+         * @param inputContexts Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `inputContext`.
          * 
          * @return builder
          * 
@@ -515,7 +515,7 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param kendraConfiguration Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can&#39;t determine another intent to invoke. See `kendra_configuration`.
+         * @param kendraConfiguration Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can&#39;t determine another intent to invoke. See `kendraConfiguration`.
          * 
          * @return builder
          * 
@@ -526,7 +526,7 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param kendraConfiguration Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can&#39;t determine another intent to invoke. See `kendra_configuration`.
+         * @param kendraConfiguration Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can&#39;t determine another intent to invoke. See `kendraConfiguration`.
          * 
          * @return builder
          * 
@@ -582,7 +582,7 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param outputContexts Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `output_context`.
+         * @param outputContexts Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `outputContext`.
          * 
          * @return builder
          * 
@@ -593,7 +593,7 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param outputContexts Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `output_context`.
+         * @param outputContexts Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `outputContext`.
          * 
          * @return builder
          * 
@@ -603,7 +603,7 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param outputContexts Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `output_context`.
+         * @param outputContexts Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `outputContext`.
          * 
          * @return builder
          * 
@@ -655,7 +655,7 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sampleUtterances Configuration block for strings that a user might say to signal the intent. See `sample_utterance`.
+         * @param sampleUtterances Configuration block for strings that a user might say to signal the intent. See `sampleUtterance`.
          * 
          * @return builder
          * 
@@ -666,7 +666,7 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sampleUtterances Configuration block for strings that a user might say to signal the intent. See `sample_utterance`.
+         * @param sampleUtterances Configuration block for strings that a user might say to signal the intent. See `sampleUtterance`.
          * 
          * @return builder
          * 
@@ -676,7 +676,7 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sampleUtterances Configuration block for strings that a user might say to signal the intent. See `sample_utterance`.
+         * @param sampleUtterances Configuration block for strings that a user might say to signal the intent. See `sampleUtterance`.
          * 
          * @return builder
          * 
@@ -686,7 +686,7 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param slotPriorities Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slot_priority`.
+         * @param slotPriorities Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slotPriority`.
          * 
          * @return builder
          * 
@@ -697,7 +697,7 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param slotPriorities Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slot_priority`.
+         * @param slotPriorities Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slotPriority`.
          * 
          * @return builder
          * 
@@ -707,7 +707,7 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param slotPriorities Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slot_priority`.
+         * @param slotPriorities Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slotPriority`.
          * 
          * @return builder
          * 

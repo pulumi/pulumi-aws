@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Msk.Inputs
         public Input<string>? ClientBroker { get; set; }
 
         /// <summary>
-        /// Whether data communication among broker nodes is encrypted. Default value: `true`.
+        /// Whether data communication among broker nodes is encrypted. Default value: `True`.
         /// </summary>
         [Input("inCluster")]
         public Input<bool>? InCluster { get; set; }

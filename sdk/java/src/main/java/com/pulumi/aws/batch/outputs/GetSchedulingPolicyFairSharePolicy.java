@@ -19,7 +19,7 @@ public final class GetSchedulingPolicyFairSharePolicy {
     private Integer computeReservation;
     private Integer shareDecaySeconds;
     /**
-     * @return One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `share_distribution` block is documented below.
+     * @return One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
      * 
      */
     private List<GetSchedulingPolicyFairSharePolicyShareDistribution> shareDistributions;
@@ -36,7 +36,7 @@ public final class GetSchedulingPolicyFairSharePolicy {
         return this.shareDecaySeconds;
     }
     /**
-     * @return One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `share_distribution` block is documented below.
+     * @return One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
      * 
      */
     public List<GetSchedulingPolicyFairSharePolicyShareDistribution> shareDistributions() {

@@ -190,7 +190,7 @@ namespace Pulumi.Aws.Ecs
         public string? LaunchType { get; set; }
 
         /// <summary>
-        /// Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
+        /// Network configuration for the service. This parameter is required for task definitions that use the `Awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
         /// </summary>
         [Input("networkConfiguration")]
         public Inputs.GetTaskExecutionNetworkConfigurationArgs? NetworkConfiguration { get; set; }
@@ -259,7 +259,7 @@ namespace Pulumi.Aws.Ecs
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -268,7 +268,7 @@ namespace Pulumi.Aws.Ecs
         }
 
         /// <summary>
-        /// The `family` and `revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.
+        /// The `Family` and `Revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -338,7 +338,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? LaunchType { get; set; }
 
         /// <summary>
-        /// Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
+        /// Network configuration for the service. This parameter is required for task definitions that use the `Awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
         /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.GetTaskExecutionNetworkConfigurationInputArgs>? NetworkConfiguration { get; set; }
@@ -407,7 +407,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -416,7 +416,7 @@ namespace Pulumi.Aws.Ecs
         }
 
         /// <summary>
-        /// The `family` and `revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.
+        /// The `Family` and `Revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.
         /// 
         /// The following arguments are optional:
         /// </summary>

@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DomainDefaultSpaceSettingsCustomFileSystemConfig {
     /**
-     * @return The default EBS storage settings for a private space. See `efs_file_system_config` Block below.
+     * @return The default EBS storage settings for a private space. See `efsFileSystemConfig` Block below.
      * 
      */
     private @Nullable DomainDefaultSpaceSettingsCustomFileSystemConfigEfsFileSystemConfig efsFileSystemConfig;
 
     private DomainDefaultSpaceSettingsCustomFileSystemConfig() {}
     /**
-     * @return The default EBS storage settings for a private space. See `efs_file_system_config` Block below.
+     * @return The default EBS storage settings for a private space. See `efsFileSystemConfig` Block below.
      * 
      */
     public Optional<DomainDefaultSpaceSettingsCustomFileSystemConfigEfsFileSystemConfig> efsFileSystemConfig() {

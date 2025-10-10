@@ -19,14 +19,14 @@ public final class CatalogTableStorageDescriptorSchemaReferenceArgs extends com.
     public static final CatalogTableStorageDescriptorSchemaReferenceArgs Empty = new CatalogTableStorageDescriptorSchemaReferenceArgs();
 
     /**
-     * Configuration block that contains schema identity fields. Either this or the `schema_version_id` has to be provided. See `schema_id` below.
+     * Configuration block that contains schema identity fields. Either this or the `schemaVersionId` has to be provided. See `schemaId` below.
      * 
      */
     @Import(name="schemaId")
     private @Nullable Output<CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs> schemaId;
 
     /**
-     * @return Configuration block that contains schema identity fields. Either this or the `schema_version_id` has to be provided. See `schema_id` below.
+     * @return Configuration block that contains schema identity fields. Either this or the `schemaVersionId` has to be provided. See `schemaId` below.
      * 
      */
     public Optional<Output<CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs>> schemaId() {
@@ -34,14 +34,14 @@ public final class CatalogTableStorageDescriptorSchemaReferenceArgs extends com.
     }
 
     /**
-     * Unique ID assigned to a version of the schema. Either this or the `schema_id` has to be provided.
+     * Unique ID assigned to a version of the schema. Either this or the `schemaId` has to be provided.
      * 
      */
     @Import(name="schemaVersionId")
     private @Nullable Output<String> schemaVersionId;
 
     /**
-     * @return Unique ID assigned to a version of the schema. Either this or the `schema_id` has to be provided.
+     * @return Unique ID assigned to a version of the schema. Either this or the `schemaId` has to be provided.
      * 
      */
     public Optional<Output<String>> schemaVersionId() {
@@ -90,7 +90,7 @@ public final class CatalogTableStorageDescriptorSchemaReferenceArgs extends com.
         }
 
         /**
-         * @param schemaId Configuration block that contains schema identity fields. Either this or the `schema_version_id` has to be provided. See `schema_id` below.
+         * @param schemaId Configuration block that contains schema identity fields. Either this or the `schemaVersionId` has to be provided. See `schemaId` below.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class CatalogTableStorageDescriptorSchemaReferenceArgs extends com.
         }
 
         /**
-         * @param schemaId Configuration block that contains schema identity fields. Either this or the `schema_version_id` has to be provided. See `schema_id` below.
+         * @param schemaId Configuration block that contains schema identity fields. Either this or the `schemaVersionId` has to be provided. See `schemaId` below.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class CatalogTableStorageDescriptorSchemaReferenceArgs extends com.
         }
 
         /**
-         * @param schemaVersionId Unique ID assigned to a version of the schema. Either this or the `schema_id` has to be provided.
+         * @param schemaVersionId Unique ID assigned to a version of the schema. Either this or the `schemaId` has to be provided.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class CatalogTableStorageDescriptorSchemaReferenceArgs extends com.
         }
 
         /**
-         * @param schemaVersionId Unique ID assigned to a version of the schema. Either this or the `schema_id` has to be provided.
+         * @param schemaVersionId Unique ID assigned to a version of the schema. Either this or the `schemaId` has to be provided.
          * 
          * @return builder
          * 

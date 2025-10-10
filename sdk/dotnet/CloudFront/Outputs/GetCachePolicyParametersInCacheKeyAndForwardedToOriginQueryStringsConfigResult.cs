@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     public sealed class GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigResult
     {
         /// <summary>
-        /// Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+        /// Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `None`, `Whitelist`, `allExcept`, `All`.
         /// </summary>
         public readonly string QueryStringBehavior;
         /// <summary>

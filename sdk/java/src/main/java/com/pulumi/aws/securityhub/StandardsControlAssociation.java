@@ -129,14 +129,14 @@ public class StandardsControlAssociation extends com.pulumi.resources.CustomReso
         return this.standardsArn;
     }
     /**
-     * The reason for updating the control&#39;s enablement status in the standard. Required when `association_status` is `DISABLED`.
+     * The reason for updating the control&#39;s enablement status in the standard. Required when `associationStatus` is `DISABLED`.
      * 
      */
     @Export(name="updatedReason", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> updatedReason;
 
     /**
-     * @return The reason for updating the control&#39;s enablement status in the standard. Required when `association_status` is `DISABLED`.
+     * @return The reason for updating the control&#39;s enablement status in the standard. Required when `associationStatus` is `DISABLED`.
      * 
      */
     public Output<Optional<String>> updatedReason() {

@@ -17,14 +17,14 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
     public static final ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs Empty = new ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs();
 
     /**
-     * Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `log_level` or `metrics_level` attribute values to be effective.
+     * Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `logLevel` or `metricsLevel` attribute values to be effective.
      * 
      */
     @Import(name="configurationType", required=true)
     private Output<String> configurationType;
 
     /**
-     * @return Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `log_level` or `metrics_level` attribute values to be effective.
+     * @return Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `logLevel` or `metricsLevel` attribute values to be effective.
      * 
      */
     public Output<String> configurationType() {
@@ -88,7 +88,7 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
         }
 
         /**
-         * @param configurationType Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `log_level` or `metrics_level` attribute values to be effective.
+         * @param configurationType Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `logLevel` or `metricsLevel` attribute values to be effective.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
         }
 
         /**
-         * @param configurationType Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `log_level` or `metrics_level` attribute values to be effective.
+         * @param configurationType Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `logLevel` or `metricsLevel` attribute values to be effective.
          * 
          * @return builder
          * 

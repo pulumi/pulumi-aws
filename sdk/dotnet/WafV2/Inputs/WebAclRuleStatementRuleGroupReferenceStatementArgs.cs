@@ -22,7 +22,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<Inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs>? _ruleActionOverrides;
 
         /// <summary>
-        /// Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `rule_action_override` below for details.
+        /// Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `RuleActionOverride` below for details.
         /// </summary>
         public InputList<Inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs> RuleActionOverrides
         {

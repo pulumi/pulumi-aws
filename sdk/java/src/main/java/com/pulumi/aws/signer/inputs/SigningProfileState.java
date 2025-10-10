@@ -95,14 +95,14 @@ public final class SigningProfileState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Revocation information for a signing profile. See `revocation_record` Block below for details.
+     * Revocation information for a signing profile. See `revocationRecord` Block below for details.
      * 
      */
     @Import(name="revocationRecords")
     private @Nullable Output<List<SigningProfileRevocationRecordArgs>> revocationRecords;
 
     /**
-     * @return Revocation information for a signing profile. See `revocation_record` Block below for details.
+     * @return Revocation information for a signing profile. See `revocationRecord` Block below for details.
      * 
      */
     public Optional<Output<List<SigningProfileRevocationRecordArgs>>> revocationRecords() {
@@ -110,14 +110,14 @@ public final class SigningProfileState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The validity period for a signing job. See `signature_validity_period` Block below for details.
+     * The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
      * 
      */
     @Import(name="signatureValidityPeriod")
     private @Nullable Output<SigningProfileSignatureValidityPeriodArgs> signatureValidityPeriod;
 
     /**
-     * @return The validity period for a signing job. See `signature_validity_period` Block below for details.
+     * @return The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
      * 
      */
     public Optional<Output<SigningProfileSignatureValidityPeriodArgs>> signatureValidityPeriod() {
@@ -125,14 +125,14 @@ public final class SigningProfileState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
+     * The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
      * 
      */
     @Import(name="signingMaterial")
     private @Nullable Output<SigningProfileSigningMaterialArgs> signingMaterial;
 
     /**
-     * @return The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
+     * @return The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
      * 
      */
     public Optional<Output<SigningProfileSigningMaterialArgs>> signingMaterial() {
@@ -170,14 +170,14 @@ public final class SigningProfileState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -185,14 +185,14 @@ public final class SigningProfileState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -370,7 +370,7 @@ public final class SigningProfileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param revocationRecords Revocation information for a signing profile. See `revocation_record` Block below for details.
+         * @param revocationRecords Revocation information for a signing profile. See `revocationRecord` Block below for details.
          * 
          * @return builder
          * 
@@ -381,7 +381,7 @@ public final class SigningProfileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param revocationRecords Revocation information for a signing profile. See `revocation_record` Block below for details.
+         * @param revocationRecords Revocation information for a signing profile. See `revocationRecord` Block below for details.
          * 
          * @return builder
          * 
@@ -391,7 +391,7 @@ public final class SigningProfileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param revocationRecords Revocation information for a signing profile. See `revocation_record` Block below for details.
+         * @param revocationRecords Revocation information for a signing profile. See `revocationRecord` Block below for details.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class SigningProfileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param signatureValidityPeriod The validity period for a signing job. See `signature_validity_period` Block below for details.
+         * @param signatureValidityPeriod The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
          * 
          * @return builder
          * 
@@ -412,7 +412,7 @@ public final class SigningProfileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param signatureValidityPeriod The validity period for a signing job. See `signature_validity_period` Block below for details.
+         * @param signatureValidityPeriod The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
          * 
          * @return builder
          * 
@@ -422,7 +422,7 @@ public final class SigningProfileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param signingMaterial The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
+         * @param signingMaterial The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
          * 
          * @return builder
          * 
@@ -433,7 +433,7 @@ public final class SigningProfileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param signingMaterial The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
+         * @param signingMaterial The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
          * 
          * @return builder
          * 
@@ -485,7 +485,7 @@ public final class SigningProfileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -496,7 +496,7 @@ public final class SigningProfileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -506,7 +506,7 @@ public final class SigningProfileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -517,7 +517,7 @@ public final class SigningProfileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 public final class V2modelsSlotTypeSlotTypeValue {
     /**
      * @return Value of the slot type entry.
-     * See `sample_value` argument reference below.
+     * See `sampleValue` argument reference below.
      * 
      */
     private @Nullable List<V2modelsSlotTypeSlotTypeValueSampleValue> sampleValues;
@@ -28,7 +28,7 @@ public final class V2modelsSlotTypeSlotTypeValue {
     private V2modelsSlotTypeSlotTypeValue() {}
     /**
      * @return Value of the slot type entry.
-     * See `sample_value` argument reference below.
+     * See `sampleValue` argument reference below.
      * 
      */
     public List<V2modelsSlotTypeSlotTypeValueSampleValue> sampleValues() {

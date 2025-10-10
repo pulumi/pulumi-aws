@@ -143,7 +143,7 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         public readonly int DesiredCapacity;
         /// <summary>
-        /// The unit of measurement for the value returned for `desired_capacity`.
+        /// The unit of measurement for the value returned for `DesiredCapacity`.
         /// </summary>
         public readonly string DesiredCapacityType;
         /// <summary>

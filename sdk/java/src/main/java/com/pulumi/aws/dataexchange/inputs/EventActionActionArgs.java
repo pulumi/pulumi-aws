@@ -17,7 +17,7 @@ public final class EventActionActionArgs extends com.pulumi.resources.ResourceAr
 
     /**
      * Configuration for an Export Revision to S3 action.
-     * Described in `export_revision_to_s3` Configuration Block
+     * Described in `exportRevisionToS3` Configuration Block
      * 
      */
     @Import(name="exportRevisionToS3")
@@ -25,7 +25,7 @@ public final class EventActionActionArgs extends com.pulumi.resources.ResourceAr
 
     /**
      * @return Configuration for an Export Revision to S3 action.
-     * Described in `export_revision_to_s3` Configuration Block
+     * Described in `exportRevisionToS3` Configuration Block
      * 
      */
     public Optional<Output<EventActionActionExportRevisionToS3Args>> exportRevisionToS3() {
@@ -58,7 +58,7 @@ public final class EventActionActionArgs extends com.pulumi.resources.ResourceAr
 
         /**
          * @param exportRevisionToS3 Configuration for an Export Revision to S3 action.
-         * Described in `export_revision_to_s3` Configuration Block
+         * Described in `exportRevisionToS3` Configuration Block
          * 
          * @return builder
          * 
@@ -70,7 +70,7 @@ public final class EventActionActionArgs extends com.pulumi.resources.ResourceAr
 
         /**
          * @param exportRevisionToS3 Configuration for an Export Revision to S3 action.
-         * Described in `export_revision_to_s3` Configuration Block
+         * Described in `exportRevisionToS3` Configuration Block
          * 
          * @return builder
          * 

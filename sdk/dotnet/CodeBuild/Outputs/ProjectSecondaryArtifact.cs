@@ -27,24 +27,24 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// </summary>
         public readonly string? BucketOwnerAccess;
         /// <summary>
-        /// Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`,
-        /// this value is ignored. Defaults to `false`.
+        /// Whether to disable encrypting output artifacts. If `Type` is set to `NO_ARTIFACTS`,
+        /// this value is ignored. Defaults to `False`.
         /// </summary>
         public readonly bool? EncryptionDisabled;
         /// <summary>
-        /// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or
-        /// `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, this is the name of the output bucket.
-        /// If `path` is not specified, `location` can specify the path of the output artifact in the output bucket.
+        /// Information about the build output artifact location. If `Type` is set to `CODEPIPELINE` or
+        /// `NO_ARTIFACTS`, this value is ignored if specified. If `Type` is set to `S3`, this is the name of the output bucket.
+        /// If `Path` is not specified, `Location` can specify the path of the output artifact in the output bucket.
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// Name of the project. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored
-        /// if specified. If `type` is set to `S3`, this is the name of the output artifact object.
+        /// Name of the project. If `Type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored
+        /// if specified. If `Type` is set to `S3`, this is the name of the output artifact object.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Namespace to use in storing build artifacts. If `type` is set to `CODEPIPELINE` or
-        /// `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, valid values are `BUILD_ID` or `NONE`.
+        /// Namespace to use in storing build artifacts. If `Type` is set to `CODEPIPELINE` or
+        /// `NO_ARTIFACTS`, this value is ignored if specified. If `Type` is set to `S3`, valid values are `BUILD_ID` or `NONE`.
         /// </summary>
         public readonly string? NamespaceType;
         /// <summary>
@@ -52,13 +52,13 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// </summary>
         public readonly bool? OverrideArtifactName;
         /// <summary>
-        /// Type of build output artifact to create. If `type` is set to `CODEPIPELINE` or
-        /// `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, valid values are `NONE` or `ZIP`.
+        /// Type of build output artifact to create. If `Type` is set to `CODEPIPELINE` or
+        /// `NO_ARTIFACTS`, this value is ignored if specified. If `Type` is set to `S3`, valid values are `NONE` or `ZIP`.
         /// </summary>
         public readonly string? Packaging;
         /// <summary>
-        /// Along with `namespace_type` and `name`, the pattern that AWS CodeBuild uses to name and store the
-        /// output artifact. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type`
+        /// Along with `NamespaceType` and `Name`, the pattern that AWS CodeBuild uses to name and store the
+        /// output artifact. If `Type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `Type`
         /// is set to `S3`, this is the path to the output artifact.
         /// </summary>
         public readonly string? Path;

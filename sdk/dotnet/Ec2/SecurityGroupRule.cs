@@ -10,13 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2
 {
     /// <summary>
-    /// Provides a security group rule resource. Represents a single `ingress` or `egress` group rule, which can be added to external Security Groups.
+    /// Provides a security group rule resource. Represents a single `Ingress` or `Egress` group rule, which can be added to external Security Groups.
     /// 
     /// &gt; **NOTE:** Avoid using the `aws.ec2.SecurityGroupRule` resource, as it struggles with managing multiple CIDR blocks, and, due to the historical lack of unique IDs, tags and descriptions. To avoid these problems, use the current best practice of the `aws.vpc.SecurityGroupEgressRule` and `aws.vpc.SecurityGroupIngressRule` resources with one CIDR block per rule.
     /// 
     /// !&gt; **WARNING:** You should not use the `aws.ec2.SecurityGroupRule` resource in conjunction with `aws.vpc.SecurityGroupEgressRule` and `aws.vpc.SecurityGroupIngressRule` resources or with an `aws.ec2.SecurityGroup` resource that has in-line rules. Doing so may cause rule conflicts, perpetual differences, and result in rules being overwritten.
     /// 
-    /// &gt; **NOTE:** Setting `protocol = "all"` or `protocol = -1` with `from_port` and `to_port` will result in the EC2 API creating a security group rule with all ports open. This API behavior cannot be controlled by this provider and may generate warnings in the future.
+    /// &gt; **NOTE:** Setting `protocol = "all"` or `protocol = -1` with `FromPort` and `ToPort` will result in the EC2 API creating a security group rule with all ports open. This API behavior cannot be controlled by this provider and may generate warnings in the future.
     /// 
     /// &gt; **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
     /// 
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// 
     /// You can also find a specific Prefix List using the `aws.ec2.getPrefixList`
-    /// or `ec2_managed_prefix_list` data sources:
+    /// or `Ec2ManagedPrefixList` data sources:
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.Ec2
     public partial class SecurityGroupRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
+        /// List of CIDR blocks. Cannot be specified with `SourceSecurityGroupId` or `Self`.
         /// </summary>
         [Output("cidrBlocks")]
         public Output<ImmutableArray<string>> CidrBlocks { get; private set; } = null!;
@@ -198,7 +198,7 @@ namespace Pulumi.Aws.Ec2
         public Output<int> FromPort { get; private set; } = null!;
 
         /// <summary>
-        /// List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
+        /// List of IPv6 CIDR blocks. Cannot be specified with `SourceSecurityGroupId` or `Self`.
         /// </summary>
         [Output("ipv6CidrBlocks")]
         public Output<ImmutableArray<string>> Ipv6CidrBlocks { get; private set; } = null!;
@@ -217,7 +217,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
+        /// &gt; **Note** Although `CidrBlocks`, `Ipv6CidrBlocks`, `PrefixListIds`, and `SourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -235,13 +235,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string> SecurityGroupRuleId { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
+        /// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `CidrBlocks`, `Ipv6CidrBlocks`, or `SourceSecurityGroupId`.
         /// </summary>
         [Output("self")]
         public Output<bool?> Self { get; private set; } = null!;
 
         /// <summary>
-        /// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
+        /// Security group id to allow access to/from, depending on the `Type`. Cannot be specified with `CidrBlocks`, `Ipv6CidrBlocks`, or `Self`.
         /// </summary>
         [Output("sourceSecurityGroupId")]
         public Output<string> SourceSecurityGroupId { get; private set; } = null!;
@@ -253,8 +253,8 @@ namespace Pulumi.Aws.Ec2
         public Output<int> ToPort { get; private set; } = null!;
 
         /// <summary>
-        /// Type of rule being created. Valid options are `ingress` (inbound)
-        /// or `egress` (outbound).
+        /// Type of rule being created. Valid options are `Ingress` (inbound)
+        /// or `Egress` (outbound).
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -311,7 +311,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _cidrBlocks;
 
         /// <summary>
-        /// List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
+        /// List of CIDR blocks. Cannot be specified with `SourceSecurityGroupId` or `Self`.
         /// </summary>
         public InputList<string> CidrBlocks
         {
@@ -335,7 +335,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _ipv6CidrBlocks;
 
         /// <summary>
-        /// List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
+        /// List of IPv6 CIDR blocks. Cannot be specified with `SourceSecurityGroupId` or `Self`.
         /// </summary>
         public InputList<string> Ipv6CidrBlocks
         {
@@ -363,7 +363,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
+        /// &gt; **Note** Although `CidrBlocks`, `Ipv6CidrBlocks`, `PrefixListIds`, and `SourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -375,13 +375,13 @@ namespace Pulumi.Aws.Ec2
         public Input<string> SecurityGroupId { get; set; } = null!;
 
         /// <summary>
-        /// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
+        /// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `CidrBlocks`, `Ipv6CidrBlocks`, or `SourceSecurityGroupId`.
         /// </summary>
         [Input("self")]
         public Input<bool>? Self { get; set; }
 
         /// <summary>
-        /// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
+        /// Security group id to allow access to/from, depending on the `Type`. Cannot be specified with `CidrBlocks`, `Ipv6CidrBlocks`, or `Self`.
         /// </summary>
         [Input("sourceSecurityGroupId")]
         public Input<string>? SourceSecurityGroupId { get; set; }
@@ -393,8 +393,8 @@ namespace Pulumi.Aws.Ec2
         public Input<int> ToPort { get; set; } = null!;
 
         /// <summary>
-        /// Type of rule being created. Valid options are `ingress` (inbound)
-        /// or `egress` (outbound).
+        /// Type of rule being created. Valid options are `Ingress` (inbound)
+        /// or `Egress` (outbound).
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -413,7 +413,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _cidrBlocks;
 
         /// <summary>
-        /// List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
+        /// List of CIDR blocks. Cannot be specified with `SourceSecurityGroupId` or `Self`.
         /// </summary>
         public InputList<string> CidrBlocks
         {
@@ -437,7 +437,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _ipv6CidrBlocks;
 
         /// <summary>
-        /// List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
+        /// List of IPv6 CIDR blocks. Cannot be specified with `SourceSecurityGroupId` or `Self`.
         /// </summary>
         public InputList<string> Ipv6CidrBlocks
         {
@@ -465,7 +465,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
+        /// &gt; **Note** Although `CidrBlocks`, `Ipv6CidrBlocks`, `PrefixListIds`, and `SourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -483,13 +483,13 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? SecurityGroupRuleId { get; set; }
 
         /// <summary>
-        /// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
+        /// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `CidrBlocks`, `Ipv6CidrBlocks`, or `SourceSecurityGroupId`.
         /// </summary>
         [Input("self")]
         public Input<bool>? Self { get; set; }
 
         /// <summary>
-        /// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
+        /// Security group id to allow access to/from, depending on the `Type`. Cannot be specified with `CidrBlocks`, `Ipv6CidrBlocks`, or `Self`.
         /// </summary>
         [Input("sourceSecurityGroupId")]
         public Input<string>? SourceSecurityGroupId { get; set; }
@@ -501,8 +501,8 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? ToPort { get; set; }
 
         /// <summary>
-        /// Type of rule being created. Valid options are `ingress` (inbound)
-        /// or `egress` (outbound).
+        /// Type of rule being created. Valid options are `Ingress` (inbound)
+        /// or `Egress` (outbound).
         /// 
         /// The following arguments are optional:
         /// </summary>

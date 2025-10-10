@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * Provides a resource to manage a VPC peering connection.
  * 
  * &gt; **Note:** Modifying the VPC Peering Connection options requires peering to be active. An automatic activation
- * can be done using the `auto_accept` attribute. Alternatively, the VPC Peering
+ * can be done using the `autoAccept` attribute. Alternatively, the VPC Peering
  * Connection has to be made active manually using other means. See notes below for
  * more information.
  * 
@@ -38,7 +38,7 @@ import javax.annotation.Nullable;
  * VPC Peering Connections use the `aws.ec2.VpcPeeringConnection` resource to manage the requester&#39;s side of the
  * connection and use the `aws.ec2.VpcPeeringConnectionAccepter` resource to manage the accepter&#39;s side of the connection.
  * 
- * &gt; **Note:** Creating multiple `aws.ec2.VpcPeeringConnection` resources with the same `peer_vpc_id` and `vpc_id` will not produce an error. Instead, AWS will return the connection `id` that already exists, resulting in multiple `aws.ec2.VpcPeeringConnection` resources with the same `id`.
+ * &gt; **Note:** Creating multiple `aws.ec2.VpcPeeringConnection` resources with the same `peerVpcId` and `vpcId` will not produce an error. Instead, AWS will return the connection `id` that already exists, resulting in multiple `aws.ec2.VpcPeeringConnection` resources with the same `id`.
  * 
  * ## Example Usage
  * 
@@ -213,7 +213,7 @@ import javax.annotation.Nullable;
  * 
  * ## Notes
  * 
- * If both VPCs are not in the same AWS account and region do not enable the `auto_accept` attribute.
+ * If both VPCs are not in the same AWS account and region do not enable the `autoAccept` attribute.
  * The accepter can manage its side of the connection using the `aws.ec2.VpcPeeringConnectionAccepter` resource
  * or accept the connection manually using the AWS Management Console, AWS CLI, through SDKs, etc.
  * 
@@ -289,7 +289,7 @@ public class VpcPeeringConnection extends com.pulumi.resources.CustomResource {
         return this.peerOwnerId;
     }
     /**
-     * The region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`,
+     * The region of the accepter VPC of the VPC Peering Connection. `autoAccept` must be `false`,
      * and use the `aws.ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
      * 
      */
@@ -297,7 +297,7 @@ public class VpcPeeringConnection extends com.pulumi.resources.CustomResource {
     private Output<String> peerRegion;
 
     /**
-     * @return The region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`,
+     * @return The region of the accepter VPC of the VPC Peering Connection. `autoAccept` must be `false`,
      * and use the `aws.ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
      * 
      */
@@ -349,28 +349,28 @@ public class VpcPeeringConnection extends com.pulumi.resources.CustomResource {
         return this.requester;
     }
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

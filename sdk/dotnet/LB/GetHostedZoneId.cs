@@ -12,7 +12,7 @@ namespace Pulumi.Aws.LB
     public static class GetHostedZoneId
     {
         /// <summary>
-        /// Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing (ELB) in a given region for the purpose of using in an AWS Route53 Alias. Specify the ELB type (`network` or `application`) to return the relevant the associated HostedZoneId. Ref: [ELB service endpoints](https://docs.aws.amazon.com/general/latest/gr/elb.html#elb_region)
+        /// Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing (ELB) in a given region for the purpose of using in an AWS Route53 Alias. Specify the ELB type (`Network` or `Application`) to return the relevant the associated HostedZoneId. Ref: [ELB service endpoints](https://docs.aws.amazon.com/general/latest/gr/elb.html#elb_region)
         /// 
         /// ## Example Usage
         /// 
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.LB
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHostedZoneIdResult>("aws:lb/getHostedZoneId:getHostedZoneId", args ?? new GetHostedZoneIdArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing (ELB) in a given region for the purpose of using in an AWS Route53 Alias. Specify the ELB type (`network` or `application`) to return the relevant the associated HostedZoneId. Ref: [ELB service endpoints](https://docs.aws.amazon.com/general/latest/gr/elb.html#elb_region)
+        /// Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing (ELB) in a given region for the purpose of using in an AWS Route53 Alias. Specify the ELB type (`Network` or `Application`) to return the relevant the associated HostedZoneId. Ref: [ELB service endpoints](https://docs.aws.amazon.com/general/latest/gr/elb.html#elb_region)
         /// 
         /// ## Example Usage
         /// 
@@ -86,7 +86,7 @@ namespace Pulumi.Aws.LB
             => global::Pulumi.Deployment.Instance.Invoke<GetHostedZoneIdResult>("aws:lb/getHostedZoneId:getHostedZoneId", args ?? new GetHostedZoneIdInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing (ELB) in a given region for the purpose of using in an AWS Route53 Alias. Specify the ELB type (`network` or `application`) to return the relevant the associated HostedZoneId. Ref: [ELB service endpoints](https://docs.aws.amazon.com/general/latest/gr/elb.html#elb_region)
+        /// Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing (ELB) in a given region for the purpose of using in an AWS Route53 Alias. Specify the ELB type (`Network` or `Application`) to return the relevant the associated HostedZoneId. Ref: [ELB service endpoints](https://docs.aws.amazon.com/general/latest/gr/elb.html#elb_region)
         /// 
         /// ## Example Usage
         /// 
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.LB
     public sealed class GetHostedZoneIdArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+        /// Type of load balancer to create. Possible values are `Application` or `Network`. The default value is `Application`.
         /// </summary>
         [Input("loadBalancerType")]
         public string? LoadBalancerType { get; set; }
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.LB
     public sealed class GetHostedZoneIdInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+        /// Type of load balancer to create. Possible values are `Application` or `Network`. The default value is `Application`.
         /// </summary>
         [Input("loadBalancerType")]
         public Input<string>? LoadBalancerType { get; set; }

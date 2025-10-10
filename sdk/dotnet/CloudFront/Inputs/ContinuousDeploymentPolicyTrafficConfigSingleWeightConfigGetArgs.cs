@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
     public sealed class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user's requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `session_stickiness_config`.
+        /// Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user's requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `SessionStickinessConfig`.
         /// </summary>
         [Input("sessionStickinessConfig")]
         public Input<Inputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigGetArgs>? SessionStickinessConfig { get; set; }

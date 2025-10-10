@@ -96,7 +96,7 @@ public class TableBucket extends com.pulumi.resources.CustomResource {
     }
     /**
      * A single table bucket encryption configuration object.
-     * See `encryption_configuration` below.
+     * See `encryptionConfiguration` below.
      * 
      */
     @Export(name="encryptionConfiguration", refs={TableBucketEncryptionConfiguration.class}, tree="[0]")
@@ -104,7 +104,7 @@ public class TableBucket extends com.pulumi.resources.CustomResource {
 
     /**
      * @return A single table bucket encryption configuration object.
-     * See `encryption_configuration` below.
+     * See `encryptionConfiguration` below.
      * 
      */
     public Output<Optional<TableBucketEncryptionConfiguration>> encryptionConfiguration() {
@@ -126,7 +126,7 @@ public class TableBucket extends com.pulumi.resources.CustomResource {
     }
     /**
      * A single table bucket maintenance configuration object.
-     * See `maintenance_configuration` below.
+     * See `maintenanceConfiguration` below.
      * 
      */
     @Export(name="maintenanceConfiguration", refs={TableBucketMaintenanceConfiguration.class}, tree="[0]")
@@ -134,7 +134,7 @@ public class TableBucket extends com.pulumi.resources.CustomResource {
 
     /**
      * @return A single table bucket maintenance configuration object.
-     * See `maintenance_configuration` below.
+     * See `maintenanceConfiguration` below.
      * 
      */
     public Output<TableBucketMaintenanceConfiguration> maintenanceConfiguration() {

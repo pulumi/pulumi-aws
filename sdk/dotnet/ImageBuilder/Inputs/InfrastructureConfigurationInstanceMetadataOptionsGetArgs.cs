@@ -19,7 +19,7 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public Input<int>? HttpPutResponseHopLimit { get; set; }
 
         /// <summary>
-        /// Whether a signed token is required for instance metadata retrieval requests. Valid values: `required`, `optional`.
+        /// Whether a signed token is required for instance metadata retrieval requests. Valid values: `Required`, `Optional`.
         /// </summary>
         [Input("httpTokens")]
         public Input<string>? HttpTokens { get; set; }

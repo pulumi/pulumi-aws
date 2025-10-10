@@ -370,7 +370,7 @@ namespace Pulumi.Aws.AppAutoScaling
         public Output<string?> PolicyType { get; private set; } = null!;
 
         /// <summary>
-        /// Predictive scaling policy configuration, requires `policy_type = "PredictiveScaling"`. See supported fields below.
+        /// Predictive scaling policy configuration, requires `PolicyType = "PredictiveScaling"`. See supported fields below.
         /// </summary>
         [Output("predictiveScalingPolicyConfiguration")]
         public Output<Outputs.PolicyPredictiveScalingPolicyConfiguration?> PredictiveScalingPolicyConfiguration { get; private set; } = null!;
@@ -400,13 +400,13 @@ namespace Pulumi.Aws.AppAutoScaling
         public Output<string> ServiceNamespace { get; private set; } = null!;
 
         /// <summary>
-        /// Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
+        /// Step scaling policy configuration, requires `PolicyType = "StepScaling"` (default). See supported fields below.
         /// </summary>
         [Output("stepScalingPolicyConfiguration")]
         public Output<Outputs.PolicyStepScalingPolicyConfiguration?> StepScalingPolicyConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Target tracking policy configuration, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
+        /// Target tracking policy configuration, requires `PolicyType = "TargetTrackingScaling"`. See supported fields below.
         /// </summary>
         [Output("targetTrackingScalingPolicyConfiguration")]
         public Output<Outputs.PolicyTargetTrackingScalingPolicyConfiguration?> TargetTrackingScalingPolicyConfiguration { get; private set; } = null!;
@@ -470,7 +470,7 @@ namespace Pulumi.Aws.AppAutoScaling
         public Input<string>? PolicyType { get; set; }
 
         /// <summary>
-        /// Predictive scaling policy configuration, requires `policy_type = "PredictiveScaling"`. See supported fields below.
+        /// Predictive scaling policy configuration, requires `PolicyType = "PredictiveScaling"`. See supported fields below.
         /// </summary>
         [Input("predictiveScalingPolicyConfiguration")]
         public Input<Inputs.PolicyPredictiveScalingPolicyConfigurationArgs>? PredictiveScalingPolicyConfiguration { get; set; }
@@ -500,13 +500,13 @@ namespace Pulumi.Aws.AppAutoScaling
         public Input<string> ServiceNamespace { get; set; } = null!;
 
         /// <summary>
-        /// Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
+        /// Step scaling policy configuration, requires `PolicyType = "StepScaling"` (default). See supported fields below.
         /// </summary>
         [Input("stepScalingPolicyConfiguration")]
         public Input<Inputs.PolicyStepScalingPolicyConfigurationArgs>? StepScalingPolicyConfiguration { get; set; }
 
         /// <summary>
-        /// Target tracking policy configuration, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
+        /// Target tracking policy configuration, requires `PolicyType = "TargetTrackingScaling"`. See supported fields below.
         /// </summary>
         [Input("targetTrackingScalingPolicyConfiguration")]
         public Input<Inputs.PolicyTargetTrackingScalingPolicyConfigurationArgs>? TargetTrackingScalingPolicyConfiguration { get; set; }
@@ -550,7 +550,7 @@ namespace Pulumi.Aws.AppAutoScaling
         public Input<string>? PolicyType { get; set; }
 
         /// <summary>
-        /// Predictive scaling policy configuration, requires `policy_type = "PredictiveScaling"`. See supported fields below.
+        /// Predictive scaling policy configuration, requires `PolicyType = "PredictiveScaling"`. See supported fields below.
         /// </summary>
         [Input("predictiveScalingPolicyConfiguration")]
         public Input<Inputs.PolicyPredictiveScalingPolicyConfigurationGetArgs>? PredictiveScalingPolicyConfiguration { get; set; }
@@ -580,13 +580,13 @@ namespace Pulumi.Aws.AppAutoScaling
         public Input<string>? ServiceNamespace { get; set; }
 
         /// <summary>
-        /// Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
+        /// Step scaling policy configuration, requires `PolicyType = "StepScaling"` (default). See supported fields below.
         /// </summary>
         [Input("stepScalingPolicyConfiguration")]
         public Input<Inputs.PolicyStepScalingPolicyConfigurationGetArgs>? StepScalingPolicyConfiguration { get; set; }
 
         /// <summary>
-        /// Target tracking policy configuration, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
+        /// Target tracking policy configuration, requires `PolicyType = "TargetTrackingScaling"`. See supported fields below.
         /// </summary>
         [Input("targetTrackingScalingPolicyConfiguration")]
         public Input<Inputs.PolicyTargetTrackingScalingPolicyConfigurationGetArgs>? TargetTrackingScalingPolicyConfiguration { get; set; }

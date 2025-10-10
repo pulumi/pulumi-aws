@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Eks.Inputs
         private InputList<string>? _nodePools;
 
         /// <summary>
-        /// Configuration for node pools that defines the compute resources for your EKS Auto Mode cluster. Valid options are `general-purpose` and `system`.
+        /// Configuration for node pools that defines the compute resources for your EKS Auto Mode cluster. Valid options are `general-purpose` and `System`.
         /// </summary>
         public InputList<string> NodePools
         {

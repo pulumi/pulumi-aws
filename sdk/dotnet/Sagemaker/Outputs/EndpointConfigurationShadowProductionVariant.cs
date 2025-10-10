@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly string ModelName;
         /// <summary>
-        /// Sets how the endpoint routes incoming traffic. See routing_config below.
+        /// Sets how the endpoint routes incoming traffic. See RoutingConfig below.
         /// </summary>
         public readonly ImmutableArray<Outputs.EndpointConfigurationShadowProductionVariantRoutingConfig> RoutingConfigs;
         /// <summary>

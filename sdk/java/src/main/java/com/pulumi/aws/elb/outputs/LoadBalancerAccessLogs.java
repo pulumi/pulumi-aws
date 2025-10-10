@@ -25,7 +25,7 @@ public final class LoadBalancerAccessLogs {
      */
     private @Nullable String bucketPrefix;
     /**
-     * @return Boolean to enable / disable `access_logs`. Default is `true`
+     * @return Boolean to enable / disable `accessLogs`. Default is `true`
      * 
      */
     private @Nullable Boolean enabled;
@@ -51,7 +51,7 @@ public final class LoadBalancerAccessLogs {
         return Optional.ofNullable(this.bucketPrefix);
     }
     /**
-     * @return Boolean to enable / disable `access_logs`. Default is `true`
+     * @return Boolean to enable / disable `accessLogs`. Default is `true`
      * 
      */
     public Optional<Boolean> enabled() {

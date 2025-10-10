@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Iam
         public Output<bool?> AllowUsersToChangePassword { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether passwords in the account expire. Returns `true` if `max_password_age` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
+        /// Indicates whether passwords in the account expire. Returns `True` if `MaxPasswordAge` contains a value greater than `0`. Returns `False` if it is `0` or _not present_.
         /// </summary>
         [Output("expirePasswords")]
         public Output<bool> ExpirePasswords { get; private set; } = null!;
@@ -225,7 +225,7 @@ namespace Pulumi.Aws.Iam
         public Input<bool>? AllowUsersToChangePassword { get; set; }
 
         /// <summary>
-        /// Indicates whether passwords in the account expire. Returns `true` if `max_password_age` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
+        /// Indicates whether passwords in the account expire. Returns `True` if `MaxPasswordAge` contains a value greater than `0`. Returns `False` if it is `0` or _not present_.
         /// </summary>
         [Input("expirePasswords")]
         public Input<bool>? ExpirePasswords { get; set; }

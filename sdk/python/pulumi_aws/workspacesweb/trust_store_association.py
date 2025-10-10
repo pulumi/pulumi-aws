@@ -149,6 +149,8 @@ class TrustStoreAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
         ## Import
 
         Using `pulumi import`, import WorkSpaces Web Trust Store Association using the `trust_store_arn,portal_arn`. For example:
@@ -175,6 +177,8 @@ class TrustStoreAssociation(pulumi.CustomResource):
         Resource for managing an AWS WorkSpaces Web Trust Store Association.
 
         ## Example Usage
+
+        ### Basic Usage
 
         ## Import
 

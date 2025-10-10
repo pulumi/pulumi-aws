@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Ebs
     public partial class EncryptionByDefault : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
+        /// Whether or not default EBS encryption is enabled. Valid values are `True` or `False`. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.Ebs
     public sealed class EncryptionByDefaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
+        /// Whether or not default EBS encryption is enabled. Valid values are `True` or `False`. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.Ebs
     public sealed class EncryptionByDefaultState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
+        /// Whether or not default EBS encryption is enabled. Valid values are `True` or `False`. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

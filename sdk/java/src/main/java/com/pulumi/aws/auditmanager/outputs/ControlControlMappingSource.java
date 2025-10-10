@@ -25,7 +25,7 @@ public final class ControlControlMappingSource {
     private @Nullable String sourceFrequency;
     private @Nullable String sourceId;
     /**
-     * @return The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
+     * @return The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `sourceKeyword` below.
      * 
      */
     private @Nullable ControlControlMappingSourceSourceKeyword sourceKeyword;
@@ -40,7 +40,7 @@ public final class ControlControlMappingSource {
      */
     private String sourceSetUpOption;
     /**
-     * @return Type of data source for evidence collection. If `source_set_up_option` is manual, the only valid value is `MANUAL`. If `source_set_up_option` is automated, valid values are `AWS_Cloudtrail`, `AWS_Config`, `AWS_Security_Hub`, or `AWS_API_Call`.
+     * @return Type of data source for evidence collection. If `sourceSetUpOption` is manual, the only valid value is `MANUAL`. If `sourceSetUpOption` is automated, valid values are `AWS_Cloudtrail`, `AWS_Config`, `AWS_Security_Hub`, or `AWS_API_Call`.
      * 
      * The following arguments are optional:
      * 
@@ -71,7 +71,7 @@ public final class ControlControlMappingSource {
         return Optional.ofNullable(this.sourceId);
     }
     /**
-     * @return The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
+     * @return The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `sourceKeyword` below.
      * 
      */
     public Optional<ControlControlMappingSourceSourceKeyword> sourceKeyword() {
@@ -92,7 +92,7 @@ public final class ControlControlMappingSource {
         return this.sourceSetUpOption;
     }
     /**
-     * @return Type of data source for evidence collection. If `source_set_up_option` is manual, the only valid value is `MANUAL`. If `source_set_up_option` is automated, valid values are `AWS_Cloudtrail`, `AWS_Config`, `AWS_Security_Hub`, or `AWS_API_Call`.
+     * @return Type of data source for evidence collection. If `sourceSetUpOption` is manual, the only valid value is `MANUAL`. If `sourceSetUpOption` is automated, valid values are `AWS_Cloudtrail`, `AWS_Config`, `AWS_Security_Hub`, or `AWS_API_Call`.
      * 
      * The following arguments are optional:
      * 

@@ -121,10 +121,10 @@ public class SubscriberNotification extends com.pulumi.resources.CustomResource 
      * (**Deprecated**) The subscriber endpoint to which exception messages are posted.
      * 
      * @deprecated
-     * Use subscriber_endpoint instead
+     * Use subscriberEndpoint instead
      * 
      */
-    @Deprecated /* Use subscriber_endpoint instead */
+    @Deprecated /* Use subscriberEndpoint instead */
     @Export(name="endpointId", refs={String.class}, tree="[0]")
     private Output<String> endpointId;
 

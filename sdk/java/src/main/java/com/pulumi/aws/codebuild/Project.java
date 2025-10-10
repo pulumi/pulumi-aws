@@ -292,7 +292,7 @@ import javax.annotation.Nullable;
  * 
  * ### Runner Project
  * 
- * While no special configuration is required for `aws.codebuild.Project` to create a project as a Runner Project, an `aws.codebuild.Webhook` resource with an appropriate `filter_group` is required.
+ * While no special configuration is required for `aws.codebuild.Project` to create a project as a Runner Project, an `aws.codebuild.Webhook` resource with an appropriate `filterGroup` is required.
  * See the `aws.codebuild.Webhook` resource documentation example for more details.
  * 
  * ## Import
@@ -342,7 +342,7 @@ public class Project extends com.pulumi.resources.CustomResource {
     }
     /**
      * Generates a publicly-accessible URL for the projects build badge. Available as
-     * `badge_url` attribute when enabled.
+     * `badgeUrl` attribute when enabled.
      * 
      */
     @Export(name="badgeEnabled", refs={Boolean.class}, tree="[0]")
@@ -350,21 +350,21 @@ public class Project extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Generates a publicly-accessible URL for the projects build badge. Available as
-     * `badge_url` attribute when enabled.
+     * `badgeUrl` attribute when enabled.
      * 
      */
     public Output<Optional<Boolean>> badgeEnabled() {
         return Codegen.optional(this.badgeEnabled);
     }
     /**
-     * URL of the build badge when `badge_enabled` is enabled.
+     * URL of the build badge when `badgeEnabled` is enabled.
      * 
      */
     @Export(name="badgeUrl", refs={String.class}, tree="[0]")
     private Output<String> badgeUrl;
 
     /**
-     * @return URL of the build badge when `badge_enabled` is enabled.
+     * @return URL of the build badge when `badgeEnabled` is enabled.
      * 
      */
     public Output<String> badgeUrl() {
@@ -386,7 +386,7 @@ public class Project extends com.pulumi.resources.CustomResource {
     }
     /**
      * Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out
-     * any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is
+     * any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is
      * not available on the `Lambda` compute type.
      * 
      */
@@ -395,7 +395,7 @@ public class Project extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out
-     * any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is
+     * any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is
      * not available on the `Lambda` compute type.
      * 
      */
@@ -552,7 +552,7 @@ public class Project extends com.pulumi.resources.CustomResource {
     }
     /**
      * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
-     * times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
+     * times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
      * 
      */
     @Export(name="queuedTimeout", refs={Integer.class}, tree="[0]")
@@ -560,7 +560,7 @@ public class Project extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
-     * times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
+     * times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
      * 
      */
     public Output<Optional<Integer>> queuedTimeout() {
@@ -583,7 +583,7 @@ public class Project extends com.pulumi.resources.CustomResource {
     /**
      * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
      * Amazon S3 artifacts for the project&#39;s builds in order to display them publicly. Only applicable if
-     * `project_visibility` is `PUBLIC_READ`.
+     * `projectVisibility` is `PUBLIC_READ`.
      * 
      */
     @Export(name="resourceAccessRole", refs={String.class}, tree="[0]")
@@ -592,7 +592,7 @@ public class Project extends com.pulumi.resources.CustomResource {
     /**
      * @return The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
      * Amazon S3 artifacts for the project&#39;s builds in order to display them publicly. Only applicable if
-     * `project_visibility` is `PUBLIC_READ`.
+     * `projectVisibility` is `PUBLIC_READ`.
      * 
      */
     public Output<Optional<String>> resourceAccessRole() {
@@ -692,7 +692,7 @@ public class Project extends com.pulumi.resources.CustomResource {
     }
     /**
      * Map of tags to assign to the resource. If configured with a provider
-     * `default_tags` configuration block
+     * `defaultTags` configuration block
      * present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -701,7 +701,7 @@ public class Project extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Map of tags to assign to the resource. If configured with a provider
-     * `default_tags` configuration block
+     * `defaultTags` configuration block
      * present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -710,7 +710,7 @@ public class Project extends com.pulumi.resources.CustomResource {
     }
     /**
      * A map of tags assigned to the resource, including those inherited from the provider
-     * `default_tags` configuration block.
+     * `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
@@ -718,7 +718,7 @@ public class Project extends com.pulumi.resources.CustomResource {
 
     /**
      * @return A map of tags assigned to the resource, including those inherited from the provider
-     * `default_tags` configuration block.
+     * `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

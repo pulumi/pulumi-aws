@@ -12,6 +12,14 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Basic Usage
+ *
+ * ### High Availability
+ *
+ * ### EFS Filesystem
+ *
+ * ### FSX Filesystem
+ *
  * ## Import
  *
  * Using `pulumi import`, import Mainframe Modernization Environment using the `01234567890abcdef012345678`. For example:

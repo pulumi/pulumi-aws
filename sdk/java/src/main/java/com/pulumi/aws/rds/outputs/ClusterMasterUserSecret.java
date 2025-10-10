@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterMasterUserSecret {
     /**
-     * @return ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+     * @return ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
      * 
      */
     private @Nullable String kmsKeyId;
@@ -29,7 +29,7 @@ public final class ClusterMasterUserSecret {
 
     private ClusterMasterUserSecret() {}
     /**
-     * @return ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+     * @return ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
      * 
      */
     public Optional<String> kmsKeyId() {

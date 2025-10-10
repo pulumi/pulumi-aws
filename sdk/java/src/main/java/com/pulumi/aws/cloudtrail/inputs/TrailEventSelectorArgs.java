@@ -34,14 +34,14 @@ public final class TrailEventSelectorArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `include_management_events` must be set to`true` to allow this.
+     * A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `includeManagementEvents` must be set to`true` to allow this.
      * 
      */
     @Import(name="excludeManagementEventSources")
     private @Nullable Output<List<String>> excludeManagementEventSources;
 
     /**
-     * @return A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `include_management_events` must be set to`true` to allow this.
+     * @return A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `includeManagementEvents` must be set to`true` to allow this.
      * 
      */
     public Optional<Output<List<String>>> excludeManagementEventSources() {
@@ -137,7 +137,7 @@ public final class TrailEventSelectorArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param excludeManagementEventSources A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `include_management_events` must be set to`true` to allow this.
+         * @param excludeManagementEventSources A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `includeManagementEvents` must be set to`true` to allow this.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class TrailEventSelectorArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param excludeManagementEventSources A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `include_management_events` must be set to`true` to allow this.
+         * @param excludeManagementEventSources A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `includeManagementEvents` must be set to`true` to allow this.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class TrailEventSelectorArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param excludeManagementEventSources A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `include_management_events` must be set to`true` to allow this.
+         * @param excludeManagementEventSources A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `includeManagementEvents` must be set to`true` to allow this.
          * 
          * @return builder
          * 

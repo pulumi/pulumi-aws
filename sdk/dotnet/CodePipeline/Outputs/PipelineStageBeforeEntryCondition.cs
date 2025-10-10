@@ -18,7 +18,7 @@ namespace Pulumi.Aws.CodePipeline.Outputs
         /// </summary>
         public readonly string? Result;
         /// <summary>
-        /// The rules that make up the condition. Defined as a `rule` block below.
+        /// The rules that make up the condition. Defined as a `Rule` block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.PipelineStageBeforeEntryConditionRule> Rules;
 

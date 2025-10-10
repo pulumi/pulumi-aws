@@ -34,7 +34,7 @@ namespace Pulumi.Aws.WafV2
     public sealed class GetWebAclArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the WAFv2 Web ACL. Exactly one of `name` or `resource_arn` must be specified.
+        /// Name of the WAFv2 Web ACL. Exactly one of `Name` or `ResourceArn` must be specified.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.WafV2
         public string? Region { get; set; }
 
         /// <summary>
-        /// ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, or AWS Amplify application. Exactly one of `name` or `resource_arn` must be specified.
+        /// ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, or AWS Amplify application. Exactly one of `Name` or `ResourceArn` must be specified.
         /// </summary>
         [Input("resourceArn")]
         public string? ResourceArn { get; set; }
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.WafV2
     public sealed class GetWebAclInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the WAFv2 Web ACL. Exactly one of `name` or `resource_arn` must be specified.
+        /// Name of the WAFv2 Web ACL. Exactly one of `Name` or `ResourceArn` must be specified.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.WafV2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, or AWS Amplify application. Exactly one of `name` or `resource_arn` must be specified.
+        /// ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, or AWS Amplify application. Exactly one of `Name` or `ResourceArn` must be specified.
         /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }

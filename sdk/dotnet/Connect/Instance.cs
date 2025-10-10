@@ -113,19 +113,19 @@ namespace Pulumi.Aws.Connect
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether auto resolve best voices is enabled. Defaults to `true`.
+        /// Specifies whether auto resolve best voices is enabled. Defaults to `True`.
         /// </summary>
         [Output("autoResolveBestVoicesEnabled")]
         public Output<bool?> AutoResolveBestVoicesEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether contact flow logs are enabled. Defaults to `false`.
+        /// Specifies whether contact flow logs are enabled. Defaults to `False`.
         /// </summary>
         [Output("contactFlowLogsEnabled")]
         public Output<bool?> ContactFlowLogsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether contact lens is enabled. Defaults to `true`.
+        /// Specifies whether contact lens is enabled. Defaults to `True`.
         /// </summary>
         [Output("contactLensEnabled")]
         public Output<bool?> ContactLensEnabled { get; private set; } = null!;
@@ -137,13 +137,13 @@ namespace Pulumi.Aws.Connect
         public Output<string> CreatedTime { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
+        /// The identifier for the directory if IdentityManagementType is `EXISTING_DIRECTORY`.
         /// </summary>
         [Output("directoryId")]
         public Output<string?> DirectoryId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.
+        /// Specifies whether early media for outbound calls is enabled . Defaults to `True` if outbound calls is enabled.
         /// </summary>
         [Output("earlyMediaEnabled")]
         public Output<bool?> EarlyMediaEnabled { get; private set; } = null!;
@@ -161,13 +161,13 @@ namespace Pulumi.Aws.Connect
         public Output<bool> InboundCallsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the instance. Required if `directory_id` not specified.
+        /// Specifies the name of the instance. Required if `DirectoryId` not specified.
         /// </summary>
         [Output("instanceAlias")]
         public Output<string?> InstanceAlias { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
+        /// Specifies whether multi-party calls/conference is enabled. Defaults to `False`.
         /// </summary>
         [Output("multiPartyConferenceEnabled")]
         public Output<bool?> MultiPartyConferenceEnabled { get; private set; } = null!;
@@ -197,14 +197,14 @@ namespace Pulumi.Aws.Connect
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
+        /// Tags to apply to the Instance. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// &lt;!-- * `UseCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `False` --&gt;
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -256,31 +256,31 @@ namespace Pulumi.Aws.Connect
     public sealed class InstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether auto resolve best voices is enabled. Defaults to `true`.
+        /// Specifies whether auto resolve best voices is enabled. Defaults to `True`.
         /// </summary>
         [Input("autoResolveBestVoicesEnabled")]
         public Input<bool>? AutoResolveBestVoicesEnabled { get; set; }
 
         /// <summary>
-        /// Specifies whether contact flow logs are enabled. Defaults to `false`.
+        /// Specifies whether contact flow logs are enabled. Defaults to `False`.
         /// </summary>
         [Input("contactFlowLogsEnabled")]
         public Input<bool>? ContactFlowLogsEnabled { get; set; }
 
         /// <summary>
-        /// Specifies whether contact lens is enabled. Defaults to `true`.
+        /// Specifies whether contact lens is enabled. Defaults to `True`.
         /// </summary>
         [Input("contactLensEnabled")]
         public Input<bool>? ContactLensEnabled { get; set; }
 
         /// <summary>
-        /// The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
+        /// The identifier for the directory if IdentityManagementType is `EXISTING_DIRECTORY`.
         /// </summary>
         [Input("directoryId")]
         public Input<string>? DirectoryId { get; set; }
 
         /// <summary>
-        /// Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.
+        /// Specifies whether early media for outbound calls is enabled . Defaults to `True` if outbound calls is enabled.
         /// </summary>
         [Input("earlyMediaEnabled")]
         public Input<bool>? EarlyMediaEnabled { get; set; }
@@ -298,13 +298,13 @@ namespace Pulumi.Aws.Connect
         public Input<bool> InboundCallsEnabled { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the instance. Required if `directory_id` not specified.
+        /// Specifies the name of the instance. Required if `DirectoryId` not specified.
         /// </summary>
         [Input("instanceAlias")]
         public Input<string>? InstanceAlias { get; set; }
 
         /// <summary>
-        /// Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
+        /// Specifies whether multi-party calls/conference is enabled. Defaults to `False`.
         /// </summary>
         [Input("multiPartyConferenceEnabled")]
         public Input<bool>? MultiPartyConferenceEnabled { get; set; }
@@ -325,8 +325,8 @@ namespace Pulumi.Aws.Connect
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
+        /// Tags to apply to the Instance. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// &lt;!-- * `UseCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `False` --&gt;
         /// </summary>
         public InputMap<string> Tags
         {
@@ -349,19 +349,19 @@ namespace Pulumi.Aws.Connect
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Specifies whether auto resolve best voices is enabled. Defaults to `true`.
+        /// Specifies whether auto resolve best voices is enabled. Defaults to `True`.
         /// </summary>
         [Input("autoResolveBestVoicesEnabled")]
         public Input<bool>? AutoResolveBestVoicesEnabled { get; set; }
 
         /// <summary>
-        /// Specifies whether contact flow logs are enabled. Defaults to `false`.
+        /// Specifies whether contact flow logs are enabled. Defaults to `False`.
         /// </summary>
         [Input("contactFlowLogsEnabled")]
         public Input<bool>? ContactFlowLogsEnabled { get; set; }
 
         /// <summary>
-        /// Specifies whether contact lens is enabled. Defaults to `true`.
+        /// Specifies whether contact lens is enabled. Defaults to `True`.
         /// </summary>
         [Input("contactLensEnabled")]
         public Input<bool>? ContactLensEnabled { get; set; }
@@ -373,13 +373,13 @@ namespace Pulumi.Aws.Connect
         public Input<string>? CreatedTime { get; set; }
 
         /// <summary>
-        /// The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
+        /// The identifier for the directory if IdentityManagementType is `EXISTING_DIRECTORY`.
         /// </summary>
         [Input("directoryId")]
         public Input<string>? DirectoryId { get; set; }
 
         /// <summary>
-        /// Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.
+        /// Specifies whether early media for outbound calls is enabled . Defaults to `True` if outbound calls is enabled.
         /// </summary>
         [Input("earlyMediaEnabled")]
         public Input<bool>? EarlyMediaEnabled { get; set; }
@@ -397,13 +397,13 @@ namespace Pulumi.Aws.Connect
         public Input<bool>? InboundCallsEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the name of the instance. Required if `directory_id` not specified.
+        /// Specifies the name of the instance. Required if `DirectoryId` not specified.
         /// </summary>
         [Input("instanceAlias")]
         public Input<string>? InstanceAlias { get; set; }
 
         /// <summary>
-        /// Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
+        /// Specifies whether multi-party calls/conference is enabled. Defaults to `False`.
         /// </summary>
         [Input("multiPartyConferenceEnabled")]
         public Input<bool>? MultiPartyConferenceEnabled { get; set; }
@@ -436,8 +436,8 @@ namespace Pulumi.Aws.Connect
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
+        /// Tags to apply to the Instance. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// &lt;!-- * `UseCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `False` --&gt;
         /// </summary>
         public InputMap<string> Tags
         {
@@ -449,7 +449,7 @@ namespace Pulumi.Aws.Connect
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

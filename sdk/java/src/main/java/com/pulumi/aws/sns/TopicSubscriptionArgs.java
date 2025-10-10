@@ -94,14 +94,14 @@ public final class TopicSubscriptionArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
+     * Whether the `filterPolicy` applies to `MessageAttributes` (default) or `MessageBody`.
      * 
      */
     @Import(name="filterPolicyScope")
     private @Nullable Output<String> filterPolicyScope;
 
     /**
-     * @return Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
+     * @return Whether the `filterPolicy` applies to `MessageAttributes` (default) or `MessageBody`.
      * 
      */
     public Optional<Output<String>> filterPolicyScope() {
@@ -359,7 +359,7 @@ public final class TopicSubscriptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param filterPolicyScope Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
+         * @param filterPolicyScope Whether the `filterPolicy` applies to `MessageAttributes` (default) or `MessageBody`.
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class TopicSubscriptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param filterPolicyScope Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
+         * @param filterPolicyScope Whether the `filterPolicy` applies to `MessageAttributes` (default) or `MessageBody`.
          * 
          * @return builder
          * 

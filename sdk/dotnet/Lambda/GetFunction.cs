@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// Provides details about an AWS Lambda Function. Use this data source to obtain information about an existing Lambda function for use in other resources or as a reference for function configurations.
         /// 
-        /// &gt; **Note:** This data source returns information about the latest version or alias specified by the `qualifier`. If no `qualifier` is provided, it returns information about the most recent published version, or `$LATEST` if no published version exists.
+        /// &gt; **Note:** This data source returns information about the latest version or alias specified by the `Qualifier`. If no `Qualifier` is provided, it returns information about the most recent published version, or `$LATEST` if no published version exists.
         /// 
         /// ## Example Usage
         /// 
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// Provides details about an AWS Lambda Function. Use this data source to obtain information about an existing Lambda function for use in other resources or as a reference for function configurations.
         /// 
-        /// &gt; **Note:** This data source returns information about the latest version or alias specified by the `qualifier`. If no `qualifier` is provided, it returns information about the most recent published version, or `$LATEST` if no published version exists.
+        /// &gt; **Note:** This data source returns information about the latest version or alias specified by the `Qualifier`. If no `Qualifier` is provided, it returns information about the most recent published version, or `$LATEST` if no published version exists.
         /// 
         /// ## Example Usage
         /// 
@@ -302,7 +302,7 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// Provides details about an AWS Lambda Function. Use this data source to obtain information about an existing Lambda function for use in other resources or as a reference for function configurations.
         /// 
-        /// &gt; **Note:** This data source returns information about the latest version or alias specified by the `qualifier`. If no `qualifier` is provided, it returns information about the most recent published version, or `$LATEST` if no published version exists.
+        /// &gt; **Note:** This data source returns information about the latest version or alias specified by the `Qualifier`. If no `Qualifier` is provided, it returns information about the most recent published version, or `$LATEST` if no published version exists.
         /// 
         /// ## Example Usage
         /// 
@@ -603,11 +603,11 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly int MemorySize;
         /// <summary>
-        /// Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `arn`.
+        /// Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `Arn`.
         /// </summary>
         public readonly string QualifiedArn;
         /// <summary>
-        /// Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN to be used for invoking Lambda Function from API Gateway. See also `invoke_arn`.
+        /// Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN to be used for invoking Lambda Function from API Gateway. See also `InvokeArn`.
         /// </summary>
         public readonly string QualifiedInvokeArn;
         public readonly string? Qualifier;
@@ -633,7 +633,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string SigningProfileVersionArn;
         /// <summary>
-        /// (**Deprecated** use `code_sha256` instead) Base64-encoded representation of raw SHA-256 sum of the zip file.
+        /// (**Deprecated** use `CodeSha256` instead) Base64-encoded representation of raw SHA-256 sum of the zip file.
         /// </summary>
         public readonly string SourceCodeHash;
         /// <summary>
@@ -657,7 +657,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly Outputs.GetFunctionTracingConfigResult TracingConfig;
         /// <summary>
-        /// Version of the Lambda function returned. If `qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `version` will resolve to `$LATEST`.
+        /// Version of the Lambda function returned. If `Qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `Version` will resolve to `$LATEST`.
         /// </summary>
         public readonly string Version;
         /// <summary>

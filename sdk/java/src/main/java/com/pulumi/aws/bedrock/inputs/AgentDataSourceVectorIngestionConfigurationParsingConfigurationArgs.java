@@ -18,14 +18,14 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
     public static final AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs Empty = new AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs();
 
     /**
-     * Settings for a foundation model used to parse documents in a data source. See `bedrock_foundation_model_configuration` block for details.
+     * Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
      * 
      */
     @Import(name="bedrockFoundationModelConfiguration")
     private @Nullable Output<AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs> bedrockFoundationModelConfiguration;
 
     /**
-     * @return Settings for a foundation model used to parse documents in a data source. See `bedrock_foundation_model_configuration` block for details.
+     * @return Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
      * 
      */
     public Optional<Output<AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs>> bedrockFoundationModelConfiguration() {
@@ -73,7 +73,7 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
         }
 
         /**
-         * @param bedrockFoundationModelConfiguration Settings for a foundation model used to parse documents in a data source. See `bedrock_foundation_model_configuration` block for details.
+         * @param bedrockFoundationModelConfiguration Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
         }
 
         /**
-         * @param bedrockFoundationModelConfiguration Settings for a foundation model used to parse documents in a data source. See `bedrock_foundation_model_configuration` block for details.
+         * @param bedrockFoundationModelConfiguration Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
          * 
          * @return builder
          * 

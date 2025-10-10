@@ -14,27 +14,27 @@ namespace Pulumi.Aws.Dms.Outputs
     public sealed class EndpointMongodbSettings
     {
         /// <summary>
-        /// Authentication mechanism to access the MongoDB source endpoint. Default is `default`.
+        /// Authentication mechanism to access the MongoDB source endpoint. Default is `Default`.
         /// </summary>
         public readonly string? AuthMechanism;
         /// <summary>
-        /// Authentication database name. Not used when `auth_type` is `no`. Default is `admin`.
+        /// Authentication database name. Not used when `AuthType` is `No`. Default is `Admin`.
         /// </summary>
         public readonly string? AuthSource;
         /// <summary>
-        /// Authentication type to access the MongoDB source endpoint. Default is `password`.
+        /// Authentication type to access the MongoDB source endpoint. Default is `Password`.
         /// </summary>
         public readonly string? AuthType;
         /// <summary>
-        /// Number of documents to preview to determine the document organization. Use this setting when `nesting_level` is set to `one`. Default is `1000`.
+        /// Number of documents to preview to determine the document organization. Use this setting when `NestingLevel` is set to `One`. Default is `1000`.
         /// </summary>
         public readonly string? DocsToInvestigate;
         /// <summary>
-        /// Document ID. Use this setting when `nesting_level` is set to `none`. Default is `false`.
+        /// Document ID. Use this setting when `NestingLevel` is set to `None`. Default is `False`.
         /// </summary>
         public readonly string? ExtractDocId;
         /// <summary>
-        /// Specifies either document or table mode. Default is `none`. Valid values are `one` (table mode) and `none` (document mode).
+        /// Specifies either document or table mode. Default is `None`. Valid values are `One` (table mode) and `None` (document mode).
         /// </summary>
         public readonly string? NestingLevel;
 

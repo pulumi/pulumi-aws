@@ -19,14 +19,14 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The Kinesis Firehose configuration for the streaming source. Conflicts with `kinesis_stream`.
+        /// The Kinesis Firehose configuration for the streaming source. Conflicts with `KinesisStream`.
         /// See Kinesis Firehose below for more details.
         /// </summary>
         [Input("kinesisFirehose")]
         public Input<Inputs.AnalyticsApplicationInputsKinesisFirehoseArgs>? KinesisFirehose { get; set; }
 
         /// <summary>
-        /// The Kinesis Stream configuration for the streaming source. Conflicts with `kinesis_firehose`.
+        /// The Kinesis Stream configuration for the streaming source. Conflicts with `KinesisFirehose`.
         /// See Kinesis Stream below for more details.
         /// </summary>
         [Input("kinesisStream")]

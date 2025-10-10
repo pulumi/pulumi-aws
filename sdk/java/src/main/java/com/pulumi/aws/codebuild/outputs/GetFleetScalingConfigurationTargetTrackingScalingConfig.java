@@ -17,7 +17,7 @@ public final class GetFleetScalingConfigurationTargetTrackingScalingConfig {
      */
     private String metricType;
     /**
-     * @return The value of metric_type when to start scaling.
+     * @return The value of metricType when to start scaling.
      * 
      */
     private Double targetValue;
@@ -31,7 +31,7 @@ public final class GetFleetScalingConfigurationTargetTrackingScalingConfig {
         return this.metricType;
     }
     /**
-     * @return The value of metric_type when to start scaling.
+     * @return The value of metricType when to start scaling.
      * 
      */
     public Double targetValue() {

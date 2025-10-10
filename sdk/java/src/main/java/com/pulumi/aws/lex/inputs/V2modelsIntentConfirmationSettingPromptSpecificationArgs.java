@@ -52,14 +52,14 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationArgs exte
     }
 
     /**
-     * Configuration block for messages that Amazon Lex can send to the user. Amazon Lex chooses the actual message to send at runtime. See `message_group`.
+     * Configuration block for messages that Amazon Lex can send to the user. Amazon Lex chooses the actual message to send at runtime. See `messageGroup`.
      * 
      */
     @Import(name="messageGroups")
     private @Nullable Output<List<V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupArgs>> messageGroups;
 
     /**
-     * @return Configuration block for messages that Amazon Lex can send to the user. Amazon Lex chooses the actual message to send at runtime. See `message_group`.
+     * @return Configuration block for messages that Amazon Lex can send to the user. Amazon Lex chooses the actual message to send at runtime. See `messageGroup`.
      * 
      */
     public Optional<Output<List<V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupArgs>>> messageGroups() {
@@ -82,14 +82,14 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationArgs exte
     }
 
     /**
-     * Configuration block for advanced settings on each attempt of the prompt. See `prompt_attempts_specification`.
+     * Configuration block for advanced settings on each attempt of the prompt. See `promptAttemptsSpecification`.
      * 
      */
     @Import(name="promptAttemptsSpecifications")
     private @Nullable Output<List<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationArgs>> promptAttemptsSpecifications;
 
     /**
-     * @return Configuration block for advanced settings on each attempt of the prompt. See `prompt_attempts_specification`.
+     * @return Configuration block for advanced settings on each attempt of the prompt. See `promptAttemptsSpecification`.
      * 
      */
     public Optional<Output<List<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationArgs>>> promptAttemptsSpecifications() {
@@ -167,7 +167,7 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationArgs exte
         }
 
         /**
-         * @param messageGroups Configuration block for messages that Amazon Lex can send to the user. Amazon Lex chooses the actual message to send at runtime. See `message_group`.
+         * @param messageGroups Configuration block for messages that Amazon Lex can send to the user. Amazon Lex chooses the actual message to send at runtime. See `messageGroup`.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationArgs exte
         }
 
         /**
-         * @param messageGroups Configuration block for messages that Amazon Lex can send to the user. Amazon Lex chooses the actual message to send at runtime. See `message_group`.
+         * @param messageGroups Configuration block for messages that Amazon Lex can send to the user. Amazon Lex chooses the actual message to send at runtime. See `messageGroup`.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationArgs exte
         }
 
         /**
-         * @param messageGroups Configuration block for messages that Amazon Lex can send to the user. Amazon Lex chooses the actual message to send at runtime. See `message_group`.
+         * @param messageGroups Configuration block for messages that Amazon Lex can send to the user. Amazon Lex chooses the actual message to send at runtime. See `messageGroup`.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationArgs exte
         }
 
         /**
-         * @param promptAttemptsSpecifications Configuration block for advanced settings on each attempt of the prompt. See `prompt_attempts_specification`.
+         * @param promptAttemptsSpecifications Configuration block for advanced settings on each attempt of the prompt. See `promptAttemptsSpecification`.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationArgs exte
         }
 
         /**
-         * @param promptAttemptsSpecifications Configuration block for advanced settings on each attempt of the prompt. See `prompt_attempts_specification`.
+         * @param promptAttemptsSpecifications Configuration block for advanced settings on each attempt of the prompt. See `promptAttemptsSpecification`.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationArgs exte
         }
 
         /**
-         * @param promptAttemptsSpecifications Configuration block for advanced settings on each attempt of the prompt. See `prompt_attempts_specification`.
+         * @param promptAttemptsSpecifications Configuration block for advanced settings on each attempt of the prompt. See `promptAttemptsSpecification`.
          * 
          * @return builder
          * 

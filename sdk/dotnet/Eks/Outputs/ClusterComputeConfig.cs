@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Eks.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// Configuration for node pools that defines the compute resources for your EKS Auto Mode cluster. Valid options are `general-purpose` and `system`.
+        /// Configuration for node pools that defines the compute resources for your EKS Auto Mode cluster. Valid options are `general-purpose` and `System`.
         /// </summary>
         public readonly ImmutableArray<string> NodePools;
         /// <summary>

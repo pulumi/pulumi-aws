@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Msk.Outputs
     public sealed class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication
     {
         /// <summary>
-        /// Configuration block for specifying SASL client authentication. See client_authentication sasl Argument Reference below.
+        /// Configuration block for specifying SASL client authentication. See ClientAuthentication sasl Argument Reference below.
         /// </summary>
         public readonly Outputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl? Sasl;
         /// <summary>
-        /// Configuration block for specifying TLS client authentication. See client_authentication tls Argument Reference below.
+        /// Configuration block for specifying TLS client authentication. See ClientAuthentication tls Argument Reference below.
         /// </summary>
         public readonly bool? Tls;
 

@@ -236,7 +236,7 @@ namespace Pulumi.Aws.OpenSearch
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Type of access policy. Must be `data`.
+        /// Type of access policy. Must be `Data`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -314,7 +314,7 @@ namespace Pulumi.Aws.OpenSearch
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Type of access policy. Must be `data`.
+        /// Type of access policy. Must be `Data`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -360,7 +360,7 @@ namespace Pulumi.Aws.OpenSearch
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Type of access policy. Must be `data`.
+        /// Type of access policy. Must be `Data`.
         /// 
         /// The following arguments are optional:
         /// </summary>

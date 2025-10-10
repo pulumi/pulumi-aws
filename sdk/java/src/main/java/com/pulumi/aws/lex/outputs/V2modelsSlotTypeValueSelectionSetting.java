@@ -17,13 +17,13 @@ public final class V2modelsSlotTypeValueSelectionSetting {
     /**
      * @return Provides settings that enable advanced recognition settings for slot values.
      * You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
-     * See `advanced_recognition_setting` argument reference below.
+     * See `advancedRecognitionSetting` argument reference below.
      * 
      */
     private @Nullable List<V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting> advancedRecognitionSettings;
     /**
      * @return Used to validate the value of the slot.
-     * See `regex_filter` argument reference below.
+     * See `regexFilter` argument reference below.
      * 
      */
     private @Nullable List<V2modelsSlotTypeValueSelectionSettingRegexFilter> regexFilters;
@@ -38,7 +38,7 @@ public final class V2modelsSlotTypeValueSelectionSetting {
     /**
      * @return Provides settings that enable advanced recognition settings for slot values.
      * You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
-     * See `advanced_recognition_setting` argument reference below.
+     * See `advancedRecognitionSetting` argument reference below.
      * 
      */
     public List<V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting> advancedRecognitionSettings() {
@@ -46,7 +46,7 @@ public final class V2modelsSlotTypeValueSelectionSetting {
     }
     /**
      * @return Used to validate the value of the slot.
-     * See `regex_filter` argument reference below.
+     * See `regexFilter` argument reference below.
      * 
      */
     public List<V2modelsSlotTypeValueSelectionSettingRegexFilter> regexFilters() {

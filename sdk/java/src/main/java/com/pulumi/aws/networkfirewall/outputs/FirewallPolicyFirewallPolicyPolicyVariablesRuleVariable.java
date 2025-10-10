@@ -17,7 +17,7 @@ public final class FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable {
      */
     private FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet ipSet;
     /**
-     * @return An alphanumeric string to identify the `ip_set`. Valid values: `HOME_NET`
+     * @return An alphanumeric string to identify the `ipSet`. Valid values: `HOME_NET`
      * 
      */
     private String key;
@@ -31,7 +31,7 @@ public final class FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable {
         return this.ipSet;
     }
     /**
-     * @return An alphanumeric string to identify the `ip_set`. Valid values: `HOME_NET`
+     * @return An alphanumeric string to identify the `ipSet`. Valid values: `HOME_NET`
      * 
      */
     public String key() {

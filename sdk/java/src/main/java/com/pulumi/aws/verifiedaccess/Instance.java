@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### With `fips_enabled`
+ * ### With `fipsEnabled`
  * 
  * <pre>
  * {@code
@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### With `cidr_endpoints_custom_subdomain`
+ * ### With `cidrEndpointsCustomSubdomain`
  * 
  * <pre>
  * {@code
@@ -225,14 +225,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
@@ -245,14 +245,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * One or more blocks of providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.One or more blocks
+     * One or more blocks of providing information about the AWS Verified Access Trust Providers. See verifiedAccessTrustProviders below for details.One or more blocks
      * 
      */
     @Export(name="verifiedAccessTrustProviders", refs={List.class,InstanceVerifiedAccessTrustProvider.class}, tree="[0,1]")
     private Output<List<InstanceVerifiedAccessTrustProvider>> verifiedAccessTrustProviders;
 
     /**
-     * @return One or more blocks of providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.One or more blocks
+     * @return One or more blocks of providing information about the AWS Verified Access Trust Providers. See verifiedAccessTrustProviders below for details.One or more blocks
      * 
      */
     public Output<List<InstanceVerifiedAccessTrustProvider>> verifiedAccessTrustProviders() {

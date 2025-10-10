@@ -25,7 +25,7 @@ public final class TaskDefinitionVolumeEfsVolumeConfiguration {
      */
     private String fileSystemId;
     /**
-     * @return Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorization_config`.
+     * @return Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorizationConfig`.
      * 
      */
     private @Nullable String rootDirectory;
@@ -56,7 +56,7 @@ public final class TaskDefinitionVolumeEfsVolumeConfiguration {
         return this.fileSystemId;
     }
     /**
-     * @return Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorization_config`.
+     * @return Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorizationConfig`.
      * 
      */
     public Optional<String> rootDirectory() {

@@ -344,7 +344,7 @@ namespace Pulumi.Aws.Ec2
         public readonly string PeerRegion;
         public readonly string PeerVpcId;
         /// <summary>
-        /// (**Deprecated**) Region of the requester VPC. Use `requester_region` instead.
+        /// (**Deprecated**) Region of the requester VPC. Use `RequesterRegion` instead.
         /// </summary>
         public readonly string Region;
         /// <summary>

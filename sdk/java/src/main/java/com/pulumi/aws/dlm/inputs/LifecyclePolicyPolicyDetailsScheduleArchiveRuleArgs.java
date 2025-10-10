@@ -15,14 +15,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleArchiveRuleArgs extends c
     public static final LifecyclePolicyPolicyDetailsScheduleArchiveRuleArgs Empty = new LifecyclePolicyPolicyDetailsScheduleArchiveRuleArgs();
 
     /**
-     * Information about the retention period for the snapshot archiving rule. See the `archive_retain_rule` block.
+     * Information about the retention period for the snapshot archiving rule. See the `archiveRetainRule` block.
      * 
      */
     @Import(name="archiveRetainRule", required=true)
     private Output<LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleArgs> archiveRetainRule;
 
     /**
-     * @return Information about the retention period for the snapshot archiving rule. See the `archive_retain_rule` block.
+     * @return Information about the retention period for the snapshot archiving rule. See the `archiveRetainRule` block.
      * 
      */
     public Output<LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleArgs> archiveRetainRule() {
@@ -54,7 +54,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleArchiveRuleArgs extends c
         }
 
         /**
-         * @param archiveRetainRule Information about the retention period for the snapshot archiving rule. See the `archive_retain_rule` block.
+         * @param archiveRetainRule Information about the retention period for the snapshot archiving rule. See the `archiveRetainRule` block.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleArchiveRuleArgs extends c
         }
 
         /**
-         * @param archiveRetainRule Information about the retention period for the snapshot archiving rule. See the `archive_retain_rule` block.
+         * @param archiveRetainRule Information about the retention period for the snapshot archiving rule. See the `archiveRetainRule` block.
          * 
          * @return builder
          * 

@@ -18,14 +18,14 @@ public final class EventSourcesConfigState extends com.pulumi.resources.Resource
     public static final EventSourcesConfigState Empty = new EventSourcesConfigState();
 
     /**
-     * Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `event_sources` below.
+     * Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
      * 
      */
     @Import(name="eventSources")
     private @Nullable Output<List<EventSourcesConfigEventSourceArgs>> eventSources;
 
     /**
-     * @return Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `event_sources` below.
+     * @return Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
      * 
      */
     public Optional<Output<List<EventSourcesConfigEventSourceArgs>>> eventSources() {
@@ -73,7 +73,7 @@ public final class EventSourcesConfigState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param eventSources Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `event_sources` below.
+         * @param eventSources Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class EventSourcesConfigState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param eventSources Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `event_sources` below.
+         * @param eventSources Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class EventSourcesConfigState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param eventSources Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `event_sources` below.
+         * @param eventSources Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
          * 
          * @return builder
          * 

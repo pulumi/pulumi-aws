@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly ImmutableArray<string> BucketColumns;
         /// <summary>
-        /// Configuration block for columns in the table. See `columns` below.
+        /// Configuration block for columns in the table. See `Columns` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCatalogTableStorageDescriptorColumnResult> Columns;
         /// <summary>
@@ -50,19 +50,19 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string> Parameters;
         /// <summary>
-        /// Object that references a schema stored in the AWS Glue Schema Registry. See `schema_reference` below.
+        /// Object that references a schema stored in the AWS Glue Schema Registry. See `SchemaReference` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCatalogTableStorageDescriptorSchemaReferenceResult> SchemaReferences;
         /// <summary>
-        /// Configuration block for serialization and deserialization ("SerDe") information. See `ser_de_info` below.
+        /// Configuration block for serialization and deserialization ("SerDe") information. See `SerDeInfo` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCatalogTableStorageDescriptorSerDeInfoResult> SerDeInfos;
         /// <summary>
-        /// Configuration block with information about values that appear very frequently in a column (skewed values). See `skewed_info` below.
+        /// Configuration block with information about values that appear very frequently in a column (skewed values). See `SkewedInfo` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCatalogTableStorageDescriptorSkewedInfoResult> SkewedInfos;
         /// <summary>
-        /// Configuration block for the sort order of each bucket in the table. See `sort_columns` below.
+        /// Configuration block for the sort order of each bucket in the table. See `SortColumns` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCatalogTableStorageDescriptorSortColumnResult> SortColumns;
         /// <summary>

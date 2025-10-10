@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DistributionDefaultCacheBehaviorForwardedValuesCookies {
     /**
-     * @return Whether you want CloudFront to forward cookies to the origin that is associated with this cache behavior. You can specify `all`, `none` or `whitelist`. If `whitelist`, you must include the subsequent `whitelisted_names`.
+     * @return Whether you want CloudFront to forward cookies to the origin that is associated with this cache behavior. You can specify `all`, `none` or `whitelist`. If `whitelist`, you must include the subsequent `whitelistedNames`.
      * 
      */
     private String forward;
@@ -25,7 +25,7 @@ public final class DistributionDefaultCacheBehaviorForwardedValuesCookies {
 
     private DistributionDefaultCacheBehaviorForwardedValuesCookies() {}
     /**
-     * @return Whether you want CloudFront to forward cookies to the origin that is associated with this cache behavior. You can specify `all`, `none` or `whitelist`. If `whitelist`, you must include the subsequent `whitelisted_names`.
+     * @return Whether you want CloudFront to forward cookies to the origin that is associated with this cache behavior. You can specify `all`, `none` or `whitelist`. If `whitelist`, you must include the subsequent `whitelistedNames`.
      * 
      */
     public String forward() {

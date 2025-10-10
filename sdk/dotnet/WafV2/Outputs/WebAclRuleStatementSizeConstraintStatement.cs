@@ -18,7 +18,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly string ComparisonOperator;
         /// <summary>
-        /// Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
+        /// Part of a web request that you want AWS WAF to inspect. See `FieldToMatch` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatch? FieldToMatch;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly int Size;
         /// <summary>
-        /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
+        /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `TextTransformation` below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementSizeConstraintStatementTextTransformation> TextTransformations;
 

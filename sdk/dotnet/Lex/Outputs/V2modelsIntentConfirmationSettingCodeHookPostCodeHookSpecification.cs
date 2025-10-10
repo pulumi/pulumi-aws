@@ -18,35 +18,35 @@ namespace Pulumi.Aws.Lex.Outputs
         /// </summary>
         public readonly Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditional? FailureConditional;
         /// <summary>
-        /// Configuration block for the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed . See `failure_next_step`.
+        /// Configuration block for the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed . See `FailureNextStep`.
         /// </summary>
         public readonly Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStep? FailureNextStep;
         /// <summary>
-        /// Configuration block for message groups that Amazon Lex uses to respond the user input. See `failure_response`.
+        /// Configuration block for message groups that Amazon Lex uses to respond the user input. See `FailureResponse`.
         /// </summary>
         public readonly Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponse? FailureResponse;
         /// <summary>
-        /// Configuration block for conditional branches to evaluate after the dialog code hook finishes successfully. See `success_conditional`.
+        /// Configuration block for conditional branches to evaluate after the dialog code hook finishes successfully. See `SuccessConditional`.
         /// </summary>
         public readonly Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditional? SuccessConditional;
         /// <summary>
-        /// Configuration block for the next step the bot runs after the dialog code hook finishes successfully. See `success_next_step`.
+        /// Configuration block for the next step the bot runs after the dialog code hook finishes successfully. See `SuccessNextStep`.
         /// </summary>
         public readonly Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStep? SuccessNextStep;
         /// <summary>
-        /// Configuration block for message groups that Amazon Lex uses to respond the user input. See `success_response`.
+        /// Configuration block for message groups that Amazon Lex uses to respond the user input. See `SuccessResponse`.
         /// </summary>
         public readonly Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponse? SuccessResponse;
         /// <summary>
-        /// Configuration block for conditional branches to evaluate if the code hook times out. See `timeout_conditional`.
+        /// Configuration block for conditional branches to evaluate if the code hook times out. See `TimeoutConditional`.
         /// </summary>
         public readonly Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditional? TimeoutConditional;
         /// <summary>
-        /// Configuration block for the next step that the bot runs when the code hook times out. See `timeout_next_step`.
+        /// Configuration block for the next step that the bot runs when the code hook times out. See `TimeoutNextStep`.
         /// </summary>
         public readonly Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStep? TimeoutNextStep;
         /// <summary>
-        /// Configuration block for a list of message groups that Amazon Lex uses to respond the user input. See `timeout_response`.
+        /// Configuration block for a list of message groups that Amazon Lex uses to respond the user input. See `TimeoutResponse`.
         /// </summary>
         public readonly Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponse? TimeoutResponse;
 

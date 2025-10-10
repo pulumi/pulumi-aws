@@ -36,7 +36,7 @@ public final class GetObjectsResult {
     private List<String> keys;
     private @Nullable Integer maxKeys;
     /**
-     * @return List of strings representing object owner IDs (see `fetch_owner` above)
+     * @return List of strings representing object owner IDs (see `fetchOwner` above)
      * 
      */
     private List<String> owners;
@@ -88,7 +88,7 @@ public final class GetObjectsResult {
         return Optional.ofNullable(this.maxKeys);
     }
     /**
-     * @return List of strings representing object owner IDs (see `fetch_owner` above)
+     * @return List of strings representing object owner IDs (see `fetchOwner` above)
      * 
      */
     public List<String> owners() {

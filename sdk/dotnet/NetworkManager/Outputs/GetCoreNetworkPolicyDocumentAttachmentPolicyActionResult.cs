@@ -18,19 +18,19 @@ namespace Pulumi.Aws.NetworkManager.Outputs
         /// </summary>
         public readonly string? AddToNetworkFunctionGroup;
         /// <summary>
-        /// Defines how a segment is mapped. Values can be `constant` or `tag`. `constant` statically defines the segment to associate the attachment to. `tag` uses the value of a tag to dynamically try to map to a segment.reference_policies_elements_condition_operators.html) to evaluate.
+        /// Defines how a segment is mapped. Values can be `Constant` or `Tag`. `Constant` statically defines the segment to associate the attachment to. `Tag` uses the value of a tag to dynamically try to map to a segment.reference_policies_elements_condition_operators.html) to evaluate.
         /// </summary>
         public readonly string? AssociationMethod;
         /// <summary>
-        /// Determines if this mapping should override the segment value for `require_attachment_acceptance`. You can only set this to `true`, indicating that this setting applies only to segments that have `require_attachment_acceptance` set to `false`. If the segment already has the default `require_attachment_acceptance`, you can set this to inherit segment’s acceptance value.
+        /// Determines if this mapping should override the segment value for `RequireAttachmentAcceptance`. You can only set this to `True`, indicating that this setting applies only to segments that have `RequireAttachmentAcceptance` set to `False`. If the segment already has the default `RequireAttachmentAcceptance`, you can set this to inherit segment’s acceptance value.
         /// </summary>
         public readonly bool? RequireAcceptance;
         /// <summary>
-        /// Name of the `segment` to share as defined in the `segments` section. This is used only when the `association_method` is `constant`.
+        /// Name of the `Segment` to share as defined in the `Segments` section. This is used only when the `AssociationMethod` is `Constant`.
         /// </summary>
         public readonly string? Segment;
         /// <summary>
-        /// Maps the attachment to the value of a known key. This is used with the `association_method` is `tag`. For example a `tag` of `stage = “test”`, will map to a segment named `test`. The value must exactly match the name of a segment. This allows you to have many segments, but use only a single rule without having to define multiple nearly identical conditions. This prevents creating many similar conditions that all use the same keys to map to segments.
+        /// Maps the attachment to the value of a known key. This is used with the `AssociationMethod` is `Tag`. For example a `Tag` of `stage = “test”`, will map to a segment named `Test`. The value must exactly match the name of a segment. This allows you to have many segments, but use only a single rule without having to define multiple nearly identical conditions. This prevents creating many similar conditions that all use the same keys to map to segments.
         /// </summary>
         public readonly string? TagValueOfKey;
 

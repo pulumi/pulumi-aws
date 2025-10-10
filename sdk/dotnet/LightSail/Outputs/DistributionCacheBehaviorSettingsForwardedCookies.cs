@@ -18,7 +18,7 @@ namespace Pulumi.Aws.LightSail.Outputs
         /// </summary>
         public readonly ImmutableArray<string> CookiesAllowLists;
         /// <summary>
-        /// Which cookies to forward to the distribution's origin for a cache behavior. Valid values: `all`, `none`, `allow-list`.
+        /// Which cookies to forward to the distribution's origin for a cache behavior. Valid values: `All`, `None`, `allow-list`.
         /// </summary>
         public readonly string? Option;
 

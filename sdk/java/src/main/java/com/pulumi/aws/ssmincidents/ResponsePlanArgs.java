@@ -82,14 +82,14 @@ public final class ResponsePlanArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The `incident_template` configuration block is required and supports the following arguments:
+     * The `incidentTemplate` configuration block is required and supports the following arguments:
      * 
      */
     @Import(name="incidentTemplate", required=true)
     private Output<ResponsePlanIncidentTemplateArgs> incidentTemplate;
 
     /**
-     * @return The `incident_template` configuration block is required and supports the following arguments:
+     * @return The `incidentTemplate` configuration block is required and supports the following arguments:
      * 
      */
     public Output<ResponsePlanIncidentTemplateArgs> incidentTemplate() {
@@ -293,7 +293,7 @@ public final class ResponsePlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param incidentTemplate The `incident_template` configuration block is required and supports the following arguments:
+         * @param incidentTemplate The `incidentTemplate` configuration block is required and supports the following arguments:
          * 
          * @return builder
          * 
@@ -304,7 +304,7 @@ public final class ResponsePlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param incidentTemplate The `incident_template` configuration block is required and supports the following arguments:
+         * @param incidentTemplate The `incidentTemplate` configuration block is required and supports the following arguments:
          * 
          * @return builder
          * 

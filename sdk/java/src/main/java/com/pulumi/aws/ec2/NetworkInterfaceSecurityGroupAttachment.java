@@ -31,7 +31,7 @@ import javax.annotation.Nullable;
  * by `instance`) in the default security group, creating a security group
  * (provided by `sg`) and then attaching the security group to the instance&#39;s
  * primary network interface via the `aws.ec2.NetworkInterfaceSecurityGroupAttachment` resource,
- * named `sg_attachment`:
+ * named `sgAttachment`:
  * 
  * <pre>
  * {@code
@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  * 
  * In this example, `instance` is provided by the `aws.ec2.Instance` data source,
  * fetching an external instance, possibly not managed by this provider.
- * `sg_attachment` then attaches to the output instance&#39;s `network_interface_id`:
+ * `sgAttachment` then attaches to the output instance&#39;s `networkInterfaceId`:
  * 
  * <pre>
  * {@code

@@ -82,7 +82,7 @@ namespace Pulumi.Aws.SesV2
         public Output<string> ConfigurationSetName { get; private set; } = null!;
 
         /// <summary>
-        /// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `delivery_options` Block for details.
+        /// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `DeliveryOptions` Block for details.
         /// </summary>
         [Output("deliveryOptions")]
         public Output<Outputs.ConfigurationSetDeliveryOptions?> DeliveryOptions { get; private set; } = null!;
@@ -94,25 +94,25 @@ namespace Pulumi.Aws.SesV2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputation_options` Block for details.
+        /// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `ReputationOptions` Block for details.
         /// </summary>
         [Output("reputationOptions")]
         public Output<Outputs.ConfigurationSetReputationOptions> ReputationOptions { get; private set; } = null!;
 
         /// <summary>
-        /// An object that defines whether or not Amazon SES can send email that you send using the configuration set. See `sending_options` Block for details.
+        /// An object that defines whether or not Amazon SES can send email that you send using the configuration set. See `SendingOptions` Block for details.
         /// </summary>
         [Output("sendingOptions")]
         public Output<Outputs.ConfigurationSetSendingOptions> SendingOptions { get; private set; } = null!;
 
         /// <summary>
-        /// An object that contains information about the suppression list preferences for your account. See `suppression_options` Block for details.
+        /// An object that contains information about the suppression list preferences for your account. See `SuppressionOptions` Block for details.
         /// </summary>
         [Output("suppressionOptions")]
         public Output<Outputs.ConfigurationSetSuppressionOptions?> SuppressionOptions { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the service. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -121,13 +121,13 @@ namespace Pulumi.Aws.SesV2
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// An object that defines the open and click tracking options for emails that you send using the configuration set. See `tracking_options` Block for details.
+        /// An object that defines the open and click tracking options for emails that you send using the configuration set. See `TrackingOptions` Block for details.
         /// </summary>
         [Output("trackingOptions")]
         public Output<Outputs.ConfigurationSetTrackingOptions?> TrackingOptions { get; private set; } = null!;
 
         /// <summary>
-        /// An object that defines the VDM settings that apply to emails that you send using the configuration set. See `vdm_options` Block for details.
+        /// An object that defines the VDM settings that apply to emails that you send using the configuration set. See `VdmOptions` Block for details.
         /// </summary>
         [Output("vdmOptions")]
         public Output<Outputs.ConfigurationSetVdmOptions?> VdmOptions { get; private set; } = null!;
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.SesV2
         public Input<string> ConfigurationSetName { get; set; } = null!;
 
         /// <summary>
-        /// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `delivery_options` Block for details.
+        /// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `DeliveryOptions` Block for details.
         /// </summary>
         [Input("deliveryOptions")]
         public Input<Inputs.ConfigurationSetDeliveryOptionsArgs>? DeliveryOptions { get; set; }
@@ -197,19 +197,19 @@ namespace Pulumi.Aws.SesV2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputation_options` Block for details.
+        /// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `ReputationOptions` Block for details.
         /// </summary>
         [Input("reputationOptions")]
         public Input<Inputs.ConfigurationSetReputationOptionsArgs>? ReputationOptions { get; set; }
 
         /// <summary>
-        /// An object that defines whether or not Amazon SES can send email that you send using the configuration set. See `sending_options` Block for details.
+        /// An object that defines whether or not Amazon SES can send email that you send using the configuration set. See `SendingOptions` Block for details.
         /// </summary>
         [Input("sendingOptions")]
         public Input<Inputs.ConfigurationSetSendingOptionsArgs>? SendingOptions { get; set; }
 
         /// <summary>
-        /// An object that contains information about the suppression list preferences for your account. See `suppression_options` Block for details.
+        /// An object that contains information about the suppression list preferences for your account. See `SuppressionOptions` Block for details.
         /// </summary>
         [Input("suppressionOptions")]
         public Input<Inputs.ConfigurationSetSuppressionOptionsArgs>? SuppressionOptions { get; set; }
@@ -218,7 +218,7 @@ namespace Pulumi.Aws.SesV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the service. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -227,13 +227,13 @@ namespace Pulumi.Aws.SesV2
         }
 
         /// <summary>
-        /// An object that defines the open and click tracking options for emails that you send using the configuration set. See `tracking_options` Block for details.
+        /// An object that defines the open and click tracking options for emails that you send using the configuration set. See `TrackingOptions` Block for details.
         /// </summary>
         [Input("trackingOptions")]
         public Input<Inputs.ConfigurationSetTrackingOptionsArgs>? TrackingOptions { get; set; }
 
         /// <summary>
-        /// An object that defines the VDM settings that apply to emails that you send using the configuration set. See `vdm_options` Block for details.
+        /// An object that defines the VDM settings that apply to emails that you send using the configuration set. See `VdmOptions` Block for details.
         /// </summary>
         [Input("vdmOptions")]
         public Input<Inputs.ConfigurationSetVdmOptionsArgs>? VdmOptions { get; set; }
@@ -259,7 +259,7 @@ namespace Pulumi.Aws.SesV2
         public Input<string>? ConfigurationSetName { get; set; }
 
         /// <summary>
-        /// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `delivery_options` Block for details.
+        /// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `DeliveryOptions` Block for details.
         /// </summary>
         [Input("deliveryOptions")]
         public Input<Inputs.ConfigurationSetDeliveryOptionsGetArgs>? DeliveryOptions { get; set; }
@@ -271,19 +271,19 @@ namespace Pulumi.Aws.SesV2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputation_options` Block for details.
+        /// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `ReputationOptions` Block for details.
         /// </summary>
         [Input("reputationOptions")]
         public Input<Inputs.ConfigurationSetReputationOptionsGetArgs>? ReputationOptions { get; set; }
 
         /// <summary>
-        /// An object that defines whether or not Amazon SES can send email that you send using the configuration set. See `sending_options` Block for details.
+        /// An object that defines whether or not Amazon SES can send email that you send using the configuration set. See `SendingOptions` Block for details.
         /// </summary>
         [Input("sendingOptions")]
         public Input<Inputs.ConfigurationSetSendingOptionsGetArgs>? SendingOptions { get; set; }
 
         /// <summary>
-        /// An object that contains information about the suppression list preferences for your account. See `suppression_options` Block for details.
+        /// An object that contains information about the suppression list preferences for your account. See `SuppressionOptions` Block for details.
         /// </summary>
         [Input("suppressionOptions")]
         public Input<Inputs.ConfigurationSetSuppressionOptionsGetArgs>? SuppressionOptions { get; set; }
@@ -292,7 +292,7 @@ namespace Pulumi.Aws.SesV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the service. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -309,13 +309,13 @@ namespace Pulumi.Aws.SesV2
         }
 
         /// <summary>
-        /// An object that defines the open and click tracking options for emails that you send using the configuration set. See `tracking_options` Block for details.
+        /// An object that defines the open and click tracking options for emails that you send using the configuration set. See `TrackingOptions` Block for details.
         /// </summary>
         [Input("trackingOptions")]
         public Input<Inputs.ConfigurationSetTrackingOptionsGetArgs>? TrackingOptions { get; set; }
 
         /// <summary>
-        /// An object that defines the VDM settings that apply to emails that you send using the configuration set. See `vdm_options` Block for details.
+        /// An object that defines the VDM settings that apply to emails that you send using the configuration set. See `VdmOptions` Block for details.
         /// </summary>
         [Input("vdmOptions")]
         public Input<Inputs.ConfigurationSetVdmOptionsGetArgs>? VdmOptions { get; set; }

@@ -32,14 +32,14 @@ public final class PlanRuleLifecycleArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
+     * Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
      * 
      */
     @Import(name="deleteAfter")
     private @Nullable Output<Integer> deleteAfter;
 
     /**
-     * @return Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
+     * @return Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
      * 
      */
     public Optional<Output<Integer>> deleteAfter() {
@@ -109,7 +109,7 @@ public final class PlanRuleLifecycleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param deleteAfter Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
+         * @param deleteAfter Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class PlanRuleLifecycleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param deleteAfter Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
+         * @param deleteAfter Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
          * 
          * @return builder
          * 

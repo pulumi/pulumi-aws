@@ -36,7 +36,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
      */
     private @Nullable List<String> destinations;
     /**
-     * @return String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `share_with` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
+     * @return String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `shareWith` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
      * 
      */
     private @Nullable String mode;
@@ -96,7 +96,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
         return this.destinations == null ? List.of() : this.destinations;
     }
     /**
-     * @return String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `share_with` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
+     * @return String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `shareWith` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
      * 
      */
     public Optional<String> mode() {

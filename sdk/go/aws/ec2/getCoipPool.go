@@ -16,6 +16,10 @@ import (
 // This data source can prove useful when a module accepts a coip pool id as
 // an input variable and needs to, for example, determine the CIDR block of that
 // COIP Pool.
+//
+// ## Example Usage
+//
+// The following example returns a specific coip pool ID
 func GetCoipPool(ctx *pulumi.Context, args *GetCoipPoolArgs, opts ...pulumi.InvokeOption) (*GetCoipPoolResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCoipPoolResult

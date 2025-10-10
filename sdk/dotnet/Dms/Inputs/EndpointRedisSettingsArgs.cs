@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Dms.Inputs
         }
 
         /// <summary>
-        /// The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `auth_password` value to be provided. The `auth-role` option requires `auth_user_name` and `auth_password` values to be provided.
+        /// The type of authentication to perform when connecting to a Redis target. Options include `None`, `auth-token`, and `auth-role`. The `auth-token` option requires an `AuthPassword` value to be provided. The `auth-role` option requires `AuthUserName` and `AuthPassword` values to be provided.
         /// </summary>
         [Input("authType", required: true)]
         public Input<string> AuthType { get; set; } = null!;
@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Dms.Inputs
         public Input<string>? SslCaCertificateArn { get; set; }
 
         /// <summary>
-        /// The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
+        /// The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `Plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
         /// </summary>
         [Input("sslSecurityProtocol")]
         public Input<string>? SslSecurityProtocol { get; set; }

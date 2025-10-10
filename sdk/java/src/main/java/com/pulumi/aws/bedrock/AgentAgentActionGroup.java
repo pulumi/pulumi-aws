@@ -243,7 +243,7 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup")
 public class AgentAgentActionGroup extends com.pulumi.resources.CustomResource {
     /**
-     * ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` Block for details.
+     * ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `actionGroupExecutor` Block for details.
      * 
      * The following arguments are optional:
      * 
@@ -252,7 +252,7 @@ public class AgentAgentActionGroup extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ AgentAgentActionGroupActionGroupExecutor> actionGroupExecutor;
 
     /**
-     * @return ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` Block for details.
+     * @return ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `actionGroupExecutor` Block for details.
      * 
      * The following arguments are optional:
      * 
@@ -331,14 +331,14 @@ public class AgentAgentActionGroup extends com.pulumi.resources.CustomResource {
         return this.agentVersion;
     }
     /**
-     * Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` Block for details.
+     * Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `apiSchema` Block for details.
      * 
      */
     @Export(name="apiSchema", refs={AgentAgentActionGroupApiSchema.class}, tree="[0]")
     private Output</* @Nullable */ AgentAgentActionGroupApiSchema> apiSchema;
 
     /**
-     * @return Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` Block for details.
+     * @return Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `apiSchema` Block for details.
      * 
      */
     public Output<Optional<AgentAgentActionGroupApiSchema>> apiSchema() {
@@ -361,7 +361,7 @@ public class AgentAgentActionGroup extends com.pulumi.resources.CustomResource {
     /**
      * Describes the function schema for the action group.
      * Each function represents an action in an action group.
-     * See `function_schema` Block for details.
+     * See `functionSchema` Block for details.
      * 
      */
     @Export(name="functionSchema", refs={AgentAgentActionGroupFunctionSchema.class}, tree="[0]")
@@ -370,21 +370,21 @@ public class AgentAgentActionGroup extends com.pulumi.resources.CustomResource {
     /**
      * @return Describes the function schema for the action group.
      * Each function represents an action in an action group.
-     * See `function_schema` Block for details.
+     * See `functionSchema` Block for details.
      * 
      */
     public Output<Optional<AgentAgentActionGroupFunctionSchema>> functionSchema() {
         return Codegen.optional(this.functionSchema);
     }
     /**
-     * To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
+     * To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `apiSchema`, and `actionGroupExecutor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
      * 
      */
     @Export(name="parentActionGroupSignature", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> parentActionGroupSignature;
 
     /**
-     * @return To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
+     * @return To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `apiSchema`, and `actionGroupExecutor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
      * 
      */
     public Output<Optional<String>> parentActionGroupSignature() {

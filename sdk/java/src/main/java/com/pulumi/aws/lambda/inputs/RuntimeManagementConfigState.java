@@ -80,14 +80,14 @@ public final class RuntimeManagementConfigState extends com.pulumi.resources.Res
     }
 
     /**
-     * ARN of the runtime version. Only required when `update_runtime_on` is `Manual`.
+     * ARN of the runtime version. Only required when `updateRuntimeOn` is `Manual`.
      * 
      */
     @Import(name="runtimeVersionArn")
     private @Nullable Output<String> runtimeVersionArn;
 
     /**
-     * @return ARN of the runtime version. Only required when `update_runtime_on` is `Manual`.
+     * @return ARN of the runtime version. Only required when `updateRuntimeOn` is `Manual`.
      * 
      */
     public Optional<Output<String>> runtimeVersionArn() {
@@ -227,7 +227,7 @@ public final class RuntimeManagementConfigState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param runtimeVersionArn ARN of the runtime version. Only required when `update_runtime_on` is `Manual`.
+         * @param runtimeVersionArn ARN of the runtime version. Only required when `updateRuntimeOn` is `Manual`.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class RuntimeManagementConfigState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param runtimeVersionArn ARN of the runtime version. Only required when `update_runtime_on` is `Manual`.
+         * @param runtimeVersionArn ARN of the runtime version. Only required when `updateRuntimeOn` is `Manual`.
          * 
          * @return builder
          * 

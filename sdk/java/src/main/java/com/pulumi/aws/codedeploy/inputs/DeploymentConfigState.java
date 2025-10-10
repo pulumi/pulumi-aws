@@ -79,14 +79,14 @@ public final class DeploymentConfigState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
+     * A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
      * 
      */
     @Import(name="minimumHealthyHosts")
     private @Nullable Output<DeploymentConfigMinimumHealthyHostsArgs> minimumHealthyHosts;
 
     /**
-     * @return A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
+     * @return A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
      * 
      */
     public Optional<Output<DeploymentConfigMinimumHealthyHostsArgs>> minimumHealthyHosts() {
@@ -109,14 +109,14 @@ public final class DeploymentConfigState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A traffic_routing_config block. Traffic Routing Config is documented below.
+     * A trafficRoutingConfig block. Traffic Routing Config is documented below.
      * 
      */
     @Import(name="trafficRoutingConfig")
     private @Nullable Output<DeploymentConfigTrafficRoutingConfigArgs> trafficRoutingConfig;
 
     /**
-     * @return A traffic_routing_config block. Traffic Routing Config is documented below.
+     * @return A trafficRoutingConfig block. Traffic Routing Config is documented below.
      * 
      */
     public Optional<Output<DeploymentConfigTrafficRoutingConfigArgs>> trafficRoutingConfig() {
@@ -124,14 +124,14 @@ public final class DeploymentConfigState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A zonal_config block. Zonal Config is documented below.
+     * A zonalConfig block. Zonal Config is documented below.
      * 
      */
     @Import(name="zonalConfig")
     private @Nullable Output<DeploymentConfigZonalConfigArgs> zonalConfig;
 
     /**
-     * @return A zonal_config block. Zonal Config is documented below.
+     * @return A zonalConfig block. Zonal Config is documented below.
      * 
      */
     public Optional<Output<DeploymentConfigZonalConfigArgs>> zonalConfig() {
@@ -254,7 +254,7 @@ public final class DeploymentConfigState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param minimumHealthyHosts A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
+         * @param minimumHealthyHosts A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class DeploymentConfigState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param minimumHealthyHosts A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
+         * @param minimumHealthyHosts A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class DeploymentConfigState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param trafficRoutingConfig A traffic_routing_config block. Traffic Routing Config is documented below.
+         * @param trafficRoutingConfig A trafficRoutingConfig block. Traffic Routing Config is documented below.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class DeploymentConfigState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param trafficRoutingConfig A traffic_routing_config block. Traffic Routing Config is documented below.
+         * @param trafficRoutingConfig A trafficRoutingConfig block. Traffic Routing Config is documented below.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class DeploymentConfigState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param zonalConfig A zonal_config block. Zonal Config is documented below.
+         * @param zonalConfig A zonalConfig block. Zonal Config is documented below.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class DeploymentConfigState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param zonalConfig A zonal_config block. Zonal Config is documented below.
+         * @param zonalConfig A zonalConfig block. Zonal Config is documented below.
          * 
          * @return builder
          * 

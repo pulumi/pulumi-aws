@@ -262,14 +262,14 @@ public class AgentAgent extends com.pulumi.resources.CustomResource {
         return this.foundationModel;
     }
     /**
-     * Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
+     * Details about the guardrail associated with the agent. See `guardrailConfiguration` Block for details.
      * 
      */
     @Export(name="guardrailConfigurations", refs={List.class,AgentAgentGuardrailConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AgentAgentGuardrailConfiguration>> guardrailConfigurations;
 
     /**
-     * @return Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
+     * @return Details about the guardrail associated with the agent. See `guardrailConfiguration` Block for details.
      * 
      */
     public Output<Optional<List<AgentAgentGuardrailConfiguration>>> guardrailConfigurations() {
@@ -346,14 +346,14 @@ public class AgentAgent extends com.pulumi.resources.CustomResource {
         return this.preparedAt;
     }
     /**
-     * Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
+     * Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
      * 
      */
     @Export(name="promptOverrideConfigurations", refs={List.class,AgentAgentPromptOverrideConfiguration.class}, tree="[0,1]")
     private Output<List<AgentAgentPromptOverrideConfiguration>> promptOverrideConfigurations;
 
     /**
-     * @return Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
+     * @return Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
      * 
      */
     public Output<List<AgentAgentPromptOverrideConfiguration>> promptOverrideConfigurations() {
@@ -388,28 +388,28 @@ public class AgentAgent extends com.pulumi.resources.CustomResource {
         return this.skipResourceInUseCheck;
     }
     /**
-     * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

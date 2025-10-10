@@ -35,7 +35,7 @@ public final class DistributionOrigin {
      */
     private @Nullable List<DistributionOriginCustomHeader> customHeaders;
     /**
-     * @return The CloudFront custom origin configuration information. If an S3 origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
+     * @return The CloudFront custom origin configuration information. If an S3 origin is required, use `originAccessControlId` or `s3OriginConfig` instead.
      * 
      */
     private @Nullable DistributionOriginCustomOriginConfig customOriginConfig;
@@ -61,12 +61,12 @@ public final class DistributionOrigin {
      */
     private @Nullable DistributionOriginOriginShield originShield;
     /**
-     * @return Time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. Must be integer greater than or equal to the value of `origin_read_timeout`. If omitted or explicitly set to `0`, no maximum value is enforced.
+     * @return Time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. Must be integer greater than or equal to the value of `originReadTimeout`. If omitted or explicitly set to `0`, no maximum value is enforced.
      * 
      */
     private @Nullable Integer responseCompletionTimeout;
     /**
-     * @return CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
+     * @return CloudFront S3 origin configuration information. If a custom origin is required, use `customOriginConfig` instead.
      * 
      */
     private @Nullable DistributionOriginS3OriginConfig s3OriginConfig;
@@ -99,7 +99,7 @@ public final class DistributionOrigin {
         return this.customHeaders == null ? List.of() : this.customHeaders;
     }
     /**
-     * @return The CloudFront custom origin configuration information. If an S3 origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
+     * @return The CloudFront custom origin configuration information. If an S3 origin is required, use `originAccessControlId` or `s3OriginConfig` instead.
      * 
      */
     public Optional<DistributionOriginCustomOriginConfig> customOriginConfig() {
@@ -137,14 +137,14 @@ public final class DistributionOrigin {
         return Optional.ofNullable(this.originShield);
     }
     /**
-     * @return Time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. Must be integer greater than or equal to the value of `origin_read_timeout`. If omitted or explicitly set to `0`, no maximum value is enforced.
+     * @return Time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. Must be integer greater than or equal to the value of `originReadTimeout`. If omitted or explicitly set to `0`, no maximum value is enforced.
      * 
      */
     public Optional<Integer> responseCompletionTimeout() {
         return Optional.ofNullable(this.responseCompletionTimeout);
     }
     /**
-     * @return CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
+     * @return CloudFront S3 origin configuration information. If a custom origin is required, use `customOriginConfig` instead.
      * 
      */
     public Optional<DistributionOriginS3OriginConfig> s3OriginConfig() {

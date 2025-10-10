@@ -20,14 +20,14 @@ public final class PipelineTriggerGitConfigurationArgs extends com.pulumi.resour
     public static final PipelineTriggerGitConfigurationArgs Empty = new PipelineTriggerGitConfigurationArgs();
 
     /**
-     * The field where the repository event that will start the pipeline is specified as pull requests. A `pull_request` block is documented below.
+     * The field where the repository event that will start the pipeline is specified as pull requests. A `pullRequest` block is documented below.
      * 
      */
     @Import(name="pullRequests")
     private @Nullable Output<List<PipelineTriggerGitConfigurationPullRequestArgs>> pullRequests;
 
     /**
-     * @return The field where the repository event that will start the pipeline is specified as pull requests. A `pull_request` block is documented below.
+     * @return The field where the repository event that will start the pipeline is specified as pull requests. A `pullRequest` block is documented below.
      * 
      */
     public Optional<Output<List<PipelineTriggerGitConfigurationPullRequestArgs>>> pullRequests() {
@@ -91,7 +91,7 @@ public final class PipelineTriggerGitConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param pullRequests The field where the repository event that will start the pipeline is specified as pull requests. A `pull_request` block is documented below.
+         * @param pullRequests The field where the repository event that will start the pipeline is specified as pull requests. A `pullRequest` block is documented below.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class PipelineTriggerGitConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param pullRequests The field where the repository event that will start the pipeline is specified as pull requests. A `pull_request` block is documented below.
+         * @param pullRequests The field where the repository event that will start the pipeline is specified as pull requests. A `pullRequest` block is documented below.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class PipelineTriggerGitConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param pullRequests The field where the repository event that will start the pipeline is specified as pull requests. A `pull_request` block is documented below.
+         * @param pullRequests The field where the repository event that will start the pipeline is specified as pull requests. A `pullRequest` block is documented below.
          * 
          * @return builder
          * 

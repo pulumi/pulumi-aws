@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly string? EncryptionMode;
         /// <summary>
-        /// ARN or Id of KMS Key to use when `encryption_mode` is `SSE_KMS`.
+        /// ARN or Id of KMS Key to use when `EncryptionMode` is `SSE_KMS`.
         /// </summary>
         public readonly string? ServerSideEncryptionKmsKeyId;
         /// <summary>

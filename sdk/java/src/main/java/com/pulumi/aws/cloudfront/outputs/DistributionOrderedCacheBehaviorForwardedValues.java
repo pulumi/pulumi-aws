@@ -30,7 +30,7 @@ public final class DistributionOrderedCacheBehaviorForwardedValues {
      */
     private Boolean queryString;
     /**
-     * @return When specified, along with a value of `true` for `query_string`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `query_string`, all query string keys are cached.
+     * @return When specified, along with a value of `true` for `queryString`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `queryString`, all query string keys are cached.
      * 
      */
     private @Nullable List<String> queryStringCacheKeys;
@@ -58,7 +58,7 @@ public final class DistributionOrderedCacheBehaviorForwardedValues {
         return this.queryString;
     }
     /**
-     * @return When specified, along with a value of `true` for `query_string`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `query_string`, all query string keys are cached.
+     * @return When specified, along with a value of `true` for `queryString`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `queryString`, all query string keys are cached.
      * 
      */
     public List<String> queryStringCacheKeys() {

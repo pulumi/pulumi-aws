@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class LaunchTemplateEnclaveOptions
     {
         /// <summary>
-        /// If set to `true`, Nitro Enclaves will be enabled on the instance.
+        /// If set to `True`, Nitro Enclaves will be enabled on the instance.
         /// 
         /// For more information, see the documentation on [Nitro Enclaves](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html).
         /// </summary>

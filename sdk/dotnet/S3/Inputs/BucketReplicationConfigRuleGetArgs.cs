@@ -13,7 +13,7 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketReplicationConfigRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether delete markers are replicated. This argument is only valid with V2 replication configurations (i.e., when `filter` is used)documented below.
+        /// Whether delete markers are replicated. This argument is only valid with V2 replication configurations (i.e., when `Filter` is used)documented below.
         /// </summary>
         [Input("deleteMarkerReplication")]
         public Input<Inputs.BucketReplicationConfigRuleDeleteMarkerReplicationGetArgs>? DeleteMarkerReplication { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<Inputs.BucketReplicationConfigRuleExistingObjectReplicationGetArgs>? ExistingObjectReplication { get; set; }
 
         /// <summary>
-        /// Filter that identifies subset of objects to which the replication rule applies. See below. If not specified, the `rule` will default to using `prefix`.
+        /// Filter that identifies subset of objects to which the replication rule applies. See below. If not specified, the `Rule` will default to using `Prefix`.
         /// </summary>
         [Input("filter")]
         public Input<Inputs.BucketReplicationConfigRuleFilterGetArgs>? Filter { get; set; }
@@ -43,13 +43,13 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length. Defaults to an empty string (`""`) if `filter` is not specified.
+        /// Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length. Defaults to an empty string (`""`) if `Filter` is not specified.
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
         /// <summary>
-        /// Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+        /// Priority associated with the rule. Priority should only be set if `Filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }

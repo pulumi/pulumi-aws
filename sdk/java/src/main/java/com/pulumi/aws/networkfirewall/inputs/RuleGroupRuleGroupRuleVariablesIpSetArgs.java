@@ -31,14 +31,14 @@ public final class RuleGroupRuleGroupRuleVariablesIpSetArgs extends com.pulumi.r
     }
 
     /**
-     * A unique alphanumeric string to identify the `ip_set`.
+     * A unique alphanumeric string to identify the `ipSet`.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return A unique alphanumeric string to identify the `ip_set`.
+     * @return A unique alphanumeric string to identify the `ipSet`.
      * 
      */
     public Output<String> key() {
@@ -92,7 +92,7 @@ public final class RuleGroupRuleGroupRuleVariablesIpSetArgs extends com.pulumi.r
         }
 
         /**
-         * @param key A unique alphanumeric string to identify the `ip_set`.
+         * @param key A unique alphanumeric string to identify the `ipSet`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class RuleGroupRuleGroupRuleVariablesIpSetArgs extends com.pulumi.r
         }
 
         /**
-         * @param key A unique alphanumeric string to identify the `ip_set`.
+         * @param key A unique alphanumeric string to identify the `ipSet`.
          * 
          * @return builder
          * 

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Fsx.Outputs
         /// </summary>
         public readonly int? ConstituentsPerAggregate;
         /// <summary>
-        /// The total amount of constituents for a `FLEXGROUP` volume. This would equal constituents_per_aggregate x aggregates.
+        /// The total amount of constituents for a `FLEXGROUP` volume. This would equal ConstituentsPerAggregate x aggregates.
         /// </summary>
         public readonly int? TotalConstituents;
 

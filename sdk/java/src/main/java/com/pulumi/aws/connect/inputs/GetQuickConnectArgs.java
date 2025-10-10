@@ -35,7 +35,7 @@ public final class GetQuickConnectArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Returns information on a specific Quick Connect by name
      * 
-     * &gt; **NOTE:** `instance_id` and one of either `name` or `quick_connect_id` is required.
+     * &gt; **NOTE:** `instanceId` and one of either `name` or `quickConnectId` is required.
      * 
      */
     @Import(name="name")
@@ -44,7 +44,7 @@ public final class GetQuickConnectArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return Returns information on a specific Quick Connect by name
      * 
-     * &gt; **NOTE:** `instance_id` and one of either `name` or `quick_connect_id` is required.
+     * &gt; **NOTE:** `instanceId` and one of either `name` or `quickConnectId` is required.
      * 
      */
     public Optional<Output<String>> name() {
@@ -148,7 +148,7 @@ public final class GetQuickConnectArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param name Returns information on a specific Quick Connect by name
          * 
-         * &gt; **NOTE:** `instance_id` and one of either `name` or `quick_connect_id` is required.
+         * &gt; **NOTE:** `instanceId` and one of either `name` or `quickConnectId` is required.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class GetQuickConnectArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param name Returns information on a specific Quick Connect by name
          * 
-         * &gt; **NOTE:** `instance_id` and one of either `name` or `quick_connect_id` is required.
+         * &gt; **NOTE:** `instanceId` and one of either `name` or `quickConnectId` is required.
          * 
          * @return builder
          * 

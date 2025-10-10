@@ -31,14 +31,14 @@ public final class FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs e
     }
 
     /**
-     * An alphanumeric string to identify the `ip_set`. Valid values: `HOME_NET`
+     * An alphanumeric string to identify the `ipSet`. Valid values: `HOME_NET`
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return An alphanumeric string to identify the `ip_set`. Valid values: `HOME_NET`
+     * @return An alphanumeric string to identify the `ipSet`. Valid values: `HOME_NET`
      * 
      */
     public Output<String> key() {
@@ -92,7 +92,7 @@ public final class FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs e
         }
 
         /**
-         * @param key An alphanumeric string to identify the `ip_set`. Valid values: `HOME_NET`
+         * @param key An alphanumeric string to identify the `ipSet`. Valid values: `HOME_NET`
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs e
         }
 
         /**
-         * @param key An alphanumeric string to identify the `ip_set`. Valid values: `HOME_NET`
+         * @param key An alphanumeric string to identify the `ipSet`. Valid values: `HOME_NET`
          * 
          * @return builder
          * 

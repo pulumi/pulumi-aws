@@ -18,7 +18,7 @@ public final class V2modelsSlotTypeExternalSourceSettingArgs extends com.pulumi.
 
     /**
      * Settings required for a slot type based on a grammar that you provide.
-     * See `grammar_slot_type_setting` argument reference below.
+     * See `grammarSlotTypeSetting` argument reference below.
      * 
      */
     @Import(name="grammarSlotTypeSettings")
@@ -26,7 +26,7 @@ public final class V2modelsSlotTypeExternalSourceSettingArgs extends com.pulumi.
 
     /**
      * @return Settings required for a slot type based on a grammar that you provide.
-     * See `grammar_slot_type_setting` argument reference below.
+     * See `grammarSlotTypeSetting` argument reference below.
      * 
      */
     public Optional<Output<List<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs>>> grammarSlotTypeSettings() {
@@ -59,7 +59,7 @@ public final class V2modelsSlotTypeExternalSourceSettingArgs extends com.pulumi.
 
         /**
          * @param grammarSlotTypeSettings Settings required for a slot type based on a grammar that you provide.
-         * See `grammar_slot_type_setting` argument reference below.
+         * See `grammarSlotTypeSetting` argument reference below.
          * 
          * @return builder
          * 
@@ -71,7 +71,7 @@ public final class V2modelsSlotTypeExternalSourceSettingArgs extends com.pulumi.
 
         /**
          * @param grammarSlotTypeSettings Settings required for a slot type based on a grammar that you provide.
-         * See `grammar_slot_type_setting` argument reference below.
+         * See `grammarSlotTypeSetting` argument reference below.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class V2modelsSlotTypeExternalSourceSettingArgs extends com.pulumi.
 
         /**
          * @param grammarSlotTypeSettings Settings required for a slot type based on a grammar that you provide.
-         * See `grammar_slot_type_setting` argument reference below.
+         * See `grammarSlotTypeSetting` argument reference below.
          * 
          * @return builder
          * 

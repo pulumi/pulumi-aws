@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class SpaceSpaceSettingsJupyterServerAppSettings
     {
         /// <summary>
-        /// A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
+        /// A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. See `CodeRepository` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.SpaceSpaceSettingsJupyterServerAppSettingsCodeRepository> CodeRepositories;
         /// <summary>
-        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
+        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `DefaultResourceSpec` Block below.
         /// </summary>
         public readonly Outputs.SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec DefaultResourceSpec;
         /// <summary>

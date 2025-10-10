@@ -13,19 +13,19 @@ namespace Pulumi.Aws.Rds.Inputs
     public sealed class ClusterServerlessv2ScalingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
+        /// Maximum capacity for an Aurora DB cluster in `Provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
         /// </summary>
         [Input("maxCapacity", required: true)]
         public Input<double> MaxCapacity { get; set; } = null!;
 
         /// <summary>
-        /// Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
+        /// Minimum capacity for an Aurora DB cluster in `Provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
         /// </summary>
         [Input("minCapacity", required: true)]
         public Input<double> MinCapacity { get; set; } = null!;
 
         /// <summary>
-        /// Time, in seconds, before an Aurora DB cluster in `provisioned` DB engine mode is paused. Valid values are `300` through `86400`.
+        /// Time, in seconds, before an Aurora DB cluster in `Provisioned` DB engine mode is paused. Valid values are `300` through `86400`.
         /// </summary>
         [Input("secondsUntilAutoPause")]
         public Input<int>? SecondsUntilAutoPause { get; set; }

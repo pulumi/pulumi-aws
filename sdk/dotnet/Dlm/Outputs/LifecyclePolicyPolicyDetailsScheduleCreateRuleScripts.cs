@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Dlm.Outputs
     public sealed class LifecyclePolicyPolicyDetailsScheduleCreateRuleScripts
     {
         /// <summary>
-        /// Indicates whether Amazon Data Lifecycle Manager should default to crash-consistent snapshots if the pre script fails. The default is `true`.
+        /// Indicates whether Amazon Data Lifecycle Manager should default to crash-consistent snapshots if the pre script fails. The default is `True`.
         /// </summary>
         public readonly bool? ExecuteOperationOnScriptFailure;
         /// <summary>

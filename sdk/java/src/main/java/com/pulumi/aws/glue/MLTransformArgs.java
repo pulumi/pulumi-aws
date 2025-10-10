@@ -68,14 +68,14 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `max_capacity` is a mutually exclusive option with `number_of_workers` and `worker_type`.
+     * The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
      * 
      */
     @Import(name="maxCapacity")
     private @Nullable Output<Double> maxCapacity;
 
     /**
-     * @return The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `max_capacity` is a mutually exclusive option with `number_of_workers` and `worker_type`.
+     * @return The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
      * 
      */
     public Optional<Output<Double>> maxCapacity() {
@@ -113,14 +113,14 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of workers of a defined `worker_type` that are allocated when an ML Transform runs. Required with `worker_type`.
+     * The number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
      * 
      */
     @Import(name="numberOfWorkers")
     private @Nullable Output<Integer> numberOfWorkers;
 
     /**
-     * @return The number of workers of a defined `worker_type` that are allocated when an ML Transform runs. Required with `worker_type`.
+     * @return The number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
      * 
      */
     public Optional<Output<Integer>> numberOfWorkers() {
@@ -173,14 +173,14 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -203,14 +203,14 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `number_of_workers`.
+     * The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
      * 
      */
     @Import(name="workerType")
     private @Nullable Output<String> workerType;
 
     /**
-     * @return The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `number_of_workers`.
+     * @return The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
      * 
      */
     public Optional<Output<String>> workerType() {
@@ -327,7 +327,7 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxCapacity The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `max_capacity` is a mutually exclusive option with `number_of_workers` and `worker_type`.
+         * @param maxCapacity The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxCapacity The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `max_capacity` is a mutually exclusive option with `number_of_workers` and `worker_type`.
+         * @param maxCapacity The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
          * 
          * @return builder
          * 
@@ -390,7 +390,7 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param numberOfWorkers The number of workers of a defined `worker_type` that are allocated when an ML Transform runs. Required with `worker_type`.
+         * @param numberOfWorkers The number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param numberOfWorkers The number of workers of a defined `worker_type` that are allocated when an ML Transform runs. Required with `worker_type`.
+         * @param numberOfWorkers The number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
          * 
          * @return builder
          * 
@@ -474,7 +474,7 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -485,7 +485,7 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -516,7 +516,7 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workerType The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `number_of_workers`.
+         * @param workerType The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
          * 
          * @return builder
          * 
@@ -527,7 +527,7 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workerType The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `number_of_workers`.
+         * @param workerType The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
          * 
          * @return builder
          * 

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2ClientVpn.Outputs
     public sealed class EndpointClientConnectOptions
     {
         /// <summary>
-        /// Indicates whether client connect options are enabled. The default is `false` (not enabled).
+        /// Indicates whether client connect options are enabled. The default is `False` (not enabled).
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

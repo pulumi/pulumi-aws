@@ -13,25 +13,25 @@ namespace Pulumi.Aws.LB.Inputs
     public sealed class ListenerDefaultActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. See below.
+        /// Configuration block for using Amazon Cognito to authenticate users. Specify only when `Type` is `authenticate-cognito`. See below.
         /// </summary>
         [Input("authenticateCognito")]
         public Input<Inputs.ListenerDefaultActionAuthenticateCognitoArgs>? AuthenticateCognito { get; set; }
 
         /// <summary>
-        /// Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. See below.
+        /// Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `Type` is `authenticate-oidc`. See below.
         /// </summary>
         [Input("authenticateOidc")]
         public Input<Inputs.ListenerDefaultActionAuthenticateOidcArgs>? AuthenticateOidc { get; set; }
 
         /// <summary>
-        /// Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
+        /// Information for creating an action that returns a custom HTTP response. Required if `Type` is `fixed-response`.
         /// </summary>
         [Input("fixedResponse")]
         public Input<Inputs.ListenerDefaultActionFixedResponseArgs>? FixedResponse { get; set; }
 
         /// <summary>
-        /// Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. See below.
+        /// Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `Type` is `Forward`. See below.
         /// </summary>
         [Input("forward")]
         public Input<Inputs.ListenerDefaultActionForwardArgs>? Forward { get; set; }
@@ -43,19 +43,19 @@ namespace Pulumi.Aws.LB.Inputs
         public Input<int>? Order { get; set; }
 
         /// <summary>
-        /// Configuration block for creating a redirect action. Required if `type` is `redirect`. See below.
+        /// Configuration block for creating a redirect action. Required if `Type` is `Redirect`. See below.
         /// </summary>
         [Input("redirect")]
         public Input<Inputs.ListenerDefaultActionRedirectArgs>? Redirect { get; set; }
 
         /// <summary>
-        /// ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead. Can be specified with `forward` but ARNs must match.
+        /// ARN of the Target Group to which to route traffic. Specify only if `Type` is `Forward` and you want to route to a single target group. To route to one or more target groups, use a `Forward` block instead. Can be specified with `Forward` but ARNs must match.
         /// </summary>
         [Input("targetGroupArn")]
         public Input<string>? TargetGroupArn { get; set; }
 
         /// <summary>
-        /// Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+        /// Type of routing action. Valid values are `Forward`, `Redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
         /// 
         /// The following arguments are optional:
         /// </summary>

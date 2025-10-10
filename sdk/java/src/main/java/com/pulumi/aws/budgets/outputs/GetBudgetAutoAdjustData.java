@@ -18,7 +18,7 @@ public final class GetBudgetAutoAdjustData {
      */
     private String autoAdjustType;
     /**
-     * @return (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+     * @return (Optional) - Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
      * 
      */
     private List<GetBudgetAutoAdjustDataHistoricalOption> historicalOptions;
@@ -37,7 +37,7 @@ public final class GetBudgetAutoAdjustData {
         return this.autoAdjustType;
     }
     /**
-     * @return (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+     * @return (Optional) - Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
      * 
      */
     public List<GetBudgetAutoAdjustDataHistoricalOption> historicalOptions() {

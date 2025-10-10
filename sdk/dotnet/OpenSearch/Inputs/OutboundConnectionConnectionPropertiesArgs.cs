@@ -19,7 +19,7 @@ namespace Pulumi.Aws.OpenSearch.Inputs
         public Input<Inputs.OutboundConnectionConnectionPropertiesCrossClusterSearchArgs>? CrossClusterSearch { get; set; }
 
         /// <summary>
-        /// The endpoint of the remote domain, is only set when `connection_mode` is `VPC_ENDPOINT` and `accept_connection` is `TRUE`.
+        /// The endpoint of the remote domain, is only set when `ConnectionMode` is `VPC_ENDPOINT` and `AcceptConnection` is `TRUE`.
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }

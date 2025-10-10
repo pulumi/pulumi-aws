@@ -9,6 +9,22 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CodePipeline Webhook.
+ *
+ * ## Example Usage
+ *
+ * ## Import
+ *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * - `arn` (String) Amazon Resource Name (ARN) of the CodePipeline webhook.
+ *
+ * Using `pulumi import`, import CodePipeline Webhooks using their ARN. For example:
+ *
+ * console
+ *
+ * % pulumi import aws_codepipeline_webhook.example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
  */
 export class Webhook extends pulumi.CustomResource {
     /**

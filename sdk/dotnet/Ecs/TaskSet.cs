@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// ### Ignoring Changes to Scale
     /// 
-    /// You can utilize the generic resource lifecycle configuration block with `ignore_changes` to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
+    /// You can utilize the generic resource lifecycle configuration block with `IgnoreChanges` to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -120,13 +120,13 @@ namespace Pulumi.Aws.Ecs
         public Output<ImmutableArray<Outputs.TaskSetLoadBalancer>> LoadBalancers { get; private set; } = null!;
 
         /// <summary>
-        /// The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
+        /// The network configuration for the service. This parameter is required for task definitions that use the `Awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
         /// </summary>
         [Output("networkConfiguration")]
         public Output<Outputs.TaskSetNetworkConfiguration?> NetworkConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+        /// The platform version on which to run your service. Only applicable for `LaunchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         /// </summary>
         [Output("platformVersion")]
         public Output<string> PlatformVersion { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.Ecs
         public Output<string> Service { get; private set; } = null!;
 
         /// <summary>
-        /// The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
+        /// The service discovery registries for the service. The maximum number of `ServiceRegistries` blocks is `1`. Detailed below.
         /// </summary>
         [Output("serviceRegistries")]
         public Output<Outputs.TaskSetServiceRegistries?> ServiceRegistries { get; private set; } = null!;
@@ -168,13 +168,13 @@ namespace Pulumi.Aws.Ecs
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+        /// A map of tags to assign to the file system. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `CopyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -200,7 +200,7 @@ namespace Pulumi.Aws.Ecs
         public Output<bool?> WaitUntilStable { get; private set; } = null!;
 
         /// <summary>
-        /// Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
+        /// Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `Ns`, `Us` (or `µs`), `Ms`, `S`, `M`, and `H`. Default `10m`.
         /// </summary>
         [Output("waitUntilStableTimeout")]
         public Output<string?> WaitUntilStableTimeout { get; private set; } = null!;
@@ -300,13 +300,13 @@ namespace Pulumi.Aws.Ecs
         }
 
         /// <summary>
-        /// The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
+        /// The network configuration for the service. This parameter is required for task definitions that use the `Awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
         /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.TaskSetNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
 
         /// <summary>
-        /// The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+        /// The platform version on which to run your service. Only applicable for `LaunchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         /// </summary>
         [Input("platformVersion")]
         public Input<string>? PlatformVersion { get; set; }
@@ -330,7 +330,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string> Service { get; set; } = null!;
 
         /// <summary>
-        /// The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
+        /// The service discovery registries for the service. The maximum number of `ServiceRegistries` blocks is `1`. Detailed below.
         /// </summary>
         [Input("serviceRegistries")]
         public Input<Inputs.TaskSetServiceRegistriesArgs>? ServiceRegistries { get; set; }
@@ -339,7 +339,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+        /// A map of tags to assign to the file system. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `CopyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -362,7 +362,7 @@ namespace Pulumi.Aws.Ecs
         public Input<bool>? WaitUntilStable { get; set; }
 
         /// <summary>
-        /// Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
+        /// Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `Ns`, `Us` (or `µs`), `Ms`, `S`, `M`, and `H`. Default `10m`.
         /// </summary>
         [Input("waitUntilStableTimeout")]
         public Input<string>? WaitUntilStableTimeout { get; set; }
@@ -430,13 +430,13 @@ namespace Pulumi.Aws.Ecs
         }
 
         /// <summary>
-        /// The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
+        /// The network configuration for the service. This parameter is required for task definitions that use the `Awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
         /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.TaskSetNetworkConfigurationGetArgs>? NetworkConfiguration { get; set; }
 
         /// <summary>
-        /// The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+        /// The platform version on which to run your service. Only applicable for `LaunchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         /// </summary>
         [Input("platformVersion")]
         public Input<string>? PlatformVersion { get; set; }
@@ -460,7 +460,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? Service { get; set; }
 
         /// <summary>
-        /// The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
+        /// The service discovery registries for the service. The maximum number of `ServiceRegistries` blocks is `1`. Detailed below.
         /// </summary>
         [Input("serviceRegistries")]
         public Input<Inputs.TaskSetServiceRegistriesGetArgs>? ServiceRegistries { get; set; }
@@ -481,7 +481,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+        /// A map of tags to assign to the file system. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `CopyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -493,7 +493,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -522,7 +522,7 @@ namespace Pulumi.Aws.Ecs
         public Input<bool>? WaitUntilStable { get; set; }
 
         /// <summary>
-        /// Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
+        /// Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `Ns`, `Us` (or `µs`), `Ms`, `S`, `M`, and `H`. Default `10m`.
         /// </summary>
         [Input("waitUntilStableTimeout")]
         public Input<string>? WaitUntilStableTimeout { get; set; }

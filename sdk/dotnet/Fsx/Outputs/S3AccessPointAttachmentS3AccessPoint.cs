@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Fsx.Outputs
         /// </summary>
         public readonly string? Policy;
         /// <summary>
-        /// Amazon S3 restricts access to the S3 access point to requests made from the specified VPC. See `vpc_configuration` Block for details.
+        /// Amazon S3 restricts access to the S3 access point to requests made from the specified VPC. See `VpcConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.S3AccessPointAttachmentS3AccessPointVpcConfiguration? VpcConfiguration;
 

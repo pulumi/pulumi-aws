@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCount {
     /**
-     * @return Defines custom handling for the web request. See `custom_request_handling` below for details.
+     * @return Defines custom handling for the web request. See `customRequestHandling` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandling customRequestHandling;
 
     private WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCount() {}
     /**
-     * @return Defines custom handling for the web request. See `custom_request_handling` below for details.
+     * @return Defines custom handling for the web request. See `customRequestHandling` below for details.
      * 
      */
     public Optional<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandling> customRequestHandling() {

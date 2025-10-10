@@ -487,6 +487,8 @@ class RuleGroup(pulumi.CustomResource):
             })
         ```
 
+        ### Complex
+
         ### Using rules_json
 
         ```python
@@ -599,6 +601,8 @@ class RuleGroup(pulumi.CustomResource):
                 "sampled_requests_enabled": False,
             })
         ```
+
+        ### Complex
 
         ### Using rules_json
 

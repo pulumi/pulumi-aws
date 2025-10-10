@@ -42,12 +42,12 @@ public final class ServiceVolumeConfigurationManagedEbsVolume {
      */
     private String roleArn;
     /**
-     * @return Size of the volume in GiB. You must specify either a `size_in_gb` or a `snapshot_id`. You can optionally specify a volume size greater than or equal to the snapshot size.
+     * @return Size of the volume in GiB. You must specify either a `sizeInGb` or a `snapshotId`. You can optionally specify a volume size greater than or equal to the snapshot size.
      * 
      */
     private @Nullable Integer sizeInGb;
     /**
-     * @return Snapshot that Amazon ECS uses to create the volume. You must specify either a `size_in_gb` or a `snapshot_id`.
+     * @return Snapshot that Amazon ECS uses to create the volume. You must specify either a `sizeInGb` or a `snapshotId`.
      * 
      */
     private @Nullable String snapshotId;
@@ -62,7 +62,7 @@ public final class ServiceVolumeConfigurationManagedEbsVolume {
      */
     private @Nullable Integer throughput;
     /**
-     * @return Volume Initialization Rate in MiB/s. You must also specify a `snapshot_id`.
+     * @return Volume Initialization Rate in MiB/s. You must also specify a `snapshotId`.
      * 
      */
     private @Nullable Integer volumeInitializationRate;
@@ -109,14 +109,14 @@ public final class ServiceVolumeConfigurationManagedEbsVolume {
         return this.roleArn;
     }
     /**
-     * @return Size of the volume in GiB. You must specify either a `size_in_gb` or a `snapshot_id`. You can optionally specify a volume size greater than or equal to the snapshot size.
+     * @return Size of the volume in GiB. You must specify either a `sizeInGb` or a `snapshotId`. You can optionally specify a volume size greater than or equal to the snapshot size.
      * 
      */
     public Optional<Integer> sizeInGb() {
         return Optional.ofNullable(this.sizeInGb);
     }
     /**
-     * @return Snapshot that Amazon ECS uses to create the volume. You must specify either a `size_in_gb` or a `snapshot_id`.
+     * @return Snapshot that Amazon ECS uses to create the volume. You must specify either a `sizeInGb` or a `snapshotId`.
      * 
      */
     public Optional<String> snapshotId() {
@@ -137,7 +137,7 @@ public final class ServiceVolumeConfigurationManagedEbsVolume {
         return Optional.ofNullable(this.throughput);
     }
     /**
-     * @return Volume Initialization Rate in MiB/s. You must also specify a `snapshot_id`.
+     * @return Volume Initialization Rate in MiB/s. You must also specify a `snapshotId`.
      * 
      */
     public Optional<Integer> volumeInitializationRate() {

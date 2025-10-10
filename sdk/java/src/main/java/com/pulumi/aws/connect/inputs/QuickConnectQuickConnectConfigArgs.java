@@ -21,14 +21,14 @@ public final class QuickConnectQuickConnectConfigArgs extends com.pulumi.resourc
     public static final QuickConnectQuickConnectConfigArgs Empty = new QuickConnectQuickConnectConfigArgs();
 
     /**
-     * Specifies the phone configuration of the Quick Connect. This is required only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
+     * Specifies the phone configuration of the Quick Connect. This is required only if `quickConnectType` is `PHONE_NUMBER`. The `phoneConfig` block is documented below.
      * 
      */
     @Import(name="phoneConfigs")
     private @Nullable Output<List<QuickConnectQuickConnectConfigPhoneConfigArgs>> phoneConfigs;
 
     /**
-     * @return Specifies the phone configuration of the Quick Connect. This is required only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
+     * @return Specifies the phone configuration of the Quick Connect. This is required only if `quickConnectType` is `PHONE_NUMBER`. The `phoneConfig` block is documented below.
      * 
      */
     public Optional<Output<List<QuickConnectQuickConnectConfigPhoneConfigArgs>>> phoneConfigs() {
@@ -36,14 +36,14 @@ public final class QuickConnectQuickConnectConfigArgs extends com.pulumi.resourc
     }
 
     /**
-     * Specifies the queue configuration of the Quick Connect. This is required only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
+     * Specifies the queue configuration of the Quick Connect. This is required only if `quickConnectType` is `QUEUE`. The `queueConfig` block is documented below.
      * 
      */
     @Import(name="queueConfigs")
     private @Nullable Output<List<QuickConnectQuickConnectConfigQueueConfigArgs>> queueConfigs;
 
     /**
-     * @return Specifies the queue configuration of the Quick Connect. This is required only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
+     * @return Specifies the queue configuration of the Quick Connect. This is required only if `quickConnectType` is `QUEUE`. The `queueConfig` block is documented below.
      * 
      */
     public Optional<Output<List<QuickConnectQuickConnectConfigQueueConfigArgs>>> queueConfigs() {
@@ -66,14 +66,14 @@ public final class QuickConnectQuickConnectConfigArgs extends com.pulumi.resourc
     }
 
     /**
-     * Specifies the user configuration of the Quick Connect. This is required only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
+     * Specifies the user configuration of the Quick Connect. This is required only if `quickConnectType` is `USER`. The `userConfig` block is documented below.
      * 
      */
     @Import(name="userConfigs")
     private @Nullable Output<List<QuickConnectQuickConnectConfigUserConfigArgs>> userConfigs;
 
     /**
-     * @return Specifies the user configuration of the Quick Connect. This is required only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
+     * @return Specifies the user configuration of the Quick Connect. This is required only if `quickConnectType` is `USER`. The `userConfig` block is documented below.
      * 
      */
     public Optional<Output<List<QuickConnectQuickConnectConfigUserConfigArgs>>> userConfigs() {
@@ -108,7 +108,7 @@ public final class QuickConnectQuickConnectConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param phoneConfigs Specifies the phone configuration of the Quick Connect. This is required only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
+         * @param phoneConfigs Specifies the phone configuration of the Quick Connect. This is required only if `quickConnectType` is `PHONE_NUMBER`. The `phoneConfig` block is documented below.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class QuickConnectQuickConnectConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param phoneConfigs Specifies the phone configuration of the Quick Connect. This is required only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
+         * @param phoneConfigs Specifies the phone configuration of the Quick Connect. This is required only if `quickConnectType` is `PHONE_NUMBER`. The `phoneConfig` block is documented below.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class QuickConnectQuickConnectConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param phoneConfigs Specifies the phone configuration of the Quick Connect. This is required only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
+         * @param phoneConfigs Specifies the phone configuration of the Quick Connect. This is required only if `quickConnectType` is `PHONE_NUMBER`. The `phoneConfig` block is documented below.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class QuickConnectQuickConnectConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param queueConfigs Specifies the queue configuration of the Quick Connect. This is required only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
+         * @param queueConfigs Specifies the queue configuration of the Quick Connect. This is required only if `quickConnectType` is `QUEUE`. The `queueConfig` block is documented below.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class QuickConnectQuickConnectConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param queueConfigs Specifies the queue configuration of the Quick Connect. This is required only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
+         * @param queueConfigs Specifies the queue configuration of the Quick Connect. This is required only if `quickConnectType` is `QUEUE`. The `queueConfig` block is documented below.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class QuickConnectQuickConnectConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param queueConfigs Specifies the queue configuration of the Quick Connect. This is required only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
+         * @param queueConfigs Specifies the queue configuration of the Quick Connect. This is required only if `quickConnectType` is `QUEUE`. The `queueConfig` block is documented below.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class QuickConnectQuickConnectConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param userConfigs Specifies the user configuration of the Quick Connect. This is required only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
+         * @param userConfigs Specifies the user configuration of the Quick Connect. This is required only if `quickConnectType` is `USER`. The `userConfig` block is documented below.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class QuickConnectQuickConnectConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param userConfigs Specifies the user configuration of the Quick Connect. This is required only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
+         * @param userConfigs Specifies the user configuration of the Quick Connect. This is required only if `quickConnectType` is `USER`. The `userConfig` block is documented below.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class QuickConnectQuickConnectConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param userConfigs Specifies the user configuration of the Quick Connect. This is required only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
+         * @param userConfigs Specifies the user configuration of the Quick Connect. This is required only if `quickConnectType` is `USER`. The `userConfig` block is documented below.
          * 
          * @return builder
          * 

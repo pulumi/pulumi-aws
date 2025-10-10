@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Use the `aws_kendra_index_block_list` resource to manage an AWS Kendra block list used for query suggestions for an index.
+ * Use the `awsKendraIndexBlockList` resource to manage an AWS Kendra block list used for query suggestions for an index.
  * 
  * ## Example Usage
  * 
@@ -182,14 +182,14 @@ public class QuerySuggestionsBlockList extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider&#39;s default_tags configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider&#39;s defaultTags configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider&#39;s default_tags configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider&#39;s defaultTags configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

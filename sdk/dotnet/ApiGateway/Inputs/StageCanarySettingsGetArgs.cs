@@ -28,7 +28,7 @@ namespace Pulumi.Aws.ApiGateway.Inputs
         private InputMap<string>? _stageVariableOverrides;
 
         /// <summary>
-        /// Map of overridden stage `variables` (including new variables) for the canary deployment.
+        /// Map of overridden stage `Variables` (including new variables) for the canary deployment.
         /// </summary>
         public InputMap<string> StageVariableOverrides
         {

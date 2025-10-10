@@ -22,7 +22,7 @@ namespace Pulumi.Aws.ApiGateway.Outputs
         /// </summary>
         public readonly double? PercentTraffic;
         /// <summary>
-        /// Map of overridden stage `variables` (including new variables) for the canary deployment.
+        /// Map of overridden stage `Variables` (including new variables) for the canary deployment.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? StageVariableOverrides;
         /// <summary>

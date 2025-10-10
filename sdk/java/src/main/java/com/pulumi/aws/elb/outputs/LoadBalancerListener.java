@@ -37,7 +37,7 @@ public final class LoadBalancerListener {
     private String lbProtocol;
     /**
      * @return The ARN of an SSL certificate you have
-     * uploaded to AWS IAM. **Note ECDSA-specific restrictions below.  Only valid when `lb_protocol` is either HTTPS or SSL**
+     * uploaded to AWS IAM. **Note ECDSA-specific restrictions below.  Only valid when `lbProtocol` is either HTTPS or SSL**
      * 
      */
     private @Nullable String sslCertificateId;
@@ -75,7 +75,7 @@ public final class LoadBalancerListener {
     }
     /**
      * @return The ARN of an SSL certificate you have
-     * uploaded to AWS IAM. **Note ECDSA-specific restrictions below.  Only valid when `lb_protocol` is either HTTPS or SSL**
+     * uploaded to AWS IAM. **Note ECDSA-specific restrictions below.  Only valid when `lbProtocol` is either HTTPS or SSL**
      * 
      */
     public Optional<String> sslCertificateId() {

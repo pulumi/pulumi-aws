@@ -20,7 +20,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// <summary>
         /// The port on the container to associate with the load balancer. Defaults to `0` if not specified.
         /// 
-        /// &gt; **Note:** Specifying multiple `load_balancer` configurations is still not supported by AWS for ECS task set.
+        /// &gt; **Note:** Specifying multiple `LoadBalancer` configurations is still not supported by AWS for ECS task set.
         /// </summary>
         public readonly int? ContainerPort;
         /// <summary>

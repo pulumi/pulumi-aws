@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     public sealed class DomainDomainSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A collection of settings that configure the domain’s Docker interaction. see `docker_settings` Block below.
+        /// A collection of settings that configure the domain’s Docker interaction. see `DockerSettings` Block below.
         /// </summary>
         [Input("dockerSettings")]
         public Input<Inputs.DomainDomainSettingsDockerSettingsGetArgs>? DockerSettings { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string>? ExecutionRoleIdentityConfig { get; set; }
 
         /// <summary>
-        /// A collection of settings that configure the RStudioServerPro Domain-level app. see `r_studio_server_pro_domain_settings` Block below.
+        /// A collection of settings that configure the RStudioServerPro Domain-level app. see `RStudioServerProDomainSettings` Block below.
         /// </summary>
         [Input("rStudioServerProDomainSettings")]
         public Input<Inputs.DomainDomainSettingsRStudioServerProDomainSettingsGetArgs>? RStudioServerProDomainSettings { get; set; }

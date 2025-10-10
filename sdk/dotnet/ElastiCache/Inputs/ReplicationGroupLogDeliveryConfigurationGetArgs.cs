@@ -25,7 +25,7 @@ namespace Pulumi.Aws.ElastiCache.Inputs
         public Input<string> DestinationType { get; set; } = null!;
 
         /// <summary>
-        /// Valid values are `json` or `text`
+        /// Valid values are `Json` or `Text`
         /// </summary>
         [Input("logFormat", required: true)]
         public Input<string> LogFormat { get; set; } = null!;

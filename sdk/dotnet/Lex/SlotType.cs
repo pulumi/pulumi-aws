@@ -75,7 +75,7 @@ namespace Pulumi.Aws.Lex
 
         /// <summary>
         /// Determines if a new slot type version is created when the initial resource is created and on each
-        /// update. Defaults to `false`.
+        /// update. Defaults to `False`.
         /// </summary>
         [Output("createVersion")]
         public Output<bool?> CreateVersion { get; private set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.Lex
     {
         /// <summary>
         /// Determines if a new slot type version is created when the initial resource is created and on each
-        /// update. Defaults to `false`.
+        /// update. Defaults to `False`.
         /// </summary>
         [Input("createVersion")]
         public Input<bool>? CreateVersion { get; set; }
@@ -246,7 +246,7 @@ namespace Pulumi.Aws.Lex
 
         /// <summary>
         /// Determines if a new slot type version is created when the initial resource is created and on each
-        /// update. Defaults to `false`.
+        /// update. Defaults to `False`.
         /// </summary>
         [Input("createVersion")]
         public Input<bool>? CreateVersion { get; set; }

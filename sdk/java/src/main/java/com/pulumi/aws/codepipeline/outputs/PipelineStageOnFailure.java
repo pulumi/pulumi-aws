@@ -24,7 +24,7 @@ public final class PipelineStageOnFailure {
      */
     private @Nullable String result;
     /**
-     * @return The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retry_configuration` block below.
+     * @return The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retryConfiguration` block below.
      * 
      */
     private @Nullable PipelineStageOnFailureRetryConfiguration retryConfiguration;
@@ -45,7 +45,7 @@ public final class PipelineStageOnFailure {
         return Optional.ofNullable(this.result);
     }
     /**
-     * @return The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retry_configuration` block below.
+     * @return The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retryConfiguration` block below.
      * 
      */
     public Optional<PipelineStageOnFailureRetryConfiguration> retryConfiguration() {

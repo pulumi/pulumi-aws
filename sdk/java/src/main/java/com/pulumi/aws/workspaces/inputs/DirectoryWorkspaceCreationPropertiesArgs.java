@@ -62,14 +62,14 @@ public final class DirectoryWorkspaceCreationPropertiesArgs extends com.pulumi.r
     }
 
     /**
-     * Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
+     * Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspaceType` is set to `PERSONAL`.
      * 
      */
     @Import(name="enableMaintenanceMode")
     private @Nullable Output<Boolean> enableMaintenanceMode;
 
     /**
-     * @return Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
+     * @return Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspaceType` is set to `PERSONAL`.
      * 
      */
     public Optional<Output<Boolean>> enableMaintenanceMode() {
@@ -77,14 +77,14 @@ public final class DirectoryWorkspaceCreationPropertiesArgs extends com.pulumi.r
     }
 
     /**
-     * Indicates whether users are local administrators of their WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
+     * Indicates whether users are local administrators of their WorkSpaces. Valid only if `workspaceType` is set to `PERSONAL`.
      * 
      */
     @Import(name="userEnabledAsLocalAdministrator")
     private @Nullable Output<Boolean> userEnabledAsLocalAdministrator;
 
     /**
-     * @return Indicates whether users are local administrators of their WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
+     * @return Indicates whether users are local administrators of their WorkSpaces. Valid only if `workspaceType` is set to `PERSONAL`.
      * 
      */
     public Optional<Output<Boolean>> userEnabledAsLocalAdministrator() {
@@ -183,7 +183,7 @@ public final class DirectoryWorkspaceCreationPropertiesArgs extends com.pulumi.r
         }
 
         /**
-         * @param enableMaintenanceMode Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
+         * @param enableMaintenanceMode Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspaceType` is set to `PERSONAL`.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class DirectoryWorkspaceCreationPropertiesArgs extends com.pulumi.r
         }
 
         /**
-         * @param enableMaintenanceMode Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
+         * @param enableMaintenanceMode Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspaceType` is set to `PERSONAL`.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class DirectoryWorkspaceCreationPropertiesArgs extends com.pulumi.r
         }
 
         /**
-         * @param userEnabledAsLocalAdministrator Indicates whether users are local administrators of their WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
+         * @param userEnabledAsLocalAdministrator Indicates whether users are local administrators of their WorkSpaces. Valid only if `workspaceType` is set to `PERSONAL`.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class DirectoryWorkspaceCreationPropertiesArgs extends com.pulumi.r
         }
 
         /**
-         * @param userEnabledAsLocalAdministrator Indicates whether users are local administrators of their WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
+         * @param userEnabledAsLocalAdministrator Indicates whether users are local administrators of their WorkSpaces. Valid only if `workspaceType` is set to `PERSONAL`.
          * 
          * @return builder
          * 

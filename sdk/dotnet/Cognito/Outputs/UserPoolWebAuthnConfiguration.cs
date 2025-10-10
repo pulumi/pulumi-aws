@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Cognito.Outputs
         /// </summary>
         public readonly string? RelyingPartyId;
         /// <summary>
-        /// If your user pool should require a passkey. Must be one of `required` or `preferred`.
+        /// If your user pool should require a passkey. Must be one of `Required` or `Preferred`.
         /// </summary>
         public readonly string? UserVerification;
 

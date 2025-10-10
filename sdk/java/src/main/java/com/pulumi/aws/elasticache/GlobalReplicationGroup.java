@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  * However, once it is part of a Global Replication Group,
  * the Global Replication Group manages the version of all member replication groups.
  * 
- * The provider is configured to ignore changes to `engine`, `engine_version` and `parameter_group_name` inside `aws.elasticache.ReplicationGroup` resources if they belong to a global replication group.
+ * The provider is configured to ignore changes to `engine`, `engineVersion` and `parameterGroupName` inside `aws.elasticache.ReplicationGroup` resources if they belong to a global replication group.
  * 
  * In this example,
  * the primary replication group will be created with Redis 6.0,
@@ -249,7 +249,7 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * When creating, by default the Global Replication Group inherits the engine of the primary replication group.
      * If an engine is specified, the Global Replication Group and all member replication groups will be upgraded to this engine.
      * Valid values are `redis` or `valkey`.
-     * Default is `redis` if `engine_version` is specified.
+     * Default is `redis` if `engineVersion` is specified.
      * 
      */
     @Export(name="engine", refs={String.class}, tree="[0]")
@@ -260,7 +260,7 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * When creating, by default the Global Replication Group inherits the engine of the primary replication group.
      * If an engine is specified, the Global Replication Group and all member replication groups will be upgraded to this engine.
      * Valid values are `redis` or `valkey`.
-     * Default is `redis` if `engine_version` is specified.
+     * Default is `redis` if `engineVersion` is specified.
      * 
      */
     public Output<String> engine() {
@@ -274,7 +274,7 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
      * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
@@ -288,7 +288,7 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
      * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
      * 
      */
     public Output<String> engineVersion() {
@@ -353,14 +353,14 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
         return this.globalReplicationGroupId;
     }
     /**
-     * The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
+     * The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
      * 
      */
     @Export(name="globalReplicationGroupIdSuffix", refs={String.class}, tree="[0]")
     private Output<String> globalReplicationGroupIdSuffix;
 
     /**
-     * @return The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
+     * @return The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
      * 
      */
     public Output<String> globalReplicationGroupIdSuffix() {
@@ -401,14 +401,14 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.parameterGroupName);
     }
     /**
-     * The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
+     * The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
      * 
      */
     @Export(name="primaryReplicationGroupId", refs={String.class}, tree="[0]")
     private Output<String> primaryReplicationGroupId;
 
     /**
-     * @return The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
+     * @return The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
      * 
      */
     public Output<String> primaryReplicationGroupId() {

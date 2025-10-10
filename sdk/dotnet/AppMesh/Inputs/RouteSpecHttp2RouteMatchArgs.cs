@@ -62,7 +62,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         }
 
         /// <summary>
-        /// Client request header scheme to match on. Valid values: `http`, `https`.
+        /// Client request header scheme to match on. Valid values: `Http`, `Https`.
         /// </summary>
         [Input("scheme")]
         public Input<string>? Scheme { get; set; }

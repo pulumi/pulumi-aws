@@ -30,7 +30,7 @@ namespace Pulumi.Aws.CustomerProfiles.Outputs
         /// </summary>
         public readonly Outputs.DomainRuleBasedMatchingExportingConfig? ExportingConfig;
         /// <summary>
-        /// A block that configures how the rule-based matching process should match profiles. You can have up to 15 `rule` in the `natching_rules`. Documented below.
+        /// A block that configures how the rule-based matching process should match profiles. You can have up to 15 `Rule` in the `NatchingRules`. Documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DomainRuleBasedMatchingMatchingRule> MatchingRules;
         /// <summary>

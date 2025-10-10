@@ -90,11 +90,11 @@ namespace Pulumi.Aws.S3
     /// 
     /// ### Object Dependency On Versioning
     /// 
-    /// When you create an object whose `version_id` you need and an `aws.s3.BucketVersioning` resource in the same configuration, you are more likely to have success by ensuring the `s3_object` depends either implicitly (see below) or explicitly (i.e., using `depends_on = [aws_s3_bucket_versioning.example]`) on the `aws.s3.BucketVersioning` resource.
+    /// When you create an object whose `VersionId` you need and an `aws.s3.BucketVersioning` resource in the same configuration, you are more likely to have success by ensuring the `S3Object` depends either implicitly (see below) or explicitly (i.e., using `DependsOn = [aws_s3_bucket_versioning.example]`) on the `aws.s3.BucketVersioning` resource.
     /// 
     /// &gt; **NOTE:** For critical and/or production S3 objects, do not create a bucket, enable versioning, and create an object in the bucket within the same configuration. Doing so will not allow the AWS-recommended 15 minutes between enabling versioning and writing to the bucket.
     /// 
-    /// This example shows the `aws_s3_object.example` depending implicitly on the versioning resource through the reference to `aws_s3_bucket_versioning.example.bucket` to define `bucket`:
+    /// This example shows the `aws_s3_object.example` depending implicitly on the versioning resource through the reference to `aws_s3_bucket_versioning.example.bucket` to define `Bucket`:
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

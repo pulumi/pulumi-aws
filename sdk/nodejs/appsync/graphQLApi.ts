@@ -154,6 +154,8 @@ import * as utilities from "../utilities";
  * }});
  * ```
  *
+ * ### Associate Web ACL (v2)
+ *
  * ### GraphQL run complexity, query depth, and introspection
  *
  * ```typescript

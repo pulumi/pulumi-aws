@@ -33,14 +33,14 @@ public final class LoadBalancerAccessLogsArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Boolean to enable / disable `access_logs`. Defaults to `false`, even when `bucket` is specified.
+     * Boolean to enable / disable `accessLogs`. Defaults to `false`, even when `bucket` is specified.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Boolean to enable / disable `access_logs`. Defaults to `false`, even when `bucket` is specified.
+     * @return Boolean to enable / disable `accessLogs`. Defaults to `false`, even when `bucket` is specified.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -110,7 +110,7 @@ public final class LoadBalancerAccessLogsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param enabled Boolean to enable / disable `access_logs`. Defaults to `false`, even when `bucket` is specified.
+         * @param enabled Boolean to enable / disable `accessLogs`. Defaults to `false`, even when `bucket` is specified.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class LoadBalancerAccessLogsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param enabled Boolean to enable / disable `access_logs`. Defaults to `false`, even when `bucket` is specified.
+         * @param enabled Boolean to enable / disable `accessLogs`. Defaults to `false`, even when `bucket` is specified.
          * 
          * @return builder
          * 

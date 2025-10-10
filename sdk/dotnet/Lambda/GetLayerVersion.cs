@@ -460,13 +460,13 @@ namespace Pulumi.Aws.Lambda
     public sealed class GetLayerVersionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specific architecture the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
+        /// Specific architecture the layer version must support. Conflicts with `Version`. If specified, the latest available layer version supporting the provided architecture will be used.
         /// </summary>
         [Input("compatibleArchitecture")]
         public string? CompatibleArchitecture { get; set; }
 
         /// <summary>
-        /// Specific runtime the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided runtime will be used.
+        /// Specific runtime the layer version must support. Conflicts with `Version`. If specified, the latest available layer version supporting the provided runtime will be used.
         /// </summary>
         [Input("compatibleRuntime")]
         public string? CompatibleRuntime { get; set; }
@@ -486,7 +486,7 @@ namespace Pulumi.Aws.Lambda
         public string? Region { get; set; }
 
         /// <summary>
-        /// Specific layer version. Conflicts with `compatible_runtime` and `compatible_architecture`. If omitted, the latest available layer version will be used.
+        /// Specific layer version. Conflicts with `CompatibleRuntime` and `CompatibleArchitecture`. If omitted, the latest available layer version will be used.
         /// </summary>
         [Input("version")]
         public int? Version { get; set; }
@@ -500,13 +500,13 @@ namespace Pulumi.Aws.Lambda
     public sealed class GetLayerVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specific architecture the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
+        /// Specific architecture the layer version must support. Conflicts with `Version`. If specified, the latest available layer version supporting the provided architecture will be used.
         /// </summary>
         [Input("compatibleArchitecture")]
         public Input<string>? CompatibleArchitecture { get; set; }
 
         /// <summary>
-        /// Specific runtime the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided runtime will be used.
+        /// Specific runtime the layer version must support. Conflicts with `Version`. If specified, the latest available layer version supporting the provided runtime will be used.
         /// </summary>
         [Input("compatibleRuntime")]
         public Input<string>? CompatibleRuntime { get; set; }
@@ -526,7 +526,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Specific layer version. Conflicts with `compatible_runtime` and `compatible_architecture`. If omitted, the latest available layer version will be used.
+        /// Specific layer version. Conflicts with `CompatibleRuntime` and `CompatibleArchitecture`. If omitted, the latest available layer version will be used.
         /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }
@@ -590,7 +590,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string SigningProfileVersionArn;
         /// <summary>
-        /// (**Deprecated** use `code_sha256` instead) Base64-encoded representation of raw SHA-256 sum of the zip file.
+        /// (**Deprecated** use `CodeSha256` instead) Base64-encoded representation of raw SHA-256 sum of the zip file.
         /// </summary>
         public readonly string SourceCodeHash;
         /// <summary>

@@ -135,6 +135,8 @@ import (
 //
 // ```
 //
+// ### Multi-variant Feature Flags
+//
 // ## Import
 //
 // Using `pulumi import`, import AppConfig Hosted Configuration Versions using the application ID, configuration profile ID, and version number separated by a slash (`/`). For example:

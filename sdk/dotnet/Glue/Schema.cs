@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Glue
         public Output<int> SchemaCheckpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The schema definition using the `data_format` setting for `schema_name`.
+        /// The schema definition using the `DataFormat` setting for `SchemaName`.
         /// </summary>
         [Output("schemaDefinition")]
         public Output<string> SchemaDefinition { get; private set; } = null!;
@@ -124,13 +124,13 @@ namespace Pulumi.Aws.Glue
         public Output<string> SchemaName { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -212,7 +212,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? RegistryArn { get; set; }
 
         /// <summary>
-        /// The schema definition using the `data_format` setting for `schema_name`.
+        /// The schema definition using the `DataFormat` setting for `SchemaName`.
         /// </summary>
         [Input("schemaDefinition", required: true)]
         public Input<string> SchemaDefinition { get; set; } = null!;
@@ -227,7 +227,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -304,7 +304,7 @@ namespace Pulumi.Aws.Glue
         public Input<int>? SchemaCheckpoint { get; set; }
 
         /// <summary>
-        /// The schema definition using the `data_format` setting for `schema_name`.
+        /// The schema definition using the `DataFormat` setting for `SchemaName`.
         /// </summary>
         [Input("schemaDefinition")]
         public Input<string>? SchemaDefinition { get; set; }
@@ -319,7 +319,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -331,7 +331,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

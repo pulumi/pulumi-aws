@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement {
     /**
-     * @return Settings related to idle shutdown of Studio applications. See `idle_settings` Block below.
+     * @return Settings related to idle shutdown of Studio applications. See `idleSettings` Block below.
      * 
      */
     private @Nullable SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings idleSettings;
 
     private SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement() {}
     /**
-     * @return Settings related to idle shutdown of Studio applications. See `idle_settings` Block below.
+     * @return Settings related to idle shutdown of Studio applications. See `idleSettings` Block below.
      * 
      */
     public Optional<SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings> idleSettings() {

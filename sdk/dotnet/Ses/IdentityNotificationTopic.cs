@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Ses
         public Output<string> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Whether SES should include original email headers in SNS notifications of this type. `false` by default.
+        /// Whether SES should include original email headers in SNS notifications of this type. `False` by default.
         /// </summary>
         [Output("includeOriginalHeaders")]
         public Output<bool?> IncludeOriginalHeaders { get; private set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.Ses
         public Input<string> Identity { get; set; } = null!;
 
         /// <summary>
-        /// Whether SES should include original email headers in SNS notifications of this type. `false` by default.
+        /// Whether SES should include original email headers in SNS notifications of this type. `False` by default.
         /// </summary>
         [Input("includeOriginalHeaders")]
         public Input<bool>? IncludeOriginalHeaders { get; set; }
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.Ses
         public Input<string>? Identity { get; set; }
 
         /// <summary>
-        /// Whether SES should include original email headers in SNS notifications of this type. `false` by default.
+        /// Whether SES should include original email headers in SNS notifications of this type. `False` by default.
         /// </summary>
         [Input("includeOriginalHeaders")]
         public Input<bool>? IncludeOriginalHeaders { get; set; }

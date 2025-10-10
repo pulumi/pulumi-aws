@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Limit search to users with *explicit* launch
-        /// permission on  the image. Valid items are the numeric account ID or `self`.
+        /// permission on  the image. Valid items are the numeric account ID or `Self`.
         /// </summary>
         public List<string> ExecutableUsers
         {
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// If true, all deprecated AMIs are included in the response.
-        /// If false, no deprecated AMIs are included in the response. If no value is specified, the default value is `false`.
+        /// If false, no deprecated AMIs are included in the response. If no value is specified, the default value is `False`.
         /// </summary>
         [Input("includeDeprecated")]
         public bool? IncludeDeprecated { get; set; }
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.Ec2
         private List<string>? _owners;
 
         /// <summary>
-        /// List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
+        /// List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `Self` (the current account), or an AWS owner alias (e.g., `Amazon`, `aws-marketplace`, `Microsoft`).
         /// </summary>
         public List<string> Owners
         {
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Used to sort AMIs by creation time.
-        /// If no value is specified, the default value is `false`.
+        /// If no value is specified, the default value is `False`.
         /// </summary>
         [Input("sortAscending")]
         public bool? SortAscending { get; set; }
@@ -211,7 +211,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Limit search to users with *explicit* launch
-        /// permission on  the image. Valid items are the numeric account ID or `self`.
+        /// permission on  the image. Valid items are the numeric account ID or `Self`.
         /// </summary>
         public InputList<string> ExecutableUsers
         {
@@ -235,7 +235,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// If true, all deprecated AMIs are included in the response.
-        /// If false, no deprecated AMIs are included in the response. If no value is specified, the default value is `false`.
+        /// If false, no deprecated AMIs are included in the response. If no value is specified, the default value is `False`.
         /// </summary>
         [Input("includeDeprecated")]
         public Input<bool>? IncludeDeprecated { get; set; }
@@ -254,7 +254,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _owners;
 
         /// <summary>
-        /// List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
+        /// List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `Self` (the current account), or an AWS owner alias (e.g., `Amazon`, `aws-marketplace`, `Microsoft`).
         /// </summary>
         public InputList<string> Owners
         {
@@ -270,7 +270,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Used to sort AMIs by creation time.
-        /// If no value is specified, the default value is `false`.
+        /// If no value is specified, the default value is `False`.
         /// </summary>
         [Input("sortAscending")]
         public Input<bool>? SortAscending { get; set; }
@@ -292,7 +292,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// is set to the list of AMI IDs, sorted by creation time according to `sort_ascending`.
+        /// is set to the list of AMI IDs, sorted by creation time according to `SortAscending`.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly bool? IncludeDeprecated;

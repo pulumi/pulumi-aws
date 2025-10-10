@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Route53.Outputs
         public readonly int? Bias;
         /// <summary>
         /// Coordinates for a geoproximity resource record.
-        /// See `coordinates` below.
+        /// See `Coordinates` below.
         /// </summary>
         public readonly Outputs.RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates? Coordinates;
         /// <summary>

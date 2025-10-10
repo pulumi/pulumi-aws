@@ -25,42 +25,42 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
      */
     private @Nullable V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditional failureConditional;
     /**
-     * @return Configuration block for the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed . See `failure_next_step`.
+     * @return Configuration block for the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed . See `failureNextStep`.
      * 
      */
     private @Nullable V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStep failureNextStep;
     /**
-     * @return Configuration block for message groups that Amazon Lex uses to respond the user input. See `failure_response`.
+     * @return Configuration block for message groups that Amazon Lex uses to respond the user input. See `failureResponse`.
      * 
      */
     private @Nullable V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponse failureResponse;
     /**
-     * @return Configuration block for conditional branches to evaluate after the dialog code hook finishes successfully. See `success_conditional`.
+     * @return Configuration block for conditional branches to evaluate after the dialog code hook finishes successfully. See `successConditional`.
      * 
      */
     private @Nullable V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditional successConditional;
     /**
-     * @return Configuration block for the next step the bot runs after the dialog code hook finishes successfully. See `success_next_step`.
+     * @return Configuration block for the next step the bot runs after the dialog code hook finishes successfully. See `successNextStep`.
      * 
      */
     private @Nullable V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStep successNextStep;
     /**
-     * @return Configuration block for message groups that Amazon Lex uses to respond the user input. See `success_response`.
+     * @return Configuration block for message groups that Amazon Lex uses to respond the user input. See `successResponse`.
      * 
      */
     private @Nullable V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponse successResponse;
     /**
-     * @return Configuration block for conditional branches to evaluate if the code hook times out. See `timeout_conditional`.
+     * @return Configuration block for conditional branches to evaluate if the code hook times out. See `timeoutConditional`.
      * 
      */
     private @Nullable V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditional timeoutConditional;
     /**
-     * @return Configuration block for the next step that the bot runs when the code hook times out. See `timeout_next_step`.
+     * @return Configuration block for the next step that the bot runs when the code hook times out. See `timeoutNextStep`.
      * 
      */
     private @Nullable V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStep timeoutNextStep;
     /**
-     * @return Configuration block for a list of message groups that Amazon Lex uses to respond the user input. See `timeout_response`.
+     * @return Configuration block for a list of message groups that Amazon Lex uses to respond the user input. See `timeoutResponse`.
      * 
      */
     private @Nullable V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponse timeoutResponse;
@@ -74,56 +74,56 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
         return Optional.ofNullable(this.failureConditional);
     }
     /**
-     * @return Configuration block for the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed . See `failure_next_step`.
+     * @return Configuration block for the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed . See `failureNextStep`.
      * 
      */
     public Optional<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStep> failureNextStep() {
         return Optional.ofNullable(this.failureNextStep);
     }
     /**
-     * @return Configuration block for message groups that Amazon Lex uses to respond the user input. See `failure_response`.
+     * @return Configuration block for message groups that Amazon Lex uses to respond the user input. See `failureResponse`.
      * 
      */
     public Optional<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponse> failureResponse() {
         return Optional.ofNullable(this.failureResponse);
     }
     /**
-     * @return Configuration block for conditional branches to evaluate after the dialog code hook finishes successfully. See `success_conditional`.
+     * @return Configuration block for conditional branches to evaluate after the dialog code hook finishes successfully. See `successConditional`.
      * 
      */
     public Optional<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditional> successConditional() {
         return Optional.ofNullable(this.successConditional);
     }
     /**
-     * @return Configuration block for the next step the bot runs after the dialog code hook finishes successfully. See `success_next_step`.
+     * @return Configuration block for the next step the bot runs after the dialog code hook finishes successfully. See `successNextStep`.
      * 
      */
     public Optional<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStep> successNextStep() {
         return Optional.ofNullable(this.successNextStep);
     }
     /**
-     * @return Configuration block for message groups that Amazon Lex uses to respond the user input. See `success_response`.
+     * @return Configuration block for message groups that Amazon Lex uses to respond the user input. See `successResponse`.
      * 
      */
     public Optional<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponse> successResponse() {
         return Optional.ofNullable(this.successResponse);
     }
     /**
-     * @return Configuration block for conditional branches to evaluate if the code hook times out. See `timeout_conditional`.
+     * @return Configuration block for conditional branches to evaluate if the code hook times out. See `timeoutConditional`.
      * 
      */
     public Optional<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditional> timeoutConditional() {
         return Optional.ofNullable(this.timeoutConditional);
     }
     /**
-     * @return Configuration block for the next step that the bot runs when the code hook times out. See `timeout_next_step`.
+     * @return Configuration block for the next step that the bot runs when the code hook times out. See `timeoutNextStep`.
      * 
      */
     public Optional<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStep> timeoutNextStep() {
         return Optional.ofNullable(this.timeoutNextStep);
     }
     /**
-     * @return Configuration block for a list of message groups that Amazon Lex uses to respond the user input. See `timeout_response`.
+     * @return Configuration block for a list of message groups that Amazon Lex uses to respond the user input. See `timeoutResponse`.
      * 
      */
     public Optional<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponse> timeoutResponse() {

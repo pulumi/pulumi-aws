@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CodePipeline.Inputs
     public sealed class PipelineTriggerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `git_configuration` block is documented below.
+        /// Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `GitConfiguration` block is documented below.
         /// </summary>
         [Input("gitConfiguration", required: true)]
         public Input<Inputs.PipelineTriggerGitConfigurationArgs> GitConfiguration { get; set; } = null!;

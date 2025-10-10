@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagement {
     /**
-     * @return Settings related to idle shutdown of Studio applications. see `idle_settings` Block below.
+     * @return Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
      * 
      */
     private @Nullable UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings idleSettings;
 
     private UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagement() {}
     /**
-     * @return Settings related to idle shutdown of Studio applications. see `idle_settings` Block below.
+     * @return Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
      * 
      */
     public Optional<UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings> idleSettings() {

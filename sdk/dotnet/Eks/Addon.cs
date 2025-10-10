@@ -31,9 +31,9 @@ namespace Pulumi.Aws.Eks
     /// });
     /// ```
     /// 
-    /// ## Example Update add-on usage with resolve_conflicts_on_update and PRESERVE
+    /// ## Example Update add-on usage with ResolveConflictsOnUpdate and PRESERVE
     /// 
-    /// `resolve_conflicts_on_update` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
+    /// `ResolveConflictsOnUpdate` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -54,16 +54,16 @@ namespace Pulumi.Aws.Eks
     /// });
     /// ```
     /// 
-    /// ## Example add-on usage with custom configuration_values
+    /// ## Example add-on usage with custom ConfigurationValues
     /// 
-    /// Custom add-on configuration can be passed using `configuration_values` as a single JSON string while creating or updating the add-on.
+    /// Custom add-on configuration can be passed using `ConfigurationValues` as a single JSON string while creating or updating the add-on.
     /// 
-    /// &gt; **Note:** `configuration_values` is a single JSON string should match the valid JSON schema for each add-on with specific version.
+    /// &gt; **Note:** `ConfigurationValues` is a single JSON string should match the valid JSON schema for each add-on with specific version.
     /// 
     /// You can use [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html) to extract each add-on's JSON schema.
-    /// Here's an example command to extract the `configuration_values` schema for `coredns`.
+    /// Here's an example command to extract the `ConfigurationValues` schema for `Coredns`.
     /// 
-    /// Example to create a `coredns` managed addon with custom `configuration_values`.
+    /// Example to create a `Coredns` managed addon with custom `ConfigurationValues`.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -160,7 +160,7 @@ namespace Pulumi.Aws.Eks
         public Output<string> ModifiedAt { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
+        /// Configuration block with EKS Pod Identity association settings. See `PodIdentityAssociation` below for details.
         /// </summary>
         [Output("podIdentityAssociations")]
         public Output<ImmutableArray<Outputs.AddonPodIdentityAssociation>> PodIdentityAssociations { get; private set; } = null!;
@@ -206,13 +206,13 @@ namespace Pulumi.Aws.Eks
         public Output<string?> ServiceAccountRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
+        /// (Optional) Key-value map of resource tags, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -295,7 +295,7 @@ namespace Pulumi.Aws.Eks
         private InputList<Inputs.AddonPodIdentityAssociationArgs>? _podIdentityAssociations;
 
         /// <summary>
-        /// Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
+        /// Configuration block with EKS Pod Identity association settings. See `PodIdentityAssociation` below for details.
         /// </summary>
         public InputList<Inputs.AddonPodIdentityAssociationArgs> PodIdentityAssociations
         {
@@ -347,7 +347,7 @@ namespace Pulumi.Aws.Eks
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -413,7 +413,7 @@ namespace Pulumi.Aws.Eks
         private InputList<Inputs.AddonPodIdentityAssociationGetArgs>? _podIdentityAssociations;
 
         /// <summary>
-        /// Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
+        /// Configuration block with EKS Pod Identity association settings. See `PodIdentityAssociation` below for details.
         /// </summary>
         public InputList<Inputs.AddonPodIdentityAssociationGetArgs> PodIdentityAssociations
         {
@@ -465,7 +465,7 @@ namespace Pulumi.Aws.Eks
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -477,7 +477,7 @@ namespace Pulumi.Aws.Eks
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
+        /// (Optional) Key-value map of resource tags, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

@@ -16,14 +16,14 @@ public final class AccessPointRootDirectoryCreationInfoArgs extends com.pulumi.r
     public static final AccessPointRootDirectoryCreationInfoArgs Empty = new AccessPointRootDirectoryCreationInfoArgs();
 
     /**
-     * POSIX group ID to apply to the `root_directory`.
+     * POSIX group ID to apply to the `rootDirectory`.
      * 
      */
     @Import(name="ownerGid", required=true)
     private Output<Integer> ownerGid;
 
     /**
-     * @return POSIX group ID to apply to the `root_directory`.
+     * @return POSIX group ID to apply to the `rootDirectory`.
      * 
      */
     public Output<Integer> ownerGid() {
@@ -31,14 +31,14 @@ public final class AccessPointRootDirectoryCreationInfoArgs extends com.pulumi.r
     }
 
     /**
-     * POSIX user ID to apply to the `root_directory`.
+     * POSIX user ID to apply to the `rootDirectory`.
      * 
      */
     @Import(name="ownerUid", required=true)
     private Output<Integer> ownerUid;
 
     /**
-     * @return POSIX user ID to apply to the `root_directory`.
+     * @return POSIX user ID to apply to the `rootDirectory`.
      * 
      */
     public Output<Integer> ownerUid() {
@@ -87,7 +87,7 @@ public final class AccessPointRootDirectoryCreationInfoArgs extends com.pulumi.r
         }
 
         /**
-         * @param ownerGid POSIX group ID to apply to the `root_directory`.
+         * @param ownerGid POSIX group ID to apply to the `rootDirectory`.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class AccessPointRootDirectoryCreationInfoArgs extends com.pulumi.r
         }
 
         /**
-         * @param ownerGid POSIX group ID to apply to the `root_directory`.
+         * @param ownerGid POSIX group ID to apply to the `rootDirectory`.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class AccessPointRootDirectoryCreationInfoArgs extends com.pulumi.r
         }
 
         /**
-         * @param ownerUid POSIX user ID to apply to the `root_directory`.
+         * @param ownerUid POSIX user ID to apply to the `rootDirectory`.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class AccessPointRootDirectoryCreationInfoArgs extends com.pulumi.r
         }
 
         /**
-         * @param ownerUid POSIX user ID to apply to the `root_directory`.
+         * @param ownerUid POSIX user ID to apply to the `rootDirectory`.
          * 
          * @return builder
          * 

@@ -48,14 +48,14 @@ public final class ProxyDefaultTargetGroupConnectionPoolConfigArgs extends com.p
     }
 
     /**
-     * The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the max_connections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+     * The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
      * 
      */
     @Import(name="maxConnectionsPercent")
     private @Nullable Output<Integer> maxConnectionsPercent;
 
     /**
-     * @return The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the max_connections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+     * @return The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
      * 
      */
     public Optional<Output<Integer>> maxConnectionsPercent() {
@@ -63,14 +63,14 @@ public final class ProxyDefaultTargetGroupConnectionPoolConfigArgs extends com.p
     }
 
     /**
-     * Controls how actively the proxy closes idle database connections in the connection pool. A high value enables the proxy to leave a high percentage of idle connections open. A low value causes the proxy to close idle client connections and return the underlying database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the max_connections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+     * Controls how actively the proxy closes idle database connections in the connection pool. A high value enables the proxy to leave a high percentage of idle connections open. A low value causes the proxy to close idle client connections and return the underlying database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
      * 
      */
     @Import(name="maxIdleConnectionsPercent")
     private @Nullable Output<Integer> maxIdleConnectionsPercent;
 
     /**
-     * @return Controls how actively the proxy closes idle database connections in the connection pool. A high value enables the proxy to leave a high percentage of idle connections open. A low value causes the proxy to close idle client connections and return the underlying database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the max_connections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+     * @return Controls how actively the proxy closes idle database connections in the connection pool. A high value enables the proxy to leave a high percentage of idle connections open. A low value causes the proxy to close idle client connections and return the underlying database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
      * 
      */
     public Optional<Output<Integer>> maxIdleConnectionsPercent() {
@@ -163,7 +163,7 @@ public final class ProxyDefaultTargetGroupConnectionPoolConfigArgs extends com.p
         }
 
         /**
-         * @param maxConnectionsPercent The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the max_connections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+         * @param maxConnectionsPercent The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class ProxyDefaultTargetGroupConnectionPoolConfigArgs extends com.p
         }
 
         /**
-         * @param maxConnectionsPercent The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the max_connections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+         * @param maxConnectionsPercent The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class ProxyDefaultTargetGroupConnectionPoolConfigArgs extends com.p
         }
 
         /**
-         * @param maxIdleConnectionsPercent Controls how actively the proxy closes idle database connections in the connection pool. A high value enables the proxy to leave a high percentage of idle connections open. A low value causes the proxy to close idle client connections and return the underlying database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the max_connections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+         * @param maxIdleConnectionsPercent Controls how actively the proxy closes idle database connections in the connection pool. A high value enables the proxy to leave a high percentage of idle connections open. A low value causes the proxy to close idle client connections and return the underlying database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class ProxyDefaultTargetGroupConnectionPoolConfigArgs extends com.p
         }
 
         /**
-         * @param maxIdleConnectionsPercent Controls how actively the proxy closes idle database connections in the connection pool. A high value enables the proxy to leave a high percentage of idle connections open. A low value causes the proxy to close idle client connections and return the underlying database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the max_connections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+         * @param maxIdleConnectionsPercent Controls how actively the proxy closes idle database connections in the connection pool. A high value enables the proxy to leave a high percentage of idle connections open. A low value causes the proxy to close idle client connections and return the underlying database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
          * 
          * @return builder
          * 
