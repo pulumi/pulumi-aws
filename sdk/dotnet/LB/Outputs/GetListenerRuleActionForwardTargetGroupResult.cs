@@ -15,7 +15,7 @@ namespace Pulumi.Aws.LB.Outputs
     {
         /// <summary>
         /// ARN of the Listener Rule.
-        /// Either `arn` or `listener_arn` must be set.
+        /// Either `Arn` or `ListenerArn` must be set.
         /// </summary>
         public readonly string Arn;
         /// <summary>

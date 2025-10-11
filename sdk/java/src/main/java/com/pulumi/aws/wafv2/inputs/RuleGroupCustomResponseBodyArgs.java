@@ -45,14 +45,14 @@ public final class RuleGroupCustomResponseBodyArgs extends com.pulumi.resources.
     }
 
     /**
-     * A unique key identifying the custom response body. This is referenced by the `custom_response_body_key` argument in the Custom Response block.
+     * A unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the Custom Response block.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return A unique key identifying the custom response body. This is referenced by the `custom_response_body_key` argument in the Custom Response block.
+     * @return A unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the Custom Response block.
      * 
      */
     public Output<String> key() {
@@ -128,7 +128,7 @@ public final class RuleGroupCustomResponseBodyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param key A unique key identifying the custom response body. This is referenced by the `custom_response_body_key` argument in the Custom Response block.
+         * @param key A unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the Custom Response block.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class RuleGroupCustomResponseBodyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param key A unique key identifying the custom response body. This is referenced by the `custom_response_body_key` argument in the Custom Response block.
+         * @param key A unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the Custom Response block.
          * 
          * @return builder
          * 

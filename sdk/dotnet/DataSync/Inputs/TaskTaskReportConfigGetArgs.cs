@@ -25,13 +25,13 @@ namespace Pulumi.Aws.DataSync.Inputs
         public Input<string>? ReportLevel { get; set; }
 
         /// <summary>
-        /// Configuration block containing the configuration of the reporting level for aspects of your task report. See `report_overrides` below.
+        /// Configuration block containing the configuration of the reporting level for aspects of your task report. See `ReportOverrides` below.
         /// </summary>
         [Input("reportOverrides")]
         public Input<Inputs.TaskTaskReportConfigReportOverridesGetArgs>? ReportOverrides { get; set; }
 
         /// <summary>
-        /// Configuration block containing the configuration for the Amazon S3 bucket where DataSync uploads your task report. See `s3_destination` below.
+        /// Configuration block containing the configuration for the Amazon S3 bucket where DataSync uploads your task report. See `S3Destination` below.
         /// </summary>
         [Input("s3Destination", required: true)]
         public Input<Inputs.TaskTaskReportConfigS3DestinationGetArgs> S3Destination { get; set; } = null!;

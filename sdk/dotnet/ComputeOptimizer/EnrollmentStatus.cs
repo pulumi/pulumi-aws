@@ -42,7 +42,7 @@ namespace Pulumi.Aws.ComputeOptimizer
     public partial class EnrollmentStatus : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
+        /// Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `False`.
         /// </summary>
         [Output("includeMemberAccounts")]
         public Output<bool> IncludeMemberAccounts { get; private set; } = null!;
@@ -115,7 +115,7 @@ namespace Pulumi.Aws.ComputeOptimizer
     public sealed class EnrollmentStatusArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
+        /// Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `False`.
         /// </summary>
         [Input("includeMemberAccounts")]
         public Input<bool>? IncludeMemberAccounts { get; set; }
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.ComputeOptimizer
     public sealed class EnrollmentStatusState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
+        /// Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `False`.
         /// </summary>
         [Input("includeMemberAccounts")]
         public Input<bool>? IncludeMemberAccounts { get; set; }

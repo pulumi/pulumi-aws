@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
 /**
  * Resource for managing an AWS DataZone Project.
  * 
+ * ## Example Usage
+ * 
  * ### Basic Usage
  * 
  * <pre>

@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig {
     /**
-     * @return Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user&#39;s requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `session_stickiness_config`.
+     * @return Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user&#39;s requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `sessionStickinessConfig`.
      * 
      */
     private @Nullable ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig sessionStickinessConfig;
@@ -26,7 +26,7 @@ public final class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig {
 
     private ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig() {}
     /**
-     * @return Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user&#39;s requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `session_stickiness_config`.
+     * @return Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user&#39;s requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `sessionStickinessConfig`.
      * 
      */
     public Optional<ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig> sessionStickinessConfig() {

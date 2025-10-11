@@ -39,14 +39,14 @@ public final class UserProfileUserSettingsCanvasAppSettingsArgs extends com.pulu
     }
 
     /**
-     * The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emr_serverless_settings` Block below.
+     * The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emrServerlessSettings` Block below.
      * 
      */
     @Import(name="emrServerlessSettings")
     private @Nullable Output<UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs> emrServerlessSettings;
 
     /**
-     * @return The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emr_serverless_settings` Block below.
+     * @return The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emrServerlessSettings` Block below.
      * 
      */
     public Optional<Output<UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs>> emrServerlessSettings() {
@@ -188,7 +188,7 @@ public final class UserProfileUserSettingsCanvasAppSettingsArgs extends com.pulu
         }
 
         /**
-         * @param emrServerlessSettings The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emr_serverless_settings` Block below.
+         * @param emrServerlessSettings The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emrServerlessSettings` Block below.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class UserProfileUserSettingsCanvasAppSettingsArgs extends com.pulu
         }
 
         /**
-         * @param emrServerlessSettings The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emr_serverless_settings` Block below.
+         * @param emrServerlessSettings The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emrServerlessSettings` Block below.
          * 
          * @return builder
          * 

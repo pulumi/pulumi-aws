@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class InstanceLaunchTemplateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of the launch template. Conflicts with `name`.
+        /// ID of the launch template. Conflicts with `Name`.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Name of the launch template. Conflicts with `id`.
+        /// Name of the launch template. Conflicts with `Id`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

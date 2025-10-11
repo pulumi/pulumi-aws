@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string> DeviceName { get; set; } = null!;
 
         /// <summary>
-        /// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        /// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `SnapshotId`.
         /// </summary>
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
@@ -41,35 +41,35 @@ namespace Pulumi.Aws.Ec2.Inputs
         /// <summary>
         /// ARN of the Outpost on which the snapshot is stored.
         /// 
-        /// &gt; **Note:** You can specify `encrypted` or `snapshot_id` but not both.
+        /// &gt; **Note:** You can specify `Encrypted` or `SnapshotId` but not both.
         /// </summary>
         [Input("outpostArn")]
         public Input<string>? OutpostArn { get; set; }
 
         /// <summary>
         /// ID of an EBS snapshot that will be used to initialize the created
-        /// EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
+        /// EBS volumes. If set, the `VolumeSize` attribute must be at least as large as the referenced
         /// snapshot.
         /// </summary>
         [Input("snapshotId")]
         public Input<string>? SnapshotId { get; set; }
 
         /// <summary>
-        /// Throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
+        /// Throughput that the EBS volume supports, in MiB/s. Only valid for `VolumeType` of `Gp3`.
         /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
 
         /// <summary>
         /// Size of created volumes in GiB.
-        /// If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
+        /// If `SnapshotId` is set and `VolumeSize` is omitted then the volume will have the same size
         /// as the selected snapshot.
         /// </summary>
         [Input("volumeSize")]
         public Input<int>? VolumeSize { get; set; }
 
         /// <summary>
-        /// Type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
+        /// Type of EBS volume to create. Can be `Standard`, `Gp2`, `Gp3`, `Io1`, `Io2`, `Sc1` or `St1` (Default: `Standard`).
         /// </summary>
         [Input("volumeType")]
         public Input<string>? VolumeType { get; set; }

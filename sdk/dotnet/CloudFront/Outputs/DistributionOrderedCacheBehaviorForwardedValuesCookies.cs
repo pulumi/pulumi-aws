@@ -14,11 +14,11 @@ namespace Pulumi.Aws.CloudFront.Outputs
     public sealed class DistributionOrderedCacheBehaviorForwardedValuesCookies
     {
         /// <summary>
-        /// Whether you want CloudFront to forward cookies to the origin that is associated with this cache behavior. You can specify `all`, `none` or `whitelist`. If `whitelist`, you must include the subsequent `whitelisted_names`.
+        /// Whether you want CloudFront to forward cookies to the origin that is associated with this cache behavior. You can specify `All`, `None` or `Whitelist`. If `Whitelist`, you must include the subsequent `WhitelistedNames`.
         /// </summary>
         public readonly string Forward;
         /// <summary>
-        /// If you have specified `whitelist` to `forward`, the whitelisted cookies that you want CloudFront to forward to your origin.
+        /// If you have specified `Whitelist` to `Forward`, the whitelisted cookies that you want CloudFront to forward to your origin.
         /// </summary>
         public readonly ImmutableArray<string> WhitelistedNames;
 

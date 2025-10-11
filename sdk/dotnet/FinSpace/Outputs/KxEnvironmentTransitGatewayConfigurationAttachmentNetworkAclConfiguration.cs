@@ -30,7 +30,7 @@ namespace Pulumi.Aws.FinSpace.Outputs
         /// </summary>
         public readonly string Protocol;
         /// <summary>
-        /// Indicates whether to `allow` or `deny` the traffic that matches the rule.
+        /// Indicates whether to `Allow` or `Deny` the traffic that matches the rule.
         /// </summary>
         public readonly string RuleAction;
         /// <summary>

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class LaunchTemplateIamInstanceProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
+        /// The Amazon Resource Name (ARN) of the instance profile. Conflicts with `Name`.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -18,14 +18,14 @@ public final class GetCoreNetworkPolicyDocumentSegment extends com.pulumi.resour
     public static final GetCoreNetworkPolicyDocumentSegment Empty = new GetCoreNetworkPolicyDocumentSegment();
 
     /**
-     * List of strings of segment names that explicitly allows only routes from the segments that are listed in the array. Use the `allow_filter` setting if a segment has a well-defined group of other segments that connectivity should be restricted to. It is applied after routes have been shared in `segment_actions`. If a segment is listed in `allow_filter`, attachments between the two segments will have routes if they are also shared in the segment-actions area. For example, you might have a segment named &#34;video-producer&#34; that should only ever share routes with a &#34;video-distributor&#34; segment, no matter how many other share statements are created.
+     * List of strings of segment names that explicitly allows only routes from the segments that are listed in the array. Use the `allowFilter` setting if a segment has a well-defined group of other segments that connectivity should be restricted to. It is applied after routes have been shared in `segmentActions`. If a segment is listed in `allowFilter`, attachments between the two segments will have routes if they are also shared in the segment-actions area. For example, you might have a segment named &#34;video-producer&#34; that should only ever share routes with a &#34;video-distributor&#34; segment, no matter how many other share statements are created.
      * 
      */
     @Import(name="allowFilters")
     private @Nullable List<String> allowFilters;
 
     /**
-     * @return List of strings of segment names that explicitly allows only routes from the segments that are listed in the array. Use the `allow_filter` setting if a segment has a well-defined group of other segments that connectivity should be restricted to. It is applied after routes have been shared in `segment_actions`. If a segment is listed in `allow_filter`, attachments between the two segments will have routes if they are also shared in the segment-actions area. For example, you might have a segment named &#34;video-producer&#34; that should only ever share routes with a &#34;video-distributor&#34; segment, no matter how many other share statements are created.
+     * @return List of strings of segment names that explicitly allows only routes from the segments that are listed in the array. Use the `allowFilter` setting if a segment has a well-defined group of other segments that connectivity should be restricted to. It is applied after routes have been shared in `segmentActions`. If a segment is listed in `allowFilter`, attachments between the two segments will have routes if they are also shared in the segment-actions area. For example, you might have a segment named &#34;video-producer&#34; that should only ever share routes with a &#34;video-distributor&#34; segment, no matter how many other share statements are created.
      * 
      */
     public Optional<List<String>> allowFilters() {
@@ -33,14 +33,14 @@ public final class GetCoreNetworkPolicyDocumentSegment extends com.pulumi.resour
     }
 
     /**
-     * An array of segments that disallows routes from the segments listed in the array. It is applied only after routes have been shared in `segment_actions`. If a segment is listed in the `deny_filter`, attachments between the two segments will never have routes shared across them. For example, you might have a &#34;financial&#34; payment segment that should never share routes with a &#34;development&#34; segment, regardless of how many other share statements are created. Adding the payments segment to the deny-filter parameter prevents any shared routes from being created with other segments.
+     * An array of segments that disallows routes from the segments listed in the array. It is applied only after routes have been shared in `segmentActions`. If a segment is listed in the `denyFilter`, attachments between the two segments will never have routes shared across them. For example, you might have a &#34;financial&#34; payment segment that should never share routes with a &#34;development&#34; segment, regardless of how many other share statements are created. Adding the payments segment to the deny-filter parameter prevents any shared routes from being created with other segments.
      * 
      */
     @Import(name="denyFilters")
     private @Nullable List<String> denyFilters;
 
     /**
-     * @return An array of segments that disallows routes from the segments listed in the array. It is applied only after routes have been shared in `segment_actions`. If a segment is listed in the `deny_filter`, attachments between the two segments will never have routes shared across them. For example, you might have a &#34;financial&#34; payment segment that should never share routes with a &#34;development&#34; segment, regardless of how many other share statements are created. Adding the payments segment to the deny-filter parameter prevents any shared routes from being created with other segments.
+     * @return An array of segments that disallows routes from the segments listed in the array. It is applied only after routes have been shared in `segmentActions`. If a segment is listed in the `denyFilter`, attachments between the two segments will never have routes shared across them. For example, you might have a &#34;financial&#34; payment segment that should never share routes with a &#34;development&#34; segment, regardless of how many other share statements are created. Adding the payments segment to the deny-filter parameter prevents any shared routes from being created with other segments.
      * 
      */
     public Optional<List<String>> denyFilters() {
@@ -63,14 +63,14 @@ public final class GetCoreNetworkPolicyDocumentSegment extends com.pulumi.resour
     }
 
     /**
-     * A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edge_locations` in the `core_network_configuration`.
+     * A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edgeLocations` in the `coreNetworkConfiguration`.
      * 
      */
     @Import(name="edgeLocations")
     private @Nullable List<String> edgeLocations;
 
     /**
-     * @return A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edge_locations` in the `core_network_configuration`.
+     * @return A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edgeLocations` in the `coreNetworkConfiguration`.
      * 
      */
     public Optional<List<String>> edgeLocations() {
@@ -108,14 +108,14 @@ public final class GetCoreNetworkPolicyDocumentSegment extends com.pulumi.resour
     }
 
     /**
-     * This Boolean setting determines whether attachment requests are automatically approved or require acceptance. The default is `true`, indicating that attachment requests require acceptance. For example, you might use this setting to allow a &#34;sandbox&#34; segment to allow any attachment request so that a core network or attachment administrator does not need to review and approve attachment requests. In this example, `require_attachment_acceptance` is set to `false`.
+     * This Boolean setting determines whether attachment requests are automatically approved or require acceptance. The default is `true`, indicating that attachment requests require acceptance. For example, you might use this setting to allow a &#34;sandbox&#34; segment to allow any attachment request so that a core network or attachment administrator does not need to review and approve attachment requests. In this example, `requireAttachmentAcceptance` is set to `false`.
      * 
      */
     @Import(name="requireAttachmentAcceptance")
     private @Nullable Boolean requireAttachmentAcceptance;
 
     /**
-     * @return This Boolean setting determines whether attachment requests are automatically approved or require acceptance. The default is `true`, indicating that attachment requests require acceptance. For example, you might use this setting to allow a &#34;sandbox&#34; segment to allow any attachment request so that a core network or attachment administrator does not need to review and approve attachment requests. In this example, `require_attachment_acceptance` is set to `false`.
+     * @return This Boolean setting determines whether attachment requests are automatically approved or require acceptance. The default is `true`, indicating that attachment requests require acceptance. For example, you might use this setting to allow a &#34;sandbox&#34; segment to allow any attachment request so that a core network or attachment administrator does not need to review and approve attachment requests. In this example, `requireAttachmentAcceptance` is set to `false`.
      * 
      */
     public Optional<Boolean> requireAttachmentAcceptance() {
@@ -153,7 +153,7 @@ public final class GetCoreNetworkPolicyDocumentSegment extends com.pulumi.resour
         }
 
         /**
-         * @param allowFilters List of strings of segment names that explicitly allows only routes from the segments that are listed in the array. Use the `allow_filter` setting if a segment has a well-defined group of other segments that connectivity should be restricted to. It is applied after routes have been shared in `segment_actions`. If a segment is listed in `allow_filter`, attachments between the two segments will have routes if they are also shared in the segment-actions area. For example, you might have a segment named &#34;video-producer&#34; that should only ever share routes with a &#34;video-distributor&#34; segment, no matter how many other share statements are created.
+         * @param allowFilters List of strings of segment names that explicitly allows only routes from the segments that are listed in the array. Use the `allowFilter` setting if a segment has a well-defined group of other segments that connectivity should be restricted to. It is applied after routes have been shared in `segmentActions`. If a segment is listed in `allowFilter`, attachments between the two segments will have routes if they are also shared in the segment-actions area. For example, you might have a segment named &#34;video-producer&#34; that should only ever share routes with a &#34;video-distributor&#34; segment, no matter how many other share statements are created.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class GetCoreNetworkPolicyDocumentSegment extends com.pulumi.resour
         }
 
         /**
-         * @param allowFilters List of strings of segment names that explicitly allows only routes from the segments that are listed in the array. Use the `allow_filter` setting if a segment has a well-defined group of other segments that connectivity should be restricted to. It is applied after routes have been shared in `segment_actions`. If a segment is listed in `allow_filter`, attachments between the two segments will have routes if they are also shared in the segment-actions area. For example, you might have a segment named &#34;video-producer&#34; that should only ever share routes with a &#34;video-distributor&#34; segment, no matter how many other share statements are created.
+         * @param allowFilters List of strings of segment names that explicitly allows only routes from the segments that are listed in the array. Use the `allowFilter` setting if a segment has a well-defined group of other segments that connectivity should be restricted to. It is applied after routes have been shared in `segmentActions`. If a segment is listed in `allowFilter`, attachments between the two segments will have routes if they are also shared in the segment-actions area. For example, you might have a segment named &#34;video-producer&#34; that should only ever share routes with a &#34;video-distributor&#34; segment, no matter how many other share statements are created.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class GetCoreNetworkPolicyDocumentSegment extends com.pulumi.resour
         }
 
         /**
-         * @param denyFilters An array of segments that disallows routes from the segments listed in the array. It is applied only after routes have been shared in `segment_actions`. If a segment is listed in the `deny_filter`, attachments between the two segments will never have routes shared across them. For example, you might have a &#34;financial&#34; payment segment that should never share routes with a &#34;development&#34; segment, regardless of how many other share statements are created. Adding the payments segment to the deny-filter parameter prevents any shared routes from being created with other segments.
+         * @param denyFilters An array of segments that disallows routes from the segments listed in the array. It is applied only after routes have been shared in `segmentActions`. If a segment is listed in the `denyFilter`, attachments between the two segments will never have routes shared across them. For example, you might have a &#34;financial&#34; payment segment that should never share routes with a &#34;development&#34; segment, regardless of how many other share statements are created. Adding the payments segment to the deny-filter parameter prevents any shared routes from being created with other segments.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class GetCoreNetworkPolicyDocumentSegment extends com.pulumi.resour
         }
 
         /**
-         * @param denyFilters An array of segments that disallows routes from the segments listed in the array. It is applied only after routes have been shared in `segment_actions`. If a segment is listed in the `deny_filter`, attachments between the two segments will never have routes shared across them. For example, you might have a &#34;financial&#34; payment segment that should never share routes with a &#34;development&#34; segment, regardless of how many other share statements are created. Adding the payments segment to the deny-filter parameter prevents any shared routes from being created with other segments.
+         * @param denyFilters An array of segments that disallows routes from the segments listed in the array. It is applied only after routes have been shared in `segmentActions`. If a segment is listed in the `denyFilter`, attachments between the two segments will never have routes shared across them. For example, you might have a &#34;financial&#34; payment segment that should never share routes with a &#34;development&#34; segment, regardless of how many other share statements are created. Adding the payments segment to the deny-filter parameter prevents any shared routes from being created with other segments.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class GetCoreNetworkPolicyDocumentSegment extends com.pulumi.resour
         }
 
         /**
-         * @param edgeLocations A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edge_locations` in the `core_network_configuration`.
+         * @param edgeLocations A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edgeLocations` in the `coreNetworkConfiguration`.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class GetCoreNetworkPolicyDocumentSegment extends com.pulumi.resour
         }
 
         /**
-         * @param edgeLocations A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edge_locations` in the `core_network_configuration`.
+         * @param edgeLocations A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edgeLocations` in the `coreNetworkConfiguration`.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class GetCoreNetworkPolicyDocumentSegment extends com.pulumi.resour
         }
 
         /**
-         * @param requireAttachmentAcceptance This Boolean setting determines whether attachment requests are automatically approved or require acceptance. The default is `true`, indicating that attachment requests require acceptance. For example, you might use this setting to allow a &#34;sandbox&#34; segment to allow any attachment request so that a core network or attachment administrator does not need to review and approve attachment requests. In this example, `require_attachment_acceptance` is set to `false`.
+         * @param requireAttachmentAcceptance This Boolean setting determines whether attachment requests are automatically approved or require acceptance. The default is `true`, indicating that attachment requests require acceptance. For example, you might use this setting to allow a &#34;sandbox&#34; segment to allow any attachment request so that a core network or attachment administrator does not need to review and approve attachment requests. In this example, `requireAttachmentAcceptance` is set to `false`.
          * 
          * @return builder
          * 

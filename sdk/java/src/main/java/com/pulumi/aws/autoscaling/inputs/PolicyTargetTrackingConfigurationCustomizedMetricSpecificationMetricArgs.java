@@ -19,14 +19,14 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
     public static final PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs Empty = new PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs();
 
     /**
-     * Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
+     * Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
      * 
      */
     @Import(name="expression")
     private @Nullable Output<String> expression;
 
     /**
-     * @return Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
+     * @return Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
      * 
      */
     public Optional<Output<String>> expression() {
@@ -64,14 +64,14 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
     }
 
     /**
-     * Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metric_stat`, but not both.
+     * Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metricStat`, but not both.
      * 
      */
     @Import(name="metricStat")
     private @Nullable Output<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs> metricStat;
 
     /**
-     * @return Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metric_stat`, but not both.
+     * @return Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metricStat`, but not both.
      * 
      */
     public Optional<Output<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs>> metricStat() {
@@ -122,7 +122,7 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
         }
 
         /**
-         * @param expression Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
+         * @param expression Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
         }
 
         /**
-         * @param expression Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
+         * @param expression Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
         }
 
         /**
-         * @param metricStat Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metric_stat`, but not both.
+         * @param metricStat Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metricStat`, but not both.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
         }
 
         /**
-         * @param metricStat Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metric_stat`, but not both.
+         * @param metricStat Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metricStat`, but not both.
          * 
          * @return builder
          * 

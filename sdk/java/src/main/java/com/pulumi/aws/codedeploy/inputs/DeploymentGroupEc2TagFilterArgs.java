@@ -48,7 +48,7 @@ public final class DeploymentGroupEc2TagFilterArgs extends com.pulumi.resources.
     /**
      * The value of the tag filter.
      * 
-     * Multiple occurrences of `ec2_tag_filter` are allowed, where any instance that matches to at least one of the tag filters is selected.
+     * Multiple occurrences of `ec2TagFilter` are allowed, where any instance that matches to at least one of the tag filters is selected.
      * 
      */
     @Import(name="value")
@@ -57,7 +57,7 @@ public final class DeploymentGroupEc2TagFilterArgs extends com.pulumi.resources.
     /**
      * @return The value of the tag filter.
      * 
-     * Multiple occurrences of `ec2_tag_filter` are allowed, where any instance that matches to at least one of the tag filters is selected.
+     * Multiple occurrences of `ec2TagFilter` are allowed, where any instance that matches to at least one of the tag filters is selected.
      * 
      */
     public Optional<Output<String>> value() {
@@ -135,7 +135,7 @@ public final class DeploymentGroupEc2TagFilterArgs extends com.pulumi.resources.
         /**
          * @param value The value of the tag filter.
          * 
-         * Multiple occurrences of `ec2_tag_filter` are allowed, where any instance that matches to at least one of the tag filters is selected.
+         * Multiple occurrences of `ec2TagFilter` are allowed, where any instance that matches to at least one of the tag filters is selected.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class DeploymentGroupEc2TagFilterArgs extends com.pulumi.resources.
         /**
          * @param value The value of the tag filter.
          * 
-         * Multiple occurrences of `ec2_tag_filter` are allowed, where any instance that matches to at least one of the tag filters is selected.
+         * Multiple occurrences of `ec2TagFilter` are allowed, where any instance that matches to at least one of the tag filters is selected.
          * 
          * @return builder
          * 

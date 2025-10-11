@@ -45,7 +45,7 @@ public final class RuleGroupRule {
      */
     private @Nullable List<RuleGroupRuleRuleLabel> ruleLabels;
     /**
-     * @return The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See Statement below for details.
+     * @return The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
      * 
      */
     private RuleGroupRuleStatement statement;
@@ -92,7 +92,7 @@ public final class RuleGroupRule {
         return this.ruleLabels == null ? List.of() : this.ruleLabels;
     }
     /**
-     * @return The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See Statement below for details.
+     * @return The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
      * 
      */
     public RuleGroupRuleStatement statement() {

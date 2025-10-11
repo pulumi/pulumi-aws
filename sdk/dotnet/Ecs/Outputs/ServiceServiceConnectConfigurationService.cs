@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ecs.Outputs
     public sealed class ServiceServiceConnectConfigurationService
     {
         /// <summary>
-        /// List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. For each service block where enabled is true, exactly one `client_alias` with one `port` should be specified. See below.
+        /// List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. For each service block where enabled is true, exactly one `ClientAlias` with one `Port` should be specified. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceServiceConnectConfigurationServiceClientAlias> ClientAlias;
         /// <summary>

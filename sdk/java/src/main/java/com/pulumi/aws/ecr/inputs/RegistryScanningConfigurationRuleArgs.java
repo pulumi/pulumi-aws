@@ -17,14 +17,14 @@ public final class RegistryScanningConfigurationRuleArgs extends com.pulumi.reso
     public static final RegistryScanningConfigurationRuleArgs Empty = new RegistryScanningConfigurationRuleArgs();
 
     /**
-     * One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filter_type` (required string, currently only `WILDCARD` is supported).
+     * One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filterType` (required string, currently only `WILDCARD` is supported).
      * 
      */
     @Import(name="repositoryFilters", required=true)
     private Output<List<RegistryScanningConfigurationRuleRepositoryFilterArgs>> repositoryFilters;
 
     /**
-     * @return One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filter_type` (required string, currently only `WILDCARD` is supported).
+     * @return One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filterType` (required string, currently only `WILDCARD` is supported).
      * 
      */
     public Output<List<RegistryScanningConfigurationRuleRepositoryFilterArgs>> repositoryFilters() {
@@ -72,7 +72,7 @@ public final class RegistryScanningConfigurationRuleArgs extends com.pulumi.reso
         }
 
         /**
-         * @param repositoryFilters One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filter_type` (required string, currently only `WILDCARD` is supported).
+         * @param repositoryFilters One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filterType` (required string, currently only `WILDCARD` is supported).
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class RegistryScanningConfigurationRuleArgs extends com.pulumi.reso
         }
 
         /**
-         * @param repositoryFilters One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filter_type` (required string, currently only `WILDCARD` is supported).
+         * @param repositoryFilters One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filterType` (required string, currently only `WILDCARD` is supported).
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class RegistryScanningConfigurationRuleArgs extends com.pulumi.reso
         }
 
         /**
-         * @param repositoryFilters One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filter_type` (required string, currently only `WILDCARD` is supported).
+         * @param repositoryFilters One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filterType` (required string, currently only `WILDCARD` is supported).
          * 
          * @return builder
          * 

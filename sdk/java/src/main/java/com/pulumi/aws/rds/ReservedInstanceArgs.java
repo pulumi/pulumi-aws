@@ -34,7 +34,7 @@ public final class ReservedInstanceArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `aws.rds.getReservedInstanceOffering` data source.
+     * ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `aws.rds.getReservedInstanceOffering` data source.
      * 
      * The following arguments are optional:
      * 
@@ -43,7 +43,7 @@ public final class ReservedInstanceArgs extends com.pulumi.resources.ResourceArg
     private Output<String> offeringId;
 
     /**
-     * @return ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `aws.rds.getReservedInstanceOffering` data source.
+     * @return ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `aws.rds.getReservedInstanceOffering` data source.
      * 
      * The following arguments are optional:
      * 
@@ -83,14 +83,14 @@ public final class ReservedInstanceArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -147,7 +147,7 @@ public final class ReservedInstanceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param offeringId ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `aws.rds.getReservedInstanceOffering` data source.
+         * @param offeringId ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `aws.rds.getReservedInstanceOffering` data source.
          * 
          * The following arguments are optional:
          * 
@@ -160,7 +160,7 @@ public final class ReservedInstanceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param offeringId ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `aws.rds.getReservedInstanceOffering` data source.
+         * @param offeringId ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `aws.rds.getReservedInstanceOffering` data source.
          * 
          * The following arguments are optional:
          * 
@@ -214,7 +214,7 @@ public final class ReservedInstanceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class ReservedInstanceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

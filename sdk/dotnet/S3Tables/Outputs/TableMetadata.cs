@@ -15,7 +15,7 @@ namespace Pulumi.Aws.S3Tables.Outputs
     {
         /// <summary>
         /// Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format.
-        /// See `iceberg` below.
+        /// See `Iceberg` below.
         /// </summary>
         public readonly Outputs.TableMetadataIceberg Iceberg;
 

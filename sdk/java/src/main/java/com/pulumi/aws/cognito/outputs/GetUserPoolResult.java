@@ -24,8 +24,8 @@ public final class GetUserPoolResult {
     private List<GetUserPoolAdminCreateUserConfig> adminCreateUserConfigs;
     /**
      * @return ARN of the User Pool.
-     * * account_recovery_setting - The available verified method a user can use to recover their password when they call ForgotPassword. You can use this setting to define a preferred method when a user has more than one method available. With this setting, SMS doesn&#39;t qualify for a valid password recovery mechanism if the user also has SMS multi-factor authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy behavior to determine the recovery method where SMS is preferred through email.
-     * * admin_create_user_config - The configuration for AdminCreateUser requests.
+     * * accountRecoverySetting - The available verified method a user can use to recover their password when they call ForgotPassword. You can use this setting to define a preferred method when a user has more than one method available. With this setting, SMS doesn&#39;t qualify for a valid password recovery mechanism if the user also has SMS multi-factor authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy behavior to determine the recovery method where SMS is preferred through email.
+     * * adminCreateUserConfig - The configuration for AdminCreateUser requests.
      * 
      */
     private String arn;
@@ -46,21 +46,21 @@ public final class GetUserPoolResult {
     private String customDomain;
     /**
      * @return When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature.
-     * * device_configuration - The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.
+     * * deviceConfiguration - The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.
      * 
      */
     private String deletionProtection;
     private List<GetUserPoolDeviceConfiguration> deviceConfigurations;
     /**
      * @return The domain prefix, if the user pool has a domain associated with it.
-     * * email_configuration - The email configuration of your user pool. The email configuration type sets your preferred sending method, AWS Region, and sender for messages from your user pool.
+     * * emailConfiguration - The email configuration of your user pool. The email configuration type sets your preferred sending method, AWS Region, and sender for messages from your user pool.
      * 
      */
     private String domain;
     private List<GetUserPoolEmailConfiguration> emailConfigurations;
     /**
      * @return A number estimating the size of the user pool.
-     * * lambda_config - The AWS Lambda triggers associated with the user pool.
+     * * lambdaConfig - The AWS Lambda triggers associated with the user pool.
      * 
      */
     private Integer estimatedNumberOfUsers;
@@ -100,7 +100,7 @@ public final class GetUserPoolResult {
     private String smsVerificationMessage;
     /**
      * @return Map of tags assigned to the resource.
-     * * user_pool_add_ons - The user pool add-ons configuration.
+     * * userPoolAddOns - The user pool add-ons configuration.
      * 
      */
     private Map<String,String> tags;
@@ -130,8 +130,8 @@ public final class GetUserPoolResult {
     }
     /**
      * @return ARN of the User Pool.
-     * * account_recovery_setting - The available verified method a user can use to recover their password when they call ForgotPassword. You can use this setting to define a preferred method when a user has more than one method available. With this setting, SMS doesn&#39;t qualify for a valid password recovery mechanism if the user also has SMS multi-factor authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy behavior to determine the recovery method where SMS is preferred through email.
-     * * admin_create_user_config - The configuration for AdminCreateUser requests.
+     * * accountRecoverySetting - The available verified method a user can use to recover their password when they call ForgotPassword. You can use this setting to define a preferred method when a user has more than one method available. With this setting, SMS doesn&#39;t qualify for a valid password recovery mechanism if the user also has SMS multi-factor authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy behavior to determine the recovery method where SMS is preferred through email.
+     * * adminCreateUserConfig - The configuration for AdminCreateUser requests.
      * 
      */
     public String arn() {
@@ -160,7 +160,7 @@ public final class GetUserPoolResult {
     }
     /**
      * @return When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature.
-     * * device_configuration - The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.
+     * * deviceConfiguration - The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.
      * 
      */
     public String deletionProtection() {
@@ -171,7 +171,7 @@ public final class GetUserPoolResult {
     }
     /**
      * @return The domain prefix, if the user pool has a domain associated with it.
-     * * email_configuration - The email configuration of your user pool. The email configuration type sets your preferred sending method, AWS Region, and sender for messages from your user pool.
+     * * emailConfiguration - The email configuration of your user pool. The email configuration type sets your preferred sending method, AWS Region, and sender for messages from your user pool.
      * 
      */
     public String domain() {
@@ -182,7 +182,7 @@ public final class GetUserPoolResult {
     }
     /**
      * @return A number estimating the size of the user pool.
-     * * lambda_config - The AWS Lambda triggers associated with the user pool.
+     * * lambdaConfig - The AWS Lambda triggers associated with the user pool.
      * 
      */
     public Integer estimatedNumberOfUsers() {
@@ -244,7 +244,7 @@ public final class GetUserPoolResult {
     }
     /**
      * @return Map of tags assigned to the resource.
-     * * user_pool_add_ons - The user pool add-ons configuration.
+     * * userPoolAddOns - The user pool add-ons configuration.
      * 
      */
     public Map<String,String> tags() {

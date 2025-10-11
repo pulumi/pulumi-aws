@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Msk.Outputs
         /// </summary>
         public readonly string? ClientBroker;
         /// <summary>
-        /// Whether data communication among broker nodes is encrypted. Default value: `true`.
+        /// Whether data communication among broker nodes is encrypted. Default value: `True`.
         /// </summary>
         public readonly bool? InCluster;
 

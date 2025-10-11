@@ -22,7 +22,7 @@ namespace Pulumi.Aws.CodePipeline.Inputs
         private Input<string>? _secretToken;
 
         /// <summary>
-        /// The shared secret for the GitHub repository webhook. Set this as `secret` in your `github_repository_webhook`'s `configuration` block. Required for `GITHUB_HMAC`.
+        /// The shared secret for the GitHub repository webhook. Set this as `Secret` in your `GithubRepositoryWebhook`'s `Configuration` block. Required for `GITHUB_HMAC`.
         /// </summary>
         public Input<string>? SecretToken
         {

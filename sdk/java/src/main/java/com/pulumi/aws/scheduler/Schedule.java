@@ -231,14 +231,14 @@ public class Schedule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.kmsKeyArn);
     }
     /**
-     * Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * @return Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     public Output<String> name() {

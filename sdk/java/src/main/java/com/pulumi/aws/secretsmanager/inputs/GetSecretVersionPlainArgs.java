@@ -46,14 +46,14 @@ public final class GetSecretVersionPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `version_stage`.
+     * Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `versionStage`.
      * 
      */
     @Import(name="versionId")
     private @Nullable String versionId;
 
     /**
-     * @return Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `version_stage`.
+     * @return Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `versionStage`.
      * 
      */
     public Optional<String> versionId() {
@@ -125,7 +125,7 @@ public final class GetSecretVersionPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param versionId Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `version_stage`.
+         * @param versionId Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `versionStage`.
          * 
          * @return builder
          * 

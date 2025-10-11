@@ -13,7 +13,7 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Details about your login page password field. See `password_field` for more details.
+        /// Details about your login page password field. See `PasswordField` for more details.
         /// </summary>
         [Input("passwordField", required: true)]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs> PasswordField { get; set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<string> PayloadType { get; set; } = null!;
 
         /// <summary>
-        /// Details about your login page username field. See `username_field` for more details.
+        /// Details about your login page username field. See `UsernameField` for more details.
         /// </summary>
         [Input("usernameField", required: true)]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs> UsernameField { get; set; } = null!;

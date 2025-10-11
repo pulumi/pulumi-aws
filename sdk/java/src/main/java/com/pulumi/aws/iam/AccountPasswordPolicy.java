@@ -86,14 +86,14 @@ public class AccountPasswordPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.allowUsersToChangePassword);
     }
     /**
-     * Indicates whether passwords in the account expire. Returns `true` if `max_password_age` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
+     * Indicates whether passwords in the account expire. Returns `true` if `maxPasswordAge` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
      * 
      */
     @Export(name="expirePasswords", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> expirePasswords;
 
     /**
-     * @return Indicates whether passwords in the account expire. Returns `true` if `max_password_age` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
+     * @return Indicates whether passwords in the account expire. Returns `true` if `maxPasswordAge` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
      * 
      */
     public Output<Boolean> expirePasswords() {

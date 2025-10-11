@@ -26,7 +26,7 @@ public final class V2modelsIntentInitialResponseSettingConditionalConditionalBra
      */
     private String name;
     /**
-     * @return Configuration block for the next step in the conversation. See `next_step`.
+     * @return Configuration block for the next step in the conversation. See `nextStep`.
      * 
      */
     private V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStep nextStep;
@@ -52,7 +52,7 @@ public final class V2modelsIntentInitialResponseSettingConditionalConditionalBra
         return this.name;
     }
     /**
-     * @return Configuration block for the next step in the conversation. See `next_step`.
+     * @return Configuration block for the next step in the conversation. See `nextStep`.
      * 
      */
     public V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStep nextStep() {

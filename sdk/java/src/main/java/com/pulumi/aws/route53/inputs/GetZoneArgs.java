@@ -51,8 +51,8 @@ public final class GetZoneArgs extends com.pulumi.resources.InvokeArgs {
      * Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
      * 
      * The arguments of this data source act as filters for querying the available
-     * Hosted Zone. You have to use `zone_id` or `name`, not both of them. The given filter must match exactly one
-     * Hosted Zone. If you use `name` field for private Hosted Zone, you need to add `private_zone` field to `true`.
+     * Hosted Zone. You have to use `zoneId` or `name`, not both of them. The given filter must match exactly one
+     * Hosted Zone. If you use `name` field for private Hosted Zone, you need to add `privateZone` field to `true`.
      * 
      */
     @Import(name="tags")
@@ -62,8 +62,8 @@ public final class GetZoneArgs extends com.pulumi.resources.InvokeArgs {
      * @return Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
      * 
      * The arguments of this data source act as filters for querying the available
-     * Hosted Zone. You have to use `zone_id` or `name`, not both of them. The given filter must match exactly one
-     * Hosted Zone. If you use `name` field for private Hosted Zone, you need to add `private_zone` field to `true`.
+     * Hosted Zone. You have to use `zoneId` or `name`, not both of them. The given filter must match exactly one
+     * Hosted Zone. If you use `name` field for private Hosted Zone, you need to add `privateZone` field to `true`.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -71,14 +71,14 @@ public final class GetZoneArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Used with `name` field to get a private Hosted Zone associated with the vpc_id (in this case, private_zone is not mandatory).
+     * Used with `name` field to get a private Hosted Zone associated with the vpcId (in this case, privateZone is not mandatory).
      * 
      */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return Used with `name` field to get a private Hosted Zone associated with the vpc_id (in this case, private_zone is not mandatory).
+     * @return Used with `name` field to get a private Hosted Zone associated with the vpcId (in this case, privateZone is not mandatory).
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -174,8 +174,8 @@ public final class GetZoneArgs extends com.pulumi.resources.InvokeArgs {
          * @param tags Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
          * 
          * The arguments of this data source act as filters for querying the available
-         * Hosted Zone. You have to use `zone_id` or `name`, not both of them. The given filter must match exactly one
-         * Hosted Zone. If you use `name` field for private Hosted Zone, you need to add `private_zone` field to `true`.
+         * Hosted Zone. You have to use `zoneId` or `name`, not both of them. The given filter must match exactly one
+         * Hosted Zone. If you use `name` field for private Hosted Zone, you need to add `privateZone` field to `true`.
          * 
          * @return builder
          * 
@@ -189,8 +189,8 @@ public final class GetZoneArgs extends com.pulumi.resources.InvokeArgs {
          * @param tags Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
          * 
          * The arguments of this data source act as filters for querying the available
-         * Hosted Zone. You have to use `zone_id` or `name`, not both of them. The given filter must match exactly one
-         * Hosted Zone. If you use `name` field for private Hosted Zone, you need to add `private_zone` field to `true`.
+         * Hosted Zone. You have to use `zoneId` or `name`, not both of them. The given filter must match exactly one
+         * Hosted Zone. If you use `name` field for private Hosted Zone, you need to add `privateZone` field to `true`.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class GetZoneArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param vpcId Used with `name` field to get a private Hosted Zone associated with the vpc_id (in this case, private_zone is not mandatory).
+         * @param vpcId Used with `name` field to get a private Hosted Zone associated with the vpcId (in this case, privateZone is not mandatory).
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class GetZoneArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param vpcId Used with `name` field to get a private Hosted Zone associated with the vpc_id (in this case, private_zone is not mandatory).
+         * @param vpcId Used with `name` field to get a private Hosted Zone associated with the vpcId (in this case, privateZone is not mandatory).
          * 
          * @return builder
          * 

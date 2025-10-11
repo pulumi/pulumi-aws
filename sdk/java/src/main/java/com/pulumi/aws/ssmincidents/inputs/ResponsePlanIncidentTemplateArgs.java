@@ -66,14 +66,14 @@ public final class ResponsePlanIncidentTemplateArgs extends com.pulumi.resources
     }
 
     /**
-     * The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:
+     * The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notificationTarget` configuration block supports the following argument:
      * 
      */
     @Import(name="notificationTargets")
     private @Nullable Output<List<ResponsePlanIncidentTemplateNotificationTargetArgs>> notificationTargets;
 
     /**
-     * @return The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:
+     * @return The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notificationTarget` configuration block supports the following argument:
      * 
      */
     public Optional<Output<List<ResponsePlanIncidentTemplateNotificationTargetArgs>>> notificationTargets() {
@@ -203,7 +203,7 @@ public final class ResponsePlanIncidentTemplateArgs extends com.pulumi.resources
         }
 
         /**
-         * @param notificationTargets The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:
+         * @param notificationTargets The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notificationTarget` configuration block supports the following argument:
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class ResponsePlanIncidentTemplateArgs extends com.pulumi.resources
         }
 
         /**
-         * @param notificationTargets The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:
+         * @param notificationTargets The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notificationTarget` configuration block supports the following argument:
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class ResponsePlanIncidentTemplateArgs extends com.pulumi.resources
         }
 
         /**
-         * @param notificationTargets The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:
+         * @param notificationTargets The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notificationTarget` configuration block supports the following argument:
          * 
          * @return builder
          * 

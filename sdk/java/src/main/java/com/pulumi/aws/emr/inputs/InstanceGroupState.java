@@ -172,14 +172,14 @@ public final class InstanceGroupState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="ebsConfigs")
     private @Nullable Output<List<InstanceGroupEbsConfigArgs>> ebsConfigs;
 
     /**
-     * @return One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<InstanceGroupEbsConfigArgs>>> ebsConfigs() {
@@ -503,7 +503,7 @@ public final class InstanceGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param ebsConfigs One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
+         * @param ebsConfigs One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -514,7 +514,7 @@ public final class InstanceGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param ebsConfigs One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
+         * @param ebsConfigs One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -524,7 +524,7 @@ public final class InstanceGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param ebsConfigs One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
+         * @param ebsConfigs One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Signer
         public Output<string> StatementId { get; private set; } = null!;
 
         /// <summary>
-        /// A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statement_id`.
+        /// A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `StatementId`.
         /// </summary>
         [Output("statementIdPrefix")]
         public Output<string> StatementIdPrefix { get; private set; } = null!;
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.Signer
         public Input<string>? StatementId { get; set; }
 
         /// <summary>
-        /// A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statement_id`.
+        /// A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `StatementId`.
         /// </summary>
         [Input("statementIdPrefix")]
         public Input<string>? StatementIdPrefix { get; set; }
@@ -251,7 +251,7 @@ namespace Pulumi.Aws.Signer
         public Input<string>? StatementId { get; set; }
 
         /// <summary>
-        /// A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statement_id`.
+        /// A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `StatementId`.
         /// </summary>
         [Input("statementIdPrefix")]
         public Input<string>? StatementIdPrefix { get; set; }

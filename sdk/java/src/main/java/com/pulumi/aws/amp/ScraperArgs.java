@@ -67,14 +67,14 @@ public final class ScraperArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
+     * Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
      * 
      */
     @Import(name="roleConfiguration")
     private @Nullable Output<ScraperRoleConfigurationArgs> roleConfiguration;
 
     /**
-     * @return Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
+     * @return Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
      * 
      */
     public Optional<Output<ScraperRoleConfigurationArgs>> roleConfiguration() {
@@ -224,7 +224,7 @@ public final class ScraperArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleConfiguration Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
+         * @param roleConfiguration Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class ScraperArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleConfiguration Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
+         * @param roleConfiguration Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
          * 
          * @return builder
          * 

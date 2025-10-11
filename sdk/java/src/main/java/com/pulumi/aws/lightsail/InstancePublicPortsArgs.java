@@ -34,7 +34,7 @@ public final class InstancePublicPortsArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
+     * Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `portInfo` Block for details.
      * 
      * The following arguments are optional:
      * 
@@ -43,7 +43,7 @@ public final class InstancePublicPortsArgs extends com.pulumi.resources.Resource
     private Output<List<InstancePublicPortsPortInfoArgs>> portInfos;
 
     /**
-     * @return Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
+     * @return Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `portInfo` Block for details.
      * 
      * The following arguments are optional:
      * 
@@ -115,7 +115,7 @@ public final class InstancePublicPortsArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param portInfos Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
+         * @param portInfos Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `portInfo` Block for details.
          * 
          * The following arguments are optional:
          * 
@@ -128,7 +128,7 @@ public final class InstancePublicPortsArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param portInfos Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
+         * @param portInfos Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `portInfo` Block for details.
          * 
          * The following arguments are optional:
          * 
@@ -140,7 +140,7 @@ public final class InstancePublicPortsArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param portInfos Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
+         * @param portInfos Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `portInfo` Block for details.
          * 
          * The following arguments are optional:
          * 

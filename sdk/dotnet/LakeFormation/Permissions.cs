@@ -14,7 +14,7 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// !&gt; **WARNING:** Lake Formation permissions are not in effect by default within AWS. Using this resource will not secure your data and will result in errors if you do not change the security settings for existing resources and the default security settings for new resources. See Default Behavior and `IAMAllowedPrincipals` for additional details.
     /// 
-    /// &gt; **NOTE:** In general, the `principal` should _NOT_ be a Lake Formation administrator or the entity (e.g., IAM role) that is running the deployment. Administrators have implicit permissions. These should be managed by granting or not granting administrator rights using `aws.lakeformation.DataLakeSettings`, _not_ with this resource.
+    /// &gt; **NOTE:** In general, the `Principal` should _NOT_ be a Lake Formation administrator or the entity (e.g., IAM role) that is running the deployment. Administrators have implicit permissions. These should be managed by granting or not granting administrator rights using `aws.lakeformation.DataLakeSettings`, _not_ with this resource.
     /// 
     /// ## Default Behavior and `IAMAllowedPrincipals`
     /// 
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.LakeFormation
     /// 1. Use this resource (`aws.lakeformation.Permissions`), change the default security settings using `aws.lakeformation.DataLakeSettings`, and remove existing `IAMAllowedPrincipals` permissions
     /// 2. Use `IAMAllowedPrincipals` without `aws.lakeformation.Permissions`
     /// 
-    /// This example shows removing the `IAMAllowedPrincipals` default security settings and making the caller a Lake Formation admin. Since `create_database_default_permissions` and `create_table_default_permissions` are not set in the `aws.lakeformation.DataLakeSettings` resource, they are cleared.
+    /// This example shows removing the `IAMAllowedPrincipals` default security settings and making the caller a Lake Formation admin. Since `CreateDatabaseDefaultPermissions` and `CreateTableDefaultPermissions` are not set in the `aws.lakeformation.DataLakeSettings` resource, they are cleared.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -133,10 +133,10 @@ namespace Pulumi.Aws.LakeFormation
     ///   permissions = ["SELECT"]
     ///   principal   = "123456789012:IAMPrincipals"
     /// 
-    ///   table_with_columns {
-    ///     database_name = aws_glue_catalog_table.example.database_name
+    ///   TableWithColumns {
+    ///     DatabaseName = aws_glue_catalog_table.example.database_name
     ///     name          = aws_glue_catalog_table.example.name
-    ///     column_names  = ["event"]
+    ///     ColumnNames  = ["event"]
     ///   }
     /// }
     /// 
@@ -144,9 +144,9 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. These implicit permissions cannot be revoked _per se_. If this resource reads implicit permissions, it will attempt to revoke them, which causes an error when the resource is destroyed.
     /// 
-    /// There are two ways to avoid these errors. First, and the way we recommend, is to avoid using this resource with principals that have implicit permissions. A second, error-prone option, is to grant explicit permissions (and `permissions_with_grant_option`) to "overwrite" a principal's implicit permissions, which you can then revoke with this resource. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
+    /// There are two ways to avoid these errors. First, and the way we recommend, is to avoid using this resource with principals that have implicit permissions. A second, error-prone option, is to grant explicit permissions (and `PermissionsWithGrantOption`) to "overwrite" a principal's implicit permissions, which you can then revoke with this resource. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
     /// 
-    /// If the `principal` is also a data lake administrator, AWS grants implicit permissions that can cause errors using this resource. For example, AWS implicitly grants a `principal`/administrator `permissions` and `permissions_with_grant_option` of `ALL`, `ALTER`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT` on a table. If you use this resource to explicitly grant the `principal`/administrator `permissions` but _not_ `permissions_with_grant_option` of `ALL`, `ALTER`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT` on the table, this resource will read the implicit `permissions_with_grant_option` and attempt to revoke them when the resource is destroyed. Doing so will cause an `InvalidInputException: No permissions revoked` error because you cannot revoke implicit permissions _per se_. To workaround this problem, explicitly grant the `principal`/administrator `permissions` _and_ `permissions_with_grant_option`, which can then be revoked. Similarly, granting a `principal`/administrator permissions on a table with columns and providing `column_names`, will result in a `InvalidInputException: Permissions modification is invalid` error because you are narrowing the implicit permissions. Instead, set `wildcard` to `true` and remove the `column_names`.
+    /// If the `Principal` is also a data lake administrator, AWS grants implicit permissions that can cause errors using this resource. For example, AWS implicitly grants a `Principal`/administrator `Permissions` and `PermissionsWithGrantOption` of `ALL`, `ALTER`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT` on a table. If you use this resource to explicitly grant the `Principal`/administrator `Permissions` but _not_ `PermissionsWithGrantOption` of `ALL`, `ALTER`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT` on the table, this resource will read the implicit `PermissionsWithGrantOption` and attempt to revoke them when the resource is destroyed. Doing so will cause an `InvalidInputException: No permissions revoked` error because you cannot revoke implicit permissions _per se_. To workaround this problem, explicitly grant the `Principal`/administrator `Permissions` _and_ `PermissionsWithGrantOption`, which can then be revoked. Similarly, granting a `Principal`/administrator permissions on a table with columns and providing `ColumnNames`, will result in a `InvalidInputException: Permissions modification is invalid` error because you are narrowing the implicit permissions. Instead, set `Wildcard` to `True` and remove the `ColumnNames`.
     /// 
     /// ## Example Usage
     /// 
@@ -263,7 +263,7 @@ namespace Pulumi.Aws.LakeFormation
         public Output<string?> CatalogId { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
+        /// Whether the permissions are to be granted for the Data Catalog. Defaults to `False`.
         /// </summary>
         [Output("catalogResource")]
         public Output<bool?> CatalogResource { get; private set; } = null!;
@@ -305,7 +305,7 @@ namespace Pulumi.Aws.LakeFormation
         public Output<ImmutableArray<string>> PermissionDetails { get; private set; } = null!;
 
         /// <summary>
-        /// Subset of `permissions` which the principal can pass.
+        /// Subset of `Permissions` which the principal can pass.
         /// </summary>
         [Output("permissionsWithGrantOptions")]
         public Output<ImmutableArray<string>> PermissionsWithGrantOptions { get; private set; } = null!;
@@ -313,7 +313,7 @@ namespace Pulumi.Aws.LakeFormation
         /// <summary>
         /// Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, Federated Users, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
         /// 
-        /// &gt; **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `aws.lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
+        /// &gt; **NOTE:** We highly recommend that the `Principal` _NOT_ be a Lake Formation administrator (granted using `aws.lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
         /// 
         /// One of the following is required:
         /// </summary>
@@ -393,7 +393,7 @@ namespace Pulumi.Aws.LakeFormation
         public Input<string>? CatalogId { get; set; }
 
         /// <summary>
-        /// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
+        /// Whether the permissions are to be granted for the Data Catalog. Defaults to `False`.
         /// </summary>
         [Input("catalogResource")]
         public Input<bool>? CatalogResource { get; set; }
@@ -444,7 +444,7 @@ namespace Pulumi.Aws.LakeFormation
         private InputList<string>? _permissionsWithGrantOptions;
 
         /// <summary>
-        /// Subset of `permissions` which the principal can pass.
+        /// Subset of `Permissions` which the principal can pass.
         /// </summary>
         public InputList<string> PermissionsWithGrantOptions
         {
@@ -455,7 +455,7 @@ namespace Pulumi.Aws.LakeFormation
         /// <summary>
         /// Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, Federated Users, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
         /// 
-        /// &gt; **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `aws.lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
+        /// &gt; **NOTE:** We highly recommend that the `Principal` _NOT_ be a Lake Formation administrator (granted using `aws.lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
         /// 
         /// One of the following is required:
         /// </summary>
@@ -497,7 +497,7 @@ namespace Pulumi.Aws.LakeFormation
         public Input<string>? CatalogId { get; set; }
 
         /// <summary>
-        /// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
+        /// Whether the permissions are to be granted for the Data Catalog. Defaults to `False`.
         /// </summary>
         [Input("catalogResource")]
         public Input<bool>? CatalogResource { get; set; }
@@ -548,7 +548,7 @@ namespace Pulumi.Aws.LakeFormation
         private InputList<string>? _permissionsWithGrantOptions;
 
         /// <summary>
-        /// Subset of `permissions` which the principal can pass.
+        /// Subset of `Permissions` which the principal can pass.
         /// </summary>
         public InputList<string> PermissionsWithGrantOptions
         {
@@ -559,7 +559,7 @@ namespace Pulumi.Aws.LakeFormation
         /// <summary>
         /// Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, Federated Users, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
         /// 
-        /// &gt; **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `aws.lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
+        /// &gt; **NOTE:** We highly recommend that the `Principal` _NOT_ be a Lake Formation administrator (granted using `aws.lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
         /// 
         /// One of the following is required:
         /// </summary>

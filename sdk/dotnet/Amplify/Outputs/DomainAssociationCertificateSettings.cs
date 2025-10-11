@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Amplify.Outputs
         public readonly string? CertificateVerificationDnsRecord;
         /// <summary>
         /// The Amazon resource name (ARN) for the custom certificate.
-        /// Required when `type` is `CUSTOM`.
+        /// Required when `Type` is `CUSTOM`.
         /// </summary>
         public readonly string? CustomCertificateArn;
         /// <summary>

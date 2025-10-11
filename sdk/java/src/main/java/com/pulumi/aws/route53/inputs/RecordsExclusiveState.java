@@ -20,7 +20,7 @@ public final class RecordsExclusiveState extends com.pulumi.resources.ResourceAr
 
     /**
      * A list of all resource record sets associated with the hosted zone.
-     * See `resource_record_set` below.
+     * See `resourceRecordSet` below.
      * 
      */
     @Import(name="resourceRecordSets")
@@ -28,7 +28,7 @@ public final class RecordsExclusiveState extends com.pulumi.resources.ResourceAr
 
     /**
      * @return A list of all resource record sets associated with the hosted zone.
-     * See `resource_record_set` below.
+     * See `resourceRecordSet` below.
      * 
      */
     public Optional<Output<List<RecordsExclusiveResourceRecordSetArgs>>> resourceRecordSets() {
@@ -89,7 +89,7 @@ public final class RecordsExclusiveState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param resourceRecordSets A list of all resource record sets associated with the hosted zone.
-         * See `resource_record_set` below.
+         * See `resourceRecordSet` below.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class RecordsExclusiveState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param resourceRecordSets A list of all resource record sets associated with the hosted zone.
-         * See `resource_record_set` below.
+         * See `resourceRecordSet` below.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class RecordsExclusiveState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param resourceRecordSets A list of all resource record sets associated with the hosted zone.
-         * See `resource_record_set` below.
+         * See `resourceRecordSet` below.
          * 
          * @return builder
          * 

@@ -20,12 +20,12 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
      */
     private String embeddingModelArn;
     /**
-     * @return The embeddings model configuration details for the vector model used in Knowledge Base.  See `embedding_model_configuration` block for details.
+     * @return The embeddings model configuration details for the vector model used in Knowledge Base.  See `embeddingModelConfiguration` block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration embeddingModelConfiguration;
     /**
-     * @return supplemental_data_storage_configuration.  See `supplemental_data_storage_configuration` block for details.
+     * @return supplemental_data_storage_configuration.  See `supplementalDataStorageConfiguration` block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration supplementalDataStorageConfiguration;
@@ -39,14 +39,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
         return this.embeddingModelArn;
     }
     /**
-     * @return The embeddings model configuration details for the vector model used in Knowledge Base.  See `embedding_model_configuration` block for details.
+     * @return The embeddings model configuration details for the vector model used in Knowledge Base.  See `embeddingModelConfiguration` block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration> embeddingModelConfiguration() {
         return Optional.ofNullable(this.embeddingModelConfiguration);
     }
     /**
-     * @return supplemental_data_storage_configuration.  See `supplemental_data_storage_configuration` block for details.
+     * @return supplemental_data_storage_configuration.  See `supplementalDataStorageConfiguration` block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration> supplementalDataStorageConfiguration() {

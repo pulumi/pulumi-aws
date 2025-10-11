@@ -12,9 +12,9 @@ namespace Pulumi.Aws.Ecs
     /// <summary>
     /// Provides an ECS cluster capacity provider. More information can be found on the [ECS Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html).
     /// 
-    /// &gt; **NOTE:** Associating an ECS Capacity Provider to an Auto Scaling Group will automatically add the `AmazonECSManaged` tag to the Auto Scaling Group. This tag should be included in the `aws.autoscaling.Group` resource configuration to prevent the provider from removing it in subsequent executions as well as ensuring the `AmazonECSManaged` tag is propagated to all EC2 Instances in the Auto Scaling Group if `min_size` is above 0 on creation. Any EC2 Instances in the Auto Scaling Group without this tag must be manually be updated, otherwise they may cause unexpected scaling behavior and metrics.
+    /// &gt; **NOTE:** Associating an ECS Capacity Provider to an Auto Scaling Group will automatically add the `AmazonECSManaged` tag to the Auto Scaling Group. This tag should be included in the `aws.autoscaling.Group` resource configuration to prevent the provider from removing it in subsequent executions as well as ensuring the `AmazonECSManaged` tag is propagated to all EC2 Instances in the Auto Scaling Group if `MinSize` is above 0 on creation. Any EC2 Instances in the Auto Scaling Group without this tag must be manually be updated, otherwise they may cause unexpected scaling behavior and metrics.
     /// 
-    /// &gt; **NOTE:** You must specify exactly one of `auto_scaling_group_provider` or `managed_instances_provider`. When using `managed_instances_provider`, the `cluster` parameter is required. When using `auto_scaling_group_provider`, the `cluster` parameter must not be set.
+    /// &gt; **NOTE:** You must specify exactly one of `AutoScalingGroupProvider` or `ManagedInstancesProvider`. When using `ManagedInstancesProvider`, the `Cluster` parameter is required. When using `AutoScalingGroupProvider`, the `Cluster` parameter must not be set.
     /// 
     /// ## Example Usage
     /// 
@@ -151,19 +151,19 @@ namespace Pulumi.Aws.Ecs
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
+        /// Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `AutoScalingGroupProvider` or `ManagedInstancesProvider` must be specified.
         /// </summary>
         [Output("autoScalingGroupProvider")]
         public Output<Outputs.CapacityProviderAutoScalingGroupProvider?> AutoScalingGroupProvider { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the ECS cluster. Required when using `managed_instances_provider`. Must not be set when using `auto_scaling_group_provider`.
+        /// Name of the ECS cluster. Required when using `ManagedInstancesProvider`. Must not be set when using `AutoScalingGroupProvider`.
         /// </summary>
         [Output("cluster")]
         public Output<string?> Cluster { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for the managed instances provider. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
+        /// Configuration block for the managed instances provider. Detailed below. Exactly one of `AutoScalingGroupProvider` or `ManagedInstancesProvider` must be specified.
         /// </summary>
         [Output("managedInstancesProvider")]
         public Output<Outputs.CapacityProviderManagedInstancesProvider?> ManagedInstancesProvider { get; private set; } = null!;
@@ -181,13 +181,13 @@ namespace Pulumi.Aws.Ecs
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -239,19 +239,19 @@ namespace Pulumi.Aws.Ecs
     public sealed class CapacityProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
+        /// Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `AutoScalingGroupProvider` or `ManagedInstancesProvider` must be specified.
         /// </summary>
         [Input("autoScalingGroupProvider")]
         public Input<Inputs.CapacityProviderAutoScalingGroupProviderArgs>? AutoScalingGroupProvider { get; set; }
 
         /// <summary>
-        /// Name of the ECS cluster. Required when using `managed_instances_provider`. Must not be set when using `auto_scaling_group_provider`.
+        /// Name of the ECS cluster. Required when using `ManagedInstancesProvider`. Must not be set when using `AutoScalingGroupProvider`.
         /// </summary>
         [Input("cluster")]
         public Input<string>? Cluster { get; set; }
 
         /// <summary>
-        /// Configuration block for the managed instances provider. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
+        /// Configuration block for the managed instances provider. Detailed below. Exactly one of `AutoScalingGroupProvider` or `ManagedInstancesProvider` must be specified.
         /// </summary>
         [Input("managedInstancesProvider")]
         public Input<Inputs.CapacityProviderManagedInstancesProviderArgs>? ManagedInstancesProvider { get; set; }
@@ -272,7 +272,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -295,19 +295,19 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
+        /// Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `AutoScalingGroupProvider` or `ManagedInstancesProvider` must be specified.
         /// </summary>
         [Input("autoScalingGroupProvider")]
         public Input<Inputs.CapacityProviderAutoScalingGroupProviderGetArgs>? AutoScalingGroupProvider { get; set; }
 
         /// <summary>
-        /// Name of the ECS cluster. Required when using `managed_instances_provider`. Must not be set when using `auto_scaling_group_provider`.
+        /// Name of the ECS cluster. Required when using `ManagedInstancesProvider`. Must not be set when using `AutoScalingGroupProvider`.
         /// </summary>
         [Input("cluster")]
         public Input<string>? Cluster { get; set; }
 
         /// <summary>
-        /// Configuration block for the managed instances provider. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
+        /// Configuration block for the managed instances provider. Detailed below. Exactly one of `AutoScalingGroupProvider` or `ManagedInstancesProvider` must be specified.
         /// </summary>
         [Input("managedInstancesProvider")]
         public Input<Inputs.CapacityProviderManagedInstancesProviderGetArgs>? ManagedInstancesProvider { get; set; }
@@ -328,7 +328,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -340,7 +340,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

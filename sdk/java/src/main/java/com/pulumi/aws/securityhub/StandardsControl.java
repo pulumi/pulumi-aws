@@ -88,14 +88,14 @@ public class StandardsControl extends com.pulumi.resources.CustomResource {
         return this.controlId;
     }
     /**
-     * The control status could be `ENABLED` or `DISABLED`. You have to specify `disabled_reason` argument for `DISABLED` control status.
+     * The control status could be `ENABLED` or `DISABLED`. You have to specify `disabledReason` argument for `DISABLED` control status.
      * 
      */
     @Export(name="controlStatus", refs={String.class}, tree="[0]")
     private Output<String> controlStatus;
 
     /**
-     * @return The control status could be `ENABLED` or `DISABLED`. You have to specify `disabled_reason` argument for `DISABLED` control status.
+     * @return The control status could be `ENABLED` or `DISABLED`. You have to specify `disabledReason` argument for `DISABLED` control status.
      * 
      */
     public Output<String> controlStatus() {
@@ -130,14 +130,14 @@ public class StandardsControl extends com.pulumi.resources.CustomResource {
         return this.description;
     }
     /**
-     * A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.
+     * A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
      * 
      */
     @Export(name="disabledReason", refs={String.class}, tree="[0]")
     private Output<String> disabledReason;
 
     /**
-     * @return A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.
+     * @return A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
      * 
      */
     public Output<String> disabledReason() {

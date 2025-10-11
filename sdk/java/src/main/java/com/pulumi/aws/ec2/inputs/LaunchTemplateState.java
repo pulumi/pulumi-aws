@@ -289,14 +289,14 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
+     * The attribute requirements for the type of instance. If present then `instanceType` cannot be present.
      * 
      */
     @Import(name="instanceRequirements")
     private @Nullable Output<LaunchTemplateInstanceRequirementsArgs> instanceRequirements;
 
     /**
-     * @return The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
+     * @return The attribute requirements for the type of instance. If present then `instanceType` cannot be present.
      * 
      */
     public Optional<Output<LaunchTemplateInstanceRequirementsArgs>> instanceRequirements() {
@@ -304,14 +304,14 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The type of the instance. If present then `instance_requirements` cannot be present.
+     * The type of the instance. If present then `instanceRequirements` cannot be present.
      * 
      */
     @Import(name="instanceType")
     private @Nullable Output<String> instanceType;
 
     /**
-     * @return The type of the instance. If present then `instance_requirements` cannot be present.
+     * @return The type of the instance. If present then `instanceRequirements` cannot be present.
      * 
      */
     public Optional<Output<String>> instanceType() {
@@ -532,7 +532,7 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
 
     /**
      * A list of security group names to associate with. If you are creating Instances in a VPC, use
-     * `vpc_security_group_ids` instead.
+     * `vpcSecurityGroupIds` instead.
      * 
      */
     @Import(name="securityGroupNames")
@@ -540,7 +540,7 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
 
     /**
      * @return A list of security group names to associate with. If you are creating Instances in a VPC, use
-     * `vpc_security_group_ids` instead.
+     * `vpcSecurityGroupIds` instead.
      * 
      */
     public Optional<Output<List<String>>> securityGroupNames() {
@@ -563,14 +563,14 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -578,14 +578,14 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -593,14 +593,14 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Whether to update Default Version each update. Conflicts with `default_version`.
+     * Whether to update Default Version each update. Conflicts with `defaultVersion`.
      * 
      */
     @Import(name="updateDefaultVersion")
     private @Nullable Output<Boolean> updateDefaultVersion;
 
     /**
-     * @return Whether to update Default Version each update. Conflicts with `default_version`.
+     * @return Whether to update Default Version each update. Conflicts with `defaultVersion`.
      * 
      */
     public Optional<Output<Boolean>> updateDefaultVersion() {
@@ -1059,7 +1059,7 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param instanceRequirements The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
+         * @param instanceRequirements The attribute requirements for the type of instance. If present then `instanceType` cannot be present.
          * 
          * @return builder
          * 
@@ -1070,7 +1070,7 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param instanceRequirements The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
+         * @param instanceRequirements The attribute requirements for the type of instance. If present then `instanceType` cannot be present.
          * 
          * @return builder
          * 
@@ -1080,7 +1080,7 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param instanceType The type of the instance. If present then `instance_requirements` cannot be present.
+         * @param instanceType The type of the instance. If present then `instanceRequirements` cannot be present.
          * 
          * @return builder
          * 
@@ -1091,7 +1091,7 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param instanceType The type of the instance. If present then `instance_requirements` cannot be present.
+         * @param instanceType The type of the instance. If present then `instanceRequirements` cannot be present.
          * 
          * @return builder
          * 
@@ -1419,7 +1419,7 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param securityGroupNames A list of security group names to associate with. If you are creating Instances in a VPC, use
-         * `vpc_security_group_ids` instead.
+         * `vpcSecurityGroupIds` instead.
          * 
          * @return builder
          * 
@@ -1431,7 +1431,7 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param securityGroupNames A list of security group names to associate with. If you are creating Instances in a VPC, use
-         * `vpc_security_group_ids` instead.
+         * `vpcSecurityGroupIds` instead.
          * 
          * @return builder
          * 
@@ -1442,7 +1442,7 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param securityGroupNames A list of security group names to associate with. If you are creating Instances in a VPC, use
-         * `vpc_security_group_ids` instead.
+         * `vpcSecurityGroupIds` instead.
          * 
          * @return builder
          * 
@@ -1483,7 +1483,7 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1494,7 +1494,7 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1504,7 +1504,7 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -1515,7 +1515,7 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -1525,7 +1525,7 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param updateDefaultVersion Whether to update Default Version each update. Conflicts with `default_version`.
+         * @param updateDefaultVersion Whether to update Default Version each update. Conflicts with `defaultVersion`.
          * 
          * @return builder
          * 
@@ -1536,7 +1536,7 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param updateDefaultVersion Whether to update Default Version each update. Conflicts with `default_version`.
+         * @param updateDefaultVersion Whether to update Default Version each update. Conflicts with `defaultVersion`.
          * 
          * @return builder
          * 

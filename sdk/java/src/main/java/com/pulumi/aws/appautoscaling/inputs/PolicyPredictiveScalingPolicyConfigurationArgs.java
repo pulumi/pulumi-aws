@@ -35,14 +35,14 @@ public final class PolicyPredictiveScalingPolicyConfigurationArgs extends com.pu
     }
 
     /**
-     * Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. Required if the `max_capacity_breach_behavior` argument is set to `IncreaseMaxCapacity`, and cannot be used otherwise.
+     * Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. Required if the `maxCapacityBreachBehavior` argument is set to `IncreaseMaxCapacity`, and cannot be used otherwise.
      * 
      */
     @Import(name="maxCapacityBuffer")
     private @Nullable Output<Integer> maxCapacityBuffer;
 
     /**
-     * @return Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. Required if the `max_capacity_breach_behavior` argument is set to `IncreaseMaxCapacity`, and cannot be used otherwise.
+     * @return Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. Required if the `maxCapacityBreachBehavior` argument is set to `IncreaseMaxCapacity`, and cannot be used otherwise.
      * 
      */
     public Optional<Output<Integer>> maxCapacityBuffer() {
@@ -144,7 +144,7 @@ public final class PolicyPredictiveScalingPolicyConfigurationArgs extends com.pu
         }
 
         /**
-         * @param maxCapacityBuffer Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. Required if the `max_capacity_breach_behavior` argument is set to `IncreaseMaxCapacity`, and cannot be used otherwise.
+         * @param maxCapacityBuffer Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. Required if the `maxCapacityBreachBehavior` argument is set to `IncreaseMaxCapacity`, and cannot be used otherwise.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class PolicyPredictiveScalingPolicyConfigurationArgs extends com.pu
         }
 
         /**
-         * @param maxCapacityBuffer Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. Required if the `max_capacity_breach_behavior` argument is set to `IncreaseMaxCapacity`, and cannot be used otherwise.
+         * @param maxCapacityBuffer Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. Required if the `maxCapacityBreachBehavior` argument is set to `IncreaseMaxCapacity`, and cannot be used otherwise.
          * 
          * @return builder
          * 

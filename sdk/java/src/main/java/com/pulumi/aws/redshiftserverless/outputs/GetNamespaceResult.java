@@ -27,7 +27,7 @@ public final class GetNamespaceResult {
      */
     private String dbName;
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
+     * @return The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
      * 
      */
     private String defaultIamRoleArn;
@@ -82,7 +82,7 @@ public final class GetNamespaceResult {
         return this.dbName;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
+     * @return The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
      * 
      */
     public String defaultIamRoleArn() {

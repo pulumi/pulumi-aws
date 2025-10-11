@@ -17,14 +17,14 @@ public final class InsightFiltersFirstObservedAtArgs extends com.pulumi.resource
     public static final InsightFiltersFirstObservedAtArgs Empty = new InsightFiltersFirstObservedAtArgs();
 
     /**
-     * A configuration block of the date range for the date filter. See date_range below for more details.
+     * A configuration block of the date range for the date filter. See dateRange below for more details.
      * 
      */
     @Import(name="dateRange")
     private @Nullable Output<InsightFiltersFirstObservedAtDateRangeArgs> dateRange;
 
     /**
-     * @return A configuration block of the date range for the date filter. See date_range below for more details.
+     * @return A configuration block of the date range for the date filter. See dateRange below for more details.
      * 
      */
     public Optional<Output<InsightFiltersFirstObservedAtDateRangeArgs>> dateRange() {
@@ -32,14 +32,14 @@ public final class InsightFiltersFirstObservedAtArgs extends com.pulumi.resource
     }
 
     /**
-     * An end date for the date filter. Required with `start` if `date_range` is not specified.
+     * An end date for the date filter. Required with `start` if `dateRange` is not specified.
      * 
      */
     @Import(name="end")
     private @Nullable Output<String> end;
 
     /**
-     * @return An end date for the date filter. Required with `start` if `date_range` is not specified.
+     * @return An end date for the date filter. Required with `start` if `dateRange` is not specified.
      * 
      */
     public Optional<Output<String>> end() {
@@ -47,14 +47,14 @@ public final class InsightFiltersFirstObservedAtArgs extends com.pulumi.resource
     }
 
     /**
-     * A start date for the date filter. Required with `end` if `date_range` is not specified.
+     * A start date for the date filter. Required with `end` if `dateRange` is not specified.
      * 
      */
     @Import(name="start")
     private @Nullable Output<String> start;
 
     /**
-     * @return A start date for the date filter. Required with `end` if `date_range` is not specified.
+     * @return A start date for the date filter. Required with `end` if `dateRange` is not specified.
      * 
      */
     public Optional<Output<String>> start() {
@@ -88,7 +88,7 @@ public final class InsightFiltersFirstObservedAtArgs extends com.pulumi.resource
         }
 
         /**
-         * @param dateRange A configuration block of the date range for the date filter. See date_range below for more details.
+         * @param dateRange A configuration block of the date range for the date filter. See dateRange below for more details.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class InsightFiltersFirstObservedAtArgs extends com.pulumi.resource
         }
 
         /**
-         * @param dateRange A configuration block of the date range for the date filter. See date_range below for more details.
+         * @param dateRange A configuration block of the date range for the date filter. See dateRange below for more details.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class InsightFiltersFirstObservedAtArgs extends com.pulumi.resource
         }
 
         /**
-         * @param end An end date for the date filter. Required with `start` if `date_range` is not specified.
+         * @param end An end date for the date filter. Required with `start` if `dateRange` is not specified.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class InsightFiltersFirstObservedAtArgs extends com.pulumi.resource
         }
 
         /**
-         * @param end An end date for the date filter. Required with `start` if `date_range` is not specified.
+         * @param end An end date for the date filter. Required with `start` if `dateRange` is not specified.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class InsightFiltersFirstObservedAtArgs extends com.pulumi.resource
         }
 
         /**
-         * @param start A start date for the date filter. Required with `end` if `date_range` is not specified.
+         * @param start A start date for the date filter. Required with `end` if `dateRange` is not specified.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class InsightFiltersFirstObservedAtArgs extends com.pulumi.resource
         }
 
         /**
-         * @param start A start date for the date filter. Required with `end` if `date_range` is not specified.
+         * @param start A start date for the date filter. Required with `end` if `dateRange` is not specified.
          * 
          * @return builder
          * 

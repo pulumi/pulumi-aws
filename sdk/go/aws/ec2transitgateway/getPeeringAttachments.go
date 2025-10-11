@@ -38,6 +38,8 @@ import (
 //	}
 //
 // ```
+//
+// ### By Filter
 func GetPeeringAttachments(ctx *pulumi.Context, args *GetPeeringAttachmentsArgs, opts ...pulumi.InvokeOption) (*GetPeeringAttachmentsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPeeringAttachmentsResult

@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DataSourceRelationalDatabaseConfig {
     /**
-     * @return Amazon RDS HTTP endpoint configuration. See `http_endpoint_config` Block for details.
+     * @return Amazon RDS HTTP endpoint configuration. See `httpEndpointConfig` Block for details.
      * 
      */
     private @Nullable DataSourceRelationalDatabaseConfigHttpEndpointConfig httpEndpointConfig;
@@ -25,7 +25,7 @@ public final class DataSourceRelationalDatabaseConfig {
 
     private DataSourceRelationalDatabaseConfig() {}
     /**
-     * @return Amazon RDS HTTP endpoint configuration. See `http_endpoint_config` Block for details.
+     * @return Amazon RDS HTTP endpoint configuration. See `httpEndpointConfig` Block for details.
      * 
      */
     public Optional<DataSourceRelationalDatabaseConfigHttpEndpointConfig> httpEndpointConfig() {

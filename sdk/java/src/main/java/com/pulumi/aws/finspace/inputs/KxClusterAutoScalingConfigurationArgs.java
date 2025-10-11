@@ -47,14 +47,14 @@ public final class KxClusterAutoScalingConfigurationArgs extends com.pulumi.reso
     }
 
     /**
-     * Desired value of chosen `auto_scaling_metric`. When metric drops below this value, cluster will scale in. When metric goes above this value, cluster will scale out. Can be set between 0 and 100 percent.
+     * Desired value of chosen `autoScalingMetric`. When metric drops below this value, cluster will scale in. When metric goes above this value, cluster will scale out. Can be set between 0 and 100 percent.
      * 
      */
     @Import(name="metricTarget", required=true)
     private Output<Double> metricTarget;
 
     /**
-     * @return Desired value of chosen `auto_scaling_metric`. When metric drops below this value, cluster will scale in. When metric goes above this value, cluster will scale out. Can be set between 0 and 100 percent.
+     * @return Desired value of chosen `autoScalingMetric`. When metric drops below this value, cluster will scale in. When metric goes above this value, cluster will scale out. Can be set between 0 and 100 percent.
      * 
      */
     public Output<Double> metricTarget() {
@@ -62,14 +62,14 @@ public final class KxClusterAutoScalingConfigurationArgs extends com.pulumi.reso
     }
 
     /**
-     * Lowest number of nodes to scale. Must be at least 1 and less than the `max_node_count`. If nodes in cluster belong to multiple availability zones, then `min_node_count` must be at least 3.
+     * Lowest number of nodes to scale. Must be at least 1 and less than the `maxNodeCount`. If nodes in cluster belong to multiple availability zones, then `minNodeCount` must be at least 3.
      * 
      */
     @Import(name="minNodeCount", required=true)
     private Output<Integer> minNodeCount;
 
     /**
-     * @return Lowest number of nodes to scale. Must be at least 1 and less than the `max_node_count`. If nodes in cluster belong to multiple availability zones, then `min_node_count` must be at least 3.
+     * @return Lowest number of nodes to scale. Must be at least 1 and less than the `maxNodeCount`. If nodes in cluster belong to multiple availability zones, then `minNodeCount` must be at least 3.
      * 
      */
     public Output<Integer> minNodeCount() {
@@ -178,7 +178,7 @@ public final class KxClusterAutoScalingConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param metricTarget Desired value of chosen `auto_scaling_metric`. When metric drops below this value, cluster will scale in. When metric goes above this value, cluster will scale out. Can be set between 0 and 100 percent.
+         * @param metricTarget Desired value of chosen `autoScalingMetric`. When metric drops below this value, cluster will scale in. When metric goes above this value, cluster will scale out. Can be set between 0 and 100 percent.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class KxClusterAutoScalingConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param metricTarget Desired value of chosen `auto_scaling_metric`. When metric drops below this value, cluster will scale in. When metric goes above this value, cluster will scale out. Can be set between 0 and 100 percent.
+         * @param metricTarget Desired value of chosen `autoScalingMetric`. When metric drops below this value, cluster will scale in. When metric goes above this value, cluster will scale out. Can be set between 0 and 100 percent.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class KxClusterAutoScalingConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param minNodeCount Lowest number of nodes to scale. Must be at least 1 and less than the `max_node_count`. If nodes in cluster belong to multiple availability zones, then `min_node_count` must be at least 3.
+         * @param minNodeCount Lowest number of nodes to scale. Must be at least 1 and less than the `maxNodeCount`. If nodes in cluster belong to multiple availability zones, then `minNodeCount` must be at least 3.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class KxClusterAutoScalingConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param minNodeCount Lowest number of nodes to scale. Must be at least 1 and less than the `max_node_count`. If nodes in cluster belong to multiple availability zones, then `min_node_count` must be at least 3.
+         * @param minNodeCount Lowest number of nodes to scale. Must be at least 1 and less than the `maxNodeCount`. If nodes in cluster belong to multiple availability zones, then `minNodeCount` must be at least 3.
          * 
          * @return builder
          * 

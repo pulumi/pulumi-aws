@@ -145,7 +145,7 @@ namespace Pulumi.Aws.S3Tables
 
         /// <summary>
         /// A single table bucket encryption configuration object.
-        /// See `encryption_configuration` below.
+        /// See `EncryptionConfiguration` below.
         /// </summary>
         [Output("encryptionConfiguration")]
         public Output<Outputs.TableEncryptionConfiguration> EncryptionConfiguration { get; private set; } = null!;
@@ -159,14 +159,14 @@ namespace Pulumi.Aws.S3Tables
 
         /// <summary>
         /// A single table bucket maintenance configuration object.
-        /// See `maintenance_configuration` below.
+        /// See `MaintenanceConfiguration` below.
         /// </summary>
         [Output("maintenanceConfiguration")]
         public Output<Outputs.TableMaintenanceConfiguration> MaintenanceConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-        /// See `metadata` below.
+        /// See `Metadata` below.
         /// </summary>
         [Output("metadata")]
         public Output<Outputs.TableMetadata?> Metadata { get; private set; } = null!;
@@ -228,7 +228,7 @@ namespace Pulumi.Aws.S3Tables
 
         /// <summary>
         /// Type of the table.
-        /// One of `customer` or `aws`.
+        /// One of `Customer` or `Aws`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -293,7 +293,7 @@ namespace Pulumi.Aws.S3Tables
     {
         /// <summary>
         /// A single table bucket encryption configuration object.
-        /// See `encryption_configuration` below.
+        /// See `EncryptionConfiguration` below.
         /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.TableEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
@@ -307,14 +307,14 @@ namespace Pulumi.Aws.S3Tables
 
         /// <summary>
         /// A single table bucket maintenance configuration object.
-        /// See `maintenance_configuration` below.
+        /// See `MaintenanceConfiguration` below.
         /// </summary>
         [Input("maintenanceConfiguration")]
         public Input<Inputs.TableMaintenanceConfigurationArgs>? MaintenanceConfiguration { get; set; }
 
         /// <summary>
         /// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-        /// See `metadata` below.
+        /// See `Metadata` below.
         /// </summary>
         [Input("metadata")]
         public Input<Inputs.TableMetadataArgs>? Metadata { get; set; }
@@ -378,7 +378,7 @@ namespace Pulumi.Aws.S3Tables
 
         /// <summary>
         /// A single table bucket encryption configuration object.
-        /// See `encryption_configuration` below.
+        /// See `EncryptionConfiguration` below.
         /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.TableEncryptionConfigurationGetArgs>? EncryptionConfiguration { get; set; }
@@ -392,14 +392,14 @@ namespace Pulumi.Aws.S3Tables
 
         /// <summary>
         /// A single table bucket maintenance configuration object.
-        /// See `maintenance_configuration` below.
+        /// See `MaintenanceConfiguration` below.
         /// </summary>
         [Input("maintenanceConfiguration")]
         public Input<Inputs.TableMaintenanceConfigurationGetArgs>? MaintenanceConfiguration { get; set; }
 
         /// <summary>
         /// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-        /// See `metadata` below.
+        /// See `Metadata` below.
         /// </summary>
         [Input("metadata")]
         public Input<Inputs.TableMetadataGetArgs>? Metadata { get; set; }
@@ -461,7 +461,7 @@ namespace Pulumi.Aws.S3Tables
 
         /// <summary>
         /// Type of the table.
-        /// One of `customer` or `aws`.
+        /// One of `Customer` or `Aws`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

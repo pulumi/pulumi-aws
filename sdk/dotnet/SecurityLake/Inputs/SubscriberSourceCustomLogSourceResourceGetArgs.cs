@@ -16,7 +16,7 @@ namespace Pulumi.Aws.SecurityLake.Inputs
         private InputList<Inputs.SubscriberSourceCustomLogSourceResourceAttributeGetArgs>? _attributes;
 
         /// <summary>
-        /// The attributes of the third-party custom source. See `attributes` Block below.
+        /// The attributes of the third-party custom source. See `Attributes` Block below.
         /// </summary>
         public InputList<Inputs.SubscriberSourceCustomLogSourceResourceAttributeGetArgs> Attributes
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.SecurityLake.Inputs
         private InputList<Inputs.SubscriberSourceCustomLogSourceResourceProviderGetArgs>? _providers;
 
         /// <summary>
-        /// The details of the log provider for the third-party custom source. See `provider` Block below.
+        /// The details of the log provider for the third-party custom source. See `Provider` Block below.
         /// </summary>
         public InputList<Inputs.SubscriberSourceCustomLogSourceResourceProviderGetArgs> Providers
         {

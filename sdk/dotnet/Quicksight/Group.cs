@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> GroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The namespace. Currently, you should set this to `default`.
+        /// The namespace. Currently, you should set this to `Default`.
         /// </summary>
         [Output("namespace")]
         public Output<string?> Namespace { get; private set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string> GroupName { get; set; } = null!;
 
         /// <summary>
-        /// The namespace. Currently, you should set this to `default`.
+        /// The namespace. Currently, you should set this to `Default`.
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? GroupName { get; set; }
 
         /// <summary>
-        /// The namespace. Currently, you should set this to `default`.
+        /// The namespace. Currently, you should set this to `Default`.
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }

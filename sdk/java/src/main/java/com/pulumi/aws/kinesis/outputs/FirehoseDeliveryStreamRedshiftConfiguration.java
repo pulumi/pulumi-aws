@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FirehoseDeliveryStreamRedshiftConfiguration {
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
@@ -44,12 +44,12 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
      */
     private String dataTableName;
     /**
-     * @return The password for the username above. This value is required if `secrets_manager_configuration` is not provided.
+     * @return The password for the username above. This value is required if `secretsManagerConfiguration` is not provided.
      * 
      */
     private @Nullable String password;
     /**
-     * @return The data processing configuration.  See `processing_configuration` block below for details.
+     * @return The data processing configuration.  See `processingConfiguration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration processingConfiguration;
@@ -64,8 +64,8 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
      */
     private String roleArn;
     /**
-     * @return The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
-     * `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `username` and `password` are not provided.
+     * @return The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
+     * `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `username` and `password` are not provided.
      * 
      */
     private @Nullable FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration s3BackupConfiguration;
@@ -75,20 +75,20 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
      */
     private @Nullable String s3BackupMode;
     /**
-     * @return The S3 Configuration. See s3_configuration below for details.
+     * @return The S3 Configuration. See s3Configuration below for details.
      * 
      */
     private FirehoseDeliveryStreamRedshiftConfigurationS3Configuration s3Configuration;
     private @Nullable FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration secretsManagerConfiguration;
     /**
-     * @return The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secrets_manager_configuration` is not provided.
+     * @return The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secretsManagerConfiguration` is not provided.
      * 
      */
     private @Nullable String username;
 
     private FirehoseDeliveryStreamRedshiftConfiguration() {}
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions() {
@@ -123,14 +123,14 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
         return this.dataTableName;
     }
     /**
-     * @return The password for the username above. This value is required if `secrets_manager_configuration` is not provided.
+     * @return The password for the username above. This value is required if `secretsManagerConfiguration` is not provided.
      * 
      */
     public Optional<String> password() {
         return Optional.ofNullable(this.password);
     }
     /**
-     * @return The data processing configuration.  See `processing_configuration` block below for details.
+     * @return The data processing configuration.  See `processingConfiguration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration> processingConfiguration() {
@@ -151,8 +151,8 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
         return this.roleArn;
     }
     /**
-     * @return The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
-     * `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `username` and `password` are not provided.
+     * @return The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
+     * `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `username` and `password` are not provided.
      * 
      */
     public Optional<FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration> s3BackupConfiguration() {
@@ -166,7 +166,7 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
         return Optional.ofNullable(this.s3BackupMode);
     }
     /**
-     * @return The S3 Configuration. See s3_configuration below for details.
+     * @return The S3 Configuration. See s3Configuration below for details.
      * 
      */
     public FirehoseDeliveryStreamRedshiftConfigurationS3Configuration s3Configuration() {
@@ -176,7 +176,7 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
         return Optional.ofNullable(this.secretsManagerConfiguration);
     }
     /**
-     * @return The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secrets_manager_configuration` is not provided.
+     * @return The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secretsManagerConfiguration` is not provided.
      * 
      */
     public Optional<String> username() {

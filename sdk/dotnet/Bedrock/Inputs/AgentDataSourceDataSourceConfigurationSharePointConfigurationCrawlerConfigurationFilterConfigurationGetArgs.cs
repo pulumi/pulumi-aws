@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterGetArgs>? _patternObjectFilters;
 
         /// <summary>
-        /// The configuration of filtering certain objects or content types of the data source. See `pattern_object_filter` block for details.
+        /// The configuration of filtering certain objects or content types of the data source. See `PatternObjectFilter` block for details.
         /// </summary>
         public InputList<Inputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterGetArgs> PatternObjectFilters
         {

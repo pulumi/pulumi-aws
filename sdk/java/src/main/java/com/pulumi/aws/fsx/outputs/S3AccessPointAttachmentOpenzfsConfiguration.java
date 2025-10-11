@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class S3AccessPointAttachmentOpenzfsConfiguration {
     /**
-     * @return File system user identity to use for authorizing file read and write requests that are made using the S3 access point. See `file_system_identity` Block for details.
+     * @return File system user identity to use for authorizing file read and write requests that are made using the S3 access point. See `fileSystemIdentity` Block for details.
      * 
      */
     private @Nullable S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentity fileSystemIdentity;
@@ -26,7 +26,7 @@ public final class S3AccessPointAttachmentOpenzfsConfiguration {
 
     private S3AccessPointAttachmentOpenzfsConfiguration() {}
     /**
-     * @return File system user identity to use for authorizing file read and write requests that are made using the S3 access point. See `file_system_identity` Block for details.
+     * @return File system user identity to use for authorizing file read and write requests that are made using the S3 access point. See `fileSystemIdentity` Block for details.
      * 
      */
     public Optional<S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentity> fileSystemIdentity() {

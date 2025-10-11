@@ -19,7 +19,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs>? AndStatement { get; set; }
 
         /// <summary>
-        /// Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
+        /// Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `AsnMatchStatement` below for details.
         /// </summary>
         [Input("asnMatchStatement")]
         public Input<Inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgs>? AsnMatchStatement { get; set; }

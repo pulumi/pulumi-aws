@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Glue.Inputs
     public sealed class CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If set to `false`, snapshots are only deleted from table metadata, and the underlying data and metadata files are not deleted. Defaults to `false`.
+        /// If set to `False`, snapshots are only deleted from table metadata, and the underlying data and metadata files are not deleted. Defaults to `False`.
         /// </summary>
         [Input("cleanExpiredFiles")]
         public Input<bool>? CleanExpiredFiles { get; set; }

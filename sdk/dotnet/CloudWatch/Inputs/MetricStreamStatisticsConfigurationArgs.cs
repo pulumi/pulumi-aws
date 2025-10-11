@@ -16,7 +16,7 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         private InputList<string>? _additionalStatistics;
 
         /// <summary>
-        /// The additional statistics to stream for the metrics listed in `include_metrics`.
+        /// The additional statistics to stream for the metrics listed in `IncludeMetrics`.
         /// </summary>
         public InputList<string> AdditionalStatistics
         {

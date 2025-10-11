@@ -155,16 +155,16 @@ namespace Pulumi.Aws.RedshiftServerless
     {
         public readonly string? DbName;
         /// <summary>
-        /// Temporary password that authorizes the user name returned by `db_user` to log on to the database `db_name`.
+        /// Temporary password that authorizes the user name returned by `DbUser` to log on to the database `DbName`.
         /// </summary>
         public readonly string DbPassword;
         /// <summary>
-        /// A database user name that is authorized to log on to the database `db_name` using the password `db_password` . If the specified `db_user` exists in the database, the new user name has the same database privileges as the user named in `db_user` . By default, the user is added to PUBLIC. the user doesn't exist in the database.
+        /// A database user name that is authorized to log on to the database `DbName` using the password `DbPassword` . If the specified `DbUser` exists in the database, the new user name has the same database privileges as the user named in `DbUser` . By default, the user is added to PUBLIC. the user doesn't exist in the database.
         /// </summary>
         public readonly string DbUser;
         public readonly int? DurationSeconds;
         /// <summary>
-        /// Date and time the password in `db_password` expires.
+        /// Date and time the password in `DbPassword` expires.
         /// </summary>
         public readonly string Expiration;
         /// <summary>

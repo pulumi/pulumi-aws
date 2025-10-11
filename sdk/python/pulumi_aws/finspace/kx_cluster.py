@@ -858,6 +858,8 @@ class KxCluster(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
         ## Import
 
         Using `pulumi import`, import an AWS FinSpace Kx Cluster using the `id` (environment ID and cluster name, comma-delimited). For example:
@@ -909,6 +911,8 @@ class KxCluster(pulumi.CustomResource):
         Resource for managing an AWS FinSpace Kx Cluster.
 
         ## Example Usage
+
+        ### Basic Usage
 
         ## Import
 

@@ -32,14 +32,14 @@ public final class CustomRoutingAcceleratorAttributesArgs extends com.pulumi.res
     }
 
     /**
-     * The name of the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
+     * The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
      * 
      */
     @Import(name="flowLogsS3Bucket")
     private @Nullable Output<String> flowLogsS3Bucket;
 
     /**
-     * @return The name of the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
+     * @return The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
      * 
      */
     public Optional<Output<String>> flowLogsS3Bucket() {
@@ -47,14 +47,14 @@ public final class CustomRoutingAcceleratorAttributesArgs extends com.pulumi.res
     }
 
     /**
-     * The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
+     * The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
      * 
      */
     @Import(name="flowLogsS3Prefix")
     private @Nullable Output<String> flowLogsS3Prefix;
 
     /**
-     * @return The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
+     * @return The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
      * 
      */
     public Optional<Output<String>> flowLogsS3Prefix() {
@@ -109,7 +109,7 @@ public final class CustomRoutingAcceleratorAttributesArgs extends com.pulumi.res
         }
 
         /**
-         * @param flowLogsS3Bucket The name of the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
+         * @param flowLogsS3Bucket The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class CustomRoutingAcceleratorAttributesArgs extends com.pulumi.res
         }
 
         /**
-         * @param flowLogsS3Bucket The name of the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
+         * @param flowLogsS3Bucket The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class CustomRoutingAcceleratorAttributesArgs extends com.pulumi.res
         }
 
         /**
-         * @param flowLogsS3Prefix The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
+         * @param flowLogsS3Prefix The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class CustomRoutingAcceleratorAttributesArgs extends com.pulumi.res
         }
 
         /**
-         * @param flowLogsS3Prefix The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
+         * @param flowLogsS3Prefix The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
          * 
          * @return builder
          * 

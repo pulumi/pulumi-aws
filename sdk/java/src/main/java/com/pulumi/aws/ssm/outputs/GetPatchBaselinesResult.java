@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetPatchBaselinesResult {
     /**
-     * @return List of baseline identities. See `baseline_identities` below.
+     * @return List of baseline identities. See `baselineIdentities` below.
      * 
      */
     private List<GetPatchBaselinesBaselineIdentity> baselineIdentities;
@@ -32,7 +32,7 @@ public final class GetPatchBaselinesResult {
 
     private GetPatchBaselinesResult() {}
     /**
-     * @return List of baseline identities. See `baseline_identities` below.
+     * @return List of baseline identities. See `baselineIdentities` below.
      * 
      */
     public List<GetPatchBaselinesBaselineIdentity> baselineIdentities() {

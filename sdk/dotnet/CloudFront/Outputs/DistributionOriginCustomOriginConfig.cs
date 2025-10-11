@@ -22,7 +22,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly int HttpsPort;
         /// <summary>
-        /// IP protocol CloudFront uses when connecting to your origin. Valid values: `ipv4`, `ipv6`, `dualstack`.
+        /// IP protocol CloudFront uses when connecting to your origin. Valid values: `Ipv4`, `Ipv6`, `Dualstack`.
         /// </summary>
         public readonly string? IpAddressType;
         public readonly int? OriginKeepaliveTimeout;

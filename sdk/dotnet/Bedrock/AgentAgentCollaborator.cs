@@ -205,7 +205,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> CollaboratorName { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to prepare the agent after creation or modification. Defaults to `true`.
+        /// Whether to prepare the agent after creation or modification. Defaults to `True`.
         /// </summary>
         [Output("prepareAgent")]
         public Output<bool> PrepareAgent { get; private set; } = null!;
@@ -298,7 +298,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string> CollaboratorName { get; set; } = null!;
 
         /// <summary>
-        /// Whether to prepare the agent after creation or modification. Defaults to `true`.
+        /// Whether to prepare the agent after creation or modification. Defaults to `True`.
         /// </summary>
         [Input("prepareAgent")]
         public Input<bool>? PrepareAgent { get; set; }
@@ -359,7 +359,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? CollaboratorName { get; set; }
 
         /// <summary>
-        /// Whether to prepare the agent after creation or modification. Defaults to `true`.
+        /// Whether to prepare the agent after creation or modification. Defaults to `True`.
         /// </summary>
         [Input("prepareAgent")]
         public Input<bool>? PrepareAgent { get; set; }

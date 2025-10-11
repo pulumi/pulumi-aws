@@ -34,14 +34,14 @@ public final class PipelineTriggerAllGitConfigurationPushArgs extends com.pulumi
     }
 
     /**
-     * The field that specifies to filter on file paths for the push trigger configuration. A `file_paths` block is documented below.
+     * The field that specifies to filter on file paths for the push trigger configuration. A `filePaths` block is documented below.
      * 
      */
     @Import(name="filePaths")
     private @Nullable Output<List<PipelineTriggerAllGitConfigurationPushFilePathArgs>> filePaths;
 
     /**
-     * @return The field that specifies to filter on file paths for the push trigger configuration. A `file_paths` block is documented below.
+     * @return The field that specifies to filter on file paths for the push trigger configuration. A `filePaths` block is documented below.
      * 
      */
     public Optional<Output<List<PipelineTriggerAllGitConfigurationPushFilePathArgs>>> filePaths() {
@@ -121,7 +121,7 @@ public final class PipelineTriggerAllGitConfigurationPushArgs extends com.pulumi
         }
 
         /**
-         * @param filePaths The field that specifies to filter on file paths for the push trigger configuration. A `file_paths` block is documented below.
+         * @param filePaths The field that specifies to filter on file paths for the push trigger configuration. A `filePaths` block is documented below.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class PipelineTriggerAllGitConfigurationPushArgs extends com.pulumi
         }
 
         /**
-         * @param filePaths The field that specifies to filter on file paths for the push trigger configuration. A `file_paths` block is documented below.
+         * @param filePaths The field that specifies to filter on file paths for the push trigger configuration. A `filePaths` block is documented below.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class PipelineTriggerAllGitConfigurationPushArgs extends com.pulumi
         }
 
         /**
-         * @param filePaths The field that specifies to filter on file paths for the push trigger configuration. A `file_paths` block is documented below.
+         * @param filePaths The field that specifies to filter on file paths for the push trigger configuration. A `filePaths` block is documented below.
          * 
          * @return builder
          * 

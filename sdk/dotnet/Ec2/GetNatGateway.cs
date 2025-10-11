@@ -294,7 +294,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string AllocationId;
         /// <summary>
-        /// The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
+        /// The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `ConnectivityType` is `Public`.
         /// </summary>
         public readonly string AssociationId;
         /// <summary>

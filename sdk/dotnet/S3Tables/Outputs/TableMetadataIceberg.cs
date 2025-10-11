@@ -15,7 +15,7 @@ namespace Pulumi.Aws.S3Tables.Outputs
     {
         /// <summary>
         /// Schema configuration for the Iceberg table.
-        /// See `schema` below.
+        /// See `Schema` below.
         /// </summary>
         public readonly Outputs.TableMetadataIcebergSchema Schema;
 

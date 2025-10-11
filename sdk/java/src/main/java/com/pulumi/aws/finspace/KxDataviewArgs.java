@@ -150,9 +150,9 @@ public final class KxDataviewArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
-     * * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `auto_update` must be set as `false` if `read_write` is `true` for a dataview.
+     * * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `autoUpdate` must be set as `false` if `readWrite` is `true` for a dataview.
      * * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
-     * * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
+     * * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `readWrite` parameter later.
      * 
      */
     @Import(name="readWrite")
@@ -160,9 +160,9 @@ public final class KxDataviewArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
-     * * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `auto_update` must be set as `false` if `read_write` is `true` for a dataview.
+     * * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `autoUpdate` must be set as `false` if `readWrite` is `true` for a dataview.
      * * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
-     * * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
+     * * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `readWrite` parameter later.
      * 
      */
     public Optional<Output<Boolean>> readWrite() {
@@ -185,14 +185,14 @@ public final class KxDataviewArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.
+     * The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segmentConfigurations below.
      * 
      */
     @Import(name="segmentConfigurations")
     private @Nullable Output<List<KxDataviewSegmentConfigurationArgs>> segmentConfigurations;
 
     /**
-     * @return The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.
+     * @return The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segmentConfigurations below.
      * 
      */
     public Optional<Output<List<KxDataviewSegmentConfigurationArgs>>> segmentConfigurations() {
@@ -200,14 +200,14 @@ public final class KxDataviewArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -427,9 +427,9 @@ public final class KxDataviewArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param readWrite The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
-         * * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `auto_update` must be set as `false` if `read_write` is `true` for a dataview.
+         * * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `autoUpdate` must be set as `false` if `readWrite` is `true` for a dataview.
          * * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
-         * * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
+         * * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `readWrite` parameter later.
          * 
          * @return builder
          * 
@@ -441,9 +441,9 @@ public final class KxDataviewArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param readWrite The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
-         * * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `auto_update` must be set as `false` if `read_write` is `true` for a dataview.
+         * * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `autoUpdate` must be set as `false` if `readWrite` is `true` for a dataview.
          * * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
-         * * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
+         * * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `readWrite` parameter later.
          * 
          * @return builder
          * 
@@ -474,7 +474,7 @@ public final class KxDataviewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param segmentConfigurations The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.
+         * @param segmentConfigurations The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segmentConfigurations below.
          * 
          * @return builder
          * 
@@ -485,7 +485,7 @@ public final class KxDataviewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param segmentConfigurations The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.
+         * @param segmentConfigurations The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segmentConfigurations below.
          * 
          * @return builder
          * 
@@ -495,7 +495,7 @@ public final class KxDataviewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param segmentConfigurations The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.
+         * @param segmentConfigurations The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segmentConfigurations below.
          * 
          * @return builder
          * 
@@ -505,7 +505,7 @@ public final class KxDataviewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -516,7 +516,7 @@ public final class KxDataviewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

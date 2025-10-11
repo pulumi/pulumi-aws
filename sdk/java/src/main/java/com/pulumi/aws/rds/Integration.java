@@ -171,7 +171,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
     /**
      * Set of non-secret key–value pairs that contains additional contextual information about the data.
      * For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
-     * You can only include this parameter if you specify the `kms_key_id` parameter.
+     * You can only include this parameter if you specify the `kmsKeyId` parameter.
      * 
      */
     @Export(name="additionalEncryptionContext", refs={Map.class,String.class}, tree="[0,1,1]")
@@ -180,7 +180,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
     /**
      * @return Set of non-secret key–value pairs that contains additional contextual information about the data.
      * For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
-     * You can only include this parameter if you specify the `kms_key_id` parameter.
+     * You can only include this parameter if you specify the `kmsKeyId` parameter.
      * 
      */
     public Output<Optional<Map<String,String>>> additionalEncryptionContext() {
@@ -239,7 +239,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
     /**
      * KMS key identifier for the key to use to encrypt the integration.
      * If you don&#39;t specify an encryption key, RDS uses a default AWS owned key.
-     * If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
+     * If you use the default AWS owned key, you should ignore `kmsKeyId` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
@@ -248,7 +248,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
     /**
      * @return KMS key identifier for the key to use to encrypt the integration.
      * If you don&#39;t specify an encryption key, RDS uses a default AWS owned key.
-     * If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
+     * If you use the default AWS owned key, you should ignore `kmsKeyId` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
      * 
      */
     public Output<String> kmsKeyId() {
@@ -283,7 +283,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
         return this.sourceArn;
     }
     /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      * For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-integration.html).
      * 
@@ -292,7 +292,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      * For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-integration.html).
      * 
@@ -301,14 +301,14 @@ public class Integration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

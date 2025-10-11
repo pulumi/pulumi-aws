@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The vector configuration details on the Bedrock embeddings model.  See `bedrock_embedding_model_configuration` block for details.
+        /// The vector configuration details on the Bedrock embeddings model.  See `BedrockEmbeddingModelConfiguration` block for details.
         /// </summary>
         [Input("bedrockEmbeddingModelConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs>? BedrockEmbeddingModelConfiguration { get; set; }

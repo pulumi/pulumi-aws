@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleActionBlockCustomResponse {
     /**
-     * @return References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `custom_response_body` block of this resource.
+     * @return References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `customResponseBody` block of this resource.
      * 
      */
     private @Nullable String customResponseBodyKey;
@@ -26,14 +26,14 @@ public final class WebAclRuleActionBlockCustomResponse {
      */
     private Integer responseCode;
     /**
-     * @return The `response_header` blocks used to define the HTTP response headers added to the response. See `response_header` below for details.
+     * @return The `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
      * 
      */
     private @Nullable List<WebAclRuleActionBlockCustomResponseResponseHeader> responseHeaders;
 
     private WebAclRuleActionBlockCustomResponse() {}
     /**
-     * @return References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `custom_response_body` block of this resource.
+     * @return References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `customResponseBody` block of this resource.
      * 
      */
     public Optional<String> customResponseBodyKey() {
@@ -47,7 +47,7 @@ public final class WebAclRuleActionBlockCustomResponse {
         return this.responseCode;
     }
     /**
-     * @return The `response_header` blocks used to define the HTTP response headers added to the response. See `response_header` below for details.
+     * @return The `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
      * 
      */
     public List<WebAclRuleActionBlockCustomResponseResponseHeader> responseHeaders() {

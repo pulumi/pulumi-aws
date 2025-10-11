@@ -132,7 +132,7 @@ namespace Pulumi.Aws.Eks
         private Dictionary<string, string>? _tagsAll;
 
         /// <summary>
-        /// (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
+        /// (Optional) Key-value map of resource tags, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public Dictionary<string, string> TagsAll
         {
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.Eks
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
+        /// (Optional) Key-value map of resource tags, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -221,7 +221,7 @@ namespace Pulumi.Aws.Eks
         public readonly string Region;
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
+        /// (Optional) Key-value map of resource tags, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public readonly ImmutableDictionary<string, string> TagsAll;
         /// <summary>

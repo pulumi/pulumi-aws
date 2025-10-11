@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Fsx.Outputs
         /// </summary>
         public readonly string? DataCompressionType;
         /// <summary>
-        /// NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block for details.
+        /// NFS export configuration for the root volume. Exactly 1 item. See `NfsExports` Block for details.
         /// </summary>
         public readonly Outputs.OpenZfsFileSystemRootVolumeConfigurationNfsExports? NfsExports;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Fsx.Outputs
         /// </summary>
         public readonly int? RecordSizeKib;
         /// <summary>
-        /// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block for details.
+        /// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `UserAndGroupQuotas` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota> UserAndGroupQuotas;
 

@@ -32,7 +32,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * &gt; **Note:** To prevent a race condition during service deletion, make sure to set `depends_on` to the related `aws.iam.RolePolicy`; otherwise, the policy may be destroyed too soon and the ECS service will then get stuck in the `DRAINING` state.
+ * &gt; **Note:** To prevent a race condition during service deletion, make sure to set `dependsOn` to the related `aws.iam.RolePolicy`; otherwise, the policy may be destroyed too soon and the ECS service will then get stuck in the `DRAINING` state.
  * 
  * Provides an ECS service - effectively a task that is expected to run until an error occurs or a user terminates it (typically a webserver or a database).
  * 
@@ -373,14 +373,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.availabilityZoneRebalancing;
     }
     /**
-     * Capacity provider strategies to use for the service. Can be one or more. Updating this argument requires `force_new_deployment = true`. See below. Conflicts with `launch_type`.
+     * Capacity provider strategies to use for the service. Can be one or more. Updating this argument requires `forceNewDeployment = true`. See below. Conflicts with `launchType`.
      * 
      */
     @Export(name="capacityProviderStrategies", refs={List.class,ServiceCapacityProviderStrategy.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ServiceCapacityProviderStrategy>> capacityProviderStrategies;
 
     /**
-     * @return Capacity provider strategies to use for the service. Can be one or more. Updating this argument requires `force_new_deployment = true`. See below. Conflicts with `launch_type`.
+     * @return Capacity provider strategies to use for the service. Can be one or more. Updating this argument requires `forceNewDeployment = true`. See below. Conflicts with `launchType`.
      * 
      */
     public Output<Optional<List<ServiceCapacityProviderStrategy>>> capacityProviderStrategies() {
@@ -527,7 +527,7 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.forceDelete);
     }
     /**
-     * Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
+     * Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
      * When using the forceNewDeployment property you also need to configure the triggers property.
      * 
      */
@@ -535,7 +535,7 @@ public class Service extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Boolean> forceNewDeployment;
 
     /**
-     * @return Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
+     * @return Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
      * When using the forceNewDeployment property you also need to configure the triggers property.
      * 
      */
@@ -571,14 +571,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.iamRole;
     }
     /**
-     * Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
+     * Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacityProviderStrategy`.
      * 
      */
     @Export(name="launchType", refs={String.class}, tree="[0]")
     private Output<String> launchType;
 
     /**
-     * @return Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
+     * @return Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacityProviderStrategy`.
      * 
      */
     public Output<String> launchType() {
@@ -631,42 +631,42 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.networkConfiguration);
     }
     /**
-     * Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
+     * Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. The maximum number of `orderedPlacementStrategy` blocks is `5`. See below.
      * 
      */
     @Export(name="orderedPlacementStrategies", refs={List.class,ServiceOrderedPlacementStrategy.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ServiceOrderedPlacementStrategy>> orderedPlacementStrategies;
 
     /**
-     * @return Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
+     * @return Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. The maximum number of `orderedPlacementStrategy` blocks is `5`. See below.
      * 
      */
     public Output<Optional<List<ServiceOrderedPlacementStrategy>>> orderedPlacementStrategies() {
         return Codegen.optional(this.orderedPlacementStrategies);
     }
     /**
-     * Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
+     * Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. Maximum number of `placementConstraints` is `10`. See below.
      * 
      */
     @Export(name="placementConstraints", refs={List.class,ServicePlacementConstraint.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ServicePlacementConstraint>> placementConstraints;
 
     /**
-     * @return Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
+     * @return Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. Maximum number of `placementConstraints` is `10`. See below.
      * 
      */
     public Output<Optional<List<ServicePlacementConstraint>>> placementConstraints() {
         return Codegen.optional(this.placementConstraints);
     }
     /**
-     * Platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+     * Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      * 
      */
     @Export(name="platformVersion", refs={String.class}, tree="[0]")
     private Output<String> platformVersion;
 
     /**
-     * @return Platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+     * @return Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      * 
      */
     public Output<String> platformVersion() {
@@ -729,56 +729,56 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.serviceConnectConfiguration);
     }
     /**
-     * Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
+     * Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. See below.
      * 
      */
     @Export(name="serviceRegistries", refs={ServiceServiceRegistries.class}, tree="[0]")
     private Output</* @Nullable */ ServiceServiceRegistries> serviceRegistries;
 
     /**
-     * @return Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
+     * @return Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. See below.
      * 
      */
     public Output<Optional<ServiceServiceRegistries>> serviceRegistries() {
         return Codegen.optional(this.serviceRegistries);
     }
     /**
-     * Whether to enable graceful termination of deployments using SIGINT signals. When enabled, allows customers to safely cancel an in-progress deployment and automatically trigger a rollback to the previous stable state. Defaults to `false`. Only applicable when using `ECS` deployment controller and requires `wait_for_steady_state = true`.
+     * Whether to enable graceful termination of deployments using SIGINT signals. When enabled, allows customers to safely cancel an in-progress deployment and automatically trigger a rollback to the previous stable state. Defaults to `false`. Only applicable when using `ECS` deployment controller and requires `waitForSteadyState = true`.
      * 
      */
     @Export(name="sigintRollback", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sigintRollback;
 
     /**
-     * @return Whether to enable graceful termination of deployments using SIGINT signals. When enabled, allows customers to safely cancel an in-progress deployment and automatically trigger a rollback to the previous stable state. Defaults to `false`. Only applicable when using `ECS` deployment controller and requires `wait_for_steady_state = true`.
+     * @return Whether to enable graceful termination of deployments using SIGINT signals. When enabled, allows customers to safely cancel an in-progress deployment and automatically trigger a rollback to the previous stable state. Defaults to `false`. Only applicable when using `ECS` deployment controller and requires `waitForSteadyState = true`.
      * 
      */
     public Output<Optional<Boolean>> sigintRollback() {
         return Codegen.optional(this.sigintRollback);
     }
     /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

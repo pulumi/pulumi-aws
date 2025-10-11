@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration
     {
         /// <summary>
-        /// The Salesforce standard object configuration. See `filter_configuration` block for details.
+        /// The Salesforce standard object configuration. See `FilterConfiguration` block for details.
         /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration? FilterConfiguration;
 

@@ -66,14 +66,14 @@ public final class RoutingProfileArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
+     * One or more `mediaConcurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `mediaConcurrencies` block is documented below.
      * 
      */
     @Import(name="mediaConcurrencies", required=true)
     private Output<List<RoutingProfileMediaConcurrencyArgs>> mediaConcurrencies;
 
     /**
-     * @return One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
+     * @return One or more `mediaConcurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `mediaConcurrencies` block is documented below.
      * 
      */
     public Output<List<RoutingProfileMediaConcurrencyArgs>> mediaConcurrencies() {
@@ -96,14 +96,14 @@ public final class RoutingProfileArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
+     * One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
      * 
      */
     @Import(name="queueConfigs")
     private @Nullable Output<List<RoutingProfileQueueConfigArgs>> queueConfigs;
 
     /**
-     * @return One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
+     * @return One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
      * 
      */
     public Optional<Output<List<RoutingProfileQueueConfigArgs>>> queueConfigs() {
@@ -127,7 +127,7 @@ public final class RoutingProfileArgs extends com.pulumi.resources.ResourceArgs 
 
     /**
      * Tags to apply to the Routing Profile. If configured with a provider
-     * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
@@ -135,7 +135,7 @@ public final class RoutingProfileArgs extends com.pulumi.resources.ResourceArgs 
 
     /**
      * @return Tags to apply to the Routing Profile. If configured with a provider
-     * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -237,7 +237,7 @@ public final class RoutingProfileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param mediaConcurrencies One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
+         * @param mediaConcurrencies One or more `mediaConcurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `mediaConcurrencies` block is documented below.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class RoutingProfileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param mediaConcurrencies One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
+         * @param mediaConcurrencies One or more `mediaConcurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `mediaConcurrencies` block is documented below.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class RoutingProfileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param mediaConcurrencies One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
+         * @param mediaConcurrencies One or more `mediaConcurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `mediaConcurrencies` block is documented below.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class RoutingProfileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param queueConfigs One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
+         * @param queueConfigs One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
          * 
          * @return builder
          * 
@@ -300,7 +300,7 @@ public final class RoutingProfileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param queueConfigs One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
+         * @param queueConfigs One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
          * 
          * @return builder
          * 
@@ -310,7 +310,7 @@ public final class RoutingProfileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param queueConfigs One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
+         * @param queueConfigs One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class RoutingProfileArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param tags Tags to apply to the Routing Profile. If configured with a provider
-         * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class RoutingProfileArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param tags Tags to apply to the Routing Profile. If configured with a provider
-         * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

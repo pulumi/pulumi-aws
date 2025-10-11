@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// For information about Lambda Layer Permissions and how to use them, see [Using Resource-based Policies for AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountlayer).
     /// 
-    /// &gt; **Note:** Setting `skip_destroy` to `true` means that the AWS Provider will not destroy any layer version permission, even when running `pulumi destroy`. Layer version permissions are thus intentional dangling resources that are not managed by Pulumi and may incur extra expense in your AWS account.
+    /// &gt; **Note:** Setting `SkipDestroy` to `True` means that the AWS Provider will not destroy any layer version permission, even when running `pulumi destroy`. Layer version permissions are thus intentional dangling resources that are not managed by Pulumi and may incur extra expense in your AWS account.
     /// 
     /// ## Example Usage
     /// 
@@ -164,7 +164,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string> LayerName { get; private set; } = null!;
 
         /// <summary>
-        /// AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organization_id` is provided.
+        /// AWS Organization ID that should be able to use your Lambda Layer. `Principal` should be set to `*` when `OrganizationId` is provided.
         /// </summary>
         [Output("organizationId")]
         public Output<string?> OrganizationId { get; private set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string> RevisionId { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to retain the permission when the resource is destroyed. Default is `false`.
+        /// Whether to retain the permission when the resource is destroyed. Default is `False`.
         /// </summary>
         [Output("skipDestroy")]
         public Output<bool?> SkipDestroy { get; private set; } = null!;
@@ -272,7 +272,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string> LayerName { get; set; } = null!;
 
         /// <summary>
-        /// AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organization_id` is provided.
+        /// AWS Organization ID that should be able to use your Lambda Layer. `Principal` should be set to `*` when `OrganizationId` is provided.
         /// </summary>
         [Input("organizationId")]
         public Input<string>? OrganizationId { get; set; }
@@ -290,7 +290,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Whether to retain the permission when the resource is destroyed. Default is `false`.
+        /// Whether to retain the permission when the resource is destroyed. Default is `False`.
         /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
@@ -330,7 +330,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? LayerName { get; set; }
 
         /// <summary>
-        /// AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organization_id` is provided.
+        /// AWS Organization ID that should be able to use your Lambda Layer. `Principal` should be set to `*` when `OrganizationId` is provided.
         /// </summary>
         [Input("organizationId")]
         public Input<string>? OrganizationId { get; set; }
@@ -360,7 +360,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? RevisionId { get; set; }
 
         /// <summary>
-        /// Whether to retain the permission when the resource is destroyed. Default is `false`.
+        /// Whether to retain the permission when the resource is destroyed. Default is `False`.
         /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }

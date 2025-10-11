@@ -292,7 +292,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Common name of an AWS service (e.g., `s3`).
+        /// Common name of an AWS service (e.g., `S3`).
         /// </summary>
         [Input("service")]
         public string? Service { get; set; }
@@ -327,7 +327,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
         /// 
-        /// &gt; **NOTE:** Specifying `service` will not work for non-AWS services or AWS services that don't follow the standard `service_name` pattern of `com.amazonaws.&lt;region&gt;.&lt;service&gt;`.
+        /// &gt; **NOTE:** Specifying `Service` will not work for non-AWS services or AWS services that don't follow the standard `ServiceName` pattern of `com.amazonaws.&lt;region&gt;.&lt;service&gt;`.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -356,7 +356,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Common name of an AWS service (e.g., `s3`).
+        /// Common name of an AWS service (e.g., `S3`).
         /// </summary>
         [Input("service")]
         public Input<string>? Service { get; set; }
@@ -391,7 +391,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
         /// 
-        /// &gt; **NOTE:** Specifying `service` will not work for non-AWS services or AWS services that don't follow the standard `service_name` pattern of `com.amazonaws.&lt;region&gt;.&lt;service&gt;`.
+        /// &gt; **NOTE:** Specifying `Service` will not work for non-AWS services or AWS services that don't follow the standard `ServiceName` pattern of `com.amazonaws.&lt;region&gt;.&lt;service&gt;`.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -410,7 +410,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetVpcEndpointServiceResult
     {
         /// <summary>
-        /// Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
+        /// Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `True` or `False`.
         /// </summary>
         public readonly bool AcceptanceRequired;
         /// <summary>
@@ -431,11 +431,11 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Whether or not the service manages its VPC endpoints - `true` or `false`.
+        /// Whether or not the service manages its VPC endpoints - `True` or `False`.
         /// </summary>
         public readonly bool ManagesVpcEndpoints;
         /// <summary>
-        /// AWS account ID of the service owner or `amazon`.
+        /// AWS account ID of the service owner or `Amazon`.
         /// </summary>
         public readonly string Owner;
         /// <summary>
@@ -447,7 +447,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableArray<string> PrivateDnsNames;
         /// <summary>
-        /// (**Deprecated**) Region of the endpoint service. Use `service_region` instead.
+        /// (**Deprecated**) Region of the endpoint service. Use `ServiceRegion` instead.
         /// </summary>
         public readonly string Region;
         public readonly string? Service;
@@ -471,7 +471,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// Whether or not the service supports endpoint policies - `true` or `false`.
+        /// Whether or not the service supports endpoint policies - `True` or `False`.
         /// </summary>
         public readonly bool VpcEndpointPolicySupported;
 

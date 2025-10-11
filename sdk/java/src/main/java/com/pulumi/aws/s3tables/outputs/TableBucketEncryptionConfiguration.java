@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class TableBucketEncryptionConfiguration {
     /**
-     * @return The ARN of a KMS Key to be used with `aws:kms` `sse_algorithm`
+     * @return The ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
      * 
      */
     private String kmsKeyArn;
@@ -23,7 +23,7 @@ public final class TableBucketEncryptionConfiguration {
 
     private TableBucketEncryptionConfiguration() {}
     /**
-     * @return The ARN of a KMS Key to be used with `aws:kms` `sse_algorithm`
+     * @return The ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
      * 
      */
     public String kmsKeyArn() {

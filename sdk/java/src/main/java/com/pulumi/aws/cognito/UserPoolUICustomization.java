@@ -145,14 +145,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cognito/userPoolUICustomization:UserPoolUICustomization")
 public class UserPoolUICustomization extends com.pulumi.resources.CustomResource {
     /**
-     * The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
+     * The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `imageFile` settings will be used for every client that has no UI customization set previously.
      * 
      */
     @Export(name="clientId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientId;
 
     /**
-     * @return The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
+     * @return The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `imageFile` settings will be used for every client that has no UI customization set previously.
      * 
      */
     public Output<Optional<String>> clientId() {
@@ -173,14 +173,14 @@ public class UserPoolUICustomization extends com.pulumi.resources.CustomResource
         return this.creationDate;
     }
     /**
-     * The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
+     * The CSS values in the UI customization, provided as a String. At least one of `css` or `imageFile` is required.
      * 
      */
     @Export(name="css", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> css;
 
     /**
-     * @return The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
+     * @return The CSS values in the UI customization, provided as a String. At least one of `css` or `imageFile` is required.
      * 
      */
     public Output<Optional<String>> css() {
@@ -201,14 +201,14 @@ public class UserPoolUICustomization extends com.pulumi.resources.CustomResource
         return this.cssVersion;
     }
     /**
-     * The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
+     * The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `imageFile` is required.
      * 
      */
     @Export(name="imageFile", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> imageFile;
 
     /**
-     * @return The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
+     * @return The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `imageFile` is required.
      * 
      */
     public Output<Optional<String>> imageFile() {

@@ -18,12 +18,12 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// The Kinesis Firehose configuration for the destination stream. Conflicts with `kinesis_stream`.
+        /// The Kinesis Firehose configuration for the destination stream. Conflicts with `KinesisStream`.
         /// See Kinesis Firehose below for more details.
         /// </summary>
         public readonly Outputs.AnalyticsApplicationOutputKinesisFirehose? KinesisFirehose;
         /// <summary>
-        /// The Kinesis Stream configuration for the destination stream. Conflicts with `kinesis_firehose`.
+        /// The Kinesis Stream configuration for the destination stream. Conflicts with `KinesisFirehose`.
         /// See Kinesis Stream below for more details.
         /// </summary>
         public readonly Outputs.AnalyticsApplicationOutputKinesisStream? KinesisStream;

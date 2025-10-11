@@ -14,15 +14,15 @@ namespace Pulumi.Aws.SecurityHub.Outputs
     public sealed class InsightFiltersFirstObservedAt
     {
         /// <summary>
-        /// A configuration block of the date range for the date filter. See date_range below for more details.
+        /// A configuration block of the date range for the date filter. See DateRange below for more details.
         /// </summary>
         public readonly Outputs.InsightFiltersFirstObservedAtDateRange? DateRange;
         /// <summary>
-        /// An end date for the date filter. Required with `start` if `date_range` is not specified.
+        /// An end date for the date filter. Required with `Start` if `DateRange` is not specified.
         /// </summary>
         public readonly string? End;
         /// <summary>
-        /// A start date for the date filter. Required with `end` if `date_range` is not specified.
+        /// A start date for the date filter. Required with `End` if `DateRange` is not specified.
         /// </summary>
         public readonly string? Start;
 

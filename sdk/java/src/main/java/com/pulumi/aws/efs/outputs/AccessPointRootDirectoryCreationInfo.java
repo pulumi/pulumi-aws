@@ -12,12 +12,12 @@ import java.util.Objects;
 @CustomType
 public final class AccessPointRootDirectoryCreationInfo {
     /**
-     * @return POSIX group ID to apply to the `root_directory`.
+     * @return POSIX group ID to apply to the `rootDirectory`.
      * 
      */
     private Integer ownerGid;
     /**
-     * @return POSIX user ID to apply to the `root_directory`.
+     * @return POSIX user ID to apply to the `rootDirectory`.
      * 
      */
     private Integer ownerUid;
@@ -29,14 +29,14 @@ public final class AccessPointRootDirectoryCreationInfo {
 
     private AccessPointRootDirectoryCreationInfo() {}
     /**
-     * @return POSIX group ID to apply to the `root_directory`.
+     * @return POSIX group ID to apply to the `rootDirectory`.
      * 
      */
     public Integer ownerGid() {
         return this.ownerGid;
     }
     /**
-     * @return POSIX user ID to apply to the `root_directory`.
+     * @return POSIX user ID to apply to the `rootDirectory`.
      * 
      */
     public Integer ownerUid() {

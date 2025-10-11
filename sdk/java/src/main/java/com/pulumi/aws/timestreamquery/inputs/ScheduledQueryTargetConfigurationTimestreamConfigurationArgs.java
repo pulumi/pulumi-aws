@@ -81,14 +81,14 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfigurationArgs 
     }
 
     /**
-     * Configuration block for multi-measure mappings. Only one of `mixed_measure_mappings` or `multi_measure_mappings` can be provided. `multi_measure_mappings` can be used to ingest data as multi measures in the derived table. See below.
+     * Configuration block for multi-measure mappings. Only one of `mixedMeasureMappings` or `multiMeasureMappings` can be provided. `multiMeasureMappings` can be used to ingest data as multi measures in the derived table. See below.
      * 
      */
     @Import(name="multiMeasureMappings")
     private @Nullable Output<ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs> multiMeasureMappings;
 
     /**
-     * @return Configuration block for multi-measure mappings. Only one of `mixed_measure_mappings` or `multi_measure_mappings` can be provided. `multi_measure_mappings` can be used to ingest data as multi measures in the derived table. See below.
+     * @return Configuration block for multi-measure mappings. Only one of `mixedMeasureMappings` or `multiMeasureMappings` can be provided. `multiMeasureMappings` can be used to ingest data as multi measures in the derived table. See below.
      * 
      */
     public Optional<Output<ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs>> multiMeasureMappings() {
@@ -260,7 +260,7 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfigurationArgs 
         }
 
         /**
-         * @param multiMeasureMappings Configuration block for multi-measure mappings. Only one of `mixed_measure_mappings` or `multi_measure_mappings` can be provided. `multi_measure_mappings` can be used to ingest data as multi measures in the derived table. See below.
+         * @param multiMeasureMappings Configuration block for multi-measure mappings. Only one of `mixedMeasureMappings` or `multiMeasureMappings` can be provided. `multiMeasureMappings` can be used to ingest data as multi measures in the derived table. See below.
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfigurationArgs 
         }
 
         /**
-         * @param multiMeasureMappings Configuration block for multi-measure mappings. Only one of `mixed_measure_mappings` or `multi_measure_mappings` can be provided. `multi_measure_mappings` can be used to ingest data as multi measures in the derived table. See below.
+         * @param multiMeasureMappings Configuration block for multi-measure mappings. Only one of `mixedMeasureMappings` or `multiMeasureMappings` can be provided. `multiMeasureMappings` can be used to ingest data as multi measures in the derived table. See below.
          * 
          * @return builder
          * 

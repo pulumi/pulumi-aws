@@ -271,14 +271,14 @@ public class Trust extends com.pulumi.resources.CustomResource {
         return this.selectiveAuth;
     }
     /**
-     * Date and time when the Trust state in `trust_state` was last updated.
+     * Date and time when the Trust state in `trustState` was last updated.
      * 
      */
     @Export(name="stateLastUpdatedDateTime", refs={String.class}, tree="[0]")
     private Output<String> stateLastUpdatedDateTime;
 
     /**
-     * @return Date and time when the Trust state in `trust_state` was last updated.
+     * @return Date and time when the Trust state in `trustState` was last updated.
      * 
      */
     public Output<String> stateLastUpdatedDateTime() {
@@ -337,14 +337,14 @@ public class Trust extends com.pulumi.resources.CustomResource {
         return this.trustState;
     }
     /**
-     * Reason for the Trust state set in `trust_state`.
+     * Reason for the Trust state set in `trustState`.
      * 
      */
     @Export(name="trustStateReason", refs={String.class}, tree="[0]")
     private Output<String> trustStateReason;
 
     /**
-     * @return Reason for the Trust state set in `trust_state`.
+     * @return Reason for the Trust state set in `trustState`.
      * 
      */
     public Output<String> trustStateReason() {

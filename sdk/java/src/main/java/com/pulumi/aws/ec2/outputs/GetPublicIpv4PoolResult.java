@@ -26,7 +26,7 @@ public final class GetPublicIpv4PoolResult {
     private String id;
     /**
      * @return Name of the location from which the address pool is advertised.
-     * * pool_address_ranges` - List of Address Ranges in the Pool; each address range record contains:
+     * * poolAddressRanges` - List of Address Ranges in the Pool; each address range record contains:
      * 
      */
     private String networkBorderGroup;
@@ -66,7 +66,7 @@ public final class GetPublicIpv4PoolResult {
     }
     /**
      * @return Name of the location from which the address pool is advertised.
-     * * pool_address_ranges` - List of Address Ranges in the Pool; each address range record contains:
+     * * poolAddressRanges` - List of Address Ranges in the Pool; each address range record contains:
      * 
      */
     public String networkBorderGroup() {

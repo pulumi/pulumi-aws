@@ -56,7 +56,7 @@ namespace Pulumi.Aws.S3.Inputs
         }
 
         /// <summary>
-        /// **DEPRECATED** Use `filter` instead.
+        /// **DEPRECATED** Use `Filter` instead.
         /// This has been deprecated by Amazon S3.
         /// Prefix identifying one or more objects to which the rule applies.
         /// </summary>

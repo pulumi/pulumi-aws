@@ -12,6 +12,8 @@ import (
 )
 
 // This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
+//
+// ## Example Usage
 func LookupDataCatalogEncryptionSettings(ctx *pulumi.Context, args *LookupDataCatalogEncryptionSettingsArgs, opts ...pulumi.InvokeOption) (*LookupDataCatalogEncryptionSettingsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDataCatalogEncryptionSettingsResult

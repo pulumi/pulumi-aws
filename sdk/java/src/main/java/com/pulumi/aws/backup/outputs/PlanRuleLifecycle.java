@@ -18,7 +18,7 @@ public final class PlanRuleLifecycle {
      */
     private @Nullable Integer coldStorageAfter;
     /**
-     * @return Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
+     * @return Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
      * 
      */
     private @Nullable Integer deleteAfter;
@@ -37,7 +37,7 @@ public final class PlanRuleLifecycle {
         return Optional.ofNullable(this.coldStorageAfter);
     }
     /**
-     * @return Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
+     * @return Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
      * 
      */
     public Optional<Integer> deleteAfter() {

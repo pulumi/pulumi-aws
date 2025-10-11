@@ -20,14 +20,14 @@ public final class SpaceSpaceSettingsJupyterLabAppSettingsArgs extends com.pulum
     public static final SpaceSpaceSettingsJupyterLabAppSettingsArgs Empty = new SpaceSpaceSettingsJupyterLabAppSettingsArgs();
 
     /**
-     * Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
+     * Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `appLifecycleManagement` Block below.
      * 
      */
     @Import(name="appLifecycleManagement")
     private @Nullable Output<SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs> appLifecycleManagement;
 
     /**
-     * @return Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
+     * @return Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `appLifecycleManagement` Block below.
      * 
      */
     public Optional<Output<SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs>> appLifecycleManagement() {
@@ -35,14 +35,14 @@ public final class SpaceSpaceSettingsJupyterLabAppSettingsArgs extends com.pulum
     }
 
     /**
-     * A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterLab application. See `code_repository` Block below.
+     * A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterLab application. See `codeRepository` Block below.
      * 
      */
     @Import(name="codeRepositories")
     private @Nullable Output<List<SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs>> codeRepositories;
 
     /**
-     * @return A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterLab application. See `code_repository` Block below.
+     * @return A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterLab application. See `codeRepository` Block below.
      * 
      */
     public Optional<Output<List<SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs>>> codeRepositories() {
@@ -50,14 +50,14 @@ public final class SpaceSpaceSettingsJupyterLabAppSettingsArgs extends com.pulum
     }
 
     /**
-     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
+     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
      * 
      */
     @Import(name="defaultResourceSpec", required=true)
     private Output<SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs> defaultResourceSpec;
 
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
      * 
      */
     public Output<SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs> defaultResourceSpec() {
@@ -91,7 +91,7 @@ public final class SpaceSpaceSettingsJupyterLabAppSettingsArgs extends com.pulum
         }
 
         /**
-         * @param appLifecycleManagement Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
+         * @param appLifecycleManagement Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `appLifecycleManagement` Block below.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class SpaceSpaceSettingsJupyterLabAppSettingsArgs extends com.pulum
         }
 
         /**
-         * @param appLifecycleManagement Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
+         * @param appLifecycleManagement Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `appLifecycleManagement` Block below.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class SpaceSpaceSettingsJupyterLabAppSettingsArgs extends com.pulum
         }
 
         /**
-         * @param codeRepositories A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterLab application. See `code_repository` Block below.
+         * @param codeRepositories A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterLab application. See `codeRepository` Block below.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class SpaceSpaceSettingsJupyterLabAppSettingsArgs extends com.pulum
         }
 
         /**
-         * @param codeRepositories A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterLab application. See `code_repository` Block below.
+         * @param codeRepositories A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterLab application. See `codeRepository` Block below.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class SpaceSpaceSettingsJupyterLabAppSettingsArgs extends com.pulum
         }
 
         /**
-         * @param codeRepositories A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterLab application. See `code_repository` Block below.
+         * @param codeRepositories A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterLab application. See `codeRepository` Block below.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class SpaceSpaceSettingsJupyterLabAppSettingsArgs extends com.pulum
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
+         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class SpaceSpaceSettingsJupyterLabAppSettingsArgs extends com.pulum
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
+         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
          * 
          * @return builder
          * 

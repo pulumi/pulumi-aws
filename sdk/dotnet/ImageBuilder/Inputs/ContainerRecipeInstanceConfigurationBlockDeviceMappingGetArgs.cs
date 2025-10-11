@@ -25,13 +25,13 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public Input<Inputs.ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsGetArgs>? Ebs { get; set; }
 
         /// <summary>
-        /// Set to `true` to remove a mapping from the parent image.
+        /// Set to `True` to remove a mapping from the parent image.
         /// </summary>
         [Input("noDevice")]
         public Input<bool>? NoDevice { get; set; }
 
         /// <summary>
-        /// Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+        /// Virtual device name. For example, `Ephemeral0`. Instance store volumes are numbered starting from 0.
         /// </summary>
         [Input("virtualName")]
         public Input<string>? VirtualName { get; set; }

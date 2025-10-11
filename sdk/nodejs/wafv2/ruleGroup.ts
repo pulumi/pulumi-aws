@@ -50,6 +50,8 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Complex
+ *
  * ### Using rulesJson
  *
  * ```typescript

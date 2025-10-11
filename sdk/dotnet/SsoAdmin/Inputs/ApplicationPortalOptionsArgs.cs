@@ -13,7 +13,7 @@ namespace Pulumi.Aws.SsoAdmin.Inputs
     public sealed class ApplicationPortalOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Sign-in options for the access portal. See `sign_in_options` below.
+        /// Sign-in options for the access portal. See `SignInOptions` below.
         /// </summary>
         [Input("signInOptions")]
         public Input<Inputs.ApplicationPortalOptionsSignInOptionsArgs>? SignInOptions { get; set; }

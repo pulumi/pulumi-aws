@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Resource for managing an AWS DataZone Project.
  *
+ * ## Example Usage
+ *
  * ### Basic Usage
  *
  * ```typescript

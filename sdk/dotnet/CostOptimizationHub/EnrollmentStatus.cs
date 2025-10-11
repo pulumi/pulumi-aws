@@ -61,7 +61,7 @@ namespace Pulumi.Aws.CostOptimizationHub
     public partial class EnrollmentStatus : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
+        /// Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `False`.
         /// </summary>
         [Output("includeMemberAccounts")]
         public Output<bool> IncludeMemberAccounts { get; private set; } = null!;
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.CostOptimizationHub
     public sealed class EnrollmentStatusArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
+        /// Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `False`.
         /// </summary>
         [Input("includeMemberAccounts")]
         public Input<bool>? IncludeMemberAccounts { get; set; }
@@ -130,7 +130,7 @@ namespace Pulumi.Aws.CostOptimizationHub
     public sealed class EnrollmentStatusState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
+        /// Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `False`.
         /// </summary>
         [Input("includeMemberAccounts")]
         public Input<bool>? IncludeMemberAccounts { get; set; }

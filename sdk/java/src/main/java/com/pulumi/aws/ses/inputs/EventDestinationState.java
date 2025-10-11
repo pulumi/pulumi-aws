@@ -143,7 +143,7 @@ public final class EventDestinationState extends com.pulumi.resources.ResourceAr
     /**
      * Send the events to an SNS Topic destination
      * 
-     * &gt; **NOTE:** You can specify `&#34;cloudwatch_destination&#34;` or `&#34;kinesis_destination&#34;` but not both
+     * &gt; **NOTE:** You can specify `&#34;cloudwatchDestination&#34;` or `&#34;kinesisDestination&#34;` but not both
      * 
      */
     @Import(name="snsDestination")
@@ -152,7 +152,7 @@ public final class EventDestinationState extends com.pulumi.resources.ResourceAr
     /**
      * @return Send the events to an SNS Topic destination
      * 
-     * &gt; **NOTE:** You can specify `&#34;cloudwatch_destination&#34;` or `&#34;kinesis_destination&#34;` but not both
+     * &gt; **NOTE:** You can specify `&#34;cloudwatchDestination&#34;` or `&#34;kinesisDestination&#34;` but not both
      * 
      */
     public Optional<Output<EventDestinationSnsDestinationArgs>> snsDestination() {
@@ -382,7 +382,7 @@ public final class EventDestinationState extends com.pulumi.resources.ResourceAr
         /**
          * @param snsDestination Send the events to an SNS Topic destination
          * 
-         * &gt; **NOTE:** You can specify `&#34;cloudwatch_destination&#34;` or `&#34;kinesis_destination&#34;` but not both
+         * &gt; **NOTE:** You can specify `&#34;cloudwatchDestination&#34;` or `&#34;kinesisDestination&#34;` but not both
          * 
          * @return builder
          * 
@@ -395,7 +395,7 @@ public final class EventDestinationState extends com.pulumi.resources.ResourceAr
         /**
          * @param snsDestination Send the events to an SNS Topic destination
          * 
-         * &gt; **NOTE:** You can specify `&#34;cloudwatch_destination&#34;` or `&#34;kinesis_destination&#34;` but not both
+         * &gt; **NOTE:** You can specify `&#34;cloudwatchDestination&#34;` or `&#34;kinesisDestination&#34;` but not both
          * 
          * @return builder
          * 

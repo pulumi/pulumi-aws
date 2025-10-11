@@ -130,7 +130,7 @@ namespace Pulumi.Aws.Connect
     public sealed class GetUserHierarchyStructureResult
     {
         /// <summary>
-        /// Block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
+        /// Block that defines the hierarchy structure's levels. The `HierarchyStructure` block is documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetUserHierarchyStructureHierarchyStructureResult> HierarchyStructures;
         /// <summary>

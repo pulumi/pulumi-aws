@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 public final class V2modelsSlotTypeCompositeSlotTypeSetting {
     /**
      * @return Sub slots in the composite slot.
-     * See `sub_slots` argument reference below.
+     * See `subSlots` argument reference below.
      * 
      */
     private @Nullable List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlot> subSlots;
@@ -21,7 +21,7 @@ public final class V2modelsSlotTypeCompositeSlotTypeSetting {
     private V2modelsSlotTypeCompositeSlotTypeSetting() {}
     /**
      * @return Sub slots in the composite slot.
-     * See `sub_slots` argument reference below.
+     * See `subSlots` argument reference below.
      * 
      */
     public List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlot> subSlots() {

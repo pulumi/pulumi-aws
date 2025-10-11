@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ec2ClientVpn.Inputs
     public sealed class EndpointClientRouteEnforcementOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enable or disable Client Route Enforcement. The default is `false` (not enabled).
+        /// Enable or disable Client Route Enforcement. The default is `False` (not enabled).
         /// </summary>
         [Input("enforced")]
         public Input<bool>? Enforced { get; set; }

@@ -69,7 +69,9 @@ namespace Pulumi.Aws.WafV2
     /// });
     /// ```
     /// 
-    /// ### Using rules_json
+    /// ### Complex
+    /// 
+    /// ### Using RulesJson
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -162,7 +164,7 @@ namespace Pulumi.Aws.WafV2
         public Output<int> Capacity { get; private set; } = null!;
 
         /// <summary>
-        /// Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+        /// Defines custom response bodies that can be referenced by `CustomResponse` actions. See Custom Response Body below for details.
         /// </summary>
         [Output("customResponseBodies")]
         public Output<ImmutableArray<Outputs.RuleGroupCustomResponseBody>> CustomResponseBodies { get; private set; } = null!;
@@ -183,7 +185,7 @@ namespace Pulumi.Aws.WafV2
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`.
         /// </summary>
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
@@ -195,13 +197,13 @@ namespace Pulumi.Aws.WafV2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+        /// The rule blocks used to identify the web requests that you want to `Allow`, `Block`, or `Count`. See Rules below for details.
         /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.RuleGroupRule>> Rules { get; private set; } = null!;
 
         /// <summary>
-        /// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rules_json` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
+        /// Raw JSON string to allow more than three nested statements. Conflicts with `Rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `Rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `RulesJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `Rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
         /// </summary>
         [Output("rulesJson")]
         public Output<string?> RulesJson { get; private set; } = null!;
@@ -213,13 +215,13 @@ namespace Pulumi.Aws.WafV2
         public Output<string> Scope { get; private set; } = null!;
 
         /// <summary>
-        /// An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// An array of key:value pairs to associate with the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -286,7 +288,7 @@ namespace Pulumi.Aws.WafV2
         private InputList<Inputs.RuleGroupCustomResponseBodyArgs>? _customResponseBodies;
 
         /// <summary>
-        /// Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+        /// Defines custom response bodies that can be referenced by `CustomResponse` actions. See Custom Response Body below for details.
         /// </summary>
         public InputList<Inputs.RuleGroupCustomResponseBodyArgs> CustomResponseBodies
         {
@@ -307,7 +309,7 @@ namespace Pulumi.Aws.WafV2
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
@@ -322,7 +324,7 @@ namespace Pulumi.Aws.WafV2
         private InputList<Inputs.RuleGroupRuleArgs>? _rules;
 
         /// <summary>
-        /// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+        /// The rule blocks used to identify the web requests that you want to `Allow`, `Block`, or `Count`. See Rules below for details.
         /// </summary>
         public InputList<Inputs.RuleGroupRuleArgs> Rules
         {
@@ -331,7 +333,7 @@ namespace Pulumi.Aws.WafV2
         }
 
         /// <summary>
-        /// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rules_json` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
+        /// Raw JSON string to allow more than three nested statements. Conflicts with `Rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `Rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `RulesJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `Rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
         /// </summary>
         [Input("rulesJson")]
         public Input<string>? RulesJson { get; set; }
@@ -346,7 +348,7 @@ namespace Pulumi.Aws.WafV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// An array of key:value pairs to associate with the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -384,7 +386,7 @@ namespace Pulumi.Aws.WafV2
         private InputList<Inputs.RuleGroupCustomResponseBodyGetArgs>? _customResponseBodies;
 
         /// <summary>
-        /// Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+        /// Defines custom response bodies that can be referenced by `CustomResponse` actions. See Custom Response Body below for details.
         /// </summary>
         public InputList<Inputs.RuleGroupCustomResponseBodyGetArgs> CustomResponseBodies
         {
@@ -408,7 +410,7 @@ namespace Pulumi.Aws.WafV2
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
@@ -423,7 +425,7 @@ namespace Pulumi.Aws.WafV2
         private InputList<Inputs.RuleGroupRuleGetArgs>? _rules;
 
         /// <summary>
-        /// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+        /// The rule blocks used to identify the web requests that you want to `Allow`, `Block`, or `Count`. See Rules below for details.
         /// </summary>
         public InputList<Inputs.RuleGroupRuleGetArgs> Rules
         {
@@ -432,7 +434,7 @@ namespace Pulumi.Aws.WafV2
         }
 
         /// <summary>
-        /// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rules_json` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
+        /// Raw JSON string to allow more than three nested statements. Conflicts with `Rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `Rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `RulesJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `Rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
         /// </summary>
         [Input("rulesJson")]
         public Input<string>? RulesJson { get; set; }
@@ -447,7 +449,7 @@ namespace Pulumi.Aws.WafV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// An array of key:value pairs to associate with the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -459,7 +461,7 @@ namespace Pulumi.Aws.WafV2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

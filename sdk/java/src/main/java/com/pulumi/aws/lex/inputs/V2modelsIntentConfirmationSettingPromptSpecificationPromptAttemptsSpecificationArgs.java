@@ -36,14 +36,14 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
     }
 
     /**
-     * Configuration block for the allowed input types of the prompt attempt. See `allowed_input_types`.
+     * Configuration block for the allowed input types of the prompt attempt. See `allowedInputTypes`.
      * 
      */
     @Import(name="allowedInputTypes", required=true)
     private Output<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs> allowedInputTypes;
 
     /**
-     * @return Configuration block for the allowed input types of the prompt attempt. See `allowed_input_types`.
+     * @return Configuration block for the allowed input types of the prompt attempt. See `allowedInputTypes`.
      * 
      */
     public Output<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs> allowedInputTypes() {
@@ -51,14 +51,14 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
     }
 
     /**
-     * Configuration block for settings on audio and DTMF input. See `audio_and_dtmf_input_specification`.
+     * Configuration block for settings on audio and DTMF input. See `audioAndDtmfInputSpecification`.
      * 
      */
     @Import(name="audioAndDtmfInputSpecification")
     private @Nullable Output<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs> audioAndDtmfInputSpecification;
 
     /**
-     * @return Configuration block for settings on audio and DTMF input. See `audio_and_dtmf_input_specification`.
+     * @return Configuration block for settings on audio and DTMF input. See `audioAndDtmfInputSpecification`.
      * 
      */
     public Optional<Output<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs>> audioAndDtmfInputSpecification() {
@@ -81,14 +81,14 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
     }
 
     /**
-     * Configuration block for the settings on text input. See `text_input_specification`.
+     * Configuration block for the settings on text input. See `textInputSpecification`.
      * 
      */
     @Import(name="textInputSpecification")
     private @Nullable Output<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs> textInputSpecification;
 
     /**
-     * @return Configuration block for the settings on text input. See `text_input_specification`.
+     * @return Configuration block for the settings on text input. See `textInputSpecification`.
      * 
      */
     public Optional<Output<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs>> textInputSpecification() {
@@ -145,7 +145,7 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
         }
 
         /**
-         * @param allowedInputTypes Configuration block for the allowed input types of the prompt attempt. See `allowed_input_types`.
+         * @param allowedInputTypes Configuration block for the allowed input types of the prompt attempt. See `allowedInputTypes`.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
         }
 
         /**
-         * @param allowedInputTypes Configuration block for the allowed input types of the prompt attempt. See `allowed_input_types`.
+         * @param allowedInputTypes Configuration block for the allowed input types of the prompt attempt. See `allowedInputTypes`.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
         }
 
         /**
-         * @param audioAndDtmfInputSpecification Configuration block for settings on audio and DTMF input. See `audio_and_dtmf_input_specification`.
+         * @param audioAndDtmfInputSpecification Configuration block for settings on audio and DTMF input. See `audioAndDtmfInputSpecification`.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
         }
 
         /**
-         * @param audioAndDtmfInputSpecification Configuration block for settings on audio and DTMF input. See `audio_and_dtmf_input_specification`.
+         * @param audioAndDtmfInputSpecification Configuration block for settings on audio and DTMF input. See `audioAndDtmfInputSpecification`.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
         }
 
         /**
-         * @param textInputSpecification Configuration block for the settings on text input. See `text_input_specification`.
+         * @param textInputSpecification Configuration block for the settings on text input. See `textInputSpecification`.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
         }
 
         /**
-         * @param textInputSpecification Configuration block for the settings on text input. See `text_input_specification`.
+         * @param textInputSpecification Configuration block for the settings on text input. See `textInputSpecification`.
          * 
          * @return builder
          * 

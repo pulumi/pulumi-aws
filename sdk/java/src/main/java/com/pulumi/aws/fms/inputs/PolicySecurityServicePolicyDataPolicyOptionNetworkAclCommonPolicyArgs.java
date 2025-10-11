@@ -16,14 +16,14 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
     public static final PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs Empty = new PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs();
 
     /**
-     * Defines NACL entries for Network ACL policy. See the `network_acl_entry_set` block.
+     * Defines NACL entries for Network ACL policy. See the `networkAclEntrySet` block.
      * 
      */
     @Import(name="networkAclEntrySet")
     private @Nullable Output<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs> networkAclEntrySet;
 
     /**
-     * @return Defines NACL entries for Network ACL policy. See the `network_acl_entry_set` block.
+     * @return Defines NACL entries for Network ACL policy. See the `networkAclEntrySet` block.
      * 
      */
     public Optional<Output<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs>> networkAclEntrySet() {
@@ -55,7 +55,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param networkAclEntrySet Defines NACL entries for Network ACL policy. See the `network_acl_entry_set` block.
+         * @param networkAclEntrySet Defines NACL entries for Network ACL policy. See the `networkAclEntrySet` block.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param networkAclEntrySet Defines NACL entries for Network ACL policy. See the `network_acl_entry_set` block.
+         * @param networkAclEntrySet Defines NACL entries for Network ACL policy. See the `networkAclEntrySet` block.
          * 
          * @return builder
          * 

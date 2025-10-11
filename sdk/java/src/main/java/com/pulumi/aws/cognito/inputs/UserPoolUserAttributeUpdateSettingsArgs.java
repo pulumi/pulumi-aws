@@ -16,14 +16,14 @@ public final class UserPoolUserAttributeUpdateSettingsArgs extends com.pulumi.re
     public static final UserPoolUserAttributeUpdateSettingsArgs Empty = new UserPoolUserAttributeUpdateSettingsArgs();
 
     /**
-     * A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `auto_verified_attributes`. Valid values: `email`, `phone_number`.
+     * A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `autoVerifiedAttributes`. Valid values: `email`, `phoneNumber`.
      * 
      */
     @Import(name="attributesRequireVerificationBeforeUpdates", required=true)
     private Output<List<String>> attributesRequireVerificationBeforeUpdates;
 
     /**
-     * @return A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `auto_verified_attributes`. Valid values: `email`, `phone_number`.
+     * @return A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `autoVerifiedAttributes`. Valid values: `email`, `phoneNumber`.
      * 
      */
     public Output<List<String>> attributesRequireVerificationBeforeUpdates() {
@@ -55,7 +55,7 @@ public final class UserPoolUserAttributeUpdateSettingsArgs extends com.pulumi.re
         }
 
         /**
-         * @param attributesRequireVerificationBeforeUpdates A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `auto_verified_attributes`. Valid values: `email`, `phone_number`.
+         * @param attributesRequireVerificationBeforeUpdates A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `autoVerifiedAttributes`. Valid values: `email`, `phoneNumber`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class UserPoolUserAttributeUpdateSettingsArgs extends com.pulumi.re
         }
 
         /**
-         * @param attributesRequireVerificationBeforeUpdates A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `auto_verified_attributes`. Valid values: `email`, `phone_number`.
+         * @param attributesRequireVerificationBeforeUpdates A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `autoVerifiedAttributes`. Valid values: `email`, `phoneNumber`.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class UserPoolUserAttributeUpdateSettingsArgs extends com.pulumi.re
         }
 
         /**
-         * @param attributesRequireVerificationBeforeUpdates A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `auto_verified_attributes`. Valid values: `email`, `phone_number`.
+         * @param attributesRequireVerificationBeforeUpdates A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `autoVerifiedAttributes`. Valid values: `email`, `phoneNumber`.
          * 
          * @return builder
          * 

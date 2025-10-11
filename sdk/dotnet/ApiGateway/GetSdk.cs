@@ -112,7 +112,7 @@ namespace Pulumi.Aws.ApiGateway
         private Dictionary<string, string>? _parameters;
 
         /// <summary>
-        /// Key-value map of query string parameters `sdk_type` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.
+        /// Key-value map of query string parameters `SdkType` properties of the SDK. For SDK Type of `Objectivec` or `Swift`, a parameter named `classPrefix` is required. For SDK Type of `Android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `Java`, parameters named `serviceName` and `javaPackageName` are required.
         /// </summary>
         public Dictionary<string, string> Parameters
         {
@@ -133,7 +133,7 @@ namespace Pulumi.Aws.ApiGateway
         public string RestApiId { get; set; } = null!;
 
         /// <summary>
-        /// Language for the generated SDK. Currently `java`, `javascript`, `android`, `objectivec` (for iOS), `swift` (for iOS), and `ruby` are supported.
+        /// Language for the generated SDK. Currently `Java`, `Javascript`, `Android`, `Objectivec` (for iOS), `Swift` (for iOS), and `Ruby` are supported.
         /// </summary>
         [Input("sdkType", required: true)]
         public string SdkType { get; set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// Key-value map of query string parameters `sdk_type` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.
+        /// Key-value map of query string parameters `SdkType` properties of the SDK. For SDK Type of `Objectivec` or `Swift`, a parameter named `classPrefix` is required. For SDK Type of `Android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `Java`, parameters named `serviceName` and `javaPackageName` are required.
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string> RestApiId { get; set; } = null!;
 
         /// <summary>
-        /// Language for the generated SDK. Currently `java`, `javascript`, `android`, `objectivec` (for iOS), `swift` (for iOS), and `ruby` are supported.
+        /// Language for the generated SDK. Currently `Java`, `Javascript`, `Android`, `Objectivec` (for iOS), `Swift` (for iOS), and `Ruby` are supported.
         /// </summary>
         [Input("sdkType", required: true)]
         public Input<string> SdkType { get; set; } = null!;

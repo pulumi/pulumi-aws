@@ -22,7 +22,7 @@ namespace Pulumi.Aws.NetworkManager.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// This will be either `true`, that attachment acceptance is required, or `false`, that it is not required.
+        /// This will be either `True`, that attachment acceptance is required, or `False`, that it is not required.
         /// </summary>
         public readonly bool RequireAttachmentAcceptance;
 

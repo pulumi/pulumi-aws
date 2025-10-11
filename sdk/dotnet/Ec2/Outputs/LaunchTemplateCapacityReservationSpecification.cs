@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class LaunchTemplateCapacityReservationSpecification
     {
         /// <summary>
-        /// Indicates the instance's Capacity Reservation preferences. Can be `capacity-reservations-only`, `open` or `none`. If `capacity_reservation_id` or `capacity_reservation_resource_group_arn` is specified in `capacity_reservation_target` block, either omit `capacity_reservation_preference` or set it to `capacity-reservations-only`.
+        /// Indicates the instance's Capacity Reservation preferences. Can be `capacity-reservations-only`, `Open` or `None`. If `CapacityReservationId` or `CapacityReservationResourceGroupArn` is specified in `CapacityReservationTarget` block, either omit `CapacityReservationPreference` or set it to `capacity-reservations-only`.
         /// </summary>
         public readonly string? CapacityReservationPreference;
         /// <summary>

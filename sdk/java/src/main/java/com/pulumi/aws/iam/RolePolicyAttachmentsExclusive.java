@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
  * 
  * Resource for maintaining exclusive management of managed IAM policies assigned to an AWS IAM (Identity &amp; Access Management) role.
  * 
- * !&gt; This resource takes exclusive ownership over managed IAM policies attached to a role. This includes removal of managed IAM policies which are not explicitly configured. To prevent persistent drift, ensure any `aws.iam.RolePolicyAttachment` resources managed alongside this resource are included in the `policy_arns` argument.
+ * !&gt; This resource takes exclusive ownership over managed IAM policies attached to a role. This includes removal of managed IAM policies which are not explicitly configured. To prevent persistent drift, ensure any `aws.iam.RolePolicyAttachment` resources managed alongside this resource are included in the `policyArns` argument.
  * 
  * &gt; Destruction of this resource means Pulumi will no longer manage reconciliation of the configured policy attachments. It **will not** detach the configured policies from the role.
  * 
@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  * 
  * ### Disallow Managed IAM Policies
  * 
- * To automatically remove any configured managed IAM policies, set the `policy_arns` argument to an empty list.
+ * To automatically remove any configured managed IAM policies, set the `policyArns` argument to an empty list.
  * 
  * &gt; This will not **prevent** managed IAM policies from being assigned to a role via Pulumi (or any other interface). This resource enables bringing managed IAM policy assignments into a configured state, however, this reconciliation happens only when `apply` is proactively run.
  * 

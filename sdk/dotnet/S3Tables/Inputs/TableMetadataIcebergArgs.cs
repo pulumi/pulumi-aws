@@ -14,7 +14,7 @@ namespace Pulumi.Aws.S3Tables.Inputs
     {
         /// <summary>
         /// Schema configuration for the Iceberg table.
-        /// See `schema` below.
+        /// See `Schema` below.
         /// </summary>
         [Input("schema", required: true)]
         public Input<Inputs.TableMetadataIcebergSchemaArgs> Schema { get; set; } = null!;

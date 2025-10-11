@@ -19,7 +19,7 @@ public final class ModelPrimaryContainerModelDataSourceS3DataSource {
      */
     private String compressionType;
     /**
-     * @return Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. see Model Access Config.
+     * @return Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. see Model Access Config.
      * 
      */
     private @Nullable ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig modelAccessConfig;
@@ -43,7 +43,7 @@ public final class ModelPrimaryContainerModelDataSourceS3DataSource {
         return this.compressionType;
     }
     /**
-     * @return Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. see Model Access Config.
+     * @return Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. see Model Access Config.
      * 
      */
     public Optional<ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig> modelAccessConfig() {

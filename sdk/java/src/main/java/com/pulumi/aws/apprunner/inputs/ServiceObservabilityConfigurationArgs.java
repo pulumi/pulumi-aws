@@ -18,14 +18,14 @@ public final class ServiceObservabilityConfigurationArgs extends com.pulumi.reso
     public static final ServiceObservabilityConfigurationArgs Empty = new ServiceObservabilityConfigurationArgs();
 
     /**
-     * ARN of the observability configuration that is associated with the service. Specified only when `observability_enabled` is `true`.
+     * ARN of the observability configuration that is associated with the service. Specified only when `observabilityEnabled` is `true`.
      * 
      */
     @Import(name="observabilityConfigurationArn")
     private @Nullable Output<String> observabilityConfigurationArn;
 
     /**
-     * @return ARN of the observability configuration that is associated with the service. Specified only when `observability_enabled` is `true`.
+     * @return ARN of the observability configuration that is associated with the service. Specified only when `observabilityEnabled` is `true`.
      * 
      */
     public Optional<Output<String>> observabilityConfigurationArn() {
@@ -73,7 +73,7 @@ public final class ServiceObservabilityConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param observabilityConfigurationArn ARN of the observability configuration that is associated with the service. Specified only when `observability_enabled` is `true`.
+         * @param observabilityConfigurationArn ARN of the observability configuration that is associated with the service. Specified only when `observabilityEnabled` is `true`.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class ServiceObservabilityConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param observabilityConfigurationArn ARN of the observability configuration that is associated with the service. Specified only when `observability_enabled` is `true`.
+         * @param observabilityConfigurationArn ARN of the observability configuration that is associated with the service. Specified only when `observabilityEnabled` is `true`.
          * 
          * @return builder
          * 

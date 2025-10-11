@@ -26,7 +26,7 @@ namespace Pulumi.Aws
         public Output<string?> AccessKey { get; private set; } = null!;
 
         /// <summary>
-        /// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. (Setting `ca_bundle` in the shared config file is not supported.)
+        /// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. (Setting `CaBundle` in the shared config file is not supported.)
         /// </summary>
         [Output("customCaBundle")]
         public Output<string?> CustomCaBundle { get; private set; } = null!;
@@ -44,19 +44,19 @@ namespace Pulumi.Aws
         public Output<string?> Ec2MetadataServiceEndpointMode { get; private set; } = null!;
 
         /// <summary>
-        /// URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `http_proxy` environment variables.
+        /// URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `HttpProxy` environment variables.
         /// </summary>
         [Output("httpProxy")]
         public Output<string?> HttpProxy { get; private set; } = null!;
 
         /// <summary>
-        /// URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `https_proxy` environment variables.
+        /// URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `HttpsProxy` environment variables.
         /// </summary>
         [Output("httpsProxy")]
         public Output<string?> HttpsProxy { get; private set; } = null!;
 
         /// <summary>
-        /// Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or `no_proxy` environment variables.
+        /// Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or `NoProxy` environment variables.
         /// </summary>
         [Output("noProxy")]
         public Output<string?> NoProxy { get; private set; } = null!;
@@ -76,13 +76,13 @@ namespace Pulumi.Aws
         public Output<string?> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the `AWS_RETRY_MODE` environment variable.
+        /// Specifies how retries are attempted. Valid values are `Standard` and `Adaptive`. Can also be configured using the `AWS_RETRY_MODE` environment variable.
         /// </summary>
         [Output("retryMode")]
         public Output<string?> RetryMode { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+        /// Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid values are `Legacy` or `Regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment variable or the `S3UsEast1RegionalEndpoint` shared config file parameter
         /// </summary>
         [Output("s3UsEast1RegionalEndpoint")]
         public Output<string?> S3UsEast1RegionalEndpoint { get; private set; } = null!;
@@ -185,7 +185,7 @@ namespace Pulumi.Aws
         }
 
         /// <summary>
-        /// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. (Setting `ca_bundle` in the shared config file is not supported.)
+        /// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. (Setting `CaBundle` in the shared config file is not supported.)
         /// </summary>
         [Input("customCaBundle")]
         public Input<string>? CustomCaBundle { get; set; }
@@ -225,13 +225,13 @@ namespace Pulumi.Aws
         }
 
         /// <summary>
-        /// URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `http_proxy` environment variables.
+        /// URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `HttpProxy` environment variables.
         /// </summary>
         [Input("httpProxy")]
         public Input<string>? HttpProxy { get; set; }
 
         /// <summary>
-        /// URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `https_proxy` environment variables.
+        /// URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `HttpsProxy` environment variables.
         /// </summary>
         [Input("httpsProxy")]
         public Input<string>? HttpsProxy { get; set; }
@@ -243,7 +243,7 @@ namespace Pulumi.Aws
         public Input<Inputs.ProviderIgnoreTagsArgs>? IgnoreTags { get; set; }
 
         /// <summary>
-        /// Explicitly allow the provider to perform "insecure" SSL requests. If omitted, default value is `false`
+        /// Explicitly allow the provider to perform "insecure" SSL requests. If omitted, default value is `False`
         /// </summary>
         [Input("insecure", json: true)]
         public Input<bool>? Insecure { get; set; }
@@ -257,7 +257,7 @@ namespace Pulumi.Aws
         public Input<int>? MaxRetries { get; set; }
 
         /// <summary>
-        /// Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or `no_proxy` environment variables.
+        /// Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or `NoProxy` environment variables.
         /// </summary>
         [Input("noProxy")]
         public Input<string>? NoProxy { get; set; }
@@ -277,13 +277,13 @@ namespace Pulumi.Aws
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the `AWS_RETRY_MODE` environment variable.
+        /// Specifies how retries are attempted. Valid values are `Standard` and `Adaptive`. Can also be configured using the `AWS_RETRY_MODE` environment variable.
         /// </summary>
         [Input("retryMode")]
         public Input<string>? RetryMode { get; set; }
 
         /// <summary>
-        /// Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+        /// Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid values are `Legacy` or `Regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment variable or the `S3UsEast1RegionalEndpoint` shared config file parameter
         /// </summary>
         [Input("s3UsEast1RegionalEndpoint")]
         public Input<string>? S3UsEast1RegionalEndpoint { get; set; }

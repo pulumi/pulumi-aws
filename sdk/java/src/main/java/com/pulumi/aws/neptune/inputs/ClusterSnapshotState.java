@@ -124,14 +124,14 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
+     * If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
+     * @return If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -439,7 +439,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param kmsKeyId If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
+         * @param kmsKeyId If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
          * 
          * @return builder
          * 
@@ -450,7 +450,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param kmsKeyId If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
+         * @param kmsKeyId If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
          * 
          * @return builder
          * 

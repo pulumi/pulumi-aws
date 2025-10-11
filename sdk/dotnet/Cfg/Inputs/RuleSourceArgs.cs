@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Cfg.Inputs
         private InputList<Inputs.RuleSourceSourceDetailArgs>? _sourceDetails;
 
         /// <summary>
-        /// Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. See Source Detail Below.
+        /// Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `Owner` is `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. See Source Detail Below.
         /// </summary>
         public InputList<Inputs.RuleSourceSourceDetailArgs> SourceDetails
         {
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Cfg.Inputs
         }
 
         /// <summary>
-        /// For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `aws.lambda.Function` resource.
+        /// For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `Arn` attribute of the `aws.lambda.Function` resource.
         /// </summary>
         [Input("sourceIdentifier")]
         public Input<string>? SourceIdentifier { get; set; }

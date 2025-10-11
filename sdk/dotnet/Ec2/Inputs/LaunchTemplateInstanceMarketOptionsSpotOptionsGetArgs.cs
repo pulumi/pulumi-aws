@@ -19,8 +19,8 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<int>? BlockDurationMinutes { get; set; }
 
         /// <summary>
-        /// The behavior when a Spot Instance is interrupted. Can be `hibernate`,
-        /// `stop`, or `terminate`. (Default: `terminate`).
+        /// The behavior when a Spot Instance is interrupted. Can be `Hibernate`,
+        /// `Stop`, or `Terminate`. (Default: `Terminate`).
         /// </summary>
         [Input("instanceInterruptionBehavior")]
         public Input<string>? InstanceInterruptionBehavior { get; set; }
@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? MaxPrice { get; set; }
 
         /// <summary>
-        /// The Spot Instance request type. Can be `one-time`, or `persistent`.
+        /// The Spot Instance request type. Can be `one-time`, or `Persistent`.
         /// </summary>
         [Input("spotInstanceType")]
         public Input<string>? SpotInstanceType { get; set; }

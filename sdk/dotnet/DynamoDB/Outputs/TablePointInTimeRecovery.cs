@@ -14,7 +14,7 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     public sealed class TablePointInTimeRecovery
     {
         /// <summary>
-        /// Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided, this defaults to `false`.
+        /// Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `PointInTimeRecovery` block is not provided, this defaults to `False`.
         /// </summary>
         public readonly bool Enabled;
         /// <summary>

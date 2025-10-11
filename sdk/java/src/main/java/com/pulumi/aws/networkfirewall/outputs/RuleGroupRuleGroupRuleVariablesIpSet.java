@@ -17,7 +17,7 @@ public final class RuleGroupRuleGroupRuleVariablesIpSet {
      */
     private RuleGroupRuleGroupRuleVariablesIpSetIpSet ipSet;
     /**
-     * @return A unique alphanumeric string to identify the `ip_set`.
+     * @return A unique alphanumeric string to identify the `ipSet`.
      * 
      */
     private String key;
@@ -31,7 +31,7 @@ public final class RuleGroupRuleGroupRuleVariablesIpSet {
         return this.ipSet;
     }
     /**
-     * @return A unique alphanumeric string to identify the `ip_set`.
+     * @return A unique alphanumeric string to identify the `ipSet`.
      * 
      */
     public String key() {

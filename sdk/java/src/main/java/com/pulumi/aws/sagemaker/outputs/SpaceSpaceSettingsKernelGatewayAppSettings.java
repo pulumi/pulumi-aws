@@ -15,12 +15,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SpaceSpaceSettingsKernelGatewayAppSettings {
     /**
-     * @return A list of custom SageMaker AI images that are configured to run as a KernelGateway app. See `custom_image` Block below.
+     * @return A list of custom SageMaker AI images that are configured to run as a KernelGateway app. See `customImage` Block below.
      * 
      */
     private @Nullable List<SpaceSpaceSettingsKernelGatewayAppSettingsCustomImage> customImages;
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
      * 
      */
     private SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec defaultResourceSpec;
@@ -32,14 +32,14 @@ public final class SpaceSpaceSettingsKernelGatewayAppSettings {
 
     private SpaceSpaceSettingsKernelGatewayAppSettings() {}
     /**
-     * @return A list of custom SageMaker AI images that are configured to run as a KernelGateway app. See `custom_image` Block below.
+     * @return A list of custom SageMaker AI images that are configured to run as a KernelGateway app. See `customImage` Block below.
      * 
      */
     public List<SpaceSpaceSettingsKernelGatewayAppSettingsCustomImage> customImages() {
         return this.customImages == null ? List.of() : this.customImages;
     }
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
      * 
      */
     public SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec defaultResourceSpec() {

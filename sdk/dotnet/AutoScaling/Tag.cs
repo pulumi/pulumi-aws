@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// &gt; **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `aws.autoscaling.Group` and `aws.autoscaling.Tag` to manage tags of the same ASG will cause a perpetual difference where the `aws.autoscaling.Group` resource will try to remove the tag being added by the `aws.autoscaling.Tag` resource.
     /// 
-    /// &gt; **NOTE:** This tagging resource does not use the provider `ignore_tags` configuration.
+    /// &gt; **NOTE:** This tagging resource does not use the provider `IgnoreTags` configuration.
     /// 
     /// ## Import
     /// 
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.AutoScaling
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Tag to create. The `tag` block is documented below.
+        /// Tag to create. The `Tag` block is documented below.
         /// </summary>
         [Output("tag")]
         public Output<Outputs.TagTag> TagDetails { get; private set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Tag to create. The `tag` block is documented below.
+        /// Tag to create. The `Tag` block is documented below.
         /// </summary>
         [Input("tag", required: true)]
         public Input<Inputs.TagTagArgs> TagDetails { get; set; } = null!;
@@ -130,7 +130,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Tag to create. The `tag` block is documented below.
+        /// Tag to create. The `Tag` block is documented below.
         /// </summary>
         [Input("tag")]
         public Input<Inputs.TagTagGetArgs>? TagDetails { get; set; }

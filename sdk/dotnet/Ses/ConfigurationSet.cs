@@ -120,13 +120,13 @@ namespace Pulumi.Aws.Ses
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
+        /// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `False`.
         /// </summary>
         [Output("reputationMetricsEnabled")]
         public Output<bool?> ReputationMetricsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
+        /// Whether email sending is enabled or disabled for the configuration set. The default value is `True`.
         /// </summary>
         [Output("sendingEnabled")]
         public Output<bool?> SendingEnabled { get; private set; } = null!;
@@ -208,13 +208,13 @@ namespace Pulumi.Aws.Ses
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
+        /// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `False`.
         /// </summary>
         [Input("reputationMetricsEnabled")]
         public Input<bool>? ReputationMetricsEnabled { get; set; }
 
         /// <summary>
-        /// Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
+        /// Whether email sending is enabled or disabled for the configuration set. The default value is `True`.
         /// </summary>
         [Input("sendingEnabled")]
         public Input<bool>? SendingEnabled { get; set; }
@@ -266,13 +266,13 @@ namespace Pulumi.Aws.Ses
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
+        /// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `False`.
         /// </summary>
         [Input("reputationMetricsEnabled")]
         public Input<bool>? ReputationMetricsEnabled { get; set; }
 
         /// <summary>
-        /// Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
+        /// Whether email sending is enabled or disabled for the configuration set. The default value is `True`.
         /// </summary>
         [Input("sendingEnabled")]
         public Input<bool>? SendingEnabled { get; set; }

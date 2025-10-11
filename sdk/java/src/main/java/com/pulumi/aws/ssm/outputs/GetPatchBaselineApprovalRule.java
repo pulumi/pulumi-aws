@@ -20,7 +20,7 @@ public final class GetPatchBaselineApprovalRule {
      */
     private Integer approveAfterDays;
     /**
-     * @return Cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
+     * @return Cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approveAfterDays`
      * 
      */
     private String approveUntilDate;
@@ -49,7 +49,7 @@ public final class GetPatchBaselineApprovalRule {
         return this.approveAfterDays;
     }
     /**
-     * @return Cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
+     * @return Cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approveAfterDays`
      * 
      */
     public String approveUntilDate() {

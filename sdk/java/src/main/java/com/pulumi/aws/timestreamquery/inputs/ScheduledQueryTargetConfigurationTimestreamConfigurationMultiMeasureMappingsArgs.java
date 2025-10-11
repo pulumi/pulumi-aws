@@ -33,14 +33,14 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfigurationMulti
     }
 
     /**
-     * Name of the target multi-measure name in the derived table. This input is required when `measure_name_column` is not provided. If `measure_name_column` is provided, then the value from that column will be used as the multi-measure name.
+     * Name of the target multi-measure name in the derived table. This input is required when `measureNameColumn` is not provided. If `measureNameColumn` is provided, then the value from that column will be used as the multi-measure name.
      * 
      */
     @Import(name="targetMultiMeasureName")
     private @Nullable Output<String> targetMultiMeasureName;
 
     /**
-     * @return Name of the target multi-measure name in the derived table. This input is required when `measure_name_column` is not provided. If `measure_name_column` is provided, then the value from that column will be used as the multi-measure name.
+     * @return Name of the target multi-measure name in the derived table. This input is required when `measureNameColumn` is not provided. If `measureNameColumn` is provided, then the value from that column will be used as the multi-measure name.
      * 
      */
     public Optional<Output<String>> targetMultiMeasureName() {
@@ -104,7 +104,7 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfigurationMulti
         }
 
         /**
-         * @param targetMultiMeasureName Name of the target multi-measure name in the derived table. This input is required when `measure_name_column` is not provided. If `measure_name_column` is provided, then the value from that column will be used as the multi-measure name.
+         * @param targetMultiMeasureName Name of the target multi-measure name in the derived table. This input is required when `measureNameColumn` is not provided. If `measureNameColumn` is provided, then the value from that column will be used as the multi-measure name.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfigurationMulti
         }
 
         /**
-         * @param targetMultiMeasureName Name of the target multi-measure name in the derived table. This input is required when `measure_name_column` is not provided. If `measure_name_column` is provided, then the value from that column will be used as the multi-measure name.
+         * @param targetMultiMeasureName Name of the target multi-measure name in the derived table. This input is required when `measureNameColumn` is not provided. If `measureNameColumn` is provided, then the value from that column will be used as the multi-measure name.
          * 
          * @return builder
          * 

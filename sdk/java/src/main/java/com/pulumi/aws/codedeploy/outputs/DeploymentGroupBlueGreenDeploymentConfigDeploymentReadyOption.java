@@ -20,7 +20,7 @@ public final class DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption
      */
     private @Nullable String actionOnTimeout;
     /**
-     * @return The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `action_on_timeout`.
+     * @return The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `actionOnTimeout`.
      * 
      */
     private @Nullable Integer waitTimeInMinutes;
@@ -36,7 +36,7 @@ public final class DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption
         return Optional.ofNullable(this.actionOnTimeout);
     }
     /**
-     * @return The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `action_on_timeout`.
+     * @return The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `actionOnTimeout`.
      * 
      */
     public Optional<Integer> waitTimeInMinutes() {

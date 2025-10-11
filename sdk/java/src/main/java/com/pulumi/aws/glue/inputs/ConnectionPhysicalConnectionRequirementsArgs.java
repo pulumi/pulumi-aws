@@ -17,14 +17,14 @@ public final class ConnectionPhysicalConnectionRequirementsArgs extends com.pulu
     public static final ConnectionPhysicalConnectionRequirementsArgs Empty = new ConnectionPhysicalConnectionRequirementsArgs();
 
     /**
-     * The availability zone of the connection. This field is redundant and implied by `subnet_id`, but is currently an api requirement.
+     * The availability zone of the connection. This field is redundant and implied by `subnetId`, but is currently an api requirement.
      * 
      */
     @Import(name="availabilityZone")
     private @Nullable Output<String> availabilityZone;
 
     /**
-     * @return The availability zone of the connection. This field is redundant and implied by `subnet_id`, but is currently an api requirement.
+     * @return The availability zone of the connection. This field is redundant and implied by `subnetId`, but is currently an api requirement.
      * 
      */
     public Optional<Output<String>> availabilityZone() {
@@ -88,7 +88,7 @@ public final class ConnectionPhysicalConnectionRequirementsArgs extends com.pulu
         }
 
         /**
-         * @param availabilityZone The availability zone of the connection. This field is redundant and implied by `subnet_id`, but is currently an api requirement.
+         * @param availabilityZone The availability zone of the connection. This field is redundant and implied by `subnetId`, but is currently an api requirement.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class ConnectionPhysicalConnectionRequirementsArgs extends com.pulu
         }
 
         /**
-         * @param availabilityZone The availability zone of the connection. This field is redundant and implied by `subnet_id`, but is currently an api requirement.
+         * @param availabilityZone The availability zone of the connection. This field is redundant and implied by `subnetId`, but is currently an api requirement.
          * 
          * @return builder
          * 

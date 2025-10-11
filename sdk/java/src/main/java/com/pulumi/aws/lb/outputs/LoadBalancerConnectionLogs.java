@@ -19,7 +19,7 @@ public final class LoadBalancerConnectionLogs {
      */
     private String bucket;
     /**
-     * @return Boolean to enable / disable `connection_logs`. Defaults to `false`, even when `bucket` is specified.
+     * @return Boolean to enable / disable `connectionLogs`. Defaults to `false`, even when `bucket` is specified.
      * 
      */
     private @Nullable Boolean enabled;
@@ -38,7 +38,7 @@ public final class LoadBalancerConnectionLogs {
         return this.bucket;
     }
     /**
-     * @return Boolean to enable / disable `connection_logs`. Defaults to `false`, even when `bucket` is specified.
+     * @return Boolean to enable / disable `connectionLogs`. Defaults to `false`, even when `bucket` is specified.
      * 
      */
     public Optional<Boolean> enabled() {

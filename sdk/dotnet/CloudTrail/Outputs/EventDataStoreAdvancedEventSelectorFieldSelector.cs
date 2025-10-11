@@ -14,11 +14,11 @@ namespace Pulumi.Aws.CloudTrail.Outputs
     public sealed class EventDataStoreAdvancedEventSelectorFieldSelector
     {
         /// <summary>
-        /// A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
+        /// A list of values that includes events that match the last few characters of the event record field specified as the value of `Field`.
         /// </summary>
         public readonly ImmutableArray<string> EndsWiths;
         /// <summary>
-        /// A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
+        /// A list of values that includes events that match the exact value of the event record field specified as the value of `Field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
         /// </summary>
         public readonly ImmutableArray<string> Equals;
         /// <summary>
@@ -26,19 +26,19 @@ namespace Pulumi.Aws.CloudTrail.Outputs
         /// </summary>
         public readonly string? Field;
         /// <summary>
-        /// A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
+        /// A list of values that excludes events that match the last few characters of the event record field specified as the value of `Field`.
         /// </summary>
         public readonly ImmutableArray<string> NotEndsWiths;
         /// <summary>
-        /// A list of values that excludes events that match the exact value of the event record field specified as the value of `field`.
+        /// A list of values that excludes events that match the exact value of the event record field specified as the value of `Field`.
         /// </summary>
         public readonly ImmutableArray<string> NotEquals;
         /// <summary>
-        /// A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.
+        /// A list of values that excludes events that match the first few characters of the event record field specified as the value of `Field`.
         /// </summary>
         public readonly ImmutableArray<string> NotStartsWiths;
         /// <summary>
-        /// A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.
+        /// A list of values that includes events that match the first few characters of the event record field specified as the value of `Field`.
         /// </summary>
         public readonly ImmutableArray<string> StartsWiths;
 

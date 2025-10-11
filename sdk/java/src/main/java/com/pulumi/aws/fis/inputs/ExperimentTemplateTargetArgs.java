@@ -53,7 +53,7 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
     /**
      * The resource type parameters.
      * 
-     * &gt; **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
+     * &gt; **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
      * 
      */
     @Import(name="parameters")
@@ -62,7 +62,7 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
     /**
      * @return The resource type parameters.
      * 
-     * &gt; **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
+     * &gt; **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
      * 
      */
     public Optional<Output<Map<String,String>>> parameters() {
@@ -70,14 +70,14 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Set of ARNs of the resources to target with an action. Conflicts with `resource_tag`.
+     * Set of ARNs of the resources to target with an action. Conflicts with `resourceTag`.
      * 
      */
     @Import(name="resourceArns")
     private @Nullable Output<List<String>> resourceArns;
 
     /**
-     * @return Set of ARNs of the resources to target with an action. Conflicts with `resource_tag`.
+     * @return Set of ARNs of the resources to target with an action. Conflicts with `resourceTag`.
      * 
      */
     public Optional<Output<List<String>>> resourceArns() {
@@ -85,14 +85,14 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
+     * Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resourceArns`. See below.
      * 
      */
     @Import(name="resourceTags")
     private @Nullable Output<List<ExperimentTemplateTargetResourceTagArgs>> resourceTags;
 
     /**
-     * @return Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
+     * @return Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resourceArns`. See below.
      * 
      */
     public Optional<Output<List<ExperimentTemplateTargetResourceTagArgs>>> resourceTags() {
@@ -214,7 +214,7 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
         /**
          * @param parameters The resource type parameters.
          * 
-         * &gt; **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
+         * &gt; **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
         /**
          * @param parameters The resource type parameters.
          * 
-         * &gt; **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
+         * &gt; **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param resourceArns Set of ARNs of the resources to target with an action. Conflicts with `resource_tag`.
+         * @param resourceArns Set of ARNs of the resources to target with an action. Conflicts with `resourceTag`.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param resourceArns Set of ARNs of the resources to target with an action. Conflicts with `resource_tag`.
+         * @param resourceArns Set of ARNs of the resources to target with an action. Conflicts with `resourceTag`.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param resourceArns Set of ARNs of the resources to target with an action. Conflicts with `resource_tag`.
+         * @param resourceArns Set of ARNs of the resources to target with an action. Conflicts with `resourceTag`.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param resourceTags Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
+         * @param resourceTags Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resourceArns`. See below.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param resourceTags Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
+         * @param resourceTags Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resourceArns`. See below.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param resourceTags Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
+         * @param resourceTags Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resourceArns`. See below.
          * 
          * @return builder
          * 

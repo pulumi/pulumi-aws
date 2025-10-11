@@ -130,14 +130,14 @@ public class VocabularyFilter extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
@@ -182,14 +182,14 @@ public class VocabularyFilter extends com.pulumi.resources.CustomResource {
         return this.vocabularyFilterName;
     }
     /**
-     * A list of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
+     * A list of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
      * 
      */
     @Export(name="words", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> words;
 
     /**
-     * @return A list of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
+     * @return A list of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
      * 
      */
     public Output<Optional<List<String>>> words() {

@@ -17,9 +17,9 @@ namespace Pulumi.Aws.WafV2
     /// - **Custom Rule Groups**: User-created rule groups that you manage within your AWS account
     /// - **Managed Rule Groups**: Pre-configured rule groups provided by AWS or third-party vendors
     /// 
-    /// !&gt; **Warning:** Verify the rule names in your `rule_action_override`s carefully. With managed rule groups, WAF silently ignores any override that uses an invalid rule name. With customer-owned rule groups, invalid rule names in your overrides will cause web ACL updates to fail. An invalid rule name is any name that doesn't exactly match the case-sensitive name of an existing rule in the rule group.
+    /// !&gt; **Warning:** Verify the rule names in your `RuleActionOverride`s carefully. With managed rule groups, WAF silently ignores any override that uses an invalid rule name. With customer-owned rule groups, invalid rule names in your overrides will cause web ACL updates to fail. An invalid rule name is any name that doesn't exactly match the case-sensitive name of an existing rule in the rule group.
     /// 
-    /// !&gt; **Warning:** Using this resource will cause the associated Web ACL resource to show configuration drift in the `rule` argument unless you add `lifecycle { ignore_changes = [rule] }` to the Web ACL resource configuration. This is because this resource modifies the Web ACL's rules outside of the Web ACL resource's direct management.
+    /// !&gt; **Warning:** Using this resource will cause the associated Web ACL resource to show configuration drift in the `Rule` argument unless you add `lifecycle { IgnoreChanges = [rule] }` to the Web ACL resource configuration. This is because this resource modifies the Web ACL's rules outside of the Web ACL resource's direct management.
     /// 
     /// &gt; **Note:** This resource creates a rule within the Web ACL that references the entire Rule Group. The rule group's individual rules are evaluated as a unit when requests are processed by the Web ACL.
     /// ## Example Usage
@@ -268,13 +268,13 @@ namespace Pulumi.Aws.WafV2
     public partial class WebAclRuleGroupAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Managed Rule Group configuration. One of `rule_group_reference` or `managed_rule_group` is required. Conflicts with `rule_group_reference`. See below.
+        /// Managed Rule Group configuration. One of `RuleGroupReference` or `ManagedRuleGroup` is required. Conflicts with `RuleGroupReference`. See below.
         /// </summary>
         [Output("managedRuleGroup")]
         public Output<Outputs.WebAclRuleGroupAssociationManagedRuleGroup?> ManagedRuleGroup { get; private set; } = null!;
 
         /// <summary>
-        /// Override action for the rule group. Valid values are `none` and `count`. Defaults to `none`. When set to `count`, the actions defined in the rule group rules are overridden to count matches instead of blocking or allowing requests.
+        /// Override action for the rule group. Valid values are `None` and `Count`. Defaults to `None`. When set to `Count`, the actions defined in the rule group rules are overridden to count matches instead of blocking or allowing requests.
         /// </summary>
         [Output("overrideAction")]
         public Output<string> OverrideAction { get; private set; } = null!;
@@ -292,7 +292,7 @@ namespace Pulumi.Aws.WafV2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Custom Rule Group reference configuration. One of `rule_group_reference` or `managed_rule_group` is required. Conflicts with `managed_rule_group`. See below.
+        /// Custom Rule Group reference configuration. One of `RuleGroupReference` or `ManagedRuleGroup` is required. Conflicts with `ManagedRuleGroup`. See below.
         /// </summary>
         [Output("ruleGroupReference")]
         public Output<Outputs.WebAclRuleGroupAssociationRuleGroupReference?> RuleGroupReference { get; private set; } = null!;
@@ -361,13 +361,13 @@ namespace Pulumi.Aws.WafV2
     public sealed class WebAclRuleGroupAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Managed Rule Group configuration. One of `rule_group_reference` or `managed_rule_group` is required. Conflicts with `rule_group_reference`. See below.
+        /// Managed Rule Group configuration. One of `RuleGroupReference` or `ManagedRuleGroup` is required. Conflicts with `RuleGroupReference`. See below.
         /// </summary>
         [Input("managedRuleGroup")]
         public Input<Inputs.WebAclRuleGroupAssociationManagedRuleGroupArgs>? ManagedRuleGroup { get; set; }
 
         /// <summary>
-        /// Override action for the rule group. Valid values are `none` and `count`. Defaults to `none`. When set to `count`, the actions defined in the rule group rules are overridden to count matches instead of blocking or allowing requests.
+        /// Override action for the rule group. Valid values are `None` and `Count`. Defaults to `None`. When set to `Count`, the actions defined in the rule group rules are overridden to count matches instead of blocking or allowing requests.
         /// </summary>
         [Input("overrideAction")]
         public Input<string>? OverrideAction { get; set; }
@@ -385,7 +385,7 @@ namespace Pulumi.Aws.WafV2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Custom Rule Group reference configuration. One of `rule_group_reference` or `managed_rule_group` is required. Conflicts with `managed_rule_group`. See below.
+        /// Custom Rule Group reference configuration. One of `RuleGroupReference` or `ManagedRuleGroup` is required. Conflicts with `ManagedRuleGroup`. See below.
         /// </summary>
         [Input("ruleGroupReference")]
         public Input<Inputs.WebAclRuleGroupAssociationRuleGroupReferenceArgs>? RuleGroupReference { get; set; }
@@ -416,13 +416,13 @@ namespace Pulumi.Aws.WafV2
     public sealed class WebAclRuleGroupAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Managed Rule Group configuration. One of `rule_group_reference` or `managed_rule_group` is required. Conflicts with `rule_group_reference`. See below.
+        /// Managed Rule Group configuration. One of `RuleGroupReference` or `ManagedRuleGroup` is required. Conflicts with `RuleGroupReference`. See below.
         /// </summary>
         [Input("managedRuleGroup")]
         public Input<Inputs.WebAclRuleGroupAssociationManagedRuleGroupGetArgs>? ManagedRuleGroup { get; set; }
 
         /// <summary>
-        /// Override action for the rule group. Valid values are `none` and `count`. Defaults to `none`. When set to `count`, the actions defined in the rule group rules are overridden to count matches instead of blocking or allowing requests.
+        /// Override action for the rule group. Valid values are `None` and `Count`. Defaults to `None`. When set to `Count`, the actions defined in the rule group rules are overridden to count matches instead of blocking or allowing requests.
         /// </summary>
         [Input("overrideAction")]
         public Input<string>? OverrideAction { get; set; }
@@ -440,7 +440,7 @@ namespace Pulumi.Aws.WafV2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Custom Rule Group reference configuration. One of `rule_group_reference` or `managed_rule_group` is required. Conflicts with `managed_rule_group`. See below.
+        /// Custom Rule Group reference configuration. One of `RuleGroupReference` or `ManagedRuleGroup` is required. Conflicts with `ManagedRuleGroup`. See below.
         /// </summary>
         [Input("ruleGroupReference")]
         public Input<Inputs.WebAclRuleGroupAssociationRuleGroupReferenceGetArgs>? RuleGroupReference { get; set; }

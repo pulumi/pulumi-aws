@@ -62,7 +62,7 @@ namespace Pulumi.Aws.AppRunner
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the observability configuration has the highest `observability_configuration_revision` among all configurations that share the same `observability_configuration_name`.
+        /// Whether the observability configuration has the highest `ObservabilityConfigurationRevision` among all configurations that share the same `ObservabilityConfigurationName`.
         /// </summary>
         [Output("latest")]
         public Output<bool> Latest { get; private set; } = null!;
@@ -92,13 +92,13 @@ namespace Pulumi.Aws.AppRunner
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.AppRunner
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -200,7 +200,7 @@ namespace Pulumi.Aws.AppRunner
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Whether the observability configuration has the highest `observability_configuration_revision` among all configurations that share the same `observability_configuration_name`.
+        /// Whether the observability configuration has the highest `ObservabilityConfigurationRevision` among all configurations that share the same `ObservabilityConfigurationName`.
         /// </summary>
         [Input("latest")]
         public Input<bool>? Latest { get; set; }
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.AppRunner
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -245,7 +245,7 @@ namespace Pulumi.Aws.AppRunner
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

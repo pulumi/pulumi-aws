@@ -37,7 +37,7 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.ResourceA
 
     /**
      * Configuration for the training and testing data.
-     * See the `input_data_config` Configuration Block section below.
+     * See the `inputDataConfig` Configuration Block section below.
      * 
      */
     @Import(name="inputDataConfig", required=true)
@@ -45,7 +45,7 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.ResourceA
 
     /**
      * @return Configuration for the training and testing data.
-     * See the `input_data_config` Configuration Block section below.
+     * See the `inputDataConfig` Configuration Block section below.
      * 
      */
     public Output<DocumentClassifierInputDataConfigArgs> inputDataConfig() {
@@ -130,7 +130,7 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.ResourceA
 
     /**
      * Configuration for the output results of training.
-     * See the `output_data_config` Configuration Block section below.
+     * See the `outputDataConfig` Configuration Block section below.
      * 
      */
     @Import(name="outputDataConfig")
@@ -138,7 +138,7 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.ResourceA
 
     /**
      * @return Configuration for the output results of training.
-     * See the `output_data_config` Configuration Block section below.
+     * See the `outputDataConfig` Configuration Block section below.
      * 
      */
     public Optional<Output<DocumentClassifierOutputDataConfigArgs>> outputDataConfig() {
@@ -161,14 +161,14 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -182,7 +182,7 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.ResourceA
      * If explicitly set to `&#34;&#34;`, no version name will be set.
      * Has a maximum length of 63 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-     * Conflicts with `version_name_prefix`.
+     * Conflicts with `versionNamePrefix`.
      * 
      */
     @Import(name="versionName")
@@ -195,7 +195,7 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.ResourceA
      * If explicitly set to `&#34;&#34;`, no version name will be set.
      * Has a maximum length of 63 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-     * Conflicts with `version_name_prefix`.
+     * Conflicts with `versionNamePrefix`.
      * 
      */
     public Optional<Output<String>> versionName() {
@@ -206,7 +206,7 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.ResourceA
      * Creates a unique version name beginning with the specified prefix.
      * Has a maximum length of 37 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-     * Conflicts with `version_name`.
+     * Conflicts with `versionName`.
      * 
      */
     @Import(name="versionNamePrefix")
@@ -216,7 +216,7 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.ResourceA
      * @return Creates a unique version name beginning with the specified prefix.
      * Has a maximum length of 37 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-     * Conflicts with `version_name`.
+     * Conflicts with `versionName`.
      * 
      */
     public Optional<Output<String>> versionNamePrefix() {
@@ -242,7 +242,7 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.ResourceA
 
     /**
      * Configuration parameters for VPC to contain Document Classifier resources.
-     * See the `vpc_config` Configuration Block section below.
+     * See the `vpcConfig` Configuration Block section below.
      * 
      */
     @Import(name="vpcConfig")
@@ -250,7 +250,7 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.ResourceA
 
     /**
      * @return Configuration parameters for VPC to contain Document Classifier resources.
-     * See the `vpc_config` Configuration Block section below.
+     * See the `vpcConfig` Configuration Block section below.
      * 
      */
     public Optional<Output<DocumentClassifierVpcConfigArgs>> vpcConfig() {
@@ -316,7 +316,7 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param inputDataConfig Configuration for the training and testing data.
-         * See the `input_data_config` Configuration Block section below.
+         * See the `inputDataConfig` Configuration Block section below.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param inputDataConfig Configuration for the training and testing data.
-         * See the `input_data_config` Configuration Block section below.
+         * See the `inputDataConfig` Configuration Block section below.
          * 
          * @return builder
          * 
@@ -439,7 +439,7 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param outputDataConfig Configuration for the output results of training.
-         * See the `output_data_config` Configuration Block section below.
+         * See the `outputDataConfig` Configuration Block section below.
          * 
          * @return builder
          * 
@@ -451,7 +451,7 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param outputDataConfig Configuration for the output results of training.
-         * See the `output_data_config` Configuration Block section below.
+         * See the `outputDataConfig` Configuration Block section below.
          * 
          * @return builder
          * 
@@ -482,7 +482,7 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -493,7 +493,7 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -509,7 +509,7 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.ResourceA
          * If explicitly set to `&#34;&#34;`, no version name will be set.
          * Has a maximum length of 63 characters.
          * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-         * Conflicts with `version_name_prefix`.
+         * Conflicts with `versionNamePrefix`.
          * 
          * @return builder
          * 
@@ -526,7 +526,7 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.ResourceA
          * If explicitly set to `&#34;&#34;`, no version name will be set.
          * Has a maximum length of 63 characters.
          * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-         * Conflicts with `version_name_prefix`.
+         * Conflicts with `versionNamePrefix`.
          * 
          * @return builder
          * 
@@ -539,7 +539,7 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.ResourceA
          * @param versionNamePrefix Creates a unique version name beginning with the specified prefix.
          * Has a maximum length of 37 characters.
          * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-         * Conflicts with `version_name`.
+         * Conflicts with `versionName`.
          * 
          * @return builder
          * 
@@ -553,7 +553,7 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.ResourceA
          * @param versionNamePrefix Creates a unique version name beginning with the specified prefix.
          * Has a maximum length of 37 characters.
          * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-         * Conflicts with `version_name`.
+         * Conflicts with `versionName`.
          * 
          * @return builder
          * 
@@ -587,7 +587,7 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param vpcConfig Configuration parameters for VPC to contain Document Classifier resources.
-         * See the `vpc_config` Configuration Block section below.
+         * See the `vpcConfig` Configuration Block section below.
          * 
          * @return builder
          * 
@@ -599,7 +599,7 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param vpcConfig Configuration parameters for VPC to contain Document Classifier resources.
-         * See the `vpc_config` Configuration Block section below.
+         * See the `vpcConfig` Configuration Block section below.
          * 
          * @return builder
          * 

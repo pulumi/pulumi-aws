@@ -20,14 +20,14 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
     public static final GetEngineVersionArgs Empty = new GetEngineVersionArgs();
 
     /**
-     * Whether the engine version must be an AWS-defined default version. Some engines have multiple default versions, such as for each major version. Using `default_only` may help avoid `multiple RDS engine versions` errors. See also `latest`.
+     * Whether the engine version must be an AWS-defined default version. Some engines have multiple default versions, such as for each major version. Using `defaultOnly` may help avoid `multiple RDS engine versions` errors. See also `latest`.
      * 
      */
     @Import(name="defaultOnly")
     private @Nullable Output<Boolean> defaultOnly;
 
     /**
-     * @return Whether the engine version must be an AWS-defined default version. Some engines have multiple default versions, such as for each major version. Using `default_only` may help avoid `multiple RDS engine versions` errors. See also `latest`.
+     * @return Whether the engine version must be an AWS-defined default version. Some engines have multiple default versions, such as for each major version. Using `defaultOnly` may help avoid `multiple RDS engine versions` errors. See also `latest`.
      * 
      */
     public Optional<Output<Boolean>> defaultOnly() {
@@ -69,14 +69,14 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * Whether the engine version must have one or more major upgrade targets. Not including `has_major_target` or setting it to `false` doesn&#39;t imply that there&#39;s no corresponding major upgrade target for the engine version.
+     * Whether the engine version must have one or more major upgrade targets. Not including `hasMajorTarget` or setting it to `false` doesn&#39;t imply that there&#39;s no corresponding major upgrade target for the engine version.
      * 
      */
     @Import(name="hasMajorTarget")
     private @Nullable Output<Boolean> hasMajorTarget;
 
     /**
-     * @return Whether the engine version must have one or more major upgrade targets. Not including `has_major_target` or setting it to `false` doesn&#39;t imply that there&#39;s no corresponding major upgrade target for the engine version.
+     * @return Whether the engine version must have one or more major upgrade targets. Not including `hasMajorTarget` or setting it to `false` doesn&#39;t imply that there&#39;s no corresponding major upgrade target for the engine version.
      * 
      */
     public Optional<Output<Boolean>> hasMajorTarget() {
@@ -84,14 +84,14 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * Whether the engine version must have one or more minor upgrade targets. Not including `has_minor_target` or setting it to `false` doesn&#39;t imply that there&#39;s no corresponding minor upgrade target for the engine version.
+     * Whether the engine version must have one or more minor upgrade targets. Not including `hasMinorTarget` or setting it to `false` doesn&#39;t imply that there&#39;s no corresponding minor upgrade target for the engine version.
      * 
      */
     @Import(name="hasMinorTarget")
     private @Nullable Output<Boolean> hasMinorTarget;
 
     /**
-     * @return Whether the engine version must have one or more minor upgrade targets. Not including `has_minor_target` or setting it to `false` doesn&#39;t imply that there&#39;s no corresponding minor upgrade target for the engine version.
+     * @return Whether the engine version must have one or more minor upgrade targets. Not including `hasMinorTarget` or setting it to `false` doesn&#39;t imply that there&#39;s no corresponding minor upgrade target for the engine version.
      * 
      */
     public Optional<Output<Boolean>> hasMinorTarget() {
@@ -114,14 +114,14 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * Whether the engine version is the most recent version matching the other criteria. This is different from `default_only` in important ways: &#34;default&#34; relies on AWS-defined defaults, the latest version isn&#39;t always the default, and AWS might have multiple default versions for an engine. As a result, `default_only` might not prevent errors from `multiple RDS engine versions`, while `latest` will. (`latest` can be used with `default_only`.) **Note:** The data source uses a best-effort approach at selecting the latest version. Due to the complexity of version identifiers across engines and incomplete version date information provided by AWS, using `latest` may not always result in the engine version being the actual latest version.
+     * Whether the engine version is the most recent version matching the other criteria. This is different from `defaultOnly` in important ways: &#34;default&#34; relies on AWS-defined defaults, the latest version isn&#39;t always the default, and AWS might have multiple default versions for an engine. As a result, `defaultOnly` might not prevent errors from `multiple RDS engine versions`, while `latest` will. (`latest` can be used with `defaultOnly`.) **Note:** The data source uses a best-effort approach at selecting the latest version. Due to the complexity of version identifiers across engines and incomplete version date information provided by AWS, using `latest` may not always result in the engine version being the actual latest version.
      * 
      */
     @Import(name="latest")
     private @Nullable Output<Boolean> latest;
 
     /**
-     * @return Whether the engine version is the most recent version matching the other criteria. This is different from `default_only` in important ways: &#34;default&#34; relies on AWS-defined defaults, the latest version isn&#39;t always the default, and AWS might have multiple default versions for an engine. As a result, `default_only` might not prevent errors from `multiple RDS engine versions`, while `latest` will. (`latest` can be used with `default_only`.) **Note:** The data source uses a best-effort approach at selecting the latest version. Due to the complexity of version identifiers across engines and incomplete version date information provided by AWS, using `latest` may not always result in the engine version being the actual latest version.
+     * @return Whether the engine version is the most recent version matching the other criteria. This is different from `defaultOnly` in important ways: &#34;default&#34; relies on AWS-defined defaults, the latest version isn&#39;t always the default, and AWS might have multiple default versions for an engine. As a result, `defaultOnly` might not prevent errors from `multiple RDS engine versions`, while `latest` will. (`latest` can be used with `defaultOnly`.) **Note:** The data source uses a best-effort approach at selecting the latest version. Due to the complexity of version identifiers across engines and incomplete version date information provided by AWS, using `latest` may not always result in the engine version being the actual latest version.
      * 
      */
     public Optional<Output<Boolean>> latest() {
@@ -144,14 +144,14 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * Ordered list of preferred major version upgrade targets. The engine version will be the first match in the list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferred_major_targets`.
+     * Ordered list of preferred major version upgrade targets. The engine version will be the first match in the list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferredMajorTargets`.
      * 
      */
     @Import(name="preferredMajorTargets")
     private @Nullable Output<List<String>> preferredMajorTargets;
 
     /**
-     * @return Ordered list of preferred major version upgrade targets. The engine version will be the first match in the list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferred_major_targets`.
+     * @return Ordered list of preferred major version upgrade targets. The engine version will be the first match in the list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferredMajorTargets`.
      * 
      */
     public Optional<Output<List<String>>> preferredMajorTargets() {
@@ -159,14 +159,14 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * Ordered list of preferred version upgrade targets. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferred_upgrade_targets`.
+     * Ordered list of preferred version upgrade targets. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferredUpgradeTargets`.
      * 
      */
     @Import(name="preferredUpgradeTargets")
     private @Nullable Output<List<String>> preferredUpgradeTargets;
 
     /**
-     * @return Ordered list of preferred version upgrade targets. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferred_upgrade_targets`.
+     * @return Ordered list of preferred version upgrade targets. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferredUpgradeTargets`.
      * 
      */
     public Optional<Output<List<String>>> preferredUpgradeTargets() {
@@ -174,14 +174,14 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * Ordered list of preferred versions. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferred_versions`.
+     * Ordered list of preferred versions. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferredVersions`.
      * 
      */
     @Import(name="preferredVersions")
     private @Nullable Output<List<String>> preferredVersions;
 
     /**
-     * @return Ordered list of preferred versions. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferred_versions`.
+     * @return Ordered list of preferred versions. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferredVersions`.
      * 
      */
     public Optional<Output<List<String>>> preferredVersions() {
@@ -247,7 +247,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param defaultOnly Whether the engine version must be an AWS-defined default version. Some engines have multiple default versions, such as for each major version. Using `default_only` may help avoid `multiple RDS engine versions` errors. See also `latest`.
+         * @param defaultOnly Whether the engine version must be an AWS-defined default version. Some engines have multiple default versions, such as for each major version. Using `defaultOnly` may help avoid `multiple RDS engine versions` errors. See also `latest`.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param defaultOnly Whether the engine version must be an AWS-defined default version. Some engines have multiple default versions, such as for each major version. Using `default_only` may help avoid `multiple RDS engine versions` errors. See also `latest`.
+         * @param defaultOnly Whether the engine version must be an AWS-defined default version. Some engines have multiple default versions, such as for each major version. Using `defaultOnly` may help avoid `multiple RDS engine versions` errors. See also `latest`.
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param hasMajorTarget Whether the engine version must have one or more major upgrade targets. Not including `has_major_target` or setting it to `false` doesn&#39;t imply that there&#39;s no corresponding major upgrade target for the engine version.
+         * @param hasMajorTarget Whether the engine version must have one or more major upgrade targets. Not including `hasMajorTarget` or setting it to `false` doesn&#39;t imply that there&#39;s no corresponding major upgrade target for the engine version.
          * 
          * @return builder
          * 
@@ -335,7 +335,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param hasMajorTarget Whether the engine version must have one or more major upgrade targets. Not including `has_major_target` or setting it to `false` doesn&#39;t imply that there&#39;s no corresponding major upgrade target for the engine version.
+         * @param hasMajorTarget Whether the engine version must have one or more major upgrade targets. Not including `hasMajorTarget` or setting it to `false` doesn&#39;t imply that there&#39;s no corresponding major upgrade target for the engine version.
          * 
          * @return builder
          * 
@@ -345,7 +345,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param hasMinorTarget Whether the engine version must have one or more minor upgrade targets. Not including `has_minor_target` or setting it to `false` doesn&#39;t imply that there&#39;s no corresponding minor upgrade target for the engine version.
+         * @param hasMinorTarget Whether the engine version must have one or more minor upgrade targets. Not including `hasMinorTarget` or setting it to `false` doesn&#39;t imply that there&#39;s no corresponding minor upgrade target for the engine version.
          * 
          * @return builder
          * 
@@ -356,7 +356,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param hasMinorTarget Whether the engine version must have one or more minor upgrade targets. Not including `has_minor_target` or setting it to `false` doesn&#39;t imply that there&#39;s no corresponding minor upgrade target for the engine version.
+         * @param hasMinorTarget Whether the engine version must have one or more minor upgrade targets. Not including `hasMinorTarget` or setting it to `false` doesn&#39;t imply that there&#39;s no corresponding minor upgrade target for the engine version.
          * 
          * @return builder
          * 
@@ -387,7 +387,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param latest Whether the engine version is the most recent version matching the other criteria. This is different from `default_only` in important ways: &#34;default&#34; relies on AWS-defined defaults, the latest version isn&#39;t always the default, and AWS might have multiple default versions for an engine. As a result, `default_only` might not prevent errors from `multiple RDS engine versions`, while `latest` will. (`latest` can be used with `default_only`.) **Note:** The data source uses a best-effort approach at selecting the latest version. Due to the complexity of version identifiers across engines and incomplete version date information provided by AWS, using `latest` may not always result in the engine version being the actual latest version.
+         * @param latest Whether the engine version is the most recent version matching the other criteria. This is different from `defaultOnly` in important ways: &#34;default&#34; relies on AWS-defined defaults, the latest version isn&#39;t always the default, and AWS might have multiple default versions for an engine. As a result, `defaultOnly` might not prevent errors from `multiple RDS engine versions`, while `latest` will. (`latest` can be used with `defaultOnly`.) **Note:** The data source uses a best-effort approach at selecting the latest version. Due to the complexity of version identifiers across engines and incomplete version date information provided by AWS, using `latest` may not always result in the engine version being the actual latest version.
          * 
          * @return builder
          * 
@@ -398,7 +398,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param latest Whether the engine version is the most recent version matching the other criteria. This is different from `default_only` in important ways: &#34;default&#34; relies on AWS-defined defaults, the latest version isn&#39;t always the default, and AWS might have multiple default versions for an engine. As a result, `default_only` might not prevent errors from `multiple RDS engine versions`, while `latest` will. (`latest` can be used with `default_only`.) **Note:** The data source uses a best-effort approach at selecting the latest version. Due to the complexity of version identifiers across engines and incomplete version date information provided by AWS, using `latest` may not always result in the engine version being the actual latest version.
+         * @param latest Whether the engine version is the most recent version matching the other criteria. This is different from `defaultOnly` in important ways: &#34;default&#34; relies on AWS-defined defaults, the latest version isn&#39;t always the default, and AWS might have multiple default versions for an engine. As a result, `defaultOnly` might not prevent errors from `multiple RDS engine versions`, while `latest` will. (`latest` can be used with `defaultOnly`.) **Note:** The data source uses a best-effort approach at selecting the latest version. Due to the complexity of version identifiers across engines and incomplete version date information provided by AWS, using `latest` may not always result in the engine version being the actual latest version.
          * 
          * @return builder
          * 
@@ -429,7 +429,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param preferredMajorTargets Ordered list of preferred major version upgrade targets. The engine version will be the first match in the list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferred_major_targets`.
+         * @param preferredMajorTargets Ordered list of preferred major version upgrade targets. The engine version will be the first match in the list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferredMajorTargets`.
          * 
          * @return builder
          * 
@@ -440,7 +440,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param preferredMajorTargets Ordered list of preferred major version upgrade targets. The engine version will be the first match in the list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferred_major_targets`.
+         * @param preferredMajorTargets Ordered list of preferred major version upgrade targets. The engine version will be the first match in the list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferredMajorTargets`.
          * 
          * @return builder
          * 
@@ -450,7 +450,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param preferredMajorTargets Ordered list of preferred major version upgrade targets. The engine version will be the first match in the list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferred_major_targets`.
+         * @param preferredMajorTargets Ordered list of preferred major version upgrade targets. The engine version will be the first match in the list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferredMajorTargets`.
          * 
          * @return builder
          * 
@@ -460,7 +460,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param preferredUpgradeTargets Ordered list of preferred version upgrade targets. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferred_upgrade_targets`.
+         * @param preferredUpgradeTargets Ordered list of preferred version upgrade targets. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferredUpgradeTargets`.
          * 
          * @return builder
          * 
@@ -471,7 +471,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param preferredUpgradeTargets Ordered list of preferred version upgrade targets. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferred_upgrade_targets`.
+         * @param preferredUpgradeTargets Ordered list of preferred version upgrade targets. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferredUpgradeTargets`.
          * 
          * @return builder
          * 
@@ -481,7 +481,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param preferredUpgradeTargets Ordered list of preferred version upgrade targets. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferred_upgrade_targets`.
+         * @param preferredUpgradeTargets Ordered list of preferred version upgrade targets. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferredUpgradeTargets`.
          * 
          * @return builder
          * 
@@ -491,7 +491,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param preferredVersions Ordered list of preferred versions. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferred_versions`.
+         * @param preferredVersions Ordered list of preferred versions. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferredVersions`.
          * 
          * @return builder
          * 
@@ -502,7 +502,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param preferredVersions Ordered list of preferred versions. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferred_versions`.
+         * @param preferredVersions Ordered list of preferred versions. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferredVersions`.
          * 
          * @return builder
          * 
@@ -512,7 +512,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param preferredVersions Ordered list of preferred versions. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferred_versions`.
+         * @param preferredVersions Ordered list of preferred versions. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don&#39;t include any criteria, such as `preferredVersions`.
          * 
          * @return builder
          * 

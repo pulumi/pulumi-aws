@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Cfg.Inputs
     public sealed class RuleScopeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The IDs of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for `compliance_resource_types`.
+        /// The IDs of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for `ComplianceResourceTypes`.
         /// </summary>
         [Input("complianceResourceId")]
         public Input<string>? ComplianceResourceId { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Cfg.Inputs
         private InputList<string>? _complianceResourceTypes;
 
         /// <summary>
-        /// A list of resource types of only those AWS resources that you want to trigger an evaluation for the ruleE.g., `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `compliance_resource_id`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+        /// A list of resource types of only those AWS resources that you want to trigger an evaluation for the ruleE.g., `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `ComplianceResourceId`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
         /// </summary>
         public InputList<string> ComplianceResourceTypes
         {

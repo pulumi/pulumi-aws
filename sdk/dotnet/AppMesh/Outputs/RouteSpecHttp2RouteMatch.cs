@@ -39,7 +39,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.RouteSpecHttp2RouteMatchQueryParameter> QueryParameters;
         /// <summary>
-        /// Client request header scheme to match on. Valid values: `http`, `https`.
+        /// Client request header scheme to match on. Valid values: `Http`, `Https`.
         /// </summary>
         public readonly string? Scheme;
 

@@ -47,7 +47,7 @@ public final class PipelineStageOnSuccessConditionRule {
      */
     private @Nullable String roleArn;
     /**
-     * @return The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `rule_type_id` block below.
+     * @return The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `ruleTypeId` block below.
      * 
      */
     private PipelineStageOnSuccessConditionRuleRuleTypeId ruleTypeId;
@@ -101,7 +101,7 @@ public final class PipelineStageOnSuccessConditionRule {
         return Optional.ofNullable(this.roleArn);
     }
     /**
-     * @return The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `rule_type_id` block below.
+     * @return The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `ruleTypeId` block below.
      * 
      */
     public PipelineStageOnSuccessConditionRuleRuleTypeId ruleTypeId() {

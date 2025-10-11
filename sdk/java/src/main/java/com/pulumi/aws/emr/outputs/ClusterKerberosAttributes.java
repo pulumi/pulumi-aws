@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterKerberosAttributes {
     /**
-     * @return Active Directory password for `ad_domain_join_user`. This provider cannot perform drift detection of this configuration.
+     * @return Active Directory password for `adDomainJoinUser`. This provider cannot perform drift detection of this configuration.
      * 
      */
     private @Nullable String adDomainJoinPassword;
@@ -40,7 +40,7 @@ public final class ClusterKerberosAttributes {
 
     private ClusterKerberosAttributes() {}
     /**
-     * @return Active Directory password for `ad_domain_join_user`. This provider cannot perform drift detection of this configuration.
+     * @return Active Directory password for `adDomainJoinUser`. This provider cannot perform drift detection of this configuration.
      * 
      */
     public Optional<String> adDomainJoinPassword() {

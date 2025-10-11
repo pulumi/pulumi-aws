@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     public sealed class DistributionTrustedSignerItem
     {
         /// <summary>
-        /// AWS account ID or `self`
+        /// AWS account ID or `Self`
         /// </summary>
         public readonly string? AwsAccountNumber;
         /// <summary>

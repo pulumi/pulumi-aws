@@ -132,7 +132,7 @@ public final class GetInstanceResult {
      */
     private String licenseModel;
     /**
-     * @return Provides the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+     * @return Provides the master user secret. Only available when `manageMasterUserPassword` is set to true. Documented below.
      * 
      */
     private List<GetInstanceMasterUserSecret> masterUserSecrets;
@@ -172,7 +172,7 @@ public final class GetInstanceResult {
      */
     private List<String> optionGroupMemberships;
     /**
-     * @return Database endpoint port, primarily used by an Aurora DB cluster. For a conventional RDS DB instance, the `db_instance_port` is typically the preferred choice.
+     * @return Database endpoint port, primarily used by an Aurora DB cluster. For a conventional RDS DB instance, the `dbInstancePort` is typically the preferred choice.
      * 
      */
     private Integer port;
@@ -395,7 +395,7 @@ public final class GetInstanceResult {
         return this.licenseModel;
     }
     /**
-     * @return Provides the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+     * @return Provides the master user secret. Only available when `manageMasterUserPassword` is set to true. Documented below.
      * 
      */
     public List<GetInstanceMasterUserSecret> masterUserSecrets() {
@@ -451,7 +451,7 @@ public final class GetInstanceResult {
         return this.optionGroupMemberships;
     }
     /**
-     * @return Database endpoint port, primarily used by an Aurora DB cluster. For a conventional RDS DB instance, the `db_instance_port` is typically the preferred choice.
+     * @return Database endpoint port, primarily used by an Aurora DB cluster. For a conventional RDS DB instance, the `dbInstancePort` is typically the preferred choice.
      * 
      */
     public Integer port() {

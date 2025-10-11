@@ -13,37 +13,37 @@ namespace Pulumi.Aws.BedrockModel.Inputs
     public sealed class InvocationLoggingConfigurationLoggingConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// CloudWatch logging configuration. See `cloudwatch_config` Block for details.
+        /// CloudWatch logging configuration. See `CloudwatchConfig` Block for details.
         /// </summary>
         [Input("cloudwatchConfig")]
         public Input<Inputs.InvocationLoggingConfigurationLoggingConfigCloudwatchConfigGetArgs>? CloudwatchConfig { get; set; }
 
         /// <summary>
-        /// Set to include embeddings data in the log delivery. Defaults to `true`.
+        /// Set to include embeddings data in the log delivery. Defaults to `True`.
         /// </summary>
         [Input("embeddingDataDeliveryEnabled")]
         public Input<bool>? EmbeddingDataDeliveryEnabled { get; set; }
 
         /// <summary>
-        /// Set to include image data in the log delivery. Defaults to `true`.
+        /// Set to include image data in the log delivery. Defaults to `True`.
         /// </summary>
         [Input("imageDataDeliveryEnabled")]
         public Input<bool>? ImageDataDeliveryEnabled { get; set; }
 
         /// <summary>
-        /// S3 configuration for storing log data. See `s3_config` Block for details.
+        /// S3 configuration for storing log data. See `S3Config` Block for details.
         /// </summary>
         [Input("s3Config")]
         public Input<Inputs.InvocationLoggingConfigurationLoggingConfigS3ConfigGetArgs>? S3Config { get; set; }
 
         /// <summary>
-        /// Set to include text data in the log delivery. Defaults to `true`.
+        /// Set to include text data in the log delivery. Defaults to `True`.
         /// </summary>
         [Input("textDataDeliveryEnabled")]
         public Input<bool>? TextDataDeliveryEnabled { get; set; }
 
         /// <summary>
-        /// Set to include text data in the log delivery. Defaults to `true`.
+        /// Set to include text data in the log delivery. Defaults to `True`.
         /// </summary>
         [Input("videoDataDeliveryEnabled")]
         public Input<bool>? VideoDataDeliveryEnabled { get; set; }

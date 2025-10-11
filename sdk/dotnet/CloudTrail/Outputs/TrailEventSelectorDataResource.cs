@@ -18,7 +18,7 @@ namespace Pulumi.Aws.CloudTrail.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// List of ARN strings or partial ARN strings to specify selectors for data audit events over data resources. ARN list is specific to single-valued `type`. For example, `arn:aws:s3:::&lt;bucket name&gt;/` for all objects in a bucket, `arn:aws:s3:::&lt;bucket name&gt;/key` for specific objects, `arn:aws:lambda` for all lambda events within an account, `arn:aws:lambda:&lt;region&gt;:&lt;account number&gt;:function:&lt;function name&gt;` for a specific Lambda function, `arn:aws:dynamodb` for all DDB events for all tables within an account, or `arn:aws:dynamodb:&lt;region&gt;:&lt;account number&gt;:table/&lt;table name&gt;` for a specific DynamoDB table.
+        /// List of ARN strings or partial ARN strings to specify selectors for data audit events over data resources. ARN list is specific to single-valued `Type`. For example, `arn:aws:s3:::&lt;bucket name&gt;/` for all objects in a bucket, `arn:aws:s3:::&lt;bucket name&gt;/key` for specific objects, `arn:aws:lambda` for all lambda events within an account, `arn:aws:lambda:&lt;region&gt;:&lt;account number&gt;:function:&lt;function name&gt;` for a specific Lambda function, `arn:aws:dynamodb` for all DDB events for all tables within an account, or `arn:aws:dynamodb:&lt;region&gt;:&lt;account number&gt;:table/&lt;table name&gt;` for a specific DynamoDB table.
         /// </summary>
         public readonly ImmutableArray<string> Values;
 

@@ -94,18 +94,18 @@ public final class ConfigurationAggregatorState extends com.pulumi.resources.Res
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
-     * Either `account_aggregation_source` or `organization_aggregation_source` must be specified.
+     * Either `accountAggregationSource` or `organizationAggregationSource` must be specified.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
-     * Either `account_aggregation_source` or `organization_aggregation_source` must be specified.
+     * Either `accountAggregationSource` or `organizationAggregationSource` must be specified.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -113,14 +113,14 @@ public final class ConfigurationAggregatorState extends com.pulumi.resources.Res
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -263,9 +263,9 @@ public final class ConfigurationAggregatorState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
-         * Either `account_aggregation_source` or `organization_aggregation_source` must be specified.
+         * Either `accountAggregationSource` or `organizationAggregationSource` must be specified.
          * 
          * @return builder
          * 
@@ -276,9 +276,9 @@ public final class ConfigurationAggregatorState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
-         * Either `account_aggregation_source` or `organization_aggregation_source` must be specified.
+         * Either `accountAggregationSource` or `organizationAggregationSource` must be specified.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class ConfigurationAggregatorState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -299,7 +299,7 @@ public final class ConfigurationAggregatorState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

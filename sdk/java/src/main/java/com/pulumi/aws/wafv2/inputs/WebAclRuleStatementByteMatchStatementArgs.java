@@ -20,14 +20,14 @@ public final class WebAclRuleStatementByteMatchStatementArgs extends com.pulumi.
     public static final WebAclRuleStatementByteMatchStatementArgs Empty = new WebAclRuleStatementByteMatchStatementArgs();
 
     /**
-     * Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
+     * Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
      * 
      */
     @Import(name="fieldToMatch")
     private @Nullable Output<WebAclRuleStatementByteMatchStatementFieldToMatchArgs> fieldToMatch;
 
     /**
-     * @return Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
+     * @return Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementByteMatchStatementFieldToMatchArgs>> fieldToMatch() {
@@ -35,14 +35,14 @@ public final class WebAclRuleStatementByteMatchStatementArgs extends com.pulumi.
     }
 
     /**
-     * Area within the portion of a web request that you want AWS WAF to search for `search_string`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+     * Area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
      * 
      */
     @Import(name="positionalConstraint", required=true)
     private Output<String> positionalConstraint;
 
     /**
-     * @return Area within the portion of a web request that you want AWS WAF to search for `search_string`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+     * @return Area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
      * 
      */
     public Output<String> positionalConstraint() {
@@ -50,14 +50,14 @@ public final class WebAclRuleStatementByteMatchStatementArgs extends com.pulumi.
     }
 
     /**
-     * String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `field_to_match`. The maximum length of the value is 50 bytes.
+     * String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
      * 
      */
     @Import(name="searchString", required=true)
     private Output<String> searchString;
 
     /**
-     * @return String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `field_to_match`. The maximum length of the value is 50 bytes.
+     * @return String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
      * 
      */
     public Output<String> searchString() {
@@ -65,14 +65,14 @@ public final class WebAclRuleStatementByteMatchStatementArgs extends com.pulumi.
     }
 
     /**
-     * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
+     * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
      * 
      */
     @Import(name="textTransformations", required=true)
     private Output<List<WebAclRuleStatementByteMatchStatementTextTransformationArgs>> textTransformations;
 
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
      * 
      */
     public Output<List<WebAclRuleStatementByteMatchStatementTextTransformationArgs>> textTransformations() {
@@ -107,7 +107,7 @@ public final class WebAclRuleStatementByteMatchStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param fieldToMatch Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
+         * @param fieldToMatch Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class WebAclRuleStatementByteMatchStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param fieldToMatch Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
+         * @param fieldToMatch Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class WebAclRuleStatementByteMatchStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param positionalConstraint Area within the portion of a web request that you want AWS WAF to search for `search_string`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         * @param positionalConstraint Area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class WebAclRuleStatementByteMatchStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param positionalConstraint Area within the portion of a web request that you want AWS WAF to search for `search_string`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         * @param positionalConstraint Area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class WebAclRuleStatementByteMatchStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param searchString String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `field_to_match`. The maximum length of the value is 50 bytes.
+         * @param searchString String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class WebAclRuleStatementByteMatchStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param searchString String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `field_to_match`. The maximum length of the value is 50 bytes.
+         * @param searchString String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class WebAclRuleStatementByteMatchStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
+         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class WebAclRuleStatementByteMatchStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
+         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class WebAclRuleStatementByteMatchStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
+         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
          * 
          * @return builder
          * 

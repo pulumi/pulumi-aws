@@ -186,14 +186,14 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Statement identifier prefix. Conflicts with `statement_id`
+     * Statement identifier prefix. Conflicts with `statementId`
      * 
      */
     @Import(name="statementIdPrefix")
     private @Nullable Output<String> statementIdPrefix;
 
     /**
-     * @return Statement identifier prefix. Conflicts with `statement_id`
+     * @return Statement identifier prefix. Conflicts with `statementId`
      * 
      */
     public Optional<Output<String>> statementIdPrefix() {
@@ -471,7 +471,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statementIdPrefix Statement identifier prefix. Conflicts with `statement_id`
+         * @param statementIdPrefix Statement identifier prefix. Conflicts with `statementId`
          * 
          * @return builder
          * 
@@ -482,7 +482,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statementIdPrefix Statement identifier prefix. Conflicts with `statement_id`
+         * @param statementIdPrefix Statement identifier prefix. Conflicts with `statementId`
          * 
          * @return builder
          * 

@@ -48,14 +48,14 @@ public final class UserLoginProfileState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The plain text password, only available when `pgp_key` is not provided.
+     * The plain text password, only available when `pgpKey` is not provided.
      * 
      */
     @Import(name="password")
     private @Nullable Output<String> password;
 
     /**
-     * @return The plain text password, only available when `pgp_key` is not provided.
+     * @return The plain text password, only available when `pgpKey` is not provided.
      * 
      */
     public Optional<Output<String>> password() {
@@ -195,7 +195,7 @@ public final class UserLoginProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param password The plain text password, only available when `pgp_key` is not provided.
+         * @param password The plain text password, only available when `pgpKey` is not provided.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class UserLoginProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param password The plain text password, only available when `pgp_key` is not provided.
+         * @param password The plain text password, only available when `pgpKey` is not provided.
          * 
          * @return builder
          * 

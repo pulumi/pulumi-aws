@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// &gt; **Note:** It's strongly discouraged to use this data source for querying ephemeral
         /// instances (e.g., managed via autoscaling group), as the output may change at any time
-        /// and you'd need to re-run `apply` every time an instance comes up or dies.
+        /// and you'd need to re-run `Apply` every time an instance comes up or dies.
         /// 
         /// ## Example Usage
         /// 
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// &gt; **Note:** It's strongly discouraged to use this data source for querying ephemeral
         /// instances (e.g., managed via autoscaling group), as the output may change at any time
-        /// and you'd need to re-run `apply` every time an instance comes up or dies.
+        /// and you'd need to re-run `Apply` every time an instance comes up or dies.
         /// 
         /// ## Example Usage
         /// 
@@ -146,7 +146,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// &gt; **Note:** It's strongly discouraged to use this data source for querying ephemeral
         /// instances (e.g., managed via autoscaling group), as the output may change at any time
-        /// and you'd need to re-run `apply` every time an instance comes up or dies.
+        /// and you'd need to re-run `Apply` every time an instance comes up or dies.
         /// 
         /// ## Example Usage
         /// 
@@ -206,9 +206,9 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// One or more filters to apply to the search.
-        /// If multiple `filter` blocks are provided, they all must be true.
+        /// If multiple `Filter` blocks are provided, they all must be true.
         /// For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
-        /// See `filter` Block below.
+        /// See `Filter` Block below.
         /// </summary>
         public List<Inputs.GetInstancesFilterArgs> Filters
         {
@@ -220,7 +220,7 @@ namespace Pulumi.Aws.Ec2
         private List<string>? _instanceStateNames;
 
         /// <summary>
-        /// List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
+        /// List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `Running`.
         /// </summary>
         public List<string> InstanceStateNames
         {
@@ -260,9 +260,9 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// One or more filters to apply to the search.
-        /// If multiple `filter` blocks are provided, they all must be true.
+        /// If multiple `Filter` blocks are provided, they all must be true.
         /// For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
-        /// See `filter` Block below.
+        /// See `Filter` Block below.
         /// </summary>
         public InputList<Inputs.GetInstancesFilterInputArgs> Filters
         {
@@ -274,7 +274,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _instanceStateNames;
 
         /// <summary>
-        /// List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
+        /// List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `Running`.
         /// </summary>
         public InputList<string> InstanceStateNames
         {

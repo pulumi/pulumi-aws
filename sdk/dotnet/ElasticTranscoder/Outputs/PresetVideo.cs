@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ElasticTranscoder.Outputs
     public sealed class PresetVideo
     {
         /// <summary>
-        /// The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `max_width`, `max_height`, `sizing_policy`, `padding_policy`, and `display_aspect_ratio` instead of `resolution` and `aspect_ratio`.)
+        /// The display aspect ratio of the video in the output file. Valid values are: `Auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `MaxWidth`, `MaxHeight`, `SizingPolicy`, `PaddingPolicy`, and `DisplayAspectRatio` instead of `Resolution` and `AspectRatio`.)
         /// </summary>
         public readonly string? AspectRatio;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.ElasticTranscoder.Outputs
         /// </summary>
         public readonly string? BitRate;
         /// <summary>
-        /// The video codec for the output file. Valid values are `gif`, `H.264`, `mpeg2`, `vp8`, and `vp9`.
+        /// The video codec for the output file. Valid values are `Gif`, `H.264`, `Mpeg2`, `Vp8`, and `Vp9`.
         /// </summary>
         public readonly string? Codec;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.ElasticTranscoder.Outputs
         /// </summary>
         public readonly string? FixedGop;
         /// <summary>
-        /// The frames per second for the video stream in the output file. The following values are valid: `auto`, `10`, `15`, `23.97`, `24`, `25`, `29.97`, `30`, `50`, `60`.
+        /// The frames per second for the video stream in the output file. The following values are valid: `Auto`, `10`, `15`, `23.97`, `24`, `25`, `29.97`, `30`, `50`, `60`.
         /// </summary>
         public readonly string? FrameRate;
         /// <summary>
@@ -54,11 +54,11 @@ namespace Pulumi.Aws.ElasticTranscoder.Outputs
         /// </summary>
         public readonly string? MaxWidth;
         /// <summary>
-        /// When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `max_width` and `max_height`.
+        /// When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `MaxWidth` and `MaxHeight`.
         /// </summary>
         public readonly string? PaddingPolicy;
         /// <summary>
-        /// The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspect_ratio`)
+        /// The width and height of the video in the output file, in pixels. Valid values are `Auto` and `Widthxheight`. (see note for `AspectRatio`)
         /// </summary>
         public readonly string? Resolution;
         /// <summary>

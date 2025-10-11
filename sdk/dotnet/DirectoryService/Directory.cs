@@ -191,7 +191,7 @@ namespace Pulumi.Aws.DirectoryService
         public Output<string> AccessUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
+        /// The alias for the directory (must be unique amongst all aliases in AWS). Required for `EnableSso`.
         /// </summary>
         [Output("alias")]
         public Output<string> Alias { get; private set; } = null!;
@@ -227,7 +227,7 @@ namespace Pulumi.Aws.DirectoryService
         public Output<string> Edition { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
+        /// Whether to enable single-sign on for the directory. Requires `Alias`. Defaults to `False`.
         /// </summary>
         [Output("enableSso")]
         public Output<bool?> EnableSso { get; private set; } = null!;
@@ -269,13 +269,13 @@ namespace Pulumi.Aws.DirectoryService
         public Output<string> Size { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -343,7 +343,7 @@ namespace Pulumi.Aws.DirectoryService
     public sealed class DirectoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
+        /// The alias for the directory (must be unique amongst all aliases in AWS). Required for `EnableSso`.
         /// </summary>
         [Input("alias")]
         public Input<string>? Alias { get; set; }
@@ -373,7 +373,7 @@ namespace Pulumi.Aws.DirectoryService
         public Input<string>? Edition { get; set; }
 
         /// <summary>
-        /// Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
+        /// Whether to enable single-sign on for the directory. Requires `Alias`. Defaults to `False`.
         /// </summary>
         [Input("enableSso")]
         public Input<bool>? EnableSso { get; set; }
@@ -422,7 +422,7 @@ namespace Pulumi.Aws.DirectoryService
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -457,7 +457,7 @@ namespace Pulumi.Aws.DirectoryService
         public Input<string>? AccessUrl { get; set; }
 
         /// <summary>
-        /// The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
+        /// The alias for the directory (must be unique amongst all aliases in AWS). Required for `EnableSso`.
         /// </summary>
         [Input("alias")]
         public Input<string>? Alias { get; set; }
@@ -499,7 +499,7 @@ namespace Pulumi.Aws.DirectoryService
         public Input<string>? Edition { get; set; }
 
         /// <summary>
-        /// Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
+        /// Whether to enable single-sign on for the directory. Requires `Alias`. Defaults to `False`.
         /// </summary>
         [Input("enableSso")]
         public Input<bool>? EnableSso { get; set; }
@@ -554,7 +554,7 @@ namespace Pulumi.Aws.DirectoryService
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -566,7 +566,7 @@ namespace Pulumi.Aws.DirectoryService
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

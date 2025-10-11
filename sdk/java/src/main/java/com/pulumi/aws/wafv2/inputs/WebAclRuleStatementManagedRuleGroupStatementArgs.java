@@ -21,14 +21,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs extends com.
     public static final WebAclRuleStatementManagedRuleGroupStatementArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementArgs();
 
     /**
-     * Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See `managed_rule_group_configs` for more details
+     * Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See `managedRuleGroupConfigs` for more details
      * 
      */
     @Import(name="managedRuleGroupConfigs")
     private @Nullable Output<List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs>> managedRuleGroupConfigs;
 
     /**
-     * @return Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See `managed_rule_group_configs` for more details
+     * @return Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See `managedRuleGroupConfigs` for more details
      * 
      */
     public Optional<Output<List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs>>> managedRuleGroupConfigs() {
@@ -51,14 +51,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs extends com.
     }
 
     /**
-     * Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `rule_action_override` below for details.
+     * Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `ruleActionOverride` below for details.
      * 
      */
     @Import(name="ruleActionOverrides")
     private @Nullable Output<List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs>> ruleActionOverrides;
 
     /**
-     * @return Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `rule_action_override` below for details.
+     * @return Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `ruleActionOverride` below for details.
      * 
      */
     public Optional<Output<List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs>>> ruleActionOverrides() {
@@ -140,7 +140,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs extends com.
         }
 
         /**
-         * @param managedRuleGroupConfigs Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See `managed_rule_group_configs` for more details
+         * @param managedRuleGroupConfigs Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See `managedRuleGroupConfigs` for more details
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs extends com.
         }
 
         /**
-         * @param managedRuleGroupConfigs Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See `managed_rule_group_configs` for more details
+         * @param managedRuleGroupConfigs Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See `managedRuleGroupConfigs` for more details
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs extends com.
         }
 
         /**
-         * @param managedRuleGroupConfigs Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See `managed_rule_group_configs` for more details
+         * @param managedRuleGroupConfigs Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See `managedRuleGroupConfigs` for more details
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs extends com.
         }
 
         /**
-         * @param ruleActionOverrides Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `rule_action_override` below for details.
+         * @param ruleActionOverrides Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `ruleActionOverride` below for details.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs extends com.
         }
 
         /**
-         * @param ruleActionOverrides Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `rule_action_override` below for details.
+         * @param ruleActionOverrides Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `ruleActionOverride` below for details.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs extends com.
         }
 
         /**
-         * @param ruleActionOverrides Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `rule_action_override` below for details.
+         * @param ruleActionOverrides Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `ruleActionOverride` below for details.
          * 
          * @return builder
          * 

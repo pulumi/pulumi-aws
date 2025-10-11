@@ -12,7 +12,7 @@ namespace Pulumi.Aws.ServerlessRepository
     public static class GetApplication
     {
         /// <summary>
-        /// Use this data source to get information about an AWS Serverless Application Repository application. For example, this can be used to determine the required `capabilities` for an application.
+        /// Use this data source to get information about an AWS Serverless Application Repository application. For example, this can be used to determine the required `Capabilities` for an application.
         /// 
         /// ## Example Usage
         /// 
@@ -44,7 +44,7 @@ namespace Pulumi.Aws.ServerlessRepository
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("aws:serverlessrepository/getApplication:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get information about an AWS Serverless Application Repository application. For example, this can be used to determine the required `capabilities` for an application.
+        /// Use this data source to get information about an AWS Serverless Application Repository application. For example, this can be used to determine the required `Capabilities` for an application.
         /// 
         /// ## Example Usage
         /// 
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.ServerlessRepository
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("aws:serverlessrepository/getApplication:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get information about an AWS Serverless Application Repository application. For example, this can be used to determine the required `capabilities` for an application.
+        /// Use this data source to get information about an AWS Serverless Application Repository application. For example, this can be used to determine the required `Capabilities` for an application.
         /// 
         /// ## Example Usage
         /// 

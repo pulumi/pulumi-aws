@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         private InputList<Inputs.DomainDefaultSpaceSettingsCustomFileSystemConfigArgs>? _customFileSystemConfigs;
 
         /// <summary>
-        /// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See `custom_file_system_config` Block below.
+        /// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See `CustomFileSystemConfig` Block below.
         /// </summary>
         public InputList<Inputs.DomainDefaultSpaceSettingsCustomFileSystemConfigArgs> CustomFileSystemConfigs
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         }
 
         /// <summary>
-        /// Details about the POSIX identity that is used for file system operations. See `custom_posix_user_config` Block below.
+        /// Details about the POSIX identity that is used for file system operations. See `CustomPosixUserConfig` Block below.
         /// </summary>
         [Input("customPosixUserConfig")]
         public Input<Inputs.DomainDefaultSpaceSettingsCustomPosixUserConfigArgs>? CustomPosixUserConfig { get; set; }
@@ -37,19 +37,19 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string> ExecutionRole { get; set; } = null!;
 
         /// <summary>
-        /// The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
+        /// The settings for the JupyterLab application. See `JupyterLabAppSettings` Block below.
         /// </summary>
         [Input("jupyterLabAppSettings")]
         public Input<Inputs.DomainDefaultSpaceSettingsJupyterLabAppSettingsArgs>? JupyterLabAppSettings { get; set; }
 
         /// <summary>
-        /// The Jupyter server's app settings. See `jupyter_server_app_settings` Block below.
+        /// The Jupyter server's app settings. See `JupyterServerAppSettings` Block below.
         /// </summary>
         [Input("jupyterServerAppSettings")]
         public Input<Inputs.DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs>? JupyterServerAppSettings { get; set; }
 
         /// <summary>
-        /// The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
+        /// The kernel gateway app settings. See `KernelGatewayAppSettings` Block below.
         /// </summary>
         [Input("kernelGatewayAppSettings")]
         public Input<Inputs.DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs>? KernelGatewayAppSettings { get; set; }
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         }
 
         /// <summary>
-        /// The storage settings for a private space. See `space_storage_settings` Block below.
+        /// The storage settings for a private space. See `SpaceStorageSettings` Block below.
         /// </summary>
         [Input("spaceStorageSettings")]
         public Input<Inputs.DomainDefaultSpaceSettingsSpaceStorageSettingsArgs>? SpaceStorageSettings { get; set; }

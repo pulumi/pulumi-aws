@@ -64,14 +64,14 @@ public final class KxClusterDatabaseArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignore_changes` for database to prevent any undesirable behaviors.
+     * The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignoreChanges` for database to prevent any undesirable behaviors.
      * 
      */
     @Import(name="dataviewName")
     private @Nullable Output<String> dataviewName;
 
     /**
-     * @return The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignore_changes` for database to prevent any undesirable behaviors.
+     * @return The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignoreChanges` for database to prevent any undesirable behaviors.
      * 
      */
     public Optional<Output<String>> dataviewName() {
@@ -179,7 +179,7 @@ public final class KxClusterDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param dataviewName The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignore_changes` for database to prevent any undesirable behaviors.
+         * @param dataviewName The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignoreChanges` for database to prevent any undesirable behaviors.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class KxClusterDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param dataviewName The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignore_changes` for database to prevent any undesirable behaviors.
+         * @param dataviewName The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignoreChanges` for database to prevent any undesirable behaviors.
          * 
          * @return builder
          * 

@@ -266,28 +266,28 @@ public class AttachmentAccepter extends com.pulumi.resources.CustomResource {
         return this.coreNetworkId;
     }
     /**
-     * Region where the edge is located. This is returned for all attachment types except Direct Connect gateway attachments, which instead return `edge_locations`.
+     * Region where the edge is located. This is returned for all attachment types except Direct Connect gateway attachments, which instead return `edgeLocations`.
      * 
      */
     @Export(name="edgeLocation", refs={String.class}, tree="[0]")
     private Output<String> edgeLocation;
 
     /**
-     * @return Region where the edge is located. This is returned for all attachment types except Direct Connect gateway attachments, which instead return `edge_locations`.
+     * @return Region where the edge is located. This is returned for all attachment types except Direct Connect gateway attachments, which instead return `edgeLocations`.
      * 
      */
     public Output<String> edgeLocation() {
         return this.edgeLocation;
     }
     /**
-     * Edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`.
+     * Edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edgeLocation`.
      * 
      */
     @Export(name="edgeLocations", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> edgeLocations;
 
     /**
-     * @return Edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`.
+     * @return Edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edgeLocation`.
      * 
      */
     public Output<List<String>> edgeLocations() {

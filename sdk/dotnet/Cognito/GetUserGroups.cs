@@ -136,7 +136,7 @@ namespace Pulumi.Aws.Cognito
     public sealed class GetUserGroupsResult
     {
         /// <summary>
-        /// List of groups. See `groups` below.
+        /// List of groups. See `Groups` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetUserGroupsGroupResult> Groups;
         /// <summary>

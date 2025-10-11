@@ -23,7 +23,7 @@ public final class GetPublicKeyResult {
      */
     private String customerMasterKeySpec;
     /**
-     * @return Encryption algorithms that AWS KMS supports for this key. Only set when the `key_usage` of the public key is `ENCRYPT_DECRYPT`.
+     * @return Encryption algorithms that AWS KMS supports for this key. Only set when the `keyUsage` of the public key is `ENCRYPT_DECRYPT`.
      * 
      */
     private List<String> encryptionAlgorithms;
@@ -51,7 +51,7 @@ public final class GetPublicKeyResult {
     private String publicKeyPem;
     private String region;
     /**
-     * @return Signing algorithms that AWS KMS supports for this key. Only set when the `key_usage` of the public key is `SIGN_VERIFY`.
+     * @return Signing algorithms that AWS KMS supports for this key. Only set when the `keyUsage` of the public key is `SIGN_VERIFY`.
      * 
      */
     private List<String> signingAlgorithms;
@@ -72,7 +72,7 @@ public final class GetPublicKeyResult {
         return this.customerMasterKeySpec;
     }
     /**
-     * @return Encryption algorithms that AWS KMS supports for this key. Only set when the `key_usage` of the public key is `ENCRYPT_DECRYPT`.
+     * @return Encryption algorithms that AWS KMS supports for this key. Only set when the `keyUsage` of the public key is `ENCRYPT_DECRYPT`.
      * 
      */
     public List<String> encryptionAlgorithms() {
@@ -116,7 +116,7 @@ public final class GetPublicKeyResult {
         return this.region;
     }
     /**
-     * @return Signing algorithms that AWS KMS supports for this key. Only set when the `key_usage` of the public key is `SIGN_VERIFY`.
+     * @return Signing algorithms that AWS KMS supports for this key. Only set when the `keyUsage` of the public key is `SIGN_VERIFY`.
      * 
      */
     public List<String> signingAlgorithms() {

@@ -26,18 +26,18 @@ import javax.annotation.Nullable;
  * [single-node Redis instance (Cluster Mode Disabled)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/WhatIs.html),
  * see the `aws.elasticache.Cluster` resource.
  * 
- * &gt; **Note:** When you change an attribute, such as `engine_version`, by
+ * &gt; **Note:** When you change an attribute, such as `engineVersion`, by
  * default the ElastiCache API applies it in the next maintenance window. Because
  * of this, this provider may report a difference in its planning phase because the
  * actual modification has not yet taken place. You can use the
- * `apply_immediately` flag to instruct the service to apply the change
- * immediately. Using `apply_immediately` can result in a brief downtime as
+ * `applyImmediately` flag to instruct the service to apply the change
+ * immediately. Using `applyImmediately` can result in a brief downtime as
  * servers reboots.
  * See the AWS Documentation on
  * [Modifying an ElastiCache Cache Cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Modify.html)
  * for more information.
  * 
- * &gt; **Note:** Any attribute changes that re-create the resource will be applied immediately, regardless of the value of `apply_immediately`.
+ * &gt; **Note:** Any attribute changes that re-create the resource will be applied immediately, regardless of the value of `applyImmediately`.
  * 
  * &gt; **Note:** Be aware of the terminology collision around &#34;cluster&#34; for `aws.elasticache.ReplicationGroup`. For example, it is possible to create a [&#34;Cluster Mode Disabled [Redis] Cluster&#34;](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Create.CON.Redis.html). With &#34;Cluster Mode Enabled&#34;, the data will be stored in shards (called &#34;node groups&#34;). See [Redis Cluster Configuration](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/cluster-create-determine-requirements.html#redis-cluster-configuration) for a diagram of the differences. To enable cluster mode, use a parameter group that has cluster mode enabled. The default parameter groups provided by AWS end with &#34;.cluster.on&#34;, for example `default.redis6.x.cluster.on`.
  * 
@@ -89,8 +89,8 @@ import javax.annotation.Nullable;
  * 
  * You have two options for adjusting the number of replicas:
  * 
- * * Adjusting `num_cache_clusters` directly. This will attempt to automatically add or remove replicas, but provides no granular control (e.g., preferred availability zone, cache cluster ID) for the added or removed replicas. This also currently expects cache cluster IDs in the form of `replication_group_id-00#`.
- * * Otherwise for fine grained control of the underlying cache clusters, they can be added or removed with the `aws.elasticache.Cluster` resource and its `replication_group_id` attribute. In this situation, you will need to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to prevent perpetual differences with the `number_cache_cluster` attribute.
+ * * Adjusting `numCacheClusters` directly. This will attempt to automatically add or remove replicas, but provides no granular control (e.g., preferred availability zone, cache cluster ID) for the added or removed replicas. This also currently expects cache cluster IDs in the form of `replication_group_id-00#`.
+ * * Otherwise for fine grained control of the underlying cache clusters, they can be added or removed with the `aws.elasticache.Cluster` resource and its `replicationGroupId` attribute. In this situation, you will need to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to prevent perpetual differences with the `numberCacheCluster` attribute.
  * 
  * <pre>
  * {@code
@@ -239,7 +239,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * &gt; **Note:** We currently do not support passing a `primary_cluster_id` in order to create the Replication Group.
+ * &gt; **Note:** We currently do not support passing a `primaryClusterId` in order to create the Replication Group.
  * 
  * &gt; **Note:** Automatic Failover is unavailable for Redis versions earlier than 2.8.6,
  * and unavailable on T1 node types. For T2 node types, it is only available on Redis version 3.2.4 or later with cluster mode enabled. See the [High Availability Using Replication Groups](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Replication.html) guide
@@ -343,7 +343,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * &gt; When adding a new `auth_token` to a previously passwordless replication group, using the `ROTATE` update strategy will result in support for **both** the new token and passwordless authentication. To immediately require authorization when adding the initial token, use the `SET` strategy instead. See the [Authenticating with the Redis AUTH command](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html) guide for additional details.
+ * &gt; When adding a new `authToken` to a previously passwordless replication group, using the `ROTATE` update strategy will result in support for **both** the new token and passwordless authentication. To immediately require authorization when adding the initial token, use the `SET` strategy instead. See the [Authenticating with the Redis AUTH command](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html) guide for additional details.
  * 
  * ## Import
  * 
@@ -403,28 +403,28 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
         return this.atRestEncryptionEnabled;
     }
     /**
-     * Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
+     * Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
      * 
      */
     @Export(name="authToken", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authToken;
 
     /**
-     * @return Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
+     * @return Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
      * 
      */
     public Output<Optional<String>> authToken() {
         return Codegen.optional(this.authToken);
     }
     /**
-     * Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `auth_token` is set.
+     * Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `authToken` is set.
      * 
      */
     @Export(name="authTokenUpdateStrategy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authTokenUpdateStrategy;
 
     /**
-     * @return Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `auth_token` is set.
+     * @return Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `authToken` is set.
      * 
      */
     public Output<Optional<String>> authTokenUpdateStrategy() {
@@ -449,14 +449,14 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
         return this.autoMinorVersionUpgrade;
     }
     /**
-     * Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+     * Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
      * 
      */
     @Export(name="automaticFailoverEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> automaticFailoverEnabled;
 
     /**
-     * @return Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+     * @return Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> automaticFailoverEnabled() {
@@ -556,7 +556,7 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      * If the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
@@ -568,7 +568,7 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      * If the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
      * 
      */
     public Output<String> engineVersion() {
@@ -603,14 +603,14 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.finalSnapshotIdentifier);
     }
     /**
-     * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter cannot be set.
+     * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter cannot be set.
      * 
      */
     @Export(name="globalReplicationGroupId", refs={String.class}, tree="[0]")
     private Output<String> globalReplicationGroupId;
 
     /**
-     * @return The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter cannot be set.
+     * @return The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter cannot be set.
      * 
      */
     public Output<String> globalReplicationGroupId() {
@@ -631,14 +631,14 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
         return this.ipDiscovery;
     }
     /**
-     * The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
+     * The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyId;
 
     /**
-     * @return The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
+     * @return The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
      * 
      */
     public Output<Optional<String>> kmsKeyId() {
@@ -688,7 +688,7 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
     }
     /**
      * Specifies whether to enable Multi-AZ Support for the replication group.
-     * If `true`, `automatic_failover_enabled` must also be enabled.
+     * If `true`, `automaticFailoverEnabled` must also be enabled.
      * Defaults to `false`.
      * 
      */
@@ -697,7 +697,7 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Specifies whether to enable Multi-AZ Support for the replication group.
-     * If `true`, `automatic_failover_enabled` must also be enabled.
+     * If `true`, `automaticFailoverEnabled` must also be enabled.
      * Defaults to `false`.
      * 
      */
@@ -705,14 +705,14 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.multiAzEnabled);
     }
     /**
-     * The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
+     * The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
      * 
      */
     @Export(name="networkType", refs={String.class}, tree="[0]")
     private Output<String> networkType;
 
     /**
-     * @return The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
+     * @return The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
      * 
      */
     public Output<String> networkType() {
@@ -721,8 +721,8 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
     /**
      * Instance class to be used.
      * See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
-     * Required unless `global_replication_group_id` is set.
-     * Cannot be set if `global_replication_group_id` is set.
+     * Required unless `globalReplicationGroupId` is set.
+     * Cannot be set if `globalReplicationGroupId` is set.
      * 
      */
     @Export(name="nodeType", refs={String.class}, tree="[0]")
@@ -731,8 +731,8 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
     /**
      * @return Instance class to be used.
      * See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
-     * Required unless `global_replication_group_id` is set.
-     * Cannot be set if `global_replication_group_id` is set.
+     * Required unless `globalReplicationGroupId` is set.
+     * Cannot be set if `globalReplicationGroupId` is set.
      * 
      */
     public Output<String> nodeType() {
@@ -754,9 +754,9 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
     }
     /**
      * Number of cache clusters (primary and replicas) this replication group will have.
-     * If `automatic_failover_enabled` or `multi_az_enabled` are `true`, must be at least 2.
+     * If `automaticFailoverEnabled` or `multiAzEnabled` are `true`, must be at least 2.
      * Updates will occur before other modifications.
-     * Conflicts with `num_node_groups` and `replicas_per_node_group`.
+     * Conflicts with `numNodeGroups` and `replicasPerNodeGroup`.
      * Defaults to `1`.
      * 
      */
@@ -765,9 +765,9 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Number of cache clusters (primary and replicas) this replication group will have.
-     * If `automatic_failover_enabled` or `multi_az_enabled` are `true`, must be at least 2.
+     * If `automaticFailoverEnabled` or `multiAzEnabled` are `true`, must be at least 2.
      * Updates will occur before other modifications.
-     * Conflicts with `num_node_groups` and `replicas_per_node_group`.
+     * Conflicts with `numNodeGroups` and `replicasPerNodeGroup`.
      * Defaults to `1`.
      * 
      */
@@ -777,7 +777,7 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
     /**
      * Number of node groups (shards) for this Redis replication group.
      * Changing this number will trigger a resizing operation before other settings modifications.
-     * Conflicts with `num_cache_clusters`.
+     * Conflicts with `numCacheClusters`.
      * 
      */
     @Export(name="numNodeGroups", refs={Integer.class}, tree="[0]")
@@ -786,7 +786,7 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
     /**
      * @return Number of node groups (shards) for this Redis replication group.
      * Changing this number will trigger a resizing operation before other settings modifications.
-     * Conflicts with `num_cache_clusters`.
+     * Conflicts with `numCacheClusters`.
      * 
      */
     public Output<Integer> numNodeGroups() {
@@ -880,8 +880,8 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      * Number of replica nodes in each node group.
      * Changing this number will trigger a resizing operation before other settings modifications.
      * Valid values are 0 to 5.
-     * Conflicts with `num_cache_clusters`.
-     * Can only be set if `num_node_groups` is set.
+     * Conflicts with `numCacheClusters`.
+     * Can only be set if `numNodeGroups` is set.
      * 
      */
     @Export(name="replicasPerNodeGroup", refs={Integer.class}, tree="[0]")
@@ -891,8 +891,8 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      * @return Number of replica nodes in each node group.
      * Changing this number will trigger a resizing operation before other settings modifications.
      * Valid values are 0 to 5.
-     * Conflicts with `num_cache_clusters`.
-     * Can only be set if `num_node_groups` is set.
+     * Conflicts with `numCacheClusters`.
+     * Can only be set if `numNodeGroups` is set.
      * 
      */
     public Output<Integer> replicasPerNodeGroup() {
@@ -959,28 +959,28 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.snapshotArns);
     }
     /**
-     * Name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
+     * Name of a snapshot from which to restore data into the new node group. Changing the `snapshotName` forces a new resource.
      * 
      */
     @Export(name="snapshotName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> snapshotName;
 
     /**
-     * @return Name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
+     * @return Name of a snapshot from which to restore data into the new node group. Changing the `snapshotName` forces a new resource.
      * 
      */
     public Output<Optional<String>> snapshotName() {
         return Codegen.optional(this.snapshotName);
     }
     /**
-     * Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshot_retention_limit` is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
+     * Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshotRetentionLimit` is set to zero (0), backups are turned off. Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
      * 
      */
     @Export(name="snapshotRetentionLimit", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> snapshotRetentionLimit;
 
     /**
-     * @return Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshot_retention_limit` is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
+     * @return Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshotRetentionLimit` is set to zero (0), backups are turned off. Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
      * 
      */
     public Output<Optional<Integer>> snapshotRetentionLimit() {
@@ -1015,28 +1015,28 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
         return this.subnetGroupName;
     }
     /**
-     * Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -1044,7 +1044,7 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
     }
     /**
      * Whether to enable encryption in transit.
-     * Changing this argument with an `engine_version` &lt; `7.0.5` will force a replacement.
+     * Changing this argument with an `engineVersion` &lt; `7.0.5` will force a replacement.
      * Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
      * 
      */
@@ -1053,7 +1053,7 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Whether to enable encryption in transit.
-     * Changing this argument with an `engine_version` &lt; `7.0.5` will force a replacement.
+     * Changing this argument with an `engineVersion` &lt; `7.0.5` will force a replacement.
      * Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
      * 
      */

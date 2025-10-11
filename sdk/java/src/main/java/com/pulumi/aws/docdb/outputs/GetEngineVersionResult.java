@@ -34,7 +34,7 @@ public final class GetEngineVersionResult {
     private @Nullable List<String> preferredVersions;
     private String region;
     /**
-     * @return Indicates whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
+     * @return Indicates whether the engine version supports exporting the log types specified by `exportableLogTypes` to CloudWatch Logs.
      * 
      */
     private Boolean supportsLogExportsToCloudwatch;
@@ -85,7 +85,7 @@ public final class GetEngineVersionResult {
         return this.region;
     }
     /**
-     * @return Indicates whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
+     * @return Indicates whether the engine version supports exporting the log types specified by `exportableLogTypes` to CloudWatch Logs.
      * 
      */
     public Boolean supportsLogExportsToCloudwatch() {

@@ -33,14 +33,14 @@ public final class GetElasticIpPlainArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
+     * Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `publicIp`
      * 
      */
     @Import(name="id")
     private @Nullable String id;
 
     /**
-     * @return Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
+     * @return Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `publicIp`
      * 
      */
     public Optional<String> id() {
@@ -150,7 +150,7 @@ public final class GetElasticIpPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param id Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
+         * @param id Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `publicIp`
          * 
          * @return builder
          * 

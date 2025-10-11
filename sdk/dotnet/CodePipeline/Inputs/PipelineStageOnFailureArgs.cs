@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CodePipeline.Inputs
     public sealed class PipelineStageOnFailureArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The conditions that are failure conditions. Defined as a `condition` block below.
+        /// The conditions that are failure conditions. Defined as a `Condition` block below.
         /// </summary>
         [Input("condition")]
         public Input<Inputs.PipelineStageOnFailureConditionArgs>? Condition { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.CodePipeline.Inputs
         public Input<string>? Result { get; set; }
 
         /// <summary>
-        /// The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retry_configuration` block below.
+        /// The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `RetryConfiguration` block below.
         /// </summary>
         [Input("retryConfiguration")]
         public Input<Inputs.PipelineStageOnFailureRetryConfigurationArgs>? RetryConfiguration { get; set; }

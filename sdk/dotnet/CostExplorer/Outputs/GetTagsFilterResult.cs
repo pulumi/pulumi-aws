@@ -18,11 +18,11 @@ namespace Pulumi.Aws.CostExplorer.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTagsFilterAndResult> Ands;
         /// <summary>
-        /// Configuration block for the filter that's based on `CostCategory` values. See `cost_category` block below for details.
+        /// Configuration block for the filter that's based on `CostCategory` values. See `CostCategory` block below for details.
         /// </summary>
         public readonly Outputs.GetTagsFilterCostCategoryResult? CostCategory;
         /// <summary>
-        /// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
+        /// Configuration block for the specific `Dimension` to use for `Expression`. See `Dimension` block below for details.
         /// </summary>
         public readonly Outputs.GetTagsFilterDimensionResult? Dimension;
         /// <summary>

@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Basic Usage
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Agents for Amazon Bedrock Agent Alias using the alias ID and the agent ID separated by `,`. For example:
@@ -123,42 +125,42 @@ public class AgentAgentAlias extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Details about the routing configuration of the alias. See `routing_configuration` Block for details.
+     * Details about the routing configuration of the alias. See `routingConfiguration` Block for details.
      * 
      */
     @Export(name="routingConfigurations", refs={List.class,AgentAgentAliasRoutingConfiguration.class}, tree="[0,1]")
     private Output<List<AgentAgentAliasRoutingConfiguration>> routingConfigurations;
 
     /**
-     * @return Details about the routing configuration of the alias. See `routing_configuration` Block for details.
+     * @return Details about the routing configuration of the alias. See `routingConfiguration` Block for details.
      * 
      */
     public Output<List<AgentAgentAliasRoutingConfiguration>> routingConfigurations() {
         return this.routingConfigurations;
     }
     /**
-     * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

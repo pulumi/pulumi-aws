@@ -74,19 +74,19 @@ namespace Pulumi.Aws.Fsx
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block Below for details.
+        /// NFS export configuration for the root volume. Exactly 1 item. See `NfsExports` Block Below for details.
         /// </summary>
         [Output("nfsExports")]
         public Output<Outputs.OpenZfsVolumeNfsExports?> NfsExports { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the configuration to use when creating the OpenZFS volume. See `origin_snapshot` Block below for details.
+        /// Specifies the configuration to use when creating the OpenZFS volume. See `OriginSnapshot` Block below for details.
         /// </summary>
         [Output("originSnapshot")]
         public Output<Outputs.OpenZfsVolumeOriginSnapshot?> OriginSnapshot { get; private set; } = null!;
 
         /// <summary>
-        /// The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `root_volume_id` or the `id` property of another `aws.fsx.OpenZfsVolume`.
+        /// The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `RootVolumeId` or the `Id` property of another `aws.fsx.OpenZfsVolume`.
         /// </summary>
         [Output("parentVolumeId")]
         public Output<string> ParentVolumeId { get; private set; } = null!;
@@ -122,19 +122,19 @@ namespace Pulumi.Aws.Fsx
         public Output<int> StorageCapacityReservationGib { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the file system. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Specify how much storage users or groups can use on the volume. Maximum number of items defined by [FSx for OpenZFS Resource quota](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html#limits-openzfs-resources-file-system). See `user_and_group_quotas` Block Below.
+        /// Specify how much storage users or groups can use on the volume. Maximum number of items defined by [FSx for OpenZFS Resource quota](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html#limits-openzfs-resources-file-system). See `UserAndGroupQuotas` Block Below.
         /// </summary>
         [Output("userAndGroupQuotas")]
         public Output<ImmutableArray<Outputs.OpenZfsVolumeUserAndGroupQuota>> UserAndGroupQuotas { get; private set; } = null!;
@@ -213,19 +213,19 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block Below for details.
+        /// NFS export configuration for the root volume. Exactly 1 item. See `NfsExports` Block Below for details.
         /// </summary>
         [Input("nfsExports")]
         public Input<Inputs.OpenZfsVolumeNfsExportsArgs>? NfsExports { get; set; }
 
         /// <summary>
-        /// Specifies the configuration to use when creating the OpenZFS volume. See `origin_snapshot` Block below for details.
+        /// Specifies the configuration to use when creating the OpenZFS volume. See `OriginSnapshot` Block below for details.
         /// </summary>
         [Input("originSnapshot")]
         public Input<Inputs.OpenZfsVolumeOriginSnapshotArgs>? OriginSnapshot { get; set; }
 
         /// <summary>
-        /// The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `root_volume_id` or the `id` property of another `aws.fsx.OpenZfsVolume`.
+        /// The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `RootVolumeId` or the `Id` property of another `aws.fsx.OpenZfsVolume`.
         /// </summary>
         [Input("parentVolumeId", required: true)]
         public Input<string> ParentVolumeId { get; set; } = null!;
@@ -264,7 +264,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the file system. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -276,7 +276,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<Inputs.OpenZfsVolumeUserAndGroupQuotaArgs>? _userAndGroupQuotas;
 
         /// <summary>
-        /// Specify how much storage users or groups can use on the volume. Maximum number of items defined by [FSx for OpenZFS Resource quota](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html#limits-openzfs-resources-file-system). See `user_and_group_quotas` Block Below.
+        /// Specify how much storage users or groups can use on the volume. Maximum number of items defined by [FSx for OpenZFS Resource quota](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html#limits-openzfs-resources-file-system). See `UserAndGroupQuotas` Block Below.
         /// </summary>
         public InputList<Inputs.OpenZfsVolumeUserAndGroupQuotaArgs> UserAndGroupQuotas
         {
@@ -326,19 +326,19 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block Below for details.
+        /// NFS export configuration for the root volume. Exactly 1 item. See `NfsExports` Block Below for details.
         /// </summary>
         [Input("nfsExports")]
         public Input<Inputs.OpenZfsVolumeNfsExportsGetArgs>? NfsExports { get; set; }
 
         /// <summary>
-        /// Specifies the configuration to use when creating the OpenZFS volume. See `origin_snapshot` Block below for details.
+        /// Specifies the configuration to use when creating the OpenZFS volume. See `OriginSnapshot` Block below for details.
         /// </summary>
         [Input("originSnapshot")]
         public Input<Inputs.OpenZfsVolumeOriginSnapshotGetArgs>? OriginSnapshot { get; set; }
 
         /// <summary>
-        /// The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `root_volume_id` or the `id` property of another `aws.fsx.OpenZfsVolume`.
+        /// The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `RootVolumeId` or the `Id` property of another `aws.fsx.OpenZfsVolume`.
         /// </summary>
         [Input("parentVolumeId")]
         public Input<string>? ParentVolumeId { get; set; }
@@ -377,7 +377,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the file system. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -389,7 +389,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -401,7 +401,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<Inputs.OpenZfsVolumeUserAndGroupQuotaGetArgs>? _userAndGroupQuotas;
 
         /// <summary>
-        /// Specify how much storage users or groups can use on the volume. Maximum number of items defined by [FSx for OpenZFS Resource quota](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html#limits-openzfs-resources-file-system). See `user_and_group_quotas` Block Below.
+        /// Specify how much storage users or groups can use on the volume. Maximum number of items defined by [FSx for OpenZFS Resource quota](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html#limits-openzfs-resources-file-system). See `UserAndGroupQuotas` Block Below.
         /// </summary>
         public InputList<Inputs.OpenZfsVolumeUserAndGroupQuotaGetArgs> UserAndGroupQuotas
         {

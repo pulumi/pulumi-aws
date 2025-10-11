@@ -25,7 +25,7 @@ public final class DocumentClassifierOutputDataConfig {
     private @Nullable String outputS3Uri;
     /**
      * @return Destination path for the output documents.
-     * The full path to the output file will be returned in `output_s3_uri`.
+     * The full path to the output file will be returned in `outputS3Uri`.
      * 
      */
     private String s3Uri;
@@ -48,7 +48,7 @@ public final class DocumentClassifierOutputDataConfig {
     }
     /**
      * @return Destination path for the output documents.
-     * The full path to the output file will be returned in `output_s3_uri`.
+     * The full path to the output file will be returned in `outputS3Uri`.
      * 
      */
     public String s3Uri() {

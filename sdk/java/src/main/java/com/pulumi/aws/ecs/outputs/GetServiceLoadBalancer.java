@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetServiceLoadBalancer {
     /**
-     * @return Settings for Blue/Green deployment. See `advanced_configuration` Block for details.
+     * @return Settings for Blue/Green deployment. See `advancedConfiguration` Block for details.
      * 
      */
     private List<GetServiceLoadBalancerAdvancedConfiguration> advancedConfigurations;
@@ -41,7 +41,7 @@ public final class GetServiceLoadBalancer {
 
     private GetServiceLoadBalancer() {}
     /**
-     * @return Settings for Blue/Green deployment. See `advanced_configuration` Block for details.
+     * @return Settings for Blue/Green deployment. See `advancedConfiguration` Block for details.
      * 
      */
     public List<GetServiceLoadBalancerAdvancedConfiguration> advancedConfigurations() {

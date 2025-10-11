@@ -16,14 +16,14 @@ public final class GetInstanceTypeOfferingFilterArgs extends com.pulumi.resource
     public static final GetInstanceTypeOfferingFilterArgs Empty = new GetInstanceTypeOfferingFilterArgs();
 
     /**
-     * Name of the filter. The `location` filter depends on the top-level `location_type` argument and if not specified, defaults to the current region.
+     * Name of the filter. The `location` filter depends on the top-level `locationType` argument and if not specified, defaults to the current region.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the filter. The `location` filter depends on the top-level `location_type` argument and if not specified, defaults to the current region.
+     * @return Name of the filter. The `location` filter depends on the top-level `locationType` argument and if not specified, defaults to the current region.
      * 
      */
     public Output<String> name() {
@@ -71,7 +71,7 @@ public final class GetInstanceTypeOfferingFilterArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name Name of the filter. The `location` filter depends on the top-level `location_type` argument and if not specified, defaults to the current region.
+         * @param name Name of the filter. The `location` filter depends on the top-level `locationType` argument and if not specified, defaults to the current region.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetInstanceTypeOfferingFilterArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name Name of the filter. The `location` filter depends on the top-level `location_type` argument and if not specified, defaults to the current region.
+         * @param name Name of the filter. The `location` filter depends on the top-level `locationType` argument and if not specified, defaults to the current region.
          * 
          * @return builder
          * 

@@ -83,7 +83,7 @@ public final class LoadBalancerListenerArgs extends com.pulumi.resources.Resourc
 
     /**
      * The ARN of an SSL certificate you have
-     * uploaded to AWS IAM. **Note ECDSA-specific restrictions below.  Only valid when `lb_protocol` is either HTTPS or SSL**
+     * uploaded to AWS IAM. **Note ECDSA-specific restrictions below.  Only valid when `lbProtocol` is either HTTPS or SSL**
      * 
      */
     @Import(name="sslCertificateId")
@@ -91,7 +91,7 @@ public final class LoadBalancerListenerArgs extends com.pulumi.resources.Resourc
 
     /**
      * @return The ARN of an SSL certificate you have
-     * uploaded to AWS IAM. **Note ECDSA-specific restrictions below.  Only valid when `lb_protocol` is either HTTPS or SSL**
+     * uploaded to AWS IAM. **Note ECDSA-specific restrictions below.  Only valid when `lbProtocol` is either HTTPS or SSL**
      * 
      */
     public Optional<Output<String>> sslCertificateId() {
@@ -216,7 +216,7 @@ public final class LoadBalancerListenerArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param sslCertificateId The ARN of an SSL certificate you have
-         * uploaded to AWS IAM. **Note ECDSA-specific restrictions below.  Only valid when `lb_protocol` is either HTTPS or SSL**
+         * uploaded to AWS IAM. **Note ECDSA-specific restrictions below.  Only valid when `lbProtocol` is either HTTPS or SSL**
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class LoadBalancerListenerArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param sslCertificateId The ARN of an SSL certificate you have
-         * uploaded to AWS IAM. **Note ECDSA-specific restrictions below.  Only valid when `lb_protocol` is either HTTPS or SSL**
+         * uploaded to AWS IAM. **Note ECDSA-specific restrictions below.  Only valid when `lbProtocol` is either HTTPS or SSL**
          * 
          * @return builder
          * 

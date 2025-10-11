@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Ec2
     /// ## Remarks
     /// 
     /// * You can only associate one DHCP Options Set to a given VPC ID.
-    /// * Removing the DHCP Options Association automatically sets AWS's `default` DHCP Options Set to the VPC.
+    /// * Removing the DHCP Options Association automatically sets AWS's `Default` DHCP Options Set to the VPC.
     /// 
     /// ## Import
     /// 

@@ -17,14 +17,14 @@ public final class DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs 
     public static final DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs Empty = new DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs();
 
     /**
-     * An endpoint in customer&#39;s account which has `data_capture_config` enabled.
+     * An endpoint in customer&#39;s account which has `dataCaptureConfig` enabled.
      * 
      */
     @Import(name="endpointName", required=true)
     private Output<String> endpointName;
 
     /**
-     * @return An endpoint in customer&#39;s account which has `data_capture_config` enabled.
+     * @return An endpoint in customer&#39;s account which has `dataCaptureConfig` enabled.
      * 
      */
     public Output<String> endpointName() {
@@ -104,7 +104,7 @@ public final class DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs 
         }
 
         /**
-         * @param endpointName An endpoint in customer&#39;s account which has `data_capture_config` enabled.
+         * @param endpointName An endpoint in customer&#39;s account which has `dataCaptureConfig` enabled.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs 
         }
 
         /**
-         * @param endpointName An endpoint in customer&#39;s account which has `data_capture_config` enabled.
+         * @param endpointName An endpoint in customer&#39;s account which has `dataCaptureConfig` enabled.
          * 
          * @return builder
          * 

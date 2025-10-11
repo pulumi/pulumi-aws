@@ -154,28 +154,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:opensearchingest/pipeline:Pipeline")
 public class Pipeline extends com.pulumi.resources.CustomResource {
     /**
-     * Key-value pairs to configure persistent buffering for the pipeline. See `buffer_options` below.
+     * Key-value pairs to configure persistent buffering for the pipeline. See `bufferOptions` below.
      * 
      */
     @Export(name="bufferOptions", refs={PipelineBufferOptions.class}, tree="[0]")
     private Output</* @Nullable */ PipelineBufferOptions> bufferOptions;
 
     /**
-     * @return Key-value pairs to configure persistent buffering for the pipeline. See `buffer_options` below.
+     * @return Key-value pairs to configure persistent buffering for the pipeline. See `bufferOptions` below.
      * 
      */
     public Output<Optional<PipelineBufferOptions>> bufferOptions() {
         return Codegen.optional(this.bufferOptions);
     }
     /**
-     * Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryption_at_rest_options` below.
+     * Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryptionAtRestOptions` below.
      * 
      */
     @Export(name="encryptionAtRestOptions", refs={PipelineEncryptionAtRestOptions.class}, tree="[0]")
     private Output</* @Nullable */ PipelineEncryptionAtRestOptions> encryptionAtRestOptions;
 
     /**
-     * @return Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryption_at_rest_options` below.
+     * @return Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryptionAtRestOptions` below.
      * 
      */
     public Output<Optional<PipelineEncryptionAtRestOptions>> encryptionAtRestOptions() {
@@ -196,14 +196,14 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
         return this.ingestEndpointUrls;
     }
     /**
-     * Key-value pairs to configure log publishing. See `log_publishing_options` below.
+     * Key-value pairs to configure log publishing. See `logPublishingOptions` below.
      * 
      */
     @Export(name="logPublishingOptions", refs={PipelineLogPublishingOptions.class}, tree="[0]")
     private Output</* @Nullable */ PipelineLogPublishingOptions> logPublishingOptions;
 
     /**
-     * @return Key-value pairs to configure log publishing. See `log_publishing_options` below.
+     * @return Key-value pairs to configure log publishing. See `logPublishingOptions` below.
      * 
      */
     public Output<Optional<PipelineLogPublishingOptions>> logPublishingOptions() {
@@ -298,14 +298,14 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A map of tags to assign to the pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
@@ -324,14 +324,14 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timeouts);
     }
     /**
-     * Container for the values required to configure VPC access for the pipeline. If you don&#39;t specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpc_options` below.
+     * Container for the values required to configure VPC access for the pipeline. If you don&#39;t specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpcOptions` below.
      * 
      */
     @Export(name="vpcOptions", refs={PipelineVpcOptions.class}, tree="[0]")
     private Output</* @Nullable */ PipelineVpcOptions> vpcOptions;
 
     /**
-     * @return Container for the values required to configure VPC access for the pipeline. If you don&#39;t specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpc_options` below.
+     * @return Container for the values required to configure VPC access for the pipeline. If you don&#39;t specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpcOptions` below.
      * 
      */
     public Output<Optional<PipelineVpcOptions>> vpcOptions() {

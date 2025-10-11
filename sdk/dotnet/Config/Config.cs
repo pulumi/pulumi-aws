@@ -66,7 +66,7 @@ namespace Pulumi.Aws
 
         private static readonly __Value<string?> _customCaBundle = new __Value<string?>(() => __config.Get("customCaBundle"));
         /// <summary>
-        /// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. (Setting `ca_bundle` in the shared config file is not supported.)
+        /// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. (Setting `CaBundle` in the shared config file is not supported.)
         /// </summary>
         public static string? CustomCaBundle
         {
@@ -120,7 +120,7 @@ namespace Pulumi.Aws
 
         private static readonly __Value<string?> _httpProxy = new __Value<string?>(() => __config.Get("httpProxy"));
         /// <summary>
-        /// URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `http_proxy` environment variables.
+        /// URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `HttpProxy` environment variables.
         /// </summary>
         public static string? HttpProxy
         {
@@ -130,7 +130,7 @@ namespace Pulumi.Aws
 
         private static readonly __Value<string?> _httpsProxy = new __Value<string?>(() => __config.Get("httpsProxy"));
         /// <summary>
-        /// URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `https_proxy` environment variables.
+        /// URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `HttpsProxy` environment variables.
         /// </summary>
         public static string? HttpsProxy
         {
@@ -150,7 +150,7 @@ namespace Pulumi.Aws
 
         private static readonly __Value<bool?> _insecure = new __Value<bool?>(() => __config.GetBoolean("insecure"));
         /// <summary>
-        /// Explicitly allow the provider to perform "insecure" SSL requests. If omitted, default value is `false`
+        /// Explicitly allow the provider to perform "insecure" SSL requests. If omitted, default value is `False`
         /// </summary>
         public static bool? Insecure
         {
@@ -172,7 +172,7 @@ namespace Pulumi.Aws
 
         private static readonly __Value<string?> _noProxy = new __Value<string?>(() => __config.Get("noProxy"));
         /// <summary>
-        /// Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or `no_proxy` environment variables.
+        /// Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or `NoProxy` environment variables.
         /// </summary>
         public static string? NoProxy
         {
@@ -204,7 +204,7 @@ namespace Pulumi.Aws
 
         private static readonly __Value<string?> _retryMode = new __Value<string?>(() => __config.Get("retryMode"));
         /// <summary>
-        /// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the `AWS_RETRY_MODE` environment variable.
+        /// Specifies how retries are attempted. Valid values are `Standard` and `Adaptive`. Can also be configured using the `AWS_RETRY_MODE` environment variable.
         /// </summary>
         public static string? RetryMode
         {
@@ -214,7 +214,7 @@ namespace Pulumi.Aws
 
         private static readonly __Value<string?> _s3UsEast1RegionalEndpoint = new __Value<string?>(() => __config.Get("s3UsEast1RegionalEndpoint"));
         /// <summary>
-        /// Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+        /// Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid values are `Legacy` or `Regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment variable or the `S3UsEast1RegionalEndpoint` shared config file parameter
         /// </summary>
         public static string? S3UsEast1RegionalEndpoint
         {

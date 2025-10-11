@@ -18,7 +18,7 @@ public final class ClusterEncryptionInfo {
      */
     private @Nullable String encryptionAtRestKmsKeyArn;
     /**
-     * @return Configuration block to specify encryption in transit. See encryption_info encryption_in_transit Argument Reference below.
+     * @return Configuration block to specify encryption in transit. See encryptionInfo encryption_in_transit Argument Reference below.
      * 
      */
     private @Nullable ClusterEncryptionInfoEncryptionInTransit encryptionInTransit;
@@ -32,7 +32,7 @@ public final class ClusterEncryptionInfo {
         return Optional.ofNullable(this.encryptionAtRestKmsKeyArn);
     }
     /**
-     * @return Configuration block to specify encryption in transit. See encryption_info encryption_in_transit Argument Reference below.
+     * @return Configuration block to specify encryption in transit. See encryptionInfo encryption_in_transit Argument Reference below.
      * 
      */
     public Optional<ClusterEncryptionInfoEncryptionInTransit> encryptionInTransit() {

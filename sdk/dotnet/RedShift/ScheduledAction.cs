@@ -152,7 +152,7 @@ namespace Pulumi.Aws.RedShift
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enable the scheduled action. Default is `true` .
+        /// Whether to enable the scheduled action. Default is `True` .
         /// </summary>
         [Output("enable")]
         public Output<bool?> Enable { get; private set; } = null!;
@@ -252,7 +252,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Whether to enable the scheduled action. Default is `true` .
+        /// Whether to enable the scheduled action. Default is `True` .
         /// </summary>
         [Input("enable")]
         public Input<bool>? Enable { get; set; }
@@ -314,7 +314,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Whether to enable the scheduled action. Default is `true` .
+        /// Whether to enable the scheduled action. Default is `True` .
         /// </summary>
         [Input("enable")]
         public Input<bool>? Enable { get; set; }

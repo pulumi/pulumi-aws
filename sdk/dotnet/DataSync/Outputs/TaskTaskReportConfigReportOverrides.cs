@@ -28,7 +28,7 @@ namespace Pulumi.Aws.DataSync.Outputs
         /// <summary>
         /// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
         /// 
-        /// &gt; **NOTE:** If any `report_overrides` are set to the same value as `task_report_config.report_level`, they will always be flagged as changed. Only set overrides to a value that differs from `task_report_config.report_level`.
+        /// &gt; **NOTE:** If any `ReportOverrides` are set to the same value as `task_report_config.report_level`, they will always be flagged as changed. Only set overrides to a value that differs from `task_report_config.report_level`.
         /// </summary>
         public readonly string? VerifiedOverride;
 

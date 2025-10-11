@@ -17,14 +17,14 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
     public static final AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs Empty = new AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs();
 
     /**
-     * Maximum number of tokens to include in a chunk. Must contain two `level_configurations`. See `level_configurations` for details.
+     * Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
      * 
      */
     @Import(name="levelConfigurations", required=true)
     private Output<List<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs>> levelConfigurations;
 
     /**
-     * @return Maximum number of tokens to include in a chunk. Must contain two `level_configurations`. See `level_configurations` for details.
+     * @return Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
      * 
      */
     public Output<List<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs>> levelConfigurations() {
@@ -72,7 +72,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
         }
 
         /**
-         * @param levelConfigurations Maximum number of tokens to include in a chunk. Must contain two `level_configurations`. See `level_configurations` for details.
+         * @param levelConfigurations Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
         }
 
         /**
-         * @param levelConfigurations Maximum number of tokens to include in a chunk. Must contain two `level_configurations`. See `level_configurations` for details.
+         * @param levelConfigurations Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
         }
 
         /**
-         * @param levelConfigurations Maximum number of tokens to include in a chunk. Must contain two `level_configurations`. See `level_configurations` for details.
+         * @param levelConfigurations Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
          * 
          * @return builder
          * 

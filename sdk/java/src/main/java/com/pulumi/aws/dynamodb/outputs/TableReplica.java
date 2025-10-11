@@ -57,12 +57,12 @@ public final class TableReplica {
      */
     private String regionName;
     /**
-     * @return ARN of the Table Stream. Only available when `stream_enabled = true`
+     * @return ARN of the Table Stream. Only available when `streamEnabled = true`
      * 
      */
     private @Nullable String streamArn;
     /**
-     * @return Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
+     * @return Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
      * 
      */
     private @Nullable String streamLabel;
@@ -126,14 +126,14 @@ public final class TableReplica {
         return this.regionName;
     }
     /**
-     * @return ARN of the Table Stream. Only available when `stream_enabled = true`
+     * @return ARN of the Table Stream. Only available when `streamEnabled = true`
      * 
      */
     public Optional<String> streamArn() {
         return Optional.ofNullable(this.streamArn);
     }
     /**
-     * @return Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
+     * @return Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
      * 
      */
     public Optional<String> streamLabel() {

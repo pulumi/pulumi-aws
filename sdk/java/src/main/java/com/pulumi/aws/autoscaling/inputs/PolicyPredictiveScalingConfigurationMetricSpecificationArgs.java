@@ -23,14 +23,14 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationArgs e
     public static final PolicyPredictiveScalingConfigurationMetricSpecificationArgs Empty = new PolicyPredictiveScalingConfigurationMetricSpecificationArgs();
 
     /**
-     * Customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
+     * Customized capacity metric specification. The field is only valid when you use `customizedLoadMetricSpecification`
      * 
      */
     @Import(name="customizedCapacityMetricSpecification")
     private @Nullable Output<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs> customizedCapacityMetricSpecification;
 
     /**
-     * @return Customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
+     * @return Customized capacity metric specification. The field is only valid when you use `customizedLoadMetricSpecification`
      * 
      */
     public Optional<Output<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs>> customizedCapacityMetricSpecification() {
@@ -158,7 +158,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationArgs e
         }
 
         /**
-         * @param customizedCapacityMetricSpecification Customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
+         * @param customizedCapacityMetricSpecification Customized capacity metric specification. The field is only valid when you use `customizedLoadMetricSpecification`
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationArgs e
         }
 
         /**
-         * @param customizedCapacityMetricSpecification Customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
+         * @param customizedCapacityMetricSpecification Customized capacity metric specification. The field is only valid when you use `customizedLoadMetricSpecification`
          * 
          * @return builder
          * 

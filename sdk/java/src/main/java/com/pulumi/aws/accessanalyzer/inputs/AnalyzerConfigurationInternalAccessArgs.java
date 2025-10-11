@@ -16,14 +16,14 @@ public final class AnalyzerConfigurationInternalAccessArgs extends com.pulumi.re
     public static final AnalyzerConfigurationInternalAccessArgs Empty = new AnalyzerConfigurationInternalAccessArgs();
 
     /**
-     * Information about analysis rules for the internal access analyzer. These rules determine which resources and access patterns will be analyzed. See `analysis_rule` Block for Internal Access Analyzer for details.
+     * Information about analysis rules for the internal access analyzer. These rules determine which resources and access patterns will be analyzed. See `analysisRule` Block for Internal Access Analyzer for details.
      * 
      */
     @Import(name="analysisRule")
     private @Nullable Output<AnalyzerConfigurationInternalAccessAnalysisRuleArgs> analysisRule;
 
     /**
-     * @return Information about analysis rules for the internal access analyzer. These rules determine which resources and access patterns will be analyzed. See `analysis_rule` Block for Internal Access Analyzer for details.
+     * @return Information about analysis rules for the internal access analyzer. These rules determine which resources and access patterns will be analyzed. See `analysisRule` Block for Internal Access Analyzer for details.
      * 
      */
     public Optional<Output<AnalyzerConfigurationInternalAccessAnalysisRuleArgs>> analysisRule() {
@@ -55,7 +55,7 @@ public final class AnalyzerConfigurationInternalAccessArgs extends com.pulumi.re
         }
 
         /**
-         * @param analysisRule Information about analysis rules for the internal access analyzer. These rules determine which resources and access patterns will be analyzed. See `analysis_rule` Block for Internal Access Analyzer for details.
+         * @param analysisRule Information about analysis rules for the internal access analyzer. These rules determine which resources and access patterns will be analyzed. See `analysisRule` Block for Internal Access Analyzer for details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class AnalyzerConfigurationInternalAccessArgs extends com.pulumi.re
         }
 
         /**
-         * @param analysisRule Information about analysis rules for the internal access analyzer. These rules determine which resources and access patterns will be analyzed. See `analysis_rule` Block for Internal Access Analyzer for details.
+         * @param analysisRule Information about analysis rules for the internal access analyzer. These rules determine which resources and access patterns will be analyzed. See `analysisRule` Block for Internal Access Analyzer for details.
          * 
          * @return builder
          * 

@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class SpotInstanceRequestMetadataOptions
     {
         /// <summary>
-        /// Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
+        /// Whether the metadata service is available. Valid values include `Enabled` or `Disabled`. Defaults to `Enabled`.
         /// </summary>
         public readonly string? HttpEndpoint;
         /// <summary>
-        /// Whether the IPv6 endpoint for the instance metadata service is enabled. Defaults to `disabled`.
+        /// Whether the IPv6 endpoint for the instance metadata service is enabled. Defaults to `Disabled`.
         /// </summary>
         public readonly string? HttpProtocolIpv6;
         /// <summary>
@@ -26,11 +26,11 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly int? HttpPutResponseHopLimit;
         /// <summary>
-        /// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`.
+        /// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `Optional` or `Required`.
         /// </summary>
         public readonly string? HttpTokens;
         /// <summary>
-        /// Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
+        /// Enables or disables access to instance tags from the instance metadata service. Valid values include `Enabled` or `Disabled`. Defaults to `Disabled`.
         /// 
         /// For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
         /// </summary>

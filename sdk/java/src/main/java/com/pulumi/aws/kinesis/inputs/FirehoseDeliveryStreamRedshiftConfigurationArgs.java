@@ -23,14 +23,14 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
     public static final FirehoseDeliveryStreamRedshiftConfigurationArgs Empty = new FirehoseDeliveryStreamRedshiftConfigurationArgs();
 
     /**
-     * The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+     * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     @Import(name="cloudwatchLoggingOptions")
     private @Nullable Output<FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs> cloudwatchLoggingOptions;
 
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs>> cloudwatchLoggingOptions() {
@@ -98,14 +98,14 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
     }
 
     /**
-     * The password for the username above. This value is required if `secrets_manager_configuration` is not provided.
+     * The password for the username above. This value is required if `secretsManagerConfiguration` is not provided.
      * 
      */
     @Import(name="password")
     private @Nullable Output<String> password;
 
     /**
-     * @return The password for the username above. This value is required if `secrets_manager_configuration` is not provided.
+     * @return The password for the username above. This value is required if `secretsManagerConfiguration` is not provided.
      * 
      */
     public Optional<Output<String>> password() {
@@ -113,14 +113,14 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
     }
 
     /**
-     * The data processing configuration.  See `processing_configuration` block below for details.
+     * The data processing configuration.  See `processingConfiguration` block below for details.
      * 
      */
     @Import(name="processingConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs> processingConfiguration;
 
     /**
-     * @return The data processing configuration.  See `processing_configuration` block below for details.
+     * @return The data processing configuration.  See `processingConfiguration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs>> processingConfiguration() {
@@ -158,16 +158,16 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
     }
 
     /**
-     * The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
-     * `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `username` and `password` are not provided.
+     * The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
+     * `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `username` and `password` are not provided.
      * 
      */
     @Import(name="s3BackupConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs> s3BackupConfiguration;
 
     /**
-     * @return The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
-     * `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `username` and `password` are not provided.
+     * @return The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
+     * `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `username` and `password` are not provided.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs>> s3BackupConfiguration() {
@@ -190,14 +190,14 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
     }
 
     /**
-     * The S3 Configuration. See s3_configuration below for details.
+     * The S3 Configuration. See s3Configuration below for details.
      * 
      */
     @Import(name="s3Configuration", required=true)
     private Output<FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs> s3Configuration;
 
     /**
-     * @return The S3 Configuration. See s3_configuration below for details.
+     * @return The S3 Configuration. See s3Configuration below for details.
      * 
      */
     public Output<FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs> s3Configuration() {
@@ -212,14 +212,14 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
     }
 
     /**
-     * The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secrets_manager_configuration` is not provided.
+     * The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secretsManagerConfiguration` is not provided.
      * 
      */
     @Import(name="username")
     private @Nullable Output<String> username;
 
     /**
-     * @return The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secrets_manager_configuration` is not provided.
+     * @return The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secretsManagerConfiguration` is not provided.
      * 
      */
     public Optional<Output<String>> username() {
@@ -264,7 +264,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          * 
          * @return builder
          * 
@@ -369,7 +369,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param password The password for the username above. This value is required if `secrets_manager_configuration` is not provided.
+         * @param password The password for the username above. This value is required if `secretsManagerConfiguration` is not provided.
          * 
          * @return builder
          * 
@@ -380,7 +380,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param password The password for the username above. This value is required if `secrets_manager_configuration` is not provided.
+         * @param password The password for the username above. This value is required if `secretsManagerConfiguration` is not provided.
          * 
          * @return builder
          * 
@@ -390,7 +390,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param processingConfiguration The data processing configuration.  See `processing_configuration` block below for details.
+         * @param processingConfiguration The data processing configuration.  See `processingConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param processingConfiguration The data processing configuration.  See `processing_configuration` block below for details.
+         * @param processingConfiguration The data processing configuration.  See `processingConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -453,8 +453,8 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param s3BackupConfiguration The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
-         * `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `username` and `password` are not provided.
+         * @param s3BackupConfiguration The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
+         * `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `username` and `password` are not provided.
          * 
          * @return builder
          * 
@@ -465,8 +465,8 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param s3BackupConfiguration The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
-         * `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `username` and `password` are not provided.
+         * @param s3BackupConfiguration The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
+         * `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `username` and `password` are not provided.
          * 
          * @return builder
          * 
@@ -497,7 +497,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param s3Configuration The S3 Configuration. See s3_configuration below for details.
+         * @param s3Configuration The S3 Configuration. See s3Configuration below for details.
          * 
          * @return builder
          * 
@@ -508,7 +508,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param s3Configuration The S3 Configuration. See s3_configuration below for details.
+         * @param s3Configuration The S3 Configuration. See s3Configuration below for details.
          * 
          * @return builder
          * 
@@ -527,7 +527,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param username The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secrets_manager_configuration` is not provided.
+         * @param username The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secretsManagerConfiguration` is not provided.
          * 
          * @return builder
          * 
@@ -538,7 +538,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param username The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secrets_manager_configuration` is not provided.
+         * @param username The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secretsManagerConfiguration` is not provided.
          * 
          * @return builder
          * 

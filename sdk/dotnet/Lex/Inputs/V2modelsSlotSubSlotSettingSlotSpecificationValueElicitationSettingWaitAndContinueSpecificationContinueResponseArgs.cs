@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Lex.Inputs
         /// <summary>
         /// Configuration blocks for responses that Amazon Lex can send to the user.
         /// Amazon Lex chooses the actual response to send at runtime.
-        /// See `message_group`.
+        /// See `MessageGroup`.
         /// </summary>
         public InputList<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgs> MessageGroups
         {

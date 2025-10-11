@@ -91,19 +91,19 @@ namespace Pulumi.Aws.AppIntegrations
         public Output<Outputs.DataIntegrationScheduleConfig> ScheduleConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
+        /// Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `Example` is the name of the AppFlow Connector Profile.
         /// </summary>
         [Output("sourceUri")]
         public Output<string> SourceUri { get; private set; } = null!;
 
         /// <summary>
-        /// Tags to apply to the Data Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the Data Integration. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.AppIntegrations
         public Input<Inputs.DataIntegrationScheduleConfigArgs> ScheduleConfig { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
+        /// Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `Example` is the name of the AppFlow Connector Profile.
         /// </summary>
         [Input("sourceUri", required: true)]
         public Input<string> SourceUri { get; set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.Aws.AppIntegrations
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags to apply to the Data Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the Data Integration. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -247,7 +247,7 @@ namespace Pulumi.Aws.AppIntegrations
         public Input<Inputs.DataIntegrationScheduleConfigGetArgs>? ScheduleConfig { get; set; }
 
         /// <summary>
-        /// Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
+        /// Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `Example` is the name of the AppFlow Connector Profile.
         /// </summary>
         [Input("sourceUri")]
         public Input<string>? SourceUri { get; set; }
@@ -256,7 +256,7 @@ namespace Pulumi.Aws.AppIntegrations
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags to apply to the Data Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the Data Integration. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -268,7 +268,7 @@ namespace Pulumi.Aws.AppIntegrations
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
