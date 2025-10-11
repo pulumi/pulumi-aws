@@ -2551,8 +2551,8 @@ github.com/hashicorp/terraform-json v0.4.0/go.mod h1:eAbqb4w0pSlRmdvl8fOyHAi/+8j
 github.com/hashicorp/terraform-json v0.27.1/go.mod h1:GzPLJ1PLdUG5xL6xn1OXWIjteQRT2CNT9o/6A9mi9hE=
 github.com/hashicorp/terraform-json v0.27.2 h1:BwGuzM6iUPqf9JYM/Z4AF1OJ5VVJEEzoKST/tRDBJKU=
 github.com/hashicorp/terraform-json v0.27.2/go.mod h1:GzPLJ1PLdUG5xL6xn1OXWIjteQRT2CNT9o/6A9mi9hE=
-github.com/hashicorp/terraform-plugin-framework v1.16.0 h1:tP0f+yJg0Z672e7levixDe5EpWwrTrNryPM9kDMYIpE=
-github.com/hashicorp/terraform-plugin-framework v1.16.0/go.mod h1:0xFOxLy5lRzDTayc4dzK/FakIgBhNf/lC4499R9cV4Y=
+github.com/hashicorp/terraform-plugin-framework v1.16.1 h1:1+zwFm3MEqd/0K3YBB2v9u9DtyYHyEuhVOfeIXbteWA=
+github.com/hashicorp/terraform-plugin-framework v1.16.1/go.mod h1:0xFOxLy5lRzDTayc4dzK/FakIgBhNf/lC4499R9cV4Y=
 github.com/hashicorp/terraform-plugin-framework-jsontypes v0.2.0 h1:SJXL5FfJJm17554Kpt9jFXngdM6fXbnUnZ6iT2IeiYA=
 github.com/hashicorp/terraform-plugin-framework-jsontypes v0.2.0/go.mod h1:p0phD0IYhsu9bR4+6OetVvvH59I6LwjXGnTVEr8ox6E=
 github.com/hashicorp/terraform-plugin-framework-timeouts v0.6.0 h1:Vv16e7EW4nT9668IV0RhdpEmnLl0im7BZx6J+QMlUkg=
@@ -2924,8 +2924,8 @@ github.com/pulumi/providertest v0.3.0 h1:Dv10aoFaNQBDRtK8cRbd2uk9vEhpC/NryN+0y7N
 github.com/pulumi/providertest v0.3.0/go.mod h1:aTxVfdxP/Pe0iPbokjBp99x0XaY4fkZB2CjIS5wysMs=
 github.com/pulumi/pulumi-java/pkg v1.12.0 h1:T7yFnFr0bgqy6huVUANMyUeGO1/Y3r2CJJ6S5YQDQCU=
 github.com/pulumi/pulumi-java/pkg v1.12.0/go.mod h1:g8QQjEgB5wTsZptyf1vbIcI/pgYEGJObnihAEgymkAo=
-github.com/pulumi/pulumi-terraform-bridge/v3 v3.114.0 h1:Ham/ASNvcRrxlxrEraI9uIPo75z9VPRjsf/Ot5sW8cQ=
-github.com/pulumi/pulumi-terraform-bridge/v3 v3.114.0/go.mod h1:wMck+7nC9uOFMSjSilgVifkNWwzpugwGOcs7+45z2xU=
+github.com/pulumi/pulumi-terraform-bridge/v3 v3.114.1-0.20251010234719-80bb309ee7ac h1:bfsOiuq1S0npUFvtQsNnDvjyWWLnwWHT5OX2MwiwNxk=
+github.com/pulumi/pulumi-terraform-bridge/v3 v3.114.1-0.20251010234719-80bb309ee7ac/go.mod h1:JFSUy/LtBs5glDWDM4oVoyEleJY+wXJKIrushUd80dw=
 github.com/pulumi/pulumi-yaml v1.19.1 h1:Y92eTQv07p5RbbNj6s/54+ibdPgvndLJ2Lb1IjYffng=
 github.com/pulumi/pulumi-yaml v1.19.1/go.mod h1:n1JTtfUXR1IWVJ86HvMvQglK5mrDeDduxsLifGW1WIA=
 github.com/pulumi/pulumi/pkg/v3 v3.190.0 h1:CJi5NW2ckBgB32m60rhWH8VXFxIhL2cyXy+eAGBqoww=
